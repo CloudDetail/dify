@@ -1,0 +1,44 @@
+identity:
+  name: host_uptime
+  author: APO
+  label:
+    en_US: Query host's uptime
+    zh_Hans: 宿主机运行时间
+    pt_BR: Query host's uptime 
+description:
+  human:
+    en_US: Query host's uptime
+    zh_Hans: 宿主机运行时间
+    pt_BR: Query host's uptime
+  llm: Query host's uptime
+display:
+  type: metric
+  title: 宿主机监控指标 - Quick CPU / Mem / Disk - Uptime
+  unit: s
+parameters:
+  - name: job
+    type: string
+    required: true
+    label:
+      en_US: Prometheus Job
+      zh_Hans: Prometheus任务
+      pt_BR: Tarefa Prometheus
+    human_description:
+      en_US: Prometheus job name for host metrics
+      zh_Hans: Prometheus任务名称（宿主机指标）
+      pt_BR: Prometheus job name for host metrics
+    llm_description: Unique identifier for metrics scrape job
+    form: llm
+  - name: node
+    type: string
+    required: true
+    label:
+      en_US: Host Node
+      zh_Hans: 宿主机节点
+      pt_BR: Host Node
+    human_description:
+      en_US: Host node identifier
+      zh_Hans: 宿主机节点标识
+      pt_BR: Host node identifier
+    llm_description: Unique identifier for host node
+    form: llm
