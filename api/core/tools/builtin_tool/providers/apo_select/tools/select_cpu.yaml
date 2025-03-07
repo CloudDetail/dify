@@ -1,5 +1,5 @@
 identity:
-  name: select_cpu
+  name: 查询主机CPU利用率
   author: APO
   label:
     en_US: Query the CPU utilization of the host

@@ -10,7 +10,7 @@ from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
 
 
-class TopologyTool(BuiltinTool):
+class HostCpuUsageTool(BuiltinTool):
     def _invoke(
         self,
         user_id: str,
@@ -24,12 +24,14 @@ class TopologyTool(BuiltinTool):
         end_time = tool_parameters.get("endTime")
         params = {
           'metricName': "宿主机监控指标 - Quick CPU / Mem / Disk - CPU Busy",
-          'node': node,
+          'params': {
+            'node': node,
+          },
           'startTime': start_time,
           'endTime': end_time,
           'step': APOUtils.get_step(start_time, end_time),
           }
-        resp = requests.get(dify_config.APO_BACKEND_URL + '/api/metric/query', json=params)
+        resp = requests.post(dify_config.APO_BACKEND_URL + '/api/metric/query', json=params)
         list = resp.json()['result']
         list = json.dumps({
             'type': 'metric',
