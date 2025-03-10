@@ -1,29 +1,29 @@
 identity:
-  name: 实时集群CPU使用率
+  name: K8s集群中命名空间的数量
   author: APO
   label:
-    en_US: Real-time cluster CPU usage
-    zh_Hans: 实时集群CPU使用率
+    en_US: Number of namespaces in Kubernetes cluster
+    zh_Hans: K8s集群中命名空间的数量
 description:
   human:
-    en_US: Real-time cluster CPU usage
-    zh_Hans: 实时集群CPU使用率
-  llm: Real-time cluster CPU usage
+    en_US: Number of namespaces in Kubernetes cluster
+    zh_Hans: K8s集群中命名空间的数量
+  llm: Number of namespaces in Kubernetes cluster
 display:
   type: metric
-  title: 集群总览 - 总览 - 集群总CPU使用率 - Real Linux
-  unit: "percentunit"
+  title: 集群总览 - 总览 - 命名空间数量
+  unit: "count"
 parameters:
-  - name: cluster
+  - name: cadvisor_job_name
     type: string
     required: False
     label:
-      en_US: Cluster name
-      zh_Hans: 集群名称
+      en_US: cAdvisor job name
+      zh_Hans: cAdvisor任务名称
     human_description:
-      en_US: Cluster name
-      zh_Hans: 集群名称
-    llm_description: Cluster name
+      en_US: cAdvisor job name
+      zh_Hans: cAdvisor任务名称
+    llm_description: cAdvisor job name
     form: llm
   - name: startTime
     type: number

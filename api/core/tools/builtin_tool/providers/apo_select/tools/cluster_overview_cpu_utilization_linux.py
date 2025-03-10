@@ -10,7 +10,7 @@ from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
 
 
-class ClusterCpuUsageRealLinuxTool(BuiltinTool):
+class ClusterOverviewCpuUtilizationLinuxTool(BuiltinTool):
     def _invoke(
         self,
         user_id: str,
@@ -19,13 +19,13 @@ class ClusterCpuUsageRealLinuxTool(BuiltinTool):
         app_id: Optional[str] = None,
         message_id: Optional[str] = None,
     ) -> Generator[ToolInvokeMessage, None, None]:
-        cluster = tool_parameters.get('cluster')
+        cluster = tool_parameters.get('cluster', '.*')
         start_time = tool_parameters.get("startTime")
         end_time = tool_parameters.get("endTime")
         params = {
-            'metricName': '集群总览 - 总览 - CPU使用量 - Real Linux',
+            'metricName': '集群总览 - 总览 - 集群总CPU使用率 - Real Linux',
             'params': {
-                **({'cluster': cluster} if cluster else {})
+                'cluster': cluster
             },
             'startTime': start_time,
             'endTime': end_time,

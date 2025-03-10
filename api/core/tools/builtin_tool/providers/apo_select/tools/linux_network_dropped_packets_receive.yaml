@@ -1,18 +1,18 @@
 identity:
-  name: 实时集群CPU使用核数
+  name: Linux集群网络接收丢包数
   author: APO
   label:
-    en_US: The number of CPU cores in real-time use in the cluster
-    zh_Hans: 实时集群CPU使用核数
+    en_US: Linux cluster network receive packet drops
+    zh_Hans: Linux集群网络接收丢包数
 description:
   human:
-    en_US: The number of CPU cores in real-time use in the cluster
-    zh_Hans: 实时集群CPU使用核数
-  llm: The number of CPU cores in real-time use in the cluster
+    en_US: Linux cluster network receive packet drops
+    zh_Hans: Linux集群网络接收丢包数
+  llm: Linux cluster network receive packet drops
 display:
   type: metric
-  title: 集群总览 - 总览 - CPU使用量 - Real Linux
-  unit: "core"
+  title: 集群总览 - 总览 - 网络饱和 - 丢包数 - Linux Packets dropped (receive)
+  unit: "short"
 parameters:
   - name: cluster
     type: string

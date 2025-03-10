@@ -2,13 +2,13 @@ identity:
   name: 命名空间CPU限流时长(使用Containerd容器运行时,按命名空间统计)
   author: APO
   label:
-    en_US: Namespace CPU throttling time (Containerd runtime, aggregated by namespace)
+    en_US: Namespace CPU throttling duration (Containerd runtime, by namespace)
     zh_Hans: 命名空间CPU限流时长(使用Containerd容器运行时,按命名空间统计)
 description:
   human:
-    en_US: Namespace CPU throttling time (Containerd runtime, aggregated by namespace)
+    en_US: Namespace CPU throttling duration (Containerd runtime, by namespace)
     zh_Hans: 命名空间CPU限流时长(使用Containerd容器运行时,按命名空间统计)
-  llm: Namespace CPU throttling time (Containerd runtime, aggregated by namespace)
+  llm: Namespace CPU throttling duration (Containerd runtime, by namespace)
 display:
   type: metric
   title: 集群总览 - 命名空间资源使用 - 命名空间的CPU限流时长 - Containerd

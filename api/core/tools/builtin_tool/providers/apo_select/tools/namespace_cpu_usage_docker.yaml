@@ -2,13 +2,13 @@ identity:
   name: 命名空间CPU使用核数(使用Docker容器运行时,按命名空间统计)
   author: APO
   label:
-    en_US: Namespace CPU usage in cores (Docker runtime, aggregated by namespace)
+    en_US: Namespace CPU cores usage (Docker runtime, by namespace)
     zh_Hans: 命名空间CPU使用核数(使用Docker容器运行时,按命名空间统计)
 description:
   human:
-    en_US: Namespace CPU usage in cores (Docker runtime, aggregated by namespace)
+    en_US: Namespace CPU cores usage (Docker runtime, by namespace)
     zh_Hans: 命名空间CPU使用核数(使用Docker容器运行时,按命名空间统计)
-  llm: Namespace CPU usage in cores (Docker runtime, aggregated by namespace)
+  llm: Namespace CPU cores usage (Docker runtime, by namespace)
 display:
   type: metric
   title: 集群总览 - 命名空间资源使用 - 命名空间的CPU使用量 - Docker

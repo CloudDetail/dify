@@ -19,15 +19,15 @@ class NamespaceNetworkReceiveBytesTool(BuiltinTool):
         app_id: Optional[str] = None,
         message_id: Optional[str] = None,
     ) -> Generator[ToolInvokeMessage, None, None]:
-        cadvisor_job_name = tool_parameters.get('cadvisor_job_name')
-        cluster = tool_parameters.get('cluster')
+        cadvisor_job_name = tool_parameters.get('cadvisor_job_name', '.*')
+        cluster = tool_parameters.get('cluster', '.*')
         start_time = tool_parameters.get("startTime")
         end_time = tool_parameters.get("endTime")
         params = {
             'metricName': '集群总览 - 命名空间资源使用 - 命名空间的网络使用量 - 接收',
             'params': {
-                **({'cadvisor_job_name': cadvisor_job_name} if cadvisor_job_name else {}),
-                **({'cluster': cluster} if cluster else {})
+                'cadvisor_job_name': cadvisor_job_name,
+                'cluster': cluster
             },
             'startTime': start_time,
             'endTime': end_time,
