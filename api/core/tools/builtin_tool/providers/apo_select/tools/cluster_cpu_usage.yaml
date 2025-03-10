@@ -1,33 +1,29 @@
 identity:
-  name: 宿主机磁盘IO耗时速率
+  name: 实时集群CPU使用率
   author: APO
   label:
-    en_US: Query the Disk IO of the host
-    zh_Hans: 宿主机磁盘IO耗时速率
-    pt_BR: Query the Disk IO of the host
+    en_US: Real-time cluster CPU usage
+    zh_Hans: 实时集群CPU使用率
 description:
   human:
-    en_US: Query the Disk IO of the host
-    zh_Hans: 宿主机磁盘IO耗时速率
-    pt_BR: Query the Disk IO of the host
-  llm: 宿主机磁盘IO耗时速率
+    en_US: Real-time cluster CPU usage
+    zh_Hans: 实时集群CPU使用率
+  llm: Real-time cluster CPU usage
 display:
   type: metric
-  title: 宿主机监控指标 - Storage Disk - Time Spent Doing I/Os - IO
-  unit: percent(0-100)百分比
+  title: 集群总览 - 总览 - 集群总CPU使用率 - Real Linux
+  unit: "percentunit"
 parameters:
-  - name: node
+  - name: cluster
     type: string
-    required: false
+    required: False
     label:
-      en_US: node
-      zh_Hans: node
-      pt_BR: node
+      en_US: Cluster name
+      zh_Hans: 集群名称
     human_description:
-      en_US: Specified host name
-      zh_Hans: 指定的主机名
-      pt_BR: Specified host name
-    llm_description: Specified host name
+      en_US: Cluster name
+      zh_Hans: 集群名称
+    llm_description: Cluster name
     form: llm
   - name: startTime
     type: number

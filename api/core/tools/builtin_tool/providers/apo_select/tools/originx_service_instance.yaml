@@ -1,33 +1,33 @@
 identity:
-  name: 宿主机磁盘IO耗时速率
+  name: originx_service_instance
   author: APO
   label:
-    en_US: Query the Disk IO of the host
-    zh_Hans: 宿主机磁盘IO耗时速率
-    pt_BR: Query the Disk IO of the host
+    en_US:  List service instances
+    zh_Hans: 列出该服务下的所有实例
+    pt_BR: List service instances
 description:
   human:
-    en_US: Query the Disk IO of the host
-    zh_Hans: 宿主机磁盘IO耗时速率
-    pt_BR: Query the Disk IO of the host
-  llm: 宿主机磁盘IO耗时速率
+    en_US: List service instances
+    zh_Hans: 列出该服务下的所有实例
+    pt_BR: List service instances
+  llm: 列出该服务下的所有实例
 display:
   type: metric
-  title: 宿主机监控指标 - Storage Disk - Time Spent Doing I/Os - IO
-  unit: percent(0-100)百分比
+  title: Originx 北极星指标 (服务层级) - 北极星指标 - 列出指定服务的所有实例
+  unit: ns
 parameters:
-  - name: node
+  - name: service_name
     type: string
-    required: false
+    required: true
     label:
-      en_US: node
-      zh_Hans: node
-      pt_BR: node
+      en_US: service_name
+      zh_Hans: service_name
+      pt_BR: service_name
     human_description:
-      en_US: Specified host name
-      zh_Hans: 指定的主机名
-      pt_BR: Specified host name
-    llm_description: Specified host name
+      en_US: Specified service name
+      zh_Hans: 指定的服务名
+      pt_BR: Specified service name
+    llm_description: Specified service name
     form: llm
   - name: startTime
     type: number
