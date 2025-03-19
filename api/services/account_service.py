@@ -173,6 +173,25 @@ class AccountService:
         db.session.commit()
 
         return cast(Account, account)
+    
+    @staticmethod
+    def anonymous(email: str) -> Account:
+        """authenticate account with email and password"""
+
+        account = db.session.query(Account).filter_by(email=email).first()
+        if not account:
+            raise AccountNotFoundError()
+
+        if account.status == AccountStatus.BANNED.value:
+            raise AccountLoginError("Account is banned.")
+
+        if account.status == AccountStatus.PENDING.value:
+            account.status = AccountStatus.ACTIVE.value
+            account.initialized_at = datetime.now(UTC).replace(tzinfo=None)
+
+        db.session.commit()
+
+        return cast(Account, account)
 
     @staticmethod
     def update_account_password(account, password, new_password):
@@ -180,6 +199,24 @@ class AccountService:
         if account.password and not compare_password(password, account.password, account.password_salt):
             raise CurrentPasswordIncorrectError("Current password is incorrect.")
 
+        # may be raised
+        valid_password(new_password)
+
+        # generate password salt
+        salt = secrets.token_bytes(16)
+        base64_salt = base64.b64encode(salt).decode()
+
+        # encrypt password with salt
+        password_hashed = hash_password(new_password, salt)
+        base64_password_hashed = base64.b64encode(password_hashed).decode()
+        account.password = base64_password_hashed
+        account.password_salt = base64_salt
+        db.session.commit()
+        return account
+    
+    @staticmethod
+    def apo_reset_account_password(account, new_password):
+        """reset account password"""
         # may be raised
         valid_password(new_password)
 
@@ -292,6 +329,11 @@ class AccountService:
     def delete_account(account: Account) -> None:
         """Delete account. This method only adds a task to the queue for deletion."""
         delete_account_task.delay(account.id)
+    
+    @staticmethod
+    def delete_apo_account(account: Account):
+        db.session.delete(account)
+        db.session.commit()
 
     @staticmethod
     def link_account_integrate(provider: str, open_id: str, account: Account) -> None:
@@ -967,6 +1009,52 @@ class RegisterService:
         )
 
         return token
+
+    @classmethod
+    def apo_add_new_member(
+        cls, tenant: Tenant, email: str, password: str, language: str, role: str = "normal", inviter: Account | None = None
+    ) -> str:
+        if not inviter:
+            raise ValueError("Inviter is required")
+
+        """add a new member"""
+        with Session(db.engine) as session:
+            account = session.query(Account).filter_by(email=email).first()
+
+        if not account:
+            TenantService.check_member_permission(tenant, inviter, None, "add")
+            name = email.split("@")[0]
+
+            account = cls.register(
+                email=email, name=name, language=language, password=password, status=AccountStatus.ACTIVE, is_setup=True
+            )
+            # Create new tenant member for invited tenant
+            TenantService.create_tenant_member(tenant, account, role)
+            TenantService.switch_tenant(account, tenant.id)
+        else:
+            TenantService.check_member_permission(tenant, inviter, account, "add")
+            ta = TenantAccountJoin.query.filter_by(tenant_id=tenant.id, account_id=account.id).first()
+
+            if not ta:
+                TenantService.create_tenant_member(tenant, account, role)
+
+            # Support resend invitation email when the account is pending status
+            if account.status != AccountStatus.PENDING.value:
+                raise AccountAlreadyInTenantError("Account already in tenant.")
+        return ""
+
+        # token = cls.generate_invite_token(tenant, account)
+
+        # # send email
+        # send_invite_member_mail_task.delay(
+        #     language=account.interface_language,
+        #     to=email,
+        #     token=token,
+        #     inviter_name=inviter.name if inviter else "Dify",
+        #     workspace_name=tenant.name,
+        # )
+
+        # return token
 
     @classmethod
     def generate_invite_token(cls, tenant: Tenant, account: Account) -> str:

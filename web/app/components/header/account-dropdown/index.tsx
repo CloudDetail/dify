@@ -99,7 +99,7 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                     </div>
                   </Menu.Item>
                   <div className="px-1 py-1">
-                    <Menu.Item>
+                    {/* <Menu.Item>
                       {({ active }) => <Link
                         className={classNames(itemClassName, 'group justify-between',
                           active && 'bg-state-base-hover',
@@ -109,7 +109,7 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                         <div>{t('common.account.account')}</div>
                         <ArrowUpRight className='hidden w-[14px] h-[14px] text-text-tertiary group-hover:flex' />
                       </Link>}
-                    </Menu.Item>
+                    </Menu.Item> */}
                     <Menu.Item>
                       {({ active }) => <div className={classNames(itemClassName,
                         active && 'bg-state-base-hover',
@@ -190,7 +190,9 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                       )
                     }
                   </div>
-                  <Menu.Item>
+                  {
+                    !sessionStorage.getItem('disable_log_out')
+                  && <Menu.Item>
                     {({ active }) => <div className='p-1' onClick={() => handleLogout()}>
                       <div
                         className={
@@ -202,6 +204,8 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                       </div>
                     </div>}
                   </Menu.Item>
+                  }
+
                 </Menu.Items>
               </Transition>
             </>
