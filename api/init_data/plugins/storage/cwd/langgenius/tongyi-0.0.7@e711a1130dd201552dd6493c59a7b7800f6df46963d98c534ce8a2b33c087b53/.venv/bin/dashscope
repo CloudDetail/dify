@@ -1,0 +1,8 @@
+#!/app/storage/cwd/langgenius/tongyi-0.0.7@e711a1130dd201552dd6493c59a7b7800f6df46963d98c534ce8a2b33c087b53/.venv/bin/python3
+# -*- coding: utf-8 -*-
+import re
+import sys
+from dashscope.cli import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())

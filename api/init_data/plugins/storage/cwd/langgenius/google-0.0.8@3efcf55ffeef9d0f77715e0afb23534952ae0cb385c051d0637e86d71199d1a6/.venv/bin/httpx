@@ -1,0 +1,8 @@
+#!/app/storage/cwd/langgenius/google-0.0.8@3efcf55ffeef9d0f77715e0afb23534952ae0cb385c051d0637e86d71199d1a6/.venv/bin/python3
+# -*- coding: utf-8 -*-
+import re
+import sys
+from httpx import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
