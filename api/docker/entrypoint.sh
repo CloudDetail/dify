@@ -25,6 +25,8 @@ if [[ "${MODE}" == "worker" ]]; then
 
 elif [[ "${MODE}" == "beat" ]]; then
   exec celery -A app.celery beat --loglevel ${LOG_LEVEL:-INFO}
+elif [["${MODE}" == "copy"]]; then
+    copy /app/api/init_data/plugins/storage /app/storage
 else
   if [[ "${DEBUG}" == "true" ]]; then
     exec flask run --host=${DIFY_BIND_ADDRESS:-0.0.0.0} --port=${DIFY_PORT:-5001} --debug
@@ -37,8 +39,4 @@ else
       --timeout ${GUNICORN_TIMEOUT:-200} \
       app:app
   fi
-fi
-
-if [[ "${OFFLINE_MODE}" == "true" ]]; then
-  copy /app/api/init_data/plugins/storage /app/storage
 fi
