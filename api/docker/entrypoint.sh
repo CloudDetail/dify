@@ -38,3 +38,7 @@ else
       app:app
   fi
 fi
+
+if [[ "${OFFLINE_MODE}" == "true" ]]; then
+  copy /app/api/init_data/plugins/storage /app/storage
+fi
