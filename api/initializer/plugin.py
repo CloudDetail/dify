@@ -36,12 +36,13 @@ def init_plugin():
                     continue
                 response = PluginService.upload_pkg(admin.current_tenant_id, file.read())
 
-                installations = PluginService.list_installations_from_ids(admin.current_tenant_id, [response.unique_identifier])
+                plugin_id = _get_plugin_id(response.unique_identifier)
+                installations = PluginService.list_installations_from_ids(admin.current_tenant_id, [plugin_id])
                 if len(installations) > 0:
                     # Plugin already installed
                     continue
 
-                plugin_ids.append(_get_plugin_id(response.unique_identifier))
+                plugin_ids.append(plugin_id)
                 plugin_unique_identifiers.append(response.unique_identifier)
 
                 PluginService.install_from_local_pkg(admin.current_tenant_id, [response.unique_identifier])
@@ -49,11 +50,11 @@ def init_plugin():
         except Exception as e:
             logging.error(f"Failed to install plugin: {file_entry.path} {str(e)}")
 
-    # if not dify_config.OFFLINE_MODE:
-    #     threading.Thread(
-    #         target=partial(_run_async_activation, admin.current_tenant_id), 
-    #         daemon=True
-    #     ).start()
+    if not dify_config.OFFLINE_MODE:
+        threading.Thread(
+            target=partial(_run_async_activation, admin.current_tenant_id), 
+            daemon=True
+        ).start()
 
 def _get_plugin_id(plugin_unique_identifier: str) -> str:
     return plugin_unique_identifier.split(':')[0]
