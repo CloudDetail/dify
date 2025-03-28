@@ -1,8 +1,0 @@
-#!/app/storage/cwd/langgenius/openai-0.0.12@604c1a752a92633a354dc7eea717248314f23bab66a9ce48d33b1c57a0f9463e/.venv/bin/python3
-# -*- coding: utf-8 -*-
-import re
-import sys
-from openai.cli import main
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
