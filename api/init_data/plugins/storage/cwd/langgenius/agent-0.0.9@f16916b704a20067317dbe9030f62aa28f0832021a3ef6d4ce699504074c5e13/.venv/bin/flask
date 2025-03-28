@@ -1,8 +1,0 @@
-#!/app/storage/cwd/langgenius/agent-0.0.9@f16916b704a20067317dbe9030f62aa28f0832021a3ef6d4ce699504074c5e13/.venv/bin/python3
-# -*- coding: utf-8 -*-
-import re
-import sys
-from flask.cli import main
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
