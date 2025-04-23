@@ -1464,50 +1464,6 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: code
-      id: 17443388433580-source-1744957721512-target
-      source: '17443388433580'
-      sourceHandle: source
-      target: '1744957721512'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: llm
-      id: 1744957721512-source-17430596469370-target
-      source: '1744957721512'
-      sourceHandle: source
-      target: '17430596469370'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: code
-      id: 17443388438160-source-17449580284790-target
-      source: '17443388438160'
-      sourceHandle: source
-      target: '17449580284790'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: llm
-      id: 17449580284790-source-17430596469370-target
-      source: '17449580284790'
-      sourceHandle: source
-      target: '17430596469370'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
         targetType: llm
       id: 1744290470304-source-17430596469370-target
       source: '1744290470304'
@@ -1519,11 +1475,11 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: code
-      id: 17443388443000-source-17449581781070-target
-      source: '17443388443000'
+        targetType: llm
+      id: 17443388433580-source-17430596469370-target
+      source: '17443388433580'
       sourceHandle: source
-      target: '17449581781070'
+      target: '17430596469370'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1531,8 +1487,19 @@ workflow:
         isInIteration: false
         sourceType: code
         targetType: llm
-      id: 17449581781070-source-17430596469370-target
-      source: '17449581781070'
+      id: 17443388438160-source-17430596469370-target
+      source: '17443388438160'
+      sourceHandle: source
+      target: '17430596469370'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17443388443000-source-17430596469370-target
+      source: '17443388443000'
       sourceHandle: source
       target: '17430596469370'
       targetHandle: target
@@ -4814,13 +4781,11 @@ workflow:
             - 若RTT正常 → 下游服务延迟问题。\n- **文件操作延迟升高**：审计文件句柄泄漏。\n\n# 输出格式\n**应用实例**:{{#17430589567120.pod#}}\
             \  \n**北极星指标趋势摘要**\n- 按指标维度描述显著变化，若无异常标注\"未观测到显著偏离\"。\n\n**初步根因结论**\n\
             - 明确告警事件对应用的影响状态。\n- 基于北极星指标与分析规则输出单一归因结论。\n*注：若网络/Epoll类异常但RTT正常，归因为下游服务延迟。*\n\
-            注： 如果对应方向有报告，需展示报告链接，可点击\n\n# 输入数据\n-cpu：{{#17443388433580.result#}} \
-            \ \n- net：{{#17443388438160.result#}}  \n- file：{{#17443388421360.result#}}\
-            \  \n- epoll：{{#1744290470304.result#}}  \n- RunQ：{{#17443388443000.result#}}\n\
-            \n#报告链接（说明是报告即可，不用关联线程）\ncpu {{#1744957721512.result#}}  \nnetwork方向 {{#17449580284790.result#}}\n\
-            runq方向 {{#17449581781070.result#}}\n\n# 输出准则\n- 使用简洁的非技术表述，避免歧义。\n- 结论需聚焦可执行建议（如\"\
-            检查代码嵌套\"而非\"可能存在性能问题\"）。"
-        selected: false
+            \n\n# 输入数据\n-cpu：{{#17443388433580.result#}}  \n- net：{{#17443388438160.result#}}\
+            \  \n- file：{{#17443388421360.result#}}  \n- epoll：{{#1744290470304.result#}}\
+            \  \n- RunQ：{{#17443388443000.result#}}\n\n# 输出准则\n- 使用简洁的非技术表述，避免歧义。\n\
+            - 结论需聚焦可执行建议（如\"检查代码嵌套\"而非\"可能存在性能问题\"）。"
+        selected: true
         title: llm analysis root cause
         type: llm
         variables: []
@@ -4834,7 +4799,7 @@ workflow:
       positionAbsolute:
         x: 4900.586223530482
         y: 863.2515699329357
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -10600,157 +10565,7 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
-    - data:
-        code: "import requests\nimport json\n\nAPO_BACKEND = \"http://192.168.1.16:31363/api/alerts/anomaly-span/list\"\
-          \n\n\ndef main(start: int, end: int, service: str, endpoint: str) -> dict:\n\
-          \    reason = 'cpu_time'\n    params = {\n        \"contentKey\": endpoint,\n\
-          \        \"currentPage\": 1,\n        \"endTime\": end,\n        \"pageSize\"\
-          : 10,\n        \"reason\": reason,\n        \"service\": service,\n    \
-          \    \"startTime\": start,\n    }\n\n    resp = requests.post(url=APO_BACKEND,\
-          \ json=params)\n\n    res_list = []\n\n    for item in resp.json()[\"list\"\
-          ]:\n        resurl = f\"http://kindling.myddns.me:31553/#/cause/report/{item['traceId']}/{item['spanId']}?mutatedType={reason}\"\
-          \n        res_list.append(resurl)\n        if len(res_list) == 3:\n    \
-          \        break\n\n    return {\"result\": json.dumps(res_list)}\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: CPU reports
-        type: code
-        variables:
-        - value_selector:
-          - '1741227526517'
-          - startTime
-          variable: start
-        - value_selector:
-          - '1741227526517'
-          - endTime
-          variable: end
-        - value_selector:
-          - '1742807803325'
-          - service
-          variable: service
-        - value_selector:
-          - '1742807803325'
-          - endpoint
-          variable: endpoint
-      height: 54
-      id: '1744957721512'
-      position:
-        x: 4589.2145686280455
-        y: 752.3779346341792
-      positionAbsolute:
-        x: 4589.2145686280455
-        y: 752.3779346341792
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "import requests\nimport json\n\nAPO_BACKEND = \"http://192.168.1.16:31363/api/alerts/anomaly-span/list\"\
-          \n\n\ndef main(start: int, end: int, service: str, endpoint: str) -> dict:\n\
-          \    reason = 'network_time'\n    params = {\n        \"contentKey\": endpoint,\n\
-          \        \"currentPage\": 1,\n        \"endTime\": end,\n        \"pageSize\"\
-          : 10,\n        \"reason\": reason,\n        \"service\": service,\n    \
-          \    \"startTime\": start,\n    }\n\n    resp = requests.post(url=APO_BACKEND,\
-          \ json=params)\n\n    res_list = []\n\n    for item in resp.json()[\"list\"\
-          ]:\n        resurl = f\"http://kindling.myddns.me:31553/#/cause/report/{item['traceId']}/{item['spanId']}?mutatedType={reason}\"\
-          \n        res_list.append(resurl)\n        if len(res_list) == 3:\n    \
-          \        break\n\n    return {\"result\": json.dumps(res_list)}\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: Net reports
-        type: code
-        variables:
-        - value_selector:
-          - '1741227526517'
-          - startTime
-          variable: start
-        - value_selector:
-          - '1741227526517'
-          - endTime
-          variable: end
-        - value_selector:
-          - '1742807803325'
-          - service
-          variable: service
-        - value_selector:
-          - '1742807803325'
-          - endpoint
-          variable: endpoint
-      height: 54
-      id: '17449580284790'
-      position:
-        x: 4564.5759830061
-        y: 856.3076926945673
-      positionAbsolute:
-        x: 4564.5759830061
-        y: 856.3076926945673
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "import requests\nimport json\n\nAPO_BACKEND = \"http://192.168.1.16:31363/api/alerts/anomaly-span/list\"\
-          \n\n\ndef main(start: int, end: int, service: str, endpoint: str) -> dict:\n\
-          \    reason = 'scheduling_time'\n    params = {\n        \"contentKey\"\
-          : endpoint,\n        \"currentPage\": 1,\n        \"endTime\": end,\n  \
-          \      \"pageSize\": 10,\n        \"reason\": reason,\n        \"service\"\
-          : service,\n        \"startTime\": start,\n    }\n\n    resp = requests.post(url=APO_BACKEND,\
-          \ json=params)\n\n    res_list = []\n\n    for item in resp.json()[\"list\"\
-          ]:\n        resurl = f\"http://kindling.myddns.me:31553/#/cause/report/{item['traceId']}/{item['spanId']}?mutatedType={reason}\"\
-          \n        res_list.append(resurl)\n        if len(res_list) == 3:\n    \
-          \        break\n\n    return {\"result\": json.dumps(res_list)}\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: Runq REPORTS
-        type: code
-        variables:
-        - value_selector:
-          - '1741227526517'
-          - startTime
-          variable: start
-        - value_selector:
-          - '1741227526517'
-          - endTime
-          variable: end
-        - value_selector:
-          - '1742807803325'
-          - service
-          variable: service
-        - value_selector:
-          - '1742807803325'
-          - endpoint
-          variable: endpoint
-      height: 54
-      id: '17449581781070'
-      position:
-        x: 4589.2145686280455
-        y: 962.4431384506418
-      positionAbsolute:
-        x: 4589.2145686280455
-        y: 962.4431384506418
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
     viewport:
-      x: -1033.6008261970235
-      y: 75.79460259114265
-      zoom: 0.25
+      x: -2629.957900125191
+      y: -460.2611985154448
+      zoom: 0.6932592948624835
