@@ -1475,20 +1475,20 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: llm
-      id: 17443388433580-source-17430596469370-target
+        targetType: tool
+      id: 17443388433580-source-1745399289832-target
       source: '17443388433580'
       sourceHandle: source
-      target: '17430596469370'
+      target: '1745399289832'
       targetHandle: target
       type: custom
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
+        sourceType: tool
         targetType: llm
-      id: 17443388438160-source-17430596469370-target
-      source: '17443388438160'
+      id: 1745399289832-source-17430596469370-target
+      source: '1745399289832'
       sourceHandle: source
       target: '17430596469370'
       targetHandle: target
@@ -1497,9 +1497,42 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
+        targetType: tool
+      id: 17443388438160-source-17453993479290-target
+      source: '17443388438160'
+      sourceHandle: source
+      target: '17453993479290'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
         targetType: llm
-      id: 17443388443000-source-17430596469370-target
+      id: 17453993479290-source-17430596469370-target
+      source: '17453993479290'
+      sourceHandle: source
+      target: '17430596469370'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 17443388443000-source-17453993458780-target
       source: '17443388443000'
+      sourceHandle: source
+      target: '17453993458780'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 17453993458780-source-17430596469370-target
+      source: '17453993458780'
       sourceHandle: source
       target: '17430596469370'
       targetHandle: target
@@ -1546,10 +1579,10 @@ workflow:
       id: '1741227526517'
       position:
         x: 30
-        y: 444
+        y: 324
       positionAbsolute:
         x: 30
-        y: 444
+        y: 324
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1576,11 +1609,11 @@ workflow:
       height: 1408
       id: '1741497176064'
       position:
-        x: 5481
-        y: 904
+        x: 5502
+        y: 1074
       positionAbsolute:
-        x: 5481
-        y: 904
+        x: 5502
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1601,8 +1634,8 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: 5505
-        y: 972
+        x: 5526
+        y: 1142
       selectable: false
       selected: false
       sourcePosition: right
@@ -1640,8 +1673,8 @@ workflow:
         x: 247.70722025930104
         y: 65
       positionAbsolute:
-        x: 5728.707220259301
-        y: 969
+        x: 5749.707220259301
+        y: 1139
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1790,8 +1823,8 @@ workflow:
         x: 844.0068118865438
         y: 800.2561082923241
       positionAbsolute:
-        x: 6325.006811886544
-        y: 1704.2561082923241
+        x: 6346.006811886544
+        y: 1874.2561082923241
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1813,11 +1846,11 @@ workflow:
       height: 90
       id: '1741502839759'
       position:
-        x: 12347
-        y: 904
+        x: 12369
+        y: 1074
       positionAbsolute:
-        x: 12347
-        y: 904
+        x: 12369
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1870,8 +1903,8 @@ workflow:
         x: 3100.843852684704
         y: 616.9747534648541
       positionAbsolute:
-        x: 8581.843852684704
-        y: 1520.974753464854
+        x: 8602.843852684704
+        y: 1690.974753464854
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1911,11 +1944,11 @@ workflow:
       height: 54
       id: '1741509454645'
       position:
-        x: 1545
-        y: 628
+        x: 1550
+        y: 512
       positionAbsolute:
-        x: 1545
-        y: 628
+        x: 1550
+        y: 512
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1989,11 +2022,11 @@ workflow:
       height: 90
       id: '1741512806512'
       position:
-        x: 12044
-        y: 904
+        x: 12065
+        y: 1074
       positionAbsolute:
-        x: 12044
-        y: 904
+        x: 12065
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2009,11 +2042,11 @@ workflow:
       height: 54
       id: '1741592094819'
       position:
-        x: 939
-        y: 444
+        x: 942
+        y: 324
       positionAbsolute:
-        x: 939
-        y: 444
+        x: 942
+        y: 324
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2032,11 +2065,11 @@ workflow:
       height: 90
       id: '1741592144815'
       position:
-        x: 1242
-        y: 444
+        x: 1246
+        y: 324
       positionAbsolute:
-        x: 1242
-        y: 444
+        x: 1246
+        y: 324
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2149,11 +2182,11 @@ workflow:
       height: 54
       id: '1741597223833'
       position:
-        x: 939
-        y: 536
+        x: 942
+        y: 418
       positionAbsolute:
-        x: 939
-        y: 536
+        x: 942
+        y: 418
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2175,11 +2208,11 @@ workflow:
       height: 152
       id: '1741597274153'
       position:
-        x: 1242
-        y: 596.5
+        x: 1246
+        y: 481
       positionAbsolute:
-        x: 1242
-        y: 596.5
+        x: 1246
+        y: 481
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2213,11 +2246,11 @@ workflow:
       height: 54
       id: '1741599658821'
       position:
-        x: 939
-        y: 628
+        x: 942
+        y: 512
       positionAbsolute:
-        x: 939
-        y: 628
+        x: 942
+        y: 512
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2272,11 +2305,11 @@ workflow:
       height: 248
       id: '1742453019576'
       position:
-        x: 636
-        y: 444
+        x: 638
+        y: 324
       positionAbsolute:
-        x: 636
-        y: 444
+        x: 638
+        y: 324
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2322,8 +2355,8 @@ workflow:
         x: 76.97060259216505
         y: 363.9210031388636
       positionAbsolute:
-        x: 5557.970602592165
-        y: 1267.9210031388636
+        x: 5578.970602592165
+        y: 1437.9210031388636
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2365,8 +2398,8 @@ workflow:
         x: 1003.8883599154669
         y: 136.40198127761005
       positionAbsolute:
-        x: 6484.888359915467
-        y: 1040.40198127761
+        x: 6505.888359915467
+        y: 1210.40198127761
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2406,8 +2439,8 @@ workflow:
         x: 535.2725275358107
         y: 237.25999906213883
       positionAbsolute:
-        x: 6016.272527535811
-        y: 1141.2599990621388
+        x: 6037.272527535811
+        y: 1311.2599990621388
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2436,8 +2469,8 @@ workflow:
         x: 6244.360125927147
         y: 216.75503228886544
       positionAbsolute:
-        x: 11725.360125927147
-        y: 1120.7550322888656
+        x: 11746.360125927147
+        y: 1290.7550322888656
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2585,8 +2618,8 @@ workflow:
         x: 837.913049217997
         y: 567.6173152328563
       positionAbsolute:
-        x: 6318.9130492179975
-        y: 1471.6173152328563
+        x: 6339.9130492179975
+        y: 1641.6173152328563
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2725,11 +2758,11 @@ workflow:
       height: 54
       id: '1742629595400'
       position:
-        x: 939
-        y: 720
+        x: 942
+        y: 606
       positionAbsolute:
-        x: 939
-        y: 720
+        x: 942
+        y: 606
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2876,8 +2909,8 @@ workflow:
         x: 838.2707565556775
         y: 677.0915533804653
       positionAbsolute:
-        x: 6319.2707565556775
-        y: 1581.0915533804653
+        x: 6340.2707565556775
+        y: 1751.0915533804653
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2922,11 +2955,11 @@ workflow:
       height: 54
       id: '1742807803325'
       position:
-        x: 333
-        y: 444
+        x: 334
+        y: 324
       positionAbsolute:
-        x: 333
-        y: 444
+        x: 334
+        y: 324
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3100,8 +3133,8 @@ workflow:
         x: 817.3433448742644
         y: 386.77445077825655
       positionAbsolute:
-        x: 6298.343344874264
-        y: 1290.7744507782566
+        x: 6319.343344874264
+        y: 1460.7744507782566
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3276,8 +3309,8 @@ workflow:
         x: 829.6661633624499
         y: 478.0639330308825
       positionAbsolute:
-        x: 6310.66616336245
-        y: 1382.0639330308825
+        x: 6331.66616336245
+        y: 1552.0639330308825
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3397,8 +3430,8 @@ workflow:
         x: 514.1495817191098
         y: 381.2394319656114
       positionAbsolute:
-        x: 5995.14958171911
-        y: 1285.2394319656114
+        x: 6016.14958171911
+        y: 1455.2394319656114
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3518,8 +3551,8 @@ workflow:
         x: 502.3624003022592
         y: 478.98654261939305
       positionAbsolute:
-        x: 5983.36240030226
-        y: 1382.986542619393
+        x: 6004.36240030226
+        y: 1552.986542619393
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3639,8 +3672,8 @@ workflow:
         x: 507.1563167397626
         y: 565.5281468443313
       positionAbsolute:
-        x: 5988.156316739763
-        y: 1469.5281468443313
+        x: 6009.156316739763
+        y: 1639.5281468443313
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3760,8 +3793,8 @@ workflow:
         x: 513.7505744250511
         y: 675.3340235425774
       positionAbsolute:
-        x: 5994.750574425051
-        y: 1579.3340235425774
+        x: 6015.750574425051
+        y: 1749.3340235425774
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3881,8 +3914,8 @@ workflow:
         x: 519.4457802875913
         y: 800.367276200539
       positionAbsolute:
-        x: 6000.445780287591
-        y: 1704.367276200539
+        x: 6021.445780287591
+        y: 1874.367276200539
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3915,11 +3948,11 @@ workflow:
       height: 54
       id: '17430589567120'
       position:
-        x: 1848
-        y: 628
+        x: 1854
+        y: 512
       positionAbsolute:
-        x: 1848
-        y: 628
+        x: 1854
+        y: 512
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3937,7 +3970,11 @@ workflow:
 
             container was killed'
         - id: '1742464231696'
-          name: 请求延时类相关或者未知类型
+          name: '请求延时类相关
+
+            平均请求延时
+
+            未知类型'
         - id: '1744901730034'
           name: 请求错误率
         - id: '1744901735377'
@@ -3962,15 +3999,15 @@ workflow:
         type: question-classifier
         vision:
           enabled: false
-      height: 276
+      height: 292
       id: '17430590082510'
       position:
-        x: 2151
-        y: 628
+        x: 2158
+        y: 512
       positionAbsolute:
-        x: 2151
-        y: 628
-      selected: false
+        x: 2158
+        y: 512
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -4142,8 +4179,8 @@ workflow:
         x: 544.0386199547656
         y: 125.67116500938346
       positionAbsolute:
-        x: 6025.038619954766
-        y: 1029.6711650093835
+        x: 6046.038619954766
+        y: 1199.6711650093835
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4312,11 +4349,11 @@ workflow:
       height: 54
       id: '17430593614550'
       position:
-        x: 4272
-        y: 628
+        x: 4590
+        y: 512
       positionAbsolute:
-        x: 4272
-        y: 628
+        x: 4590
+        y: 512
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4376,11 +4413,11 @@ workflow:
       height: 90
       id: '17430593816310'
       position:
-        x: 4575
-        y: 628
+        x: 4894
+        y: 512
       positionAbsolute:
-        x: 4575
-        y: 628
+        x: 4894
+        y: 512
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4405,11 +4442,11 @@ workflow:
       height: 152
       id: '17430594012660'
       position:
-        x: 5178
-        y: 904
+        x: 5198
+        y: 1074
       positionAbsolute:
-        x: 5178
-        y: 904
+        x: 5198
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4447,11 +4484,11 @@ workflow:
       height: 90
       id: '17430594510140'
       position:
-        x: 4575
-        y: 1144
+        x: 4894
+        y: 1319
       positionAbsolute:
-        x: 4575
-        y: 1144
+        x: 4894
+        y: 1319
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4567,11 +4604,11 @@ workflow:
       height: 54
       id: '17430595109950'
       position:
-        x: 2757
-        y: 720
+        x: 2766
+        y: 1074
       positionAbsolute:
-        x: 2757
-        y: 720
+        x: 2766
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4741,11 +4778,11 @@ workflow:
       height: 54
       id: '17430595158080'
       position:
-        x: 3060
-        y: 720
+        x: 3070
+        y: 1074
       positionAbsolute:
-        x: 3060
-        y: 720
+        x: 3070
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4781,11 +4818,13 @@ workflow:
             - 若RTT正常 → 下游服务延迟问题。\n- **文件操作延迟升高**：审计文件句柄泄漏。\n\n# 输出格式\n**应用实例**:{{#17430589567120.pod#}}\
             \  \n**北极星指标趋势摘要**\n- 按指标维度描述显著变化，若无异常标注\"未观测到显著偏离\"。\n\n**初步根因结论**\n\
             - 明确告警事件对应用的影响状态。\n- 基于北极星指标与分析规则输出单一归因结论。\n*注：若网络/Epoll类异常但RTT正常，归因为下游服务延迟。*\n\
-            \n\n# 输入数据\n-cpu：{{#17443388433580.result#}}  \n- net：{{#17443388438160.result#}}\
-            \  \n- file：{{#17443388421360.result#}}  \n- epoll：{{#1744290470304.result#}}\
-            \  \n- RunQ：{{#17443388443000.result#}}\n\n# 输出准则\n- 使用简洁的非技术表述，避免歧义。\n\
-            - 结论需聚焦可执行建议（如\"检查代码嵌套\"而非\"可能存在性能问题\"）。"
-        selected: true
+            注： 如果对应方向有报告，需展示报告链接，可点击\n\n\n# 输入数据\n-cpu：{{#17443388433580.result#}}\
+            \  \n- net：{{#17443388438160.result#}}  \n- file：{{#17443388421360.result#}}\
+            \  \n- epoll：{{#1744290470304.result#}}  \n- RunQ：{{#17443388443000.result#}}\n\
+            \n#报告链接（说明是报告即可，不用关联线程）\ncpu {{#1745399289832.text#}}\nnetwork方向 {{#17453993479290.text#}}\n\
+            runq方向 {{#17453993458780.text#}}\n\n\n# 输出准则\n- 使用简洁的非技术表述，避免歧义。\n- 结论需聚焦可执行建议（如\"\
+            检查代码嵌套\"而非\"可能存在性能问题\"）。"
+        selected: false
         title: llm analysis root cause
         type: llm
         variables: []
@@ -4794,12 +4833,12 @@ workflow:
       height: 90
       id: '17430596469370'
       position:
-        x: 4900.586223530482
-        y: 863.2515699329357
+        x: 4894
+        y: 1074
       positionAbsolute:
-        x: 4900.586223530482
-        y: 863.2515699329357
-      selected: true
+        x: 4894
+        y: 1074
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -4914,11 +4953,11 @@ workflow:
       height: 54
       id: '17430597987060'
       position:
-        x: 2757
-        y: 812
+        x: 3070
+        y: 606
       positionAbsolute:
-        x: 2757
-        y: 812
+        x: 3070
+        y: 606
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5091,11 +5130,11 @@ workflow:
       height: 54
       id: '17430598152780'
       position:
-        x: 3060
-        y: 812
+        x: 3374
+        y: 606
       positionAbsolute:
-        x: 3060
-        y: 812
+        x: 3374
+        y: 606
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5211,11 +5250,11 @@ workflow:
       height: 54
       id: '17430598907140'
       position:
-        x: 2454
-        y: 904
+        x: 2462
+        y: 1168
       positionAbsolute:
-        x: 2454
-        y: 904
+        x: 2462
+        y: 1168
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5359,11 +5398,11 @@ workflow:
       height: 54
       id: '17430598942980'
       position:
-        x: 2757
-        y: 904
+        x: 2766
+        y: 1168
       positionAbsolute:
-        x: 2757
-        y: 904
+        x: 2766
+        y: 1168
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5479,11 +5518,11 @@ workflow:
       height: 54
       id: '17430610599980'
       position:
-        x: 2454
-        y: 1088
+        x: 2766
+        y: 700
       positionAbsolute:
-        x: 2454
-        y: 1088
+        x: 2766
+        y: 700
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5627,11 +5666,11 @@ workflow:
       height: 54
       id: '17430610640640'
       position:
-        x: 2757
-        y: 1088
+        x: 3070
+        y: 700
       positionAbsolute:
-        x: 2757
-        y: 1088
+        x: 3070
+        y: 700
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5747,11 +5786,11 @@ workflow:
       height: 54
       id: '17430610719970'
       position:
-        x: 2757
-        y: 996
+        x: 2766
+        y: 1262
       positionAbsolute:
-        x: 2757
-        y: 996
+        x: 2766
+        y: 1262
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5895,11 +5934,11 @@ workflow:
       height: 54
       id: '17430610756270'
       position:
-        x: 3060
-        y: 996
+        x: 3070
+        y: 1262
       positionAbsolute:
-        x: 3060
-        y: 996
+        x: 3070
+        y: 1262
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6041,11 +6080,11 @@ workflow:
       height: 54
       id: '1743149089034'
       position:
-        x: 3363
-        y: 720
+        x: 3374
+        y: 1074
       positionAbsolute:
-        x: 3363
-        y: 720
+        x: 3374
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6186,11 +6225,11 @@ workflow:
       height: 54
       id: '17431493591600'
       position:
-        x: 3363
-        y: 812
+        x: 3678
+        y: 606
       positionAbsolute:
-        x: 3363
-        y: 812
+        x: 3678
+        y: 606
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6331,11 +6370,11 @@ workflow:
       height: 54
       id: '17431493623970'
       position:
-        x: 3363
-        y: 904
+        x: 3374
+        y: 1168
       positionAbsolute:
-        x: 3363
-        y: 904
+        x: 3374
+        y: 1168
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6476,11 +6515,11 @@ workflow:
       height: 54
       id: '17431493655610'
       position:
-        x: 3363
-        y: 1088
+        x: 3678
+        y: 700
       positionAbsolute:
-        x: 3363
-        y: 1088
+        x: 3678
+        y: 700
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6621,11 +6660,11 @@ workflow:
       height: 54
       id: '17431493682530'
       position:
-        x: 3363
-        y: 996
+        x: 3374
+        y: 1262
       positionAbsolute:
-        x: 3363
-        y: 996
+        x: 3374
+        y: 1262
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6772,8 +6811,8 @@ workflow:
         x: 1174.8261261305506
         y: 378.0882500223738
       positionAbsolute:
-        x: 6655.826126130551
-        y: 1282.0882500223738
+        x: 6676.826126130551
+        y: 1452.0882500223738
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6921,8 +6960,8 @@ workflow:
         x: 1483.3553424127522
         y: 574.6824876720586
       positionAbsolute:
-        x: 6964.355342412752
-        y: 1478.6824876720586
+        x: 6985.355342412752
+        y: 1648.6824876720586
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7070,8 +7109,8 @@ workflow:
         x: 1156.6165679157248
         y: 475.1754672301147
       positionAbsolute:
-        x: 6637.616567915725
-        y: 1379.1754672301147
+        x: 6658.616567915725
+        y: 1549.1754672301147
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7219,8 +7258,8 @@ workflow:
         x: 1463.2885127206846
         y: 673.674875984598
       positionAbsolute:
-        x: 6944.288512720685
-        y: 1577.674875984598
+        x: 6965.288512720685
+        y: 1747.674875984598
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7368,8 +7407,8 @@ workflow:
         x: 1141.3922062676138
         y: 805.1816882600981
       positionAbsolute:
-        x: 6622.392206267614
-        y: 1709.181688260098
+        x: 6643.392206267614
+        y: 1879.181688260098
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7414,11 +7453,11 @@ workflow:
       height: 54
       id: '1744185676164'
       position:
-        x: 3666
-        y: 720
+        x: 3678
+        y: 1074
       positionAbsolute:
-        x: 3666
-        y: 720
+        x: 3678
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7462,11 +7501,11 @@ workflow:
       height: 54
       id: '17441926182400'
       position:
-        x: 3666
-        y: 812
+        x: 3982
+        y: 606
       positionAbsolute:
-        x: 3666
-        y: 812
+        x: 3982
+        y: 606
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7510,11 +7549,11 @@ workflow:
       height: 54
       id: '17441926217060'
       position:
-        x: 3666
-        y: 904
+        x: 3678
+        y: 1168
       positionAbsolute:
-        x: 3666
-        y: 904
+        x: 3678
+        y: 1168
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7558,11 +7597,11 @@ workflow:
       height: 54
       id: '17441926243210'
       position:
-        x: 3666
-        y: 1088
+        x: 3982
+        y: 700
       positionAbsolute:
-        x: 3666
-        y: 1088
+        x: 3982
+        y: 700
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7606,11 +7645,11 @@ workflow:
       height: 54
       id: '17441926286390'
       position:
-        x: 3666
-        y: 996
+        x: 3678
+        y: 1262
       positionAbsolute:
-        x: 3666
-        y: 996
+        x: 3678
+        y: 1262
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7660,8 +7699,8 @@ workflow:
         x: 1488.8192785924111
         y: 373.13327676062727
       positionAbsolute:
-        x: 6969.819278592411
-        y: 1277.1332767606273
+        x: 6990.819278592411
+        y: 1447.1332767606273
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7712,8 +7751,8 @@ workflow:
         x: 1487.2988857309501
         y: 474.870200391917
       positionAbsolute:
-        x: 6968.29888573095
-        y: 1378.870200391917
+        x: 6989.29888573095
+        y: 1548.870200391917
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7764,8 +7803,8 @@ workflow:
         x: 1789.9724165332118
         y: 575.9896449249493
       positionAbsolute:
-        x: 7270.972416533212
-        y: 1479.9896449249493
+        x: 7291.972416533212
+        y: 1649.9896449249493
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7816,8 +7855,8 @@ workflow:
         x: 1789.4007677668633
         y: 673.2187341513443
       positionAbsolute:
-        x: 7270.400767766863
-        y: 1577.2187341513443
+        x: 7291.400767766863
+        y: 1747.2187341513443
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7868,8 +7907,8 @@ workflow:
         x: 1465.3401312758333
         y: 804.853363697991
       positionAbsolute:
-        x: 6946.340131275833
-        y: 1708.853363697991
+        x: 6967.340131275833
+        y: 1878.853363697991
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7906,11 +7945,11 @@ workflow:
       height: 54
       id: '1744255998058'
       position:
-        x: 3060
-        y: 1088
+        x: 3374
+        y: 700
       positionAbsolute:
-        x: 3060
-        y: 1088
+        x: 3374
+        y: 700
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7946,11 +7985,11 @@ workflow:
       height: 54
       id: '17442560822670'
       position:
-        x: 3060
-        y: 904
+        x: 3070
+        y: 1168
       positionAbsolute:
-        x: 3060
-        y: 904
+        x: 3070
+        y: 1168
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8041,11 +8080,11 @@ workflow:
       height: 54
       id: '1744287265980'
       position:
-        x: 3969
-        y: 1088
+        x: 4286
+        y: 700
       positionAbsolute:
-        x: 3969
-        y: 1088
+        x: 4286
+        y: 700
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8087,11 +8126,11 @@ workflow:
       height: 54
       id: '1744290470304'
       position:
-        x: 4272
-        y: 1088
+        x: 4590
+        y: 700
       positionAbsolute:
-        x: 4272
-        y: 1088
+        x: 4590
+        y: 700
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8189,11 +8228,11 @@ workflow:
       height: 54
       id: '17443356883380'
       position:
-        x: 3969
-        y: 996
+        x: 3982
+        y: 1262
       positionAbsolute:
-        x: 3969
-        y: 996
+        x: 3982
+        y: 1262
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8284,11 +8323,11 @@ workflow:
       height: 54
       id: '17443357536900'
       position:
-        x: 3969
-        y: 904
+        x: 3982
+        y: 1168
       positionAbsolute:
-        x: 3969
-        y: 904
+        x: 3982
+        y: 1168
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8386,11 +8425,11 @@ workflow:
       height: 54
       id: '17443357893440'
       position:
-        x: 3969
-        y: 812
+        x: 4286
+        y: 606
       positionAbsolute:
-        x: 3969
-        y: 812
+        x: 4286
+        y: 606
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8488,11 +8527,11 @@ workflow:
       height: 54
       id: '17443357899060'
       position:
-        x: 3969
-        y: 720
+        x: 3982
+        y: 1074
       positionAbsolute:
-        x: 3969
-        y: 720
+        x: 3982
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8534,11 +8573,11 @@ workflow:
       height: 54
       id: '17443388421360'
       position:
-        x: 4272
-        y: 812
+        x: 4590
+        y: 606
       positionAbsolute:
-        x: 4272
-        y: 812
+        x: 4590
+        y: 606
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8580,11 +8619,11 @@ workflow:
       height: 54
       id: '17443388433580'
       position:
-        x: 4272
-        y: 720
+        x: 4286
+        y: 1074
       positionAbsolute:
-        x: 4272
-        y: 720
+        x: 4286
+        y: 1074
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8626,11 +8665,11 @@ workflow:
       height: 54
       id: '17443388438160'
       position:
-        x: 4272
-        y: 904
+        x: 4286
+        y: 1168
       positionAbsolute:
-        x: 4272
-        y: 904
+        x: 4286
+        y: 1168
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8672,11 +8711,11 @@ workflow:
       height: 54
       id: '17443388443000'
       position:
-        x: 4272
-        y: 996
+        x: 4286
+        y: 1262
       positionAbsolute:
-        x: 4272
-        y: 996
+        x: 4286
+        y: 1262
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8718,8 +8757,8 @@ workflow:
         x: 1163.2885127206846
         y: 673.674875984598
       positionAbsolute:
-        x: 6644.288512720685
-        y: 1577.674875984598
+        x: 6665.288512720685
+        y: 1747.674875984598
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8762,8 +8801,8 @@ workflow:
         x: 1183.3553424127522
         y: 574.6824876720586
       positionAbsolute:
-        x: 6664.355342412752
-        y: 1478.6824876720586
+        x: 6685.355342412752
+        y: 1648.6824876720586
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8868,8 +8907,8 @@ workflow:
         x: 1791.8192785924111
         y: 371.13327676062727
       positionAbsolute:
-        x: 7272.819278592411
-        y: 1275.1332767606273
+        x: 7293.819278592411
+        y: 1445.1332767606273
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8974,8 +9013,8 @@ workflow:
         x: 1790.2988857309501
         y: 474.870200391917
       positionAbsolute:
-        x: 7271.29888573095
-        y: 1378.870200391917
+        x: 7292.29888573095
+        y: 1548.870200391917
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9073,8 +9112,8 @@ workflow:
         x: 2092.972416533212
         y: 575.9896449249493
       positionAbsolute:
-        x: 7573.972416533212
-        y: 1479.9896449249493
+        x: 7594.972416533212
+        y: 1649.9896449249493
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9172,8 +9211,8 @@ workflow:
         x: 2092.4007677668633
         y: 673.2187341513443
       positionAbsolute:
-        x: 7573.400767766863
-        y: 1577.2187341513443
+        x: 7594.400767766863
+        y: 1747.2187341513443
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9278,8 +9317,8 @@ workflow:
         x: 1768.3401312758333
         y: 804.853363697991
       positionAbsolute:
-        x: 7249.340131275833
-        y: 1708.853363697991
+        x: 7270.340131275833
+        y: 1878.853363697991
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9328,8 +9367,8 @@ workflow:
         x: 2075.340131275834
         y: 804.853363697991
       positionAbsolute:
-        x: 7556.340131275834
-        y: 1708.853363697991
+        x: 7577.340131275834
+        y: 1878.853363697991
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9378,8 +9417,8 @@ workflow:
         x: 2396.2516631873705
         y: 671.1408594726702
       positionAbsolute:
-        x: 7877.2516631873705
-        y: 1575.1408594726702
+        x: 7898.2516631873705
+        y: 1745.1408594726702
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9428,8 +9467,8 @@ workflow:
         x: 2397.0575190597137
         y: 576.2913937324586
       positionAbsolute:
-        x: 7878.057519059714
-        y: 1480.2913937324586
+        x: 7899.057519059714
+        y: 1650.2913937324586
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9478,8 +9517,8 @@ workflow:
         x: 2298.297497136483
         y: 475.73311174167225
       positionAbsolute:
-        x: 7779.297497136483
-        y: 1379.7331117416722
+        x: 7800.297497136483
+        y: 1549.7331117416722
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9528,8 +9567,8 @@ workflow:
         x: 2291.073286368818
         y: 355.5973351437458
       positionAbsolute:
-        x: 7772.073286368818
-        y: 1259.5973351437458
+        x: 7793.073286368818
+        y: 1429.5973351437458
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9649,11 +9688,11 @@ workflow:
       height: 54
       id: '1744878296971'
       position:
-        x: 3363
-        y: 1400
+        x: 3374
+        y: 962
       positionAbsolute:
-        x: 3363
-        y: 1400
+        x: 3374
+        y: 962
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10003,11 +10042,11 @@ workflow:
       height: 54
       id: '1744878298576'
       position:
-        x: 2454
-        y: 1272
+        x: 2462
+        y: 832
       positionAbsolute:
-        x: 2454
-        y: 1272
+        x: 2462
+        y: 832
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10041,11 +10080,11 @@ workflow:
       height: 54
       id: '1744878352649'
       position:
-        x: 3060
-        y: 1400
+        x: 3070
+        y: 962
       positionAbsolute:
-        x: 3060
-        y: 1400
+        x: 3070
+        y: 962
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10118,11 +10157,11 @@ workflow:
       height: 90
       id: '1744878372490'
       position:
-        x: 3969
-        y: 1382
+        x: 3982
+        y: 944
       positionAbsolute:
-        x: 3969
-        y: 1382
+        x: 3982
+        y: 944
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10154,11 +10193,11 @@ workflow:
       height: 54
       id: '1744878389686'
       position:
-        x: 2757
-        y: 1272
+        x: 2766
+        y: 832
       positionAbsolute:
-        x: 2757
-        y: 1272
+        x: 2766
+        y: 832
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10277,11 +10316,11 @@ workflow:
       height: 54
       id: '17448784142480'
       position:
-        x: 3363
-        y: 1272
+        x: 3374
+        y: 832
       positionAbsolute:
-        x: 3363
-        y: 1272
+        x: 3374
+        y: 832
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10315,11 +10354,11 @@ workflow:
       height: 54
       id: '17448784268890'
       position:
-        x: 3060
-        y: 1272
+        x: 3070
+        y: 832
       positionAbsolute:
-        x: 3060
-        y: 1272
+        x: 3070
+        y: 832
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10400,11 +10439,11 @@ workflow:
       height: 90
       id: '17448784398000'
       position:
-        x: 3969
-        y: 1254
+        x: 3982
+        y: 814
       positionAbsolute:
-        x: 3969
-        y: 1254
+        x: 3982
+        y: 814
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10424,11 +10463,11 @@ workflow:
       height: 130
       id: '1744878466157'
       position:
-        x: 4272
-        y: 1233.5
+        x: 4286
+        y: 794
       positionAbsolute:
-        x: 4272
-        y: 1233.5
+        x: 4286
+        y: 794
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10447,11 +10486,11 @@ workflow:
       height: 90
       id: '1744878476249'
       position:
-        x: 4575
-        y: 1272
+        x: 4590
+        y: 814
       positionAbsolute:
-        x: 4575
-        y: 1272
+        x: 4590
+        y: 814
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10501,11 +10540,11 @@ workflow:
       height: 54
       id: '1744901266309'
       position:
-        x: 3666
-        y: 1400
+        x: 3678
+        y: 962
       positionAbsolute:
-        x: 3666
-        y: 1400
+        x: 3678
+        y: 962
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10555,17 +10594,536 @@ workflow:
       height: 54
       id: '17449013347930'
       position:
-        x: 3666
-        y: 1272
+        x: 3678
+        y: 832
       positionAbsolute:
-        x: 3666
-        y: 1272
+        x: 3678
+        y: 832
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 业务服务名称
+          label:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 业务服务名称
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: 业务服务端点
+          label:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: 业务服务端点
+          llm_description: endpoint
+          max: null
+          min: null
+          name: endpoint
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Type (cpu,net,file,runq)
+            ja_JP: Type (cpu,net,file,runq)
+            pt_BR: Type (cpu,net,file,runq)
+            zh_Hans: 报告类型(cpu,net,file,runq)
+          label:
+            en_US: Type (cpu,net,file,runq)
+            ja_JP: Type (cpu,net,file,runq)
+            pt_BR: Type (cpu,net,file,runq)
+            zh_Hans: 报告类型(cpu,net,file,runq)
+          llm_description: Type (cpu,net,file,runq)
+          max: null
+          min: null
+          name: type
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          endpoint: ''
+          service: ''
+          startTime: ''
+          type: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: CPU根因报告
+        tool_configurations: {}
+        tool_label: 查询服务根因报告
+        tool_name: 查询服务根因报告
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          endpoint:
+            type: mixed
+            value: '{{#1742807803325.endpoint#}}'
+          service:
+            type: mixed
+            value: '{{#1742807803325.service#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+          type:
+            type: mixed
+            value: cpu_time
+        type: tool
+      height: 54
+      id: '1745399289832'
+      position:
+        x: 4590
+        y: 1074
+      positionAbsolute:
+        x: 4590
+        y: 1074
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 业务服务名称
+          label:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 业务服务名称
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: 业务服务端点
+          label:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: 业务服务端点
+          llm_description: endpoint
+          max: null
+          min: null
+          name: endpoint
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Type (cpu,net,file,runq)
+            ja_JP: Type (cpu,net,file,runq)
+            pt_BR: Type (cpu,net,file,runq)
+            zh_Hans: 报告类型(cpu,net,file,runq)
+          label:
+            en_US: Type (cpu,net,file,runq)
+            ja_JP: Type (cpu,net,file,runq)
+            pt_BR: Type (cpu,net,file,runq)
+            zh_Hans: 报告类型(cpu,net,file,runq)
+          llm_description: Type (cpu,net,file,runq)
+          max: null
+          min: null
+          name: type
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          endpoint: ''
+          service: ''
+          startTime: ''
+          type: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: RUNQ报告
+        tool_configurations: {}
+        tool_label: 查询服务根因报告
+        tool_name: 查询服务根因报告
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          endpoint:
+            type: mixed
+            value: '{{#1742807803325.endpoint#}}'
+          service:
+            type: mixed
+            value: '{{#1742807803325.service#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+          type:
+            type: mixed
+            value: scheduling_time
+        type: tool
+      height: 54
+      id: '17453993458780'
+      position:
+        x: 4590
+        y: 1262
+      positionAbsolute:
+        x: 4590
+        y: 1262
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 业务服务名称
+          label:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 业务服务名称
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: 业务服务端点
+          label:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: 业务服务端点
+          llm_description: endpoint
+          max: null
+          min: null
+          name: endpoint
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Type (cpu,net,file,runq)
+            ja_JP: Type (cpu,net,file,runq)
+            pt_BR: Type (cpu,net,file,runq)
+            zh_Hans: 报告类型(cpu,net,file,runq)
+          label:
+            en_US: Type (cpu,net,file,runq)
+            ja_JP: Type (cpu,net,file,runq)
+            pt_BR: Type (cpu,net,file,runq)
+            zh_Hans: 报告类型(cpu,net,file,runq)
+          llm_description: Type (cpu,net,file,runq)
+          max: null
+          min: null
+          name: type
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          endpoint: ''
+          service: ''
+          startTime: ''
+          type: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: NET根因报告
+        tool_configurations: {}
+        tool_label: 查询服务根因报告
+        tool_name: 查询服务根因报告
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          endpoint:
+            type: mixed
+            value: '{{#1742807803325.endpoint#}}'
+          service:
+            type: mixed
+            value: '{{#1742807803325.service#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+          type:
+            type: mixed
+            value: network_time
+        type: tool
+      height: 54
+      id: '17453993479290'
+      position:
+        x: 4590
+        y: 1168
+      positionAbsolute:
+        x: 4590
+        y: 1168
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -2629.957900125191
-      y: -460.2611985154448
-      zoom: 0.6932592948624835
+      x: -682.0000000000005
+      y: -70.99999999999989
+      zoom: 0.7
