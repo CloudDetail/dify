@@ -175,8 +175,18 @@ def _adjust_workflows(language, account):
                 "app_id": "dcfeddd2-d6e7-4dc4-a284-e48ab56bf6af",
                 "api_token": "app-x0mOJKUvhr35BOISSeNmsfXj"
             },
+            "alert event classify": {
+                "app_id": "3d642d64-4377-418f-8e8c-8aa81afd7d28",
+                "api_token": "app-s8e5CusGAqNcjyTUbPCoJcu4"
+            },
             "alert simple root cause analysis": {
                 "app_id": "a2d4d3aa-3401-4393-859e-df051bdd5cd1"
+            },
+            "availability alert analysis": {
+                "app_id": "40dea201-7aa4-4e27-865b-6ebeab91a0c3"
+            },
+            "infrastructure alert analysis": {
+                "app_id": "f514d742-6043-498e-98f1-ab03cbcb0250"
             }
         }
     }
