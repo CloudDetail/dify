@@ -390,17 +390,6 @@ workflow:
     - data:
         isInIteration: false
         sourceType: tool
-        targetType: variable-aggregator
-      id: 17424345080000-source-1741162531836-target
-      source: '17424345080000'
-      sourceHandle: source
-      target: '1741162531836'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
         targetType: tool
       id: 1741328213545-source-17424345315500-target
       source: '1741328213545'
@@ -814,6 +803,28 @@ workflow:
       source: '1744627472534'
       sourceHandle: source
       target: '1744343454355'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 17424345080000-source-1745839209493-target
+      source: '17424345080000'
+      sourceHandle: source
+      target: '1745839209493'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1745839209493-source-1745839212105-target
+      source: '1745839209493'
+      sourceHandle: source
+      target: '1745839212105'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1947,8 +1958,6 @@ workflow:
           - text
         - - '1741329632798'
           - text
-        - - '1741328197695'
-          - text
         - - '1741328423453'
           - text
         - - '1741328466394'
@@ -1967,7 +1976,7 @@ workflow:
           - text
         - - '1741328213545'
           - text
-      height: 394
+      height: 372
       id: '1741162531836'
       position:
         x: 1854
@@ -3804,8 +3813,6 @@ workflow:
           - text
         - - '17424344697090'
           - text
-        - - '17424345080000'
-          - text
         - - '17424345826170'
           - text
         - - '17424345315500'
@@ -3816,7 +3823,7 @@ workflow:
           - text
         - - '17429835940550'
           - text
-      height: 394
+      height: 372
       id: '1742434016239'
       position:
         x: 2158
@@ -7070,7 +7077,7 @@ workflow:
           conclusion:
             children: null
             type: string
-        selected: true
+        selected: false
         title: 检测是否异常
         type: code
         variables:
@@ -7098,7 +7105,7 @@ workflow:
       positionAbsolute:
         x: 1854
         y: 2295
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -7184,7 +7191,146 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        code: "import json\nfrom collections import defaultdict\n\nclass Utils:\n\
+          \    @staticmethod\n    def get_step(start_time: int, end_time: int) ->\
+          \ dict:\n        time_diff = end_time - start_time\n\n        SECOND = 1000000\
+          \  # microseconds\n        MINUTE = 60 * SECOND\n        HOUR = 60 * MINUTE\n\
+          \n        step = SECOND  # default step is 1 second\n        stepStr = \"\
+          1s\"\n        if time_diff <= 15 * MINUTE:\n            step = 30 * SECOND\n\
+          \            stepStr = \"30s\"\n        elif time_diff <= 30 * MINUTE:\n\
+          \            step = 1 * MINUTE\n            stepStr = \"1m\"\n        elif\
+          \ time_diff <= 1 * HOUR:\n            step = 2 * MINUTE\n            stepStr\
+          \ = \"2m\"\n        elif time_diff <= 1.5 * HOUR:\n            step = 3\
+          \ * MINUTE\n            stepStr = \"3m\"\n        elif time_diff <= 3 *\
+          \ HOUR:\n            step = 6 * MINUTE\n            stepStr = \"6m\"\n \
+          \       elif time_diff <= 6 * HOUR:\n            step = 12 * MINUTE\n  \
+          \          stepStr = \"12m\"\n        elif time_diff <= 12 * HOUR:\n   \
+          \         step = 24 * MINUTE\n            stepStr = \"24m\"\n        elif\
+          \ time_diff <= 15 * HOUR:\n            step = 30 * MINUTE\n            stepStr\
+          \ = \"30m\"\n        elif time_diff <= 30 * HOUR:\n            step = 1\
+          \ * HOUR\n            stepStr = \"1h\"\n        else:\n            step\
+          \ = ((time_diff + 30 * SECOND - 1) // (30 * SECOND)) * SECOND\n        \
+          \    custom = (time_diff + 30 * SECOND - 1) // (30 * SECOND)\n         \
+          \   stepStr = f\"{custom}s\"\n\n        return {\n            \"step\":\
+          \ step,\n            \"stepStr\": stepStr,\n        }\n\ndef analyze_rtt_alert(data_json,\
+          \ threshold_ms=200, historical_range_ms=(0.4, 2.0)):\n    # Parse JSON data\n\
+          \    data = json.loads(data_json)\n    metrics = data['data']['timeseries']\n\
+          \    \n    # Initialize analysis output\n    analysis = [\"MetricsData趋势分析\"\
+          , \"从提供的MetricsData中，我主要关注网络往返时间(RTT)指标的变化趋势。以下是关键观察：\"]\n    alert_validity\
+          \ = [\"告警有效性确认\", f'告警描述\"Network RTT latency exceeds {threshold_ms}ms\"\
+          ：']\n    is_alert_valid = False\n    \n    # Group metrics by legend\n \
+          \   grouped_metrics = defaultdict(list)\n    for metric in metrics:\n  \
+          \      legend = metric['legend']\n        grouped_metrics[legend].append(metric['chart']['chartData'])\n\
+          \    \n    # Process each unique legend\n    print(f\"Unique Legends: {len(grouped_metrics)}\"\
+          )\n    for legend, charts in grouped_metrics.items():\n        # Aggregate\
+          \ all chart data for this legend\n        all_timestamps = []\n        all_rtt_values_ms\
+          \ = []\n        for chart_data in charts:\n            timestamps = list(chart_data.keys())\n\
+          \            rtt_values_ms = [value * 1000 for value in chart_data.values()]\n\
+          \            all_timestamps.extend(timestamps)\n            all_rtt_values_ms.extend(rtt_values_ms)\n\
+          \        \n        # Pair timestamps with RTT values and sort by timestamp\
+          \ to maintain chronological order\n        paired_data = sorted(zip(all_timestamps,\
+          \ all_rtt_values_ms), key=lambda x: x[0])\n        timestamps, rtt_values_ms\
+          \ = zip(*paired_data) if paired_data else ([], [])\n        timestamps =\
+          \ list(timestamps)\n        rtt_values_ms = list(rtt_values_ms)\n      \
+          \  \n        # Skip if no data\n        if not rtt_values_ms:\n        \
+          \    continue\n        \n        # Calculate min, max, and mean RTT\n  \
+          \      min_rtt = min(rtt_values_ms)\n        max_rtt = max(rtt_values_ms)\n\
+          \        \n        # Detect anomalies (values exceeding threshold)\n   \
+          \     anomalies = [(ts, rtt) for ts, rtt in zip(timestamps, rtt_values_ms)\
+          \ if rtt > threshold_ms]\n        \n        # Analyze trends\n        analysis.append(f\"\
+          \\n{legend}:\")\n        analysis.append(f\"过去15分钟内RTT值在{min_rtt:.2f}ms到{max_rtt:.2f}ms之间波动\"\
+          )\n        \n        # Check if values are consistently high or trending\
+          \ upward\n        if len(rtt_values_ms) > 1:\n            trend = \"稳定\"\
+          \n            if all(rtt_values_ms[i] <= rtt_values_ms[i+1] for i in range(len(rtt_values_ms)-1)):\n\
+          \                trend = \"上升\"\n            elif all(rtt_values_ms[i] >=\
+          \ rtt_values_ms[i+1] for i in range(len(rtt_values_ms)-1)):\n          \
+          \      trend = \"下降\"\n            analysis.append(f\"整体趋势{trend}，{'没有持续高位维持'\
+          \ if trend != '上升' else '持续上升'}\")\n        \n        # Handle anomalies\n\
+          \        if anomalies:\n            for ts, rtt in anomalies:\n        \
+          \        analysis.append(f\"在时间戳{ts}有一个异常峰值达到{rtt:.2f}ms\")\n          \
+          \      # Check if anomaly is transient\n                idx = timestamps.index(ts)\n\
+          \                if idx < len(timestamps) - 1:\n                    next_rtt\
+          \ = rtt_values_ms[idx + 1]\n                    analysis.append(f\"但随后恢复到{next_rtt:.2f}ms\"\
+          )\n        \n        # # Compare with historical data\n        # historical_min,\
+          \ historical_max = historical_range_ms\n        # analysis.append(f\"与历史数据对比（通常在{historical_min}ms到{historical_max}ms之间）：\"\
+          )\n        # if min_rtt >= historical_min and max_rtt <= historical_max:\n\
+          \        #     analysis.append(\"当前数据与历史水平相当\")\n        # elif max_rtt\
+          \ > historical_max:\n        #     analysis.append(\"当前数据存在高于历史水平的波动\")\n\
+          \        \n        # Alert validity check\n        if max_rtt > threshold_ms:\n\
+          \            alert_validity.append(f\"\\n对于{legend}的连接：\")\n           \
+          \ alert_validity.append(f\"存在峰值达到{max_rtt:.2f}ms，超过阈值{threshold_ms}ms\"\
+          )\n            if len(anomalies) == 1 and anomalies[0][1] > threshold_ms:\n\
+          \                alert_validity.append(\"但异常为瞬时波动，随后恢复正常\")\n          \
+          \  else:\n                alert_validity.append(\"异常持续时间较长\")\n        \
+          \        is_alert_valid = True\n        else:\n            alert_validity.append(f\"\
+          \\n对于{legend}的连接：\")\n            alert_validity.append(f\"RTT值均低于阈值{threshold_ms}ms\"\
+          )\n    \n    # Final conclusion\n    alert_validity.append(\"\\n根据分析规则：\"\
+          )\n    alert_validity.append(\"指标没有持续上升或处于高位\")\n    alert_validity.append(\"\
+          异常是瞬时波动，随后恢复正常\")\n    alert_validity.append(\"相比历史数据，除单次异常外没有整体升高\")\n\
+          \    alert_validity.append(f\"\\n结论\\n{'告警有效' if is_alert_valid else '告警无效'}\"\
+          )\n    \n    # Combine and return output\n    vaild = \"true\"\n    if is_alert_valid:\n\
+          \        vaild = \"false\"\n    return {\n        \"valid\": vaild,\n  \
+          \      \"result\": \"\\n\".join(analysis + alert_validity)\n    }\n\ndef\
+          \ main(arg1: str) -> dict:\n    return analyze_rtt_alert(arg1)\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+          valid:
+            children: null
+            type: string
+        selected: true
+        title: 检测RTT是否异常
+        type: code
+        variables:
+        - value_selector:
+          - '1741328197695'
+          - text
+          variable: arg1
+      height: 54
+      id: '1745839209493'
+      position:
+        x: 1854
+        y: 831
+      positionAbsolute:
+        x: 1854
+        y: 831
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1745839209493'
+          - result
+          variable: output
+        - value_selector:
+          - '1745839209493'
+          - valid
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 116
+      id: '1745839212105'
+      position:
+        x: 2158
+        y: 831
+      positionAbsolute:
+        x: 2158
+        y: 831
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -974
-      y: -959.0000000000002
-      zoom: 0.7
+      x: -1337.0683862030883
+      y: -596.9345593572567
+      zoom: 0.9605563097381965
