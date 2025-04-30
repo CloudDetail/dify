@@ -343,7 +343,13 @@ workflow:
           required: false
           type: paragraph
           variable: params
-      height: 142
+        - label: nodeName
+          max_length: null
+          options: []
+          required: false
+          type: paragraph
+          variable: nodeName
+      height: 168
       id: '1741227526517'
       position:
         x: 30
@@ -417,13 +423,20 @@ workflow:
             variable_selector:
             - '1742807803325'
             - service
+          - comparison_operator: empty
+            id: 92ba41ac-2567-4509-a249-0a520408d145
+            value: ''
+            varType: string
+            variable_selector:
+            - '1741227526517'
+            - nodeName
           id: 'true'
           logical_operator: and
         desc: ''
         selected: false
         title: alert instance info
         type: if-else
-      height: 152
+      height: 178
       id: '1742453019576'
       position:
         x: 638
@@ -444,7 +457,8 @@ workflow:
           \  \"service\": get_value(data, [\"svc_name\", \"service\"]), \n  \"endpoint\"\
           : get_value(data,[\"endpoint\", \"content_key\"]), \n  \"pod\": get_value(data,[\"\
           pod\", \"src_pod\", \"pod_name\"]), \n  \"namespace\": get_value(data,[\"\
-          namespace\", \"src_namespace\"]), \n}"
+          namespace\", \"src_namespace\"]),\n  \"pid\": get_value(data,[\"pid\"]),\
+          \  \n}"
         code_language: python3
         desc: ''
         outputs:
@@ -455,6 +469,9 @@ workflow:
             children: null
             type: string
           namespace:
+            children: null
+            type: string
+          pid:
             children: null
             type: string
           pod:
@@ -474,10 +491,10 @@ workflow:
       height: 54
       id: '1742807803325'
       position:
-        x: 334
+        x: 335.35157092107124
         y: 276
       positionAbsolute:
-        x: 334
+        x: 335.35157092107124
         y: 276
       selected: false
       sourcePosition: right
@@ -1008,19 +1025,21 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(pod: str, service: str) -> dict:\n    query = ''\n    if\
-          \ len(pod) > 0 and len(service) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\
-          \ and container_name='{service}'\"\"\"\n    elif len(pod) > 0:\n       \
-          \ query = f\"\"\"k8s_pod_name='{pod}'\"\"\"\n    elif len(service) > 0:\n\
-          \        query = f\"\"\"container_name='{service}'\"\"\"\n\n    return {\n\
-          \        \"query\": query,\n    }"
+        code: "\ndef main(pod: str, service: str, node: str, pid: str) -> dict:\n\
+          \    query = ''\n    if len(pod) > 0 and len(service) > 0:\n        query\
+          \ = f\"\"\"k8s_pod_name='{pod}' and container_name='{service}'\"\"\"\n \
+          \   elif len(pod) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\"\"\"\
+          \n    elif len(service) > 0:\n        query = f\"\"\"container_name='{service}'\"\
+          \"\"\n    elif len(node) > 0 and len(pid) > 0:\n        query = f\"\"\"\
+          host_name='{node}' and pid='{pid}'\"\"\"\n\n    return {\n        \"query\"\
+          : query,\n    }"
         code_language: python3
         desc: ''
         outputs:
           query:
             children: null
             type: string
-        selected: false
+        selected: true
         title: 获取查询条件
         type: code
         variables:
@@ -1032,6 +1051,14 @@ workflow:
           - '1742807803325'
           - service
           variable: service
+        - value_selector:
+          - '1741227526517'
+          - nodeName
+          variable: node
+        - value_selector:
+          - '1742807803325'
+          - pid
+          variable: pid
       height: 54
       id: '1744878352649'
       position:
@@ -1040,7 +1067,7 @@ workflow:
       positionAbsolute:
         x: 1854
         y: 762
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -1282,12 +1309,14 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(pod: str, service: str) -> dict:\n    query = ''\n    if\
-          \ len(pod) > 0 and len(service) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\
-          \ and container_name='{service}'\"\"\"\n    elif len(pod) > 0:\n       \
-          \ query = f\"\"\"k8s_pod_name='{pod}'\"\"\"\n    elif len(service) > 0:\n\
-          \        query = f\"\"\"container_name='{service}'\"\"\"\n\n    return {\n\
-          \        \"query\": query,\n    }"
+        code: "\ndef main(pod: str, service: str, node: str, pid: str) -> dict:\n\
+          \    query = ''\n    if len(pod) > 0 and len(service) > 0:\n        query\
+          \ = f\"\"\"k8s_pod_name='{pod}' and container_name='{service}'\"\"\"\n \
+          \   elif len(pod) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\"\"\"\
+          \n    elif len(service) > 0:\n        query = f\"\"\"container_name='{service}'\"\
+          \"\"\n    elif len(node) > 0 and len(pid) > 0:\n        query = f\"\"\"\
+          host_name='{node}' and pid='{pid}'\"\"\"\n\n    return {\n        \"query\"\
+          : query,\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -1306,6 +1335,14 @@ workflow:
           - '1742807803325'
           - service
           variable: service
+        - value_selector:
+          - '1741227526517'
+          - nodeName
+          variable: node
+        - value_selector:
+          - '1742807803325'
+          - pid
+          variable: pid
       height: 54
       id: '17448784268890'
       position:
@@ -1434,7 +1471,7 @@ workflow:
         - value_selector:
           - '1744878466157'
           - output
-          variable: output
+          variable: text
         selected: false
         title: 结束
         type: end
@@ -1462,7 +1499,7 @@ workflow:
           \    if regex.search(line):\n            return True\n    return False\n\
           \ndef main(data_json: str) -> dict:\n    logs = json.loads(data_json).get(\"\
           data\", {}).get(\"logs\", [])\n\n    error_logs = []\n    simplified_logs\
-          \ = []\n    for log in logs:\n        source = log.get(\"tags\", {}).get(\"\
+          \ = []\n    for log in logs or []:\n        source = log.get(\"tags\", {}).get(\"\
           source\", \"\")\n        level = log.get(\"logFields\", {}).get(\"level\"\
           , \"\")\n        content = log.get(\"content\", \"\")\n        pod = log.get(\"\
           k8s_pod_name\", \"\")\n        timestamp = log.get(\"timestamp\")\n\n  \
@@ -1516,7 +1553,7 @@ workflow:
           \    if regex.search(line):\n            return True\n    return False\n\
           \ndef main(data_json: str) -> dict:\n    logs = json.loads(data_json).get(\"\
           data\", {}).get(\"logs\", [])\n\n    error_logs = []\n    simplified_logs\
-          \ = []\n    for log in logs:\n        source = log.get(\"tags\", {}).get(\"\
+          \ = []\n    for log in logs or []:\n        source = log.get(\"tags\", {}).get(\"\
           source\", \"\")\n        level = log.get(\"logFields\", {}).get(\"level\"\
           , \"\")\n        content = log.get(\"content\", \"\")\n        pod = log.get(\"\
           k8s_pod_name\", \"\")\n        timestamp = log.get(\"timestamp\")\n\n  \
@@ -1663,12 +1700,12 @@ workflow:
       positionAbsolute:
         x: 1550
         y: 687
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -194.75652126551518
-      y: -6.080975685131534
-      zoom: 0.4938246047619723
+      x: -765.385181118409
+      y: 9.816425704214907
+      zoom: 0.7398797831544062

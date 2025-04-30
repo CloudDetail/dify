@@ -828,6 +828,39 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1744599891369-0708a635-ffb5-455b-bcb7-f7f41ee7acc8-1745915866853-target
+      source: '1744599891369'
+      sourceHandle: 0708a635-ffb5-455b-bcb7-f7f41ee7acc8
+      target: '1745915866853'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: template-transform
+      id: 1745915866853-source-1745915941943-target
+      source: '1745915866853'
+      sourceHandle: source
+      target: '1745915941943'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: end
+      id: 1745915941943-source-1745915855859-target
+      source: '1745915941943'
+      sourceHandle: source
+      target: '1745915855859'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -1980,10 +2013,10 @@ workflow:
       id: '1741162531836'
       position:
         x: 1854
-        y: 1207
+        y: 1048
       positionAbsolute:
         x: 1854
-        y: 1207
+        y: 1048
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2219,10 +2252,10 @@ workflow:
       id: '1741328045214'
       position:
         x: 1246
-        y: 2125
+        y: 2031
       positionAbsolute:
         x: 1246
-        y: 2125
+        y: 2031
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2509,10 +2542,10 @@ workflow:
       id: '1741328197695'
       position:
         x: 1246
-        y: 831
+        y: 2192
       positionAbsolute:
         x: 1246
-        y: 831
+        y: 2192
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2626,10 +2659,10 @@ workflow:
       id: '1741328213545'
       position:
         x: 1246
-        y: 925
+        y: 831
       positionAbsolute:
         x: 1246
-        y: 925
+        y: 831
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2743,10 +2776,10 @@ workflow:
       id: '1741328346220'
       position:
         x: 1246
-        y: 1019
+        y: 925
       positionAbsolute:
         x: 1246
-        y: 1019
+        y: 925
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2860,10 +2893,10 @@ workflow:
       id: '1741328423453'
       position:
         x: 1246
-        y: 1113
+        y: 1019
       positionAbsolute:
         x: 1246
-        y: 1113
+        y: 1019
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2977,10 +3010,10 @@ workflow:
       id: '1741328466394'
       position:
         x: 1246
-        y: 1207
+        y: 1113
       positionAbsolute:
         x: 1246
-        y: 1207
+        y: 1113
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3094,10 +3127,10 @@ workflow:
       id: '1741328742817'
       position:
         x: 1246
-        y: 1301
+        y: 1207
       positionAbsolute:
         x: 1246
-        y: 1301
+        y: 1207
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3211,10 +3244,10 @@ workflow:
       id: '1741328773213'
       position:
         x: 1246
-        y: 1395
+        y: 1301
       positionAbsolute:
         x: 1246
-        y: 1395
+        y: 1301
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3328,10 +3361,10 @@ workflow:
       id: '1741328799030'
       position:
         x: 1246
-        y: 1489
+        y: 1395
       positionAbsolute:
         x: 1246
-        y: 1489
+        y: 1395
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3781,10 +3814,10 @@ workflow:
       id: '17424339242280'
       position:
         x: 1550
-        y: 2125
+        y: 2031
       positionAbsolute:
         x: 1550
-        y: 2125
+        y: 2031
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3827,10 +3860,10 @@ workflow:
       id: '1742434016239'
       position:
         x: 2158
-        y: 1109
+        y: 1120
       positionAbsolute:
         x: 2158
-        y: 1109
+        y: 1120
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4262,10 +4295,10 @@ workflow:
       id: '17424345080000'
       position:
         x: 1550
-        y: 831
+        y: 2192
       positionAbsolute:
         x: 1550
-        y: 831
+        y: 2192
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4379,10 +4412,10 @@ workflow:
       id: '17424345315500'
       position:
         x: 1550
-        y: 925
+        y: 831
       positionAbsolute:
         x: 1550
-        y: 925
+        y: 831
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4496,10 +4529,10 @@ workflow:
       id: '17424345826170'
       position:
         x: 1550
-        y: 1019
+        y: 925
       positionAbsolute:
         x: 1550
-        y: 1019
+        y: 925
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4613,10 +4646,10 @@ workflow:
       id: '17424346884650'
       position:
         x: 1550
-        y: 1113
+        y: 1019
       positionAbsolute:
         x: 1550
-        y: 1113
+        y: 1019
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4730,10 +4763,10 @@ workflow:
       id: '17424347242840'
       position:
         x: 1550
-        y: 1207
+        y: 1113
       positionAbsolute:
         x: 1550
-        y: 1207
+        y: 1113
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4847,10 +4880,10 @@ workflow:
       id: '17424348206030'
       position:
         x: 1550
-        y: 1301
+        y: 1207
       positionAbsolute:
         x: 1550
-        y: 1301
+        y: 1207
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4964,10 +4997,10 @@ workflow:
       id: '17424348526540'
       position:
         x: 1550
-        y: 1395
+        y: 1301
       positionAbsolute:
         x: 1550
-        y: 1395
+        y: 1301
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5081,10 +5114,10 @@ workflow:
       id: '17424348570980'
       position:
         x: 1550
-        y: 1489
+        y: 1395
       positionAbsolute:
         x: 1550
-        y: 1489
+        y: 1395
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5098,7 +5131,8 @@ workflow:
           ]),      \n  \"service\": get_value(data, [\"svc_name\", \"service\"]),\
           \ \n  \"endpoint\": get_value(data,[\"endpoint\", \"content_key\"]), \n\
           \  \"pod\": get_value(data,[\"pod\", \"src_pod\", \"pod_name\"]), \n  \"\
-          namespace\": get_value(data,[\"namespace\", \"src_namespace\"]), \n}"
+          namespace\": get_value(data,[\"namespace\", \"src_namespace\"]),\n  \"pid\"\
+          : get_value(data,[\"pid\"]), \n}"
         code_language: python3
         desc: ''
         outputs:
@@ -5109,6 +5143,9 @@ workflow:
             children: null
             type: string
           node:
+            children: null
+            type: string
+          pid:
             children: null
             type: string
           pod:
@@ -5133,7 +5170,7 @@ workflow:
       positionAbsolute:
         x: 334
         y: 586
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -5300,10 +5337,10 @@ workflow:
       id: '1742979394268'
       position:
         x: 1246
-        y: 1771
+        y: 1677
       positionAbsolute:
         x: 1246
-        y: 1771
+        y: 1677
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5471,10 +5508,10 @@ workflow:
       id: '1742979595004'
       position:
         x: 1246
-        y: 1865
+        y: 1771
       positionAbsolute:
         x: 1246
-        y: 1865
+        y: 1771
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5642,10 +5679,10 @@ workflow:
       id: '17429797453350'
       position:
         x: 1246
-        y: 1583
+        y: 1489
       positionAbsolute:
         x: 1246
-        y: 1583
+        y: 1489
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5813,10 +5850,10 @@ workflow:
       id: '17429797664440'
       position:
         x: 1550
-        y: 1583
+        y: 1489
       positionAbsolute:
         x: 1550
-        y: 1583
+        y: 1489
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5955,10 +5992,10 @@ workflow:
       id: '1742979828391'
       position:
         x: 1246
-        y: 1677
+        y: 1583
       positionAbsolute:
         x: 1246
-        y: 1677
+        y: 1583
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6097,10 +6134,10 @@ workflow:
       id: '17429798797920'
       position:
         x: 1550
-        y: 1677
+        y: 1583
       positionAbsolute:
         x: 1550
-        y: 1677
+        y: 1583
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6268,10 +6305,10 @@ workflow:
       id: '17429835599060'
       position:
         x: 1550
-        y: 1771
+        y: 1677
       positionAbsolute:
         x: 1550
-        y: 1771
+        y: 1677
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6439,10 +6476,10 @@ workflow:
       id: '17429835940550'
       position:
         x: 1550
-        y: 1865
+        y: 1771
       positionAbsolute:
         x: 1550
-        y: 1865
+        y: 1771
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6596,6 +6633,9 @@ workflow:
           namespace:
             type: mixed
             value: '{{#1742806924635.namespace#}}'
+          pid:
+            type: mixed
+            value: '{{#1742806924635.pid#}}'
           pod_name:
             type: mixed
             value: '{{#1742806924635.pod#}}'
@@ -6609,10 +6649,10 @@ workflow:
       id: '1744093337863'
       position:
         x: 1246
-        y: 1977
+        y: 1883
       positionAbsolute:
         x: 1246
-        y: 1977
+        y: 1883
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6632,10 +6672,10 @@ workflow:
       id: '1744093385250'
       position:
         x: 2158
-        y: 2031
+        y: 1937
       positionAbsolute:
         x: 2158
-        y: 2031
+        y: 1937
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6683,10 +6723,10 @@ workflow:
       id: '1744093428286'
       position:
         x: 1550
-        y: 1959
+        y: 1865
       positionAbsolute:
         x: 1550
-        y: 1959
+        y: 1865
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6703,10 +6743,10 @@ workflow:
       id: '1744093531084'
       position:
         x: 1854
-        y: 2147
+        y: 1883
       positionAbsolute:
         x: 1854
-        y: 2147
+        y: 1883
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6934,10 +6974,10 @@ workflow:
       id: '1744339618961'
       position:
         x: 2462
-        y: 2182
+        y: 2088
       positionAbsolute:
         x: 2462
-        y: 2182
+        y: 2088
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6961,10 +7001,10 @@ workflow:
       id: '1744343454355'
       position:
         x: 3070
-        y: 2143
+        y: 2049
       positionAbsolute:
         x: 3070
-        y: 2143
+        y: 2049
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7064,12 +7104,22 @@ workflow:
           \ for line in alert_desc] + [\n        f\"结论：{alert_conclusion}\"\n    ]\n\
           \    \n    return {\n        \"abnormal\": str(vaild),\n        \"conclusion\"\
           : \"\\n\".join(report)+\"\\n\",\n    }\n\ndef main(service: str, endpoint:\
-          \ str, start: int, end: int) -> dict:\n    current = get_service_latency(start,\
-          \ end, service, endpoint)\n\n    hour = 3600 * 1000000\n    history = get_service_latency(\n\
+          \ str, start: int, end: int) -> dict:\n    if len(service) == 0:\n     \
+          \   return {\n            \"abnormal\": \"unknow\",\n            \"conclusion\"\
+          : \"\"\n        }\n    current = get_service_latency(start, end, service,\
+          \ endpoint)\n\n    hour = 3600 * 1000000\n    history = get_service_latency(\n\
           \        start - hour,\n        start,\n        service,\n        endpoint,\n\
           \    )\n    res = analyze_latency(history, current)\n    return res\n"
         code_language: python3
+        default_value:
+        - key: abnormal
+          type: string
+          value: unknow
+        - key: conclusion
+          type: string
+          value: ''
         desc: ''
+        error_strategy: default-value
         outputs:
           abnormal:
             children: null
@@ -7097,14 +7147,14 @@ workflow:
           - '1741157526222'
           - endTime
           variable: end
-      height: 54
+      height: 90
       id: '1744599772545'
       position:
         x: 1854
-        y: 2295
+        y: 2031
       positionAbsolute:
         x: 1854
-        y: 2295
+        y: 2031
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7123,18 +7173,29 @@ workflow:
             - abnormal
           id: 'true'
           logical_operator: and
+        - case_id: 0708a635-ffb5-455b-bcb7-f7f41ee7acc8
+          conditions:
+          - comparison_operator: is
+            id: dc08b7df-01b0-4bac-a800-fc492060343b
+            value: unknow
+            varType: string
+            variable_selector:
+            - '1744599772545'
+            - abnormal
+          id: 0708a635-ffb5-455b-bcb7-f7f41ee7acc8
+          logical_operator: and
         desc: ''
         selected: false
         title: 条件分支
         type: if-else
-      height: 126
+      height: 174
       id: '1744599891369'
       position:
         x: 2158
-        y: 2161
+        y: 2067
       positionAbsolute:
         x: 2158
-        y: 2161
+        y: 2067
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7157,11 +7218,11 @@ workflow:
       height: 116
       id: '1744599930141'
       position:
-        x: 2462
-        y: 2276
+        x: 2610.5714285714284
+        y: 2400.5714285714284
       positionAbsolute:
-        x: 2462
-        y: 2276
+        x: 2610.5714285714284
+        y: 2400.5714285714284
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7182,10 +7243,10 @@ workflow:
       id: '1744627472534'
       position:
         x: 2766
-        y: 2087
+        y: 1993
       positionAbsolute:
         x: 2766
-        y: 2087
+        y: 1993
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7282,7 +7343,7 @@ workflow:
           valid:
             children: null
             type: string
-        selected: true
+        selected: false
         title: 检测RTT是否异常
         type: code
         variables:
@@ -7293,12 +7354,12 @@ workflow:
       height: 54
       id: '1745839209493'
       position:
-        x: 1854
-        y: 831
+        x: 1869.7142857142853
+        y: 2309.142857142857
       positionAbsolute:
-        x: 1854
-        y: 831
-      selected: true
+        x: 1869.7142857142853
+        y: 2309.142857142857
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -7320,17 +7381,86 @@ workflow:
       height: 116
       id: '1745839212105'
       position:
-        x: 2158
-        y: 831
+        x: 2165.1428571428573
+        y: 2433
       positionAbsolute:
-        x: 2158
-        y: 831
+        x: 2165.1428571428573
+        y: 2433
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1745915866853'
+          - output
+          variable: output
+        - value_selector:
+          - '1745915941943'
+          - output
+          variable: text
+        selected: false
+        title: End 6
+        type: end
+      height: 116
+      id: '1745915855859'
+      position:
+        x: 3210.5714285714284
+        y: 2192
+      positionAbsolute:
+        x: 3210.5714285714284
+        y: 2192
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: '通过异常算法识别分析,当前告警关联服务延时异常升高
+
+          该告警有效'
+        title: Template 2
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1745915866853'
+      position:
+        x: 2519.142857142857
+        y: 2192
+      positionAbsolute:
+        x: 2519.142857142857
+        y: 2192
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: 'false'
+        title: Template 3
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1745915941943'
+      position:
+        x: 2851.9999999999995
+        y: 2192
+      positionAbsolute:
+        x: 2851.9999999999995
+        y: 2192
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -1337.0683862030883
-      y: -596.9345593572567
-      zoom: 0.9605563097381965
+      x: 48.18179036610411
+      y: -208.51168015356438
+      zoom: 0.37349983832231815

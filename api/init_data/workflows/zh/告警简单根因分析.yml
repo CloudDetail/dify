@@ -5042,7 +5042,7 @@ workflow:
           result:
             children: null
             type: string
-        selected: true
+        selected: false
         title: EPOLL analyze
         type: code
         variables:
@@ -5062,7 +5062,7 @@ workflow:
       positionAbsolute:
         x: 3982
         y: 1146
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -5821,9 +5821,9 @@ workflow:
           \     dot_product = sum(x * y for x, y in zip(a, b))\n        norm_a = sum(x**2\
           \ for x in a) ** 0.5\n        norm_b = sum(y**2 for y in b) ** 0.5\n   \
           \     if norm_a == 0 or norm_b == 0:\n            return 0.0\n        return\
-          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data:\n\
-          \        chart = data['chart']\n        tid = data['labels'][id_key]\n \
-          \       \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
+          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data\
+          \ or []:\n        chart = data['chart']\n        tid = data.get('labels',\
+          \ {}).get('tid','')\n        \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
           \        if not common_ts:\n            continue\n            \n       \
           \ sorted_ts = sorted(common_ts)\n        a = [chart[ts] for ts in sorted_ts]\n\
           \        b = [proof_chart[ts] for ts in sorted_ts]\n        \n        similarity\
@@ -5927,9 +5927,9 @@ workflow:
           \     dot_product = sum(x * y for x, y in zip(a, b))\n        norm_a = sum(x**2\
           \ for x in a) ** 0.5\n        norm_b = sum(y**2 for y in b) ** 0.5\n   \
           \     if norm_a == 0 or norm_b == 0:\n            return 0.0\n        return\
-          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data:\n\
-          \        chart = data['chart']\n        tid = data['labels'][id_key]\n \
-          \       \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
+          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data\
+          \ or []:\n        chart = data['chart']\n        tid = data.get('labels',\
+          \ {}).get('tid','')\n        \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
           \        if not common_ts:\n            continue\n            \n       \
           \ sorted_ts = sorted(common_ts)\n        a = [chart[ts] for ts in sorted_ts]\n\
           \        b = [proof_chart[ts] for ts in sorted_ts]\n        \n        similarity\
@@ -5999,10 +5999,10 @@ workflow:
       parentId: '1741497176064'
       position:
         x: 1790.2988857309501
-        y: 474.870200391917
+        y: 472.94697102100463
       positionAbsolute:
         x: 6684.29888573095
-        y: 1378.870200391917
+        y: 1376.9469710210046
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6033,9 +6033,9 @@ workflow:
           \     dot_product = sum(x * y for x, y in zip(a, b))\n        norm_a = sum(x**2\
           \ for x in a) ** 0.5\n        norm_b = sum(y**2 for y in b) ** 0.5\n   \
           \     if norm_a == 0 or norm_b == 0:\n            return 0.0\n        return\
-          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data:\n\
-          \        chart = data['chart']\n        tid = data['labels'][id_key]\n \
-          \       \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
+          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data\
+          \ or []:\n        chart = data['chart']\n        tid = data.get('labels',\
+          \ {}).get('tid','')\n        \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
           \        if not common_ts:\n            continue\n            \n       \
           \ sorted_ts = sorted(common_ts)\n        a = [chart[ts] for ts in sorted_ts]\n\
           \        b = [proof_chart[ts] for ts in sorted_ts]\n        \n        similarity\
@@ -6139,9 +6139,9 @@ workflow:
           \     dot_product = sum(x * y for x, y in zip(a, b))\n        norm_a = sum(x**2\
           \ for x in a) ** 0.5\n        norm_b = sum(y**2 for y in b) ** 0.5\n   \
           \     if norm_a == 0 or norm_b == 0:\n            return 0.0\n        return\
-          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data:\n\
-          \        chart = data['chart']\n        tid = data['labels'][id_key]\n \
-          \       \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
+          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data\
+          \ or []:\n        chart = data['chart']\n        tid = data.get('labels',\
+          \ {}).get('tid','')\n        \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
           \        if not common_ts:\n            continue\n            \n       \
           \ sorted_ts = sorted(common_ts)\n        a = [chart[ts] for ts in sorted_ts]\n\
           \        b = [proof_chart[ts] for ts in sorted_ts]\n        \n        similarity\
@@ -6211,10 +6211,10 @@ workflow:
       parentId: '1741497176064'
       position:
         x: 2092.4007677668633
-        y: 673.2187341513443
+        y: 671.2138333819241
       positionAbsolute:
         x: 6986.400767766863
-        y: 1577.2187341513443
+        y: 1575.2138333819241
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6245,9 +6245,9 @@ workflow:
           \     dot_product = sum(x * y for x, y in zip(a, b))\n        norm_a = sum(x**2\
           \ for x in a) ** 0.5\n        norm_b = sum(y**2 for y in b) ** 0.5\n   \
           \     if norm_a == 0 or norm_b == 0:\n            return 0.0\n        return\
-          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data:\n\
-          \        chart = data['chart']\n        tid = data['labels'][id_key]\n \
-          \       \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
+          \ dot_product / (norm_a * norm_b)\n\n    similar = []\n    for data in abnormal_data\
+          \ or []:\n        chart = data['chart']\n        tid = data.get('labels',\
+          \ {}).get('tid','')\n        \n        common_ts = set(chart.keys()) & set(proof_chart.keys())\n\
           \        if not common_ts:\n            continue\n            \n       \
           \ sorted_ts = sorted(common_ts)\n        a = [chart[ts] for ts in sorted_ts]\n\
           \        b = [proof_chart[ts] for ts in sorted_ts]\n        \n        similarity\
@@ -6300,7 +6300,7 @@ workflow:
           result:
             children: null
             type: string
-        selected: false
+        selected: true
         title: it. runq analyze
         type: code
         variables:
@@ -6321,7 +6321,7 @@ workflow:
       positionAbsolute:
         x: 6662.340131275833
         y: 1708.853363697991
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -7788,6 +7788,6 @@ workflow:
       type: custom
       width: 244
     viewport:
-      x: -1434.843669437224
-      y: -91.93229107440794
-      zoom: 0.5286809200556225
+      x: -2526.7505398320895
+      y: -293.72076106676354
+      zoom: 0.49877780249902587
