@@ -62,42 +62,6 @@ workflow:
     edges:
     - data:
         isInIteration: false
-        sourceType: agent
-        targetType: question-classifier
-      id: 1741159085487-source-1741311244655-target
-      selected: false
-      source: '1741159085487'
-      sourceHandle: source
-      target: '1741311244655'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: question-classifier
-        targetType: code
-      id: 1741311244655-1-1741311294320-target
-      selected: false
-      source: '1741311244655'
-      sourceHandle: '1'
-      target: '1741311294320'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: variable-aggregator
-      id: 1741311294320-source-1741311394752-target
-      selected: false
-      source: '1741311294320'
-      sourceHandle: source
-      target: '1741311394752'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: variable-aggregator
         targetType: end
       id: 1741311394752-source-1741157560922-target
@@ -105,18 +69,6 @@ workflow:
       source: '1741311394752'
       sourceHandle: source
       target: '1741157560922'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: question-classifier
-        targetType: agent
-      id: 1741158559444-1741319394268-1741159085487-target
-      selected: false
-      source: '1741158559444'
-      sourceHandle: '1741319394268'
-      target: '1741159085487'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -312,17 +264,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: tool
-        targetType: variable-aggregator
-      id: 17424339242280-source-1741162531836-target
-      source: '17424339242280'
-      sourceHandle: source
-      target: '1741162531836'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: variable-aggregator
         targetType: variable-aggregator
       id: 1741162531836-source-1742434016239-target
@@ -395,17 +336,6 @@ workflow:
       source: '1741328197695'
       sourceHandle: source
       target: '17424345080000'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: variable-aggregator
-      id: 17424345080000-source-1741162531836-target
-      source: '17424345080000'
-      sourceHandle: source
-      target: '1741162531836'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -590,6 +520,7 @@ workflow:
         sourceType: question-classifier
         targetType: tool
       id: 1741158559444-1741158765960-1742979394268-target
+      selected: false
       source: '1741158559444'
       sourceHandle: '1741158765960'
       target: '1742979394268'
@@ -717,11 +648,176 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1741158559444-1744093223338-1744093337863-target
+      source: '1741158559444'
+      sourceHandle: '1744093223338'
+      target: '1744093337863'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1744093337863-source-1744093428286-target
+      source: '1744093337863'
+      sourceHandle: source
+      target: '1744093428286'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1744093428286-source-1744093531084-target
+      source: '1744093428286'
+      sourceHandle: source
+      target: '1744093531084'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: end
+      id: 1744093531084-source-1744093385250-target
+      source: '1744093531084'
+      sourceHandle: source
+      target: '1744093385250'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 17424339242280-source-1744599772545-target
+      source: '17424339242280'
+      sourceHandle: source
+      target: '1744599772545'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: if-else
+      id: 1744599772545-source-1744599891369-target
+      source: '1744599772545'
+      sourceHandle: source
+      target: '1744599891369'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1744599891369-true-1744339618961-target
+      source: '1744599891369'
+      sourceHandle: 'true'
+      target: '1744339618961'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: end
+      id: 1744599891369-false-1744599930141-target
+      source: '1744599891369'
+      sourceHandle: 'false'
+      target: '1744599930141'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1744339618961-source-1744627472534-target
+      source: '1744339618961'
+      sourceHandle: source
+      target: '1744627472534'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: end
+      id: 1744627472534-source-1744343454355-target
+      source: '1744627472534'
+      sourceHandle: source
+      target: '1744343454355'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 17424345080000-source-1745839209493-target
+      source: '17424345080000'
+      sourceHandle: source
+      target: '1745839209493'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1745839209493-source-1745839212105-target
+      source: '1745839209493'
+      sourceHandle: source
+      target: '1745839212105'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: template-transform
+      id: 1741158559444-1741319394268-1745995193051-target
+      source: '1741158559444'
+      sourceHandle: '1741319394268'
+      target: '1745995193051'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: template-transform
+      id: 1745995193051-source-1745995205047-target
+      source: '1745995193051'
+      sourceHandle: source
+      target: '1745995205047'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: end
+      id: 1745995205047-source-1745995197210-target
+      source: '1745995205047'
+      sourceHandle: source
+      target: '1745995197210'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
         selected: false
-        title: Start
+        title: start
         type: start
         variables:
         - allowed_file_extensions: []
@@ -771,10 +867,10 @@ workflow:
       id: '1741157526222'
       position:
         x: 30
-        y: 560
+        y: 586
       positionAbsolute:
         x: 30
-        y: 560
+        y: 586
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -793,11 +889,11 @@ workflow:
       height: 90
       id: '1741157560922'
       position:
-        x: 3374
-        y: 560
+        x: 3431.1428571428573
+        y: 1064.5714285714287
       positionAbsolute:
-        x: 3374
-        y: 560
+        x: 3431.1428571428573
+        y: 1064.5714285714287
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -823,11 +919,11 @@ workflow:
 
             Container memory usage exceeds 80%'
         - id: '1741318983134'
-          name: 'Application metrics
+          name: 'Application indicators
 
             Error rate related
 
-            For example, Request error rate exceeds 0%, log error number related'
+            Such as Request error rate exceeds 0%'
         - id: '1741319019432'
           name: 'Network related
 
@@ -867,13 +963,19 @@ workflow:
 
             File descriptor usage exceeds 85%'
         - id: '1741319394268'
-          name: unknow type
+          name: Unknown Type
         - id: '1741591414269'
           name: 'Container type
 
             Container is killed'
+        - id: '1744093223338'
+          name: 'Application indicators
+
+            Log error count
+
+            log error count'
         desc: ''
-        instruction: Please classify the alert events based on the alert event description
+        instruction: Please classify the alarm events based on the alarm event description
         instructions: ''
         model:
           completion_params:
@@ -884,519 +986,21 @@ workflow:
         query_variable_selector:
         - '1741157526222'
         - alert
-        selected: false
+        selected: true
         title: alert event classify
         topics: []
         type: question-classifier
         vision:
           enabled: false
-      height: 896
+      height: 932
       id: '1741158559444'
       position:
         x: 942
-        y: 560
+        y: 586
       positionAbsolute:
         x: 942
-        y: 560
+        y: 586
       selected: true
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        agent_parameters:
-          instruction:
-            type: constant
-            value: According to the description of the alert event, select the tool
-              to query data and return the tool query content
-          model:
-            type: constant
-            value:
-              completion_params: {}
-              mode: chat
-              model: deepseek-chat
-              model_type: llm
-              provider: langgenius/deepseek/deepseek
-              type: model-selector
-          query:
-            type: constant
-            value: '# Alert description
-
-              {{#1741157526222.alert#}}
-
-              # Data parameters
-
-              {{#1741157526222.params#}}
-
-              # Start time
-
-              {{#1741157526222.startTime#}}
-
-              # End time
-
-              {{#1741157526222.endTime#}}
-
-              Please determine whether the indicator data is jittering or continuously
-              rising'
-          tools:
-            type: constant
-            value:
-            - enabled: true
-              extra:
-                description: ''
-              parameters:
-                cadvisor_job_name:
-                  auto: 1
-                  value: null
-                endTime:
-                  auto: 1
-                  value: null
-                namespace:
-                  auto: 1
-                  value: null
-                pod:
-                  auto: 1
-                  value: null
-                startTime:
-                  auto: 1
-                  value: null
-              provider_name: apo_select
-              schemas:
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: cAdvisor job name
-                  ja_JP: cAdvisor job name
-                  pt_BR: cAdvisor job name
-                  zh_Hans: cAdvisor任务名称
-                label:
-                  en_US: cAdvisor job name
-                  ja_JP: cAdvisor job name
-                  pt_BR: cAdvisor job name
-                  zh_Hans: cAdvisor任务名称
-                llm_description: cAdvisor job name
-                max: null
-                min: null
-                name: cadvisor_job_name
-                options: []
-                placeholder: null
-                precision: null
-                required: false
-                scope: null
-                template: null
-                type: string
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Namespace
-                  ja_JP: Namespace
-                  pt_BR: Namespace
-                  zh_Hans: 命名空间
-                label:
-                  en_US: Namespace
-                  ja_JP: Namespace
-                  pt_BR: Namespace
-                  zh_Hans: 命名空间
-                llm_description: Namespace
-                max: null
-                min: null
-                name: namespace
-                options: []
-                placeholder: null
-                precision: null
-                required: false
-                scope: null
-                template: null
-                type: string
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Pod name
-                  ja_JP: Pod name
-                  pt_BR: Pod name
-                  zh_Hans: Pod名称
-                label:
-                  en_US: Pod name
-                  ja_JP: Pod name
-                  pt_BR: Pod name
-                  zh_Hans: Pod名称
-                llm_description: Pod name
-                max: null
-                min: null
-                name: pod
-                options: []
-                placeholder: null
-                precision: null
-                required: false
-                scope: null
-                template: null
-                type: string
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Data query start time(Microsecond)
-                  ja_JP: Data query start time(Microsecond)
-                  pt_BR: Data query start time(Microsecond)
-                  zh_Hans: 开始时间 (微秒)
-                label:
-                  en_US: startTime
-                  ja_JP: startTime
-                  pt_BR: startTime
-                  zh_Hans: startTime
-                llm_description: Data query start time(Microsecond)
-                max: null
-                min: null
-                name: startTime
-                options: []
-                placeholder: null
-                precision: null
-                required: true
-                scope: null
-                template: null
-                type: number
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Data query end time(Microsecond)
-                  ja_JP: Data query end time(Microsecond)
-                  pt_BR: Data query end time(Microsecond)
-                  zh_Hans: 结束时间 (微秒)
-                label:
-                  en_US: endTime
-                  ja_JP: endTime
-                  pt_BR: endTime
-                  zh_Hans: endTime
-                llm_description: Data query end time(Microsecond)
-                max: null
-                min: null
-                name: endTime
-                options: []
-                placeholder: null
-                precision: null
-                required: true
-                scope: null
-                template: null
-                type: number
-              settings: {}
-              tool_label: Container CPU throttling time (Docker runtime, aggregated
-                by Pod)
-              tool_name: 容器CPU节流时长(使用Docker容器运行时,按Pod统计)
-              type: builtin
-            - enabled: true
-              extra:
-                description: ''
-              parameters:
-                cadvisor_job_name:
-                  auto: 1
-                  value: null
-                endTime:
-                  auto: 1
-                  value: null
-                namespace:
-                  auto: 1
-                  value: null
-                pod:
-                  auto: 1
-                  value: null
-                startTime:
-                  auto: 1
-                  value: null
-              provider_name: apo_select
-              schemas:
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: cAdvisor job name
-                  ja_JP: cAdvisor job name
-                  pt_BR: cAdvisor job name
-                  zh_Hans: cAdvisor任务名称
-                label:
-                  en_US: cAdvisor job name
-                  ja_JP: cAdvisor job name
-                  pt_BR: cAdvisor job name
-                  zh_Hans: cAdvisor任务名称
-                llm_description: cAdvisor job name
-                max: null
-                min: null
-                name: cadvisor_job_name
-                options: []
-                placeholder: null
-                precision: null
-                required: false
-                scope: null
-                template: null
-                type: string
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Namespace
-                  ja_JP: Namespace
-                  pt_BR: Namespace
-                  zh_Hans: 命名空间
-                label:
-                  en_US: Namespace
-                  ja_JP: Namespace
-                  pt_BR: Namespace
-                  zh_Hans: 命名空间
-                llm_description: Namespace
-                max: null
-                min: null
-                name: namespace
-                options: []
-                placeholder: null
-                precision: null
-                required: false
-                scope: null
-                template: null
-                type: string
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Pod name
-                  ja_JP: Pod name
-                  pt_BR: Pod name
-                  zh_Hans: Pod名称
-                label:
-                  en_US: Pod name
-                  ja_JP: Pod name
-                  pt_BR: Pod name
-                  zh_Hans: Pod名称
-                llm_description: Pod name
-                max: null
-                min: null
-                name: pod
-                options: []
-                placeholder: null
-                precision: null
-                required: false
-                scope: null
-                template: null
-                type: string
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Data query start time(Microsecond)
-                  ja_JP: Data query start time(Microsecond)
-                  pt_BR: Data query start time(Microsecond)
-                  zh_Hans: 开始时间 (微秒)
-                label:
-                  en_US: startTime
-                  ja_JP: startTime
-                  pt_BR: startTime
-                  zh_Hans: startTime
-                llm_description: Data query start time(Microsecond)
-                max: null
-                min: null
-                name: startTime
-                options: []
-                placeholder: null
-                precision: null
-                required: true
-                scope: null
-                template: null
-                type: number
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Data query end time(Microsecond)
-                  ja_JP: Data query end time(Microsecond)
-                  pt_BR: Data query end time(Microsecond)
-                  zh_Hans: 结束时间 (微秒)
-                label:
-                  en_US: endTime
-                  ja_JP: endTime
-                  pt_BR: endTime
-                  zh_Hans: endTime
-                llm_description: Data query end time(Microsecond)
-                max: null
-                min: null
-                name: endTime
-                options: []
-                placeholder: null
-                precision: null
-                required: true
-                scope: null
-                template: null
-                type: number
-              settings: {}
-              tool_label: Container CPU usage rate (Docker runtime, aggregated by
-                Pod)
-              tool_name: 容器CPU使用率(使用Docker容器运行时,按Pod统计)
-              type: builtin
-            - enabled: true
-              extra:
-                description: ''
-              parameters:
-                cadvisor_job_name:
-                  auto: 1
-                  value: null
-                endTime:
-                  auto: 1
-                  value: null
-                namespace:
-                  auto: 1
-                  value: null
-                pod:
-                  auto: 1
-                  value: null
-                startTime:
-                  auto: 1
-                  value: null
-              provider_name: apo_select
-              schemas:
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: cAdvisor job name
-                  ja_JP: cAdvisor job name
-                  pt_BR: cAdvisor job name
-                  zh_Hans: cAdvisor任务名称
-                label:
-                  en_US: cAdvisor job name
-                  ja_JP: cAdvisor job name
-                  pt_BR: cAdvisor job name
-                  zh_Hans: cAdvisor任务名称
-                llm_description: cAdvisor job name
-                max: null
-                min: null
-                name: cadvisor_job_name
-                options: []
-                placeholder: null
-                precision: null
-                required: false
-                scope: null
-                template: null
-                type: string
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Namespace
-                  ja_JP: Namespace
-                  pt_BR: Namespace
-                  zh_Hans: 命名空间
-                label:
-                  en_US: Namespace
-                  ja_JP: Namespace
-                  pt_BR: Namespace
-                  zh_Hans: 命名空间
-                llm_description: Namespace
-                max: null
-                min: null
-                name: namespace
-                options: []
-                placeholder: null
-                precision: null
-                required: false
-                scope: null
-                template: null
-                type: string
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Pod name
-                  ja_JP: Pod name
-                  pt_BR: Pod name
-                  zh_Hans: Pod名称
-                label:
-                  en_US: Pod name
-                  ja_JP: Pod name
-                  pt_BR: Pod name
-                  zh_Hans: Pod名称
-                llm_description: Pod name
-                max: null
-                min: null
-                name: pod
-                options: []
-                placeholder: null
-                precision: null
-                required: false
-                scope: null
-                template: null
-                type: string
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Data query start time(Microsecond)
-                  ja_JP: Data query start time(Microsecond)
-                  pt_BR: Data query start time
-                  zh_Hans: 开始时间 (微秒)
-                label:
-                  en_US: startTime
-                  ja_JP: startTime
-                  pt_BR: startTime
-                  zh_Hans: startTime
-                llm_description: Data query start time(Microsecond)
-                max: null
-                min: null
-                name: startTime
-                options: []
-                placeholder: null
-                precision: null
-                required: true
-                scope: null
-                template: null
-                type: number
-              - auto_generate: null
-                default: null
-                form: llm
-                human_description:
-                  en_US: Data query end time(Microsecond)
-                  ja_JP: Data query end time(Microsecond)
-                  pt_BR: Data query end time(Microsecond)
-                  zh_Hans: 结束时间 (微秒)
-                label:
-                  en_US: endTime
-                  ja_JP: endTime
-                  pt_BR: endTime
-                  zh_Hans: endTime
-                llm_description: Data query end time(Microsecond)
-                max: null
-                min: null
-                name: endTime
-                options: []
-                placeholder: null
-                precision: null
-                required: true
-                scope: null
-                template: null
-                type: number
-              settings: {}
-              tool_label: Container network receive bandwidth (aggregated by namespace
-                and Pod)
-              tool_name: 容器网络接收带宽(按命名空间和Pod统计)
-              type: builtin
-        agent_strategy_label: FunctionCalling
-        agent_strategy_name: function_calling
-        agent_strategy_provider_name: langgenius/agent/agent
-        desc: ''
-        output_schema: null
-        plugin_unique_identifier: langgenius/agent:0.0.9@f16916b704a20067317dbe9030f62aa28f0832021a3ef6d4ce699504074c5e13
-        selected: false
-        title: Agent
-        type: agent
-      height: 198
-      id: '1741159085487'
-      position:
-        x: 2158
-        y: 560
-      positionAbsolute:
-        x: 2158
-        y: 560
-      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -1405,11 +1009,9 @@ workflow:
         desc: ''
         output_type: string
         selected: false
-        title: summary 15 mins data
+        title: summary data for llm
         type: variable-aggregator
         variables:
-        - - '1741328045214'
-          - text
         - - '1742979394268'
           - text
         - - '1741328076453'
@@ -1417,8 +1019,6 @@ workflow:
         - - '1742979595004'
           - text
         - - '1741329632798'
-          - text
-        - - '1741328197695'
           - text
         - - '1741328423453'
           - text
@@ -1438,82 +1038,14 @@ workflow:
           - text
         - - '1741328213545'
           - text
-      height: 416
+      height: 372
       id: '1741162531836'
       position:
         x: 1854
-        y: 1275
+        y: 1048
       positionAbsolute:
         x: 1854
-        y: 1275
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        classes:
-        - id: '1'
-          name: jitter
-        - id: '2'
-          name: continuous
-        desc: ''
-        instruction: Determine whether the input conclusion is jitter or continuous
-        instructions: ''
-        model:
-          completion_params:
-            temperature: 0.7
-          mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
-        query_variable_selector:
-        - '1741159085487'
-        - text
-        selected: false
-        title: llm analysis
-        topics: []
-        type: question-classifier
-        vision:
-          enabled: false
-      height: 168
-      id: '1741311244655'
-      position:
-        x: 2462
-        y: 560
-      positionAbsolute:
-        x: 2462
-        y: 560
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "\ndef main(arg1: str) -> dict:\n    res = \"true\"\n    if arg1 ==\
-          \ \"continuous\":\n        res = \"false\"\n    return {\n        \"result\"\
-          : res,\n    }\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: get result
-        type: code
-        variables:
-        - value_selector:
-          - '1741311244655'
-          - class_name
-          variable: arg1
-      height: 54
-      id: '1741311294320'
-      position:
-        x: 2766
-        y: 560
-      positionAbsolute:
-        x: 2766
-        y: 560
+        y: 1048
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1526,18 +1058,16 @@ workflow:
         title: summary
         type: variable-aggregator
         variables:
-        - - '1741311294320'
-          - result
         - - '1742366303110'
           - class_name
-      height: 130
+      height: 108
       id: '1741311394752'
       position:
-        x: 3070
-        y: 560
+        x: 3120.0000000000005
+        y: 1064.5714285714287
       positionAbsolute:
-        x: 3070
-        y: 560
+        x: 3120.0000000000005
+        y: 1064.5714285714287
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1653,8 +1183,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: Average service response time (milliseconds, by service name and content
-          key, within a specified time period)
+        title: service latency
         tool_configurations: {}
         tool_label: 服务平均响应时间(毫秒,按服务名和内容键统计,指定时间段内)
         tool_name: Originx 北极星指标 (服务层级) - RED指标 - 平均响应时间
@@ -1680,10 +1209,10 @@ workflow:
       id: '1741328045214'
       position:
         x: 1246
-        y: 617
+        y: 2031
       positionAbsolute:
         x: 1246
-        y: 617
+        y: 2031
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1799,8 +1328,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: Container CPU throttling duration (when using Containerd container
-          runtime, statistics by container and Pod)
+        title: container cpu throttling
         tool_configurations: {}
         tool_label: 容器CPU节流时长(使用Containerd容器运行时,按容器和Pod统计)
         tool_name: 容器CPU节流时长(使用Containerd容器运行时,按容器和Pod统计)
@@ -1826,10 +1354,10 @@ workflow:
       id: '1741328076453'
       position:
         x: 1246
-        y: 711
+        y: 643
       positionAbsolute:
         x: 1246
-        y: 711
+        y: 643
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1945,8 +1473,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: The network round-trip time between the container and the downstream
-          service (RTT, by namespace and Pod)
+        title: network rtt
         tool_configurations: {}
         tool_label: 容器与下游服务的网络往返时间(RTT,按命名空间和Pod统计)
         tool_name: 查询容器网络与下游RTT
@@ -1972,10 +1499,10 @@ workflow:
       id: '1741328197695'
       position:
         x: 1246
-        y: 899
+        y: 2192
       positionAbsolute:
         x: 1246
-        y: 899
+        y: 2192
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2066,7 +1593,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: Host disk usage (percentage, excluding rootfs)
+        title: host disk
         tool_configurations: {}
         tool_label: 宿主机磁盘使用率(百分比,不含rootfs)
         tool_name: 宿主机磁盘使用率(百分比,不含rootfs)
@@ -2089,10 +1616,10 @@ workflow:
       id: '1741328213545'
       position:
         x: 1246
-        y: 993
+        y: 831
       positionAbsolute:
         x: 1246
-        y: 993
+        y: 831
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2183,7 +1710,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: Host network receiving rate (bits/second)
+        title: host net recv
         tool_configurations: {}
         tool_label: 宿主机网络接收速率(比特/秒)
         tool_name: 宿主机网络接收速率(比特/秒)
@@ -2206,10 +1733,10 @@ workflow:
       id: '1741328346220'
       position:
         x: 1246
-        y: 1087
+        y: 925
       positionAbsolute:
         x: 1246
-        y: 1087
+        y: 925
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2300,7 +1827,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: Host disk read data rate (bytes/second)
+        title: host disk read
         tool_configurations: {}
         tool_label: 宿主机磁盘读取数据速率(字节/秒)
         tool_name: 宿主机磁盘读取数据速率(字节/秒)
@@ -2323,10 +1850,10 @@ workflow:
       id: '1741328423453'
       position:
         x: 1246
-        y: 1181
+        y: 1019
       positionAbsolute:
         x: 1246
-        y: 1181
+        y: 1019
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2417,7 +1944,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: Host disk write data rate (bytes/second)
+        title: host disk write
         tool_configurations: {}
         tool_label: 宿主机磁盘写入数据速率(字节/秒)
         tool_name: 宿主机磁盘写入数据速率(字节/秒)
@@ -2440,10 +1967,10 @@ workflow:
       id: '1741328466394'
       position:
         x: 1246
-        y: 1275
+        y: 1113
       positionAbsolute:
         x: 1246
-        y: 1275
+        y: 1113
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2534,7 +2061,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: Host disk IO time consumption rate
+        title: host disk io
         tool_configurations: {}
         tool_label: 宿主机磁盘IO耗时速率
         tool_name: 宿主机磁盘IO耗时速率
@@ -2557,10 +2084,10 @@ workflow:
       id: '1741328742817'
       position:
         x: 1246
-        y: 1369
+        y: 1207
       positionAbsolute:
         x: 1246
-        y: 1369
+        y: 1207
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2651,7 +2178,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: Host IO waiting CPU busy rate
+        title: host cpu io wait
         tool_configurations: {}
         tool_label: 宿主机IO等待CPU繁忙率
         tool_name: host_cpu_iowait
@@ -2674,10 +2201,10 @@ workflow:
       id: '1741328773213'
       position:
         x: 1246
-        y: 1463
+        y: 1301
       positionAbsolute:
         x: 1246
-        y: 1463
+        y: 1301
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2768,7 +2295,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: The number of file descriptors currently open on the host
+        title: host fd open
         tool_configurations: {}
         tool_label: 宿主机当前打开文件描述符数
         tool_name: host_cpu_fd_open
@@ -2791,10 +2318,10 @@ workflow:
       id: '1741328799030'
       position:
         x: 1246
-        y: 1557
+        y: 1395
       positionAbsolute:
         x: 1246
-        y: 1557
+        y: 1395
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2910,8 +2437,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: Service request success rate (by service name and content key, within
-          a specified time period)
+        title: service request
         tool_configurations: {}
         tool_label: 服务请求成功率(按服务名和内容键统计,指定时间段内)
         tool_name: Originx 北极星指标 (服务层级) - RED指标 - 请求成功率
@@ -2937,10 +2463,10 @@ workflow:
       id: '1741329632798'
       position:
         x: 1246
-        y: 805
+        y: 737
       positionAbsolute:
         x: 1246
-        y: 805
+        y: 737
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2967,7 +2493,7 @@ workflow:
           text: '##Purpose
 
             Please analyze the indicator change trend of the system/application in
-            the past 15 minutes, and analyze it in combination with the current alert
+            the past 15 minutes, and analyze it in combination with the current alarm
             event.
 
             ##Steps
@@ -2977,27 +2503,27 @@ workflow:
             abnormal fluctuations or trends.
 
             2. Confirmation of alarm validity: Combined with the alarm event, determine
-            whether the current alert is valid.
+            whether the current alarm is valid.
 
             If MetricsData continues to rise or is at a high level, the alarm is considered
             valid.
 
             If it is in a fluctuating state, that is, it rises occasionally but then
-            falls, the alert is considered invalid.
+            falls, the alarm is considered invalid.
 
             If MetricsData eventually returns to the normal range or low value, the
             alarm is considered invalid.
 
             If there is historical data, it is necessary to compare and analyze the
-            historical data. If it is higher than the historical data, the alert is
+            historical data. If it is higher than the historical data, the alarm is
             also valid.
 
             ##Output
 
             Describe the trend of MetricsData and draw a conclusion on whether the
-            alert is valid.
+            alarm is valid.
 
-            Note: The conclusion of the alert validity analysis can only be valid
+            Note: The conclusion of the alarm validity analysis can only be valid
             or invalid
 
             ##Data
@@ -3010,11 +2536,11 @@ workflow:
 
             {{#1742434016239.output#}}
 
-            Alert event description
+            Alarm event description
 
             {{#1741157526222.alert#}}'
         selected: false
-        title: llm analysis metrics data
+        title: llm analysis
         type: llm
         variables: []
         vision:
@@ -3023,10 +2549,10 @@ workflow:
       id: '1742366141890'
       position:
         x: 2462
-        y: 1314
+        y: 1246
       positionAbsolute:
         x: 2462
-        y: 1314
+        y: 1246
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3043,9 +2569,9 @@ workflow:
 
           Classify based on the input conclusion
 
-          If the conclusion is that the alert is valid, classify it as false
+          If the conclusion is that the alarm is valid, classify it as false
 
-          If the conclusion is that the alert is invalid, classify it as true
+          If the conclusion is that the alarm is invalid, classify it as true
 
           # Note
 
@@ -3062,7 +2588,7 @@ workflow:
         - '1742366141890'
         - text
         selected: false
-        title: data trend classify
+        title: classify
         topics: []
         type: question-classifier
         vision:
@@ -3071,10 +2597,10 @@ workflow:
       id: '1742366303110'
       position:
         x: 2766
-        y: 1218
+        y: 1150
       positionAbsolute:
         x: 2766
-        y: 1218
+        y: 1150
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3099,7 +2625,7 @@ workflow:
           retry_enabled: true
           retry_interval: 1000
         selected: false
-        title: get history data range
+        title: get history range
         type: code
         variables:
         - value_selector:
@@ -3114,10 +2640,10 @@ workflow:
       id: '1742433446760'
       position:
         x: 638
-        y: 560
+        y: 586
       positionAbsolute:
         x: 638
-        y: 560
+        y: 586
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3233,8 +2759,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: History Average service response time (milliseconds, by service name
-          and content key, within a specified time period)
+        title: history service latency
         tool_configurations: {}
         tool_label: 服务平均响应时间(毫秒,按服务名和内容键统计,指定时间段内)
         tool_name: Originx 北极星指标 (服务层级) - RED指标 - 平均响应时间
@@ -3260,10 +2785,10 @@ workflow:
       id: '17424339242280'
       position:
         x: 1550
-        y: 617
+        y: 2031
       positionAbsolute:
         x: 1550
-        y: 617
+        y: 2031
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3276,8 +2801,6 @@ workflow:
         title: summary history data
         type: variable-aggregator
         variables:
-        - - '17424339242280'
-          - text
         - - '17429797664440'
           - text
         - - '17424348570980'
@@ -3294,8 +2817,6 @@ workflow:
           - text
         - - '17424344697090'
           - text
-        - - '17424345080000'
-          - text
         - - '17424345826170'
           - text
         - - '17424345315500'
@@ -3306,14 +2827,14 @@ workflow:
           - text
         - - '17429835940550'
           - text
-      height: 416
+      height: 372
       id: '1742434016239'
       position:
         x: 2158
-        y: 1166
+        y: 1120
       positionAbsolute:
         x: 2158
-        y: 1166
+        y: 1120
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3429,8 +2950,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history Container CPU throttling duration (when using Containerd container
-          runtime, statistics by container and Pod)
+        title: history container cpu throttling
         tool_configurations: {}
         tool_label: 容器CPU节流时长(使用Containerd容器运行时,按容器和Pod统计)
         tool_name: 容器CPU节流时长(使用Containerd容器运行时,按容器和Pod统计)
@@ -3456,10 +2976,10 @@ workflow:
       id: '17424342365860'
       position:
         x: 1550
-        y: 711
+        y: 643
       positionAbsolute:
         x: 1550
-        y: 711
+        y: 643
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3575,8 +3095,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history  Service request success rate (by service name and content
-          key, within a specified time period)
+        title: history service request
         tool_configurations: {}
         tool_label: 服务请求成功率(按服务名和内容键统计,指定时间段内)
         tool_name: Originx 北极星指标 (服务层级) - RED指标 - 请求成功率
@@ -3602,10 +3121,10 @@ workflow:
       id: '17424344697090'
       position:
         x: 1550
-        y: 805
+        y: 737
       positionAbsolute:
         x: 1550
-        y: 805
+        y: 737
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3721,8 +3240,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history The network round-trip time between the container and the downstream
-          service (RTT, by namespace and Pod)
+        title: history network rtt
         tool_configurations: {}
         tool_label: 容器与下游服务的网络往返时间(RTT,按命名空间和Pod统计)
         tool_name: 查询容器网络与下游RTT
@@ -3748,10 +3266,10 @@ workflow:
       id: '17424345080000'
       position:
         x: 1550
-        y: 899
+        y: 2192
       positionAbsolute:
         x: 1550
-        y: 899
+        y: 2192
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3842,7 +3360,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history Host disk usage (percentage, excluding rootfs)
+        title: history host disk
         tool_configurations: {}
         tool_label: 宿主机磁盘使用率(百分比,不含rootfs)
         tool_name: 宿主机磁盘使用率(百分比,不含rootfs)
@@ -3865,10 +3383,10 @@ workflow:
       id: '17424345315500'
       position:
         x: 1550
-        y: 993
+        y: 831
       positionAbsolute:
         x: 1550
-        y: 993
+        y: 831
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3959,7 +3477,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history Host network receiving rate (bits/second)
+        title: history host net recv
         tool_configurations: {}
         tool_label: 宿主机网络接收速率(比特/秒)
         tool_name: 宿主机网络接收速率(比特/秒)
@@ -3982,10 +3500,10 @@ workflow:
       id: '17424345826170'
       position:
         x: 1550
-        y: 1087
+        y: 925
       positionAbsolute:
         x: 1550
-        y: 1087
+        y: 925
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4076,7 +3594,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history Host disk read data rate (bytes/second)
+        title: history  host disk read
         tool_configurations: {}
         tool_label: 宿主机磁盘读取数据速率(字节/秒)
         tool_name: 宿主机磁盘读取数据速率(字节/秒)
@@ -4099,10 +3617,10 @@ workflow:
       id: '17424346884650'
       position:
         x: 1550
-        y: 1181
+        y: 1019
       positionAbsolute:
         x: 1550
-        y: 1181
+        y: 1019
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4193,7 +3711,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history Host disk write data rate (bytes/second)
+        title: history host disk write
         tool_configurations: {}
         tool_label: 宿主机磁盘写入数据速率(字节/秒)
         tool_name: 宿主机磁盘写入数据速率(字节/秒)
@@ -4216,10 +3734,10 @@ workflow:
       id: '17424347242840'
       position:
         x: 1550
-        y: 1275
+        y: 1113
       positionAbsolute:
         x: 1550
-        y: 1275
+        y: 1113
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4310,7 +3828,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history Host disk IO time consumption rate
+        title: history host disk io
         tool_configurations: {}
         tool_label: 宿主机磁盘IO耗时速率
         tool_name: 宿主机磁盘IO耗时速率
@@ -4333,10 +3851,10 @@ workflow:
       id: '17424348206030'
       position:
         x: 1550
-        y: 1369
+        y: 1207
       positionAbsolute:
         x: 1550
-        y: 1369
+        y: 1207
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4427,7 +3945,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history Host IO waiting CPU busy rate
+        title: history cpu io wait
         tool_configurations: {}
         tool_label: 宿主机IO等待CPU繁忙率
         tool_name: host_cpu_iowait
@@ -4450,10 +3968,10 @@ workflow:
       id: '17424348526540'
       position:
         x: 1550
-        y: 1463
+        y: 1301
       positionAbsolute:
         x: 1550
-        y: 1463
+        y: 1301
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4544,7 +4062,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history The number of file descriptors currently open on the host
+        title: host history fd open
         tool_configurations: {}
         tool_label: 宿主机当前打开文件描述符数
         tool_name: host_cpu_fd_open
@@ -4567,10 +4085,10 @@ workflow:
       id: '17424348570980'
       position:
         x: 1550
-        y: 1557
+        y: 1395
       positionAbsolute:
         x: 1550
-        y: 1557
+        y: 1395
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4604,7 +4122,7 @@ workflow:
             children: null
             type: string
         selected: false
-        title: get alert event labels
+        title: get alert labels
         type: code
         variables:
         - value_selector:
@@ -4615,10 +4133,10 @@ workflow:
       id: '1742806924635'
       position:
         x: 334
-        y: 560
+        y: 586
       positionAbsolute:
         x: 334
-        y: 560
+        y: 586
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4759,7 +4277,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: container cpu usage
+        title: container cpu
         tool_configurations: {}
         tool_label: Container CPU usage rate (Containerd runtime, aggregated by container
           and Pod)
@@ -4786,10 +4304,10 @@ workflow:
       id: '1742979394268'
       position:
         x: 1246
-        y: 1839
+        y: 1677
       positionAbsolute:
         x: 1246
-        y: 1839
+        y: 1677
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4930,7 +4448,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: contaienr rss
+        title: container memory
         tool_configurations: {}
         tool_label: Container memory usage in bytes (Containerd runtime, aggregated
           by container and Pod)
@@ -4957,10 +4475,10 @@ workflow:
       id: '1742979595004'
       position:
         x: 1246
-        y: 1933
+        y: 1771
       positionAbsolute:
         x: 1246
-        y: 1933
+        y: 1771
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5101,7 +4619,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: container rss
+        title: container memory
         tool_configurations: {}
         tool_label: Container memory usage in bytes (Containerd runtime, aggregated
           by container and Pod)
@@ -5128,10 +4646,10 @@ workflow:
       id: '17429797453350'
       position:
         x: 1246
-        y: 1651
+        y: 1489
       positionAbsolute:
         x: 1246
-        y: 1651
+        y: 1489
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5272,7 +4790,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history container rss
+        title: history container memory
         tool_configurations: {}
         tool_label: Container memory usage in bytes (Containerd runtime, aggregated
           by container and Pod)
@@ -5299,10 +4817,10 @@ workflow:
       id: '17429797664440'
       position:
         x: 1550
-        y: 1651
+        y: 1489
       positionAbsolute:
         x: 1550
-        y: 1651
+        y: 1489
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5441,10 +4959,10 @@ workflow:
       id: '1742979828391'
       position:
         x: 1246
-        y: 1745
+        y: 1583
       positionAbsolute:
         x: 1246
-        y: 1745
+        y: 1583
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5583,10 +5101,10 @@ workflow:
       id: '17429798797920'
       position:
         x: 1550
-        y: 1745
+        y: 1583
       positionAbsolute:
         x: 1550
-        y: 1745
+        y: 1583
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5727,7 +5245,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history container cpu usage
+        title: history container cpu
         tool_configurations: {}
         tool_label: Container CPU usage rate (Containerd runtime, aggregated by container
           and Pod)
@@ -5754,10 +5272,10 @@ workflow:
       id: '17429835599060'
       position:
         x: 1550
-        y: 1839
+        y: 1677
       positionAbsolute:
         x: 1550
-        y: 1839
+        y: 1677
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5898,7 +5416,7 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: history container rss
+        title: history container memory
         tool_configurations: {}
         tool_label: Container memory usage in bytes (Containerd runtime, aggregated
           by container and Pod)
@@ -5925,16 +5443,988 @@ workflow:
       id: '17429835940550'
       position:
         x: 1550
-        y: 1933
+        y: 1771
       positionAbsolute:
         x: 1550
-        y: 1933
+        y: 1771
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Pod name
+            ja_JP: Pod name
+            pt_BR: Pod name
+            zh_Hans: Pod名称
+          label:
+            en_US: Pod name
+            ja_JP: Pod name
+            pt_BR: Pod name
+            zh_Hans: Pod名称
+          llm_description: Pod name
+          max: null
+          min: null
+          name: pod_name
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Namespace
+            ja_JP: Namespace
+            pt_BR: Namespace
+            zh_Hans: 命名空间
+          label:
+            en_US: Namespace
+            ja_JP: Namespace
+            pt_BR: Namespace
+            zh_Hans: 命名空间
+          llm_description: Namespace
+          max: null
+          min: null
+          name: namespace
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Process ID
+            ja_JP: Process ID
+            pt_BR: Process ID
+            zh_Hans: 进程ID
+          label:
+            en_US: Process ID
+            ja_JP: Process ID
+            pt_BR: Process ID
+            zh_Hans: 进程ID
+          llm_description: Process ID
+          max: null
+          min: null
+          name: pid
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          namespace: ''
+          pid: ''
+          pod_name: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: log error count
+        tool_configurations: {}
+        tool_label: 记录了日志解析系统中按错误级别统计的总次数
+        tool_name: 记录了日志解析系统中按错误级别统计的总次数
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - endTime
+          namespace:
+            type: mixed
+            value: '{{#1742806924635.namespace#}}'
+          pod_name:
+            type: mixed
+            value: '{{#1742806924635.pod#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - startTime
+        type: tool
+      height: 54
+      id: '1744093337863'
+      position:
+        x: 1246
+        y: 1883
+      positionAbsolute:
+        x: 1246
+        y: 1883
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1744093531084'
+          - output
+          variable: text
+        selected: false
+        title: End
+        type: end
+      height: 90
+      id: '1744093385250'
+      position:
+        x: 2158
+        y: 1937
+      positionAbsolute:
+        x: 2158
+        y: 1937
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: a1de005a-fbe2-44a6-9b2c-bb021ae6b3a4
+          role: system
+          text: You are an intelligent assistant that helps users solve problems in
+            the field of observability
+        - id: 897a817e-14a2-4609-9081-430a6fd0a6dd
+          role: user
+          text: '# Purpose
+
+            The current application has been generating log error level logs,
+
+            # Alarm event label
+
+            {{#1741157526222.params#}}
+
+            # Output
+
+            The current application log error has increased, and this alarm cannot
+            be ignored
+
+            # Log error number indicator data
+
+            {{#1744093337863.text#}}'
+        selected: false
+        title: LLM  analysis
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1744093428286'
+      position:
+        x: 1550
+        y: 1865
+      positionAbsolute:
+        x: 1550
+        y: 1865
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: 'false'
+        title: log check
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1744093531084'
+      position:
+        x: 1854
+        y: 1883
+      positionAbsolute:
+        x: 1854
+        y: 1883
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import requests\nimport json\n\nAPO_URL = \"http://apo-backend-svc:8080\"\
+          \n\nAPO_VM = \"http://apo-victoria-metrics-single-server-svc:8428\"\n\n\
+          DEBUG_OUTPUT = False\n\n\nclass Utils:\n    @staticmethod\n    def get_step(start_time:\
+          \ int, end_time: int) -> dict:\n        time_diff = end_time - start_time\n\
+          \n        SECOND = 1000000  # microseconds\n        MINUTE = 60 * SECOND\n\
+          \        HOUR = 60 * MINUTE\n\n        step = SECOND  # default step is\
+          \ 1 second\n        stepStr = \"1s\"\n        if time_diff <= 15 * MINUTE:\n\
+          \            step = 30 * SECOND\n            stepStr = \"30s\"\n       \
+          \ elif time_diff <= 30 * MINUTE:\n            step = 1 * MINUTE\n      \
+          \      stepStr = \"1m\"\n        elif time_diff <= 1 * HOUR:\n         \
+          \   step = 2 * MINUTE\n            stepStr = \"2m\"\n        elif time_diff\
+          \ <= 1.5 * HOUR:\n            step = 3 * MINUTE\n            stepStr = \"\
+          3m\"\n        elif time_diff <= 3 * HOUR:\n            step = 6 * MINUTE\n\
+          \            stepStr = \"6m\"\n        elif time_diff <= 6 * HOUR:\n   \
+          \         step = 12 * MINUTE\n            stepStr = \"12m\"\n        elif\
+          \ time_diff <= 12 * HOUR:\n            step = 24 * MINUTE\n            stepStr\
+          \ = \"24m\"\n        elif time_diff <= 15 * HOUR:\n            step = 30\
+          \ * MINUTE\n            stepStr = \"30m\"\n        elif time_diff <= 30\
+          \ * HOUR:\n            step = 1 * HOUR\n            stepStr = \"1h\"\n \
+          \       else:\n            step = ((time_diff + 30 * SECOND - 1) // (30\
+          \ * SECOND)) * SECOND\n            custom = (time_diff + 30 * SECOND - 1)\
+          \ // (30 * SECOND)\n            stepStr = f\"{custom}s\"\n\n        return\
+          \ {\n            \"step\": step,\n            \"stepStr\": stepStr,\n  \
+          \      }\n\n    @staticmethod\n    def get_avg(data_json) -> dict:\n   \
+          \     results = data_json[\"data\"][\"result\"]\n\n        stats = {}\n\n\
+          \        for entry in results:\n            tid = entry[\"metric\"][\"tid\"\
+          ]\n            values = [float(value[1]) for value in entry[\"values\"]]\n\
+          \n            stats[tid] = {\n                \"avg\": sum(values) / len(values),\n\
+          \            }\n\n        return stats\n\n    @staticmethod\n    def extract_values(thread_data:\
+          \ dict):\n        return [float(item[1]) for item in thread_data[\"values\"\
+          ]]\n\n    @staticmethod\n    def extract_rtt_values(rtt_data):\n       \
+          \ chart_data = rtt_data[\"chart\"][\"chartData\"]\n        return list(chart_data.values())\n\
+          \n    @staticmethod\n    def net_rtt_trend_analysis(current_metrics: dict,\
+          \ pid: str) -> dict:\n        rtt_threshold = 0.05\n        majority_point_threshold\
+          \ = 0.5\n\n        num_rtt_sets = len(current_metrics[\"result\"][\"timeseries\"\
+          ])\n        anomalous_rtt_sets = 0\n        rtt_details = {}\n\n       \
+          \ for item in current_metrics[\"result\"][\"timeseries\"] or []:\n     \
+          \       if item[\"labels\"][\"pid\"] != pid:\n                continue\n\
+          \            legend = item[\"legend\"]\n            points = Utils.extract_rtt_values(item)\n\
+          \            num_points = len(points)\n\n            # 统计高于阈值的点数\n     \
+          \       exceed_count = sum(1 for p in points if p > rtt_threshold)\n   \
+          \         exceed_ratio = exceed_count / num_points  # 超过阈值的比例\n\n      \
+          \      # 判断是否“大多数情况”异常\n            is_anomaly = exceed_ratio >= majority_point_threshold\n\
+          \            if is_anomaly:\n                anomalous_rtt_sets += 1\n\n\
+          \            rtt_details[legend] = {\n                \"points\": points,\n\
+          \                \"exceed_count\": exceed_count,\n                \"exceed_ratio\"\
+          : exceed_ratio,\n                \"is_anomaly\": is_anomaly,\n         \
+          \   }\n\n        # 判断大部分RTT数据集是否异常\n        anomaly_ratio = anomalous_rtt_sets\
+          \ / num_rtt_sets if num_rtt_sets > 0 else 0\n        is_majority_anomalous\
+          \ = False\n        if anomalous_rtt_sets != 0:\n            is_majority_anomalous\
+          \ = True\n\n        result = {\n            \"total\": num_rtt_sets,\n \
+          \           \"anomalous\": anomalous_rtt_sets,\n            \"anomaly_ratio\"\
+          : anomaly_ratio,\n            \"details\": rtt_details,\n        }\n   \
+          \     return {\"abnormal\": is_majority_anomalous, \"result\": result}\n\
+          \n    @staticmethod\n    def thread_polaris_trend_analysis(current_metrics:\
+          \ dict, avg_metrics: dict) -> dict:\n        exceed_threshold = 20\n   \
+          \     majority_point_threshold = 0.5\n        majority_thread_threshold\
+          \ = 0.4\n\n        thread_details = {}\n        anomalous_threads = 0\n\
+          \        num_threads = len(current_metrics[\"data\"][\"result\"])\n\n  \
+          \      for item in current_metrics[\"data\"][\"result\"] or []:\n      \
+          \      tid = item[\"metric\"][\"tid\"]\n            points = Utils.extract_values(item)\n\
+          \            num_points = len(points)\n            avg = avg_metrics.get(tid,\
+          \ {}).get(\"avg\", 0)\n            if avg != 0:\n                percent_changes\
+          \ = [(p - avg) / avg * 100 for p in points]\n            else:\n       \
+          \         percent_changes = [float(\"inf\") for _ in range(num_points)]\n\
+          \n            exceed_count = sum(1 for pc in percent_changes if pc > exceed_threshold)\n\
+          \            exceed_ratio = exceed_count / num_points\n\n            is_anomaly_increase\
+          \ = exceed_ratio >= majority_point_threshold\n            if avg == 0:\n\
+          \                is_anomaly_increase = False\n            if is_anomaly_increase:\n\
+          \                anomalous_threads += 1\n\n            thread_details[tid]\
+          \ = {\n                \"points\": points,\n                \"historical_avg\"\
+          : avg,\n                \"exceed_count\": exceed_count,\n              \
+          \  \"exceed_ratio\": exceed_ratio,\n                \"percent_changes\"\
+          : percent_changes,\n                \"is_anomaly\": is_anomaly_increase,\n\
+          \            }\n        \n        if num_threads == 0:\n            anomaly_ratio\
+          \ = 0\n        else:\n            anomaly_ratio = anomalous_threads / num_threads\n\
+          \n        is_majority_anomalous = anomaly_ratio >= majority_thread_threshold\n\
+          \n        result = {\n            \"total\": num_threads,\n            \"\
+          anomalous\": anomalous_threads,\n            \"anomaly_ratio\": anomaly_ratio,\n\
+          \            \"details\": thread_details,\n        }\n\n        return {\n\
+          \            \"abnormal\": is_majority_anomalous,\n            \"result\"\
+          : result,\n        }\n\n    @staticmethod\n    def display_polaris_trend_analysis(analysis_dit:\
+          \ dict, type: str) -> str:\n        is_majority_anomalous = analysis_dit.get(\"\
+          abnormal\", False)\n        result = analysis_dit.get(\"result\", {})\n\
+          \        output = []\n        output.append(f\"\\nAnalysis of abnormal increase\
+          \ in {type} thread time consumption:\")\n        output.append(f\"Most threads\
+          \ have abnormally high counts: {is_majority_anomalous}\")\n        output.append(\n\
+          \            f\"Abnormal thread ratio: {result['anomaly_ratio']:.2%} ({result['anomalous']}/{result['total']})\"\
+          \n        )\n        if not is_majority_anomalous:\n            return \"\
+          \\n\".join(output)\n        for thread_id, details in result[\"details\"\
+          ].items():\n            if details[\"historical_avg\"] == 0:\n         \
+          \       continue\n            output.append(\n                f\"{thread_id}:\
+          \ history_avg={details.get('historical_avg', 0):.2f}, \"\n             \
+          \   f\"Points exceeding the historical average by 20%={details['exceed_count']}/{len(details['points'])}\
+          \ ({details['exceed_ratio']:.2%}), \"\n                f\"is abnormal ={details['is_anomaly']}\"\
+          \n            )\n\n        return \"\\n\".join(output)\n\n    @staticmethod\n\
+          \    def display_rtt_trend_analysis(analysis_dit: dict, type: str) -> str:\n\
+          \        is_majority_anomalous = analysis_dit.get(\"abnormal\", False)\n\
+          \        result = analysis_dit.get(\"result\", {})\n        output = []\n\
+          \        output.append(f\"\\n{type} analysis\")\n        output.append(f\"\
+          Is there an abnormal network RTT? {is_majority_anomalous}\")\n        if\
+          \ not is_majority_anomalous:\n            output.append(\"All external network\
+          \ RTTs are within normal range (less than 50ms)\")\n            return \"\
+          \\n\".join(output)\n        for thread_id, details in result[\"details\"\
+          ].items():\n            output.append(\n                f\"{thread_id}:\
+          \ RTT threshold=50ms, \"\n                f\"exceeding threshold={details['exceed_count']}/{len(details['points'])}\
+          \ ({details['exceed_ratio']:.2%}), \"\n                f\"is abnormal={details['is_anomaly']}\"\
+          \n            )\n\n        return \"\\n\".join(output)\n\n\ndef get_pod_info(arg:\
+          \ dict) -> list:\n    timeseries = arg[\"result\"][\"timeseries\"]\n\n \
+          \   seen = set()\n    pod_info = []\n\n    for item in timeseries:\n   \
+          \     labels = item[\"labels\"]\n        namespace = labels.get(\"namespace\"\
+          , \"\")\n        pod = labels.get(\"pod\", \"\")\n        pid = labels.get(\"\
+          pid\", \"\")\n\n        if pid == \"1\" or pod == \"\":\n            continue\n\
+          \        unique_key = (namespace, pod, pid)\n\n        if unique_key not\
+          \ in seen:\n            seen.add(unique_key)\n            info = {\"namespace\"\
+          : namespace, \"pod\": pod, \"pid\": pid}\n            pod_info.append(info)\n\
+          \    return pod_info\n\n\ndef get_service_instances(start: int, end: int,\
+          \ service: str):\n    params = {\n        \"metricName\": \"Originx 北极星指标\
+          \ (服务层级) - 北极星指标 - 列出指定服务的所有实例\",\n        \"params\": {\n            \"\
+          service_name\": service,\n        },\n        \"startTime\": start,\n  \
+          \      \"endTime\": end,\n        \"step\": Utils.get_step(start, end).get(\"\
+          step\"),\n    }\n    resp = requests.post(f\"{APO_URL}/api/metric/query\"\
+          , json=params)\n    return get_pod_info(resp.json())\n\n\ndef get_pod_rtt(start:\
+          \ int, end: int, namespace: str, pod: str):\n    params = {\n        \"\
+          metricName\": \"基础设施情况 - 容器网络 - 与下游服务RTT\",\n        \"params\": {\"pod\"\
+          : pod, \"namespace\": namespace},\n        \"startTime\": start,\n     \
+          \   \"endTime\": end,\n        \"step\": Utils.get_step(start, end).get(\"\
+          step\"),\n    }\n    resp = requests.post(f\"{APO_URL}/api/metric/query\"\
+          , json=params)\n    return resp.json()\n\n\ndef get_thread_metrics(start:\
+          \ int, end: int, namespace: str, pod: str, type: str):\n    query = (\n\
+          \        'increase(originx_thread_polaris_nanoseconds_sum{pod=\"'\n    \
+          \    + pod\n        + '\", type=\"'\n        + type\n        + '\"}[1m])'\n\
+          \    )\n\n    res = requests.get(\n        APO_VM + \"/prometheus/api/v1/query_range\"\
+          ,\n        params={\n            \"query\": query,\n            \"start\"\
+          : start / 1000,\n            \"end\": end / 1000,\n            \"step\"\
+          : Utils.get_step(start, end).get(\"stepStr\"),\n        },\n    )\n    return\
+          \ res.json()\n\n\ndef polaris_trend_analysis(\n    start: int, end: int,\
+          \ namespace: str, pod: str, type: str\n) -> dict:\n    hour = 3600 * 1000000\n\
+          \    current = get_thread_metrics(\n        start,\n        end,\n     \
+          \   namespace,\n        pod,\n        type,\n    )\n    avg = Utils.get_avg(\n\
+          \        get_thread_metrics(\n            start - hour,\n            start,\n\
+          \            namespace,\n            pod,\n            type,\n        )\n\
+          \    )\n    result = Utils.thread_polaris_trend_analysis(current, avg)\n\
+          \    check = result.get(\"abnormal\", False)\n    conclusion = Utils.display_polaris_trend_analysis(result,\
+          \ type)\n    return {\n        \"abnormal\": check,\n        \"conclusion\"\
+          : conclusion,\n    }\n\n\ndef net_rtt_trend_analysis(\n    start: int, end:\
+          \ int, namespace: str, pod: str, pid: str\n) -> dict:\n    rtt = get_pod_rtt(\n\
+          \        start,\n        end,\n        namespace,\n        pod,\n    )\n\
+          \    res = Utils.net_rtt_trend_analysis(rtt, pid)\n    check = res.get(\"\
+          abnormal\", False)\n    conclusion = Utils.display_rtt_trend_analysis(res,\
+          \ \"rtt\")\n    return {\n        \"abnormal\": check,\n        \"conclusion\"\
+          : conclusion,\n    }\n\n\ndef check_dependency(start: int, end: int, namespace:\
+          \ str, pod: str) -> dict:\n    \"\"\"\n    net, epoll\n    \"\"\"\n    net_check\
+          \ = polaris_trend_analysis(start, end, namespace, pod, \"net\")\n    epoll_check\
+          \ = polaris_trend_analysis(start, end, namespace, pod, \"epoll\")\n    return\
+          \ {\n        \"abnormal\": net_check.get(\"abnormal\", False)\n        or\
+          \ epoll_check.get(\"abnormal\", False),\n        \"conclusion\": net_check.get(\"\
+          conclusion\", \"\")\n        + epoll_check.get(\"conclusion\", \"\"),\n\
+          \    }\n\n\ndef check_self_infra(start: int, end: int, namespace: str, pod:\
+          \ str, pid: str):\n    \"\"\"\n    cpu, runq, rtt\n    \"\"\"\n    cpu_check\
+          \ = polaris_trend_analysis(start, end, namespace, pod, \"cpu\")\n    runq_check\
+          \ = polaris_trend_analysis(start, end, namespace, pod, \"runq\")\n    rtt_check\
+          \ = net_rtt_trend_analysis(start, end, namespace, pod, pid)\n    return\
+          \ {\n        \"abnormal\": cpu_check.get(\"abnormal\", False)\n        or\
+          \ runq_check.get(\"abnormal\", False)\n        or rtt_check.get(\"abnormal\"\
+          , False),\n        \"conclusion\": cpu_check.get(\"conclusion\", \"\")\n\
+          \        + runq_check.get(\"conclusion\", \"\")\n        + rtt_check.get(\"\
+          conclusion\", \"\"),\n    }\n\n\ndef analyze_instance(start: int, end: int,\
+          \ namespace: str, pod: str, pid: str) -> dict:\n    dep_check = check_dependency(\n\
+          \        start,\n        end,\n        namespace,\n        pod,\n    )\n\
+          \    output = \"\"\n    check = True\n    if not dep_check.get(\"abnormal\"\
+          , False):\n        output += \"\\nConclusion: The time taken for external\
+          \ calls is normal, it is a problem of the system itself and cannot be ignored\"\
+          \n        return {\n        \"abnormal\": False,\n        \"conclusion\"\
+          : dep_check.get(\"conclusion\", \"\")\n        + output,\n        }\n\n\
+          \    infra_check = check_self_infra(\n        start,\n        end,\n   \
+          \     namespace,\n        pod,\n        pid,\n    )\n    check \n    if\
+          \ infra_check.get(\"abnormal\", False):\n        output += \"\\nConclusion:\
+          \ The external call takes an abnormal amount of time, and the application\
+          \ itself takes an abnormal amount of time, so the alarm cannot be ignored.\"\
+          \n        check = False\n    else:\n        output += \"\\nConclusion: The\
+          \ external call takes an abnormal amount of time, but the application itself\
+          \ is normal, so you can ignore this alarm.\"\n        check = True\n\n \
+          \   return {\n        \"abnormal\": check,\n        \"conclusion\": dep_check.get(\"\
+          conclusion\", \"\")\n        + infra_check.get(\"conclusion\", \"\")\n \
+          \       + output,\n    }\n\n\n\n\n\ndef main(service: str, start: int, end:\
+          \ int) -> dict:\n    items = get_service_instances(\n        start, end,\
+          \ service\n    )\n\n    vaild = \"true\"\n\n    output = []\n    for item\
+          \ in items:\n        res = analyze_instance(\n            start,\n     \
+          \       end,\n            item[\"namespace\"],\n            item[\"pod\"\
+          ],\n            item[\"pid\"],\n        )\n        con = res.get(\"conclusion\"\
+          , \"\")\n        if res.get(\"abnormal\", False) is False:\n           \
+          \ vaild = \"false\"\n        pod = item['pod']\n        output.append(f'\\\
+          n{pod}{con}')\n    \n    return {\n        \"abnormal\": str(vaild),\n \
+          \       \"conclusion\": \"\\n\".join(output),\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          abnormal:
+            children: null
+            type: string
+          conclusion:
+            children: null
+            type: string
+        selected: false
+        title: self or downstream
+        type: code
+        variables:
+        - value_selector:
+          - '1742806924635'
+          - service
+          variable: service
+        - value_selector:
+          - '1741157526222'
+          - startTime
+          variable: start
+        - value_selector:
+          - '1741157526222'
+          - endTime
+          variable: end
+      height: 54
+      id: '1744339618961'
+      position:
+        x: 2462
+        y: 2088
+      positionAbsolute:
+        x: 2462
+        y: 2088
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1744339618961'
+          - abnormal
+          variable: text
+        - value_selector:
+          - '1744627472534'
+          - output
+          variable: output
+        selected: false
+        title: end
+        type: end
+      height: 116
+      id: '1744343454355'
+      position:
+        x: 3070
+        y: 2049
+      positionAbsolute:
+        x: 3070
+        y: 2049
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "from datetime import datetime\nimport requests\n\nAPO_URL = \"http://apo-backend-svc:8080\"\
+          \n\nAPO_VM = \"http://apo-victoria-metrics-single-server-svc:8428\"\n\n\
+          class Utils:\n    @staticmethod\n    def get_step(start_time: int, end_time:\
+          \ int) -> dict:\n        time_diff = end_time - start_time\n\n        SECOND\
+          \ = 1000000  # microseconds\n        MINUTE = 60 * SECOND\n        HOUR\
+          \ = 60 * MINUTE\n\n        step = SECOND  # default step is 1 second\n \
+          \       stepStr = \"1s\"\n        if time_diff <= 15 * MINUTE:\n       \
+          \     step = 30 * SECOND\n            stepStr = \"30s\"\n        elif time_diff\
+          \ <= 30 * MINUTE:\n            step = 1 * MINUTE\n            stepStr =\
+          \ \"1m\"\n        elif time_diff <= 1 * HOUR:\n            step = 2 * MINUTE\n\
+          \            stepStr = \"2m\"\n        elif time_diff <= 1.5 * HOUR:\n \
+          \           step = 3 * MINUTE\n            stepStr = \"3m\"\n        elif\
+          \ time_diff <= 3 * HOUR:\n            step = 6 * MINUTE\n            stepStr\
+          \ = \"6m\"\n        elif time_diff <= 6 * HOUR:\n            step = 12 *\
+          \ MINUTE\n            stepStr = \"12m\"\n        elif time_diff <= 12 *\
+          \ HOUR:\n            step = 24 * MINUTE\n            stepStr = \"24m\"\n\
+          \        elif time_diff <= 15 * HOUR:\n            step = 30 * MINUTE\n\
+          \            stepStr = \"30m\"\n        elif time_diff <= 30 * HOUR:\n \
+          \           step = 1 * HOUR\n            stepStr = \"1h\"\n        else:\n\
+          \            step = ((time_diff + 30 * SECOND - 1) // (30 * SECOND)) * SECOND\n\
+          \            custom = (time_diff + 30 * SECOND - 1) // (30 * SECOND)\n \
+          \           stepStr = f\"{custom}s\"\n\n        return {\n            \"\
+          step\": step,\n            \"stepStr\": stepStr,\n        }\n\n\ndef get_service_latency(start:\
+          \ int, end: int, service: str, endpoint: str):\n    params = {\n       \
+          \ \"metricName\": \"Originx 北极星指标 (服务层级) - RED指标 - 平均响应时间\",\n        \"\
+          params\": {\"service_name\": service, \"content_key\": endpoint},\n    \
+          \    \"startTime\": start,\n        \"endTime\": end,\n        \"step\"\
+          : Utils.get_step(start, end).get(\"step\"),\n    }\n    resp = requests.post(f\"\
+          {APO_URL}/api/metric/query\", json=params)\n    return resp.json()\n\ndef\
+          \ timestamp_to_readable(ts):\n    return datetime.fromtimestamp(int(ts)\
+          \ / 1000000).strftime('%Y-%m-%d %H:%M:%S')\n\ndef analyze_trend(data, time_window=15*60):\n\
+          \    points = []\n    for ts in data['result']['timeseries']:\n        for\
+          \ timestamp, value in ts['chart']['chartData'].items():\n            points.append((int(timestamp),\
+          \ float(value)))\n    \n    if not points:\n        return \"No data available.\"\
+          \n    \n    points.sort()\n    trend = []\n    current_group = []\n    prev_value\
+          \ = points[0][1]\n    \n    for ts, value in points:\n        if not current_group:\n\
+          \            current_group.append((ts, value))\n        elif abs(value -\
+          \ prev_value) < 0.01 or (value == 0 and prev_value == 0):\n            current_group.append((ts,\
+          \ value))\n        else:\n            trend.append(current_group)\n    \
+          \        current_group = [(ts, value)]\n        prev_value = value\n   \
+          \ \n    if current_group:\n        trend.append(current_group)\n    \n \
+          \   # 生成趋势描述\n    description = []\n    for group in trend:\n        start_ts,\
+          \ start_val = group[0]\n        end_ts, end_val = group[-1]\n        avg_val\
+          \ = sum(v for _, v in group) / len(group)\n        \n        if avg_val\
+          \ == 0:\n            description.append(\n                f\"{len(group)}\
+          \ data count ({timestamp_to_readable(start_ts)} - \"\n                f\"\
+          {timestamp_to_readable(end_ts)}) value is 0，normal\"\n            )\n  \
+          \      elif avg_val < 0.01:\n            description.append(\n         \
+          \       f\"{timestamp_to_readable(start_ts)}Slight fluctuations({avg_val:.6f})\"\
+          \n            )\n        elif avg_val > 0.1:\n            description.append(f\"\
+          The peak is{timestamp_to_readable(start_ts)} - \"\n                    \
+          \         f\"{timestamp_to_readable(end_ts)}：\")\n            for ts, val\
+          \ in group:\n                description.append(f\"  {timestamp_to_readable(ts)}:\
+          \ {val:.3f}\")\n        else:\n            description.append(\n       \
+          \         f\"{timestamp_to_readable(start_ts)} value is{avg_val:.6f}\"\n\
+          \            )\n    \n    return description\n\ndef analyze_history(data):\n\
+          \    values = []\n    for ts in data['result']['timeseries']:\n        for\
+          \ _, value in ts['chart']['chartData'].items():\n            values.append(float(value))\n\
+          \    \n    if not values:\n        return \"No historical data available.\"\
+          \n    \n    # 统计范围和峰值\n    min_val = min(values)\n    max_val = max(values)\n\
+          \    avg_val = sum(values) / len(values)\n    high_values = sorted([v for\
+          \ v in values if v > avg_val * 2], reverse=True)\n    \n    description\
+          \ = [\n        \"Historical data shows that this indicator usually remains\
+          \ at a very low level:\",\n        f\"most value in {avg_val:.6f} - {avg_val\
+          \ * 1.2:.6f}\",\n        f\"sometimes high value({', '.join(f'{v:.3f}' for\
+          \ v in high_values[:2])})\"\n    ]\n    \n    return description, avg_val\n\
+          \ndef analyze_latency(past_24h, recent_15m):\n    # 分析15分钟趋势\n    trend_desc\
+          \ = analyze_trend(recent_15m)\n    \n    # 分析历史数据\n    history_desc, history_max\
+          \ = analyze_history(past_24h)\n    \n    # 获取15分钟内的最大值和最后几个点\n    recent_values\
+          \ = []\n    for ts in recent_15m['result']['timeseries']:\n        for timestamp,\
+          \ value in ts['chart']['chartData'].items():\n            recent_values.append((int(timestamp),\
+          \ float(value)))\n    \n    recent_values.sort()\n    recent_max = max(v\
+          \ for _, v in recent_values) if recent_values else 0\n    last_few = [v\
+          \ for _, v in recent_values[-3:]] if len(recent_values) >= 3 else [v for\
+          \ _, v in recent_values]\n    \n    vaild = \"true\"\n    alert_desc = []\n\
+          \    if recent_max > history_max * 2:\n        alert_desc.append(\n    \
+          \        f\"The peak of {recent_max:.3f} within the last 15 minutes is significantly\
+          \ higher than the historical average({history_max:.3f})\"\n        )\n \
+          \       peak_duration = sum(1 for _, v in recent_values if v > history_max\
+          \ * 2) * 0.5 \n        alert_desc.append(f\"Although the metric showed a\
+          \ peak significantly above historical levels for a short period (about{peak_duration}\
+          \ minutes)\")\n        alert_desc.append(f\"The peak duration was very short\
+          \ (about {peak_duration} minutes)\")\n        \n        if all(v < 0.01\
+          \ for v in last_few):\n            alert_desc.append(\"The metric quickly\
+          \ returned to normal levels (near 0)\")\n            alert_desc.append(\"\
+          The metric has returned to normal at the current moment\")\n           \
+          \ alert_conclusion = \"Alert invalid\"\n        else:\n            alert_desc.append(\"\
+          The metric has not fully returned to normal\")\n            alert_conclusion\
+          \ = \"Alert valid\"\n            vaild = \"false\"\n    else:\n        alert_desc.append(\"\
+          No significant abnormal peak within the last 15 minutes\")\n        alert_conclusion\
+          \ = \"Alert invalid\"\n    \n    # 组合报告\n    report = [\n        \"MetricsData\
+          \ Trend:\",\n        \"15 minutes data trend analysis：\"\n    ] + [f\" \
+          \ {line}\" for line in trend_desc] + [\n        \"history data analysis：\"\
+          \n    ] + [f\"  {line}\" for line in history_desc] + [\n        \"alert\
+          \ validity analysis：\"\n    ] + [f\"  {line}\" for line in alert_desc] +\
+          \ [\n        f\"conclusion：{alert_conclusion}\"\n    ]\n    \n    return\
+          \ {\n        \"abnormal\": str(vaild),\n        \"conclusion\": \"\\n\"\
+          .join(report)+\"\\n\",\n    }\n\ndef main(service: str, endpoint: str, start:\
+          \ int, end: int) -> dict:\n    current = get_service_latency(start, end,\
+          \ service, endpoint)\n\n    hour = 3600 * 1000000\n    history = get_service_latency(\n\
+          \        start - hour,\n        start,\n        service,\n        endpoint,\n\
+          \    )\n    res = analyze_latency(history, current)\n    return res"
+        code_language: python3
+        desc: ''
+        outputs:
+          abnormal:
+            children: null
+            type: string
+          conclusion:
+            children: null
+            type: string
+        selected: false
+        title: check abnormal
+        type: code
+        variables:
+        - value_selector:
+          - '1742806924635'
+          - service
+          variable: service
+        - value_selector:
+          - '1742806924635'
+          - endpoint
+          variable: endpoint
+        - value_selector:
+          - '1741157526222'
+          - startTime
+          variable: start
+        - value_selector:
+          - '1741157526222'
+          - endTime
+          variable: end
+      height: 54
+      id: '1744599772545'
+      position:
+        x: 1854
+        y: 2031
+      positionAbsolute:
+        x: 1854
+        y: 2031
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 386bdf86-7414-490d-9106-cd665b9bf6da
+            value: 'false'
+            varType: string
+            variable_selector:
+            - '1744599772545'
+            - abnormal
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: check
+        type: if-else
+      height: 126
+      id: '1744599891369'
+      position:
+        x: 2158
+        y: 2067
+      positionAbsolute:
+        x: 2158
+        y: 2067
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1744599772545'
+          - abnormal
+          variable: text
+        - value_selector:
+          - '1744599772545'
+          - conclusion
+          variable: output
+        selected: false
+        title: End
+        type: end
+      height: 116
+      id: '1744599930141'
+      position:
+        x: 2462
+        y: 2182
+      positionAbsolute:
+        x: 2462
+        y: 2182
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: summary
+        type: variable-aggregator
+        variables:
+        - - '1744599772545'
+          - conclusion
+        - - '1744339618961'
+          - conclusion
+      height: 130
+      id: '1744627472534'
+      position:
+        x: 2766
+        y: 1993
+      positionAbsolute:
+        x: 2766
+        y: 1993
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\nfrom collections import defaultdict\n\nclass Utils:\n\
+          \    @staticmethod\n    def get_step(start_time: int, end_time: int) ->\
+          \ dict:\n        time_diff = end_time - start_time\n\n        SECOND = 1000000\
+          \  # microseconds\n        MINUTE = 60 * SECOND\n        HOUR = 60 * MINUTE\n\
+          \n        step = SECOND  # default step is 1 second\n        stepStr = \"\
+          1s\"\n        if time_diff <= 15 * MINUTE:\n            step = 30 * SECOND\n\
+          \            stepStr = \"30s\"\n        elif time_diff <= 30 * MINUTE:\n\
+          \            step = 1 * MINUTE\n            stepStr = \"1m\"\n        elif\
+          \ time_diff <= 1 * HOUR:\n            step = 2 * MINUTE\n            stepStr\
+          \ = \"2m\"\n        elif time_diff <= 1.5 * HOUR:\n            step = 3\
+          \ * MINUTE\n            stepStr = \"3m\"\n        elif time_diff <= 3 *\
+          \ HOUR:\n            step = 6 * MINUTE\n            stepStr = \"6m\"\n \
+          \       elif time_diff <= 6 * HOUR:\n            step = 12 * MINUTE\n  \
+          \          stepStr = \"12m\"\n        elif time_diff <= 12 * HOUR:\n   \
+          \         step = 24 * MINUTE\n            stepStr = \"24m\"\n        elif\
+          \ time_diff <= 15 * HOUR:\n            step = 30 * MINUTE\n            stepStr\
+          \ = \"30m\"\n        elif time_diff <= 30 * HOUR:\n            step = 1\
+          \ * HOUR\n            stepStr = \"1h\"\n        else:\n            step\
+          \ = ((time_diff + 30 * SECOND - 1) // (30 * SECOND)) * SECOND\n        \
+          \    custom = (time_diff + 30 * SECOND - 1) // (30 * SECOND)\n         \
+          \   stepStr = f\"{custom}s\"\n\n        return {\n            \"step\":\
+          \ step,\n            \"stepStr\": stepStr,\n        }\n\ndef analyze_rtt_alert(data_json,\
+          \ threshold_ms=200, historical_range_ms=(0.4, 2.0)):\n    # Parse JSON data\n\
+          \    data = json.loads(data_json)\n    metrics = data['data']['timeseries']\n\
+          \    \n    # Initialize analysis output\n    # Initialize analysis output\n\
+          \    analysis = [\"MetricsData Trend Analysis\", \"From the provided MetricsData,\
+          \ I primarily focus on the change trend of the network Round-Trip Time (RTT)\
+          \ metric. Here are the key observations:\"]\n    alert_validity = [\"Alert\
+          \ Validity Confirmation\", f'Alert description \"Network RTT latency exceeds\
+          \ {threshold_ms}ms\":']\n    is_alert_valid = False\n    \n    # Group metrics\
+          \ by legend\n    grouped_metrics = defaultdict(list)\n    for metric in\
+          \ metrics:\n        legend = metric['legend']\n        grouped_metrics[legend].append(metric['chart']['chartData'])\n\
+          \    \n    # Process each unique legend\n    print(f\"Unique Legends: {len(grouped_metrics)}\"\
+          )\n    for legend, charts in grouped_metrics.items():\n        # Aggregate\
+          \ all chart data for this legend\n        all_timestamps = []\n        all_rtt_values_ms\
+          \ = []\n        for chart_data in charts:\n            timestamps = list(chart_data.keys())\n\
+          \            rtt_values_ms = [value * 1000 for value in chart_data.values()]\n\
+          \            all_timestamps.extend(timestamps)\n            all_rtt_values_ms.extend(rtt_values_ms)\n\
+          \        \n        # Pair timestamps with RTT values and sort by timestamp\
+          \ to maintain chronological order\n        paired_data = sorted(zip(all_timestamps,\
+          \ all_rtt_values_ms), key=lambda x: x[0])\n        timestamps, rtt_values_ms\
+          \ = zip(*paired_data) if paired_data else ([], [])\n        timestamps =\
+          \ list(timestamps)\n        rtt_values_ms = list(rtt_values_ms)\n      \
+          \  \n        # Skip if no data\n        if not rtt_values_ms:\n        \
+          \    continue\n        \n        # Calculate min, max, and mean RTT\n  \
+          \      min_rtt = min(rtt_values_ms)\n        max_rtt = max(rtt_values_ms)\n\
+          \        \n        # Detect anomalies (values exceeding threshold)\n   \
+          \     anomalies = [(ts, rtt) for ts, rtt in zip(timestamps, rtt_values_ms)\
+          \ if rtt > threshold_ms]\n        \n        # Analyze trends\n        analysis.append(f\"\
+          \\n{legend}:\")\n        analysis.append(f\"过去15分钟内RTT值在{min_rtt:.2f}ms到{max_rtt:.2f}ms之间波动\"\
+          )\n        \n        # Check if values are consistently high or trending\
+          \ upward\n        analysis.append(f\"Over the past 15 minutes, RTT values\
+          \ fluctuated between {min_rtt:.2f}ms and {max_rtt:.2f}ms\")\n\n        #\
+          \ Check if values are consistently high or trending upward\n        if len(rtt_values_ms)\
+          \ > 1:\n            trend = \"stable\"\n            if all(rtt_values_ms[i]\
+          \ <= rtt_values_ms[i+1] for i in range(len(rtt_values_ms)-1)):\n       \
+          \         trend = \"rising\"\n            elif all(rtt_values_ms[i] >= rtt_values_ms[i+1]\
+          \ for i in range(len(rtt_values_ms)-1)):\n                trend = \"falling\"\
+          \n            analysis.append(f\"Overall trend is {trend}, {'no sustained\
+          \ high values' if trend != 'rising' else 'continuously rising'}\")\n   \
+          \     \n        # Handle anomalies\n        if anomalies:\n            for\
+          \ ts, rtt in anomalies:\n                analysis.append(f\"At timestamp\
+          \ {ts}, an abnormal peak reached {rtt:.2f}ms\")\n                # Check\
+          \ if anomaly is transient\n                idx = timestamps.index(ts)\n\
+          \                if idx < len(timestamps) - 1:\n                    next_rtt\
+          \ = rtt_values_ms[idx + 1]\n                    analysis.append(f\"But subsequently\
+          \ recovered to {next_rtt:.2f}ms\")\n        \n        # # Compare with historical\
+          \ data\n        # historical_min, historical_max = historical_range_ms\n\
+          \        # analysis.append(f\"与历史数据对比（通常在{historical_min}ms到{historical_max}ms之间）：\"\
+          )\n        # if min_rtt >= historical_min and max_rtt <= historical_max:\n\
+          \        #     analysis.append(\"当前数据与历史水平相当\")\n        # elif max_rtt\
+          \ > historical_max:\n        #     analysis.append(\"当前数据存在高于历史水平的波动\")\n\
+          \        \n        # Alert validity check\n        if max_rtt > threshold_ms:\n\
+          \            alert_validity.append(f\"\\nFor the connection of {legend}:\"\
+          )\n            alert_validity.append(f\"A peak value reached {max_rtt:.2f}ms,\
+          \ exceeding the threshold of {threshold_ms}ms\")\n            if len(anomalies)\
+          \ == 1 and anomalies[0][1] > threshold_ms:\n                alert_validity.append(\"\
+          But the anomaly was a transient fluctuation and subsequently returned to\
+          \ normal\")\n            else:\n                alert_validity.append(\"\
+          The anomaly persisted for a longer duration\")\n                is_alert_valid\
+          \ = True\n        else:\n            alert_validity.append(f\"\\nFor the\
+          \ connection of {legend}:\")\n            alert_validity.append(f\"RTT values\
+          \ were all below the threshold of {threshold_ms}ms\")\n    \n    # Final\
+          \ conclusion\n    alert_validity.append(\"\\nBased on the analysis rules:\"\
+          )\n    alert_validity.append(\"The metric did not continuously rise or remain\
+          \ at a high level\")\n    alert_validity.append(\"The anomaly was a transient\
+          \ fluctuation and subsequently returned to normal\")\n    alert_validity.append(\"\
+          Compared to historical data, there was no overall increase except for a\
+          \ single anomaly\")\n    alert_validity.append(f\"\\nConclusion\\n{'Alert\
+          \ valid' if is_alert_valid else 'Alert invalid'}\")\n    \n    # Combine\
+          \ and return output\n    vaild = \"true\"\n    if is_alert_valid:\n    \
+          \    vaild = \"false\"\n    return {\n        \"valid\": vaild,\n      \
+          \  \"result\": \"\\n\".join(analysis + alert_validity)\n    }\n\ndef main(arg1:\
+          \ str) -> dict:\n    return analyze_rtt_alert(arg1)"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+          valid:
+            children: null
+            type: string
+        selected: false
+        title: check rtt
+        type: code
+        variables:
+        - value_selector:
+          - '1741328197695'
+          - text
+          variable: arg1
+      height: 54
+      id: '1745839209493'
+      position:
+        x: 1854
+        y: 2192
+      positionAbsolute:
+        x: 1854
+        y: 2192
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1745839209493'
+          - result
+          variable: output
+        - value_selector:
+          - '1745839209493'
+          - valid
+          variable: text
+        selected: false
+        title: End
+        type: end
+      height: 116
+      id: '1745839212105'
+      position:
+        x: 2158
+        y: 2233
+      positionAbsolute:
+        x: 2158
+        y: 2233
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: Unknown alarm, the alarm is valid
+        title: Template 2
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1745995193051'
+      position:
+        x: 1246
+        y: 2282.1428571428573
+      positionAbsolute:
+        x: 1246
+        y: 2282.1428571428573
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1745995205047'
+          - output
+          variable: text
+        - value_selector:
+          - '1745995193051'
+          - output
+          variable: history_et
+        selected: false
+        title: End
+        type: end
+      height: 116
+      id: '1745995197210'
+      position:
+        x: 1885.7142857142862
+        y: 2309.285714285714
+      positionAbsolute:
+        x: 1885.7142857142862
+        y: 2309.285714285714
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: 'false'
+        title: result
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1745995205047'
+      position:
+        x: 1582.8571428571431
+        y: 2309.285714285714
+      positionAbsolute:
+        x: 1582.8571428571431
+        y: 2309.285714285714
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -177.69424554330567
-      y: -151.32564818705146
-      zoom: 0.6449586508173727
+      x: -298.55417296791575
+      y: -905.7971871234461
+      zoom: 0.6379986853953059
