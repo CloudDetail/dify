@@ -22,7 +22,7 @@ class HostCPUIoWaitRespTool(BuiltinTool):
         start_time = tool_parameters.get("startTime")
         end_time = tool_parameters.get("endTime")
         job = tool_parameters.get('job')
-        if len(job) == 0:
+        if not job:
             job = '.*'
         params = {
           'metricName': '宿主机监控指标 - Storage Filesystem - File Descriptor - Open files',
