@@ -34,7 +34,9 @@ class HostCPUIoWaitRespTool(BuiltinTool):
           'endTime': end_time,
           'step': APOUtils.get_step(start_time, end_time),
           }
-        resp = requests.post(dify_config.APO_BACKEND_URL + '/api/metric/query', json=params)
+        resp = requests.post(
+            f'{dify_config.APO_BACKEND_URL}/api/metric/query', json=params
+        )
         resp_data = resp.json()
         list = resp_data["result"]
         list = json.dumps({
