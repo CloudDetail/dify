@@ -68,7 +68,7 @@ class PolarisTimeByPidTool(BuiltinTool):
                 }
             )      
         # timeseries数组 [{"labels": {}, "chart:{"chartData": {"time": value}"}}]
-        list = json.dumps({
+        resp_json = json.dumps({
             'type': 'metric',
             'display': True,
             'unit': 'us',
@@ -76,4 +76,4 @@ class PolarisTimeByPidTool(BuiltinTool):
                 'timeseries': timeseries
             }
         })
-        yield self.create_text_message(list)
+        yield self.create_text_message(resp_json)
