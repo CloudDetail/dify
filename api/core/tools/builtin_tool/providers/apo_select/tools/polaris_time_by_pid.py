@@ -22,7 +22,7 @@ class PolarisTimeByPidTool(BuiltinTool):
         pid = tool_parameters.get('pid', '.*')
         start_time = tool_parameters.get("startTime")
         end_time = tool_parameters.get("endTime")
-        type = tool_parameters.get('type', '.*')
+        resource_type = tool_parameters.get('type', '.*')
         step = APOUtils.get_step(start_time=start_time, end_time=end_time)
         interval = APOUtils.vec_from_duration(step * 1000)
         query = f"""
@@ -30,7 +30,7 @@ class PolarisTimeByPidTool(BuiltinTool):
           sum without (tid) (
             originx_thread_polaris_nanoseconds_sum{{
               container_id!="",
-              type=~"{type}",
+              type=~"{resource_type}",
               pid=~"{pid}"
             }}[{interval}]
           )
@@ -55,7 +55,7 @@ class PolarisTimeByPidTool(BuiltinTool):
                     continue
                 try:
                     value = float(pair[1])
-                    chart_data[pair[0] * 100000] = value
+                    chart_data[pair[0] * 1_000_000] = value
                 except (ValueError, TypeError) as e:
                     continue
             timeseries.append(
