@@ -36,7 +36,7 @@ class APOUtils:
     @staticmethod
     def vec_from_duration(duration_ns: int) -> str:
         one_minute_ns = 60 * 10**9
-        if duration_ns > one_minute_ns:
+        if duration_ns >= one_minute_ns:
             minutes = duration_ns // one_minute_ns
             return f"{minutes}m"
         else:
