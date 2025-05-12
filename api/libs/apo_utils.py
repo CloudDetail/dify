@@ -50,9 +50,7 @@ class APOUtils:
         SECOND = 1000000
         MINUTE = 60 * SECOND
         HOUR = 60 * MINUTE
-
-        step = SECOND
-
+        step = '5m'
         if time_diff <= 15 * MINUTE:
             step = '30s'
         elif time_diff <= 30 * MINUTE:
