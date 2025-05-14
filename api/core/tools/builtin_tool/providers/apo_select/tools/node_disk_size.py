@@ -25,7 +25,7 @@ class NodeDiskRootSizeTool(BuiltinTool):
         step = APOUtils.get_step(start_time=start_time, end_time=end_time)
         interval = APOUtils.vec_from_duration(step * 1000)
         query = f"""
-        node_filesystem_size_bytes{{instance_name="{node}"}}[{interval}]
+        node_filesystem_size_bytes{{instance_name="{node}", mountpoint="/"}}[{interval}]
         """
         resp = requests.get(
             dify_config.APO_VM_URL + "/prometheus/api/v1/query_range",
@@ -52,7 +52,7 @@ class NodeDiskRootSizeTool(BuiltinTool):
             timeseries.append(
                 {
                     "labels": labels,
-                    "legend": f"{labels.get('pid')}",
+                    "legend": f"{labels.get('instance_name')}",
                     "chart": {
                         "chartData": chart_data,
                     }
