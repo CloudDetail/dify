@@ -19,9 +19,8 @@ class ProcessCPUUsageTool(BuiltinTool):
         app_id: Optional[str] = None,
         message_id: Optional[str] = None,
     ) -> Generator[ToolInvokeMessage, None, None]:
-        group_name = tool_parameters.get('groupName', '.*')
-        if not group_name:
-            group_name = '.*'
+        group_name = tool_parameters.get('groupName', '.*') or '.*'
+
         start_time = tool_parameters.get("startTime")
         end_time = tool_parameters.get("endTime")
         instance_name = tool_parameters.get('nodeName', '.*')
