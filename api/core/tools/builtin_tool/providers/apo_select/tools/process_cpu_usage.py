@@ -23,9 +23,8 @@ class ProcessCPUUsageTool(BuiltinTool):
 
         start_time = tool_parameters.get("startTime")
         end_time = tool_parameters.get("endTime")
-        instance_name = tool_parameters.get('nodeName', '.*')
-        if not instance_name:
-            instance_name = ".*"
+        instance_name = tool_parameters.get('nodeName', '.*') or ".*"
+
 
         step = APOUtils.get_step(start_time=start_time, end_time=end_time)
         interval = APOUtils.vec_from_duration(step * 1000)
