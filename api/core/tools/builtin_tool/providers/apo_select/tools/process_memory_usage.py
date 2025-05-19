@@ -23,9 +23,8 @@ class ProcessMemoryUsageTool(BuiltinTool):
 
         start_time = tool_parameters.get("startTime")
         end_time = tool_parameters.get("endTime")
-        instance_name = tool_parameters.get('nodeName', '.*')
-        if not instance_name:
-            instance_name = ".*"
+        instance_name = tool_parameters.get('nodeName', '.*') or ".*"
+
 
         query = f"""
         namedprocess_namegroup_memory_bytes{{groupname=~"{group_name}", instance_name=~"{instance_name}"}} / 
