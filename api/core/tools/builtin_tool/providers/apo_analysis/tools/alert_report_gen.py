@@ -23,8 +23,8 @@ class AlertReportGen(BuiltinTool):
         tags = convert_to_json(tool_parameters.get("tags"), "tags", errormsgs)
         topology = convert_to_json(tool_parameters.get("topology"), "topology", errormsgs)
         rootCauseAnalysis = convert_to_json(tool_parameters.get("rootCauseAnalysis"), "rootCauseAnalysis", errormsgs)
-        suggest = convert_to_json(tool_parameters.get("suggest"), "suggest", errormsgs)
-        evidence = convert_to_json(tool_parameters.get("evidence"), "evidence", errormsgs)
+        suggest = convert_to_json(tool_parameters.get("suggest"), "suggest", errormsgs).get("suggest", {})
+        evidence = convert_to_json(tool_parameters.get("evidence"), "evidence", errormsgs).get("evidence", {})
         json_data = {
             'reportType': reportType,
             'overview': overview,
