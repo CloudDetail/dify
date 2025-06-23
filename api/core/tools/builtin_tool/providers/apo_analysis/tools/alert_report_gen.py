@@ -34,7 +34,7 @@ class AlertReportGen(BuiltinTool):
             'suggest': suggest,
             'evidence': evidence
         }
-        resp = requests.post(dify_config.APO_BACKEND_URL + '/api/service/relation', json=json_data)
+        resp = requests.post(dify_config.APO_BACKEND_URL + '/api/alerts/events/report/add', json=json_data)
         if resp.status_code != 200:
             errormsgs.append(f"Error while creating report, msg: {resp.text}")
         list = json.dumps({
