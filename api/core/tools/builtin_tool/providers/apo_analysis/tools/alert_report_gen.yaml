@@ -55,17 +55,17 @@ parameters:
       pt_BR: overview
     llm_description: overview
     form: llm
-  - name: toplogy
+  - name: topology
     type: string
     label:
-      en_US: toplogy
+      en_US: topology
       zh_Hans: 拓扑数据
-      pt_BR: toplogy
+      pt_BR: topology
     human_description:
-      en_US: toplogy
+      en_US: topology
       zh_Hans: 报告类型
-      pt_BR: toplogy
-    llm_description: toplogy data
+      pt_BR: topology
+    llm_description: topology data
     form: llm
   - name: rootCauseAnalysis
     type: string
