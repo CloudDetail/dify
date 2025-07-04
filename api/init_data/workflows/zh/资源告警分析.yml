@@ -10205,7 +10205,7 @@ workflow:
             value: infra
           rootCauseAnalysis:
             type: mixed
-            value: '{{#1751617706952.text#}}'
+            value: '{{#1751617715636.result#}}'
           suggest:
             type: mixed
             value: '{{#1750990570740.result#}}'
@@ -10809,7 +10809,7 @@ workflow:
             children: null
             type: string
         selected: false
-        title: 根因方向
+        title: 根因方向JSON
         type: code
         variables:
         - value_selector:
@@ -10830,6 +10830,6 @@ workflow:
       type: custom
       width: 244
     viewport:
-      x: -4387.795490058535
-      y: -718.0004622031324
+      x: -4400.795490058535
+      y: -748.0004622031324
       zoom: 0.7257823889922984
