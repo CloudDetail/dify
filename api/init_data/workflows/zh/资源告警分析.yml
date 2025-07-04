@@ -1757,10 +1757,43 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1751602227575-false-1751617706952-target
+      source: '1751602227575'
+      sourceHandle: 'false'
+      target: '1751617706952'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1751617706952-source-1751617715636-target
+      source: '1751617706952'
+      sourceHandle: source
+      target: '1751617715636'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1751617715636-source-1750988315593-target
+      source: '1751617715636'
+      sourceHandle: source
+      target: '1750988315593'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
-        selected: true
+        selected: false
         title: 开始
         type: start
         variables:
@@ -1802,7 +1835,7 @@ workflow:
       positionAbsolute:
         x: 30
         y: 299
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -1838,7 +1871,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1744959389144'
@@ -1849,7 +1882,7 @@ workflow:
         type: question-classifier
         vision:
           enabled: false
-      height: 498
+      height: 492
       id: '1743577315409'
       position:
         x: 2448
@@ -3469,7 +3502,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -3513,7 +3546,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1743673613633'
       position:
         x: 5468
@@ -3632,7 +3665,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1746777077402'
@@ -3643,7 +3676,7 @@ workflow:
         type: question-classifier
         vision:
           enabled: false
-      height: 174
+      height: 168
       id: '1743846657026'
       position:
         x: 3656
@@ -4822,7 +4855,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -4856,7 +4889,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17438483761510'
       position:
         x: 5468
@@ -4909,7 +4942,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -4943,7 +4976,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17438490633890'
       position:
         x: 5468
@@ -5129,7 +5162,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1743849441196'
@@ -5140,7 +5173,7 @@ workflow:
         type: question-classifier
         vision:
           enabled: false
-      height: 174
+      height: 168
       id: '17438494733730'
       position:
         x: 4260
@@ -5332,7 +5365,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -5366,7 +5399,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17438498987710'
       position:
         x: 5468
@@ -5514,7 +5547,7 @@ workflow:
             - endTime
           node:
             type: mixed
-            value: '{{#1744959389144.instanceName#}}'
+            value: '{{#1743576019537.nodeName#}}'
           startTime:
             type: variable
             value:
@@ -6601,8 +6634,8 @@ workflow:
             value: ''
             varType: string
             variable_selector:
-            - '1744959389144'
-            - instanceName
+            - '1743576019537'
+            - nodeName
           id: 'true'
           logical_operator: and
         desc: ''
@@ -6937,7 +6970,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17467775030610'
@@ -6948,7 +6981,7 @@ workflow:
         type: question-classifier
         vision:
           enabled: false
-      height: 174
+      height: 168
       id: '17467775030611'
       position:
         x: 4260
@@ -7353,7 +7386,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -7387,7 +7420,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17467776423972'
       position:
         x: 5468
@@ -7579,7 +7612,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -7613,7 +7646,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17467776423974'
       position:
         x: 5468
@@ -8020,11 +8053,11 @@ workflow:
       height: 126
       id: '1746967296261'
       position:
-        x: 3052
-        y: 905
+        x: 3073.968248490347
+        y: 896.550673657559
       positionAbsolute:
-        x: 3052
-        y: 905
+        x: 3073.968248490347
+        y: 896.550673657559
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9109,7 +9142,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -9143,7 +9176,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17469683697070'
       position:
         x: 5468
@@ -9165,7 +9198,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -9199,7 +9232,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17469686621940'
       position:
         x: 5468
@@ -9348,7 +9381,7 @@ workflow:
             - endTime
           node:
             type: mixed
-            value: '{{#1744959389144.instanceName#}}'
+            value: '{{#1743576019537.nodeName#}}'
           startTime:
             type: variable
             value:
@@ -9358,11 +9391,11 @@ workflow:
       height: 54
       id: '1747274324343'
       position:
-        x: 5166
-        y: 665
+        x: 5201.109522220137
+        y: 639.4658020217188
       positionAbsolute:
-        x: 5166
-        y: 665
+        x: 5201.109522220137
+        y: 639.4658020217188
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9377,7 +9410,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -9405,7 +9438,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17472781853800'
       position:
         x: 5468
@@ -10155,7 +10188,7 @@ workflow:
         provider_id: apo_analysis
         provider_name: apo_analysis
         provider_type: builtin
-        selected: false
+        selected: true
         title: 生成告警分析报告
         tool_configurations: {}
         tool_label: 生成告警分析报告
@@ -10172,7 +10205,7 @@ workflow:
             value: infra
           rootCauseAnalysis:
             type: mixed
-            value: '{}'
+            value: '{{#1751617706952.text#}}'
           suggest:
             type: mixed
             value: '{{#1750990570740.result#}}'
@@ -10191,7 +10224,7 @@ workflow:
       positionAbsolute:
         x: 7284
         y: 1662
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -10300,7 +10333,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: af87b10f-e6a5-41a3-876c-871803048be1
@@ -10319,7 +10352,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750988845336'
       position:
         x: 6680
@@ -10341,7 +10374,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 2fff5ede-e66b-4051-a411-920d1d021f10
@@ -10359,7 +10392,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750988869166'
       position:
         x: 6377
@@ -10381,7 +10414,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 04f72736-b848-4385-819d-5795c4b28ad2
@@ -10401,7 +10434,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750990566608'
       position:
         x: 6680
@@ -10455,7 +10488,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 7b7ab7e9-d22f-41b1-bf50-2db3aacbaf1e
@@ -10472,7 +10505,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750995788076'
       position:
         x: 7890
@@ -10711,7 +10744,92 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 47524d65-b967-4f09-a1f9-f9f375f7c1f8
+          role: system
+          text: 你是一个可观测性领域的智能助手
+        - id: f86d541a-f77c-4b50-9f50-f88ab6a67a8e
+          role: user
+          text: "#目的\n根据应用的日志结论生成日志根因方向的结论\n#结论数据\n{{#1743850218410.output#}}\n# 注意\n\
+            type为故障方向\n1网络异常（net）,磁盘异常（disk）,文件描述符使用（file）, CPU占用（cpu）， 内存使用（memory）\n\
+            每个方向直给一个结论即可，不要出现重复\n主要根因方向必须和major结论保持一致，不要不统一\n2且必须给一个有问题的方向(level为major)\n\
+            3 列表必须按照等级排序level从高到低维（major,minor,normal）\n4 cause内容只能为网络异常,磁盘异常,文件描述符使用,\
+            \ CPU占用， 内存使用\n#格式模版\n```json\n{\n        \"cause\": \"主要原根因方向\",\n  \
+            \      \"other\": [\n            {\n                \"reason\": \"\",\n\
+            \                \"type\": \"net\",\n                \"level\": \"major/minor/normal\"\
+            \n            },\n            {\n                \"reason\": \"\",\n \
+            \               \"type\": \"disk\",\n                \"level\": \"minor\"\
+            \n            },\n            {\n                \"reason\": \"\",\n \
+            \               \"type\": \"file\",\n                \"level\": \"normal\"\
+            \n            },\n            {\n                \"reason\": \"\",\n \
+            \               \"type\": \"cpu\",\n                \"level\": \"normal\"\
+            \n            },\n            {\n                \"reason\": \"\",\n \
+            \               \"type\": \"memory\",\n                \"level\": \"normal\"\
+            \n            }\n        ]\n    }\n```\n#输出格式\ntype只能为网络异常（net）,磁盘异常（disk）,文件描述符使用（file）,\
+            \ CPU占用（cpu）， 内存使用（memory）这几种，不要有其他内容\njson格式数据，格式参数模版，不要有其他输出"
+        selected: false
+        title: 根因方向
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751617706952'
+      position:
+        x: 6484.605732137941
+        y: 1554.9014271835003
+      positionAbsolute:
+        x: 6484.605732137941
+        y: 1554.9014271835003
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
+          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
+          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
+          \  return {\n        \"result\": json.dumps(rootcause),\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 根因方向
+        type: code
+        variables:
+        - value_selector:
+          - '1751617706952'
+          - text
+          variable: raw_data
+      height: 54
+      id: '1751617715636'
+      position:
+        x: 6850.607787688614
+        y: 1565
+      positionAbsolute:
+        x: 6850.607787688614
+        y: 1565
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: 295.4153431252935
-      y: 57.468265580007824
-      zoom: 0.581194023912935
+      x: -4387.795490058535
+      y: -718.0004622031324
+      zoom: 0.7257823889922984
