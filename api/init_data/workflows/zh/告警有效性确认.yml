@@ -1454,8 +1454,6 @@ workflow:
         title: 变量聚合器 2
         type: variable-aggregator
         variables:
-        - - '1741311294320'
-          - result
         - - '1742366303110'
           - class_name
         - - '1744339618961'
@@ -2902,11 +2900,29 @@ workflow:
 
             请分析系统/应用在过去15分钟内的指标变化趋势，并结合当前的告警事件进行分析。
 
+            ##Data
+
+            MetricsData
+
+            {{#1741162531836.output#}}
+
+            metricsdata的历史数据
+
+            {{#1742434016239.output#}}
+
+            警报事件描述
+
+            {{#1741157526222.alert#}}
+
             ##步骤
 
-            1. 列出过去15分钟内MetricsData的变化趋势，描述这些Metrics的变化是否正常，是否有异常的波动或趋势。
+            1. 列出过去15分钟内MetricsData的变化趋势，描述这些Metrics的变化是否正常，是否为偶尔异常的波动还是持续升高的趋势。
 
-            2. 告警有效性确认：结合告警事件，判断当前告警是否有效。
+            2. 同时注意指标升高是否越接近后面的点位，越后面权重越高，认为有效的概率越大。
+
+            3.如果是网络指标rtt告警，需要缺认指标值时持续升高，还是偶尔升高的抖动
+
+            4. 告警有效性确认：结合告警事件，判断当前告警是否有效。
 
             如果MetricsData持续上升，则认为告警有效。
 
@@ -2922,21 +2938,7 @@ workflow:
 
             描述MetricsData趋势，并得出告警是否有效的结论。
 
-            注意：告警有效性分析的结论只能是有效或无效
-
-            ##Data
-
-            MetricsData
-
-            {{#1741162531836.output#}}
-
-            metricsdata的历史数据
-
-            {{#1742434016239.output#}}
-
-            警报事件描述
-
-            {{#1741157526222.alert#}}'
+            注意：告警有效性分析的结论只能是有效或无效'
         selected: false
         title: 大模型分析指标数据
         type: llm
@@ -7046,11 +7048,12 @@ workflow:
           , \"cpu高负载\"),\n        (r\"disk.*io.*util|disk.*util|磁盘.*io.*用\", \"异常磁盘io利用率\"\
           ),\n        (r\"cpu.*wait|cpu.*io.*wait\", \"cpu高io wait\"),\n        (r\"\
           file.*desc|fd.*use|文件.*描述符\", \"文件描述符使用量\"),\n        (r\"cont.*kill|容器.*终止\"\
-          , \"容器被kill\"),\n        (r\"log.*err|日志.*错误\", \"日志错误数相关\"),\n        (r\"\
-          down.*dep.*time|down.*2.*min|下游.*依赖.*耗时|响应.*耗时\", \"下游依赖耗时超过平均值\")\n   \
-          \ ]\n\n    result = \"其他\"\n    for pattern, category in rules:\n      \
-          \  if re.search(pattern, alert_name):\n            result = category\n \
-          \           break\n\n    return {\n        \"result\": result\n    }\n\n"
+          , \"容器被kill\"),\n        (r\"过去.*分钟.*错误日志数.*超过|\\d+.*条.*错误日志|log.*err|日志.*错误|.*错误.*日志\"\
+          , \"日志错误数相关\"),\n        (r\"down.*dep.*time|down.*2.*min|下游.*依赖.*耗时|响应.*耗时\"\
+          , \"下游依赖耗时超过平均值\")\n    ]\n\n    result = \"其他\"\n    for pattern, category\
+          \ in rules:\n        if re.search(pattern, alert_name):\n            result\
+          \ = category\n            break\n\n    return {\n        \"result\": result\n\
+          \    }\n\n"
         code_language: python3
         desc: ''
         outputs:
