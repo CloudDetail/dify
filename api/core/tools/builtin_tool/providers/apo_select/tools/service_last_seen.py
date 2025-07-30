@@ -27,6 +27,7 @@ class ServiceLastSeen(BuiltinTool):
         pid = tool_parameters.get("pid")
 
         by_labels = ["node_name"]
+        label_filters = []
         if node_name:
             label_filters = [f'node_name="{node_name}"']
         if workload_name:

@@ -10,7 +10,7 @@ from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
 
 # TODO need more test
-class ServiceLastSeen(BuiltinTool):
+class ServiceProcessStartTime(BuiltinTool):
     def _invoke(
         self,
         user_id: str,
@@ -27,6 +27,7 @@ class ServiceLastSeen(BuiltinTool):
         pid = tool_parameters.get("pid")
 
         by_labels = ["node_name"]
+        label_filters = []
         if node_name:
             label_filters = [f'node_name="{node_name}"']
         if workload_name:

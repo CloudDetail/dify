@@ -25,7 +25,9 @@ class ServiceProcessCount(BuiltinTool):
         is_history = tool_parameters.get("isHistory")
         node_name = tool_parameters.get("nodeName")
 
-        label_filters = [f'node_name="{node_name}"']
+        label_filters = []
+        if node_name:
+            label_filters = [f'node_name="{node_name}"']
         if workload_name:
             label_filters.append(f'workload_name="{workload_name}"')
         if comm:
