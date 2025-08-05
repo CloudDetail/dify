@@ -67,3 +67,10 @@ jobs:
           tags: ${{ env.REGISTRY_HOST }}/kindlingx/apo-dify-api:${{ inputs.tag }}-arm64
           cache-from: type=gha,scope=dify-api-arm64
           cache-to: type=gha,mode=max,scope=dify-api-arm64
+
+      - name: push tag
+        if: github.event_name == 'workflow_dispatch'
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CUSTOM_TAG: ${{ github.event.inputs.tag }}
