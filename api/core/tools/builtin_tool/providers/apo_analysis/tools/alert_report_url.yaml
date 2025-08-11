@@ -29,7 +29,7 @@ parameters:
     form: llm
   - name: reportText
     type: string
-    required: true
+    required: false
     label:
       en_US: reportText
       zh_Hans: 报告简要文本

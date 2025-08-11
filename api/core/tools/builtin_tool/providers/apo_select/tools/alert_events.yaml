@@ -1,0 +1,115 @@
+identity:
+  name: alert_events
+  author: APO
+  label:
+    en_US: Query alert events
+    zh_Hans: 查询告警事件
+description:
+  human:
+    en_US: Query alert events
+    zh_Hans: 查询告警事件
+  llm: Query alert events
+display:
+  type: alert
+  title: Alert events
+  unit: count
+parameters:
+  - name: service
+    type: string
+    required: false
+    label:
+      en_US: Service name
+      zh_Hans: 服务名
+    human_description:
+      en_US: Service name
+      zh_Hans: 服务名
+    llm_description: Service name
+    form: llm
+  - name: pod
+    type: string
+    required: false
+    label:
+      en_US: pod
+      zh_Hans: pod
+    human_description:
+      en_US: pod
+      zh_Hans: 
+    llm_description: pod
+    form: llm
+  - name: containerId
+    type: string
+    required: false
+    label:
+      en_US: Container id
+      zh_Hans: 容器id
+    human_description:
+      en_US: Container id
+      zh_Hans: 容器id
+    llm_description: Container id
+    form: llm
+  - name: node
+    type: string
+    required: false
+    label:
+      en_US: Node name
+      zh_Hans: 主机名
+    human_description:
+      en_US: Node name
+      zh_Hans: 主机名
+    llm_description: Node name
+    form: llm
+  - name: pid
+    type: string
+    required: false
+    label:
+      en_US: Process id
+      zh_Hans: 进程id
+    human_description:
+      en_US: Process id
+      zh_Hans: 进程id
+    llm_description: Process id
+    form: llm
+  - name: page
+    type: number
+    required: true
+    label:
+      en_US: Current page
+      zh_Hans: 页码
+    human_description:
+      en_US: Current page
+      zh_Hans: 页码
+    llm_description: Current page
+    form: llm
+  - name: pageSize
+    type: number
+    required: true
+    label:
+      en_US: Page size
+      zh_Hans: 页大小
+    human_description:
+      en_US: Page size
+      zh_Hans: 页大小
+    llm_description: Page size
+    form: llm
+  - name: startTime
+    type: number
+    required: true
+    label:
+      en_US: startTime
+      zh_Hans: startTime
+    human_description:
+      en_US: Data query start time(Microsecond)
+      zh_Hans: 开始时间 (微秒)
+    llm_description: Data query start time(Microsecond)
+    form: llm
+  - name: endTime
+    type: number
+    required: true
+    label:
+      en_US: endTime
+      zh_Hans: endTime
+    human_description:
+      en_US: Data query end time(Microsecond)
+      zh_Hans: 结束时间 (微秒)
+    llm_description: Data query end time(Microsecond)
+    form: llm
