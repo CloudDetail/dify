@@ -10358,7 +10358,7 @@ workflow:
         tool_parameters:
           evidence:
             type: mixed
-            value: '{{#1753955518503.output#}}'
+            value: '{"evidence": []}'
           overview:
             type: mixed
             value: '{{#1750988484023.result#}}'
@@ -10386,7 +10386,7 @@ workflow:
       positionAbsolute:
         x: 13518
         y: 2513
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -14403,7 +14403,7 @@ workflow:
       positionAbsolute:
         x: 10334
         y: 3552
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -15955,6 +15955,7 @@ workflow:
         x: 12790
         y: 2263
       selectable: false
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom-iteration-start
@@ -16197,6 +16198,6 @@ workflow:
       width: 244
       zIndex: 1002
     viewport:
-      x: -3417.6530775466686
-      y: -963.160739539534
-      zoom: 0.36936776780523406
+      x: -8845.087514037577
+      y: -1441.8058635778264
+      zoom: 0.6567619189488891
