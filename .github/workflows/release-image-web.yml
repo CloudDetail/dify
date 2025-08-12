@@ -63,7 +63,7 @@ jobs:
           context: "{{defaultContext}}:web"
           platforms: linux/arm64
           push: true
-          tags: ${{ env.REGISTRY_HOST }}/kindlingx/apo-dify-web:${{ inputs.tag }}-arm64
+          tags: ${{ env.REGISTRY_HOST }}/originx/apo-dify-web:${{ inputs.tag }}
           cache-from: type=gha,scope=dify-web-arm64
           cache-to: type=gha,mode=max,scope=dify-web-arm64
 
