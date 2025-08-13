@@ -27,5 +27,12 @@ class GetAlertReportURL(BuiltinTool):
             frontPrefix = dify_config.APO_BACKEND_URL
         
         end = int(end_time) + 1000000
-        res = f'{reportText}\n{frontPrefix}/#/report?alertEventId={alertEventId}&startTime={start_time}&endTime={end}'
+        
+        url = f'{frontPrefix}/#/report?alertEventId={alertEventId}&startTime={start_time}&endTime={end}'
+        
+        if reportText:
+            res = f'{reportText}\n{url}'
+        else:
+            res = url
+            
         yield self.create_text_message(res)

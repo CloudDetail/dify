@@ -27,3 +27,7 @@ class APOConfig(BaseSettings):
         description="Offline mode",
         default=False
     )
+    DATAPLANE_URL: str = Field(
+        description="dataplane url",
+        default="http://localhost:8089"
+    )

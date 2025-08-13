@@ -42,7 +42,7 @@ class ContainerRTTTool(BuiltinTool):
             'display': True,
             'unit': list['unit'],
             'data': {
-                "timeseries": list['timeseries'][:10]
+                "timeseries": list['timeseries']
             }
         })
         yield self.create_text_message(list)
