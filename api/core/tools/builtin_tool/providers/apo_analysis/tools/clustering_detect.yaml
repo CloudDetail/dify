@@ -1,0 +1,75 @@
+identity:
+  name: ClusteringAnalysis
+  author: APO
+  label:
+    en_US: ClusteringAnalysis
+    zh_Hans: 聚类分析
+description:
+  human:
+    en_US: timeSeriesAnalysis
+    zh_Hans: 
+  llm: timeSeriesAnalysis
+display:
+  type: timeSeriesAnalysis
+  title: timeSeriesAnalysis
+  unit: timeSeriesAnalysis
+parameters:
+  - name: algorithmName
+    type: select
+    required: true
+    options:
+      - name: mse_detect
+        label:
+          en_US: mse_detect
+          zh_Hans: 均方误差异常分数
+          pt_BR: mse_detect
+      - name: core_detect
+        label:
+          en_US: core_detect
+          zh_Hans: 相关系数异常分数
+          pt_BR: core_detect
+      - name: dtw_detect
+        label:
+          en_US: dtw_detect
+          zh_Hans: 动态时间规划距离
+          pt_BR: dunn_detect
+      - name: zscore_detect
+        label:
+          en_US: zscore_detect
+          zh_Hans: Z-Score异常分数
+          pt_BR: zscore_detect
+    label:
+      en_US: AlgorithmName
+      zh_Hans: 选择的算法
+      pt_BR: AlgorithmName
+    human_description:
+      en_US: AlgorithmName
+      zh_Hans: 选择的算法
+      pt_BR: AlgorithmName
+    llm_description: AlgorithmName
+    form: llm
+  - name: data
+    type: string
+    required: true
+    label:
+      en_US: data
+      zh_Hans: 检测的指标序列
+      pt_BR: data
+    human_description:
+      en_US: data
+      zh_Hans: 时序检测算法
+      pt_BR: data
+    llm_description: data
+    form: llm
+  - name: history
+    type: string
+    label:
+      en_US: history
+      zh_Hans: 历史指标序列
+      pt_BR: history
+    human_description:
+      en_US: history
+      zh_Hans: 历史指标序列
+      pt_BR: history
+    llm_description: history
+    form: llm

@@ -1,0 +1,80 @@
+identity:
+  name: timeSeriesAnalysis
+  author: APO
+  label:
+    en_US: timeSeriesAnalysis
+    zh_Hans: 时序统计分析
+description:
+  human:
+    en_US: timeSeriesAnalysis
+    zh_Hans: 时序统计分析
+  llm: timeSeriesAnalysis
+display:
+  type: timeSeriesAnalysis
+  title: timeSeriesAnalysis
+  unit: timeSeriesAnalysis
+parameters:
+  - name: algorithmName
+    type: select
+    required: true
+    options:
+      - name: ebpf_detect
+        label:
+          en_US: ebpf_detect
+          zh_Hans: 线程北极星指标异常检测
+          pt_BR: ebpf_detect
+      - name: rtt_detect
+        label:
+          en_US: rtt_detect
+          zh_Hans: 网络质量指标（RTT）异常检测
+          pt_BR: rtt_det
+      - name: spike_detect
+        label:
+          en_US: spike_detect
+          zh_Hans: 突变异常检测
+          pt_BR: spike_detect
+      - name: trend_detect
+        label:
+          en_US: trend_detect
+          zh_Hans: 趋势异常检测
+          pt_BR: trend_detect
+      - name: frequency_detect
+        label:
+          en_US: frequency_detect
+          zh_Hans: 频率异常检测
+          pt_BR: frequency_detect
+    label:
+      en_US: AlgorithmName
+      zh_Hans: 选择的算法
+      pt_BR: AlgorithmName
+    human_description:
+      en_US: AlgorithmName
+      zh_Hans: 选择的算法
+      pt_BR: AlgorithmName
+    llm_description: AlgorithmName
+    form: llm
+  - name: data
+    type: string
+    required: true
+    label:
+      en_US: data
+      zh_Hans: 检测的指标序列
+      pt_BR: data
+    human_description:
+      en_US: data
+      zh_Hans: 时序检测算法
+      pt_BR: data
+    llm_description: data
+    form: llm
+  - name: history
+    type: string
+    label:
+      en_US: history
+      zh_Hans: 历史指标序列
+      pt_BR: history
+    human_description:
+      en_US: history
+      zh_Hans: 历史指标序列
+      pt_BR: history
+    llm_description: history
+    form: llm

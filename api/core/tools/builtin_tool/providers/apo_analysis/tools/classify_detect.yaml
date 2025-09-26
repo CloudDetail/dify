@@ -1,37 +1,37 @@
 identity:
-  name: process detect
+  name: classifyAnalysis
   author: APO
   label:
-    en_US: process detect
-    zh_Hans: 时序统计分析
+    en_US: classifyAnalysis
+    zh_Hans: 分类算法
 description:
   human:
-    en_US: process detect
-    zh_Hans: 时序统计分析
-  llm: process detect
+    en_US: classifyAnalysis
+    zh_Hans: 分类算法
+  llm: classifyAnalysis
 display:
-  type: process_detect
-  title: process_detect
-  unit: process_detect
+  type: classifyAnalysis
+  title: classifyAnalysis
+  unit: classifyAnalysis
 parameters:
-  - name: detectName
+  - name: algorithmName
     type: select
     required: true
     options:
-      - name: ebpf_detect
+      - name: classify_detect
         label:
-          en_US: ebpf_detect
-          zh_Hans: 线程北极星指标异常检测
-          pt_BR: ebpf_detect
+          en_US: classify_detect
+          zh_Hans: 指标趋势归类
+          pt_BR: classify_detect
     label:
-      en_US: detectName
-      zh_Hans: 时序检测算法
-      pt_BR: detectName
+      en_US: AlgorithmName
+      zh_Hans: 选择的算法
+      pt_BR: AlgorithmName
     human_description:
-      en_US: detectName
-      zh_Hans: 时序检测算法
-      pt_BR: detectName
-    llm_description: detectName
+      en_US: AlgorithmName
+      zh_Hans: 选择的算法
+      pt_BR: AlgorithmName
+    llm_description: AlgorithmName
     form: llm
   - name: data
     type: string
@@ -42,7 +42,7 @@ parameters:
       pt_BR: data
     human_description:
       en_US: data
-      zh_Hans: 时序检测算法
+      zh_Hans: 检测的指标序列
       pt_BR: data
     llm_description: data
     form: llm
