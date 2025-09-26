@@ -1,0 +1,60 @@
+identity:
+  name: process detect
+  author: APO
+  label:
+    en_US: process detect
+    zh_Hans: 时序统计分析
+description:
+  human:
+    en_US: process detect
+    zh_Hans: 时序统计分析
+  llm: process detect
+display:
+  type: process_detect
+  title: process_detect
+  unit: process_detect
+parameters:
+  - name: detectName
+    type: select
+    required: true
+    options:
+      - name: ebpf_detect
+        label:
+          en_US: ebpf_detect
+          zh_Hans: 线程北极星指标异常检测
+          pt_BR: ebpf_detect
+    label:
+      en_US: detectName
+      zh_Hans: 时序检测算法
+      pt_BR: detectName
+    human_description:
+      en_US: detectName
+      zh_Hans: 时序检测算法
+      pt_BR: detectName
+    llm_description: detectName
+    form: llm
+  - name: data
+    type: string
+    required: true
+    label:
+      en_US: data
+      zh_Hans: 检测的指标序列
+      pt_BR: data
+    human_description:
+      en_US: data
+      zh_Hans: 时序检测算法
+      pt_BR: data
+    llm_description: data
+    form: llm
+  - name: history
+    type: string
+    label:
+      en_US: history
+      zh_Hans: 历史指标序列
+      pt_BR: history
+    human_description:
+      en_US: history
+      zh_Hans: 历史指标序列
+      pt_BR: history
+    llm_description: history
+    form: llm
