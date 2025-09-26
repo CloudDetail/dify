@@ -23,21 +23,25 @@ parameters:
           en_US: mse_detect
           zh_Hans: 均方误差异常分数
           pt_BR: mse_detect
+        value: mse_detect
       - name: core_detect
         label:
           en_US: core_detect
           zh_Hans: 相关系数异常分数
           pt_BR: core_detect
+        value: core_detect
       - name: dtw_detect
         label:
           en_US: dtw_detect
           zh_Hans: 动态时间规划距离
           pt_BR: dunn_detect
+        value: dtw_detect
       - name: zscore_detect
         label:
           en_US: zscore_detect
           zh_Hans: Z-Score异常分数
           pt_BR: zscore_detect
+        value: zscore_detect
     label:
       en_US: AlgorithmName
       zh_Hans: 选择的算法

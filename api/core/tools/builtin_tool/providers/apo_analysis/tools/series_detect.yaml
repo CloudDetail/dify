@@ -23,26 +23,31 @@ parameters:
           en_US: ebpf_detect
           zh_Hans: 线程北极星指标异常检测
           pt_BR: ebpf_detect
+        value: ebpf_detect
       - name: rtt_detect
         label:
           en_US: rtt_detect
           zh_Hans: 网络质量指标（RTT）异常检测
           pt_BR: rtt_det
+        value: rtt_detect
       - name: spike_detect
         label:
           en_US: spike_detect
           zh_Hans: 突变异常检测
           pt_BR: spike_detect
+        value: spike_detect
       - name: trend_detect
         label:
           en_US: trend_detect
           zh_Hans: 趋势异常检测
           pt_BR: trend_detect
+        value: trend_detect
       - name: frequency_detect
         label:
           en_US: frequency_detect
           zh_Hans: 频率异常检测
           pt_BR: frequency_detect
+        value: frequency_detect
     label:
       en_US: AlgorithmName
       zh_Hans: 选择的算法

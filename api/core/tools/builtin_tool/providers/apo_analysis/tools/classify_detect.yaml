@@ -23,6 +23,7 @@ parameters:
           en_US: classify_detect
           zh_Hans: 指标趋势归类
           pt_BR: classify_detect
+        value: classify_detect
     label:
       en_US: AlgorithmName
       zh_Hans: 选择的算法
