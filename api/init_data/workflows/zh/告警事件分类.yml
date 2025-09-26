@@ -150,17 +150,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: if-else
-        targetType: question-classifier
-      id: 1745224899681-false-1747310030413-target
-      source: '1745224899681'
-      sourceHandle: 'false'
-      target: '1747310030413'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: question-classifier
         targetType: template-transform
       id: 1747310030413-1748308921189-1748308934593-target
@@ -178,6 +167,28 @@ workflow:
       source: '1748308934593'
       sourceHandle: source
       target: '1748308923990'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1745224899681-false-1758693702081-target
+      source: '1745224899681'
+      sourceHandle: 'false'
+      target: '1758693702081'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: question-classifier
+      id: 1758693702081-source-1747310030413-target
+      source: '1758693702081'
+      sourceHandle: source
+      target: '1747310030413'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -264,7 +275,7 @@ workflow:
       positionAbsolute:
         x: 333
         y: 264.5
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -290,10 +301,10 @@ workflow:
       height: 142
       id: '1745224862564'
       position:
-        x: 1848
+        x: 2448
         y: 264.5
       positionAbsolute:
-        x: 1848
+        x: 2448
         y: 264.5
       selected: false
       sourcePosition: right
@@ -344,10 +355,10 @@ workflow:
       height: 131
       id: '1745225185151'
       position:
-        x: 1242
+        x: 1842
         y: 264.5
       positionAbsolute:
-        x: 1242
+        x: 1842
         y: 264.5
       selected: false
       sourcePosition: right
@@ -383,10 +394,10 @@ workflow:
       height: 54
       id: '1745304707998'
       position:
-        x: 1557.7717573272403
+        x: 2157.7717573272403
         y: 264.5
       positionAbsolute:
-        x: 1557.7717573272403
+        x: 2157.7717573272403
         y: 264.5
       selected: false
       sourcePosition: right
@@ -404,7 +415,9 @@ workflow:
         - id: '1748308921189'
           name: 其他
         desc: ''
-        instruction: ''
+        instruction: '根据你的判断和知识库检索结果对告警进行分类。优先根据知识库检索结果分类，若检索结果没有与告警直接相关的内容，则根据你的判断来分类。
+
+          知识库检索结果：{{#1758693702081.text#}}'
         instructions: ''
         model:
           completion_params:
@@ -424,10 +437,10 @@ workflow:
       height: 240
       id: '1747310030413'
       position:
-        x: 669.4535410854317
+        x: 1269.4535410854317
         y: 578.1887220886825
       positionAbsolute:
-        x: 669.4535410854317
+        x: 1269.4535410854317
         y: 578.1887220886825
       selected: false
       sourcePosition: right
@@ -447,10 +460,10 @@ workflow:
       height: 90
       id: '1748308923990'
       position:
-        x: 1538.397216052539
+        x: 2138.397216052539
         y: 645.3250337970137
       positionAbsolute:
-        x: 1538.397216052539
+        x: 2138.397216052539
         y: 645.3250337970137
       selected: false
       sourcePosition: right
@@ -471,17 +484,152 @@ workflow:
       height: 54
       id: '1748308934593'
       position:
-        x: 1139.825941382076
+        x: 1739.825941382076
         y: 702.3372804248803
       positionAbsolute:
-        x: 1139.825941382076
+        x: 1739.825941382076
         y: 702.3372804248803
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 在APO检索知识
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1745224781828.alertName#}}'
+          top_k:
+            type: constant
+            value: 5
+        type: tool
+      height: 54
+      id: '1758693702081'
+      position:
+        x: 955.818577554794
+        y: 351.23463144810154
+      positionAbsolute:
+        x: 955.818577554794
+        y: 351.23463144810154
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -720.8339351175792
-      y: 157.88538820713308
-      zoom: 0.5547380381307508
+      x: -789.0745103511961
+      y: -52.46058918989752
+      zoom: 0.6580449102245884

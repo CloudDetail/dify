@@ -87,60 +87,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: tool
-      id: 1744878352649-source-1744878296971-target
-      selected: false
-      source: '1744878352649'
-      sourceHandle: source
-      target: '1744878296971'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: code
-      id: 1744878296971-source-1744901266309-target
-      selected: false
-      source: '1744878296971'
-      sourceHandle: source
-      target: '1744901266309'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: llm
-      id: 1744901266309-source-1744878372490-target
-      selected: false
-      source: '1744901266309'
-      sourceHandle: source
-      target: '1744878372490'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
         targetType: if-else
       id: 1742807803325-source-1742453019576-target
       selected: false
       source: '1742807803325'
       sourceHandle: source
       target: '1742453019576'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: question-classifier
-        targetType: code
-      id: 17430590082510-1744901735377-1744878352649-target
-      selected: false
-      source: '17430590082510'
-      sourceHandle: '1744901735377'
-      target: '1744878352649'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -446,18 +398,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: if-else
-        targetType: code
-      id: 1742453019576-false-1753411561314-target
-      selected: false
-      source: '1742453019576'
-      sourceHandle: 'false'
-      target: '1753411561314'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: code
         targetType: if-else
       id: 1753411561314-source-1753412450611-target
@@ -477,18 +417,6 @@ workflow:
       source: '1753412450611'
       sourceHandle: 'false'
       target: '17430590082510'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: code
-      id: 1753412450611-true-1744878352649-target
-      selected: false
-      source: '1753412450611'
-      sourceHandle: 'true'
-      target: '1744878352649'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -657,42 +585,6 @@ workflow:
       zIndex: 1002
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: code
-      id: 1753414255071-source-1753414587601-target
-      selected: false
-      source: '1753414255071'
-      sourceHandle: source
-      target: '1753414587601'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: tool
-      id: 1753412450611-91b6ca4c-4632-412a-89b1-cbd1539e374f-1753414138349-target
-      selected: false
-      source: '1753412450611'
-      sourceHandle: 91b6ca4c-4632-412a-89b1-cbd1539e374f
-      target: '1753414138349'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: tool
-      id: 1753412450611-da617f11-ed6f-44ec-9477-73d6f81455fa-1753414138349-target
-      selected: false
-      source: '1753412450611'
-      sourceHandle: da617f11-ed6f-44ec-9477-73d6f81455fa
-      target: '1753414138349'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: iteration
         targetType: llm
       id: 1753414276399-source-1753684009639-target
@@ -760,18 +652,6 @@ workflow:
       source: '1753414518300'
       sourceHandle: source
       target: '1753687345334'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1753414255071-source-1753413225096-target
-      selected: false
-      source: '1753414255071'
-      sourceHandle: source
-      target: '1753413225096'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -861,32 +741,10 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: question-classifier
-        targetType: tool
-      id: 17430590082510-1744901730034-1753414138349-target
-      selected: false
-      source: '17430590082510'
-      sourceHandle: '1744901730034'
-      target: '1753414138349'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: question-classifier
-        targetType: tool
-      id: 17430590082510-1753758073662-1753414138349-target
-      source: '17430590082510'
-      sourceHandle: '1753758073662'
-      target: '1753414138349'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: variable-aggregator
         targetType: variable-aggregator
       id: 1753686431084-source-1750844540721-target
+      selected: false
       source: '1753686431084'
       sourceHandle: source
       target: '1750844540721'
@@ -898,6 +756,7 @@ workflow:
         sourceType: llm
         targetType: variable-aggregator
       id: 1753684009639-source-1753686431084-target
+      selected: false
       source: '1753684009639'
       sourceHandle: source
       target: '1753686431084'
@@ -909,6 +768,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 1744878372490-source-1753760026114-target
+      selected: false
       source: '1744878372490'
       sourceHandle: source
       target: '1753760026114'
@@ -920,6 +780,7 @@ workflow:
         sourceType: code
         targetType: variable-aggregator
       id: 1753760026114-source-1750844540721-target
+      selected: false
       source: '1753760026114'
       sourceHandle: source
       target: '1750844540721'
@@ -931,6 +792,7 @@ workflow:
         sourceType: variable-aggregator
         targetType: variable-aggregator
       id: 1744878466157-source-1753760065732-target
+      selected: false
       source: '1744878466157'
       sourceHandle: source
       target: '1753760065732'
@@ -942,6 +804,7 @@ workflow:
         sourceType: variable-aggregator
         targetType: if-else
       id: 1753760065732-source-1751602618703-target
+      selected: false
       source: '1753760065732'
       sourceHandle: source
       target: '1751602618703'
@@ -953,6 +816,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1753755983769-false-1753436915396-target
+      selected: false
       source: '1753755983769'
       sourceHandle: 'false'
       target: '1753436915396'
@@ -964,6 +828,7 @@ workflow:
         sourceType: tool
         targetType: tool
       id: 1753436915396-source-1753691720044-target
+      selected: false
       source: '1753436915396'
       sourceHandle: source
       target: '1753691720044'
@@ -975,9 +840,234 @@ workflow:
         sourceType: tool
         targetType: tool
       id: 1753436915396-source-1753426546760-target
+      selected: false
       source: '1753436915396'
       sourceHandle: source
       target: '1753426546760'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1753412450611-da617f11-ed6f-44ec-9477-73d6f81455fa-1753414587601-target
+      selected: false
+      source: '1753412450611'
+      sourceHandle: da617f11-ed6f-44ec-9477-73d6f81455fa
+      target: '1753414587601'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1753412450611-91b6ca4c-4632-412a-89b1-cbd1539e374f-1753414587601-target
+      selected: false
+      source: '1753412450611'
+      sourceHandle: 91b6ca4c-4632-412a-89b1-cbd1539e374f
+      target: '1753414587601'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: code
+      id: 17430590082510-1753758073662-1753414587601-target
+      selected: false
+      source: '17430590082510'
+      sourceHandle: '1753758073662'
+      target: '1753414587601'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1753414587601-source-1753413225096-target
+      selected: false
+      source: '1753414587601'
+      sourceHandle: source
+      target: '1753413225096'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742453019576-false-1753414138349-target
+      selected: false
+      source: '1742453019576'
+      sourceHandle: 'false'
+      target: '1753414138349'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1753414255071-source-1757318012802-target
+      selected: false
+      source: '1753414255071'
+      sourceHandle: source
+      target: '1757318012802'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1757318012802-source-1758696223081-target
+      selected: false
+      source: '1757318012802'
+      sourceHandle: source
+      target: '1758696223081'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1758696226557-source-1753411561314-target
+      selected: false
+      source: '1758696226557'
+      sourceHandle: source
+      target: '1753411561314'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: tool
+      id: 1758696223081-source-1758779744723-target
+      selected: false
+      source: '1758696223081'
+      sourceHandle: source
+      target: '1758779744723'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1758779744723-source-1758696226557-target
+      selected: false
+      source: '1758779744723'
+      sourceHandle: source
+      target: '1758696226557'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: code
+      id: 17430590082510-1744901730034-1753414587601-target
+      selected: false
+      source: '17430590082510'
+      sourceHandle: '1744901730034'
+      target: '1753414587601'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '17587867711690'
+        sourceType: iteration-start
+        targetType: code
+      id: 1758786771169start-source-1758786771169017587867711701-target
+      source: 1758786771169start
+      sourceHandle: source
+      target: '1758786771169017587867711701'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '17587867711690'
+        sourceType: code
+        targetType: tool
+      id: 1758786771169017587867711701-source-1758786771169017587867711700-target
+      source: '1758786771169017587867711701'
+      sourceHandle: source
+      target: '1758786771169017587867711700'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '17587867711690'
+        sourceType: tool
+        targetType: code
+      id: 1758786771169017587867711700-source-1758786771169017587867711702-target
+      source: '1758786771169017587867711700'
+      sourceHandle: source
+      target: '1758786771169017587867711702'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 17587867711701-source-17587867711690-target
+      source: '17587867711701'
+      sourceHandle: source
+      target: '17587867711690'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: code
+      id: 17430590082510-1744901735377-17587867711701-target
+      source: '17430590082510'
+      sourceHandle: '1744901735377'
+      target: '17587867711701'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1753412450611-true-17587867711701-target
+      source: '1753412450611'
+      sourceHandle: 'true'
+      target: '17587867711701'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 17587867711690-source-1758787397171-target
+      source: '17587867711690'
+      sourceHandle: source
+      target: '1758787397171'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1758787397171-source-1744878372490-target
+      source: '1758787397171'
+      sourceHandle: source
+      target: '1744878372490'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1022,10 +1112,10 @@ workflow:
       id: '1741227526517'
       position:
         x: 30
-        y: 302
+        y: 305
       positionAbsolute:
         x: 30
-        y: 302
+        y: 305
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1042,10 +1132,10 @@ workflow:
       id: '1741592094819'
       position:
         x: 942
-        y: 302
+        y: 305
       positionAbsolute:
         x: 942
-        y: 302
+        y: 305
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1065,10 +1155,10 @@ workflow:
       id: '1741592144815'
       position:
         x: 1246
-        y: 302
+        y: 305
       positionAbsolute:
         x: 1246
-        y: 302
+        y: 305
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1116,10 +1206,10 @@ workflow:
       id: '1742453019576'
       position:
         x: 638
-        y: 302
+        y: 305
       positionAbsolute:
         x: 638
-        y: 302
+        y: 305
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1205,10 +1295,10 @@ workflow:
       id: '1742807803325'
       position:
         x: 334
-        y: 302
+        y: 305
       positionAbsolute:
         x: 334
-        y: 302
+        y: 305
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1216,14 +1306,14 @@ workflow:
       width: 244
     - data:
         classes:
-        - id: '1744901730034'
-          name: 请求错误率
         - id: '1744901735377'
           name: 日志错误数
-        - id: '1745391097407'
-          name: 其他
+        - id: '1744901730034'
+          name: 请求错误率
         - id: '1753758073662'
           name: 进程不活跃/服务不可用
+        - id: '1745391097407'
+          name: 其他
         desc: ''
         instruction: 你是一个智能告警分类助手。你的任务是对给定的警报事件进行分类。
         instructions: ''
@@ -1247,11 +1337,11 @@ workflow:
       height: 240
       id: '17430590082510'
       position:
-        x: 1550
-        y: 928
+        x: 3374
+        y: 933
       positionAbsolute:
-        x: 1550
-        y: 928
+        x: 3374
+        y: 933
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1259,195 +1349,11 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Query condition(clickhouse where clause).
-            ja_JP: Query condition(clickhouse where clause).
-            pt_BR: Query condition(clickhouse where clause).
-            zh_Hans: 查询条件（clickhouse where子句）
-          label:
-            en_US: Query condition(clickhouse where clause).
-            ja_JP: Query condition(clickhouse where clause).
-            pt_BR: Query condition(clickhouse where clause).
-            zh_Hans: 查询条件（clickhouse where子句）
-          llm_description: Query condition(clickhouse where clause).
-          max: null
-          min: null
-          name: query
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Start timestamp in microseconds
-            ja_JP: Start timestamp in microseconds
-            pt_BR: Start timestamp in microseconds
-            zh_Hans: 查询开始时间（微秒）
-          label:
-            en_US: Start Time
-            ja_JP: Start Time
-            pt_BR: Start Time
-            zh_Hans: 开始时间
-          llm_description: Microsecond timestamp for start time
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: End timestamp in microseconds
-            ja_JP: End timestamp in microseconds
-            pt_BR: End timestamp in microseconds
-            zh_Hans: 查询结束时间（微秒）
-          label:
-            en_US: End Time
-            ja_JP: End Time
-            pt_BR: End Time
-            zh_Hans: 结束时间
-          llm_description: Microsecond timestamp for end time
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          endTime: ''
-          query: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 查询全量日志
-        tool_configurations: {}
-        tool_label: 查询全量日志
-        tool_name: 查询全量日志
-        tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          pageNum:
-            type: constant
-            value: 1
-          pageSize:
-            type: constant
-            value: 999
-          query:
-            type: mixed
-            value: '{{#1744878352649.query#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
-        type: tool
-      height: 54
-      id: '1744878296971'
-      position:
-        x: 5338
-        y: 1058
-      positionAbsolute:
-        x: 5338
-        y: 1058
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "\ndef main(pod: str, service: str, node: str, pid: str, containerId:\
-          \ str, sourceFrom: str) -> dict:\n    query = ''\n    if len(containerId)\
-          \ > 0 and len(node) > 0:\n        query = f\"\"\"container_id='{containerId}'\
-          \ and host_name='{node}'\"\"\"\n    elif len(pod) > 0 and len(service) >\
-          \ 0:\n        query = f\"\"\"k8s_pod_name='{pod}' and container_name='{service}'\"\
-          \"\"\n    elif len(pod) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\"\
-          \"\"\n    elif len(node) > 0 and len(pid) > 0:\n        query = f\"\"\"\
-          host_name='{node}' and pid='{pid}'\"\"\"\n    elif len(service) > 0:\n \
-          \       query = f\"\"\"container_name='{service}'\"\"\"\n    elif len(containerId)\
-          \ > 0:\n        query = f\"\"\"container_id='{containerId}'\"\"\"\n    elif\
-          \ len(node) > 0:\n        query = f\"\"\"host_name='{node}'\"\"\"\n\n  \
-          \  if len(sourceFrom) > 0:\n        if len(query) > 0:\n            query\
-          \ += f\" and source='{sourceFrom}'\"\n        else:\n            query =\
-          \ f\"\"\"source='{sourceFrom}'\"\"\"\n            \n    return {\n     \
-          \   \"query\": query,\n    }"
-        code_language: python3
-        desc: ''
-        outputs:
-          query:
-            children: null
-            type: string
-        selected: false
-        title: 获取查询条件
-        type: code
-        variables:
-        - value_selector:
-          - '1742807803325'
-          - pod
-          variable: pod
-        - value_selector:
-          - '1742807803325'
-          - service
-          variable: service
-        - value_selector:
-          - '1742807803325'
-          - nodeName
-          variable: node
-        - value_selector:
-          - '1742807803325'
-          - pid
-          variable: pid
-        - value_selector:
-          - '1742807803325'
-          - containerId
-          variable: containerId
-        - value_selector:
-          - '1742807803325'
-          - sourceFrom
-          variable: sourceFrom
-      height: 54
-      id: '1744878352649'
-      position:
-        x: 5034
-        y: 1058
-      positionAbsolute:
-        x: 5034
-        y: 1058
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758696226557'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -1463,20 +1369,35 @@ workflow:
           role: user
           text: '# 目的
 
-            根据异常pod，结合相关日志，分析告警{{#1742807803325.alertName#}}
+            根据异常pod，结合相关日志和相关文档以及你的经验，分析告警{{#1742807803325.alertName#}}
 
-            产生的原因和对{{#1742807803325.service#}}
+            产生的原因和对{{#1753414255071.result#}}
 
             或{{#1742807803325.pod#}}
 
             的影响，最后推测是内部问题还是外部问题。
 
+            # 文档
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务{{#1753414255071.result#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员等信息。
+
+            2. 优先根据日志内容进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 数据
 
             数据包括：
 
-            1. 对应时间内的error日志{{#1744901266309.result#}}
+            1. 对应时间内的error日志{{#1758787397171.error_logs_str#}}
 
 
             # 分析思路
@@ -1510,11 +1431,11 @@ workflow:
       height: 90
       id: '1744878372490'
       position:
-        x: 6998
-        y: 1058
+        x: 8682.271999720462
+        y: 1063
       positionAbsolute:
-        x: 6998
-        y: 1058
+        x: 8682.271999720462
+        y: 1063
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1534,11 +1455,11 @@ workflow:
       height: 131
       id: '1744878466157'
       position:
-        x: 7910
-        y: 628
+        x: 9674
+        y: 547
       positionAbsolute:
-        x: 7910
-        y: 628
+        x: 9674
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1565,271 +1486,12 @@ workflow:
       height: 142
       id: '1744878476249'
       position:
-        x: 10662
-        y: 963
+        x: 12410
+        y: 882
       positionAbsolute:
-        x: 10662
-        y: 963
+        x: 12410
+        y: 882
       selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "import re\nimport json\nfrom typing import List, Dict, Tuple, Set,\
-          \ Optional\n\n\nclass ServiceUnavailableDetector:\n    \"\"\"服务不可用日志检测器\"\
-          \"\"\n    \n    def __init__(self):\n        self.patterns = self._initialize_patterns()\n\
-          \        self.compiled_patterns = self._compile_patterns()\n    \n    def\
-          \ _initialize_patterns(self) -> List[Dict]:\n        \"\"\"初始化错误模式库\"\"\"\
-          \n        patterns = []\n        \n        # 连接错误 - 英文 (外部问题)\n        connection_patterns_en\
-          \ = [\n            r\"connection\\s+refused\",\n            r\"connection\\\
-          s+reset\",\n            r\"connection\\s+closed\",\n            r\"connection\\\
-          s+aborted\",\n            r\"connection\\s+failed\",\n            r\"connection\\\
-          s+timeout\",\n            r\"can['\\s]*t\\s+connect\",\n            r\"\
-          unable\\s+to\\s+connect\",\n            r\"failed\\s+to\\s+connect\",\n\
-          \            r\"connect\\s+error\",\n            r\"network\\s+unreachable\"\
-          ,\n            r\"host\\s+unreachable\",\n            r\"no\\s+route\\s+to\\\
-          s+host\",\n            r\"connection\\s+timed\\s+out\",\n        ]\n   \
-          \     \n        for pattern in connection_patterns_en:\n            patterns.append({\n\
-          \                \"pattern\": pattern,\n                \"category\": \"\
-          connection_error\",\n                \"source\": \"external\",\n       \
-          \         \"language\": \"english\",\n                \"case_sensitive\"\
-          : False,\n                \"description\": \"Connection related errors -\
-          \ external\"\n            })\n        \n        # 连接错误 - 中文 (外部问题)\n   \
-          \     connection_patterns_cn = [\n            r\"连接被拒绝\",\n            r\"\
-          连接失败\",\n            r\"连接超时\",\n            r\"连接被重置\",\n            r\"\
-          连接中断\",\n            r\"无法连接\",\n            r\"拒绝连接\",\n            r\"\
-          网络不可达\",\n            r\"主机不可达\",\n        ]\n        \n        for pattern\
-          \ in connection_patterns_cn:\n            patterns.append({\n          \
-          \      \"pattern\": pattern,\n                \"category\": \"connection_error\"\
-          ,\n                \"source\": \"external\",\n                \"language\"\
-          : \"chinese\",\n                \"case_sensitive\": False,\n           \
-          \     \"description\": \"Connection related errors in Chinese - external\"\
-          \n            })\n        \n        # 超时错误 (混合问题 - 可能是内部也可能是外部)\n      \
-          \  timeout_patterns = [\n            r\"timeout\",\n            r\"timed\\\
-          s+out\",\n            r\"time\\s+out\",\n            r\"超时\",\n        \
-          \    r\"请求超时\",\n            r\"响应超时\",\n            r\"read\\s+timeout\"\
-          ,\n            r\"write\\s+timeout\",\n            r\"connect\\s+timeout\"\
-          ,\n            r\"socket\\s+timeout\",\n            r\"request\\s+timeout\"\
-          ,\n            r\"response\\s+timeout\",\n            r\"execution\\s+timeout\"\
-          ,\n            r\"operation\\s+timeout\",\n        ]\n        \n       \
-          \ for pattern in timeout_patterns:\n            patterns.append({\n    \
-          \            \"pattern\": pattern,\n                \"category\": \"timeout_error\"\
-          ,\n                \"source\": \"mixed\",\n                \"language\"\
-          : \"general\",\n                \"case_sensitive\": False,\n           \
-          \     \"description\": \"Timeout related errors - mixed source\"\n     \
-          \       })\n        \n        # 服务不可用错误 (外部问题)\n        unavailable_patterns\
-          \ = [\n            r\"service\\s+unavailable\",\n            r\"server\\\
-          s+unavailable\",\n            r\"unavailable\",\n            r\"not\\s+available\"\
-          ,\n            r\"服务不可用\",\n            r\"服务器不可用\",\n            r\"暂时不可用\"\
-          ,\n            r\"temporary\\s+unavailable\",\n            r\"temporarily\\\
-          s+unavailable\",\n            r\"503\\s+service\\s+unavailable\",\n    \
-          \        r\"backend\\s+unavailable\",\n            r\"upstream\\s+unavailable\"\
-          ,\n        ]\n        \n        for pattern in unavailable_patterns:\n \
-          \           patterns.append({\n                \"pattern\": pattern,\n \
-          \               \"category\": \"unavailable_error\",\n                \"\
-          source\": \"external\",\n                \"language\": \"general\",\n  \
-          \              \"case_sensitive\": False,\n                \"description\"\
-          : \"Service unavailable errors - external\"\n            })\n        \n\
-          \        # Panic错误 (内部问题)\n        panic_patterns = [\n            r\"panic:\"\
-          ,\n            r\"panic\\s+error\",\n            r\"fatal\\s+error\",\n\
-          \            r\"critical\\s+error\",\n            r\"严重错误\",\n         \
-          \   r\"致命错误\",\n            r\"崩溃\",\n            r\"crash\",\n        \
-          \    r\"segmentation\\s+fault\",\n            r\"stack\\s+overflow\",\n\
-          \            r\"out\\s+of\\s+memory\",\n            r\"内存不足\",\n       \
-          \     r\"栈溢出\",\n        ]\n        \n        for pattern in panic_patterns:\n\
-          \            patterns.append({\n                \"pattern\": pattern,\n\
-          \                \"category\": \"panic_error\",\n                \"source\"\
-          : \"internal\",\n                \"language\": \"general\",\n          \
-          \      \"case_sensitive\": False,\n                \"description\": \"Panic\
-          \ and critical errors - internal\"\n            })\n        \n        #\
-          \ HTTP错误 (混合问题)\n        http_patterns = [\n            r\"5\\d{2}\\s+\\\
-          w+\",  # 5xx errors\n            r\"502\\s+bad\\s+gateway\",\n         \
-          \   r\"503\\s+service\\s+unavailable\",\n            r\"504\\s+gateway\\\
-          s+timeout\",\n            r\"500\\s+internal\\s+server\\s+error\",\n   \
-          \         r\"bad\\s+gateway\",\n            r\"gateway\\s+timeout\",\n \
-          \           r\"internal\\s+server\\s+error\",\n            r\"网关错误\",\n\
-          \            r\"内部服务器错误\",\n        ]\n        \n        for pattern in\
-          \ http_patterns:\n            # 根据具体错误码判断来源\n            if any(code in\
-          \ pattern for code in [\"500\", \"internal\"]):\n                source\
-          \ = \"internal\"\n            elif any(code in pattern for code in [\"502\"\
-          , \"503\", \"504\", \"gateway\"]):\n                source = \"external\"\
-          \n            else:\n                source = \"mixed\"\n              \
-          \  \n            patterns.append({\n                \"pattern\": pattern,\n\
-          \                \"category\": \"http_error\",\n                \"source\"\
-          : source,\n                \"language\": \"general\",\n                \"\
-          case_sensitive\": False,\n                \"description\": \"HTTP error\
-          \ codes and messages\"\n            })\n        \n        # 网络错误 (外部问题)\n\
-          \        network_patterns = [\n            r\"network\\s+error\",\n    \
-          \        r\"network\\s+is\\s+unreachable\",\n            r\"dns\\s+resolution\\\
-          s+failed\",\n            r\"name\\s+resolution\\s+failed\",\n          \
-          \  r\"网络错误\",\n            r\"网络不可达\",\n            r\"dns解析失败\",\n    \
-          \        r\"域名解析失败\",\n            r\"socket\\s+error\",\n            r\"\
-          tcp\\s+error\",\n            r\"udp\\s+error\",\n        ]\n        \n \
-          \       for pattern in network_patterns:\n            patterns.append({\n\
-          \                \"pattern\": pattern,\n                \"category\": \"\
-          network_error\",\n                \"source\": \"external\",\n          \
-          \      \"language\": \"general\",\n                \"case_sensitive\": False,\n\
-          \                \"description\": \"Network related errors - external\"\n\
-          \            })\n        \n        # 数据库错误 (混合问题)\n        database_patterns\
-          \ = [\n            r\"database\\s+connection\\s+failed\",\n            r\"\
-          database\\s+unavailable\",\n            r\"database\\s+timeout\",\n    \
-          \        r\"sql\\s+error\",\n            r\"database\\s+error\",\n     \
-          \       r\"数据库连接失败\",\n            r\"数据库不可用\",\n            r\"数据库超时\"\
-          ,\n            r\"sql错误\",\n            r\"connection\\s+pool\\s+exhausted\"\
-          ,\n            r\"too\\s+many\\s+connections\",\n            r\"max\\s+connections\\\
-          s+reached\",\n        ]\n        \n        for pattern in database_patterns:\n\
-          \            patterns.append({\n                \"pattern\": pattern,\n\
-          \                \"category\": \"database_error\",\n                \"source\"\
-          : \"mixed\",\n                \"language\": \"general\",\n             \
-          \   \"case_sensitive\": False,\n                \"description\": \"Database\
-          \ related errors - mixed source\"\n            })\n        \n        # 资源错误\
-          \ (内部问题)\n        resource_patterns = [\n            r\"out\\s+of\\s+memory\"\
-          ,\n            r\"memory\\s+exhausted\",\n            r\"disk\\s+full\"\
-          ,\n            r\"no\\s+space\\s+left\",\n            r\"resource\\s+exhausted\"\
-          ,\n            r\"内存不足\",\n            r\"磁盘空间不足\",\n            r\"资源耗尽\"\
-          ,\n            r\"cpu\\s+limit\\s+exceeded\",\n            r\"memory\\s+limit\\\
-          s+exceeded\",\n        ]\n        \n        for pattern in resource_patterns:\n\
-          \            patterns.append({\n                \"pattern\": pattern,\n\
-          \                \"category\": \"resource_error\",\n                \"source\"\
-          : \"internal\",\n                \"language\": \"general\",\n          \
-          \      \"case_sensitive\": False,\n                \"description\": \"Resource\
-          \ exhaustion errors - internal\"\n            })\n        \n        # 认证错误\
-          \ (混合问题)\n        auth_patterns = [\n            r\"authentication\\s+failed\"\
-          ,\n            r\"authorization\\s+failed\",\n            r\"access\\s+denied\"\
-          ,\n            r\"permission\\s+denied\",\n            r\"unauthorized\"\
-          ,\n            r\"forbidden\",\n            r\"认证失败\",\n            r\"\
-          授权失败\",\n            r\"访问被拒绝\",\n            r\"权限不足\",\n            r\"\
-          401\\s+unauthorized\",\n            r\"403\\s+forbidden\",\n        ]\n\
-          \        \n        for pattern in auth_patterns:\n            patterns.append({\n\
-          \                \"pattern\": pattern,\n                \"category\": \"\
-          auth_error\",\n                \"source\": \"mixed\",\n                \"\
-          language\": \"general\",\n                \"case_sensitive\": False,\n \
-          \               \"description\": \"Authentication and authorization errors\
-          \ - mixed source\"\n            })\n        \n        # 通用错误模式（英文/数字）\n\
-          \        generic_error_patterns = [\n            r\"ERROR\",\n         \
-          \   r\"ERR\",\n            r\"EXCEPTION\",\n            r\"PANIC\",\n  \
-          \          r\"FAIL(?:ED)?\",\n            r\"WRONG\",\n            r\"FATAL\"\
-          ,\n            r\"CRITICAL\",\n            r\"BUG\",\n            r\"CRASH(?:ED)?\"\
-          ,\n            r\"INTERNAL\\s+ERROR\",\n            r\"NOT\\s+WORKING\"\
-          ,\n            r\"BROKEN\",\n            r\"5\\d{2}\",  # HTTP 5xx 错误码\n\
-          \            r\"4\\d{2}\",  # HTTP 4xx 错误码\n        ]\n\n        for pattern\
-          \ in generic_error_patterns:\n            patterns.append({\n          \
-          \      \"pattern\": pattern,\n                \"category\": \"generic_error\"\
-          ,\n                \"source\": \"unknown\",\n                \"language\"\
-          : \"english\",\n                \"case_sensitive\": False,\n           \
-          \     \"description\": \"Generic catch-all English error patterns\"\n  \
-          \          })\n\n        # 通用错误模式（中文）\n        generic_error_patterns_cn\
-          \ = [\n            r\"错误\",           # e.g., 系统错误\n            r\"失败\"\
-          ,           # e.g., 操作失败\n            r\"异常\",           # e.g., 程序异常\n\
-          \            r\"崩溃\",           # e.g., 系统崩溃\n            r\"致命\",     \
-          \      # e.g., 致命错误\n            r\"拒绝\",           # e.g., 拒绝访问\n     \
-          \       r\"无效\",           # e.g., 无效参数\n            r\"未知错误\",       #\
-          \ e.g., 未知错误\n            r\"未定义\",         # e.g., 调用未定义\n        ]\n\n\
-          \        for pattern in generic_error_patterns_cn:\n            patterns.append({\n\
-          \                \"pattern\": pattern,\n                \"category\": \"\
-          generic_error\",\n                \"source\": \"unknown\",\n           \
-          \     \"language\": \"chinese\",\n                \"case_sensitive\": False,\n\
-          \                \"description\": \"Generic catch-all Chinese error patterns\"\
-          \n            })  \n\n        return patterns\n\n    \n    def _compile_patterns(self)\
-          \ -> Dict[str, List[Tuple[re.Pattern, Dict]]]:\n        \"\"\"编译正则表达式模式\"\
-          \"\"\n        compiled = {}\n        \n        for pattern_obj in self.patterns:\n\
-          \            category = pattern_obj[\"category\"]\n            if category\
-          \ not in compiled:\n                compiled[category] = []\n          \
-          \  \n            flags = re.IGNORECASE if not pattern_obj[\"case_sensitive\"\
-          ] else 0\n            regex = re.compile(pattern_obj[\"pattern\"], flags)\n\
-          \            compiled[category].append((regex, pattern_obj))\n        \n\
-          \        return compiled\n    \n    def detect_line(self, line: str, line_number:\
-          \ int = 0) -> bool:\n        \"\"\"检测单行日志\"\"\"        \n        for category,\
-          \ pattern_list in self.compiled_patterns.items():\n            for regex,\
-          \ pattern_obj in pattern_list:\n                if regex.search(line):\n\
-          \                   return True\n        \n        return False\n    \n\
-          \    def detect_logs(self, logs: List[str]) -> List[Dict]:\n        \"\"\
-          \"检测多行日志\"\"\"\n        all_matches = []\n        \n        for i, log in\
-          \ enumerate(logs):\n            line = log[\"body\"]\n            if self.detect_line(line,\
-          \ i + 1):\n                all_matches.append(log)\n        \n        return\
-          \ all_matches\n    \n    def _calculate_confidence(self, line: str, pattern:\
-          \ Dict) -> float:\n        \"\"\"计算匹配置信度\"\"\"\n        base_confidence\
-          \ = 1.0\n        \n        # 根据上下文关键词调整置信度\n        context_keywords = {\n\
-          \            \"error\": 0.1,\n            \"failed\": 0.1,\n           \
-          \ \"exception\": 0.1,\n            \"错误\": 0.1,\n            \"失败\": 0.1,\n\
-          \            \"异常\": 0.1,\n        }\n        \n        line_lower = line.lower()\n\
-          \        for keyword, boost in context_keywords.items():\n            if\
-          \ keyword in line_lower:\n                base_confidence += boost\n   \
-          \     \n        return min(base_confidence, 2.0)  # 最大置信度2.0\n    \n   \
-          \ def get_statistics(self, matches: List[Dict]) -> Dict:\n        \"\"\"\
-          获取检测统计信息\"\"\"\n        if not matches:\n            return {\"total\":\
-          \ 0, \"by_category\": {}, \"by_language\": {}, \"by_source\": {}}\n    \
-          \    \n        stats = {\n            \"total\": len(matches),\n       \
-          \     \"by_category\": {},\n            \"by_language\": {},\n         \
-          \   \"by_source\": {}\n        }\n        \n        for match in matches:\n\
-          \            # 按类别统计\n            category = match[\"category\"]\n     \
-          \       stats[\"by_category\"][category] = stats[\"by_category\"].get(category,\
-          \ 0) + 1\n            \n            # 按语言统计\n            language = match[\"\
-          language\"]\n            stats[\"by_language\"][language] = stats[\"by_language\"\
-          ].get(language, 0) + 1\n            \n            # 按错误来源统计\n          \
-          \  source = match[\"source\"]\n            stats[\"by_source\"][source]\
-          \ = stats[\"by_source\"].get(source, 0) + 1\n        \n        return stats\n\
-          \    \n    def format_results(self, matches: List[Dict], show_details: bool\
-          \ = True, group_by: str = \"category\") -> str:\n        \"\"\"\n      \
-          \  格式化检测结果\n        \n        Args:\n            matches: 匹配结果列表\n     \
-          \       show_details: 是否显示详细信息\n            group_by: 分组方式 (\"category\"\
-          , \"source\")\n        \"\"\"\n        if not matches:\n            return\
-          \ \"未检测到服务不可用相关日志\"\n        \n        result = f\"检测到 {len(matches)} 条服务不可用相关日志:\\\
-          n\\n\"\n        \n        if group_by == \"source\":\n            # 按错误来源分组显示\n\
-          \            by_source = {}\n            for match in matches:\n       \
-          \         source = match[\"source\"]\n                if source not in by_source:\n\
-          \                    by_source[source] = []\n                by_source[source].append(match)\n\
-          \            \n            # 定义来源显示名称\n            source_names = {\n  \
-          \              \"internal\": \"内部问题 (自身服务)\",\n                \"external\"\
-          : \"外部问题 (依赖服务)\",\n                \"mixed\": \"混合问题 (需进一步判断)\"\n     \
-          \       }\n            \n            for source, source_matches in by_source.items():\n\
-          \                source_name = source_names.get(source, source)\n      \
-          \          result += f\"=== {source_name} ({len(source_matches)} 条) ===\\\
-          n\"\n                \n                if show_details:\n              \
-          \      for match in source_matches:\n                        result += f\"\
-          \  日志内容: {match['content']}\\n\"\n                        result += f\"\
-          \  错误类型: {match['category']}\\n\"\n                else:\n             \
-          \       result += f\"  包含 {len(source_matches)} 条相关日志\\n\\n\"\n        \n\
-          \        else:\n            # 按类别分组显示\n            by_category = {}\n  \
-          \          for match in matches:\n                category = match[\"category\"\
-          ]\n                if category not in by_category:\n                   \
-          \ by_category[category] = []\n                by_category[category].append(match)\n\
-          \            \n            for category, category_matches in by_category.items():\n\
-          \                result += f\"=== {category.upper()} ({len(category_matches)}\
-          \ 条) ===\\n\"\n                \n                if show_details:\n    \
-          \                for match in category_matches:\n                      \
-          \  result += f\"  日志内容: {match['line_number']}: {match['content']}\\n\"\n\
-          \                        result += f\"  错误来源: {match['source']}\\n\"\n \
-          \               else:\n                    result += f\"  包含 {len(category_matches)}\
-          \ 条相关日志\\n\\n\"\n        return result\n\ndef main(log_json: str):\n   \
-          \ logs = json.loads(log_json).get(\"data\", {}).get(\"logContents\", {}).get(\"\
-          contents\", [])\n    detector = ServiceUnavailableDetector()\n    matches\
-          \ = detector.detect_logs(logs)\n    matches = matches[:30]\n    return {\"\
-          result\": json.dumps({\"logs\": matches})}"
-        code_language: python3
-        desc: ''
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: 提取错误日志
-        type: code
-        variables:
-        - value_selector:
-          - '1744878296971'
-          - text
-          variable: log_json
-      height: 54
-      id: '1744901266309'
-      position:
-        x: 6168
-        y: 1076
-      positionAbsolute:
-        x: 6168
-        y: 1076
-      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -1847,11 +1509,11 @@ workflow:
       height: 90
       id: '1745313574375'
       position:
-        x: 2158
-        y: 386
+        x: 4418
+        y: 245
       positionAbsolute:
-        x: 2158
-        y: 386
+        x: 4418
+        y: 245
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1871,11 +1533,11 @@ workflow:
       height: 54
       id: '1745313576757'
       position:
-        x: 1854
-        y: 386
+        x: 3678
+        y: 245
       positionAbsolute:
-        x: 1854
-        y: 386
+        x: 3678
+        y: 245
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2070,6 +1732,7 @@ workflow:
         tool_configurations: {}
         tool_label: 生成告警分析报告
         tool_name: Generate alert analysis report
+        tool_node_version: '2'
         tool_parameters:
           evidence:
             type: mixed
@@ -2096,11 +1759,11 @@ workflow:
       height: 54
       id: '1750839691646'
       position:
-        x: 9734
-        y: 963
+        x: 11498
+        y: 882
       positionAbsolute:
-        x: 9734
-        y: 963
+        x: 11498
+        y: 882
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2127,11 +1790,11 @@ workflow:
       height: 54
       id: '1750839702220'
       position:
-        x: 9430
-        y: 628
+        x: 11194
+        y: 547
       positionAbsolute:
-        x: 9430
-        y: 628
+        x: 11194
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2191,11 +1854,11 @@ workflow:
       height: 54
       id: '1750840042580'
       position:
-        x: 9430
-        y: 833
+        x: 11194
+        y: 752
       positionAbsolute:
-        x: 9430
-        y: 833
+        x: 11194
+        y: 752
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2218,17 +1881,29 @@ workflow:
           text: 你是一个可观测性领域的智能助手，帮助用户解决问题
         - id: 4ca361b5-08c7-461e-b239-648db7bd6815
           role: user
-          text: '#目的
+          text: '# 目的
 
             根据应用的结论生成根因方向的结论
 
-            #结论数据
+            # 数据
 
-            {{#1744878466157.output#}}
+            结论：{{#1744878466157.output#}}
+
+            服务：{{#1753414255071.result#}}
 
             # 受影响服务
 
             {{#1753760065732.output#}}，如果没有数据则忽略这部分，无需提示用户数据为空。
+
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            1. 在文档中寻找当前服务的业务名称对照信息，所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
+
+            2. 如果没有服务名称对照信息则忽略文档数据。
 
             # 时间
 
@@ -2280,11 +1955,11 @@ workflow:
       height: 90
       id: '1750840340832'
       position:
-        x: 9126
-        y: 833
+        x: 10890
+        y: 752
       positionAbsolute:
-        x: 9126
-        y: 833
+        x: 10890
+        y: 752
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2317,11 +1992,11 @@ workflow:
       height: 54
       id: '1750843294839'
       position:
-        x: 9430
-        y: 963
+        x: 11194
+        y: 882
       positionAbsolute:
-        x: 9430
-        y: 963
+        x: 11194
+        y: 882
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2349,11 +2024,11 @@ workflow:
       height: 54
       id: '1750843922551'
       position:
-        x: 9430
-        y: 1093
+        x: 11194
+        y: 1012
       positionAbsolute:
-        x: 9430
-        y: 1093
+        x: 11194
+        y: 1012
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2381,11 +2056,11 @@ workflow:
       height: 54
       id: '1750843945254'
       position:
-        x: 9430
-        y: 1223
+        x: 11194
+        y: 1142
       positionAbsolute:
-        x: 9430
-        y: 1223
+        x: 11194
+        y: 1142
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2398,18 +2073,18 @@ workflow:
         title: 聚合查询日志
         type: variable-aggregator
         variables:
-        - - '1744901266309'
-          - result
+        - - '1758787397171'
+          - error_logs_str
         - - '1753687345334'
           - error_logs_str
       height: 131
       id: '1750844540721'
       position:
-        x: 7606
-        y: 628
+        x: 9370
+        y: 547
       positionAbsolute:
-        x: 7606
-        y: 628
+        x: 9370
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2417,8 +2092,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758696226557'
+          - all_result
         desc: ''
         model:
           completion_params:
@@ -2432,12 +2109,17 @@ workflow:
           text: 你是一个可观测性领域的智能助手
         - id: eaa0bed8-46a2-4c25-aca9-83d0f1105263
           role: user
-          text: "#目的\n生成建议用户的行动建议\n如执行命令，或者找xxx排除问题，必须和故障方向有关，避免给出如“建议排查内部错误”类似的过于宽泛的错误。\n\
-            #结论数据\n{{#1744878466157.output#}}\n\n#格式模版\n```json\n{\"suggest\": [\n\
-            \        {\n            \"action\": \"Add index to payment transaction\
-            \ table.\",\n            \"level\": \"high\"\n        },\n        {\n\
-            \            \"action\": \"Scale up database node CPU resources.\",\n\
-            \            \"level\": \"medium\"\n        }\n    ] }\n```\n#输出格式\njson格式数据，格式参数模版，不要有其他输出"
+          text: "#目的\n根据告警根因总结和相关文档生成排障建议和可执行命令。\n如执行命令，或者找xxx排除问题，必须和故障方向有关，避免给出如“建议排查内部错误”类似的过于宽泛的建议。\n\
+            # 结论数据\n{{#1744878466157.output#}}\n# 文档\n{{#context#}}\n## 使用要求\n优先根据文档中的与当前告警、\n\
+            服务{{#1753414255071.result#}}、告警根因方向相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推测是xx，建议执行xx”。\n\
+            1. 关键寻找文档中包括但不限于历史告警、解决思路、排查步骤、负责人员等信息。\n2. 优先在文档中检索与服务可用性、日志错误数升高、服务错误率升高相关的解决思路。需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。\n\
+            3. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n\
+            4. 如果文档中包含责任联系人、运维人员、负责人等，在建议中添加一条“联系xx进行解决”，没有则不添加。\n#格式模版\n```json\n\
+            {\"suggest\": [\n        {\n            \"action\": \"向支付交易表添加索引\",\n\
+            \            \"level\": \"high\"\n        },\n        {\n            \"\
+            action\": \"扩大数据库节点的CPU资源\",\n            \"level\": \"medium\"\n    \
+            \    },\n         {\n            \"action\": \"联系xx进行解决，联系方式xx\",\n  \
+            \          \"level\": \"medium\"\n        }\n    ] }\n```\n#输出格式\njson格式数据，格式参照模版，不要有其他输出"
         selected: false
         title: 可行动方向建议
         type: llm
@@ -2447,11 +2129,11 @@ workflow:
       height: 90
       id: '1750846397041'
       position:
-        x: 9126
-        y: 1093
+        x: 10890
+        y: 1012
       positionAbsolute:
-        x: 9126
-        y: 1093
+        x: 10890
+        y: 1012
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2500,11 +2182,11 @@ workflow:
       height: 90
       id: '1750846407202'
       position:
-        x: 9126
-        y: 1223
+        x: 10890
+        y: 1142
       positionAbsolute:
-        x: 9126
-        y: 1223
+        x: 10890
+        y: 1142
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2576,11 +2258,11 @@ workflow:
       height: 54
       id: '1750941439700'
       position:
-        x: 9430
-        y: 1317
+        x: 11194
+        y: 1236
       positionAbsolute:
-        x: 9430
-        y: 1317
+        x: 11194
+        y: 1236
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2588,8 +2270,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758696226557'
+          - all_result
         desc: ''
         model:
           completion_params:
@@ -2603,12 +2287,16 @@ workflow:
           text: 你是一个可观测性领域的智能助手，帮助用户解决问题
         - id: 2832e05f-6966-49d9-9697-77bde92736a9
           role: user
-          text: "#目的\n根据应用的结论生成当前情况的描述\n使用结论内的数据，回答简洁易懂\n#结论数据\n告警事件{{#1742807803325.alertName#}}\n\
-            告警事件分析结论{{#1744878466157.output#}}\n受影响服务总结{{#1753760065732.output#}}，如果受影响服务总结为空则忽略，不需要描述受影响服务相关内容，也无需提示用户该数据为空。\n\
-            # 时间\n{{#1741227526517.endTime#}}\n#格式模版参考\n告警报事件结论 \n**事件概述**：\n服务XXX在XX时间短内出现XXX告警\
+          text: "#目的\n根据应用的结论生成当前告警情况的描述和排障建议，\n使用结论内的数据和相关文档片段，回答简洁易懂\n# 结论数据\n告警事件：{{#1742807803325.alertName#}}\n\
+            告警事件分析结论：{{#1744878466157.output#}}\n受影响服务总结：{{#1753760065732.output#}}，如果受影响服务总结为空则忽略，不需要描述受影响服务相关内容，也无需提示用户该数据为空。\n\
+            服务：{{#1753414255071.result#}}\n# 文档数据\n{{#context#}}\n优先根据文档中的与当前告警、服务、告警根因方向相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推测是xx，建议执行xx”。\n\
+            ## 使用要求\n1. 注意关键寻找文档中包括但不限于历史告警、解决思路、告警排查方向、负责人员、业务名称对照等信息。\n2. 优先根据根因中的结论进行方向判断，之后在文档中检索与服务可用性、日志错误数升高、服务错误率升高相关的解决思路。\n\
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。。\n4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n\
+            # 时间\n{{#1741227526517.endTime#}}\n# 格式模版参考\n告警报事件结论 \n**事件概述**：\n服务XXX在XX时间段内出现XXX告警\
             \ (简洁，不要有其他内容)\n**受影响服务**\n简单描述受影响的服务，如果没有相关数据不需要输出“受影响服务”这部分。xx服务成功率下降了xx，xx服务请求量下降了xx，链路中的xx出现错误。\n\
             **问题分析**\n初步分析是XXX方向（如果有具体是自身还是下游方向，请给出方向描述），不要有其他内容，给出方向即可\n**解决措施**：\n\
-            - 执行XXXX命令（必须和故障方向有关，避免给出过于宽泛的建议，如“建议排查内部错误”）\n\n#输出格式\n格式参考模版，注意换行和空格，确保文本美观输出，简单易懂(使用MarkDown格式的文本)，且不要有其他输出"
+            - 执行XXXX命令（根据文档和你的经验给出3条建议，必须和故障方向有关，避免给出过于宽泛的建议，如“建议排查内部错误”。）\n\n#输出格式\n\
+            格式参考模版，注意换行和空格，确保文本美观输出，简单易懂(使用MarkDown格式的文本)，且不要有其他输出"
         selected: false
         title: 总结
         type: llm
@@ -2618,11 +2306,11 @@ workflow:
       height: 90
       id: '1750987639392'
       position:
-        x: 8822
-        y: 833
+        x: 10586
+        y: 752
       positionAbsolute:
-        x: 8822
-        y: 833
+        x: 10586
+        y: 752
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2670,11 +2358,11 @@ workflow:
       height: 90
       id: '1751004239868'
       position:
-        x: 10342
-        y: 963
+        x: 12106
+        y: 882
       positionAbsolute:
-        x: 10342
-        y: 963
+        x: 12106
+        y: 882
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2717,11 +2405,11 @@ workflow:
       height: 90
       id: '1751251291730'
       position:
-        x: 9126
-        y: 963
+        x: 10890
+        y: 882
       positionAbsolute:
-        x: 9126
-        y: 963
+        x: 10890
+        y: 882
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2866,6 +2554,7 @@ workflow:
         tool_configurations: {}
         tool_label: 获取告警分析报告链接
         tool_name: get alert report url
+        tool_node_version: '2'
         tool_parameters:
           alertEventId:
             type: mixed
@@ -2887,11 +2576,11 @@ workflow:
       height: 54
       id: '1751602453263'
       position:
-        x: 10038
-        y: 963
+        x: 11802
+        y: 882
       positionAbsolute:
-        x: 10038
-        y: 963
+        x: 11802
+        y: 882
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2917,11 +2606,11 @@ workflow:
       height: 126
       id: '1751602618703'
       position:
-        x: 8518
-        y: 628
+        x: 10282
+        y: 547
       positionAbsolute:
-        x: 8518
-        y: 628
+        x: 10282
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2940,11 +2629,11 @@ workflow:
       height: 90
       id: '1751602687916'
       position:
-        x: 8822
-        y: 703
+        x: 10586
+        y: 622
       positionAbsolute:
-        x: 8822
-        y: 703
+        x: 10586
+        y: 622
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2975,11 +2664,11 @@ workflow:
       height: 54
       id: '1753411561314'
       position:
-        x: 942
-        y: 498
+        x: 2766
+        y: 417
       positionAbsolute:
-        x: 942
-        y: 498
+        x: 2766
+        y: 417
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3027,11 +2716,11 @@ workflow:
       height: 222
       id: '1753412450611'
       position:
-        x: 1246
-        y: 432
+        x: 3070
+        y: 417
       positionAbsolute:
-        x: 1246
-        y: 432
+        x: 3070
+        y: 417
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3059,11 +2748,11 @@ workflow:
       height: 54
       id: '1753412973821'
       position:
-        x: 4730
-        y: 917
+        x: 6070
+        y: 849
       positionAbsolute:
-        x: 4730
-        y: 917
+        x: 6070
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3183,6 +2872,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询服务拓扑
         tool_name: dataplane_service_topology
+        tool_node_version: '2'
         tool_parameters:
           cluster:
             type: mixed
@@ -3204,11 +2894,11 @@ workflow:
       height: 54
       id: '1753413225096'
       position:
-        x: 4426
-        y: 917
+        x: 5766
+        y: 849
       positionAbsolute:
-        x: 4426
-        y: 917
+        x: 5766
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3403,7 +3093,11 @@ workflow:
         tool_configurations: {}
         tool_label: 查询实例所属服务
         tool_name: dataplane_instance_service
+        tool_node_version: '2'
         tool_parameters:
+          containerId:
+            type: mixed
+            value: '{{#1742807803325.containerId#}}'
           endTime:
             type: variable
             value:
@@ -3415,6 +3109,9 @@ workflow:
           pid:
             type: mixed
             value: '{{#1742807803325.pid#}}'
+          pod:
+            type: mixed
+            value: '{{#1742807803325.pod#}}'
           startTime:
             type: variable
             value:
@@ -3424,11 +3121,11 @@ workflow:
       height: 54
       id: '1753414138349'
       position:
-        x: 1854
-        y: 498
+        x: 942
+        y: 417
       positionAbsolute:
-        x: 1854
-        y: 498
+        x: 942
+        y: 417
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3460,11 +3157,11 @@ workflow:
       height: 54
       id: '1753414255071'
       position:
-        x: 2158
-        y: 516
+        x: 1246
+        y: 435
       positionAbsolute:
-        x: 2158
-        y: 516
+        x: 1246
+        y: 435
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3473,6 +3170,7 @@ workflow:
     - data:
         desc: ''
         error_handle_mode: terminated
+        height: 174
         is_parallel: false
         iterator_selector:
         - '1753412973821'
@@ -3486,20 +3184,20 @@ workflow:
         start_node_id: 1753414276399start
         title: 迭代
         type: iteration
-        width: 1296
-      height: 148
+        width: 1420
+      height: 174
       id: '1753414276399'
       position:
-        x: 5642
-        y: 888
+        x: 6982
+        y: 807
       positionAbsolute:
-        x: 5642
-        y: 888
+        x: 6982
+        y: 807
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
-      width: 1296
+      width: 1420
       zIndex: 1
     - data:
         desc: ''
@@ -3512,11 +3210,11 @@ workflow:
       id: 1753414276399start
       parentId: '1753414276399'
       position:
-        x: 24
-        y: 68
+        x: 60
+        y: 63
       positionAbsolute:
-        x: 5666
-        y: 956
+        x: 7042
+        y: 870
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -3639,6 +3337,7 @@ workflow:
         tool_configurations: {}
         tool_label: 服务请求成功率(按服务名和内容键统计,指定时间段内)
         tool_name: Originx 北极星指标 (服务层级) - RED指标 - 请求成功率
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -3658,11 +3357,11 @@ workflow:
       id: '1753414387530'
       parentId: '1753414276399'
       position:
-        x: 128
-        y: 68
+        x: 204
+        y: 60
       positionAbsolute:
-        x: 5770
-        y: 956
+        x: 7186
+        y: 867
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3810,6 +3509,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询服务RED指标
         tool_name: dataplane_service_redcharts
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -3829,11 +3529,11 @@ workflow:
       id: '1753414403009'
       parentId: '1753414276399'
       position:
-        x: 432
-        y: 68
+        x: 508
+        y: 60
       positionAbsolute:
-        x: 6074
-        y: 956
+        x: 7490
+        y: 867
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3843,6 +3543,7 @@ workflow:
     - data:
         desc: ''
         error_handle_mode: terminated
+        height: 174
         is_parallel: false
         iterator_selector:
         - '1753414587601'
@@ -3856,20 +3557,20 @@ workflow:
         start_node_id: 1753414518300start
         title: 获取错误日志
         type: iteration
-        width: 992
-      height: 148
+        width: 1116
+      height: 174
       id: '1753414518300'
       position:
-        x: 2766
-        y: 498
+        x: 3982
+        y: 375
       positionAbsolute:
-        x: 2766
-        y: 498
+        x: 3982
+        y: 375
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
-      width: 992
+      width: 1116
       zIndex: 1
     - data:
         desc: ''
@@ -3882,11 +3583,11 @@ workflow:
       id: 1753414518300start
       parentId: '1753414518300'
       position:
-        x: 24
-        y: 68
+        x: 60
+        y: 63
       positionAbsolute:
-        x: 2790
-        y: 566
+        x: 4042
+        y: 438
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -4034,6 +3735,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询全量日志
         tool_name: 查询全量日志
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -4045,7 +3747,7 @@ workflow:
             value: 1
           pageSize:
             type: constant
-            value: 999
+            value: 1
           query:
             type: mixed
             value: '{{#1753414924837.query#}}'
@@ -4059,11 +3761,11 @@ workflow:
       id: '1753414547927'
       parentId: '1753414518300'
       position:
-        x: 428
-        y: 65
+        x: 508
+        y: 60
       positionAbsolute:
-        x: 3194
-        y: 563
+        x: 4490
+        y: 435
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4078,7 +3780,7 @@ workflow:
           \            \"startTime\": current_start,\n            \"endTime\": current_end\n\
           \        })\n        current_start = current_end\n    return {'result':\
           \ intervals}\n\ndef main(start_time: int, end_time: int, max_interval: int\
-          \ = 60 * 1000000 * 2) -> dict:\n    return split_time_range(start_time,\
+          \ = 60 * 1000000 * 2) -> dict:\n    end_time += 300000000\n    return split_time_range(start_time,\
           \ end_time, max_interval)"
         code_language: python3
         desc: ''
@@ -4101,11 +3803,11 @@ workflow:
       height: 54
       id: '1753414587601'
       position:
-        x: 2462
-        y: 498
+        x: 3678
+        y: 417
       positionAbsolute:
-        x: 2462
-        y: 498
+        x: 3678
+        y: 417
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4178,11 +3880,11 @@ workflow:
       id: '1753414924837'
       parentId: '1753414518300'
       position:
-        x: 128
-        y: 65
+        x: 204
+        y: 60
       positionAbsolute:
-        x: 2894
-        y: 563
+        x: 4186
+        y: 435
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4350,11 +4052,11 @@ workflow:
       id: '1753415013827'
       parentId: '1753414518300'
       position:
-        x: 732
-        y: 65
+        x: 812
+        y: 60
       positionAbsolute:
-        x: 3498
-        y: 563
+        x: 4794
+        y: 435
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4425,11 +4127,11 @@ workflow:
       id: '1753421605090'
       parentId: '1753414276399'
       position:
-        x: 1036
-        y: 68
+        x: 1116
+        y: 60
       positionAbsolute:
-        x: 6678
-        y: 956
+        x: 8098
+        y: 867
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4550,6 +4252,7 @@ workflow:
         tool_configurations: {}
         tool_label: 服务请求成功率(按服务名和内容键统计,指定时间段内)
         tool_name: Originx 北极星指标 (服务层级) - RED指标 - 请求成功率
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -4568,11 +4271,11 @@ workflow:
       height: 54
       id: '1753426534118'
       position:
-        x: 5338
-        y: 758
+        x: 6678
+        y: 677
       positionAbsolute:
-        x: 5338
-        y: 758
+        x: 6678
+        y: 677
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4717,6 +4420,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询服务RED指标
         tool_name: dataplane_service_redcharts
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -4735,11 +4439,11 @@ workflow:
       height: 54
       id: '1753426546760'
       position:
-        x: 4730
-        y: 758
+        x: 6070
+        y: 677
       positionAbsolute:
-        x: 4730
-        y: 758
+        x: 6070
+        y: 677
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4747,8 +4451,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758696226557'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -4764,7 +4470,23 @@ workflow:
           role: user
           text: '# 任务
 
-            根据日志内容分析服务不可用原因和推测是内部问题还是外部问题。
+            根据日志内容和相关文档结合你的经验分析服务不可用原因和推测是内部问题还是外部问题并给出根因。
+
+            # 文档
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务{{#1753414255071.result#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员等信息。
+
+            2. 优先根据日志内容进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 数据
 
@@ -4794,11 +4516,11 @@ workflow:
       height: 90
       id: '1753433531861'
       position:
-        x: 6998
-        y: 498
+        x: 8462
+        y: 417
       positionAbsolute:
-        x: 6998
-        y: 498
+        x: 8462
+        y: 417
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4853,11 +4575,11 @@ workflow:
       height: 90
       id: '1753436673318'
       position:
-        x: 6168
-        y: 628
+        x: 7570
+        y: 547
       positionAbsolute:
-        x: 6168
-        y: 628
+        x: 7570
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4914,11 +4636,11 @@ workflow:
       height: 90
       id: '1753436803036'
       position:
-        x: 6168
-        y: 758
+        x: 7570
+        y: 677
       positionAbsolute:
-        x: 6168
-        y: 758
+        x: 7570
+        y: 677
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5088,6 +4810,7 @@ workflow:
         tool_configurations: {}
         tool_label: 服务/进程上次被探测到的Unix时间戳
         tool_name: service_last_seen
+        tool_node_version: '2'
         tool_parameters:
           comm:
             type: mixed
@@ -5115,11 +4838,11 @@ workflow:
       height: 54
       id: '1753436915396'
       position:
-        x: 4426
-        y: 628
+        x: 5766
+        y: 547
       positionAbsolute:
-        x: 4426
-        y: 628
+        x: 5766
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5149,11 +4872,11 @@ workflow:
       height: 54
       id: '1753437328850'
       position:
-        x: 5034
-        y: 758
+        x: 6374
+        y: 677
       positionAbsolute:
-        x: 5034
-        y: 758
+        x: 6374
+        y: 677
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5161,8 +4884,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758696226557'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -5178,7 +4903,23 @@ workflow:
           role: user
           text: '# 任务
 
-            服务出现了不可用的告警，通过前面的分析没有探测到相关的错误日志，所以请根据服务在某时间段内的资源使用量和服务请求量、成功率使用趋势以及上述指标与服务存活时间的关系，判断服务不可用的原因是什么。
+            服务出现了不可用的告警，通过前面的分析没有探测到相关的错误日志，所以请根据服务在某时间段内的资源使用量和服务请求量、成功率使用趋势以及上述指标与服务存活时间的关系、相关文档以及你的经验判断服务不可用的原因是什么。
+
+            # 文档
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务{{#1753414255071.result#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员等信息。
+
+            2. 优先根据相关指标关系进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 数据
 
@@ -5190,10 +4931,10 @@ workflow:
 
             {{#1753436803036.text#}}
 
-
             告警{{#1742807803325.alertName#}}
 
             如果请求成功率一直为0（相关时间段内没有请求所以成功率一直为0），则代表没有相关数据，为正常现象。
+
 
             # 分析思路
 
@@ -5213,11 +4954,11 @@ workflow:
       height: 90
       id: '1753437974705'
       position:
-        x: 6998
-        y: 628
+        x: 8462
+        y: 547
       positionAbsolute:
-        x: 6998
-        y: 628
+        x: 8462
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5249,11 +4990,11 @@ workflow:
       id: '1753681278579'
       parentId: '1753414276399'
       position:
-        x: 736
-        y: 68
+        x: 812
+        y: 60
       positionAbsolute:
-        x: 6378
-        y: 956
+        x: 7794
+        y: 867
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5307,11 +5048,11 @@ workflow:
       height: 90
       id: '1753684009639'
       position:
-        x: 6998
-        y: 917
+        x: 8462
+        y: 849
       positionAbsolute:
-        x: 6998
-        y: 917
+        x: 8462
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5331,11 +5072,11 @@ workflow:
       height: 131
       id: '1753686431084'
       position:
-        x: 7302
-        y: 628
+        x: 8766
+        y: 547
       positionAbsolute:
-        x: 7302
-        y: 628
+        x: 8766
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5344,13 +5085,12 @@ workflow:
     - data:
         code: "import json\n\ndef main(all_logs):\n    detected = \"false\"\n    error_logs\
           \ = []\n    for logs in all_logs:\n        error_logs.append(logs)\n   \
-          \     if len(logs) > 0:\n            detected = \"true\"\n    error_logs\
-          \ = error_logs[:20]\n    res = json.dumps({\"logs\": error_logs})\n    MAX_LENGTH\
-          \ = 5000\n    while len(res) > MAX_LENGTH and len(error_logs) > 0:\n   \
-          \     remove_count = max(1, len(error_logs) // 10)\n        error_logs =\
-          \ error_logs[:-remove_count]\n        res = json.dumps({\"logs\": error_logs})\n\
-          \    return {\n        \"result\": detected,\n        \"error_logs_str\"\
-          : res\n    }"
+          \     detected = \"true\"\n    error_logs = error_logs[:20]\n    res = json.dumps({\"\
+          logs\": error_logs})\n    MAX_LENGTH = 50000\n    while len(res) > MAX_LENGTH\
+          \ and len(error_logs) > 0:\n        remove_count = max(1, len(error_logs)\
+          \ // 10)\n        error_logs = error_logs[:-remove_count]\n        res =\
+          \ json.dumps({\"logs\": error_logs})\n    return {\n        \"result\":\
+          \ detected,\n        \"error_logs_str\": res\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -5371,11 +5111,11 @@ workflow:
       height: 54
       id: '1753687345334'
       position:
-        x: 3818
-        y: 498
+        x: 5158
+        y: 417
       positionAbsolute:
-        x: 3818
-        y: 498
+        x: 5158
+        y: 417
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5495,6 +5235,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询宿主机RAM使用率
         tool_name: 查询宿主机RAM使用率
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -5513,11 +5254,11 @@ workflow:
       height: 54
       id: '1753691720044'
       position:
-        x: 5034
-        y: 628
+        x: 6374
+        y: 547
       positionAbsolute:
-        x: 5034
-        y: 628
+        x: 6374
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5612,6 +5353,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询宿主机CPU繁忙率
         tool_name: 查询宿主机CPU繁忙率
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -5630,11 +5372,11 @@ workflow:
       height: 54
       id: '1753691763954'
       position:
-        x: 5338
-        y: 628
+        x: 6678
+        y: 547
       positionAbsolute:
-        x: 5338
-        y: 628
+        x: 6678
+        y: 547
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5667,11 +5409,11 @@ workflow:
       height: 152
       id: '1753755983769'
       position:
-        x: 4122
-        y: 498
+        x: 5462
+        y: 417
       positionAbsolute:
-        x: 4122
-        y: 498
+        x: 5462
+        y: 417
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5991,6 +5733,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询链路数据
         tool_name: 查询链路数据
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -6024,11 +5767,11 @@ workflow:
       height: 54
       id: '17537573455000'
       position:
-        x: 5034
-        y: 917
+        x: 6374
+        y: 849
       positionAbsolute:
-        x: 5034
-        y: 917
+        x: 6374
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6064,11 +5807,11 @@ workflow:
       height: 54
       id: '17537573455001'
       position:
-        x: 5338
-        y: 917
+        x: 6678
+        y: 849
       positionAbsolute:
-        x: 5338
-        y: 917
+        x: 6678
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6090,11 +5833,11 @@ workflow:
       height: 54
       id: '1753760026114'
       position:
-        x: 7302
-        y: 1096.5
+        x: 9018.661499834025
+        y: 1101.5
       positionAbsolute:
-        x: 7302
-        y: 1096.5
+        x: 9018.661499834025
+        y: 1101.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6114,17 +5857,946 @@ workflow:
       height: 131
       id: '1753760065732'
       position:
-        x: 8214
-        y: 628
+        x: 9978
+        y: 547
       positionAbsolute:
-        x: 8214
-        y: 628
+        x: 9978
+        y: 547
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(service, alert) -> dict:\n    return {\n        \"query\"\
+          : service + \" \" + alert,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          query:
+            children: null
+            type: string
+        selected: false
+        title: 获取检索条件
+        type: code
+        variables:
+        - value_selector:
+          - '1753414255071'
+          - result
+          value_type: string
+          variable: service
+        - value_selector:
+          - '1742807803325'
+          - alertName
+          value_type: string
+          variable: alert
+      height: 54
+      id: '1757318012802'
+      position:
+        x: 1550
+        y: 417
+      positionAbsolute:
+        x: 1550
+        y: 417
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 根据告警检索知识
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          knowledge_base_id:
+            type: mixed
+            value: ''
+          query:
+            type: mixed
+            value: '{{#1757318012802.query#}}'
+          top_k:
+            type: constant
+            value: 10
+        type: tool
+      height: 54
+      id: '1758696223081'
+      position:
+        x: 1854
+        y: 417
+      positionAbsolute:
+        x: 1854
+        y: 417
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\n\ndef main(contact_json_str: str, alert_json_str: str)\
+          \ -> dict:\n    include_metadata = False\n\n    contact_data = json.loads(contact_json_str)\n\
+          \    alert_data = json.loads(alert_json_str)\n    contact_records = contact_data.get('records',\
+          \ [])\n    alert_records = alert_data.get('records', [])\n\n    if not include_metadata:\n\
+          \        for record in contact_records:\n            record.pop('metadata',\
+          \ None)\n        for record in alert_records:\n            record.pop('metadata',\
+          \ None)\n\n    # 合并两个 records 并根据 content 去重\n    all_records = contact_records\
+          \ + alert_records\n    unique_records = []\n    seen_contents = set()\n\n\
+          \    for record in all_records:\n        content = record.get('content')\n\
+          \        if content not in seen_contents:\n            unique_records.append(record)\n\
+          \            seen_contents.add(content)\n\n    if include_metadata:\n  \
+          \      return {\n            'contact_result': contact_json_str,\n     \
+          \       'alert_result': alert_json_str,\n            'all_result': json.dumps({'records':\
+          \ unique_records})\n        }\n\n    return {\n        'contact_result':\
+          \ json.dumps({'records': contact_records}),\n        'alert_result': json.dumps({'records':\
+          \ alert_records}),\n        'all_result': json.dumps({'records': unique_records})\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          alert_result:
+            children: null
+            type: string
+          all_result:
+            children: null
+            type: string
+          contact_result:
+            children: null
+            type: string
+        selected: false
+        title: 获取知识片段内容
+        type: code
+        variables:
+        - value_selector:
+          - '1758696223081'
+          - text
+          variable: alert_json_str
+        - value_selector:
+          - '1758779744723'
+          - text
+          variable: contact_json_str
+      height: 54
+      id: '1758696226557'
+      position:
+        x: 2462
+        y: 417
+      positionAbsolute:
+        x: 2462
+        y: 417
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 检索联系人
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          knowledge_base_id:
+            type: mixed
+            value: ''
+          query:
+            type: mixed
+            value: 联系人或负责人
+          top_k:
+            type: constant
+            value: 5
+        type: tool
+      height: 54
+      id: '1758779744723'
+      position:
+        x: 2158
+        y: 417
+      positionAbsolute:
+        x: 2158
+        y: 417
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 174
+        is_parallel: false
+        iterator_selector:
+        - '17587867711701'
+        - result
+        output_selector:
+        - '1758786771169017587867711702'
+        - result
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1758786771169start
+        title: 获取错误日志
+        type: iteration
+        width: 1116
+      height: 174
+      id: '17587867711690'
+      position:
+        x: 7134
+        y: 1021
+      positionAbsolute:
+        x: 7134
+        y: 1021
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 1116
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '17587867711690'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Query condition(clickhouse where clause).
+            ja_JP: Query condition(clickhouse where clause).
+            pt_BR: Query condition(clickhouse where clause).
+            zh_Hans: 查询条件（clickhouse where子句）
+          label:
+            en_US: Query condition(clickhouse where clause).
+            ja_JP: Query condition(clickhouse where clause).
+            pt_BR: Query condition(clickhouse where clause).
+            zh_Hans: 查询条件（clickhouse where子句）
+          llm_description: Query condition(clickhouse where clause).
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Current page
+            ja_JP: Current page
+            pt_BR: Current page
+            zh_Hans: 当前页
+          label:
+            en_US: Current page
+            ja_JP: Current page
+            pt_BR: Current page
+            zh_Hans: 当前页
+          llm_description: Current page
+          max: null
+          min: null
+          name: pageNum
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Page size
+            ja_JP: Page size
+            pt_BR: Page size
+            zh_Hans: 页大小
+          label:
+            en_US: Page size
+            ja_JP: Page size
+            pt_BR: Page size
+            zh_Hans: 页大小
+          llm_description: Page size
+          max: null
+          min: null
+          name: pageSize
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Start timestamp in microseconds
+            ja_JP: Start timestamp in microseconds
+            pt_BR: Start timestamp in microseconds
+            zh_Hans: 查询开始时间（微秒）
+          label:
+            en_US: Start Time
+            ja_JP: Start Time
+            pt_BR: Start Time
+            zh_Hans: 开始时间
+          llm_description: Microsecond timestamp for start time
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: End timestamp in microseconds
+            ja_JP: End timestamp in microseconds
+            pt_BR: End timestamp in microseconds
+            zh_Hans: 查询结束时间（微秒）
+          label:
+            en_US: End Time
+            ja_JP: End Time
+            pt_BR: End Time
+            zh_Hans: 结束时间
+          llm_description: Microsecond timestamp for end time
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          pageNum: ''
+          pageSize: ''
+          query: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询全量日志
+        tool_configurations: {}
+        tool_label: 查询全量日志
+        tool_name: 查询全量日志
+        tool_node_version: '2'
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          pageNum:
+            type: constant
+            value: 1
+          pageSize:
+            type: constant
+            value: 1
+          query:
+            type: mixed
+            value: '{{#1758786771169017587867711701.query#}}'
+          startTime:
+            type: variable
+            value:
+            - '1758786771169017587867711701'
+            - startTime
+        type: tool
+      height: 54
+      id: '1758786771169017587867711700'
+      parentId: '17587867711690'
+      position:
+        x: 476.9192889271508
+        y: 74.81565283145574
+      positionAbsolute:
+        x: 7610.919288927151
+        y: 1095.8156528314557
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(pod: str, service: str, node: str, pid: str, containerId:\
+          \ str, sourceFrom: str, item) -> dict:\n    query = ''\n    if len(containerId)\
+          \ > 0 and len(node) > 0:\n        query = f\"\"\"container_id='{containerId}'\
+          \ and host_name='{node}'\"\"\"\n    elif len(pod) > 0 and len(service) >\
+          \ 0:\n        query = f\"\"\"k8s_pod_name='{pod}' and container_name='{service}'\"\
+          \"\"\n    elif len(pod) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\"\
+          \"\"\n    elif len(node) > 0 and len(pid) > 0:\n        query = f\"\"\"\
+          host_name='{node}' and pid='{pid}'\"\"\"\n    elif len(service) > 0:\n \
+          \       query = f\"\"\"container_name='{service}'\"\"\"\n    elif len(containerId)\
+          \ > 0:\n        query = f\"\"\"container_id='{containerId}'\"\"\"\n    elif\
+          \ len(node) > 0:\n        query = f\"\"\"host_name='{node}'\"\"\"\n\n  \
+          \  if len(sourceFrom) > 0:\n        if len(query) > 0:\n            query\
+          \ += f\" and source='{sourceFrom}'\"\n        else:\n            query =\
+          \ f\"\"\"source='{sourceFrom}'\"\"\"\n    \n    return {\n        \"query\"\
+          : query,\n        \"startTime\": item[\"startTime\"],\n        \"endTime\"\
+          : item[\"endTime\"]\n    }"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '17587867711690'
+        outputs:
+          endTime:
+            children: null
+            type: number
+          query:
+            children: null
+            type: string
+          startTime:
+            children: null
+            type: number
+        selected: false
+        title: 获取查询条件
+        type: code
+        variables:
+        - value_selector:
+          - '1742807803325'
+          - pod
+          variable: pod
+        - value_selector:
+          - '1742807803325'
+          - service
+          variable: service
+        - value_selector:
+          - '1742807803325'
+          - nodeName
+          variable: node
+        - value_selector:
+          - '1742807803325'
+          - pid
+          variable: pid
+        - value_selector:
+          - '1742807803325'
+          - containerId
+          variable: containerId
+        - value_selector:
+          - '1742807803325'
+          - sourceFrom
+          variable: sourceFrom
+        - value_selector:
+          - '17587867711690'
+          - item
+          variable: item
+      height: 54
+      id: '1758786771169017587867711701'
+      parentId: '17587867711690'
+      position:
+        x: 174.77124553108297
+        y: 74.81565283145574
+      positionAbsolute:
+        x: 7308.771245531083
+        y: 1095.8156528314557
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "import re\nimport json\nfrom typing import List, Dict, Tuple, Optional\n\
+          \n\nclass OptimizedServiceUnavailableDetector:\n    \"\"\"优化的服务不可用日志检测器\
+          \ - 仅使用原生库\"\"\"\n    \n    def __init__(self):\n        # 预编译所有正则表达式\n\
+          \        self.compiled_patterns = self._compile_optimized_patterns()\n \
+          \       # 快速过滤器 - 包含常见错误关键词\n        self.quick_filter = re.compile(\n \
+          \           r'(?:error|fail|timeout|unavailable|panic|crash|connection|refused|reset|'\n\
+          \            r'5\\d{2}|4\\d{2}|exception|critical|fatal|'\n            r'错误|失败|超时|不可用|崩溃|异常|致命|拒绝|连接)',\n\
+          \            re.IGNORECASE\n        )\n    \n    def _compile_optimized_patterns(self)\
+          \ -> List[Tuple[re.Pattern, str, str]]:\n        \"\"\"编译优化的模式列表 - 合并相似模式减少正则数量\"\
+          \"\"\n        patterns = []\n        \n        # 1. 连接错误 - 外部问题 (合并多个相关模式)\n\
+          \        connection_pattern = (\n            r'(?:connection\\s+(?:refused|reset|closed|aborted|failed|timeout)|'\n\
+          \            r'can[\\'\"\\s]*t\\s+connect|unable\\s+to\\s+connect|failed\\\
+          s+to\\s+connect|'\n            r'connect\\s+error|network\\s+unreachable|host\\\
+          s+unreachable|'\n            r'no\\s+route\\s+to\\s+host|connection\\s+timed\\\
+          s+out|'\n            r'连接(?:被拒绝|失败|超时|被重置|中断)|无法连接|拒绝连接|网络不可达|主机不可达)'\n\
+          \        )\n        patterns.append((re.compile(connection_pattern, re.IGNORECASE),\
+          \ \"connection_error\", \"external\"))\n        \n        # 2. 超时错误 - 混合问题\n\
+          \        timeout_pattern = (\n            r'(?:timeout|timed\\s+out|time\\\
+          s+out|超时|请求超时|响应超时|'\n            r'(?:read|write|connect|socket|request|response|execution|operation)\\\
+          s+timeout)'\n        )\n        patterns.append((re.compile(timeout_pattern,\
+          \ re.IGNORECASE), \"timeout_error\", \"mixed\"))\n        \n        # 3.\
+          \ 服务不可用 - 外部问题\n        unavailable_pattern = (\n            r'(?:(?:service|server|backend|upstream)\\\
+          s+unavailable|not\\s+available|'\n            r'服务(?:不可用|器不可用)|暂时不可用|temporar(?:y|ily)\\\
+          s+unavailable|'\n            r'503\\s+service\\s+unavailable)'\n       \
+          \ )\n        patterns.append((re.compile(unavailable_pattern, re.IGNORECASE),\
+          \ \"unavailable_error\", \"external\"))\n        \n        # 4. Panic/崩溃错误\
+          \ - 内部问题\n        panic_pattern = (\n            r'(?:panic[:\\s]|(?:fatal|critical)\\\
+          s+error|严重错误|致命错误|崩溃|crash|'\n            r'segmentation\\s+fault|stack\\\
+          s+overflow|out\\s+of\\s+memory|内存不足|栈溢出)'\n        )\n        patterns.append((re.compile(panic_pattern,\
+          \ re.IGNORECASE), \"panic_error\", \"internal\"))\n        \n        # 5.\
+          \ HTTP 5xx错误 - 内部问题\n        http_5xx_pattern = r'(?:5\\d{2}(?:\\s+\\w+)?|500\\\
+          s+internal\\s+server\\s+error|内部服务器错误)'\n        patterns.append((re.compile(http_5xx_pattern,\
+          \ re.IGNORECASE), \"http_error\", \"internal\"))\n        \n        # 6.\
+          \ HTTP网关错误 - 外部问题\n        http_gateway_pattern = (\n            r'(?:502\\\
+          s+bad\\s+gateway|503\\s+service\\s+unavailable|504\\s+gateway\\s+timeout|'\n\
+          \            r'bad\\s+gateway|gateway\\s+timeout|网关错误)'\n        )\n   \
+          \     patterns.append((re.compile(http_gateway_pattern, re.IGNORECASE),\
+          \ \"http_error\", \"external\"))\n        \n        # 7. 网络错误 - 外部问题\n \
+          \       network_pattern = (\n            r'(?:network\\s+(?:error|is\\s+unreachable)|dns\\\
+          s+resolution\\s+failed|'\n            r'name\\s+resolution\\s+failed|网络(?:错误|不可达)|dns解析失败|域名解析失败|'\n\
+          \            r'(?:socket|tcp|udp)\\s+error)'\n        )\n        patterns.append((re.compile(network_pattern,\
+          \ re.IGNORECASE), \"network_error\", \"external\"))\n        \n        #\
+          \ 8. 数据库错误 - 混合问题\n        database_pattern = (\n            r'(?:database\\\
+          s+(?:connection\\s+failed|unavailable|timeout|error)|sql\\s+error|'\n  \
+          \          r'数据库(?:连接失败|不可用|超时)|sql错误|connection\\s+pool\\s+exhausted|'\n\
+          \            r'too\\s+many\\s+connections|max\\s+connections\\s+reached)'\n\
+          \        )\n        patterns.append((re.compile(database_pattern, re.IGNORECASE),\
+          \ \"database_error\", \"mixed\"))\n        \n        # 9. 资源错误 - 内部问题\n\
+          \        resource_pattern = (\n            r'(?:memory\\s+exhausted|disk\\\
+          s+full|no\\s+space\\s+left|resource\\s+exhausted|'\n            r'内存不足|磁盘空间不足|资源耗尽|(?:cpu|memory)\\\
+          s+limit\\s+exceeded)'\n        )\n        patterns.append((re.compile(resource_pattern,\
+          \ re.IGNORECASE), \"resource_error\", \"internal\"))\n        \n       \
+          \ # 10. 认证错误 - 混合问题\n        auth_pattern = (\n            r'(?:(?:authentication|authorization)\\\
+          s+failed|access\\s+denied|'\n            r'permission\\s+denied|unauthorized|forbidden|认证失败|授权失败|'\n\
+          \            r'访问被拒绝|权限不足|401\\s+unauthorized|403\\s+forbidden)'\n     \
+          \   )\n        patterns.append((re.compile(auth_pattern, re.IGNORECASE),\
+          \ \"auth_error\", \"mixed\"))\n        \n        # 11. 通用错误模式 - 放在最后，避免过度匹配\n\
+          \        generic_pattern = (\n            r'(?:\\b(?:ERROR|ERR|EXCEPTION|FAIL(?:ED)?|FATAL|CRITICAL|CRASH(?:ED)?|BROKEN)\\\
+          b|'\n            r'错误|失败|异常|崩溃|致命|未知错误)'\n        )\n        patterns.append((re.compile(generic_pattern,\
+          \ re.IGNORECASE), \"generic_error\", \"unknown\"))\n        \n        return\
+          \ patterns\n    \n    def detect_line(self, line: str, line_number: int\
+          \ = 0) -> Optional[Dict]:\n        \"\"\"检测单行日志 - 优化版本\"\"\"\n        #\
+          \ 快速预过滤，避免不必要的详细匹配\n        if not self.quick_filter.search(line):\n   \
+          \         return None\n        \n        # 按优先级顺序匹配（具体错误优先于通用错误）\n     \
+          \   for regex, category, source in self.compiled_patterns:\n           \
+          \ if regex.search(line):\n                return {\n                   \
+          \ \"line_number\": line_number,\n                    \"content\": line,\n\
+          \                    \"category\": category,\n                    \"source\"\
+          : source\n                }\n        \n        return None\n    \n    def\
+          \ detect_logs(self, logs: List[Dict], max_results: int = 30) -> List[Dict]:\n\
+          \        \"\"\"检测多行日志 - 优化版本\"\"\"\n        if not logs:\n            return\
+          \ []\n        \n        matches = []\n        \n        # 直接遍历，避免额外的数据结构开销\n\
+          \        for i, log in enumerate(logs):\n            if len(matches) >=\
+          \ max_results:\n                break\n                \n            line\
+          \ = log.get(\"body\", \"\")\n            if not line:  # 跳过空行\n        \
+          \        continue\n                \n            match_info = self.detect_line(line,\
+          \ i)\n            if match_info:\n                # 复制原始日志并添加匹配信息\n    \
+          \            result_log = log.copy()\n                result_log.update({\n\
+          \                    \"category\": match_info[\"category\"],\n         \
+          \           \"source\": match_info[\"source\"]\n                })\n   \
+          \             matches.append(result_log)\n        \n        return matches\n\
+          \    \n    def get_statistics(self, matches: List[Dict]) -> Dict:\n    \
+          \    \"\"\"获取检测统计信息 - 使用原生方法\"\"\"\n        if not matches:\n          \
+          \  return {\"total\": 0, \"by_category\": {}, \"by_source\": {}}\n     \
+          \   \n        # 使用原生字典统计\n        by_category = {}\n        by_source =\
+          \ {}\n        \n        for match in matches:\n            # 统计类别\n    \
+          \        category = match.get(\"category\", \"unknown\")\n            by_category[category]\
+          \ = by_category.get(category, 0) + 1\n            \n            # 统计来源\n\
+          \            source = match.get(\"source\", \"unknown\") \n            by_source[source]\
+          \ = by_source.get(source, 0) + 1\n        \n        return {\n         \
+          \   \"total\": len(matches),\n            \"by_category\": by_category,\n\
+          \            \"by_source\": by_source\n        }\n    \n    def format_results(self,\
+          \ matches: List[Dict], show_details: bool = True, group_by: str = \"source\"\
+          ) -> str:\n        \"\"\"格式化检测结果\"\"\"\n        if not matches:\n      \
+          \      return \"未检测到服务不可用相关日志\"\n        \n        result = f\"检测到 {len(matches)}\
+          \ 条服务不可用相关日志:\\n\\n\"\n        \n        # 手动分组\n        groups = {}\n \
+          \       for match in matches:\n            key = match.get(group_by, \"\
+          unknown\")\n            if key not in groups:\n                groups[key]\
+          \ = []\n            groups[key].append(match)\n        \n        if group_by\
+          \ == \"source\":\n            source_names = {\n                \"internal\"\
+          : \"内部问题 (自身服务)\",\n                \"external\": \"外部问题 (依赖服务)\", \n  \
+          \              \"mixed\": \"混合问题 (需进一步判断)\",\n                \"unknown\"\
+          : \"未知来源\"\n            }\n            \n            # 按优先级排序显示\n      \
+          \      priority_order = [\"internal\", \"external\", \"mixed\", \"unknown\"\
+          ]\n            for source in priority_order:\n                if source\
+          \ in groups:\n                    source_matches = groups[source]\n    \
+          \                source_name = source_names[source]\n                  \
+          \  result += f\"=== {source_name} ({len(source_matches)} 条) ===\\n\"\n \
+          \                   \n                    if show_details:\n           \
+          \             # 只显示前3条详细信息，避免输出过长\n                        for match in\
+          \ source_matches[:3]:\n                            content = match.get(\"\
+          body\", \"\")\n                            # 截断过长的内容\n                 \
+          \           if len(content) > 100:\n                                content\
+          \ = content[:100] + \"...\"\n                            result += f\" \
+          \ 日志内容: {content}\\n\"\n                            result += f\"  错误类型:\
+          \ {match.get('category', 'unknown')}\\n\\n\"\n                        \n\
+          \                        if len(source_matches) > 3:\n                 \
+          \           result += f\"  ... 还有 {len(source_matches) - 3} 条同类日志\\n\\n\"\
+          \n                    else:\n                        result += f\"  包含 {len(source_matches)}\
+          \ 条相关日志\\n\\n\"\n        else:\n            # 按类别分组\n            for category,\
+          \ category_matches in groups.items():\n                result += f\"===\
+          \ {category.upper()} ({len(category_matches)} 条) ===\\n\"\n            \
+          \    \n                if show_details:\n                    for match in\
+          \ category_matches[:3]:\n                        content = match.get(\"\
+          body\", \"\")\n                        if len(content) > 100:\n        \
+          \                    content = content[:100] + \"...\"\n               \
+          \         result += f\"  日志内容: {content}\\n\"\n                        result\
+          \ += f\"  错误来源: {match.get('source', 'unknown')}\\n\\n\"\n             \
+          \       \n                    if len(category_matches) > 3:\n          \
+          \              result += f\"  ... 还有 {len(category_matches) - 3} 条同类日志\\\
+          n\\n\"\n                else:\n                    result += f\"  包含 {len(category_matches)}\
+          \ 条相关日志\\n\\n\"\n        \n        return result\n\n\ndef main(log_json:\
+          \ str):\n    \"\"\"主函数 - 优化版本\"\"\"\n    try:\n        # 解析JSON\n      \
+          \  data = json.loads(log_json)\n        logs = data.get(\"data\", {}).get(\"\
+          logContents\", {}).get(\"contents\", [])\n        \n        # 创建检测器并处理\n\
+          \        detector = OptimizedServiceUnavailableDetector()\n        matches\
+          \ = detector.detect_logs(logs, max_results=30)\n        \n        return\
+          \ {\"result\": matches}\n        \n    except json.JSONDecodeError as e:\n\
+          \        return {\"error\": f\"JSON解析错误: {str(e)}\"}\n    except Exception\
+          \ as e:\n        return {\"error\": f\"处理错误: {str(e)}\"}"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '17587867711690'
+        outputs:
+          result:
+            children: null
+            type: array[object]
+        selected: false
+        title: 提取错误日志
+        type: code
+        variables:
+        - value_selector:
+          - '1758786771169017587867711700'
+          - text
+          variable: log_json
+      height: 54
+      id: '1758786771169017587867711702'
+      parentId: '17587867711690'
+      position:
+        x: 803.3097027947015
+        y: 75.20802010927355
+      positionAbsolute:
+        x: 7937.3097027947015
+        y: 1096.2080201092735
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1758786771169start
+      parentId: '17587867711690'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 7158
+        y: 1089
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "def split_time_range(start_time: int, end_time: int, max_interval:\
+          \ int = 60 * 1000000) -> dict:\n    intervals = []\n    current_start =\
+          \ start_time\n    while current_start < end_time:\n        current_end =\
+          \ min(current_start + max_interval, end_time)\n        intervals.append({\n\
+          \            \"startTime\": current_start,\n            \"endTime\": current_end\n\
+          \        })\n        current_start = current_end\n    return {'result':\
+          \ intervals}\n\ndef main(start_time: int, end_time: int, max_interval: int\
+          \ = 60 * 1000000 * 2) -> dict:\n    end_time += 300000000\n    return split_time_range(start_time,\
+          \ end_time, max_interval)"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: array[object]
+        selected: false
+        title: 划分时间区间
+        type: code
+        variables:
+        - value_selector:
+          - '1741227526517'
+          - startTime
+          variable: start_time
+        - value_selector:
+          - '1741227526517'
+          - endTime
+          variable: end_time
+      height: 54
+      id: '17587867711701'
+      position:
+        x: 6678
+        y: 1063
+      positionAbsolute:
+        x: 6678
+        y: 1063
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(all_logs):\n    detected = \"false\"\n    error_logs\
+          \ = []\n    for logs in all_logs:\n        error_logs.append(logs)\n   \
+          \     detected = \"true\"\n    error_logs = error_logs[:20]\n    res = json.dumps({\"\
+          logs\": error_logs})\n    MAX_LENGTH = 50000\n    while len(res) > MAX_LENGTH\
+          \ and len(error_logs) > 0:\n        remove_count = max(1, len(error_logs)\
+          \ // 10)\n        error_logs = error_logs[:-remove_count]\n        res =\
+          \ json.dumps({\"logs\": error_logs})\n    return {\n        \"result\":\
+          \ detected,\n        \"error_logs_str\": res\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          error_logs_str:
+            children: null
+            type: string
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 整合日志
+        type: code
+        variables:
+        - value_selector:
+          - '17587867711690'
+          - output
+          variable: all_logs
+      height: 54
+      id: '1758787397171'
+      position:
+        x: 8346.395411980613
+        y: 1041.4466022336737
+      positionAbsolute:
+        x: 8346.395411980613
+        y: 1041.4466022336737
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -2780.0992543752186
-      y: -360.52073427742823
-      zoom: 0.5366858134987545
+      x: -985.0038692421181
+      y: 45.31638863482635
+      zoom: 0.5629282476016535
