@@ -122,30 +122,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: variable-aggregator
-        targetType: code
-      id: 1743664106885-source-1743670061370-target
-      selected: false
-      source: '1743664106885'
-      sourceHandle: source
-      target: '1743670061370'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: variable-aggregator
-        targetType: code
-      id: 1743664106885-source-1743670099979-target
-      selected: false
-      source: '1743664106885'
-      sourceHandle: source
-      target: '1743670099979'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: question-classifier
         targetType: tool
       id: 1743577315409-1743584308108-1743672656692-target
@@ -933,18 +909,6 @@ workflow:
       source: '17467776423978'
       sourceHandle: source
       target: '17467776423972'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: variable-aggregator
-        targetType: code
-      id: 1743664106885-source-17469670619810-target
-      selected: false
-      source: '1743664106885'
-      sourceHandle: source
-      target: '17469670619810'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1870,42 +1834,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: if-else
-      id: 1743670061370-source-1753019933658-target
-      selected: false
-      source: '1743670061370'
-      sourceHandle: source
-      target: '1753019933658'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: if-else
-      id: 1743670099979-source-1753019933658-target
-      selected: false
-      source: '1743670099979'
-      sourceHandle: source
-      target: '1753019933658'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: if-else
-      id: 17469670619810-source-1753019933658-target
-      selected: false
-      source: '17469670619810'
-      sourceHandle: source
-      target: '1753019933658'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: if-else
         targetType: tool
       id: 1753019933658-true-1752659323846-target
@@ -2800,6 +2728,7 @@ workflow:
         sourceType: code
         targetType: if-else
       id: 1744959389144-source-1743649517293-target
+      selected: false
       source: '1744959389144'
       sourceHandle: source
       target: '1743649517293'
@@ -2814,6 +2743,180 @@ workflow:
       source: '17540319953985'
       sourceHandle: source
       target: '1750988315593'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: variable-aggregator
+      id: 1743664106885-source-1758627861794-target
+      selected: false
+      source: '1743664106885'
+      sourceHandle: source
+      target: '1758627861794'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17469670619810-source-1753019933658-target
+      selected: false
+      source: '17469670619810'
+      sourceHandle: source
+      target: '1753019933658'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1743670099979-source-1753019933658-target
+      source: '1743670099979'
+      sourceHandle: source
+      target: '1753019933658'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1743670061370-source-1753019933658-target
+      source: '1743670061370'
+      sourceHandle: source
+      target: '1753019933658'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1758628253496'
+        sourceType: iteration-start
+        targetType: code
+      id: 1758628253496start-source-1758628283567-target
+      source: 1758628253496start
+      sourceHandle: source
+      target: '1758628283567'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1758628253496'
+        sourceType: code
+        targetType: tool
+      id: 1758628283567-source-1758628508115-target
+      source: '1758628283567'
+      sourceHandle: source
+      target: '1758628508115'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: code
+      id: 1758628253496-source-1758628605452-target
+      selected: false
+      source: '1758628253496'
+      sourceHandle: source
+      target: '1758628605452'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: iteration
+      id: 1758627861794-source-1758628253496-target
+      source: '1758627861794'
+      sourceHandle: source
+      target: '1758628253496'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1758628605452-source-1758697197702-target
+      source: '1758628605452'
+      sourceHandle: source
+      target: '1758697197702'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1758697299707-source-17469670619810-target
+      source: '1758697299707'
+      sourceHandle: source
+      target: '17469670619810'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1758697299707-source-1743670099979-target
+      source: '1758697299707'
+      sourceHandle: source
+      target: '1743670099979'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1758697299707-source-1743670061370-target
+      source: '1758697299707'
+      sourceHandle: source
+      target: '1743670061370'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1758697118275-source-1758697299707-target
+      source: '1758697118275'
+      sourceHandle: source
+      target: '1758697299707'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: tool
+      id: 1758697197702-source-1758771570920-target
+      source: '1758697197702'
+      sourceHandle: source
+      target: '1758771570920'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: tool
+      id: 1758771570920-source-1758697118275-target
+      source: '1758771570920'
+      sourceHandle: source
+      target: '1758697118275'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -2858,10 +2961,10 @@ workflow:
       id: '1743576019537'
       position:
         x: 30
-        y: 440
+        y: 300
       positionAbsolute:
         x: 30
-        y: 440
+        y: 300
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2914,11 +3017,11 @@ workflow:
       height: 528
       id: '1743577315409'
       position:
-        x: 2462
-        y: 2933
+        x: 6905
+        y: 1190.5
       positionAbsolute:
-        x: 2462
-        y: 2933
+        x: 6905
+        y: 1190.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2962,11 +3065,11 @@ workflow:
       height: 200
       id: '1743649517293'
       position:
-        x: 638
-        y: 440
+        x: 698
+        y: 300
       positionAbsolute:
-        x: 638
-        y: 440
+        x: 698
+        y: 300
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2982,11 +3085,11 @@ workflow:
       height: 54
       id: '1743650887693'
       position:
-        x: 942
-        y: 440
+        x: 1548
+        y: 300
       positionAbsolute:
-        x: 942
-        y: 440
+        x: 1548
+        y: 300
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3005,11 +3108,11 @@ workflow:
       height: 90
       id: '1743650967123'
       position:
-        x: 1246
-        y: 440
+        x: 1882
+        y: 300
       positionAbsolute:
-        x: 1246
-        y: 440
+        x: 1882
+        y: 300
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3129,6 +3232,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询节点上被监控的服务列表
         tool_name: originx_service_monitor
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -3150,32 +3254,40 @@ workflow:
       height: 54
       id: '1743652485397'
       position:
-        x: 942
-        y: 646
+        x: 1214
+        y: 478
       positionAbsolute:
-        x: 942
-        y: 646
+        x: 1214
+        y: 478
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(arg1: str) -> dict:\n    data = json.loads(arg1)\n\
-          \    \n    timeseries = data.get(\"data\", {}).get(\"timeseries\", [])\n\
-          \    \n    namespaces = []\n    pods = []\n    pids = []\n        \n   \
-          \ for entry in timeseries:\n        labels = entry.get(\"labels\", {})\n\
-          \        \n        namespace = labels.get(\"namespace\", None)\n       \
-          \ pod = labels.get(\"pod\", None)\n        pid = labels.get(\"pid\", None)\n\
-          \        \n        if namespace and namespace not in namespaces:\n     \
-          \       namespaces.append(namespace)\n\n        if pod and pod not in pods:\n\
-          \            pods.append(pod)\n        \n        if pid and pid not in pids:\n\
-          \            pids.append(pid)    \n\n    output = {\"namespaces\": namespaces,\
-          \ \"pods\": pods, \"pids\": pids}\n    return {\n        \"result\": json.dumps(output),\n\
-          \    }"
+        code: "import json\n\n\ndef main(arg1: str) -> dict:\n    data = json.loads(arg1)\n\
+          \n    timeseries = data.get(\"data\", {}).get(\"timeseries\", [])\n\n  \
+          \  namespaces = []\n    pods = []\n    pids = []\n\n    instances = []\n\
+          \    for entry in timeseries:\n        labels = entry.get(\"labels\", {})\n\
+          \n        namespace = labels.get(\"namespace\", None)\n        pod = labels.get(\"\
+          pod\", None)\n        pid = labels.get(\"pid\", None)\n        node = labels.get(\"\
+          node\", None)\n        instance = {\n            \"namespace\": namespace,\n\
+          \            \"pod\": pod,\n            \"pid\": pid,\n            \"node\"\
+          : node,\n        }\n        if namespace and namespace not in namespaces:\n\
+          \            namespaces.append(namespace)\n\n        if pod and pod not\
+          \ in pods:\n            pods.append(pod)\n\n        if pid and pid not in\
+          \ pids:\n            pids.append(pid)\n        if not instance['pod'] and\
+          \ not instance['node'] and not instance['pid']:\n            continue\n\n\
+          \        if instance not in instances:\n            instances.append(instance)\n\
+          \    output = {\"namespaces\": namespaces, \"pods\": pods, \"pids\": pids}\n\
+          \    return {\n        \"result\": json.dumps(output),\n        \"instances\"\
+          : instances\n    }\n"
         code_language: python3
         desc: ''
         outputs:
+          instances:
+            children: null
+            type: array[object]
           result:
             children: null
             type: string
@@ -3190,11 +3302,11 @@ workflow:
       height: 54
       id: '1743652552181'
       position:
-        x: 1246
-        y: 664
+        x: 1548
+        y: 478
       positionAbsolute:
-        x: 1246
-        y: 664
+        x: 1548
+        y: 478
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3214,11 +3326,11 @@ workflow:
       height: 131
       id: '1743664106885'
       position:
-        x: 1550
-        y: 552
+        x: 1882
+        y: 454.5
       positionAbsolute:
-        x: 1550
-        y: 552
+        x: 1882
+        y: 454.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3227,11 +3339,16 @@ workflow:
     - data:
         code: "def main(namespace: str, pod: str, pid: str) -> dict:\n    output =\
           \ {\n        \"namespaces\": [namespace],\n        \"pods\": [pod],\n  \
-          \      \"pids\": [pid],\n    }  \n\n    return {\n        \"result\": json.dumps(output)\n\
-          \    }"
+          \      \"pids\": [pid],\n    }\n    instances = [{\n        \"namespace\"\
+          : namespace,\n        \"pod\": pod,\n        \"pid\": pid,\n    }]\n   \
+          \ return {\n        \"result\": json.dumps(output),\n        \"instances\"\
+          : instances,\n    }\n"
         code_language: python3
         desc: ''
         outputs:
+          instances:
+            children: null
+            type: array[object]
           result:
             children: null
             type: string
@@ -3254,11 +3371,11 @@ workflow:
       height: 54
       id: '1743664113196'
       position:
-        x: 1246
-        y: 570
+        x: 1548
+        y: 572
       positionAbsolute:
-        x: 1246
-        y: 570
+        x: 1548
+        y: 572
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3287,11 +3404,11 @@ workflow:
       height: 54
       id: '1743670061370'
       position:
-        x: 1854
-        y: 740
+        x: 4754
+        y: 1009
       positionAbsolute:
-        x: 1854
-        y: 740
+        x: 4754
+        y: 1009
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3319,11 +3436,11 @@ workflow:
       height: 54
       id: '1743670099979'
       position:
-        x: 1854
-        y: 646
+        x: 4754
+        y: 915
       positionAbsolute:
-        x: 1854
-        y: 646
+        x: 4754
+        y: 915
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3443,6 +3560,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器与下游服务的网络往返时间(RTT,按命名空间和Pod统计)
         tool_name: 查询容器网络与下游RTT
+        tool_node_version: '2'
         tool_parameters:
           containerId:
             type: mixed
@@ -3473,11 +3591,11 @@ workflow:
       height: 54
       id: '1743672656692'
       position:
-        x: 8374
-        y: 3664
+        x: 13759
+        y: 1403.5
       positionAbsolute:
-        x: 8374
-        y: 3664
+        x: 13759
+        y: 1403.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3622,6 +3740,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器网络接收带宽(按命名空间和Pod统计)
         tool_name: 容器网络接收带宽(按命名空间和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           cadvisor_job_name:
             type: mixed
@@ -3646,11 +3765,11 @@ workflow:
       height: 54
       id: '1743672756524'
       position:
-        x: 8374
-        y: 2300
+        x: 13759
+        y: 2619
       positionAbsolute:
-        x: 8374
-        y: 2300
+        x: 13759
+        y: 2619
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3795,6 +3914,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器网络发送带宽(按命名空间和Pod统计)
         tool_name: 容器网络发送带宽(按命名空间和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           cadvisor_job_name:
             type: mixed
@@ -3819,11 +3939,11 @@ workflow:
       height: 54
       id: '1743672762507'
       position:
-        x: 8374
-        y: 2636
+        x: 13759
+        y: 2431
       positionAbsolute:
-        x: 8374
-        y: 2636
+        x: 13759
+        y: 2431
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3968,6 +4088,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器磁盘读取耗时每秒(使用Containerd,按Pod和容器统计)
         tool_name: 容器磁盘读取耗时每秒(使用Containerd,按Pod和容器统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -3989,11 +4110,11 @@ workflow:
       height: 54
       id: '1743673124913'
       position:
-        x: 6718
-        y: 3986
+        x: 12503
+        y: 319
       positionAbsolute:
-        x: 6718
-        y: 3986
+        x: 12503
+        y: 319
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4138,6 +4259,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器磁盘写入耗时每秒(使用Containerd,按Pod和容器统计)
         tool_name: 容器磁盘写入耗时每秒(使用Containerd,按Pod和容器统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -4159,11 +4281,11 @@ workflow:
       height: 54
       id: '1743673153877'
       position:
-        x: 6718
-        y: 3892
+        x: 12503
+        y: 692.5
       positionAbsolute:
-        x: 6718
-        y: 3892
+        x: 12503
+        y: 692.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4185,11 +4307,11 @@ workflow:
       height: 153
       id: '1743673518843'
       position:
-        x: 8374
-        y: 3785.5
+        x: 13759
+        y: 579
       positionAbsolute:
-        x: 8374
-        y: 3785.5
+        x: 13759
+        y: 579
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4197,8 +4319,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -4214,8 +4338,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析告警的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
+            根据相关指标结果和相关文档片段，分析告警的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -4251,11 +4390,11 @@ workflow:
       height: 90
       id: '1743673613633'
       position:
-        x: 10334
-        y: 3817
+        x: 15937
+        y: 615.5
       positionAbsolute:
-        x: 10334
-        y: 3817
+        x: 15937
+        y: 615.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4281,11 +4420,11 @@ workflow:
       height: 126
       id: '1743844014629'
       position:
-        x: 5198
-        y: 1154
+        x: 9577
+        y: 543
       positionAbsolute:
-        x: 5198
-        y: 1154
+        x: 9577
+        y: 543
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4311,11 +4450,11 @@ workflow:
       height: 126
       id: '17438442246820'
       position:
-        x: 5806
-        y: 646
+        x: 10245
+        y: 1190.5
       positionAbsolute:
-        x: 5806
-        y: 646
+        x: 10245
+        y: 1190.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4334,11 +4473,11 @@ workflow:
       height: 90
       id: '1743844231109'
       position:
-        x: 5806
-        y: 1172
+        x: 10913
+        y: 561
       positionAbsolute:
-        x: 5806
-        y: 1172
+        x: 10913
+        y: 561
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4358,7 +4497,7 @@ workflow:
 
           # 判断思路
 
-          根据告警{{#1743576019537.alertName#}}和指标值{{#17438441946260.text#}}判断该指标是否在某一时刻飙升
+          根据指标值判断该指标是否在某一时刻飙升
 
 
           '
@@ -4381,11 +4520,11 @@ workflow:
       height: 168
       id: '1743846657026'
       position:
-        x: 6110
-        y: 1263
+        x: 11247
+        y: 2998
       positionAbsolute:
-        x: 6110
-        y: 1263
+        x: 11247
+        y: 2998
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4401,11 +4540,11 @@ workflow:
       height: 54
       id: '1743847092222'
       position:
-        x: 5502
-        y: 1154
+        x: 10579
+        y: 543
       positionAbsolute:
-        x: 5502
-        y: 1154
+        x: 10579
+        y: 543
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4550,6 +4689,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器磁盘写入耗时每秒(使用Containerd,按Pod和容器统计)
         tool_name: 容器磁盘写入耗时每秒(使用Containerd,按Pod和容器统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -4571,11 +4711,11 @@ workflow:
       height: 54
       id: '1743847425675'
       position:
-        x: 7546
-        y: 1924
+        x: 13425
+        y: 3151
       positionAbsolute:
-        x: 7546
-        y: 1924
+        x: 13425
+        y: 3151
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4670,6 +4810,7 @@ workflow:
         tool_configurations: {}
         tool_label: 宿主机当前打开文件描述符数
         tool_name: host_cpu_fd_open
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -4688,11 +4829,11 @@ workflow:
       height: 54
       id: '1743847618976'
       position:
-        x: 6718
-        y: 3798
+        x: 12503
+        y: 786.5
       positionAbsolute:
-        x: 6718
-        y: 3798
+        x: 12503
+        y: 786.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4837,6 +4978,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器磁盘读取耗时每秒(使用Containerd,按Pod和容器统计)
         tool_name: 容器磁盘读取耗时每秒(使用Containerd,按Pod和容器统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -4858,11 +5000,11 @@ workflow:
       height: 54
       id: '1743847703261'
       position:
-        x: 7546
-        y: 2018
+        x: 13425
+        y: 3057
       positionAbsolute:
-        x: 7546
-        y: 2018
+        x: 13425
+        y: 3057
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5007,6 +5149,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器网络接收错误包数(按命名空间和Pod统计)
         tool_name: 容器网络接收错误包数(按命名空间和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -5028,11 +5171,11 @@ workflow:
       height: 54
       id: '1743848302527'
       position:
-        x: 7546
-        y: 1566
+        x: 13425
+        y: 3339
       positionAbsolute:
-        x: 7546
-        y: 1566
+        x: 13425
+        y: 3339
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5177,6 +5320,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器网络发送错误包数(按命名空间和Pod统计)
         tool_name: 容器网络发送错误包数(按命名空间和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -5198,11 +5342,11 @@ workflow:
       height: 54
       id: '1743848306370'
       position:
-        x: 7546
-        y: 1472
+        x: 13425
+        y: 3433
       positionAbsolute:
-        x: 7546
-        y: 1472
+        x: 13425
+        y: 3433
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5347,6 +5491,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器网络接收丢包数(按命名空间和Pod统计)
         tool_name: 容器网络接收丢包数(按命名空间和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -5368,11 +5513,11 @@ workflow:
       height: 54
       id: '1743848316998'
       position:
-        x: 7546
-        y: 1378
+        x: 13425
+        y: 3527
       positionAbsolute:
-        x: 7546
-        y: 1378
+        x: 13425
+        y: 3527
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5517,6 +5662,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器网络发送丢包数(按命名空间和Pod统计)
         tool_name: 容器网络发送丢包数(按命名空间和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -5538,11 +5684,11 @@ workflow:
       height: 54
       id: '1743848323475'
       position:
-        x: 7546
-        y: 1284
+        x: 13425
+        y: 3621
       positionAbsolute:
-        x: 7546
-        y: 1284
+        x: 13425
+        y: 3621
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5550,8 +5696,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -5567,8 +5715,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
+            根据相关指标结果和相关文档片段，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -5594,11 +5757,11 @@ workflow:
       height: 90
       id: '17438483761510'
       position:
-        x: 10030
-        y: 1378
+        x: 15603
+        y: 3433
       positionAbsolute:
-        x: 10030
-        y: 1378
+        x: 15603
+        y: 3433
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5625,11 +5788,11 @@ workflow:
       height: 142
       id: '17438490239160'
       position:
-        x: 14430
-        y: 2513
+        x: 21332
+        y: 2655
       positionAbsolute:
-        x: 14430
-        y: 2513
+        x: 21332
+        y: 2655
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5637,8 +5800,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -5654,8 +5819,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
+            根据相关指标结果和相关文档片段，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -5682,11 +5862,11 @@ workflow:
       height: 90
       id: '17438490633890'
       position:
-        x: 10030
-        y: 1924
+        x: 15603
+        y: 3057
       positionAbsolute:
-        x: 10030
-        y: 1924
+        x: 15603
+        y: 3057
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5806,6 +5986,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询宿主机SWAP使用率
         tool_name: 查询宿主机SWAP使用率
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -5827,11 +6008,11 @@ workflow:
       height: 54
       id: '1743849441196'
       position:
-        x: 6414
-        y: 1794
+        x: 11581
+        y: 3057
       positionAbsolute:
-        x: 6414
-        y: 1794
+        x: 11581
+        y: 3057
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5851,7 +6032,7 @@ workflow:
 
           # 判断思路
 
-          根据告警{{#1743576019537.alertName#}}和指标值{{#1743849441196.text#}}判断该指标是否在某一时刻飙升
+          根据指标值判断该指标是否在某一时刻飙升
 
 
           # 注意
@@ -5879,11 +6060,11 @@ workflow:
       height: 168
       id: '17438494733730'
       position:
-        x: 6718
-        y: 1794
+        x: 12503
+        y: 3057
       positionAbsolute:
-        x: 6718
-        y: 1794
+        x: 12503
+        y: 3057
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6028,6 +6209,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器内存使用字节数(使用Containerd容器运行时,按容器和Pod统计)
         tool_name: 容器内存使用字节数(使用Containerd容器运行时,按容器和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -6049,11 +6231,11 @@ workflow:
       height: 54
       id: '1743849875119'
       position:
-        x: 7546
-        y: 1794
+        x: 13425
+        y: 3245
       positionAbsolute:
-        x: 7546
-        y: 1794
+        x: 13425
+        y: 3245
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6061,8 +6243,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -6078,8 +6262,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
+            根据相关指标结果和相关文档片段，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -6105,11 +6304,11 @@ workflow:
       height: 90
       id: '17438498987710'
       position:
-        x: 10030
-        y: 1794
+        x: 15603
+        y: 3245
       positionAbsolute:
-        x: 10030
-        y: 1794
+        x: 15603
+        y: 3245
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6153,11 +6352,11 @@ workflow:
       height: 395
       id: '1743850218410'
       position:
-        x: 10638
-        y: 2112
+        x: 16271
+        y: 2525
       positionAbsolute:
-        x: 10638
-        y: 2112
+        x: 16271
+        y: 2525
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6252,6 +6451,7 @@ workflow:
         tool_configurations: {}
         tool_label: 宿主机磁盘使用率(百分比,不含rootfs)
         tool_name: 宿主机磁盘使用率(百分比,不含rootfs)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -6270,11 +6470,11 @@ workflow:
       height: 54
       id: '1743850453842'
       position:
-        x: 9202
-        y: 2993
+        x: 14681
+        y: 2337
       positionAbsolute:
-        x: 9202
-        y: 2993
+        x: 14681
+        y: 2337
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6285,11 +6485,11 @@ workflow:
           \ json.loads(arg) \n    instance = get_value(data, [\"instanceName\", \"\
           instance_name\"])\n    if not instance:\n       instance = data.get('raw_tags',\
           \ {}).get('instance_name')\n    return {\n        \"alertName\": get_value(data,\
-          \ [\"alertName\"]),      \n        \"pod\": get_value(data,[\"pod\", \"\
-          src_pod\", \"pod_name\"]), \n        \"namespace\": get_value(data,[\"namespace\"\
-          , \"src_namespace\"]), \n        \"nodeName\": nodeName if nodeName else\
-          \ get_value(data, [\"nodename\", \"node_name\", \"nodeName\", \"node\"]),\n\
-          \        \"jobName\": \".*\",\n        \"containerId\": get_value(data,\
+          \ [\"alertName\",\"alertname\"]),      \n        \"pod\": get_value(data,[\"\
+          pod\", \"src_pod\", \"pod_name\"]), \n        \"namespace\": get_value(data,[\"\
+          namespace\", \"src_namespace\"]), \n        \"nodeName\": nodeName if nodeName\
+          \ else get_value(data, [\"nodename\", \"node_name\", \"nodeName\", \"node\"\
+          ]),\n        \"jobName\": \".*\",\n        \"containerId\": get_value(data,\
           \ [\"containerId\", \"container_id\", \"containerID\"]),\n        \"pid\"\
           : get_value(data, [\"pid\", \"process_id\", \"processId\"]),\n        \"\
           instanceName\": instance,\n        \"service\": get_value(data, [\"service\"\
@@ -6345,11 +6545,11 @@ workflow:
       height: 54
       id: '1744959389144'
       position:
-        x: 334
-        y: 440
+        x: 364
+        y: 300
       positionAbsolute:
-        x: 334
-        y: 440
+        x: 364
+        y: 300
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6394,6 +6594,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -6402,11 +6603,11 @@ workflow:
       height: 54
       id: '1745224561449'
       position:
-        x: 9202
-        y: 3929
+        x: 14681
+        y: 633.5
       positionAbsolute:
-        x: 9202
-        y: 3929
+        x: 14681
+        y: 633.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6451,6 +6652,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -6459,11 +6661,11 @@ workflow:
       height: 54
       id: '1745228455097'
       position:
-        x: 8374
-        y: 1566
+        x: 13759
+        y: 3339
       positionAbsolute:
-        x: 8374
-        y: 1566
+        x: 13759
+        y: 3339
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6508,6 +6710,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -6516,11 +6719,11 @@ workflow:
       height: 54
       id: '1745228463913'
       position:
-        x: 8374
-        y: 1472
+        x: 13759
+        y: 3433
       positionAbsolute:
-        x: 8374
-        y: 1472
+        x: 13759
+        y: 3433
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6565,6 +6768,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -6573,11 +6777,11 @@ workflow:
       height: 54
       id: '1745228471960'
       position:
-        x: 8374
-        y: 1378
+        x: 13759
+        y: 3527
       positionAbsolute:
-        x: 8374
-        y: 1378
+        x: 13759
+        y: 3527
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6622,6 +6826,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -6630,11 +6835,11 @@ workflow:
       height: 54
       id: '1745228478308'
       position:
-        x: 8374
-        y: 1284
+        x: 13759
+        y: 3621
       positionAbsolute:
-        x: 8374
-        y: 1284
+        x: 13759
+        y: 3621
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6679,6 +6884,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -6687,11 +6893,11 @@ workflow:
       height: 54
       id: '1745228513830'
       position:
-        x: 8374
-        y: 1924
+        x: 13759
+        y: 3151
       positionAbsolute:
-        x: 8374
-        y: 1924
+        x: 13759
+        y: 3151
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6736,6 +6942,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -6744,11 +6951,11 @@ workflow:
       height: 54
       id: '1745228520609'
       position:
-        x: 8374
-        y: 2018
+        x: 13759
+        y: 3057
       positionAbsolute:
-        x: 8374
-        y: 2018
+        x: 13759
+        y: 3057
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6793,6 +7000,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -6801,11 +7009,11 @@ workflow:
       height: 54
       id: '1745228528400'
       position:
-        x: 8374
-        y: 1794
+        x: 13759
+        y: 3245
       positionAbsolute:
-        x: 8374
-        y: 1794
+        x: 13759
+        y: 3245
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6858,11 +7066,11 @@ workflow:
       height: 54
       id: '1745894017978'
       position:
-        x: 10030
-        y: 3947
+        x: 15603
+        y: 651.5
       positionAbsolute:
-        x: 10030
-        y: 3947
+        x: 15603
+        y: 651.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6915,11 +7123,11 @@ workflow:
       height: 54
       id: '17458959866650'
       position:
-        x: 9202
-        y: 1566
+        x: 14681
+        y: 3339
       positionAbsolute:
-        x: 9202
-        y: 1566
+        x: 14681
+        y: 3339
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6972,11 +7180,11 @@ workflow:
       height: 54
       id: '17458959879420'
       position:
-        x: 9202
-        y: 1284
+        x: 14681
+        y: 3621
       positionAbsolute:
-        x: 9202
-        y: 1284
+        x: 14681
+        y: 3621
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7029,11 +7237,11 @@ workflow:
       height: 54
       id: '17458959892670'
       position:
-        x: 9202
-        y: 1472
+        x: 14681
+        y: 3433
       positionAbsolute:
-        x: 9202
-        y: 1472
+        x: 14681
+        y: 3433
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7086,11 +7294,11 @@ workflow:
       height: 54
       id: '17458959903430'
       position:
-        x: 9202
-        y: 1378
+        x: 14681
+        y: 3527
       positionAbsolute:
-        x: 9202
-        y: 1378
+        x: 14681
+        y: 3527
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7143,11 +7351,11 @@ workflow:
       height: 54
       id: '17459056426090'
       position:
-        x: 9202
-        y: 2018
+        x: 14681
+        y: 3057
       positionAbsolute:
-        x: 9202
-        y: 2018
+        x: 14681
+        y: 3057
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7200,11 +7408,11 @@ workflow:
       height: 54
       id: '17459056606540'
       position:
-        x: 9202
-        y: 1924
+        x: 14681
+        y: 3151
       positionAbsolute:
-        x: 9202
-        y: 1924
+        x: 14681
+        y: 3151
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7257,11 +7465,11 @@ workflow:
       height: 54
       id: '17459186208040'
       position:
-        x: 9202
-        y: 1794
+        x: 14681
+        y: 3245
       positionAbsolute:
-        x: 9202
-        y: 1794
+        x: 14681
+        y: 3245
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7287,11 +7495,11 @@ workflow:
       height: 126
       id: '17459265895570'
       position:
-        x: 6414
-        y: 2507
+        x: 11247
+        y: 788.5
       positionAbsolute:
-        x: 6414
-        y: 2507
+        x: 11247
+        y: 788.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7307,11 +7515,11 @@ workflow:
       height: 54
       id: '1745926623499'
       position:
-        x: 9202
-        y: 1660
+        x: 15603
+        y: 873
       positionAbsolute:
-        x: 9202
-        y: 1660
+        x: 15603
+        y: 873
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7330,11 +7538,11 @@ workflow:
       height: 90
       id: '1745926643387'
       position:
-        x: 10030
-        y: 1660
+        x: 15937
+        y: 837
       positionAbsolute:
-        x: 10030
-        y: 1660
+        x: 15937
+        y: 837
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7360,11 +7568,11 @@ workflow:
       height: 126
       id: '17459267080670'
       position:
-        x: 8374
-        y: 2394
+        x: 12503
+        y: 1539.5
       positionAbsolute:
-        x: 8374
-        y: 2394
+        x: 12503
+        y: 1539.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7484,6 +7692,7 @@ workflow:
         tool_configurations: {}
         tool_label: 宿主机磁盘IO利用率
         tool_name: 宿主机磁盘IO利用率
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -7505,11 +7714,11 @@ workflow:
       height: 54
       id: '1746777077402'
       position:
-        x: 5806
-        y: 1320
+        x: 10913
+        y: 3093
       positionAbsolute:
-        x: 5806
-        y: 1320
+        x: 10913
+        y: 3093
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7629,6 +7838,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询宿主机SWAP使用率
         tool_name: 查询宿主机SWAP使用率
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -7650,11 +7860,11 @@ workflow:
       height: 54
       id: '17467775030610'
       position:
-        x: 6414
-        y: 646
+        x: 11581
+        y: 3965
       positionAbsolute:
-        x: 6414
-        y: 646
+        x: 11581
+        y: 3965
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7674,7 +7884,7 @@ workflow:
 
           # 判断思路
 
-          根据告警{{#1743576019537.alertName#}}，然后判读判断该指标是否在某一时刻飙升
+          根据告警判断该指标是否在某一时刻飙升
 
           如果指标数据为空，认为没有异常
 
@@ -7699,11 +7909,11 @@ workflow:
       height: 168
       id: '17467775030611'
       position:
-        x: 6718
-        y: 646
+        x: 12503
+        y: 3965
       positionAbsolute:
-        x: 6718
-        y: 646
+        x: 12503
+        y: 3965
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7722,11 +7932,11 @@ workflow:
       height: 90
       id: '17467775269230'
       position:
-        x: 6414
-        y: 1115
+        x: 11581
+        y: 1172.5
       positionAbsolute:
-        x: 6414
-        y: 1115
+        x: 11581
+        y: 1172.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7742,11 +7952,11 @@ workflow:
       height: 54
       id: '17467775269231'
       position:
-        x: 6110
-        y: 1169
+        x: 11247
+        y: 1190.5
       positionAbsolute:
-        x: 6110
-        y: 1169
+        x: 11247
+        y: 1190.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7891,6 +8101,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器磁盘写入耗时每秒(使用Containerd,按Pod和容器统计)
         tool_name: 容器磁盘写入耗时每秒(使用Containerd,按Pod和容器统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -7912,11 +8123,11 @@ workflow:
       height: 54
       id: '17467776423960'
       position:
-        x: 7546
-        y: 870
+        x: 13425
+        y: 3965
       positionAbsolute:
-        x: 7546
-        y: 870
+        x: 13425
+        y: 3965
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8061,6 +8272,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器磁盘读取耗时每秒(使用Containerd,按Pod和容器统计)
         tool_name: 容器磁盘读取耗时每秒(使用Containerd,按Pod和容器统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -8082,11 +8294,11 @@ workflow:
       height: 54
       id: '17467776423971'
       position:
-        x: 7546
-        y: 776
+        x: 13425
+        y: 4059
       positionAbsolute:
-        x: 7546
-        y: 776
+        x: 13425
+        y: 4059
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8094,8 +8306,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -8111,8 +8325,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
+            根据相关指标结果和相关文档片段，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -8138,11 +8367,11 @@ workflow:
       height: 90
       id: '17467776423972'
       position:
-        x: 10030
-        y: 776
+        x: 15603
+        y: 3965
       positionAbsolute:
-        x: 10030
-        y: 776
+        x: 15603
+        y: 3965
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8287,6 +8516,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器内存使用字节数(使用Containerd容器运行时,按容器和Pod统计)
         tool_name: 容器内存使用字节数(使用Containerd容器运行时,按容器和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -8308,11 +8538,11 @@ workflow:
       height: 54
       id: '17467776423973'
       position:
-        x: 7546
-        y: 646
+        x: 13425
+        y: 4153
       positionAbsolute:
-        x: 7546
-        y: 646
+        x: 13425
+        y: 4153
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8320,8 +8550,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -8337,8 +8569,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
+            根据相关指标结果和县官文档片段，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -8364,11 +8611,11 @@ workflow:
       height: 90
       id: '17467776423974'
       position:
-        x: 10030
-        y: 646
+        x: 15603
+        y: 4153
       positionAbsolute:
-        x: 10030
-        y: 646
+        x: 15603
+        y: 4153
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8413,6 +8660,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -8421,11 +8669,11 @@ workflow:
       height: 54
       id: '17467776423975'
       position:
-        x: 8374
-        y: 870
+        x: 13759
+        y: 3965
       positionAbsolute:
-        x: 8374
-        y: 870
+        x: 13759
+        y: 3965
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8470,6 +8718,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -8478,11 +8727,11 @@ workflow:
       height: 54
       id: '17467776423976'
       position:
-        x: 8374
-        y: 776
+        x: 13759
+        y: 4059
       positionAbsolute:
-        x: 8374
-        y: 776
+        x: 13759
+        y: 4059
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8527,6 +8776,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -8535,11 +8785,11 @@ workflow:
       height: 54
       id: '17467776423977'
       position:
-        x: 8374
-        y: 646
+        x: 13759
+        y: 4153
       positionAbsolute:
-        x: 8374
-        y: 646
+        x: 13759
+        y: 4153
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8592,11 +8842,11 @@ workflow:
       height: 54
       id: '17467776423978'
       position:
-        x: 9202
-        y: 776
+        x: 14681
+        y: 4059
       positionAbsolute:
-        x: 9202
-        y: 776
+        x: 14681
+        y: 4059
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8649,11 +8899,11 @@ workflow:
       height: 54
       id: '17467776423979'
       position:
-        x: 9202
-        y: 870
+        x: 14681
+        y: 3965
       positionAbsolute:
-        x: 9202
-        y: 870
+        x: 14681
+        y: 3965
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8706,11 +8956,11 @@ workflow:
       height: 54
       id: '174677764239710'
       position:
-        x: 9202
-        y: 646
+        x: 14681
+        y: 4153
       positionAbsolute:
-        x: 9202
-        y: 646
+        x: 14681
+        y: 4153
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8738,11 +8988,11 @@ workflow:
       height: 54
       id: '17469670619810'
       position:
-        x: 1854
-        y: 552
+        x: 5054
+        y: 478
       positionAbsolute:
-        x: 1854
-        y: 552
+        x: 5054
+        y: 478
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8768,11 +9018,11 @@ workflow:
       height: 126
       id: '1746967296261'
       position:
-        x: 5502
-        y: 1248
+        x: 10245
+        y: 2807
       positionAbsolute:
-        x: 5502
-        y: 1248
+        x: 10245
+        y: 2807
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8893,6 +9143,7 @@ workflow:
         tool_configurations: {}
         tool_label: 进程在某类资源上的时间消耗
         tool_name: 进程在某类资源上的时间消耗
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -8914,11 +9165,11 @@ workflow:
       height: 54
       id: '1746967506328'
       position:
-        x: 7546
-        y: 2206
+        x: 13425
+        y: 2807
       positionAbsolute:
-        x: 7546
-        y: 2206
+        x: 13425
+        y: 2807
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8963,6 +9214,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -8971,11 +9223,11 @@ workflow:
       height: 54
       id: '17469677133940'
       position:
-        x: 8374
-        y: 2206
+        x: 13759
+        y: 2807
       positionAbsolute:
-        x: 8374
-        y: 2206
+        x: 13759
+        y: 2807
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9028,11 +9280,11 @@ workflow:
       height: 54
       id: '17469677643700'
       position:
-        x: 9202
-        y: 2206
+        x: 14681
+        y: 2807
       positionAbsolute:
-        x: 9202
-        y: 2206
+        x: 14681
+        y: 2807
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9153,6 +9405,7 @@ workflow:
         tool_configurations: {}
         tool_label: 进程在某类资源上的时间消耗
         tool_name: 进程在某类资源上的时间消耗
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -9174,11 +9427,11 @@ workflow:
       height: 54
       id: '17469679277020'
       position:
-        x: 7546
-        y: 2112
+        x: 13425
+        y: 2901
       positionAbsolute:
-        x: 7546
-        y: 2112
+        x: 13425
+        y: 2901
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9223,6 +9476,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -9231,11 +9485,11 @@ workflow:
       height: 54
       id: '17469681597400'
       position:
-        x: 8374
-        y: 2112
+        x: 13759
+        y: 2901
       positionAbsolute:
-        x: 8374
-        y: 2112
+        x: 13759
+        y: 2901
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9288,11 +9542,11 @@ workflow:
       height: 54
       id: '17469681675370'
       position:
-        x: 9202
-        y: 2112
+        x: 14681
+        y: 2901
       positionAbsolute:
-        x: 9202
-        y: 2112
+        x: 14681
+        y: 2901
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9413,6 +9667,7 @@ workflow:
         tool_configurations: {}
         tool_label: 进程在某类资源上的时间消耗
         tool_name: 进程在某类资源上的时间消耗
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -9434,11 +9689,11 @@ workflow:
       height: 54
       id: '17469682833510'
       position:
-        x: 7546
-        y: 1058
+        x: 13425
+        y: 3715
       positionAbsolute:
-        x: 7546
-        y: 1058
+        x: 13425
+        y: 3715
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9483,6 +9738,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -9491,11 +9747,11 @@ workflow:
       height: 54
       id: '17469682833511'
       position:
-        x: 8374
-        y: 1058
+        x: 13759
+        y: 3715
       positionAbsolute:
-        x: 8374
-        y: 1058
+        x: 13759
+        y: 3715
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9548,11 +9804,11 @@ workflow:
       height: 54
       id: '17469682833512'
       position:
-        x: 9202
-        y: 1058
+        x: 14681
+        y: 3715
       positionAbsolute:
-        x: 9202
-        y: 1058
+        x: 14681
+        y: 3715
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9673,6 +9929,7 @@ workflow:
         tool_configurations: {}
         tool_label: 进程在某类资源上的时间消耗
         tool_name: 进程在某类资源上的时间消耗
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -9694,11 +9951,11 @@ workflow:
       height: 54
       id: '17469682833513'
       position:
-        x: 7546
-        y: 964
+        x: 13425
+        y: 3809
       positionAbsolute:
-        x: 7546
-        y: 964
+        x: 13425
+        y: 3809
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9743,6 +10000,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -9751,11 +10009,11 @@ workflow:
       height: 54
       id: '17469682833514'
       position:
-        x: 8374
-        y: 964
+        x: 13759
+        y: 3809
       positionAbsolute:
-        x: 8374
-        y: 964
+        x: 13759
+        y: 3809
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9808,11 +10066,11 @@ workflow:
       height: 54
       id: '17469682833515'
       position:
-        x: 9202
-        y: 964
+        x: 14681
+        y: 3809
       positionAbsolute:
-        x: 9202
-        y: 964
+        x: 14681
+        y: 3809
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9838,11 +10096,11 @@ workflow:
       height: 126
       id: '1746968293209'
       position:
-        x: 6110
-        y: 646
+        x: 10913
+        y: 3715
       positionAbsolute:
-        x: 6110
-        y: 646
+        x: 10913
+        y: 3715
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9850,8 +10108,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -9867,8 +10127,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因进程，最后提供恰当的解决思路。
+            根据相关指标结果和相关文档片段，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因进程，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -9894,11 +10169,11 @@ workflow:
       height: 90
       id: '17469683697070'
       position:
-        x: 10030
-        y: 964
+        x: 15603
+        y: 3715
       positionAbsolute:
-        x: 10030
-        y: 964
+        x: 15603
+        y: 3715
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9906,8 +10181,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -9923,8 +10200,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
+            根据相关指标结果和相关文档片段，分析告警{{#1744959389144.alertName#}}的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -9950,11 +10242,11 @@ workflow:
       height: 90
       id: '17469686621940'
       position:
-        x: 10030
-        y: 2112
+        x: 15603
+        y: 2807
       positionAbsolute:
-        x: 10030
-        y: 2112
+        x: 15603
+        y: 2807
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9989,11 +10281,11 @@ workflow:
       height: 54
       id: '1747206482765'
       position:
-        x: 10030
-        y: 3853
+        x: 15603
+        y: 779
       positionAbsolute:
-        x: 10030
-        y: 3853
+        x: 15603
+        y: 779
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10088,6 +10380,7 @@ workflow:
         tool_configurations: {}
         tool_label: 主机磁盘根分区大小
         tool_name: 主机磁盘根分区大小
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -10106,11 +10399,11 @@ workflow:
       height: 54
       id: '1747274324343'
       position:
-        x: 9202
-        y: 3087
+        x: 14681
+        y: 2243
       positionAbsolute:
-        x: 9202
-        y: 3087
+        x: 14681
+        y: 2243
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10118,8 +10411,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -10135,8 +10430,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析告警的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
+            根据相关指标结果和相关文档片段，分析告警的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -10156,11 +10466,11 @@ workflow:
       height: 90
       id: '17472781853800'
       position:
-        x: 10030
-        y: 2993
+        x: 15603
+        y: 2243
       positionAbsolute:
-        x: 10030
-        y: 2993
+        x: 15603
+        y: 2243
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10355,6 +10665,7 @@ workflow:
         tool_configurations: {}
         tool_label: 生成告警分析报告
         tool_name: Generate alert analysis report
+        tool_node_version: '2'
         tool_parameters:
           evidence:
             type: mixed
@@ -10381,12 +10692,12 @@ workflow:
       height: 54
       id: '1750988315593'
       position:
-        x: 13518
-        y: 2513
+        x: 20330
+        y: 2655
       positionAbsolute:
-        x: 13518
-        y: 2513
-      selected: true
+        x: 20330
+        y: 2655
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -10412,11 +10723,11 @@ workflow:
       height: 54
       id: '1750988333220'
       position:
-        x: 13214
-        y: 2737
+        x: 19996
+        y: 2431
       positionAbsolute:
-        x: 13214
-        y: 2737
+        x: 19996
+        y: 2431
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10476,11 +10787,11 @@ workflow:
       height: 54
       id: '1750988484023'
       position:
-        x: 13214
-        y: 2643
+        x: 19996
+        y: 2525
       positionAbsolute:
-        x: 13214
-        y: 2643
+        x: 19996
+        y: 2525
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10517,11 +10828,11 @@ workflow:
       height: 90
       id: '1750988845336'
       position:
-        x: 12838
-        y: 2643
+        x: 19530
+        y: 2567
       positionAbsolute:
-        x: 12838
-        y: 2643
+        x: 19530
+        y: 2567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10529,8 +10840,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - all_result
         desc: ''
         model:
           completion_params:
@@ -10544,28 +10857,38 @@ workflow:
           text: 你是一个可观测性领域的智能助手，帮助用户解决问题
         - id: e2fbc5b9-89bb-4b6b-8002-c35aeed18594
           role: user
-          text: '#目的
+          text: '# 目的
 
             根据应用的结论生成当前情况的描述
 
             使用结论内的数据，回答简洁易懂
 
-            #结论数据
+            # 结论数据
 
             {{#1743850218410.output#}}
+
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            1. 在文档中寻找当前服务的业务名称对照信息，所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
+
+            2. 如果没有服务名称对照信息则忽略文档数据。
 
             # 时间
 
             {{#1743576019537.endTime#}}
 
-            #格式模版参考
+            # 格式模版参考
 
             告警事件结论
 
 
             **告警事件概述**：
 
-            当前告警事件为XXXX (简洁，不要有其他内容)
+            当前告警事件为XXXX (简洁，不要有其他内容)，受影响的服务为xx
 
             **问题分析**
 
@@ -10576,7 +10899,7 @@ workflow:
             - 执行XXXX命令（必须和问题分析结论相关）
 
 
-            #输出格式
+            # 输出格式
 
             格式参考模版，注意换行和空格，确保文本美观输出，简单易懂(使用MarkDown格式的文本)，且不要有其他输出'
         selected: false
@@ -10588,11 +10911,11 @@ workflow:
       height: 90
       id: '1750988869166'
       position:
-        x: 12462
-        y: 2643
+        x: 19064
+        y: 2507
       positionAbsolute:
-        x: 12462
-        y: 2643
+        x: 19064
+        y: 2507
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10600,8 +10923,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - all_result
         desc: ''
         model:
           completion_params:
@@ -10615,12 +10940,16 @@ workflow:
           text: 你是一个可观测领域的智能体，需要帮助用户解决问题
         - id: bcbe26b2-893a-4c88-994e-2a8228a69b84
           role: user
-          text: "#目的\n生成建议用户的行动建议\n如执行命令，或者找xxx排除问题\n#结论数据\n{{#1743850218410.output#}}\n\
-            \n#格式模版\n```json\n{\"suggest\": [\n        {\n            \"action\":\
-            \ \"Add index to payment transaction table.\",\n            \"level\"\
-            : \"high\"\n        },\n        {\n            \"action\": \"Scale up\
-            \ database node CPU resources.\",\n            \"level\": \"medium\"\n\
-            \        }\n    ] }\n```\n#输出格式\naction建议为中文\njson格式数据，格式参数模版，不要有其他输出"
+          text: "# 目的\n生成建议用户的行动建议\n如执行命令，或者找xxx排除问题\n# 结论数据\n{{#1743850218410.output#}}\n\
+            # 文档数据\n{{#context#}}\n## 使用要求\n优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容，需要说明是“根据知识库文档，建议执行xx，联系xx进行解决”。\n\
+            1. 关键寻找文档中包括但不限于历史告警、解决思路、负责人员等信息。\n2. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。\n\
+            3. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n\
+            4. 如果文档中包含服务的负责人，在建议中添加一条“联系xx进行解决”，没有则不添加。\n# 格式模版\n```json\n{\"suggest\"\
+            : [\n        {\n            \"action\": \"Add index to payment transaction\
+            \ table.\",\n            \"level\": \"high\"\n        },\n        {\n\
+            \            \"action\": \"Scale up database node CPU resources.\",\n\
+            \            \"level\": \"medium\"\n        }\n    ] }\n```\n#输出格式\naction建议为中文\n\
+            json格式数据，格式参考模版，不要输出其他内容"
         selected: false
         title: 行动建议
         type: llm
@@ -10630,11 +10959,11 @@ workflow:
       height: 90
       id: '1750990566608'
       position:
-        x: 12838
-        y: 2513
+        x: 19530
+        y: 2697
       positionAbsolute:
-        x: 12838
-        y: 2513
+        x: 19530
+        y: 2697
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10662,11 +10991,11 @@ workflow:
       height: 54
       id: '1750990570740'
       position:
-        x: 13214
-        y: 2513
+        x: 19996
+        y: 2655
       positionAbsolute:
-        x: 13214
-        y: 2513
+        x: 19996
+        y: 2655
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10693,7 +11022,7 @@ workflow:
             2 磁盘，内存等异常 给出资源类问题 \n#结论数据\n{{#1743850218410.output#}}\n#告警事件描述\n{{#1744959389144.alertName#}}\n\
             #输出内容\n故障方向，只输出四个字就好 （如网络方向，基础设施资源类异常等）"
         selected: false
-        title: LLM 13
+        title: 故障方向
         type: llm
         variables: []
         vision:
@@ -10701,11 +11030,11 @@ workflow:
       height: 90
       id: '1750995788076'
       position:
-        x: 14126
-        y: 2513
+        x: 20998
+        y: 2655
       positionAbsolute:
-        x: 14126
-        y: 2513
+        x: 20998
+        y: 2655
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10850,6 +11179,7 @@ workflow:
         tool_configurations: {}
         tool_label: 获取告警分析报告链接
         tool_name: get alert report url
+        tool_node_version: '2'
         tool_parameters:
           alertEventId:
             type: mixed
@@ -10876,11 +11206,11 @@ workflow:
       height: 54
       id: '1751602121596'
       position:
-        x: 13822
-        y: 2513
+        x: 20664
+        y: 2655
       positionAbsolute:
-        x: 13822
-        y: 2513
+        x: 20664
+        y: 2655
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10906,11 +11236,11 @@ workflow:
       height: 126
       id: '1751602227575'
       position:
-        x: 11246
-        y: 2112
+        x: 16939
+        y: 2525
       positionAbsolute:
-        x: 11246
-        y: 2112
+        x: 16939
+        y: 2525
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10929,11 +11259,11 @@ workflow:
       height: 90
       id: '1751602318456'
       position:
-        x: 11550
-        y: 2112
+        x: 17364
+        y: 3072
       positionAbsolute:
-        x: 11550
-        y: 2112
+        x: 17364
+        y: 3072
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11051,11 +11381,11 @@ workflow:
       height: 54
       id: '1752644167588'
       position:
-        x: 10334
-        y: 3664
+        x: 15937
+        y: 1674.5
       positionAbsolute:
-        x: 10334
-        y: 3664
+        x: 15937
+        y: 1674.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11202,6 +11532,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器内存使用字节数(使用Containerd容器运行时,按容器和Pod统计)
         tool_name: 容器内存使用字节数(使用Containerd容器运行时,按容器和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           cadvisor_job_name:
             type: mixed
@@ -11226,11 +11557,11 @@ workflow:
       height: 54
       id: '17526550363340'
       position:
-        x: 6414
-        y: 3230
+        x: 11581
+        y: 2089
       positionAbsolute:
-        x: 6414
-        y: 3230
+        x: 11581
+        y: 2089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11239,8 +11570,10 @@ workflow:
       zIndex: 1002
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         isInIteration: true
         iteration_id: '1752582732407'
@@ -11258,7 +11591,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标数据，分析告警的正确性或者产生的原因，最后提供恰当的解决思路。
+            根据相关指标数据和相关文档片段，分析告警的正确性或者产生的原因，最后提供恰当的解决思路。
+
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -11296,11 +11645,11 @@ workflow:
       height: 90
       id: '17526550519390'
       position:
-        x: 10030
-        y: 3230
+        x: 15603
+        y: 2089
       positionAbsolute:
-        x: 10030
-        y: 3230
+        x: 15603
+        y: 2089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11310,7 +11659,7 @@ workflow:
     - data:
         desc: ''
         error_handle_mode: terminated
-        height: 152
+        height: 174
         is_parallel: false
         iterator_selector:
         - '1752655200938'
@@ -11324,20 +11673,20 @@ workflow:
         start_node_id: 1752655186497start
         title: 获取请求量
         type: iteration
-        width: 1292
-      height: 152
+        width: 1420
+      height: 174
       id: '1752655186497'
       position:
-        x: 8648.584434151422
-        y: 3206.6187401565894
+        x: 14093
+        y: 2029
       positionAbsolute:
-        x: 8648.584434151422
-        y: 3206.6187401565894
+        x: 14093
+        y: 2029
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
-      width: 1292
+      width: 1420
       zIndex: 1
     - data:
         desc: ''
@@ -11350,11 +11699,11 @@ workflow:
       id: 1752655186497start
       parentId: '1752655186497'
       position:
-        x: 24
-        y: 68
+        x: 60
+        y: 63
       positionAbsolute:
-        x: 8672.584434151422
-        y: 3274.6187401565894
+        x: 14153
+        y: 2092
       selectable: false
       selected: false
       sourcePosition: right
@@ -11384,11 +11733,11 @@ workflow:
       height: 54
       id: '1752655200938'
       position:
-        x: 7546
-        y: 3230
+        x: 13425
+        y: 2089
       positionAbsolute:
-        x: 7546
-        y: 3230
+        x: 13425
+        y: 2089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11535,6 +11884,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询服务RED指标
         tool_name: dataplane_service_redcharts
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -11554,11 +11904,11 @@ workflow:
       id: '1752655320531'
       parentId: '1752655186497'
       position:
-        x: 728
-        y: 68
+        x: 812
+        y: 60
       positionAbsolute:
-        x: 9376.584434151422
-        y: 3274.6187401565894
+        x: 14905
+        y: 2089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11756,6 +12106,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询实例所属服务
         tool_name: dataplane_instance_service
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -11775,11 +12126,11 @@ workflow:
       id: '1752655362608'
       parentId: '1752655186497'
       position:
-        x: 128
-        y: 68
+        x: 204
+        y: 60
       positionAbsolute:
-        x: 8776.584434151422
-        y: 3274.6187401565894
+        x: 14297
+        y: 2089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11809,11 +12160,11 @@ workflow:
       id: '1752655367750'
       parentId: '1752655186497'
       position:
-        x: 428
-        y: 68
+        x: 508
+        y: 60
       positionAbsolute:
-        x: 9076.584434151422
-        y: 3274.6187401565894
+        x: 14601
+        y: 2089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11853,11 +12204,11 @@ workflow:
       id: '1752655378049'
       parentId: '1752655186497'
       position:
-        x: 1032
-        y: 68
+        x: 1116
+        y: 60
       positionAbsolute:
-        x: 9680.584434151422
-        y: 3274.6187401565894
+        x: 15209
+        y: 2089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12028,6 +12379,7 @@ workflow:
         tool_configurations: {}
         tool_label: 线程在CPU上的耗时折线图（按Pod统计）
         tool_name: 线程在CPU上的耗时折线图（按Pod统计）
+        tool_node_version: '2'
         tool_parameters:
           containerId:
             type: mixed
@@ -12049,11 +12401,11 @@ workflow:
       height: 54
       id: '1752659323846'
       position:
-        x: 5198
-        y: 3643
+        x: 9911
+        y: 1807.5
       positionAbsolute:
-        x: 5198
-        y: 3643
+        x: 9911
+        y: 1807.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12083,11 +12435,11 @@ workflow:
       height: 54
       id: '17526596567180'
       position:
-        x: 5806
-        y: 3643
+        x: 10579
+        y: 1748.5
       positionAbsolute:
-        x: 5806
-        y: 3643
+        x: 10579
+        y: 1748.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12096,7 +12448,7 @@ workflow:
     - data:
         desc: ''
         error_handle_mode: terminated
-        height: 152
+        height: 174
         is_parallel: false
         iterator_selector:
         - '1752804755713'
@@ -12110,20 +12462,20 @@ workflow:
         start_node_id: 1752659722106start
         title: 获取请求量
         type: iteration
-        width: 1292
-      height: 152
+        width: 1420
+      height: 174
       id: '17526597221060'
       position:
-        x: 7022
-        y: 3409
+        x: 11915
+        y: 1900.5
       positionAbsolute:
-        x: 7022
-        y: 3409
+        x: 11915
+        y: 1900.5
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
-      width: 1292
+      width: 1420
       zIndex: 1
     - data:
         code: "\ndef main(data_json: str) -> dict:\n    data = json.loads(data_json).get('data',\
@@ -12148,11 +12500,11 @@ workflow:
       id: '1752659722106017526597221072'
       parentId: '17526597221060'
       position:
-        x: 428
-        y: 68
+        x: 508
+        y: 60
       positionAbsolute:
-        x: 7450
-        y: 3477
+        x: 12423
+        y: 1960.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12192,11 +12544,11 @@ workflow:
       id: '1752659722106017526597221073'
       parentId: '17526597221060'
       position:
-        x: 1032
-        y: 68
+        x: 1116
+        y: 60
       positionAbsolute:
-        x: 8054
-        y: 3477
+        x: 13031
+        y: 1960.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12214,11 +12566,11 @@ workflow:
       id: 1752659722106start
       parentId: '17526597221060'
       position:
-        x: 24
-        y: 68
+        x: 60
+        y: 63
       positionAbsolute:
-        x: 7046
-        y: 3477
+        x: 11975
+        y: 1963.5
       selectable: false
       selected: false
       sourcePosition: right
@@ -12417,6 +12769,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询实例所属服务
         tool_name: dataplane_instance_service
+        tool_node_version: '2'
         tool_parameters:
           containerId:
             type: mixed
@@ -12439,11 +12792,11 @@ workflow:
       id: '1752659777922'
       parentId: '17526597221060'
       position:
-        x: 120.42151473047943
-        y: 68
+        x: 204
+        y: 60
       positionAbsolute:
-        x: 7142.421514730479
-        y: 3477
+        x: 12119
+        y: 1960.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12591,6 +12944,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询服务RED指标
         tool_name: dataplane_service_redcharts
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -12613,11 +12967,11 @@ workflow:
       id: '1752659811737'
       parentId: '17526597221060'
       position:
-        x: 732
-        y: 68
+        x: 812
+        y: 60
       positionAbsolute:
-        x: 7754
-        y: 3477
+        x: 12727
+        y: 1960.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12626,8 +12980,10 @@ workflow:
       zIndex: 1002
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -12643,11 +12999,27 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标数据，分析告警的正确性或者产生的原因，最后提供恰当的解决思路。
+            根据相关指标数据和相关文档片段，分析告警的正确性或者产生的原因，最后提供恰当的解决思路。
+
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
-            根据相关指标数据：容器线程在CPU上的时间消耗{{#1752818532791.output#}}，容器所属服务请求量数据{{#17526597221060.output#}}，告警{{#1744959389144.alertName#}}，告警初步分析结论{{#1752744873302.text#}}。
+            根据相关指标数据：容器线程在CPU上的时间消耗{{#1752818532791.output#}}，容器所属服务请求量数据{{#17526597221060.output#}}，告警{{#1744959389144.alertName#}}。
 
             1. 分析容器线程在CPU上的时间消耗找出并聚焦于消耗最多的几个容器线程，识别容器线程CPU使用峰值区间，如果告警为CPU使用率相关则需要判断是否受告警影响。
 
@@ -12678,11 +13050,11 @@ workflow:
       height: 90
       id: '1752660000891'
       position:
-        x: 8374
-        y: 3440
+        x: 13425
+        y: 1883.5
       positionAbsolute:
-        x: 8374
-        y: 3440
+        x: 13425
+        y: 1883.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12777,6 +13149,7 @@ workflow:
         tool_configurations: {}
         tool_label: Thread Polaris Metrics - 北极星指标（进程） - 各类型耗时折线图 - 所有类型列表
         tool_name: polar_process_all_resp
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -12795,11 +13168,11 @@ workflow:
       height: 54
       id: '1752741317428'
       position:
-        x: 2766
-        y: 3364
+        x: 7239
+        y: 1901.5
       positionAbsolute:
-        x: 2766
-        y: 3364
+        x: 7239
+        y: 1901.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12828,11 +13201,11 @@ workflow:
       height: 54
       id: '1752741434678'
       position:
-        x: 3070
-        y: 3382
+        x: 7573
+        y: 1919.5
       positionAbsolute:
-        x: 3070
-        y: 3382
+        x: 7573
+        y: 1919.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12952,6 +13325,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询节点上被监控的服务列表
         tool_name: originx_service_monitor
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -12970,11 +13344,11 @@ workflow:
       height: 54
       id: '1752742344618'
       position:
-        x: 3374
-        y: 3364
+        x: 7907
+        y: 1901.5
       positionAbsolute:
-        x: 3374
-        y: 3364
+        x: 7907
+        y: 1901.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13011,11 +13385,11 @@ workflow:
       height: 54
       id: '1752742381956'
       position:
-        x: 3678
-        y: 3364
+        x: 8241
+        y: 1901.5
       positionAbsolute:
-        x: 3678
-        y: 3364
+        x: 8241
+        y: 1901.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13160,6 +13534,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器CPU使用率(使用Containerd容器运行时,按容器和Pod统计)
         tool_name: 容器CPU使用率(使用Containerd容器运行时,按容器和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           cadvisor_job_name:
             type: mixed
@@ -13184,11 +13559,11 @@ workflow:
       height: 54
       id: '1752744646406'
       position:
-        x: 4590
-        y: 3550
+        x: 9243
+        y: 1901.5
       positionAbsolute:
-        x: 4590
-        y: 3550
+        x: 9243
+        y: 1901.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13333,6 +13708,7 @@ workflow:
         tool_configurations: {}
         tool_label: 容器CPU使用率(使用Containerd容器运行时,按容器和Pod统计)
         tool_name: 容器CPU使用率(使用Containerd容器运行时,按容器和Pod统计)
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -13351,11 +13727,11 @@ workflow:
       height: 54
       id: '1752744668348'
       position:
-        x: 3982
-        y: 3364
+        x: 8575
+        y: 2032
       positionAbsolute:
-        x: 3982
-        y: 3364
+        x: 8575
+        y: 2032
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13419,11 +13795,11 @@ workflow:
       height: 90
       id: '1752744873302'
       position:
-        x: 4894
-        y: 3364
+        x: 9577
+        y: 1919.5
       positionAbsolute:
-        x: 4894
-        y: 3364
+        x: 9577
+        y: 1919.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13456,11 +13832,11 @@ workflow:
       height: 152
       id: '1752753916357'
       position:
-        x: 9202
-        y: 3409
+        x: 13759
+        y: 1852.5
       positionAbsolute:
-        x: 9202
-        y: 3409
+        x: 13759
+        y: 1852.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13468,8 +13844,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -13485,7 +13863,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据节流时间告警初步方向判断{{#1752744873302.text#}}和容器线程CPU消耗与请求量关系{{#1752660000891.text#}}，给出告警{{#1744959389144.alertName#}}的结论和可执行建议。
+            根据节流时间告警初步方向判断{{#1752744873302.text#}}和容器线程CPU消耗与请求量关系{{#1752660000891.text#}}以及相关文档片段，给出告警{{#1744959389144.alertName#}}的结论和可执行建议。
+
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -13511,11 +13905,11 @@ workflow:
       height: 90
       id: '1752754438301'
       position:
-        x: 10030
-        y: 3552
+        x: 15603
+        y: 1786.5
       positionAbsolute:
-        x: 10030
-        y: 3552
+        x: 15603
+        y: 1786.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13548,11 +13942,11 @@ workflow:
       height: 168
       id: '1752803753654'
       position:
-        x: 5198
-        y: 3343
+        x: 9911
+        y: 1901.5
       positionAbsolute:
-        x: 5198
-        y: 3343
+        x: 9911
+        y: 1901.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13578,11 +13972,11 @@ workflow:
       height: 54
       id: '1752804650899'
       position:
-        x: 5502
-        y: 3458
+        x: 10245
+        y: 1937.5
       positionAbsolute:
-        x: 5502
-        y: 3458
+        x: 10245
+        y: 1937.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13612,11 +14006,11 @@ workflow:
       height: 54
       id: '1752804688058'
       position:
-        x: 5806
-        y: 3400
+        x: 10579
+        y: 2032
       positionAbsolute:
-        x: 5806
-        y: 3400
+        x: 10579
+        y: 2032
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13638,11 +14032,11 @@ workflow:
       height: 153
       id: '1752804755713'
       position:
-        x: 6110
-        y: 3444.5
+        x: 10913
+        y: 1883
       positionAbsolute:
-        x: 6110
-        y: 3444.5
+        x: 10913
+        y: 1883
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13687,6 +14081,7 @@ workflow:
         tool_configurations: {}
         tool_label: 分析图表的异常样本
         tool_name: abnormal charts
+        tool_node_version: '2'
         tool_parameters:
           result:
             type: mixed
@@ -13695,11 +14090,11 @@ workflow:
       height: 54
       id: '1752805118721'
       position:
-        x: 4286
-        y: 3364
+        x: 8909
+        y: 2032
       positionAbsolute:
-        x: 4286
-        y: 3364
+        x: 8909
+        y: 2032
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13707,8 +14102,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758628922977'
+          - result
         desc: ''
         model:
           completion_params:
@@ -13722,22 +14119,22 @@ workflow:
           text: 你是一个可观测性领域的智能助手，帮助用户解决问题
         - id: f01e03c2-249d-448d-b0be-1bab87511d19
           role: user
-          text: "#目的\n根据分析结论生成告警的根因方向\n#结论数据\n{{#1743850218410.output#}}\n# 注意\ntype为故障方向\n\
-            1网络异常（net）,磁盘异常（disk）,文件描述符使用（file）, CPU占用（cpu）， 内存使用（memory）\n每个方向直给一个结论即可，不要出现重复\n\
-            主要根因方向必须和major结论保持一致，不要不统一\n2且必须给一个有问题的方向(level为major)\n3 列表必须按照等级排序level从高到低维（major,minor,normal）\n\
-            4 cause内容只能为网络异常,磁盘异常,文件描述符使用, CPU占用， 内存使用\n#格式模版\n```json\n{\n      \
-            \  \"cause\": \"主要原根因方向\",\n        \"other\": [\n            {\n    \
-            \            \"reason\": \"\",\n                \"type\": \"net\",\n \
-            \               \"level\": \"major/minor/normal\"\n            },\n  \
-            \          {\n                \"reason\": \"\",\n                \"type\"\
-            : \"disk\",\n                \"level\": \"minor\"\n            },\n  \
-            \          {\n                \"reason\": \"\",\n                \"type\"\
-            : \"file\",\n                \"level\": \"normal\"\n            },\n \
-            \           {\n                \"reason\": \"\",\n                \"type\"\
-            : \"cpu\",\n                \"level\": \"normal\"\n            },\n  \
-            \          {\n                \"reason\": \"\",\n                \"type\"\
-            : \"memory\",\n                \"level\": \"normal\"\n            }\n\
-            \        ]\n    }\n```\n#输出格式\ntype只能为网络异常（net）,磁盘异常（disk）,文件描述符使用（file）,\
+          text: "# 目的\n根据分析结论生成告警的根因方向\n# 结论数据\n{{#1743850218410.output#}}\n\n# 注意\n\
+            type为故障方向\n1网络异常（net）,磁盘异常（disk）,文件描述符使用（file）, CPU占用（cpu）， 内存使用（memory）\n\
+            每个方向直给一个结论即可，不要出现重复\n主要根因方向必须和major结论保持一致，不要不统一\n2且必须给一个有问题的方向(level为major)\n\
+            3 列表必须按照等级排序level从高到低维（major,minor,normal）\n4 cause内容只能为网络异常,磁盘异常,文件描述符使用,\
+            \ CPU占用， 内存使用\n#格式模版\n```json\n{\n        \"cause\": \"主要原根因方向\",\n  \
+            \      \"other\": [\n            {\n                \"reason\": \"\",\n\
+            \                \"type\": \"net\",\n                \"level\": \"major/minor/normal\"\
+            \n            },\n            {\n                \"reason\": \"\",\n \
+            \               \"type\": \"disk\",\n                \"level\": \"minor\"\
+            \n            },\n            {\n                \"reason\": \"\",\n \
+            \               \"type\": \"file\",\n                \"level\": \"normal\"\
+            \n            },\n            {\n                \"reason\": \"\",\n \
+            \               \"type\": \"cpu\",\n                \"level\": \"normal\"\
+            \n            },\n            {\n                \"reason\": \"\",\n \
+            \               \"type\": \"memory\",\n                \"level\": \"normal\"\
+            \n            }\n        ]\n    }\n```\n#输出格式\ntype只能为网络异常（net）,磁盘异常（disk）,文件描述符使用（file）,\
             \ CPU占用（cpu）， 内存使用（memory）这几种，不要有其他内容\njson格式数据，格式参数模版，不要有其他输出"
         selected: false
         title: 根因方向
@@ -13748,11 +14145,11 @@ workflow:
       height: 90
       id: '1752808097130'
       position:
-        x: 12838
-        y: 2383
+        x: 19530
+        y: 2827
       positionAbsolute:
-        x: 12838
-        y: 2383
+        x: 19530
+        y: 2827
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13780,11 +14177,11 @@ workflow:
       height: 54
       id: '1752808187410'
       position:
-        x: 13214
-        y: 2383
+        x: 19996
+        y: 2785
       positionAbsolute:
-        x: 13214
-        y: 2383
+        x: 19996
+        y: 2785
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13810,11 +14207,11 @@ workflow:
       height: 54
       id: '1752818481370'
       position:
-        x: 5806
-        y: 3494
+        x: 10579
+        y: 1901.5
       positionAbsolute:
-        x: 5806
-        y: 3494
+        x: 10579
+        y: 1901.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13848,11 +14245,11 @@ workflow:
       height: 54
       id: '1752818508497'
       position:
-        x: 5502
-        y: 3364
+        x: 10245
+        y: 2068
       positionAbsolute:
-        x: 5502
-        y: 3364
+        x: 10245
+        y: 2068
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13874,11 +14271,11 @@ workflow:
       height: 153
       id: '1752818532791'
       position:
-        x: 6414
-        y: 3408.5
+        x: 11247
+        y: 1847
       positionAbsolute:
-        x: 6414
-        y: 3408.5
+        x: 11247
+        y: 1847
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13931,11 +14328,11 @@ workflow:
       height: 54
       id: '17528257033920'
       position:
-        x: 4590
-        y: 3364
+        x: 9243
+        y: 2032
       positionAbsolute:
-        x: 4590
-        y: 3364
+        x: 9243
+        y: 2032
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13983,11 +14380,11 @@ workflow:
       height: 54
       id: '1752827602226'
       position:
-        x: 9202
-        y: 3664
+        x: 14681
+        y: 1674.5
       positionAbsolute:
-        x: 9202
-        y: 3664
+        x: 14681
+        y: 1674.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14034,11 +14431,11 @@ workflow:
       height: 54
       id: '1752827682722'
       position:
-        x: 6718
-        y: 3287
+        x: 12503
+        y: 2148
       positionAbsolute:
-        x: 6718
-        y: 3287
+        x: 12503
+        y: 2148
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14251,11 +14648,11 @@ workflow:
       height: 892
       id: '1753019933658'
       position:
-        x: 2158
-        y: 646
+        x: 5388
+        y: 915
       positionAbsolute:
-        x: 2158
-        y: 646
+        x: 5388
+        y: 915
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14282,11 +14679,11 @@ workflow:
       height: 54
       id: '1753789618196'
       position:
-        x: 5502
-        y: 3607
+        x: 10245
+        y: 1784.5
       positionAbsolute:
-        x: 5502
-        y: 3607
+        x: 10245
+        y: 1784.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14312,11 +14709,11 @@ workflow:
       height: 54
       id: '1753853974605'
       position:
-        x: 6718
-        y: 3515
+        x: 11581
+        y: 1901.5
       positionAbsolute:
-        x: 6718
-        y: 3515
+        x: 11581
+        y: 1901.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14342,11 +14739,11 @@ workflow:
       height: 54
       id: '17538641479330'
       position:
-        x: 8374
-        y: 3230
+        x: 13759
+        y: 2089
       positionAbsolute:
-        x: 8374
-        y: 3230
+        x: 13759
+        y: 2089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14398,11 +14795,11 @@ workflow:
       height: 54
       id: '1753865125982'
       position:
-        x: 10334
-        y: 3552
+        x: 15937
+        y: 1786.5
       positionAbsolute:
-        x: 10334
-        y: 3552
+        x: 15937
+        y: 1786.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14415,9 +14812,9 @@ workflow:
           \ = cpu_data.get(\"data\", {}).get(\"timeseries\", [])\n    cpu_data[\"\
           timeseries\"] = cpu_timeseries\n    cpu_data.pop(\"data\", None)\n    cpu_evidence\
           \ = {\n        \"type\": \"metric\",\n        \"name\": \"线程在CPU上的耗时\",\n\
-          \        \"data\": cpu_data\n    }\n    evidence.append(cpu_evidence)\n\n\
-          \    for tps_item in all_tps:\n        if tps_item == \"{}\":\n        \
-          \    contiune\n        tps_data = json.loads(tps_item)\n        evidence.append({\n\
+          \        \"data\": cpu_data\n    }\n\n    evidence.append(cpu_evidence)\n\
+          \n    for tps_item in all_tps:\n        if tps_item == \"{}\":\n       \
+          \     continue\n        tps_data = json.loads(tps_item)\n        evidence.append({\n\
           \            \"type\": \"metric\",\n            \"name\": \"服务吞吐量\",\n \
           \           \"data\": tps_data\n        })\n\n    return {\n        \"evidence\"\
           : json.dumps({\n            \"evidence\": evidence\n        })\n    }"
@@ -14442,12 +14839,12 @@ workflow:
       height: 54
       id: '1753931802138'
       position:
-        x: 10334
-        y: 3458
+        x: 15937
+        y: 1932
       positionAbsolute:
-        x: 10334
-        y: 3458
-      selected: false
+        x: 15937
+        y: 1932
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -14487,11 +14884,11 @@ workflow:
       height: 54
       id: '1753932004742'
       position:
-        x: 10334
-        y: 3230
+        x: 15937
+        y: 2089
       positionAbsolute:
-        x: 10334
-        y: 3230
+        x: 15937
+        y: 2089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14523,11 +14920,11 @@ workflow:
       height: 54
       id: '1753932284404'
       position:
-        x: 10030
-        y: 3682
+        x: 15603
+        y: 1692.5
       positionAbsolute:
-        x: 10030
-        y: 3682
+        x: 15603
+        y: 1692.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14569,11 +14966,11 @@ workflow:
       height: 54
       id: '1753940096712'
       position:
-        x: 10334
-        y: 2993
+        x: 15937
+        y: 2243
       positionAbsolute:
-        x: 10334
-        y: 2993
+        x: 15937
+        y: 2243
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14620,11 +15017,11 @@ workflow:
       height: 54
       id: '1753940660066'
       position:
-        x: 9202
-        y: 2899
+        x: 14681
+        y: 2431
       positionAbsolute:
-        x: 9202
-        y: 2899
+        x: 14681
+        y: 2431
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14671,11 +15068,11 @@ workflow:
       height: 54
       id: '1753940674805'
       position:
-        x: 9202
-        y: 2542
+        x: 14681
+        y: 2619
       positionAbsolute:
-        x: 9202
-        y: 2542
+        x: 14681
+        y: 2619
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14710,11 +15107,11 @@ workflow:
       height: 54
       id: '1753940924986'
       position:
-        x: 9202
-        y: 2636
+        x: 14681
+        y: 2525
       positionAbsolute:
-        x: 9202
-        y: 2636
+        x: 14681
+        y: 2525
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14749,11 +15146,11 @@ workflow:
       height: 54
       id: '1753940931914'
       position:
-        x: 9202
-        y: 2300
+        x: 14681
+        y: 2713
       positionAbsolute:
-        x: 9202
-        y: 2300
+        x: 14681
+        y: 2713
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14761,8 +15158,10 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1758697299707'
+          - alert_result
         desc: ''
         model:
           completion_params:
@@ -14778,8 +15177,23 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标结果，分析网络异常吞吐量告警的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
+            根据相关指标结果和相关文档片段，分析网络异常吞吐量告警的正确性或者产生的原因并定位疑似根因容器，最后提供恰当的解决思路。
 
+            # 文档数据
+
+            {{#context#}}
+
+            ## 使用要求
+
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。
+
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 优先根据指标数据进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
+
+            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
+
+            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
 
             # 分析过程
 
@@ -14807,11 +15221,11 @@ workflow:
       height: 90
       id: '1753941294981'
       position:
-        x: 10030
-        y: 2542
+        x: 15603
+        y: 2525
       positionAbsolute:
-        x: 10030
-        y: 2542
+        x: 15603
+        y: 2525
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14853,11 +15267,11 @@ workflow:
       height: 54
       id: '1753941696615'
       position:
-        x: 10334
-        y: 2542
+        x: 15937
+        y: 2525
       positionAbsolute:
-        x: 10334
-        y: 2542
+        x: 15937
+        y: 2525
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14899,11 +15313,11 @@ workflow:
       height: 54
       id: '1753942482316'
       position:
-        x: 10334
-        y: 2112
+        x: 15937
+        y: 2807
       positionAbsolute:
-        x: 10334
-        y: 2112
+        x: 15937
+        y: 2807
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14966,11 +15380,11 @@ workflow:
       height: 54
       id: '1753942756270'
       position:
-        x: 10334
-        y: 1924
+        x: 15937
+        y: 3057
       positionAbsolute:
-        x: 10334
-        y: 1924
+        x: 15937
+        y: 3057
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15021,11 +15435,11 @@ workflow:
       height: 54
       id: '1753943433860'
       position:
-        x: 10334
-        y: 1794
+        x: 15937
+        y: 3245
       positionAbsolute:
-        x: 10334
-        y: 1794
+        x: 15937
+        y: 3245
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15097,11 +15511,11 @@ workflow:
       height: 54
       id: '1753943563066'
       position:
-        x: 10334
-        y: 1378
+        x: 15937
+        y: 3433
       positionAbsolute:
-        x: 10334
-        y: 1378
+        x: 15937
+        y: 3433
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15143,11 +15557,11 @@ workflow:
       height: 54
       id: '1753944101043'
       position:
-        x: 10334
-        y: 964
+        x: 15937
+        y: 3715
       positionAbsolute:
-        x: 10334
-        y: 964
+        x: 15937
+        y: 3715
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15199,11 +15613,11 @@ workflow:
       height: 54
       id: '17539445184050'
       position:
-        x: 10334
-        y: 776
+        x: 15937
+        y: 3965
       positionAbsolute:
-        x: 10334
-        y: 776
+        x: 15937
+        y: 3965
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15245,11 +15659,11 @@ workflow:
       height: 54
       id: '17539447173200'
       position:
-        x: 10334
-        y: 646
+        x: 15937
+        y: 4153
       positionAbsolute:
-        x: 10334
-        y: 646
+        x: 15937
+        y: 4153
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15281,11 +15695,11 @@ workflow:
       height: 54
       id: '1753954284388'
       position:
-        x: 7546
-        y: 3929
+        x: 13425
+        y: 260
       positionAbsolute:
-        x: 7546
-        y: 3929
+        x: 13425
+        y: 260
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15319,11 +15733,11 @@ workflow:
       height: 54
       id: '1753954404630'
       position:
-        x: 7546
-        y: 3835
+        x: 13425
+        y: 633.5
       positionAbsolute:
-        x: 7546
-        y: 3835
+        x: 13425
+        y: 633.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15355,11 +15769,11 @@ workflow:
       height: 54
       id: '1753954535795'
       position:
-        x: 7546
-        y: 3741
+        x: 13425
+        y: 727.5
       positionAbsolute:
-        x: 7546
-        y: 3741
+        x: 13425
+        y: 727.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15378,11 +15792,11 @@ workflow:
       height: 90
       id: '1753955058282'
       position:
-        x: 3070
-        y: 986
+        x: 7573
+        y: 335
       positionAbsolute:
-        x: 3070
-        y: 986
+        x: 7573
+        y: 335
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15402,11 +15816,11 @@ workflow:
       height: 54
       id: '1753955078329'
       position:
-        x: 2766
-        y: 986
+        x: 7239
+        y: 335
       positionAbsolute:
-        x: 2766
-        y: 986
+        x: 7239
+        y: 335
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15454,11 +15868,11 @@ workflow:
       height: 439
       id: '1753955518503'
       position:
-        x: 10942
-        y: 2112
+        x: 16605
+        y: 2525
       positionAbsolute:
-        x: 10942
-        y: 2112
+        x: 16605
+        y: 2525
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15653,6 +16067,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询实例所属服务
         tool_name: dataplane_instance_service
+        tool_node_version: '2'
         tool_parameters:
           containerId:
             type: mixed
@@ -15680,11 +16095,11 @@ workflow:
       height: 54
       id: '17540319953970'
       position:
-        x: 11550
-        y: 2242
+        x: 18062
+        y: 2957
       positionAbsolute:
-        x: 11550
-        y: 2242
+        x: 18062
+        y: 2957
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15715,11 +16130,11 @@ workflow:
       height: 54
       id: '17540319953971'
       position:
-        x: 11854
-        y: 2224
+        x: 18396
+        y: 2957
       positionAbsolute:
-        x: 11854
-        y: 2224
+        x: 18396
+        y: 2957
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15839,6 +16254,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询服务拓扑
         tool_name: dataplane_service_topology
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -15857,11 +16273,11 @@ workflow:
       height: 54
       id: '17540319953972'
       position:
-        x: 12158
-        y: 2224
+        x: 18730
+        y: 2957
       positionAbsolute:
-        x: 12158
-        y: 2224
+        x: 18730
+        y: 2957
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15897,11 +16313,11 @@ workflow:
       height: 54
       id: '17540319953973'
       position:
-        x: 12462
-        y: 2242
+        x: 19064
+        y: 2957
       positionAbsolute:
-        x: 12462
-        y: 2242
+        x: 19064
+        y: 2957
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15910,6 +16326,7 @@ workflow:
     - data:
         desc: ''
         error_handle_mode: terminated
+        height: 174
         is_parallel: false
         iterator_selector:
         - '17540319953973'
@@ -15923,20 +16340,20 @@ workflow:
         start_node_id: 1754031995397start
         title: 获取上下游服务RED
         type: iteration
-        width: 388
-      height: 148
+        width: 508
+      height: 174
       id: '17540319953974'
       position:
-        x: 12766
-        y: 2195
+        x: 19398
+        y: 2957
       positionAbsolute:
-        x: 12766
-        y: 2195
+        x: 19398
+        y: 2957
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
-      width: 388
+      width: 508
       zIndex: 1
     - data:
         desc: ''
@@ -15949,11 +16366,11 @@ workflow:
       id: 1754031995397start
       parentId: '17540319953974'
       position:
-        x: 24
-        y: 68
+        x: 60
+        y: 63
       positionAbsolute:
-        x: 12790
-        y: 2263
+        x: 19458
+        y: 3020
       selectable: false
       selected: false
       sourcePosition: right
@@ -16016,11 +16433,11 @@ workflow:
       height: 54
       id: '17540319953985'
       position:
-        x: 13214
-        y: 2224
+        x: 19996
+        y: 2957
       positionAbsolute:
-        x: 13214
-        y: 2224
+        x: 19996
+        y: 2957
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16167,6 +16584,7 @@ workflow:
         tool_configurations: {}
         tool_label: 查询服务RED指标
         tool_name: dataplane_service_redcharts
+        tool_node_version: '2'
         tool_parameters:
           endTime:
             type: variable
@@ -16186,18 +16604,889 @@ workflow:
       id: '1754032122310'
       parentId: '17540319953974'
       position:
-        x: 128
-        y: 68
+        x: 204
+        y: 60
       positionAbsolute:
-        x: 12894
-        y: 2263
+        x: 19602
+        y: 3017
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
       zIndex: 1002
+    - data:
+        desc: ''
+        output_type: array[object]
+        selected: false
+        title: 相关实例
+        type: variable-aggregator
+        variables:
+        - - '1743664113196'
+          - instances
+        - - '1743652552181'
+          - instances
+      height: 131
+      id: '1758627861794'
+      position:
+        x: 2216
+        y: 478
+      positionAbsolute:
+        x: 2216
+        y: 478
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 174
+        is_parallel: false
+        iterator_input_type: array[object]
+        iterator_selector:
+        - '1758627861794'
+        - output
+        output_selector:
+        - '1758628508115'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1758628253496start
+        title: 获取实例服务名
+        type: iteration
+        width: 812
+      height: 174
+      id: '1758628253496'
+      position:
+        x: 2550
+        y: 478
+      positionAbsolute:
+        x: 2550
+        y: 478
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 812
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1758628253496start
+      parentId: '1758628253496'
+      position:
+        x: 60
+        y: 63
+      positionAbsolute:
+        x: 2610
+        y: 541
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "\ndef main(instance: dict) -> dict:\n    return {\n        \"pod\"\
+          : instance.get(\"pod\", \"\"),\n        \"namespace\": instance.get(\"namespace\"\
+          , \"\"),\n        \"pid\": instance.get(\"pid\", \"\"),\n        \"node\"\
+          : instance.get(\"node\", \"\"),\n    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1758628253496'
+        outputs:
+          namespace:
+            children: null
+            type: string
+          node:
+            children: null
+            type: string
+          pid:
+            children: null
+            type: string
+          pod:
+            children: null
+            type: string
+        selected: false
+        title: 解析实例
+        type: code
+        variables:
+        - value_selector:
+          - '1758628253496'
+          - item
+          value_type: object
+          variable: instance
+      height: 54
+      id: '1758628283567'
+      parentId: '1758628253496'
+      position:
+        x: 204
+        y: 60
+      positionAbsolute:
+        x: 2754
+        y: 538
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        is_team_authorization: true
+        iteration_id: '1758628253496'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Container id
+            ja_JP: Container id
+            pt_BR: Container id
+            zh_Hans: 容器id
+          label:
+            en_US: containerId
+            ja_JP: containerId
+            pt_BR: containerId
+            zh_Hans: 容器id
+          llm_description: Container id
+          max: null
+          min: null
+          name: containerId
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Node name
+            ja_JP: Node name
+            pt_BR: Node name
+            zh_Hans: 主机名
+          label:
+            en_US: Node name
+            ja_JP: Node name
+            pt_BR: Node name
+            zh_Hans: 主机名
+          llm_description: Node name
+          max: null
+          min: null
+          name: nodeName
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: pid
+            ja_JP: pid
+            pt_BR: pid
+            zh_Hans: pid
+          label:
+            en_US: pid
+            ja_JP: pid
+            pt_BR: pid
+            zh_Hans: pid
+          llm_description: pid
+          max: null
+          min: null
+          name: pid
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: pod
+            ja_JP: pod
+            pt_BR: pod
+            zh_Hans: pod
+          label:
+            en_US: pod
+            ja_JP: pod
+            pt_BR: pod
+            zh_Hans: pod
+          llm_description: pod
+          max: null
+          min: null
+          name: pod
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          label:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          llm_description: cluster
+          max: null
+          min: null
+          name: cluster
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cluster: ''
+          containerId: ''
+          endTime: ''
+          nodeName: ''
+          pid: ''
+          pod: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询实例所属服务
+        tool_configurations: {}
+        tool_description: 查询实例所属服务
+        tool_label: 查询实例所属服务
+        tool_name: dataplane_instance_service
+        tool_node_version: '2'
+        tool_parameters:
+          cluster:
+            type: mixed
+            value: null
+          containerId:
+            type: mixed
+            value: ''
+          endTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - endTime
+          nodeName:
+            type: mixed
+            value: '{{#1758628283567.node#}}'
+          pid:
+            type: mixed
+            value: '{{#1758628283567.pid#}}'
+          pod:
+            type: mixed
+            value: '{{#1744959389144.pod#}}'
+          startTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - startTime
+        type: tool
+      height: 54
+      id: '1758628508115'
+      parentId: '1758628253496'
+      position:
+        x: 508
+        y: 60
+      positionAbsolute:
+        x: 3058
+        y: 538
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "import json\n\ndef main(service_name_outputs: list[str]) -> dict:\n\
+          \    services = []\n    for service_name_output in service_name_outputs:\n\
+          \        service = json.loads(service_name_output).get('data', '')\n   \
+          \     services.append(service)\n\n    return {\n        \"query\": \" \"\
+          .join(str(service) for service in services),\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          query:
+            children: null
+            type: string
+        selected: false
+        title: 获取知识库查询条件
+        type: code
+        variables:
+        - value_selector:
+          - '1758628253496'
+          - output
+          value_type: array[string]
+          variable: service_name_outputs
+      height: 54
+      id: '1758628605452'
+      position:
+        x: 3452
+        y: 478
+      positionAbsolute:
+        x: 3452
+        y: 478
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 根据告警检索知识
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1744959389144.alertName#}}'
+          top_k:
+            type: constant
+            value: 10
+        type: tool
+      height: 54
+      id: '1758697118275'
+      position:
+        x: 4360
+        y: 478
+      positionAbsolute:
+        x: 4360
+        y: 478
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 根据服务检索知识
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1758628605452.query#}}'
+          top_k:
+            type: constant
+            value: 5
+        type: tool
+      height: 54
+      id: '1758697197702'
+      position:
+        x: 3756
+        y: 478
+      positionAbsolute:
+        x: 3756
+        y: 478
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\n\ndef main(service_json_str: str, alert_json_str: str,\
+          \ contact_json_str: str) -> dict:\n    include_metadata = False\n\n    service_data\
+          \ = json.loads(service_json_str)\n    alert_data = json.loads(alert_json_str)\n\
+          \    contact_data = json.loads(contact_json_str)\n    service_records =\
+          \ service_data.get('records', [])\n    alert_records = alert_data.get('records',\
+          \ [])\n    contact_records = contact_data.get('records', [])\n\n    if not\
+          \ include_metadata:\n        for record in service_records:\n          \
+          \  record.pop('metadata', None)\n        for record in alert_records:\n\
+          \            record.pop('metadata', None)\n        for record in contact_records:\n\
+          \            record.pop('metadata', None)\n    \n    # 合并两个 records 并根据\
+          \ content 去重\n    all_records = service_records + alert_records + contact_records\n\
+          \    unique_records = []\n    seen_contents = set()\n    \n    for record\
+          \ in all_records:\n        content = record.get('content')\n        if content\
+          \ not in seen_contents:\n            unique_records.append(record)\n   \
+          \         seen_contents.add(content)\n    \n    if include_metadata:\n \
+          \       return {\n            'service_result': service_json_str,\n    \
+          \        'alert_result': alert_json_str,\n            'contact_result':\
+          \ contact_json_str,\n            'all_result': json.dumps({'records': unique_records})\n\
+          \        }\n    \n    return {\n        'service_result': json.dumps({'records':\
+          \ service_records}),\n        'alert_result': json.dumps({'records': alert_records}),\n\
+          \        'contact_result': json.dumps({'records': contact_records}),\n \
+          \       'all_result': json.dumps({'records': unique_records})\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          alert_result:
+            children: null
+            type: string
+          all_result:
+            children: null
+            type: string
+          contact_result:
+            children: null
+            type: string
+          service_result:
+            children: null
+            type: string
+        selected: false
+        title: 获取知识片段内容
+        type: code
+        variables:
+        - value_selector:
+          - '1758697197702'
+          - text
+          variable: service_json_str
+        - value_selector:
+          - '1758697118275'
+          - text
+          variable: alert_json_str
+        - value_selector:
+          - '1758771570920'
+          - text
+          variable: contact_json_str
+      height: 54
+      id: '1758697299707'
+      position:
+        x: 4672.205095402032
+        y: 478
+      positionAbsolute:
+        x: 4672.205095402032
+        y: 478
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 检索联系人
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          knowledge_base_id:
+            type: mixed
+            value: ''
+          query:
+            type: mixed
+            value: 联系人或负责人
+          top_k:
+            type: constant
+            value: 5
+        type: tool
+      height: 54
+      id: '1758771570920'
+      position:
+        x: 4060
+        y: 478
+      positionAbsolute:
+        x: 4060
+        y: 478
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -8845.087514037577
-      y: -1441.8058635778264
-      zoom: 0.6567619189488891
+      x: -5753.970838114106
+      y: -561.8821228070318
+      zoom: 0.38672269517368524

@@ -1,0 +1,60 @@
+identity:
+  name: knowledge_retrieval
+  author: APO
+  label:
+    en_US: Retrieve knowledge from APO.
+    zh_Hans: 在APO检索知识
+description:
+  human:
+    en_US: Retrieve knowledge from APO.
+    zh_Hans: 在APO检索知识
+  llm: Retrieve knowledge from APO.
+display:
+  type: metric
+  title: 知识检索
+  unit: s
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Knowledge Retrieval Query statement
+      zh_Hans: 知识检索查询语句
+    human_description:
+      en_US: Knowledge retrieval query statement
+      zh_Hans: 知识检索查询语句
+    llm_description: Knowledge retrieval query statement
+    form: llm
+  - name: top_k
+    type: number
+    required: false
+    label:
+      en_US: Top K
+      zh_Hans: 前K个结果
+    human_description:
+      en_US: Top K results
+      zh_Hans: 前K个结果
+    llm_description: Top K results
+    form: llm
+  - name: score_threshold
+    type: number
+    required: false
+    label:
+      en_US: Score Threshold
+      zh_Hans: 分数阈值
+    human_description:
+      en_US: Score threshold for knowledge retrieval
+      zh_Hans: 知识检索分数阈值
+    llm_description: Score threshold for knowledge retrieval
+    form: llm
+  - name: knowledge_base_id
+    type: string
+    required: false
+    label:
+      en_US: Knowledge Base ID
+      zh_Hans: 知识库ID
+    human_description:
+      en_US: Knowledge base ID
+      zh_Hans: 知识库ID
+    llm_description: Knowledge base ID
+    form: llm
