@@ -64,7 +64,8 @@ class WorkflowEntry:
         # check call depth
         workflow_call_max_depth = dify_config.WORKFLOW_CALL_MAX_DEPTH
         if call_depth > workflow_call_max_depth:
-            raise ValueError("Max workflow call depth {} reached.".format(workflow_call_max_depth))
+            raise ValueError("Max workflow call depth {} reached.".format(
+                workflow_call_max_depth))
 
         # init workflow run state
         self.graph_engine = GraphEngine(
@@ -139,7 +140,8 @@ class WorkflowEntry:
 
         # fetch node config from node id
         try:
-            node_config = next(filter(lambda node: node["id"] == node_id, nodes))
+            node_config = next(
+                filter(lambda node: node["id"] == node_id, nodes))
         except StopIteration:
             raise ValueError("node id not found in workflow graph")
 
@@ -149,7 +151,8 @@ class WorkflowEntry:
         node_cls = NODE_TYPE_CLASSES_MAPPING[node_type][node_version]
 
         # init variable pool
-        variable_pool = VariablePool(environment_variables=workflow.environment_variables)
+        variable_pool = VariablePool(
+            environment_variables=workflow.environment_variables)
 
         # init graph
         graph = Graph.init(graph_config=workflow.graph_dict)
@@ -170,7 +173,8 @@ class WorkflowEntry:
                 call_depth=0,
             ),
             graph=graph,
-            graph_runtime_state=GraphRuntimeState(variable_pool=variable_pool, start_at=time.perf_counter()),
+            graph_runtime_state=GraphRuntimeState(
+                variable_pool=variable_pool, start_at=time.perf_counter()),
         )
 
         try:
@@ -191,7 +195,8 @@ class WorkflowEntry:
             # run node
             generator = node_instance.run()
         except Exception as e:
-            raise WorkflowNodeRunFailedError(node_instance=node_instance, error=str(e))
+            raise WorkflowNodeRunFailedError(
+                node_instance=node_instance, error=str(e))
         return node_instance, generator
 
     @classmethod
@@ -209,7 +214,8 @@ class WorkflowEntry:
         :return:
         """
         # generate a fake graph
-        node_config = {"id": node_id, "width": 114, "height": 514, "type": "custom", "data": node_data}
+        node_config = {"id": node_id, "width": 114,
+                       "height": 514, "type": "custom", "data": node_data}
         start_node_config = {
             "id": "start",
             "width": 114,
@@ -267,7 +273,8 @@ class WorkflowEntry:
                 call_depth=0,
             ),
             graph=graph,
-            graph_runtime_state=GraphRuntimeState(variable_pool=variable_pool, start_at=time.perf_counter()),
+            graph_runtime_state=GraphRuntimeState(
+                variable_pool=variable_pool, start_at=time.perf_counter()),
         )
 
         try:
@@ -291,7 +298,8 @@ class WorkflowEntry:
 
             return node_instance, generator
         except Exception as e:
-            raise WorkflowNodeRunFailedError(node_instance=node_instance, error=str(e))
+            raise WorkflowNodeRunFailedError(
+                node_instance=node_instance, error=str(e))
 
     @staticmethod
     def handle_special_values(value: Optional[Mapping[str, Any]]) -> Mapping[str, Any] | None:
@@ -336,7 +344,8 @@ class WorkflowEntry:
             if (node_variable_key not in user_inputs and node_variable not in user_inputs) and not variable_pool.get(
                 variable_selector
             ):
-                raise ValueError(f"Variable key {node_variable} not found in user inputs.")
+                raise ValueError(
+                    f"Variable key {node_variable} not found in user inputs.")
 
             # environment variable already exist in variable pool, not from user inputs
             if variable_pool.get(variable_selector):
@@ -353,13 +362,16 @@ class WorkflowEntry:
                 input_value = user_inputs.get(node_variable_key)
 
             if isinstance(input_value, dict) and "type" in input_value and "transfer_method" in input_value:
-                input_value = file_factory.build_from_mapping(mapping=input_value, tenant_id=tenant_id)
+                input_value = file_factory.build_from_mapping(
+                    mapping=input_value, tenant_id=tenant_id)
             if (
                 isinstance(input_value, list)
                 and all(isinstance(item, dict) for item in input_value)
                 and all("type" in item and "transfer_method" in item for item in input_value)
             ):
-                input_value = file_factory.build_from_mappings(mappings=input_value, tenant_id=tenant_id)
+                input_value = file_factory.build_from_mappings(
+                    mappings=input_value, tenant_id=tenant_id)
 
             # append variable and value to variable pool
-            variable_pool.add([variable_node_id] + variable_key_list, input_value)
+            variable_pool.add([variable_node_id] +
+                              variable_key_list, input_value)

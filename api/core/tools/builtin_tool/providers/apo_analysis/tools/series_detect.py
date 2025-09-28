@@ -68,42 +68,73 @@ class TimeSeriersAnalysisTool(BuiltinTool):
         data = json.loads(data_str)
         timeseries = _check_metrics(data.get("data", {}).get("timeseries", []))
         res = []
-
+        unit = data.get("unit", "")
+        results = []
         for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
+            chart_data = entry["chart"]["chartData"]
+            values = list(chart_data.values())
+            data_now = np.array(values)
             r = detect.detect(data_now)
-            res.append(r)
+            if r:
+                results.append({
+                    "chart": chart_data,
+                    "abnormalCount": len(r),
+                    "spikes": [item[1] for item in r],
+                    "labels": entry["labels"],
+                    "avg": float(np.mean(values)),
+                    "unit": unit
+                })
 
-        return json.dumps(res)
+        return json.dumps(results)
 
     def trend_detect(self, data_str):
         detect = TrendAnomalyDetector()
         data = json.loads(data_str)
         timeseries = _check_metrics(data.get("data", {}).get("timeseries", []))
-        res = []
 
+        unit = data.get("unit", "")
+        results = []
         for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
+            chart_data = entry["chart"]["chartData"]
+            values = list(chart_data.values())
+            data_now = np.array(values)
             r = detect.detect(data_now)
-            res.append(r)
+            if r['is_anomaly']:
+                results.append({
+                    "chart": chart_data,
+                    "labels": entry["labels"],
+                    "avg": float(np.mean(values)),
+                    "unit": unit,
+                    "result": r
+                })
 
-        return json.dumps(res)
+        return json.dumps(results)
 
     def frequent_detect(self, data_str):
         detect = FrequencyAnomalyDetector()
         data = json.loads(data_str)
         timeseries = _check_metrics(data.get("data", {}).get("timeseries", []))
-        res = []
 
+        unit = data.get("unit", "")
+        results = []
         for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
+            chart_data = entry["chart"]["chartData"]
+            values = list(chart_data.values())
+            data_now = np.array(values)
             r = detect.detect(data_now)
-            res.append(r)
+            if r:
+                r = [[t[0], int(t[1])] for t in r]
+                results.append({
+                    "chart": chart_data,
+                    "abnormalCount": len(r),
+                    "spikes": [item[1] for item in r],
+                    "labels": entry["labels"],
+                    "avg": float(np.mean(values)),
+                    "unit": unit,
+                    "result": r
+                })
 
-        return json.dumps(res)
+        return json.dumps(results)
 
     def metrics_detect(self, result_str):
         data = json.loads(result_str)
@@ -131,7 +162,13 @@ class TimeSeriersAnalysisTool(BuiltinTool):
                     count += 1
 
             if count != 0:
-                res = {"chart": chart, "abnormalCount": count, "labels": labels, "avg": avg, "unit": unit}
+                res = {
+                    "chart": chart,
+                    "abnormalCount": count,
+                    "labels": labels,
+                    "avg": avg,
+                    "unit": unit
+                }
                 filtered.append(res)
 
         return json.dumps(filtered)

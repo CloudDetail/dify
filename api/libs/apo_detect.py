@@ -34,7 +34,8 @@ class ShockAnomalyDetector:
             return []
 
         curr_pos_diff = self.diff_positive(current_series)
-        hist_pos_diff = self.diff_positive(history_series) if history_series is not None else None
+        hist_pos_diff = self.diff_positive(
+            history_series) if history_series is not None else None
 
         anomalies = []
         global_positive = curr_pos_diff[curr_pos_diff > 0]
@@ -46,7 +47,8 @@ class ShockAnomalyDetector:
                 continue
 
             if hist_pos_diff is not None:
-                upper_hist = self.tukey_upper(hist_pos_diff[hist_pos_diff > 0], self.k_tukey)
+                upper_hist = self.tukey_upper(
+                    hist_pos_diff[hist_pos_diff > 0], self.k_tukey)
                 if x_t <= upper_hist:
                     continue
 
@@ -96,7 +98,7 @@ class TrendAnomalyDetector:
         n = len(x)
         S = 0
         for k in range(n - 1):
-            S += np.sum(np.sign(x[k + 1 :] - x[k]))
+            S += np.sum(np.sign(x[k + 1:] - x[k]))
         varS = n * (n - 1) * (2 * n + 5) / 18.0
         if S > 0:
             Z = (S - 1) / np.sqrt(varS)
@@ -181,7 +183,8 @@ class TrendAnomalyDetector:
             }
 
         # ✅ 缓慢上涨异常 → 最后一个点为异常点
-        anomaly_points: list[tuple[int, float]] = [(len(today) - 1, float(today[-1]))]
+        anomaly_points: list[tuple[int, float]] = [
+            (len(today) - 1, float(today[-1]))]
 
         return {
             "is_anomaly": True,
@@ -206,14 +209,15 @@ class FrequencyAnomalyDetector:
     ):
         self.window_size = window_size
         self.agg_window = agg_window
-        self.quantiles = quantiles if quantiles is not None else [0.25, 0.5, 0.75]
+        self.quantiles = quantiles if quantiles is not None else [
+            0.25, 0.5, 0.75]
         self.threshold = threshold
 
     def _rolling_windows(self, series: np.ndarray, size: int) -> np.ndarray:
         n = len(series)
         if n < size:
             return np.array([])
-        return np.array([series[i : i + size] for i in range(n - size + 1)])
+        return np.array([series[i: i + size] for i in range(n - size + 1)])
 
     def _compute_quantiles(self, windows: np.ndarray) -> np.ndarray:
         return np.array([[np.quantile(w, q) for q in self.quantiles] for w in windows])
@@ -224,7 +228,7 @@ class FrequencyAnomalyDetector:
 
         agg_features = []
         for i in range(len(features) - self.agg_window + 1):
-            window = features[i : i + self.agg_window]
+            window = features[i: i + self.agg_window]
             agg_features.append(window.mean())
         return np.array(agg_features)
 
@@ -258,7 +262,8 @@ class FrequencyAnomalyDetector:
 
         # --- Step 2: 如果没有找到局部异常，检测整体趋势 ---
         if not anomalies and self._is_monotonic(series):
-            anomalies.append((len(series) - 1, series[-1]))
+            if np.ptp(series) > 0:
+                anomalies.append((len(series) - 1, series[-1]))
 
         return anomalies
 

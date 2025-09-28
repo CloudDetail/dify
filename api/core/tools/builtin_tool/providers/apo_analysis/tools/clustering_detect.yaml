@@ -26,15 +26,15 @@ parameters:
         value: mse_detect
       - name: core_detect
         label:
-          en_US: core_detect
+          en_US: corr_detect
           zh_Hans: 相关系数异常分数
-          pt_BR: core_detect
-        value: core_detect
+          pt_BR: corr_detect
+        value: corr_detect
       - name: dtw_detect
         label:
           en_US: dtw_detect
           zh_Hans: 动态时间规划距离
-          pt_BR: dunn_detect
+          pt_BR: dtw_detect
         value: dtw_detect
       - name: zscore_detect
         label:

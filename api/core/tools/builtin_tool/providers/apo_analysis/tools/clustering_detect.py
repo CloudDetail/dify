@@ -93,6 +93,51 @@ def zscore_anomaly(current: np.ndarray, history: np.ndarray = None) -> float:
     return float(np.max(np.abs((current - mu) / sigma)))
 
 
+def filter_abnormal(data_str, algorithm: str, history=None):
+    """
+    根据算法计算 score 并过滤异常指标
+    """
+    data = json.loads(data_str)
+    timeseries = data.get("data", {}).get("timeseries", [])
+    results = []
+
+    unit = data.get("unit", "")
+    for entry in timeseries:
+        chart_data = entry["chart"]["chartData"]
+        values = np.array(list(chart_data.values()), dtype=float)
+
+        # 算法计算
+        if algorithm == "mse_detect":
+            score = mse_anomaly_score(values, history)
+            is_abnormal = score > np.mean(values) * 0.1
+
+        elif algorithm == "corr_detect":
+            score = corr_anomaly_score(values, history)
+            is_abnormal = score > 0.3
+
+        elif algorithm == "dtw_detect":
+            score = dtw_distance(values, history)
+            is_abnormal = score > np.mean(values) * 0.05
+
+        elif algorithm == "zscore_detect":
+            score = zscore_anomaly(values, history)
+            is_abnormal = score > 3.0
+
+        else:
+            continue
+
+        if is_abnormal:
+            results.append({
+                "chart": chart_data,
+                "score": float(score),
+                "labels": entry["labels"],
+                "avg": float(np.mean(values)),
+                "unit": unit
+            })
+
+    return results
+
+
 class ClusteringAnalysisTool(BuiltinTool):
     def _invoke(
         self,
@@ -105,66 +150,6 @@ class ClusteringAnalysisTool(BuiltinTool):
         detect_name = tool_parameters.get("algorithmName")
         data = tool_parameters.get("data")
         history = tool_parameters.get("history")
-        res = ""
-        match detect_name:
-            case "mse_detect":
-                res = self.mse_detec(data)
-            case "core_detect":
-                res = self.corr_detec(data)
-            case "dtw_detect":
-                res = self.dtw_detec(data)
-            case "zscore_detect":
-                res = self.zscore_detec(data)
-        yield self.create_text_message(str(res))
 
-    def mse_detec(self, data_str):
-        data = json.loads(data_str)
-        timeseries = data.get("data", {}).get("timeseries", [])
-        res = []
-
-        for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
-            r = mse_anomaly_score(data_now)
-            res.append(r)
-
-        return json.dumps(res)
-
-    def corr_detec(self, data_str):
-        data = json.loads(data_str)
-        timeseries = data.get("data", {}).get("timeseries", [])
-        res = []
-
-        for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
-            r = corr_anomaly_score(data_now)
-            res.append(r)
-
-        return json.dumps(res)
-
-    def dtw_detec(self, data_str):
-        data = json.loads(data_str)
-        timeseries = data.get("data", {}).get("timeseries", [])
-        res = []
-
-        for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
-            r = dtw_distance(data_now)
-            res.append(r)
-
-        return json.dumps(res)
-
-    def zscore_detec(self, data_str):
-        data = json.loads(data_str)
-        timeseries = data.get("data", {}).get("timeseries", [])
-        res = []
-
-        for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
-            r = zscore_anomaly(data_now)
-            res.append(r)
-
-        return json.dumps(res)
+        res = filter_abnormal(data, detect_name, history)
+        yield self.create_text_message(json.dumps(res, ensure_ascii=False))
