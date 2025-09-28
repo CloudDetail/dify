@@ -18,12 +18,24 @@ parameters:
     type: select
     required: true
     options:
-      - name: classify_detect
+      - name: quantile_detect
         label:
-          en_US: classify_detect
-          zh_Hans: 指标趋势归类
-          pt_BR: classify_detect
-        value: classify_detect
+          en_US: quantile_detect
+          zh_Hans: 分位数分类
+          pt_BR: quantile_detect
+        value: quantile_detect
+      - name: kmeans_detect
+        label:
+          en_US: kmeans_detect
+          zh_Hans: K-均值分类
+          pt_BR: kmeans_detect
+        value: kmeans_detect
+      - name: interval_detect
+        label:
+          en_US: interval_detect
+          zh_Hans: 区间分类
+          pt_BR: interval_detect
+        value: interval_detect
     label:
       en_US: AlgorithmName
       zh_Hans: 选择的算法

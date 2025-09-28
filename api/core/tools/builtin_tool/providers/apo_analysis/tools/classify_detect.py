@@ -1,8 +1,52 @@
+import json
 from collections.abc import Generator
 from typing import Any, Optional
 
+import numpy as np
+
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
+
+
+class ClassifierAnomalyDetector:
+    def __init__(
+        self,
+        mode: str = "zscore",  # "quantile", "zscore", "interval"
+        lower_q: float = 0.05,
+        upper_q: float = 0.95,
+        threshold: float = 2.0,
+        k: float = 3.0,
+    ):
+        self.mode = mode
+        self.lower_q = lower_q
+        self.upper_q = upper_q
+        self.threshold = threshold
+        self.k = k
+
+    def detect(self, series: np.ndarray, history: Optional[np.ndarray] = None) -> list[tuple[int, float]]:
+        """返回 [(下标, 值), ...]"""
+        data = history if history is not None and len(history) > 0 else series
+
+        if self.mode == "quantile":
+            low, high = np.quantile(data, [self.lower_q, self.upper_q])
+            anomalies = np.where((series < low) | (series > high))[0]
+
+        elif self.mode == "kmeans":
+            mean = np.mean(data)
+            std = np.std(data) + 1e-8
+            z_scores = np.abs((series - mean) / std)
+            anomalies = np.where(z_scores > self.threshold)[0]
+
+        elif self.mode == "interval":
+            mean = np.mean(data)
+            std = np.std(data)
+            low, high = mean - self.k * std, mean + self.k * std
+            anomalies = np.where((series < low) | (series > high))[0]
+
+        else:
+            raise ValueError(f"未知模式: {self.mode}")
+
+        return [(int(i), float(series[i])) for i in anomalies]
 
 
 class ClassifyAnalysisTool(BuiltinTool):
@@ -19,6 +63,52 @@ class ClassifyAnalysisTool(BuiltinTool):
         history = tool_parameters.get("history")
         res = ""
         match detect_name:
-            case "classify_detect":
-                pass
+            case "quantile_detect":
+                res = self.quantile_detect(data)
+            case "kmeans_detect":
+                res = self.kmeans_detect(data)
+            case "interval_detect":
+                res = self.interval_detect(data)
         yield self.create_text_message(res)
+
+    def quantile_detect(self, data_str):
+        detect = ClassifierAnomalyDetector(mode="quantile")
+        data = json.loads(data_str)
+        timeseries = data.get("data", {}).get("timeseries", [])
+        res = []
+
+        for entry in timeseries:
+            latency_15min = list(entry["chart"]["chartData"].values())
+            data_now = np.array(latency_15min)
+            r = detect.detect(data_now)
+            res.append(r)
+
+        return json.dumps(res)
+
+    def kmeans_detect(self, data_str):
+        detect = ClassifierAnomalyDetector(mode="kmeans")
+        data = json.loads(data_str)
+        timeseries = data.get("data", {}).get("timeseries", [])
+        res = []
+
+        for entry in timeseries:
+            latency_15min = list(entry["chart"]["chartData"].values())
+            data_now = np.array(latency_15min)
+            r = detect.detect(data_now)
+            res.append(r)
+
+        return json.dumps(res)
+
+    def interval_detect(self, data_str):
+        detect = ClassifierAnomalyDetector()
+        data = json.loads(data_str)
+        timeseries = data.get("data", {}).get("timeseries", [])
+        res = []
+
+        for entry in timeseries:
+            latency_15min = list(entry["chart"]["chartData"].values())
+            data_now = np.array(latency_15min)
+            r = detect.detect(data_now)
+            res.append(r)
+
+        return json.dumps(res)
