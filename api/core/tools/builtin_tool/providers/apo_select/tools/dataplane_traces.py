@@ -10,7 +10,7 @@ from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
 
 
-class DataplaneSpansTool(BuiltinTool):
+class DataplaneTracesTool(BuiltinTool):
     def _invoke(
         self,
         user_id: str,
@@ -45,10 +45,10 @@ class DataplaneSpansTool(BuiltinTool):
             "limit": limit
         }
         resp = requests.post(dify_config.DATAPLANE_URL +
-                             '/datasource/querySpans', json=params)
+                             '/datasource/queryTraces', json=params)
         list = resp.json()['data']
         list = json.dumps({
-            'type': 'span',
+            'type': 'trace',
             'display': False,
             'data': list[0] if len(list) > 0 else []
         })

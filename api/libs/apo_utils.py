@@ -1,5 +1,5 @@
 class APOUtils:
-    
+
     @classmethod
     def get_step(self, start_time, end_time):
         time_diff = end_time - start_time
@@ -30,7 +30,7 @@ class APOUtils:
             step = ((time_diff + 30 * SECOND - 1) // (30 * SECOND)) * SECOND
 
         return step
-    
+
     @staticmethod
     def vec_from_duration(duration_ns: int) -> str:
         one_minute_ns = 60 * 10**9
@@ -40,7 +40,7 @@ class APOUtils:
         else:
             seconds = duration_ns // 10**9
             return f"{seconds}s"
-    
+
     @staticmethod
     def get_step_with_unit(start_time, end_time) -> str:
         time_diff = end_time - start_time
@@ -72,7 +72,7 @@ class APOUtils:
             step = f"{step_hours}h"
 
         return step
-    
+
     def get_and_build_metric_params(param: dict, key_map: dict) -> dict:
         """
         从param字典中提取指定的key，并根据key_map映射构建新的参数字典
@@ -102,3 +102,16 @@ class APOUtils:
                 result[target_key] = value
 
         return result
+
+
+def get_history_timeseries(legend: str, labels: dict, history: dict) -> dict:
+    for entry in history["data"]["timeseries"]:
+        chart_data = entry["chart"]["chartData"]
+        current_legend = entry["legend"]
+        if legend == current_legend:
+            return chart_data
+
+        current_labels = entry["labels"]
+        if labels == current_labels:
+            return chart_data
+    return None

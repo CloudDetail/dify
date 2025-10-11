@@ -1,0 +1,73 @@
+identity:
+  name: classifyAnalysis
+  author: APO
+  label:
+    en_US: classifyAnalysis
+    zh_Hans: 分类算法
+description:
+  human:
+    en_US: classifyAnalysis
+    zh_Hans: 分类算法
+  llm: classifyAnalysis
+display:
+  type: classifyAnalysis
+  title: classifyAnalysis
+  unit: classifyAnalysis
+parameters:
+  - name: algorithmName
+    type: select
+    required: true
+    options:
+      - name: quantile_detect
+        label:
+          en_US: quantile_detect
+          zh_Hans: 分位数分类
+          pt_BR: quantile_detect
+        value: quantile_detect
+      - name: kmeans_detect
+        label:
+          en_US: kmeans_detect
+          zh_Hans: K-均值分类
+          pt_BR: kmeans_detect
+        value: kmeans_detect
+      - name: interval_detect
+        label:
+          en_US: interval_detect
+          zh_Hans: 区间分类
+          pt_BR: interval_detect
+        value: interval_detect
+    label:
+      en_US: AlgorithmName
+      zh_Hans: 选择的算法
+      pt_BR: AlgorithmName
+    human_description:
+      en_US: AlgorithmName
+      zh_Hans: 选择的算法
+      pt_BR: AlgorithmName
+    llm_description: AlgorithmName
+    form: llm
+  - name: data
+    type: string
+    required: true
+    label:
+      en_US: data
+      zh_Hans: 检测的指标序列
+      pt_BR: data
+    human_description:
+      en_US: data
+      zh_Hans: 检测的指标序列
+      pt_BR: data
+    llm_description: data
+    form: llm
+  - name: history
+    type: string
+    label:
+      en_US: history
+      zh_Hans: 历史指标序列
+      pt_BR: history
+    human_description:
+      en_US: history
+      zh_Hans: 历史指标序列
+      pt_BR: history
+    llm_description: history
+    form: llm
