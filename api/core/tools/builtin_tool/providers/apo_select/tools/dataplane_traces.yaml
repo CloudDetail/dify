@@ -1,0 +1,121 @@
+identity:
+  name: dataplane_traces
+  author: APO
+  label:
+    en_US: Query service traces from dataplane.
+    zh_Hans: 在数据平面查询服务traces
+    pt_BR: Query service traces from dataplane.
+description:
+  human:
+    en_US: Query service traces from dataplane.
+    zh_Hans: 在数据平面查询服务trace
+    pt_BR: Query service trace from dataplane.
+  llm: Query service trace from dataplane.
+display:
+  type: trace
+  title: 服务trace
+  unit: count
+parameters:
+  - name: providerId
+    type: number
+    required: false
+    label:
+      en_US: Accessed data source id.
+      zh_Hans: 接入数据源id
+    human_description:
+      en_US: Accessed data source id.
+      zh_Hans: 接入的数据源id
+    llm_description: Accessed data source id.
+    form: llm
+  - name: limit
+    type: number
+    required: false
+    label:
+      en_US: The number of records returned.
+      zh_Hans: 返回的记录数量
+    human_description:
+      en_US: The number of records returned.
+      zh_Hans: 返回的记录数量
+    llm_description: The number of records returned.
+    form: llm
+  - name: service
+    type: string
+    required: true
+    label:
+      en_US: The name of service.
+      zh_Hans: 服务名
+    human_description:
+      en_US: The name of service.
+      zh_Hans: 服务名
+    llm_description: The name of service.
+    form: llm
+  - name: operation
+    type: string
+    required: false
+    label:
+      en_US: Operation name.
+      zh_Hans: 操作名
+    human_description:
+      en_US: Operation name.
+      zh_Hans: 操作名
+    llm_description: Operation name.
+    form: llm
+  - name: isError
+    type: boolean
+    required: false
+    label:
+      en_US: Is an error span.
+      zh_Hans: span是否出错
+    human_description:
+      en_US: Is an error span.
+      zh_Hans: span是否出错
+    llm_description: Is an error span.
+    form: llm
+  - name: minDuration
+    type: number
+    required: false
+    label:
+      en_US: The min duration of span(Microsecond).
+      zh_Hans: span消耗最小值（微秒）
+    human_description:
+      en_US: The min duration of span.
+      zh_Hans: span消耗最小值（微秒）
+    llm_description: The min duration of span(Microsecond).
+    form: llm
+  - name: maxDuration
+    type: number
+    required: false
+    label:
+      en_US: The max duration of span(Microsecond).
+      zh_Hans: span消耗最大值（微秒）
+    human_description:
+      en_US: The max duration of span(Microsecond).
+      zh_Hans: span消耗最大值（微秒）
+    llm_description: The max duration of span(Microsecond).
+    form: llm
+  - name: startTime
+    type: number
+    required: true
+    label:
+      en_US: startTime
+      zh_Hans: startTime
+      pt_BR: startTime
+    human_description:
+      en_US: Data query start time(Microsecond)
+      zh_Hans: 开始时间 (微秒)
+      pt_BR: Data query start time(Microsecond)
+    llm_description: Data query start time(Microsecond)
+    form: llm
+  - name: endTime
+    type: number
+    required: true
+    label:
+      en_US: endTime
+      zh_Hans: endTime
+      pt_BR: endTime
+    human_description:
+      en_US: Data query end time(Microsecond)
+      zh_Hans: 结束时间 (微秒)
+      pt_BR: Data query end time(Microsecond)
+    llm_description: Data query end time(Microsecond)
+    form: llm

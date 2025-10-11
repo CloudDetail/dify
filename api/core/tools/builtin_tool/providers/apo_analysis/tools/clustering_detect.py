@@ -6,6 +6,7 @@ import numpy as np
 
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
+from configs.apo import APOConfig
 
 
 def mse_anomaly_score(current: np.ndarray, history: np.ndarray = None) -> float:
@@ -102,26 +103,29 @@ def filter_abnormal(data_str, algorithm: str, history=None):
     results = []
 
     unit = data.get("unit", "")
+    config = APOConfig()
     for entry in timeseries:
         chart_data = entry["chart"]["chartData"]
         values = np.array(list(chart_data.values()), dtype=float)
 
         # 算法计算
         if algorithm == "mse_detect":
-            score = mse_anomaly_score(values, history)
-            is_abnormal = score > np.mean(values) * 0.1
+            score = mse_anomaly_score(values)
+            is_abnormal = score > np.mean(
+                values) * config.APO_DETECT_CLUSTERING_MSE_THRESHOLD
 
         elif algorithm == "corr_detect":
-            score = corr_anomaly_score(values, history)
-            is_abnormal = score > 0.3
+            score = corr_anomaly_score(values)
+            is_abnormal = score > config.APO_DETECT_CLUSTERING_CORR_THRESHOLD
 
         elif algorithm == "dtw_detect":
-            score = dtw_distance(values, history)
-            is_abnormal = score > np.mean(values) * 0.05
+            score = dtw_distance(values)
+            is_abnormal = score > np.mean(
+                values) * config.APO_DETECT_CLUSTERING_DTW_THRESHOLD
 
         elif algorithm == "zscore_detect":
-            score = zscore_anomaly(values, history)
-            is_abnormal = score > 3.0
+            score = zscore_anomaly(values)
+            is_abnormal = score > config.APO_DETECT_CLUSTERING_ZSCORE_THRESHOLD
 
         else:
             continue

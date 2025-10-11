@@ -7,6 +7,7 @@ import numpy as np
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_detect import FrequencyAnomalyDetector, ShockAnomalyDetector, TrendAnomalyDetector
+from configs.apo import APOConfig
 
 
 def _get_avg(values):
@@ -111,7 +112,12 @@ class TimeSeriersAnalysisTool(BuiltinTool):
         return json.dumps(results)
 
     def frequent_detect(self, data_str):
-        detect = FrequencyAnomalyDetector()
+        config = APOConfig()
+        detect = FrequencyAnomalyDetector(
+            window_size=config.APO_DETECT_SERIES_FREQUENCY_WINDOW_SIZE,
+            agg_window_size=config.APO_DETECT_SERIES_FREQUENCY_AGG_WINDOW_SIZE,
+            threshold=config.APO_DETECT_SERIES_FREQUENCY_THRESHOLD,
+        )
         data = json.loads(data_str)
         timeseries = _check_metrics(data.get("data", {}).get("timeseries", []))
 

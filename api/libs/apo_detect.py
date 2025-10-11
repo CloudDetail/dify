@@ -7,7 +7,7 @@ _HAS_SM = False
 
 
 class ShockAnomalyDetector:
-    def __init__(self, k_tukey: float = 1.5, min_duration: int = 1, window_size: int = 5):
+    def __init__(self, k_tukey: float = 1, min_duration: int = 1, window_size: int = 5):
         self.k_tukey = k_tukey
         self.min_duration = min_duration
         self.window_size = window_size
@@ -232,10 +232,10 @@ class FrequencyAnomalyDetector:
             agg_features.append(window.mean())
         return np.array(agg_features)
 
-    def _is_monotonic(self, series: np.ndarray) -> bool:
-        """判断序列是否单调上升或单调下降"""
+    def _is_strictly_increasing(self, series: np.ndarray) -> bool:
+        """判断序列是否严格单调递增"""
         diffs = np.diff(series)
-        return np.all(diffs >= 0) or np.all(diffs <= 0)
+        return np.all(diffs > 0)
 
     def detect(self, series: np.ndarray) -> list[tuple[int, float]]:
         if len(series) < self.window_size:
@@ -260,8 +260,8 @@ class FrequencyAnomalyDetector:
                 if idx < len(series):
                     anomalies.append((idx, series[idx]))
 
-        # --- Step 2: 如果没有找到局部异常，检测整体趋势 ---
-        if not anomalies and self._is_monotonic(series):
+        # --- Step 2: 如果没有找到局部异常，检测是否单调递增 ---
+        if not anomalies and self._is_strictly_increasing(series):
             if np.ptp(series) > 0:
                 anomalies.append((len(series) - 1, series[-1]))
 

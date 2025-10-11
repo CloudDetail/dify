@@ -6,6 +6,7 @@ import numpy as np
 
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
+from configs.apo import APOConfig
 
 
 class ClassifierAnomalyDetector:
@@ -61,6 +62,7 @@ class ClassifyAnalysisTool(BuiltinTool):
         detect_name = tool_parameters.get("algorithmName")
         data = tool_parameters.get("data")
         history = tool_parameters.get("history")
+
         res = ""
         match detect_name:
             case "quantile_detect":
@@ -72,43 +74,97 @@ class ClassifyAnalysisTool(BuiltinTool):
         yield self.create_text_message(res)
 
     def quantile_detect(self, data_str):
-        detect = ClassifierAnomalyDetector(mode="quantile")
+        config = APOConfig()
+        detect = ClassifierAnomalyDetector(
+            mode="quantile",
+            lower_q=config.APO_DETECT_CLASSIFY_LOWER_Q,
+            upper_q=config.APO_DETECT_CLASSIFY_UPPER_Q,
+            threshold=config.APO_DETECT_CLASSIFY_THRESHOLD,
+            k=config.APO_DETECT_CLASSIFY_K,
+        )
         data = json.loads(data_str)
         timeseries = data.get("data", {}).get("timeseries", [])
         res = []
-
+        unit = data.get("unit", "")
+        results = []
         for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
+            chart_data = entry["chart"]["chartData"]
+            values = list(chart_data.values())
+            data_now = np.array(values)
             r = detect.detect(data_now)
-            res.append(r)
+            if r:
+                results.append({
+                    "chart": chart_data,
+                    "abnormalCount": len(r),
+                    "spikes": [item[1] for item in r],
+                    "labels": entry["labels"],
+                    "avg": float(np.mean(values)),
+                    "unit": unit,
+                    "result": r
+                })
 
-        return json.dumps(res)
+        return json.dumps(results)
 
     def kmeans_detect(self, data_str):
-        detect = ClassifierAnomalyDetector(mode="kmeans")
+        config = APOConfig()
+        detect = ClassifierAnomalyDetector(
+            mode="kmeans",
+            lower_q=config.APO_DETECT_CLASSIFY_LOWER_Q,
+            upper_q=config.APO_DETECT_CLASSIFY_UPPER_Q,
+            threshold=config.APO_DETECT_CLASSIFY_THRESHOLD,
+            k=config.APO_DETECT_CLASSIFY_K,
+        )
         data = json.loads(data_str)
         timeseries = data.get("data", {}).get("timeseries", [])
         res = []
-
+        unit = data.get("unit", "")
+        results = []
         for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
+            chart_data = entry["chart"]["chartData"]
+            values = list(chart_data.values())
+            data_now = np.array(values)
             r = detect.detect(data_now)
-            res.append(r)
+            if r:
+                results.append({
+                    "chart": chart_data,
+                    "abnormalCount": len(r),
+                    "spikes": [item[1] for item in r],
+                    "labels": entry["labels"],
+                    "avg": float(np.mean(values)),
+                    "unit": unit,
+                    "result": r
+                })
 
-        return json.dumps(res)
+        return json.dumps(results)
 
     def interval_detect(self, data_str):
-        detect = ClassifierAnomalyDetector()
+        config = APOConfig()
+        detect = ClassifierAnomalyDetector(
+            mode="interval",
+            lower_q=config.APO_DETECT_CLASSIFY_LOWER_Q,
+            upper_q=config.APO_DETECT_CLASSIFY_UPPER_Q,
+            threshold=config.APO_DETECT_CLASSIFY_THRESHOLD,
+            k=config.APO_DETECT_CLASSIFY_K,
+        )
         data = json.loads(data_str)
         timeseries = data.get("data", {}).get("timeseries", [])
         res = []
-
+        unit = data.get("unit", "")
+        results = []
         for entry in timeseries:
-            latency_15min = list(entry["chart"]["chartData"].values())
-            data_now = np.array(latency_15min)
+            chart_data = entry["chart"]["chartData"]
+            values = list(chart_data.values())
+            data_now = np.array(values)
             r = detect.detect(data_now)
-            res.append(r)
+            if r:
+                results.append({
+                    "chart": chart_data,
+                    "abnormalCount": len(r),
+                    "spikes": [item[1] for item in r],
+                    "labels": entry["labels"],
+                    "avg": float(np.mean(values)),
+                    "unit": unit,
+                    "result": r
+                })
 
-        return json.dumps(res)
+        return json.dumps(results)
