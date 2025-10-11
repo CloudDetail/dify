@@ -2602,18 +2602,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: variable-aggregator
-        targetType: if-else
-      id: 1753955518503-source-1751602227575-target
-      selected: false
-      source: '1753955518503'
-      sourceHandle: source
-      target: '1751602227575'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: question-classifier
         targetType: code
       id: 1752803753654-2-1752818508497-target
@@ -2807,19 +2795,6 @@ workflow:
       type: custom
       zIndex: 1002
     - data:
-        isInIteration: true
-        isInLoop: false
-        iteration_id: '1758628253496'
-        sourceType: code
-        targetType: tool
-      id: 1758628283567-source-1758628508115-target
-      source: '1758628283567'
-      sourceHandle: source
-      target: '1758628508115'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
         isInIteration: false
         isInLoop: false
         sourceType: iteration
@@ -2920,6 +2895,191 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: iteration
+      id: 1753955518503-source-1760105153157-target
+      source: '1753955518503'
+      sourceHandle: source
+      target: '1760105153157'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1760105153157'
+        sourceType: iteration-start
+        targetType: tool
+      id: 1760105153157start-source-1760105193905-target
+      source: 1760105153157start
+      sourceHandle: source
+      target: '1760105193905'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760105153157'
+        sourceType: tool
+        targetType: code
+      id: 1760105193905-source-1760105219443-target
+      source: '1760105193905'
+      sourceHandle: source
+      target: '1760105219443'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 1760105153157-source-1760105330930-target
+      source: '1760105153157'
+      sourceHandle: source
+      target: '1760105330930'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1760105330930-source-1760105659487-target
+      source: '1760105330930'
+      sourceHandle: source
+      target: '1760105659487'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1760105659487'
+        sourceType: iteration-start
+        targetType: code
+      id: 1760105659487start-source-1760105779888-target
+      source: 1760105659487start
+      sourceHandle: source
+      target: '1760105779888'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760105659487'
+        sourceType: code
+        targetType: tool
+      id: 1760105779888-source-1760105668827-target
+      source: '1760105779888'
+      sourceHandle: source
+      target: '1760105668827'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760105659487'
+        sourceType: tool
+        targetType: code
+      id: 1760105668827-source-1760105843418-target
+      source: '1760105668827'
+      sourceHandle: source
+      target: '1760105843418'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760105659487'
+        sourceType: code
+        targetType: tool
+      id: 1760105843418-source-1760105862805-target
+      source: '1760105843418'
+      sourceHandle: source
+      target: '1760105862805'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760105659487'
+        sourceType: tool
+        targetType: tool
+      id: 1760105862805-source-1760105875013-target
+      source: '1760105862805'
+      sourceHandle: source
+      target: '1760105875013'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760105659487'
+        sourceType: tool
+        targetType: code
+      id: 1760105875013-source-1760105889818-target
+      source: '1760105875013'
+      sourceHandle: source
+      target: '1760105889818'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 1760105659487-source-1760106063352-target
+      source: '1760105659487'
+      sourceHandle: source
+      target: '1760106063352'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1760106063352-source-1760106121324-target
+      source: '1760106063352'
+      sourceHandle: source
+      target: '1760106121324'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1760106121324-source-1760106066557-target
+      source: '1760106121324'
+      sourceHandle: source
+      target: '1760106066557'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1760106066557-source-1751602227575-target
+      source: '1760106066557'
+      sourceHandle: source
+      target: '1751602227575'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1758628253496'
+        sourceType: code
+        targetType: tool
+      id: 1758628283567-source-1760161705179-target
+      source: '1758628283567'
+      sourceHandle: source
+      target: '1760161705179'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
     nodes:
     - data:
         desc: ''
@@ -2961,10 +3121,10 @@ workflow:
       id: '1743576019537'
       position:
         x: 30
-        y: 300
+        y: 440
       positionAbsolute:
         x: 30
-        y: 300
+        y: 440
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3017,11 +3177,11 @@ workflow:
       height: 528
       id: '1743577315409'
       position:
-        x: 6905
-        y: 1190.5
+        x: 5158
+        y: 2930
       positionAbsolute:
-        x: 6905
-        y: 1190.5
+        x: 5158
+        y: 2930
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3065,11 +3225,11 @@ workflow:
       height: 200
       id: '1743649517293'
       position:
-        x: 698
-        y: 300
+        x: 638
+        y: 440
       positionAbsolute:
-        x: 698
-        y: 300
+        x: 638
+        y: 440
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3085,11 +3245,11 @@ workflow:
       height: 54
       id: '1743650887693'
       position:
-        x: 1548
-        y: 300
+        x: 942
+        y: 440
       positionAbsolute:
-        x: 1548
-        y: 300
+        x: 942
+        y: 440
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3108,11 +3268,11 @@ workflow:
       height: 90
       id: '1743650967123'
       position:
-        x: 1882
-        y: 300
+        x: 1246
+        y: 440
       positionAbsolute:
-        x: 1882
-        y: 300
+        x: 1246
+        y: 440
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3254,11 +3414,11 @@ workflow:
       height: 54
       id: '1743652485397'
       position:
-        x: 1214
-        y: 478
+        x: 942
+        y: 646
       positionAbsolute:
-        x: 1214
-        y: 478
+        x: 942
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3302,11 +3462,11 @@ workflow:
       height: 54
       id: '1743652552181'
       position:
-        x: 1548
-        y: 478
+        x: 1246
+        y: 664
       positionAbsolute:
-        x: 1548
-        y: 478
+        x: 1246
+        y: 664
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3326,11 +3486,11 @@ workflow:
       height: 131
       id: '1743664106885'
       position:
-        x: 1882
-        y: 454.5
+        x: 1550
+        y: 552
       positionAbsolute:
-        x: 1882
-        y: 454.5
+        x: 1550
+        y: 552
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3371,11 +3531,11 @@ workflow:
       height: 54
       id: '1743664113196'
       position:
-        x: 1548
-        y: 572
+        x: 1246
+        y: 570
       positionAbsolute:
-        x: 1548
-        y: 572
+        x: 1246
+        y: 570
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3404,11 +3564,11 @@ workflow:
       height: 54
       id: '1743670061370'
       position:
-        x: 4754
-        y: 1009
+        x: 4550
+        y: 552
       positionAbsolute:
-        x: 4754
-        y: 1009
+        x: 4550
+        y: 552
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3436,11 +3596,11 @@ workflow:
       height: 54
       id: '1743670099979'
       position:
-        x: 4754
-        y: 915
+        x: 4550
+        y: 646
       positionAbsolute:
-        x: 4754
-        y: 915
+        x: 4550
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3591,11 +3751,11 @@ workflow:
       height: 54
       id: '1743672656692'
       position:
-        x: 13759
-        y: 1403.5
+        x: 11198
+        y: 3658
       positionAbsolute:
-        x: 13759
-        y: 1403.5
+        x: 11198
+        y: 3658
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3765,11 +3925,11 @@ workflow:
       height: 54
       id: '1743672756524'
       position:
-        x: 13759
-        y: 2619
+        x: 11198
+        y: 2300
       positionAbsolute:
-        x: 13759
-        y: 2619
+        x: 11198
+        y: 2300
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3939,11 +4099,11 @@ workflow:
       height: 54
       id: '1743672762507'
       position:
-        x: 13759
-        y: 2431
+        x: 11198
+        y: 2636
       positionAbsolute:
-        x: 13759
-        y: 2431
+        x: 11198
+        y: 2636
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4110,11 +4270,11 @@ workflow:
       height: 54
       id: '1743673124913'
       position:
-        x: 12503
-        y: 319
+        x: 9414
+        y: 3980
       positionAbsolute:
-        x: 12503
-        y: 319
+        x: 9414
+        y: 3980
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4281,11 +4441,11 @@ workflow:
       height: 54
       id: '1743673153877'
       position:
-        x: 12503
-        y: 692.5
+        x: 9414
+        y: 3886
       positionAbsolute:
-        x: 12503
-        y: 692.5
+        x: 9414
+        y: 3886
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4307,11 +4467,11 @@ workflow:
       height: 153
       id: '1743673518843'
       position:
-        x: 13759
-        y: 579
+        x: 11198
+        y: 3779.5
       positionAbsolute:
-        x: 13759
-        y: 579
+        x: 11198
+        y: 3779.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4390,11 +4550,11 @@ workflow:
       height: 90
       id: '1743673613633'
       position:
-        x: 15937
-        y: 615.5
+        x: 13286
+        y: 3811
       positionAbsolute:
-        x: 15937
-        y: 615.5
+        x: 13286
+        y: 3811
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4420,11 +4580,11 @@ workflow:
       height: 126
       id: '1743844014629'
       position:
-        x: 9577
-        y: 543
+        x: 7894
+        y: 1154
       positionAbsolute:
-        x: 9577
-        y: 543
+        x: 7894
+        y: 1154
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4450,11 +4610,11 @@ workflow:
       height: 126
       id: '17438442246820'
       position:
-        x: 10245
-        y: 1190.5
+        x: 8502
+        y: 646
       positionAbsolute:
-        x: 10245
-        y: 1190.5
+        x: 8502
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4473,11 +4633,11 @@ workflow:
       height: 90
       id: '1743844231109'
       position:
-        x: 10913
-        y: 561
+        x: 8502
+        y: 1172
       positionAbsolute:
-        x: 10913
-        y: 561
+        x: 8502
+        y: 1172
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4520,11 +4680,11 @@ workflow:
       height: 168
       id: '1743846657026'
       position:
-        x: 11247
-        y: 2998
+        x: 8806
+        y: 1263
       positionAbsolute:
-        x: 11247
-        y: 2998
+        x: 8806
+        y: 1263
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4540,11 +4700,11 @@ workflow:
       height: 54
       id: '1743847092222'
       position:
-        x: 10579
-        y: 543
+        x: 8198
+        y: 1154
       positionAbsolute:
-        x: 10579
-        y: 543
+        x: 8198
+        y: 1154
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4711,11 +4871,11 @@ workflow:
       height: 54
       id: '1743847425675'
       position:
-        x: 13425
-        y: 3151
+        x: 10306
+        y: 1924
       positionAbsolute:
-        x: 13425
-        y: 3151
+        x: 10306
+        y: 1924
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4829,11 +4989,11 @@ workflow:
       height: 54
       id: '1743847618976'
       position:
-        x: 12503
-        y: 786.5
+        x: 9414
+        y: 3792
       positionAbsolute:
-        x: 12503
-        y: 786.5
+        x: 9414
+        y: 3792
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5000,11 +5160,11 @@ workflow:
       height: 54
       id: '1743847703261'
       position:
-        x: 13425
-        y: 3057
+        x: 10306
+        y: 2018
       positionAbsolute:
-        x: 13425
-        y: 3057
+        x: 10306
+        y: 2018
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5171,11 +5331,11 @@ workflow:
       height: 54
       id: '1743848302527'
       position:
-        x: 13425
-        y: 3339
+        x: 10306
+        y: 1566
       positionAbsolute:
-        x: 13425
-        y: 3339
+        x: 10306
+        y: 1566
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5342,11 +5502,11 @@ workflow:
       height: 54
       id: '1743848306370'
       position:
-        x: 13425
-        y: 3433
+        x: 10306
+        y: 1472
       positionAbsolute:
-        x: 13425
-        y: 3433
+        x: 10306
+        y: 1472
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5513,11 +5673,11 @@ workflow:
       height: 54
       id: '1743848316998'
       position:
-        x: 13425
-        y: 3527
+        x: 10306
+        y: 1378
       positionAbsolute:
-        x: 13425
-        y: 3527
+        x: 10306
+        y: 1378
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5684,11 +5844,11 @@ workflow:
       height: 54
       id: '1743848323475'
       position:
-        x: 13425
-        y: 3621
+        x: 10306
+        y: 1284
       positionAbsolute:
-        x: 13425
-        y: 3621
+        x: 10306
+        y: 1284
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5757,11 +5917,11 @@ workflow:
       height: 90
       id: '17438483761510'
       position:
-        x: 15603
-        y: 3433
+        x: 12982
+        y: 1378
       positionAbsolute:
-        x: 15603
-        y: 3433
+        x: 12982
+        y: 1378
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5788,11 +5948,11 @@ workflow:
       height: 142
       id: '17438490239160'
       position:
-        x: 21332
-        y: 2655
+        x: 21434
+        y: 2526
       positionAbsolute:
-        x: 21332
-        y: 2655
+        x: 21434
+        y: 2526
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5862,11 +6022,11 @@ workflow:
       height: 90
       id: '17438490633890'
       position:
-        x: 15603
-        y: 3057
+        x: 12982
+        y: 1924
       positionAbsolute:
-        x: 15603
-        y: 3057
+        x: 12982
+        y: 1924
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6008,11 +6168,11 @@ workflow:
       height: 54
       id: '1743849441196'
       position:
-        x: 11581
-        y: 3057
+        x: 9110
+        y: 1794
       positionAbsolute:
-        x: 11581
-        y: 3057
+        x: 9110
+        y: 1794
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6060,11 +6220,11 @@ workflow:
       height: 168
       id: '17438494733730'
       position:
-        x: 12503
-        y: 3057
+        x: 9414
+        y: 1794
       positionAbsolute:
-        x: 12503
-        y: 3057
+        x: 9414
+        y: 1794
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6231,11 +6391,11 @@ workflow:
       height: 54
       id: '1743849875119'
       position:
-        x: 13425
-        y: 3245
+        x: 10306
+        y: 1794
       positionAbsolute:
-        x: 13425
-        y: 3245
+        x: 10306
+        y: 1794
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6304,11 +6464,11 @@ workflow:
       height: 90
       id: '17438498987710'
       position:
-        x: 15603
-        y: 3245
+        x: 12982
+        y: 1794
       positionAbsolute:
-        x: 15603
-        y: 3245
+        x: 12982
+        y: 1794
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6352,11 +6512,11 @@ workflow:
       height: 395
       id: '1743850218410'
       position:
-        x: 16271
-        y: 2525
+        x: 13590
+        y: 2112
       positionAbsolute:
-        x: 16271
-        y: 2525
+        x: 13590
+        y: 2112
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6470,11 +6630,11 @@ workflow:
       height: 54
       id: '1743850453842'
       position:
-        x: 14681
-        y: 2337
+        x: 12090
+        y: 2976
       positionAbsolute:
-        x: 14681
-        y: 2337
+        x: 12090
+        y: 2976
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6545,11 +6705,11 @@ workflow:
       height: 54
       id: '1744959389144'
       position:
-        x: 364
-        y: 300
+        x: 334
+        y: 440
       positionAbsolute:
-        x: 364
-        y: 300
+        x: 334
+        y: 440
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6603,11 +6763,11 @@ workflow:
       height: 54
       id: '1745224561449'
       position:
-        x: 14681
-        y: 633.5
+        x: 12090
+        y: 3923
       positionAbsolute:
-        x: 14681
-        y: 633.5
+        x: 12090
+        y: 3923
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6661,11 +6821,11 @@ workflow:
       height: 54
       id: '1745228455097'
       position:
-        x: 13759
-        y: 3339
+        x: 11198
+        y: 1566
       positionAbsolute:
-        x: 13759
-        y: 3339
+        x: 11198
+        y: 1566
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6719,11 +6879,11 @@ workflow:
       height: 54
       id: '1745228463913'
       position:
-        x: 13759
-        y: 3433
+        x: 11198
+        y: 1472
       positionAbsolute:
-        x: 13759
-        y: 3433
+        x: 11198
+        y: 1472
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6777,11 +6937,11 @@ workflow:
       height: 54
       id: '1745228471960'
       position:
-        x: 13759
-        y: 3527
+        x: 11198
+        y: 1378
       positionAbsolute:
-        x: 13759
-        y: 3527
+        x: 11198
+        y: 1378
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6835,11 +6995,11 @@ workflow:
       height: 54
       id: '1745228478308'
       position:
-        x: 13759
-        y: 3621
+        x: 11198
+        y: 1284
       positionAbsolute:
-        x: 13759
-        y: 3621
+        x: 11198
+        y: 1284
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6893,11 +7053,11 @@ workflow:
       height: 54
       id: '1745228513830'
       position:
-        x: 13759
-        y: 3151
+        x: 11198
+        y: 1924
       positionAbsolute:
-        x: 13759
-        y: 3151
+        x: 11198
+        y: 1924
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6951,11 +7111,11 @@ workflow:
       height: 54
       id: '1745228520609'
       position:
-        x: 13759
-        y: 3057
+        x: 11198
+        y: 2018
       positionAbsolute:
-        x: 13759
-        y: 3057
+        x: 11198
+        y: 2018
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7009,11 +7169,11 @@ workflow:
       height: 54
       id: '1745228528400'
       position:
-        x: 13759
-        y: 3245
+        x: 11198
+        y: 1794
       positionAbsolute:
-        x: 13759
-        y: 3245
+        x: 11198
+        y: 1794
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7066,11 +7226,11 @@ workflow:
       height: 54
       id: '1745894017978'
       position:
-        x: 15603
-        y: 651.5
+        x: 12982
+        y: 3941
       positionAbsolute:
-        x: 15603
-        y: 651.5
+        x: 12982
+        y: 3941
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7123,11 +7283,11 @@ workflow:
       height: 54
       id: '17458959866650'
       position:
-        x: 14681
-        y: 3339
+        x: 12090
+        y: 1566
       positionAbsolute:
-        x: 14681
-        y: 3339
+        x: 12090
+        y: 1566
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7180,11 +7340,11 @@ workflow:
       height: 54
       id: '17458959879420'
       position:
-        x: 14681
-        y: 3621
+        x: 12090
+        y: 1284
       positionAbsolute:
-        x: 14681
-        y: 3621
+        x: 12090
+        y: 1284
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7237,11 +7397,11 @@ workflow:
       height: 54
       id: '17458959892670'
       position:
-        x: 14681
-        y: 3433
+        x: 12090
+        y: 1472
       positionAbsolute:
-        x: 14681
-        y: 3433
+        x: 12090
+        y: 1472
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7294,11 +7454,11 @@ workflow:
       height: 54
       id: '17458959903430'
       position:
-        x: 14681
-        y: 3527
+        x: 12090
+        y: 1378
       positionAbsolute:
-        x: 14681
-        y: 3527
+        x: 12090
+        y: 1378
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7351,11 +7511,11 @@ workflow:
       height: 54
       id: '17459056426090'
       position:
-        x: 14681
-        y: 3057
+        x: 12090
+        y: 2018
       positionAbsolute:
-        x: 14681
-        y: 3057
+        x: 12090
+        y: 2018
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7408,11 +7568,11 @@ workflow:
       height: 54
       id: '17459056606540'
       position:
-        x: 14681
-        y: 3151
+        x: 12090
+        y: 1924
       positionAbsolute:
-        x: 14681
-        y: 3151
+        x: 12090
+        y: 1924
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7465,11 +7625,11 @@ workflow:
       height: 54
       id: '17459186208040'
       position:
-        x: 14681
-        y: 3245
+        x: 12090
+        y: 1794
       positionAbsolute:
-        x: 14681
-        y: 3245
+        x: 12090
+        y: 1794
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7495,11 +7655,11 @@ workflow:
       height: 126
       id: '17459265895570'
       position:
-        x: 11247
-        y: 788.5
+        x: 9110
+        y: 2507
       positionAbsolute:
-        x: 11247
-        y: 788.5
+        x: 9110
+        y: 2507
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7515,11 +7675,11 @@ workflow:
       height: 54
       id: '1745926623499'
       position:
-        x: 15603
-        y: 873
+        x: 12090
+        y: 1660
       positionAbsolute:
-        x: 15603
-        y: 873
+        x: 12090
+        y: 1660
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7538,11 +7698,11 @@ workflow:
       height: 90
       id: '1745926643387'
       position:
-        x: 15937
-        y: 837
+        x: 12982
+        y: 1660
       positionAbsolute:
-        x: 15937
-        y: 837
+        x: 12982
+        y: 1660
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7568,11 +7728,11 @@ workflow:
       height: 126
       id: '17459267080670'
       position:
-        x: 12503
-        y: 1539.5
+        x: 11198
+        y: 2394
       positionAbsolute:
-        x: 12503
-        y: 1539.5
+        x: 11198
+        y: 2394
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7714,11 +7874,11 @@ workflow:
       height: 54
       id: '1746777077402'
       position:
-        x: 10913
-        y: 3093
+        x: 8502
+        y: 1320
       positionAbsolute:
-        x: 10913
-        y: 3093
+        x: 8502
+        y: 1320
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7860,11 +8020,11 @@ workflow:
       height: 54
       id: '17467775030610'
       position:
-        x: 11581
-        y: 3965
+        x: 9110
+        y: 646
       positionAbsolute:
-        x: 11581
-        y: 3965
+        x: 9110
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7909,11 +8069,11 @@ workflow:
       height: 168
       id: '17467775030611'
       position:
-        x: 12503
-        y: 3965
+        x: 9414
+        y: 646
       positionAbsolute:
-        x: 12503
-        y: 3965
+        x: 9414
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7932,11 +8092,11 @@ workflow:
       height: 90
       id: '17467775269230'
       position:
-        x: 11581
-        y: 1172.5
+        x: 9110
+        y: 1115
       positionAbsolute:
-        x: 11581
-        y: 1172.5
+        x: 9110
+        y: 1115
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7952,11 +8112,11 @@ workflow:
       height: 54
       id: '17467775269231'
       position:
-        x: 11247
-        y: 1190.5
+        x: 8806
+        y: 1169
       positionAbsolute:
-        x: 11247
-        y: 1190.5
+        x: 8806
+        y: 1169
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8123,11 +8283,11 @@ workflow:
       height: 54
       id: '17467776423960'
       position:
-        x: 13425
-        y: 3965
+        x: 10306
+        y: 870
       positionAbsolute:
-        x: 13425
-        y: 3965
+        x: 10306
+        y: 870
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8294,11 +8454,11 @@ workflow:
       height: 54
       id: '17467776423971'
       position:
-        x: 13425
-        y: 4059
+        x: 10306
+        y: 776
       positionAbsolute:
-        x: 13425
-        y: 4059
+        x: 10306
+        y: 776
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8367,11 +8527,11 @@ workflow:
       height: 90
       id: '17467776423972'
       position:
-        x: 15603
-        y: 3965
+        x: 12982
+        y: 776
       positionAbsolute:
-        x: 15603
-        y: 3965
+        x: 12982
+        y: 776
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8538,11 +8698,11 @@ workflow:
       height: 54
       id: '17467776423973'
       position:
-        x: 13425
-        y: 4153
+        x: 10306
+        y: 646
       positionAbsolute:
-        x: 13425
-        y: 4153
+        x: 10306
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8611,11 +8771,11 @@ workflow:
       height: 90
       id: '17467776423974'
       position:
-        x: 15603
-        y: 4153
+        x: 12982
+        y: 646
       positionAbsolute:
-        x: 15603
-        y: 4153
+        x: 12982
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8669,11 +8829,11 @@ workflow:
       height: 54
       id: '17467776423975'
       position:
-        x: 13759
-        y: 3965
+        x: 11198
+        y: 870
       positionAbsolute:
-        x: 13759
-        y: 3965
+        x: 11198
+        y: 870
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8727,11 +8887,11 @@ workflow:
       height: 54
       id: '17467776423976'
       position:
-        x: 13759
-        y: 4059
+        x: 11198
+        y: 776
       positionAbsolute:
-        x: 13759
-        y: 4059
+        x: 11198
+        y: 776
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8785,11 +8945,11 @@ workflow:
       height: 54
       id: '17467776423977'
       position:
-        x: 13759
-        y: 4153
+        x: 11198
+        y: 646
       positionAbsolute:
-        x: 13759
-        y: 4153
+        x: 11198
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8842,11 +9002,11 @@ workflow:
       height: 54
       id: '17467776423978'
       position:
-        x: 14681
-        y: 4059
+        x: 12090
+        y: 776
       positionAbsolute:
-        x: 14681
-        y: 4059
+        x: 12090
+        y: 776
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8899,11 +9059,11 @@ workflow:
       height: 54
       id: '17467776423979'
       position:
-        x: 14681
-        y: 3965
+        x: 12090
+        y: 870
       positionAbsolute:
-        x: 14681
-        y: 3965
+        x: 12090
+        y: 870
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8956,11 +9116,11 @@ workflow:
       height: 54
       id: '174677764239710'
       position:
-        x: 14681
-        y: 4153
+        x: 12090
+        y: 646
       positionAbsolute:
-        x: 14681
-        y: 4153
+        x: 12090
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8988,11 +9148,11 @@ workflow:
       height: 54
       id: '17469670619810'
       position:
-        x: 5054
-        y: 478
+        x: 4550
+        y: 740
       positionAbsolute:
-        x: 5054
-        y: 478
+        x: 4550
+        y: 740
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9018,11 +9178,11 @@ workflow:
       height: 126
       id: '1746967296261'
       position:
-        x: 10245
-        y: 2807
+        x: 8198
+        y: 1248
       positionAbsolute:
-        x: 10245
-        y: 2807
+        x: 8198
+        y: 1248
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9165,11 +9325,11 @@ workflow:
       height: 54
       id: '1746967506328'
       position:
-        x: 13425
-        y: 2807
+        x: 10306
+        y: 2206
       positionAbsolute:
-        x: 13425
-        y: 2807
+        x: 10306
+        y: 2206
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9223,11 +9383,11 @@ workflow:
       height: 54
       id: '17469677133940'
       position:
-        x: 13759
-        y: 2807
+        x: 11198
+        y: 2206
       positionAbsolute:
-        x: 13759
-        y: 2807
+        x: 11198
+        y: 2206
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9280,11 +9440,11 @@ workflow:
       height: 54
       id: '17469677643700'
       position:
-        x: 14681
-        y: 2807
+        x: 12090
+        y: 2206
       positionAbsolute:
-        x: 14681
-        y: 2807
+        x: 12090
+        y: 2206
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9427,11 +9587,11 @@ workflow:
       height: 54
       id: '17469679277020'
       position:
-        x: 13425
-        y: 2901
+        x: 10306
+        y: 2112
       positionAbsolute:
-        x: 13425
-        y: 2901
+        x: 10306
+        y: 2112
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9485,11 +9645,11 @@ workflow:
       height: 54
       id: '17469681597400'
       position:
-        x: 13759
-        y: 2901
+        x: 11198
+        y: 2112
       positionAbsolute:
-        x: 13759
-        y: 2901
+        x: 11198
+        y: 2112
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9542,11 +9702,11 @@ workflow:
       height: 54
       id: '17469681675370'
       position:
-        x: 14681
-        y: 2901
+        x: 12090
+        y: 2112
       positionAbsolute:
-        x: 14681
-        y: 2901
+        x: 12090
+        y: 2112
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9689,11 +9849,11 @@ workflow:
       height: 54
       id: '17469682833510'
       position:
-        x: 13425
-        y: 3715
+        x: 10306
+        y: 1058
       positionAbsolute:
-        x: 13425
-        y: 3715
+        x: 10306
+        y: 1058
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9747,11 +9907,11 @@ workflow:
       height: 54
       id: '17469682833511'
       position:
-        x: 13759
-        y: 3715
+        x: 11198
+        y: 1058
       positionAbsolute:
-        x: 13759
-        y: 3715
+        x: 11198
+        y: 1058
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9804,11 +9964,11 @@ workflow:
       height: 54
       id: '17469682833512'
       position:
-        x: 14681
-        y: 3715
+        x: 12090
+        y: 1058
       positionAbsolute:
-        x: 14681
-        y: 3715
+        x: 12090
+        y: 1058
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9951,11 +10111,11 @@ workflow:
       height: 54
       id: '17469682833513'
       position:
-        x: 13425
-        y: 3809
+        x: 10306
+        y: 964
       positionAbsolute:
-        x: 13425
-        y: 3809
+        x: 10306
+        y: 964
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10009,11 +10169,11 @@ workflow:
       height: 54
       id: '17469682833514'
       position:
-        x: 13759
-        y: 3809
+        x: 11198
+        y: 964
       positionAbsolute:
-        x: 13759
-        y: 3809
+        x: 11198
+        y: 964
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10066,11 +10226,11 @@ workflow:
       height: 54
       id: '17469682833515'
       position:
-        x: 14681
-        y: 3809
+        x: 12090
+        y: 964
       positionAbsolute:
-        x: 14681
-        y: 3809
+        x: 12090
+        y: 964
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10096,11 +10256,11 @@ workflow:
       height: 126
       id: '1746968293209'
       position:
-        x: 10913
-        y: 3715
+        x: 8806
+        y: 646
       positionAbsolute:
-        x: 10913
-        y: 3715
+        x: 8806
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10169,11 +10329,11 @@ workflow:
       height: 90
       id: '17469683697070'
       position:
-        x: 15603
-        y: 3715
+        x: 12982
+        y: 964
       positionAbsolute:
-        x: 15603
-        y: 3715
+        x: 12982
+        y: 964
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10242,11 +10402,11 @@ workflow:
       height: 90
       id: '17469686621940'
       position:
-        x: 15603
-        y: 2807
+        x: 12982
+        y: 2112
       positionAbsolute:
-        x: 15603
-        y: 2807
+        x: 12982
+        y: 2112
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10281,11 +10441,11 @@ workflow:
       height: 54
       id: '1747206482765'
       position:
-        x: 15603
-        y: 779
+        x: 12982
+        y: 3847
       positionAbsolute:
-        x: 15603
-        y: 779
+        x: 12982
+        y: 3847
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10399,11 +10559,11 @@ workflow:
       height: 54
       id: '1747274324343'
       position:
-        x: 14681
-        y: 2243
+        x: 12090
+        y: 3070
       positionAbsolute:
-        x: 14681
-        y: 2243
+        x: 12090
+        y: 3070
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10466,11 +10626,11 @@ workflow:
       height: 90
       id: '17472781853800'
       position:
-        x: 15603
-        y: 2243
+        x: 12982
+        y: 2976
       positionAbsolute:
-        x: 15603
-        y: 2243
+        x: 12982
+        y: 2976
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10692,11 +10852,11 @@ workflow:
       height: 54
       id: '1750988315593'
       position:
-        x: 20330
-        y: 2655
+        x: 20522
+        y: 2526
       positionAbsolute:
-        x: 20330
-        y: 2655
+        x: 20522
+        y: 2526
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10723,11 +10883,11 @@ workflow:
       height: 54
       id: '1750988333220'
       position:
-        x: 19996
-        y: 2431
+        x: 20218
+        y: 2750
       positionAbsolute:
-        x: 19996
-        y: 2431
+        x: 20218
+        y: 2750
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10787,11 +10947,11 @@ workflow:
       height: 54
       id: '1750988484023'
       position:
-        x: 19996
-        y: 2525
+        x: 20218
+        y: 2656
       positionAbsolute:
-        x: 19996
-        y: 2525
+        x: 20218
+        y: 2656
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10828,11 +10988,11 @@ workflow:
       height: 90
       id: '1750988845336'
       position:
-        x: 19530
-        y: 2567
+        x: 19782
+        y: 2698
       positionAbsolute:
-        x: 19530
-        y: 2567
+        x: 19782
+        y: 2698
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10865,7 +11025,10 @@ workflow:
 
             # 结论数据
 
-            {{#1743850218410.output#}}
+            推断总结：{{#1743850218410.output#}}
+
+            受影响服务：{{#1760106066557.text#}}
+
 
             # 文档数据
 
@@ -10873,9 +11036,15 @@ workflow:
 
             ## 使用要求
 
-            1. 在文档中寻找当前服务的业务名称对照信息，所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推测是xx，建议执行xx”。
 
-            2. 如果没有服务名称对照信息则忽略文档数据。
+            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
+
+            2. 如果文档中包含服务名与业务名的映射，则当前告警的服务名（如order-service）必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如“order-service对应订单服务”，在描述根因时必须使用“订单服务出现xx”而不是“order-service出现xx”。
+
+            3. 优先根据根因中的结论进行方向判断，确认根因方向之后在文档中检索与当前资源告警相关的排场思路进行回答。
+
+            4. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。如：根因方向为CPU，聚焦于文档中与解决CPU告警相关的片段，忽略文档中与网络故障无关的内容。
 
             # 时间
 
@@ -10890,9 +11059,18 @@ workflow:
 
             当前告警事件为XXXX (简洁，不要有其他内容)，受影响的服务为xx
 
+
+            **受影响服务**
+
+            （如果没有受影响服务数据则提示未检测到受影响服务）
+
+            影响到界面上xx功能，请求延时从xx升高到xx，错误率从xx升高到xx。（根据受影响服务数据进行描述，不要修改）
+
+
             **问题分析**
 
             分析结论是xx
+
 
             **进一步行动建议**：
 
@@ -10911,11 +11089,11 @@ workflow:
       height: 90
       id: '1750988869166'
       position:
-        x: 19064
-        y: 2507
+        x: 19346
+        y: 2638
       positionAbsolute:
-        x: 19064
-        y: 2507
+        x: 19346
+        y: 2638
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10941,15 +11119,15 @@ workflow:
         - id: bcbe26b2-893a-4c88-994e-2a8228a69b84
           role: user
           text: "# 目的\n生成建议用户的行动建议\n如执行命令，或者找xxx排除问题\n# 结论数据\n{{#1743850218410.output#}}\n\
-            # 文档数据\n{{#context#}}\n## 使用要求\n优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容，需要说明是“根据知识库文档，建议执行xx，联系xx进行解决”。\n\
+            # 文档数据\n{{#context#}}\n## 使用要求\n优先根据文档中的与当前告警相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容，需要说明是“根据知识库文档，建议执行xx，联系xx进行解决”。\n\
             1. 关键寻找文档中包括但不限于历史告警、解决思路、负责人员等信息。\n2. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。\n\
             3. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n\
-            4. 如果文档中包含服务的负责人，在建议中添加一条“联系xx进行解决”，没有则不添加。\n# 格式模版\n```json\n{\"suggest\"\
-            : [\n        {\n            \"action\": \"Add index to payment transaction\
-            \ table.\",\n            \"level\": \"high\"\n        },\n        {\n\
-            \            \"action\": \"Scale up database node CPU resources.\",\n\
-            \            \"level\": \"medium\"\n        }\n    ] }\n```\n#输出格式\naction建议为中文\n\
-            json格式数据，格式参考模版，不要输出其他内容"
+            4. 如果文档中包含责任联系人、运维人员、负责人等，在建议中添加一条“联系xx进行解决”，没有则不添加。\n5. 注意使用文档中与当前出现告警的资源进行回答。\n\
+            \n# 格式模版\n```json\n{\"suggest\": [\n        {\n            \"action\"\
+            : \"Add index to payment transaction table.\",\n            \"level\"\
+            : \"high\"\n        },\n        {\n            \"action\": \"Scale up\
+            \ database node CPU resources.\",\n            \"level\": \"medium\"\n\
+            \        }\n    ] }\n```\n#输出格式\naction建议为中文\njson格式数据，格式参考模版，内容包含排障详细步骤，至少5条建议，不要输出其他内容"
         selected: false
         title: 行动建议
         type: llm
@@ -10959,11 +11137,11 @@ workflow:
       height: 90
       id: '1750990566608'
       position:
-        x: 19530
-        y: 2697
+        x: 19782
+        y: 2568
       positionAbsolute:
-        x: 19530
-        y: 2697
+        x: 19782
+        y: 2568
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10991,11 +11169,11 @@ workflow:
       height: 54
       id: '1750990570740'
       position:
-        x: 19996
-        y: 2655
+        x: 20218
+        y: 2526
       positionAbsolute:
-        x: 19996
-        y: 2655
+        x: 20218
+        y: 2526
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11030,11 +11208,11 @@ workflow:
       height: 90
       id: '1750995788076'
       position:
-        x: 20998
-        y: 2655
+        x: 21130
+        y: 2526
       positionAbsolute:
-        x: 20998
-        y: 2655
+        x: 21130
+        y: 2526
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11206,11 +11384,11 @@ workflow:
       height: 54
       id: '1751602121596'
       position:
-        x: 20664
-        y: 2655
+        x: 20826
+        y: 2526
       positionAbsolute:
-        x: 20664
-        y: 2655
+        x: 20826
+        y: 2526
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11236,11 +11414,11 @@ workflow:
       height: 126
       id: '1751602227575'
       position:
-        x: 16939
-        y: 2525
+        x: 18130
+        y: 2112
       positionAbsolute:
-        x: 16939
-        y: 2525
+        x: 18130
+        y: 2112
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11259,11 +11437,11 @@ workflow:
       height: 90
       id: '1751602318456'
       position:
-        x: 17364
-        y: 3072
+        x: 18434
+        y: 2112
       positionAbsolute:
-        x: 17364
-        y: 3072
+        x: 18434
+        y: 2112
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11381,11 +11559,11 @@ workflow:
       height: 54
       id: '1752644167588'
       position:
-        x: 15937
-        y: 1674.5
+        x: 13286
+        y: 3658
       positionAbsolute:
-        x: 15937
-        y: 1674.5
+        x: 13286
+        y: 3658
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11557,11 +11735,11 @@ workflow:
       height: 54
       id: '17526550363340'
       position:
-        x: 11581
-        y: 2089
+        x: 9110
+        y: 3224
       positionAbsolute:
-        x: 11581
-        y: 2089
+        x: 9110
+        y: 3224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11645,11 +11823,11 @@ workflow:
       height: 90
       id: '17526550519390'
       position:
-        x: 15603
-        y: 2089
+        x: 12982
+        y: 3224
       positionAbsolute:
-        x: 15603
-        y: 2089
+        x: 12982
+        y: 3224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11677,11 +11855,11 @@ workflow:
       height: 174
       id: '1752655186497'
       position:
-        x: 14093
-        y: 2029
+        x: 11502
+        y: 3164
       positionAbsolute:
-        x: 14093
-        y: 2029
+        x: 11502
+        y: 3164
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11702,8 +11880,8 @@ workflow:
         x: 60
         y: 63
       positionAbsolute:
-        x: 14153
-        y: 2092
+        x: 11562
+        y: 3227
       selectable: false
       selected: false
       sourcePosition: right
@@ -11733,11 +11911,11 @@ workflow:
       height: 54
       id: '1752655200938'
       position:
-        x: 13425
-        y: 2089
+        x: 10306
+        y: 3224
       positionAbsolute:
-        x: 13425
-        y: 2089
+        x: 10306
+        y: 3224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11907,8 +12085,8 @@ workflow:
         x: 812
         y: 60
       positionAbsolute:
-        x: 14905
-        y: 2089
+        x: 12314
+        y: 3224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12129,8 +12307,8 @@ workflow:
         x: 204
         y: 60
       positionAbsolute:
-        x: 14297
-        y: 2089
+        x: 11706
+        y: 3224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12163,8 +12341,8 @@ workflow:
         x: 508
         y: 60
       positionAbsolute:
-        x: 14601
-        y: 2089
+        x: 12010
+        y: 3224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12207,8 +12385,8 @@ workflow:
         x: 1116
         y: 60
       positionAbsolute:
-        x: 15209
-        y: 2089
+        x: 12618
+        y: 3224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12401,11 +12579,11 @@ workflow:
       height: 54
       id: '1752659323846'
       position:
-        x: 9911
-        y: 1807.5
+        x: 7894
+        y: 3637
       positionAbsolute:
-        x: 9911
-        y: 1807.5
+        x: 7894
+        y: 3637
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12435,11 +12613,11 @@ workflow:
       height: 54
       id: '17526596567180'
       position:
-        x: 10579
-        y: 1748.5
+        x: 8502
+        y: 3637
       positionAbsolute:
-        x: 10579
-        y: 1748.5
+        x: 8502
+        y: 3637
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12466,11 +12644,11 @@ workflow:
       height: 174
       id: '17526597221060'
       position:
-        x: 11915
-        y: 1900.5
+        x: 9718
+        y: 3392
       positionAbsolute:
-        x: 11915
-        y: 1900.5
+        x: 9718
+        y: 3392
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12503,8 +12681,8 @@ workflow:
         x: 508
         y: 60
       positionAbsolute:
-        x: 12423
-        y: 1960.5
+        x: 10226
+        y: 3452
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12547,8 +12725,8 @@ workflow:
         x: 1116
         y: 60
       positionAbsolute:
-        x: 13031
-        y: 1960.5
+        x: 10834
+        y: 3452
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12569,8 +12747,8 @@ workflow:
         x: 60
         y: 63
       positionAbsolute:
-        x: 11975
-        y: 1963.5
+        x: 9778
+        y: 3455
       selectable: false
       selected: false
       sourcePosition: right
@@ -12795,8 +12973,8 @@ workflow:
         x: 204
         y: 60
       positionAbsolute:
-        x: 12119
-        y: 1960.5
+        x: 9922
+        y: 3452
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -12970,8 +13148,8 @@ workflow:
         x: 812
         y: 60
       positionAbsolute:
-        x: 12727
-        y: 1960.5
+        x: 10530
+        y: 3452
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13050,11 +13228,11 @@ workflow:
       height: 90
       id: '1752660000891'
       position:
-        x: 13425
-        y: 1883.5
+        x: 11198
+        y: 3434
       positionAbsolute:
-        x: 13425
-        y: 1883.5
+        x: 11198
+        y: 3434
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13168,11 +13346,11 @@ workflow:
       height: 54
       id: '1752741317428'
       position:
-        x: 7239
-        y: 1901.5
+        x: 5462
+        y: 3358
       positionAbsolute:
-        x: 7239
-        y: 1901.5
+        x: 5462
+        y: 3358
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13201,11 +13379,11 @@ workflow:
       height: 54
       id: '1752741434678'
       position:
-        x: 7573
-        y: 1919.5
+        x: 5766
+        y: 3376
       positionAbsolute:
-        x: 7573
-        y: 1919.5
+        x: 5766
+        y: 3376
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13344,11 +13522,11 @@ workflow:
       height: 54
       id: '1752742344618'
       position:
-        x: 7907
-        y: 1901.5
+        x: 6070
+        y: 3358
       positionAbsolute:
-        x: 7907
-        y: 1901.5
+        x: 6070
+        y: 3358
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13385,11 +13563,11 @@ workflow:
       height: 54
       id: '1752742381956'
       position:
-        x: 8241
-        y: 1901.5
+        x: 6374
+        y: 3358
       positionAbsolute:
-        x: 8241
-        y: 1901.5
+        x: 6374
+        y: 3358
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13559,11 +13737,11 @@ workflow:
       height: 54
       id: '1752744646406'
       position:
-        x: 9243
-        y: 1901.5
+        x: 7286
+        y: 3544
       positionAbsolute:
-        x: 9243
-        y: 1901.5
+        x: 7286
+        y: 3544
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13727,11 +13905,11 @@ workflow:
       height: 54
       id: '1752744668348'
       position:
-        x: 8575
-        y: 2032
+        x: 6678
+        y: 3358
       positionAbsolute:
-        x: 8575
-        y: 2032
+        x: 6678
+        y: 3358
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13795,11 +13973,11 @@ workflow:
       height: 90
       id: '1752744873302'
       position:
-        x: 9577
-        y: 1919.5
+        x: 7590
+        y: 3358
       positionAbsolute:
-        x: 9577
-        y: 1919.5
+        x: 7590
+        y: 3358
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13832,11 +14010,11 @@ workflow:
       height: 152
       id: '1752753916357'
       position:
-        x: 13759
-        y: 1852.5
+        x: 12090
+        y: 3403
       positionAbsolute:
-        x: 13759
-        y: 1852.5
+        x: 12090
+        y: 3403
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13905,11 +14083,11 @@ workflow:
       height: 90
       id: '1752754438301'
       position:
-        x: 15603
-        y: 1786.5
+        x: 12982
+        y: 3546
       positionAbsolute:
-        x: 15603
-        y: 1786.5
+        x: 12982
+        y: 3546
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13942,11 +14120,11 @@ workflow:
       height: 168
       id: '1752803753654'
       position:
-        x: 9911
-        y: 1901.5
+        x: 7894
+        y: 3337
       positionAbsolute:
-        x: 9911
-        y: 1901.5
+        x: 7894
+        y: 3337
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13972,11 +14150,11 @@ workflow:
       height: 54
       id: '1752804650899'
       position:
-        x: 10245
-        y: 1937.5
+        x: 8198
+        y: 3452
       positionAbsolute:
-        x: 10245
-        y: 1937.5
+        x: 8198
+        y: 3452
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14006,11 +14184,11 @@ workflow:
       height: 54
       id: '1752804688058'
       position:
-        x: 10579
-        y: 2032
+        x: 8502
+        y: 3394
       positionAbsolute:
-        x: 10579
-        y: 2032
+        x: 8502
+        y: 3394
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14032,11 +14210,11 @@ workflow:
       height: 153
       id: '1752804755713'
       position:
-        x: 10913
-        y: 1883
+        x: 8806
+        y: 3438.5
       positionAbsolute:
-        x: 10913
-        y: 1883
+        x: 8806
+        y: 3438.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14090,11 +14268,11 @@ workflow:
       height: 54
       id: '1752805118721'
       position:
-        x: 8909
-        y: 2032
+        x: 6982
+        y: 3358
       positionAbsolute:
-        x: 8909
-        y: 2032
+        x: 6982
+        y: 3358
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14145,11 +14323,11 @@ workflow:
       height: 90
       id: '1752808097130'
       position:
-        x: 19530
-        y: 2827
+        x: 19782
+        y: 2438
       positionAbsolute:
-        x: 19530
-        y: 2827
+        x: 19782
+        y: 2438
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14177,11 +14355,11 @@ workflow:
       height: 54
       id: '1752808187410'
       position:
-        x: 19996
-        y: 2785
+        x: 20218
+        y: 2396
       positionAbsolute:
-        x: 19996
-        y: 2785
+        x: 20218
+        y: 2396
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14207,11 +14385,11 @@ workflow:
       height: 54
       id: '1752818481370'
       position:
-        x: 10579
-        y: 1901.5
+        x: 8502
+        y: 3488
       positionAbsolute:
-        x: 10579
-        y: 1901.5
+        x: 8502
+        y: 3488
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14245,11 +14423,11 @@ workflow:
       height: 54
       id: '1752818508497'
       position:
-        x: 10245
-        y: 2068
+        x: 8198
+        y: 3358
       positionAbsolute:
-        x: 10245
-        y: 2068
+        x: 8198
+        y: 3358
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14271,11 +14449,11 @@ workflow:
       height: 153
       id: '1752818532791'
       position:
-        x: 11247
-        y: 1847
+        x: 9110
+        y: 3402.5
       positionAbsolute:
-        x: 11247
-        y: 1847
+        x: 9110
+        y: 3402.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14328,11 +14506,11 @@ workflow:
       height: 54
       id: '17528257033920'
       position:
-        x: 9243
-        y: 2032
+        x: 7286
+        y: 3358
       positionAbsolute:
-        x: 9243
-        y: 2032
+        x: 7286
+        y: 3358
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14380,11 +14558,11 @@ workflow:
       height: 54
       id: '1752827602226'
       position:
-        x: 14681
-        y: 1674.5
+        x: 12090
+        y: 3658
       positionAbsolute:
-        x: 14681
-        y: 1674.5
+        x: 12090
+        y: 3658
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14431,11 +14609,11 @@ workflow:
       height: 54
       id: '1752827682722'
       position:
-        x: 12503
-        y: 2148
+        x: 9414
+        y: 3281
       positionAbsolute:
-        x: 12503
-        y: 2148
+        x: 9414
+        y: 3281
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14648,11 +14826,11 @@ workflow:
       height: 892
       id: '1753019933658'
       position:
-        x: 5388
-        y: 915
+        x: 4854
+        y: 646
       positionAbsolute:
-        x: 5388
-        y: 915
+        x: 4854
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14679,11 +14857,11 @@ workflow:
       height: 54
       id: '1753789618196'
       position:
-        x: 10245
-        y: 1784.5
+        x: 8198
+        y: 3601
       positionAbsolute:
-        x: 10245
-        y: 1784.5
+        x: 8198
+        y: 3601
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14709,11 +14887,11 @@ workflow:
       height: 54
       id: '1753853974605'
       position:
-        x: 11581
-        y: 1901.5
+        x: 9414
+        y: 3509
       positionAbsolute:
-        x: 11581
-        y: 1901.5
+        x: 9414
+        y: 3509
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14739,11 +14917,11 @@ workflow:
       height: 54
       id: '17538641479330'
       position:
-        x: 13759
-        y: 2089
+        x: 11198
+        y: 3224
       positionAbsolute:
-        x: 13759
-        y: 2089
+        x: 11198
+        y: 3224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14795,11 +14973,11 @@ workflow:
       height: 54
       id: '1753865125982'
       position:
-        x: 15937
-        y: 1786.5
+        x: 13286
+        y: 3546
       positionAbsolute:
-        x: 15937
-        y: 1786.5
+        x: 13286
+        y: 3546
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14839,12 +15017,12 @@ workflow:
       height: 54
       id: '1753931802138'
       position:
-        x: 15937
-        y: 1932
+        x: 13286
+        y: 3452
       positionAbsolute:
-        x: 15937
-        y: 1932
-      selected: true
+        x: 13286
+        y: 3452
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -14884,11 +15062,11 @@ workflow:
       height: 54
       id: '1753932004742'
       position:
-        x: 15937
-        y: 2089
+        x: 13286
+        y: 3224
       positionAbsolute:
-        x: 15937
-        y: 2089
+        x: 13286
+        y: 3224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14920,11 +15098,11 @@ workflow:
       height: 54
       id: '1753932284404'
       position:
-        x: 15603
-        y: 1692.5
+        x: 12982
+        y: 3676
       positionAbsolute:
-        x: 15603
-        y: 1692.5
+        x: 12982
+        y: 3676
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14966,11 +15144,11 @@ workflow:
       height: 54
       id: '1753940096712'
       position:
-        x: 15937
-        y: 2243
+        x: 13286
+        y: 2976
       positionAbsolute:
-        x: 15937
-        y: 2243
+        x: 13286
+        y: 2976
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15017,11 +15195,11 @@ workflow:
       height: 54
       id: '1753940660066'
       position:
-        x: 14681
-        y: 2431
+        x: 12090
+        y: 2882
       positionAbsolute:
-        x: 14681
-        y: 2431
+        x: 12090
+        y: 2882
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15068,11 +15246,11 @@ workflow:
       height: 54
       id: '1753940674805'
       position:
-        x: 14681
-        y: 2619
+        x: 12090
+        y: 2542
       positionAbsolute:
-        x: 14681
-        y: 2619
+        x: 12090
+        y: 2542
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15107,11 +15285,11 @@ workflow:
       height: 54
       id: '1753940924986'
       position:
-        x: 14681
-        y: 2525
+        x: 12090
+        y: 2636
       positionAbsolute:
-        x: 14681
-        y: 2525
+        x: 12090
+        y: 2636
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15146,11 +15324,11 @@ workflow:
       height: 54
       id: '1753940931914'
       position:
-        x: 14681
-        y: 2713
+        x: 12090
+        y: 2300
       positionAbsolute:
-        x: 14681
-        y: 2713
+        x: 12090
+        y: 2300
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15221,11 +15399,11 @@ workflow:
       height: 90
       id: '1753941294981'
       position:
-        x: 15603
-        y: 2525
+        x: 12982
+        y: 2542
       positionAbsolute:
-        x: 15603
-        y: 2525
+        x: 12982
+        y: 2542
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15267,11 +15445,11 @@ workflow:
       height: 54
       id: '1753941696615'
       position:
-        x: 15937
-        y: 2525
+        x: 13286
+        y: 2542
       positionAbsolute:
-        x: 15937
-        y: 2525
+        x: 13286
+        y: 2542
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15313,11 +15491,11 @@ workflow:
       height: 54
       id: '1753942482316'
       position:
-        x: 15937
-        y: 2807
+        x: 13286
+        y: 2112
       positionAbsolute:
-        x: 15937
-        y: 2807
+        x: 13286
+        y: 2112
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15380,11 +15558,11 @@ workflow:
       height: 54
       id: '1753942756270'
       position:
-        x: 15937
-        y: 3057
+        x: 13286
+        y: 1924
       positionAbsolute:
-        x: 15937
-        y: 3057
+        x: 13286
+        y: 1924
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15435,11 +15613,11 @@ workflow:
       height: 54
       id: '1753943433860'
       position:
-        x: 15937
-        y: 3245
+        x: 13286
+        y: 1794
       positionAbsolute:
-        x: 15937
-        y: 3245
+        x: 13286
+        y: 1794
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15511,11 +15689,11 @@ workflow:
       height: 54
       id: '1753943563066'
       position:
-        x: 15937
-        y: 3433
+        x: 13286
+        y: 1378
       positionAbsolute:
-        x: 15937
-        y: 3433
+        x: 13286
+        y: 1378
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15557,11 +15735,11 @@ workflow:
       height: 54
       id: '1753944101043'
       position:
-        x: 15937
-        y: 3715
+        x: 13286
+        y: 964
       positionAbsolute:
-        x: 15937
-        y: 3715
+        x: 13286
+        y: 964
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15613,11 +15791,11 @@ workflow:
       height: 54
       id: '17539445184050'
       position:
-        x: 15937
-        y: 3965
+        x: 13286
+        y: 776
       positionAbsolute:
-        x: 15937
-        y: 3965
+        x: 13286
+        y: 776
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15659,11 +15837,11 @@ workflow:
       height: 54
       id: '17539447173200'
       position:
-        x: 15937
-        y: 4153
+        x: 13286
+        y: 646
       positionAbsolute:
-        x: 15937
-        y: 4153
+        x: 13286
+        y: 646
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15695,11 +15873,11 @@ workflow:
       height: 54
       id: '1753954284388'
       position:
-        x: 13425
-        y: 260
+        x: 10306
+        y: 3923
       positionAbsolute:
-        x: 13425
-        y: 260
+        x: 10306
+        y: 3923
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15733,11 +15911,11 @@ workflow:
       height: 54
       id: '1753954404630'
       position:
-        x: 13425
-        y: 633.5
+        x: 10306
+        y: 3829
       positionAbsolute:
-        x: 13425
-        y: 633.5
+        x: 10306
+        y: 3829
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15769,11 +15947,11 @@ workflow:
       height: 54
       id: '1753954535795'
       position:
-        x: 13425
-        y: 727.5
+        x: 10306
+        y: 3735
       positionAbsolute:
-        x: 13425
-        y: 727.5
+        x: 10306
+        y: 3735
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15792,11 +15970,11 @@ workflow:
       height: 90
       id: '1753955058282'
       position:
-        x: 7573
-        y: 335
+        x: 5766
+        y: 986
       positionAbsolute:
-        x: 7573
-        y: 335
+        x: 5766
+        y: 986
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15816,11 +15994,11 @@ workflow:
       height: 54
       id: '1753955078329'
       position:
-        x: 7239
-        y: 335
+        x: 5462
+        y: 986
       positionAbsolute:
-        x: 7239
-        y: 335
+        x: 5462
+        y: 986
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15868,11 +16046,11 @@ workflow:
       height: 439
       id: '1753955518503'
       position:
-        x: 16605
-        y: 2525
+        x: 13894
+        y: 2112
       positionAbsolute:
-        x: 16605
-        y: 2525
+        x: 13894
+        y: 2112
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16095,11 +16273,11 @@ workflow:
       height: 54
       id: '17540319953970'
       position:
-        x: 18062
-        y: 2957
+        x: 18434
+        y: 2242
       positionAbsolute:
-        x: 18062
-        y: 2957
+        x: 18434
+        y: 2242
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16130,11 +16308,11 @@ workflow:
       height: 54
       id: '17540319953971'
       position:
-        x: 18396
-        y: 2957
+        x: 18738
+        y: 2224
       positionAbsolute:
-        x: 18396
-        y: 2957
+        x: 18738
+        y: 2224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16273,11 +16451,11 @@ workflow:
       height: 54
       id: '17540319953972'
       position:
-        x: 18730
-        y: 2957
+        x: 19042
+        y: 2224
       positionAbsolute:
-        x: 18730
-        y: 2957
+        x: 19042
+        y: 2224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16313,11 +16491,11 @@ workflow:
       height: 54
       id: '17540319953973'
       position:
-        x: 19064
-        y: 2957
+        x: 19346
+        y: 2224
       positionAbsolute:
-        x: 19064
-        y: 2957
+        x: 19346
+        y: 2224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16344,11 +16522,11 @@ workflow:
       height: 174
       id: '17540319953974'
       position:
-        x: 19398
-        y: 2957
+        x: 19650
+        y: 2224
       positionAbsolute:
-        x: 19398
-        y: 2957
+        x: 19650
+        y: 2224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16369,8 +16547,8 @@ workflow:
         x: 60
         y: 63
       positionAbsolute:
-        x: 19458
-        y: 3020
+        x: 19710
+        y: 2287
       selectable: false
       selected: false
       sourcePosition: right
@@ -16433,11 +16611,11 @@ workflow:
       height: 54
       id: '17540319953985'
       position:
-        x: 19996
-        y: 2957
+        x: 20218
+        y: 2224
       positionAbsolute:
-        x: 19996
-        y: 2957
+        x: 20218
+        y: 2224
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16607,8 +16785,8 @@ workflow:
         x: 204
         y: 60
       positionAbsolute:
-        x: 19602
-        y: 3017
+        x: 19854
+        y: 2284
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16629,11 +16807,11 @@ workflow:
       height: 131
       id: '1758627861794'
       position:
-        x: 2216
-        y: 478
+        x: 1854
+        y: 552
       positionAbsolute:
-        x: 2216
-        y: 478
+        x: 1854
+        y: 552
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16649,7 +16827,7 @@ workflow:
         - '1758627861794'
         - output
         output_selector:
-        - '1758628508115'
+        - '1760161705179'
         - text
         output_type: array[string]
         parallel_nums: 10
@@ -16661,11 +16839,11 @@ workflow:
       height: 174
       id: '1758628253496'
       position:
-        x: 2550
-        y: 478
+        x: 2158.5366376805996
+        y: 552
       positionAbsolute:
-        x: 2550
-        y: 478
+        x: 2158.5366376805996
+        y: 552
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16686,8 +16864,8 @@ workflow:
         x: 60
         y: 63
       positionAbsolute:
-        x: 2610
-        y: 541
+        x: 2218.5366376805996
+        y: 615
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -16695,10 +16873,10 @@ workflow:
       width: 44
       zIndex: 1002
     - data:
-        code: "\ndef main(instance: dict) -> dict:\n    return {\n        \"pod\"\
-          : instance.get(\"pod\", \"\"),\n        \"namespace\": instance.get(\"namespace\"\
-          , \"\"),\n        \"pid\": instance.get(\"pid\", \"\"),\n        \"node\"\
-          : instance.get(\"node\", \"\"),\n    }\n"
+        code: "\ndef main(instance) -> dict:\n    return {\n        \"pod\": instance.get(\"\
+          pod\", \"\"),\n        \"namespace\": instance.get(\"namespace\", \"\"),\n\
+          \        \"pid\": instance.get(\"pid\", \"\"),\n        \"node\": instance.get(\"\
+          node\", \"\"),\n    }\n"
         code_language: python3
         desc: ''
         isInIteration: true
@@ -16733,8 +16911,1246 @@ workflow:
         x: 204
         y: 60
       positionAbsolute:
-        x: 2754
-        y: 538
+        x: 2362.5366376805996
+        y: 612
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "import json\n\ndef main(service_name_outputs: list[str]) -> dict:\n\
+          \    services = []\n    for service_name_output in service_name_outputs:\n\
+          \        service = json.loads(service_name_output).get('data', '')\n   \
+          \     services.append(service)\n\n    return {\n        \"query\": \" \"\
+          .join(str(service) for service in services),\n        \"services\": services\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          query:
+            children: null
+            type: string
+          services:
+            children: null
+            type: array[string]
+        selected: false
+        title: 获取知识库查询条件
+        type: code
+        variables:
+        - value_selector:
+          - '1758628253496'
+          - output
+          value_type: array[string]
+          variable: service_name_outputs
+      height: 54
+      id: '1758628605452'
+      position:
+        x: 3030
+        y: 552
+      positionAbsolute:
+        x: 3030
+        y: 552
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 根据告警检索知识
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          knowledge_base_id:
+            type: mixed
+            value: syncause_default
+          query:
+            type: mixed
+            value: '{{#1744959389144.alertName#}}'
+          top_k:
+            type: constant
+            value: 5
+        type: tool
+      height: 54
+      id: '1758697118275'
+      position:
+        x: 3942
+        y: 552
+      positionAbsolute:
+        x: 3942
+        y: 552
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 根据服务检索知识
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          knowledge_base_id:
+            type: mixed
+            value: syncause_default
+          query:
+            type: mixed
+            value: '{{#1758628605452.query#}}'
+          top_k:
+            type: constant
+            value: 5
+        type: tool
+      height: 54
+      id: '1758697197702'
+      position:
+        x: 3334
+        y: 552
+      positionAbsolute:
+        x: 3334
+        y: 552
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\n\ndef main(service_json_str: str, alert_json_str: str,\
+          \ contact_json_str: str) -> dict:\n    include_metadata = False\n\n    service_data\
+          \ = json.loads(service_json_str)\n    alert_data = json.loads(alert_json_str)\n\
+          \    contact_data = json.loads(contact_json_str)\n    service_records =\
+          \ service_data.get('records', [])\n    alert_records = alert_data.get('records',\
+          \ [])\n    contact_records = contact_data.get('records', [])\n\n    if not\
+          \ include_metadata:\n        for record in service_records:\n          \
+          \  record.pop('metadata', None)\n        for record in alert_records:\n\
+          \            record.pop('metadata', None)\n        for record in contact_records:\n\
+          \            record.pop('metadata', None)\n    \n    # 合并两个 records 并根据\
+          \ content 去重\n    all_records = service_records + alert_records + contact_records\n\
+          \    unique_records = []\n    seen_contents = set()\n    \n    for record\
+          \ in all_records:\n        content = record.get('content')\n        if content\
+          \ not in seen_contents:\n            unique_records.append(record)\n   \
+          \         seen_contents.add(content)\n    \n    if include_metadata:\n \
+          \       return {\n            'service_result': service_json_str,\n    \
+          \        'alert_result': alert_json_str,\n            'contact_result':\
+          \ contact_json_str,\n            'all_result': json.dumps({'records': unique_records})\n\
+          \        }\n    \n    return {\n        'service_result': json.dumps({'records':\
+          \ service_records}),\n        'alert_result': json.dumps({'records': alert_records}),\n\
+          \        'contact_result': json.dumps({'records': contact_records}),\n \
+          \       'all_result': json.dumps({'records': unique_records})\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          alert_result:
+            children: null
+            type: string
+          all_result:
+            children: null
+            type: string
+          contact_result:
+            children: null
+            type: string
+          service_result:
+            children: null
+            type: string
+        selected: false
+        title: 获取知识片段内容
+        type: code
+        variables:
+        - value_selector:
+          - '1758697197702'
+          - text
+          variable: service_json_str
+        - value_selector:
+          - '1758697118275'
+          - text
+          variable: alert_json_str
+        - value_selector:
+          - '1758771570920'
+          - text
+          variable: contact_json_str
+      height: 54
+      id: '1758697299707'
+      position:
+        x: 4246
+        y: 552
+      positionAbsolute:
+        x: 4246
+        y: 552
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 检索联系人
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          knowledge_base_id:
+            type: mixed
+            value: syncause_default
+          query:
+            type: mixed
+            value: 联系人或负责人
+          top_k:
+            type: constant
+            value: 5
+        type: tool
+      height: 54
+      id: '1758771570920'
+      position:
+        x: 3638
+        y: 552
+      positionAbsolute:
+        x: 3638
+        y: 552
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        is_parallel: false
+        iterator_selector:
+        - '1758628605452'
+        - services
+        output_selector:
+        - '1760105219443'
+        - entries
+        output_type: array[object]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1760105153157start
+        title: 获取入口服务
+        type: iteration
+        width: 692
+      height: 148
+      id: '1760105153157'
+      position:
+        x: 14198
+        y: 2112
+      positionAbsolute:
+        x: 14198
+        y: 2112
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 692
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1760105153157start
+      parentId: '1760105153157'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 14222
+        y: 2180
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1760105153157'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Accessed data source id.
+            ja_JP: Accessed data source id.
+            pt_BR: Accessed data source id.
+            zh_Hans: 接入的数据源id
+          label:
+            en_US: Accessed data source id.
+            ja_JP: Accessed data source id.
+            pt_BR: Accessed data source id.
+            zh_Hans: 接入数据源id
+          llm_description: Accessed data source id.
+          max: null
+          min: null
+          name: providerId
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The number of records returned.
+            ja_JP: The number of records returned.
+            pt_BR: The number of records returned.
+            zh_Hans: 返回的记录数量
+          label:
+            en_US: The number of records returned.
+            ja_JP: The number of records returned.
+            pt_BR: The number of records returned.
+            zh_Hans: 返回的记录数量
+          llm_description: The number of records returned.
+          max: null
+          min: null
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The name of service.
+            ja_JP: The name of service.
+            pt_BR: The name of service.
+            zh_Hans: 服务名
+          label:
+            en_US: The name of service.
+            ja_JP: The name of service.
+            pt_BR: The name of service.
+            zh_Hans: 服务名
+          llm_description: The name of service.
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Operation name.
+            ja_JP: Operation name.
+            pt_BR: Operation name.
+            zh_Hans: 操作名
+          label:
+            en_US: Operation name.
+            ja_JP: Operation name.
+            pt_BR: Operation name.
+            zh_Hans: 操作名
+          llm_description: Operation name.
+          max: null
+          min: null
+          name: operation
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Is an error span.
+            ja_JP: Is an error span.
+            pt_BR: Is an error span.
+            zh_Hans: span是否出错
+          label:
+            en_US: Is an error span.
+            ja_JP: Is an error span.
+            pt_BR: Is an error span.
+            zh_Hans: span是否出错
+          llm_description: Is an error span.
+          max: null
+          min: null
+          name: isError
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The min duration of span.
+            ja_JP: The min duration of span.
+            pt_BR: The min duration of span.
+            zh_Hans: span消耗最小值（微秒）
+          label:
+            en_US: The min duration of span(Microsecond).
+            ja_JP: The min duration of span(Microsecond).
+            pt_BR: The min duration of span(Microsecond).
+            zh_Hans: span消耗最小值（微秒）
+          llm_description: The min duration of span(Microsecond).
+          max: null
+          min: null
+          name: minDuration
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The max duration of span(Microsecond).
+            ja_JP: The max duration of span(Microsecond).
+            pt_BR: The max duration of span(Microsecond).
+            zh_Hans: span消耗最大值（微秒）
+          label:
+            en_US: The max duration of span(Microsecond).
+            ja_JP: The max duration of span(Microsecond).
+            pt_BR: The max duration of span(Microsecond).
+            zh_Hans: span消耗最大值（微秒）
+          llm_description: The max duration of span(Microsecond).
+          max: null
+          min: null
+          name: maxDuration
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          isError: ''
+          limit: ''
+          maxDuration: ''
+          minDuration: ''
+          operation: ''
+          providerId: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 在数据平面查询服务traces
+        tool_configurations: {}
+        tool_label: 在数据平面查询服务traces
+        tool_name: dataplane_traces
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - endTime
+          limit:
+            type: constant
+            value: 5
+          service:
+            type: mixed
+            value: '{{#1760105153157.item#}}'
+          startTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - startTime
+        type: tool
+      height: 54
+      id: '1760105193905'
+      parentId: '1760105153157'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 14326
+        y: 2180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "import json\n\n\ndef main(data_json: str):\n    traces = json.loads(data_json).get('data',\
+          \ {}).get('data', [])\n    entries = []\n    seen_entries = set()\n    for\
+          \ trace in traces:\n        for span in trace.get('spans', []):\n      \
+          \      parent_id = span.get('parentSpanId', '')\n            if not parent_id:\n\
+          \                service_name = span.get('serviceName', '')\n          \
+          \      endpoint = span.get('name', '')\n                if service_name\
+          \ and endpoint and (service_name, endpoint) not in seen_entries:\n     \
+          \               entries.append({\n                        \"service\": service_name,\n\
+          \                        \"endpoint\": endpoint,\n                    })\n\
+          \                    seen_entries.add((service_name, endpoint))\n\n    return\
+          \ {\n        \"entries\": entries\n    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1760105153157'
+        outputs:
+          entries:
+            children: null
+            type: array[object]
+        selected: false
+        title: 获取入口服务
+        type: code
+        variables:
+        - value_selector:
+          - '1760105193905'
+          - text
+          variable: data_json
+      height: 54
+      id: '1760105219443'
+      parentId: '1760105153157'
+      position:
+        x: 430.4009656533017
+        y: 68
+      positionAbsolute:
+        x: 14628.400965653302
+        y: 2180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "def main(entries) -> dict:\n    seen_entries = []\n    seen_set = set()\n\
+          \    for entry in entries:\n        key = (entry[\"service\"], entry[\"\
+          endpoint\"])\n        if key not in seen_set:\n            seen_set.add(key)\n\
+          \            seen_entries.append(entry)\n\n    all_services = [entry[\"\
+          service\"] for entry in seen_entries]\n    return {\n        \"entries\"\
+          : seen_entries,\n        \"query\": \" \".join(all_services)\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          entries:
+            children: null
+            type: array[object]
+          query:
+            children: null
+            type: string
+        selected: false
+        title: 入口服务去重
+        type: code
+        variables:
+        - value_selector:
+          - '1760105153157'
+          - output
+          variable: entries
+      height: 54
+      id: '1760105330930'
+      position:
+        x: 14950
+        y: 2112
+      positionAbsolute:
+        x: 14950
+        y: 2112
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        is_parallel: false
+        iterator_selector:
+        - '1760105330930'
+        - entries
+        output_selector:
+        - '1760105889818'
+        - result
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1760105659487start
+        title: 迭代 6
+        type: iteration
+        width: 1904
+      height: 148
+      id: '1760105659487'
+      position:
+        x: 15254
+        y: 2112
+      positionAbsolute:
+        x: 15254
+        y: 2112
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 1904
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1760105659487start
+      parentId: '1760105659487'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 15278
+        y: 2180
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1760105659487'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 服务名
+          label:
+            en_US: service
+            ja_JP: service
+            pt_BR: service
+            zh_Hans: service
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          label:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: cluster
+          llm_description: cluster
+          max: null
+          min: null
+          name: cluster
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          label:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          llm_description: endpoint
+          max: null
+          min: null
+          name: endpoint
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cluster: ''
+          endTime: ''
+          endpoint: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询服务RED指标
+        tool_configurations: {}
+        tool_label: 查询服务RED指标
+        tool_name: dataplane_service_redcharts
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - endTime
+          endpoint:
+            type: mixed
+            value: '{{#1760105779888.endpoint#}}'
+          service:
+            type: mixed
+            value: '{{#1760105779888.service#}}'
+          startTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - startTime
+        type: tool
+      height: 54
+      id: '1760105668827'
+      parentId: '1760105659487'
+      position:
+        x: 428
+        y: 68
+      positionAbsolute:
+        x: 15682
+        y: 2180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "def main(entry):\n    return {\n        \"service\": entry['service'],\n\
+          \        \"endpoint\": entry['endpoint']\n    }"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1760105659487'
+        outputs:
+          endpoint:
+            children: null
+            type: string
+          service:
+            children: null
+            type: string
+        selected: false
+        title: 解析service和endpoint
+        type: code
+        variables:
+        - value_selector:
+          - '1760105659487'
+          - item
+          variable: entry
+      height: 54
+      id: '1760105779888'
+      parentId: '1760105659487'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 15382
+        y: 2180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(red_json: str) -> dict:\n    # 处理当前数据\n    data = json.loads(red_json)\n\
+          \    red = data.get('data', [])\n    latency_timeseries = []\n    error_timeseries\
+          \ = []\n    latency_unit = ''\n    error_unit = ''\n    for metric in red:\n\
+          \        if metric.get('title') == 'Response Time':\n            latency_timeseries\
+          \ = metric.get('timeseries', [])\n            latency_unit = metric.get('unit')\n\
+          \        elif metric.get('title') == 'Error Rate':\n            error_timeseries\
+          \ = metric.get('timeseries', [])\n            error_unit = metric.get('unit')\n\
+          \    latency_data = {\n        'data': {\n            'timeseries': latency_timeseries,\n\
+          \        },\n        'unit': latency_unit,\n    }\n    error_data = {\n\
+          \        'data': {\n            'timeseries': error_timeseries,\n      \
+          \  },\n        'unit': error_unit,\n    }\n\n    return {\n        \"request_latency\"\
+          : json.dumps(latency_data),\n        \"request_error_rate\": json.dumps(error_data)\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1760105659487'
+        outputs:
+          request_error_rate:
+            children: null
+            type: string
+          request_latency:
+            children: null
+            type: string
+        selected: false
+        title: 提取请求延时和错误率
+        type: code
+        variables:
+        - value_selector:
+          - '1760105668827'
+          - text
+          variable: red_json
+      height: 54
+      id: '1760105843418'
+      parentId: '1760105659487'
+      position:
+        x: 732
+        y: 68
+      positionAbsolute:
+        x: 15986
+        y: 2180
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -16744,7 +18160,556 @@ workflow:
     - data:
         desc: ''
         isInIteration: true
-        isInLoop: false
+        is_team_authorization: true
+        iteration_id: '1760105659487'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: AlgorithmName
+            ja_JP: AlgorithmName
+            pt_BR: AlgorithmName
+            zh_Hans: 选择的算法
+          label:
+            en_US: AlgorithmName
+            ja_JP: AlgorithmName
+            pt_BR: AlgorithmName
+            zh_Hans: 选择的算法
+          llm_description: AlgorithmName
+          max: null
+          min: null
+          name: algorithmName
+          options:
+          - label:
+              en_US: ebpf_detect
+              ja_JP: ebpf_detect
+              pt_BR: ebpf_detect
+              zh_Hans: 线程北极星指标异常检测
+            value: ebpf_detect
+          - label:
+              en_US: rtt_detect
+              ja_JP: rtt_detect
+              pt_BR: rtt_det
+              zh_Hans: 网络质量指标（RTT）异常检测
+            value: rtt_detect
+          - label:
+              en_US: spike_detect
+              ja_JP: spike_detect
+              pt_BR: spike_detect
+              zh_Hans: 突变异常检测
+            value: spike_detect
+          - label:
+              en_US: trend_detect
+              ja_JP: trend_detect
+              pt_BR: trend_detect
+              zh_Hans: 趋势异常检测
+            value: trend_detect
+          - label:
+              en_US: frequency_detect
+              ja_JP: frequency_detect
+              pt_BR: frequency_detect
+              zh_Hans: 频率异常检测
+            value: frequency_detect
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 时序检测算法
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 检测的指标序列
+          llm_description: data
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: history
+            ja_JP: history
+            pt_BR: history
+            zh_Hans: 历史指标序列
+          label:
+            en_US: history
+            ja_JP: history
+            pt_BR: history
+            zh_Hans: 历史指标序列
+          llm_description: history
+          max: null
+          min: null
+          name: history
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          algorithmName: ''
+          data: ''
+          history: ''
+        provider_id: apo_analysis
+        provider_name: apo_analysis
+        provider_type: builtin
+        selected: false
+        title: 请求延时时序统计分析
+        tool_configurations: {}
+        tool_label: 时序统计分析
+        tool_name: timeSeriesAnalysis
+        tool_parameters:
+          algorithmName:
+            type: constant
+            value: trend_detect
+          data:
+            type: mixed
+            value: '{{#1760105843418.request_latency#}}'
+        type: tool
+      height: 54
+      id: '1760105862805'
+      parentId: '1760105659487'
+      position:
+        x: 1036
+        y: 68
+      positionAbsolute:
+        x: 16290
+        y: 2180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1760105659487'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: AlgorithmName
+            ja_JP: AlgorithmName
+            pt_BR: AlgorithmName
+            zh_Hans: 选择的算法
+          label:
+            en_US: AlgorithmName
+            ja_JP: AlgorithmName
+            pt_BR: AlgorithmName
+            zh_Hans: 选择的算法
+          llm_description: AlgorithmName
+          max: null
+          min: null
+          name: algorithmName
+          options:
+          - label:
+              en_US: ebpf_detect
+              ja_JP: ebpf_detect
+              pt_BR: ebpf_detect
+              zh_Hans: 线程北极星指标异常检测
+            value: ebpf_detect
+          - label:
+              en_US: rtt_detect
+              ja_JP: rtt_detect
+              pt_BR: rtt_det
+              zh_Hans: 网络质量指标（RTT）异常检测
+            value: rtt_detect
+          - label:
+              en_US: spike_detect
+              ja_JP: spike_detect
+              pt_BR: spike_detect
+              zh_Hans: 突变异常检测
+            value: spike_detect
+          - label:
+              en_US: trend_detect
+              ja_JP: trend_detect
+              pt_BR: trend_detect
+              zh_Hans: 趋势异常检测
+            value: trend_detect
+          - label:
+              en_US: frequency_detect
+              ja_JP: frequency_detect
+              pt_BR: frequency_detect
+              zh_Hans: 频率异常检测
+            value: frequency_detect
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 时序检测算法
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 检测的指标序列
+          llm_description: data
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: history
+            ja_JP: history
+            pt_BR: history
+            zh_Hans: 历史指标序列
+          label:
+            en_US: history
+            ja_JP: history
+            pt_BR: history
+            zh_Hans: 历史指标序列
+          llm_description: history
+          max: null
+          min: null
+          name: history
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          algorithmName: ''
+          data: ''
+          history: ''
+        provider_id: apo_analysis
+        provider_name: apo_analysis
+        provider_type: builtin
+        selected: false
+        title: 请求错误率时序统计分析
+        tool_configurations: {}
+        tool_label: 时序统计分析
+        tool_name: timeSeriesAnalysis
+        tool_parameters:
+          algorithmName:
+            type: constant
+            value: trend_detect
+          data:
+            type: mixed
+            value: '{{#1760105843418.request_error_rate#}}'
+        type: tool
+      height: 54
+      id: '1760105875013'
+      parentId: '1760105659487'
+      position:
+        x: 1340
+        y: 68
+      positionAbsolute:
+        x: 16594
+        y: 2180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(latency_json: str, error_rate_json: str) -> dict:\n    latency_data\
+          \ = json.loads(latency_json)\n    error_rate_data = json.loads(error_rate_json)\n\
+          \    data = {\n        \"request_latency\": latency_data,\n        \"request_error_rate\"\
+          : error_rate_data,\n    }\n\n    return {\n        \"result\": json.dumps(data),\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1760105659487'
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 输出
+        type: code
+        variables:
+        - value_selector:
+          - '1760105862805'
+          - text
+          variable: latency_json
+        - value_selector:
+          - '1760105875013'
+          - text
+          variable: error_rate_json
+      height: 54
+      id: '1760105889818'
+      parentId: '1760105659487'
+      position:
+        x: 1644
+        y: 68
+      positionAbsolute:
+        x: 16898
+        y: 2180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "def main(outputs) -> dict:\n    impacted_services = []\n    for item\
+          \ in outputs:\n        abnormal_metrics = json.loads(item)\n        if abnormal_metrics.get('request_latency')\
+          \ or abnormal_metrics.get('request_error_rate'):\n            impacted_services.append(abnormal_metrics)\n\
+          \n    return {\n        \"impacted_services\": json.dumps(impacted_services)\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          impacted_services:
+            children: null
+            type: string
+        selected: false
+        title: 获取受影响服务
+        type: code
+        variables:
+        - value_selector:
+          - '1760105659487'
+          - output
+          variable: outputs
+      height: 54
+      id: '1760106063352'
+      position:
+        x: 17218
+        y: 2112
+      positionAbsolute:
+        x: 17218
+        y: 2112
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1760106121324'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: d280d643-f718-49df-9b28-b6f956e1e9a2
+          role: system
+          text: 你是一个可观测性智能助手，帮助用户解决问题。
+        - id: 93095ce2-0a5b-44a5-9d96-8e32e38bf954
+          role: user
+          text: "# 任务\n某个服务出现告警，请根据受影响服务的异常响应时间和错误率指标，总结服务的受影响情况。\n\n# 数据\n- 受影响服务的异常指标：{{#1760106063352.impacted_services#}}\n\
+            - 服务与界面功能映射文档：{{#context#}}\n- 指标单位：每个异常指标的“unit” key的值为对应指标单位\n\n# 总结要求\n\
+            1. **影响服务总结**  \n   - 根据受影响服务的serviceName和endpoint在文档中寻找对应的界面功能。\n   -\
+            \ 一个服务可能对应多个界面功能，不同服务可能对应相同界面功能，列出所有受影响的服务对应的界面功能及其指标变化情况，相同受影响服务或界面功能只需要描述一次，不要重复。\
+            \  \n   - 描述指标从第一个非零值到最高点的变化情况，例如：“请求延时从300000微秒升高到最高5000000微秒”\n\n2.\
+            \ **服务名与界面功能菜单名替换**  \n   - 在映射文档中查找每个受影响服务的服务名对应的**界面功能菜单名**。  \n   -\
+            \ 如果找到映射，则在总结中必须使用界面功能菜单名描述，而不是直接用服务名或业务名。  \n   - 如果没有对应关系，则只保留服务名，不要硬编。\
+            \  \n   - 示例：  \n     - 输入：`pay-service`  \n     - 映射：`pay-service 支付服务\
+            \ 订单界面支付功能` 必须使用“订单界面支付功能”代替pay-service\n     - 输出表述：`订单界面支付功能受到影响，响应时间无变化/从xx升高到xx，错误率无变化/从xx升高到xx`\
+            \  \n\n3. **语言风格**  \n   - 总结要简洁明了，不使用专业技术术语。  \n   - 用自然的业务化描述（例如“订单界面支付功能请求变慢、错误率升高”）。\
+            \  \n\n4. **数据描述** \n使用原始指标值以及单位描述数据，不要做转化。\n\n5. **边界处理**\n如果没有受影响服务数据，则认为服务没有受到明显影响。\n\
+            \n# 输出\n直接输出 **受影响服务的总结**，不要额外解释。\n"
+        selected: false
+        title: 总结受影响服务
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1760106066557'
+      position:
+        x: 17826
+        y: 2112
+      positionAbsolute:
+        x: 17826
+        y: 2112
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 在APO检索知识
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          knowledge_base_id:
+            type: mixed
+            value: syncause_default
+          query:
+            type: mixed
+            value: '{{#1760105330930.query#}}'
+          top_k:
+            type: constant
+            value: 5
+        type: tool
+      height: 54
+      id: '1760106121324'
+      position:
+        x: 17522
+        y: 2112
+      positionAbsolute:
+        x: 17522
+        y: 2112
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        isInIteration: true
         is_team_authorization: true
         iteration_id: '1758628253496'
         output_schema: null
@@ -16931,15 +18896,10 @@ workflow:
         selected: false
         title: 查询实例所属服务
         tool_configurations: {}
-        tool_description: 查询实例所属服务
         tool_label: 查询实例所属服务
         tool_name: dataplane_instance_service
-        tool_node_version: '2'
         tool_parameters:
           cluster:
-            type: mixed
-            value: null
-          containerId:
             type: mixed
             value: ''
           endTime:
@@ -16955,7 +18915,7 @@ workflow:
             value: '{{#1758628283567.pid#}}'
           pod:
             type: mixed
-            value: '{{#1744959389144.pod#}}'
+            value: '{{#1758628283567.pod#}}'
           startTime:
             type: variable
             value:
@@ -16963,530 +18923,21 @@ workflow:
             - startTime
         type: tool
       height: 54
-      id: '1758628508115'
+      id: '1760161705179'
       parentId: '1758628253496'
       position:
         x: 508
         y: 60
       positionAbsolute:
-        x: 3058
-        y: 538
+        x: 2666.5366376805996
+        y: 612
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
       zIndex: 1002
-    - data:
-        code: "import json\n\ndef main(service_name_outputs: list[str]) -> dict:\n\
-          \    services = []\n    for service_name_output in service_name_outputs:\n\
-          \        service = json.loads(service_name_output).get('data', '')\n   \
-          \     services.append(service)\n\n    return {\n        \"query\": \" \"\
-          .join(str(service) for service in services),\n    }\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          query:
-            children: null
-            type: string
-        selected: false
-        title: 获取知识库查询条件
-        type: code
-        variables:
-        - value_selector:
-          - '1758628253496'
-          - output
-          value_type: array[string]
-          variable: service_name_outputs
-      height: 54
-      id: '1758628605452'
-      position:
-        x: 3452
-        y: 478
-      positionAbsolute:
-        x: 3452
-        y: 478
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Knowledge retrieval query statement
-            ja_JP: Knowledge retrieval query statement
-            pt_BR: Knowledge retrieval query statement
-            zh_Hans: 知识检索查询语句
-          label:
-            en_US: Knowledge Retrieval Query statement
-            ja_JP: Knowledge Retrieval Query statement
-            pt_BR: Knowledge Retrieval Query statement
-            zh_Hans: 知识检索查询语句
-          llm_description: Knowledge retrieval query statement
-          max: null
-          min: null
-          name: query
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Top K results
-            ja_JP: Top K results
-            pt_BR: Top K results
-            zh_Hans: 前K个结果
-          label:
-            en_US: Top K
-            ja_JP: Top K
-            pt_BR: Top K
-            zh_Hans: 前K个结果
-          llm_description: Top K results
-          max: null
-          min: null
-          name: top_k
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Score threshold for knowledge retrieval
-            ja_JP: Score threshold for knowledge retrieval
-            pt_BR: Score threshold for knowledge retrieval
-            zh_Hans: 知识检索分数阈值
-          label:
-            en_US: Score Threshold
-            ja_JP: Score Threshold
-            pt_BR: Score Threshold
-            zh_Hans: 分数阈值
-          llm_description: Score threshold for knowledge retrieval
-          max: null
-          min: null
-          name: score_threshold
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Knowledge base ID
-            ja_JP: Knowledge base ID
-            pt_BR: Knowledge base ID
-            zh_Hans: 知识库ID
-          label:
-            en_US: Knowledge Base ID
-            ja_JP: Knowledge Base ID
-            pt_BR: Knowledge Base ID
-            zh_Hans: 知识库ID
-          llm_description: Knowledge base ID
-          max: null
-          min: null
-          name: knowledge_base_id
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        params:
-          knowledge_base_id: ''
-          query: ''
-          score_threshold: ''
-          top_k: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 根据告警检索知识
-        tool_configurations: {}
-        tool_label: 在APO检索知识
-        tool_name: knowledge_retrieval
-        tool_parameters:
-          query:
-            type: mixed
-            value: '{{#1744959389144.alertName#}}'
-          top_k:
-            type: constant
-            value: 10
-        type: tool
-      height: 54
-      id: '1758697118275'
-      position:
-        x: 4360
-        y: 478
-      positionAbsolute:
-        x: 4360
-        y: 478
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Knowledge retrieval query statement
-            ja_JP: Knowledge retrieval query statement
-            pt_BR: Knowledge retrieval query statement
-            zh_Hans: 知识检索查询语句
-          label:
-            en_US: Knowledge Retrieval Query statement
-            ja_JP: Knowledge Retrieval Query statement
-            pt_BR: Knowledge Retrieval Query statement
-            zh_Hans: 知识检索查询语句
-          llm_description: Knowledge retrieval query statement
-          max: null
-          min: null
-          name: query
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Top K results
-            ja_JP: Top K results
-            pt_BR: Top K results
-            zh_Hans: 前K个结果
-          label:
-            en_US: Top K
-            ja_JP: Top K
-            pt_BR: Top K
-            zh_Hans: 前K个结果
-          llm_description: Top K results
-          max: null
-          min: null
-          name: top_k
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Score threshold for knowledge retrieval
-            ja_JP: Score threshold for knowledge retrieval
-            pt_BR: Score threshold for knowledge retrieval
-            zh_Hans: 知识检索分数阈值
-          label:
-            en_US: Score Threshold
-            ja_JP: Score Threshold
-            pt_BR: Score Threshold
-            zh_Hans: 分数阈值
-          llm_description: Score threshold for knowledge retrieval
-          max: null
-          min: null
-          name: score_threshold
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Knowledge base ID
-            ja_JP: Knowledge base ID
-            pt_BR: Knowledge base ID
-            zh_Hans: 知识库ID
-          label:
-            en_US: Knowledge Base ID
-            ja_JP: Knowledge Base ID
-            pt_BR: Knowledge Base ID
-            zh_Hans: 知识库ID
-          llm_description: Knowledge base ID
-          max: null
-          min: null
-          name: knowledge_base_id
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        params:
-          knowledge_base_id: ''
-          query: ''
-          score_threshold: ''
-          top_k: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 根据服务检索知识
-        tool_configurations: {}
-        tool_label: 在APO检索知识
-        tool_name: knowledge_retrieval
-        tool_parameters:
-          query:
-            type: mixed
-            value: '{{#1758628605452.query#}}'
-          top_k:
-            type: constant
-            value: 5
-        type: tool
-      height: 54
-      id: '1758697197702'
-      position:
-        x: 3756
-        y: 478
-      positionAbsolute:
-        x: 3756
-        y: 478
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "import json\n\n\ndef main(service_json_str: str, alert_json_str: str,\
-          \ contact_json_str: str) -> dict:\n    include_metadata = False\n\n    service_data\
-          \ = json.loads(service_json_str)\n    alert_data = json.loads(alert_json_str)\n\
-          \    contact_data = json.loads(contact_json_str)\n    service_records =\
-          \ service_data.get('records', [])\n    alert_records = alert_data.get('records',\
-          \ [])\n    contact_records = contact_data.get('records', [])\n\n    if not\
-          \ include_metadata:\n        for record in service_records:\n          \
-          \  record.pop('metadata', None)\n        for record in alert_records:\n\
-          \            record.pop('metadata', None)\n        for record in contact_records:\n\
-          \            record.pop('metadata', None)\n    \n    # 合并两个 records 并根据\
-          \ content 去重\n    all_records = service_records + alert_records + contact_records\n\
-          \    unique_records = []\n    seen_contents = set()\n    \n    for record\
-          \ in all_records:\n        content = record.get('content')\n        if content\
-          \ not in seen_contents:\n            unique_records.append(record)\n   \
-          \         seen_contents.add(content)\n    \n    if include_metadata:\n \
-          \       return {\n            'service_result': service_json_str,\n    \
-          \        'alert_result': alert_json_str,\n            'contact_result':\
-          \ contact_json_str,\n            'all_result': json.dumps({'records': unique_records})\n\
-          \        }\n    \n    return {\n        'service_result': json.dumps({'records':\
-          \ service_records}),\n        'alert_result': json.dumps({'records': alert_records}),\n\
-          \        'contact_result': json.dumps({'records': contact_records}),\n \
-          \       'all_result': json.dumps({'records': unique_records})\n    }"
-        code_language: python3
-        desc: ''
-        outputs:
-          alert_result:
-            children: null
-            type: string
-          all_result:
-            children: null
-            type: string
-          contact_result:
-            children: null
-            type: string
-          service_result:
-            children: null
-            type: string
-        selected: false
-        title: 获取知识片段内容
-        type: code
-        variables:
-        - value_selector:
-          - '1758697197702'
-          - text
-          variable: service_json_str
-        - value_selector:
-          - '1758697118275'
-          - text
-          variable: alert_json_str
-        - value_selector:
-          - '1758771570920'
-          - text
-          variable: contact_json_str
-      height: 54
-      id: '1758697299707'
-      position:
-        x: 4672.205095402032
-        y: 478
-      positionAbsolute:
-        x: 4672.205095402032
-        y: 478
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Knowledge retrieval query statement
-            ja_JP: Knowledge retrieval query statement
-            pt_BR: Knowledge retrieval query statement
-            zh_Hans: 知识检索查询语句
-          label:
-            en_US: Knowledge Retrieval Query statement
-            ja_JP: Knowledge Retrieval Query statement
-            pt_BR: Knowledge Retrieval Query statement
-            zh_Hans: 知识检索查询语句
-          llm_description: Knowledge retrieval query statement
-          max: null
-          min: null
-          name: query
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Top K results
-            ja_JP: Top K results
-            pt_BR: Top K results
-            zh_Hans: 前K个结果
-          label:
-            en_US: Top K
-            ja_JP: Top K
-            pt_BR: Top K
-            zh_Hans: 前K个结果
-          llm_description: Top K results
-          max: null
-          min: null
-          name: top_k
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Score threshold for knowledge retrieval
-            ja_JP: Score threshold for knowledge retrieval
-            pt_BR: Score threshold for knowledge retrieval
-            zh_Hans: 知识检索分数阈值
-          label:
-            en_US: Score Threshold
-            ja_JP: Score Threshold
-            pt_BR: Score Threshold
-            zh_Hans: 分数阈值
-          llm_description: Score threshold for knowledge retrieval
-          max: null
-          min: null
-          name: score_threshold
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Knowledge base ID
-            ja_JP: Knowledge base ID
-            pt_BR: Knowledge base ID
-            zh_Hans: 知识库ID
-          label:
-            en_US: Knowledge Base ID
-            ja_JP: Knowledge Base ID
-            pt_BR: Knowledge Base ID
-            zh_Hans: 知识库ID
-          llm_description: Knowledge base ID
-          max: null
-          min: null
-          name: knowledge_base_id
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        params:
-          knowledge_base_id: ''
-          query: ''
-          score_threshold: ''
-          top_k: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 检索联系人
-        tool_configurations: {}
-        tool_label: 在APO检索知识
-        tool_name: knowledge_retrieval
-        tool_parameters:
-          knowledge_base_id:
-            type: mixed
-            value: ''
-          query:
-            type: mixed
-            value: 联系人或负责人
-          top_k:
-            type: constant
-            value: 5
-        type: tool
-      height: 54
-      id: '1758771570920'
-      position:
-        x: 4060
-        y: 478
-      positionAbsolute:
-        x: 4060
-        y: 478
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
     viewport:
-      x: -5753.970838114106
-      y: -561.8821228070318
-      zoom: 0.38672269517368524
+      x: -2781.5074389005777
+      y: -439.98293506631035
+      zoom: 0.25

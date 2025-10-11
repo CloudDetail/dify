@@ -609,6 +609,9 @@ workflow:
         tool_label: 在APO检索知识
         tool_name: knowledge_retrieval
         tool_parameters:
+          knowledge_base_id:
+            type: mixed
+            value: syncause_default
           query:
             type: mixed
             value: '{{#1745224781828.alertName#}}'
@@ -630,6 +633,6 @@ workflow:
       type: custom
       width: 244
     viewport:
-      x: -789.0745103511961
-      y: -52.46058918989752
-      zoom: 0.6580449102245884
+      x: -754.9397421362148
+      y: -72.5549883982469
+      zoom: 0.6458722305319616

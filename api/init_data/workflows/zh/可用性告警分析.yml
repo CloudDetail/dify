@@ -424,18 +424,6 @@ workflow:
         isInIteration: false
         sourceType: tool
         targetType: code
-      id: 1753413225096-source-1753412973821-target
-      selected: false
-      source: '1753413225096'
-      sourceHandle: source
-      target: '1753412973821'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: code
       id: 1753414138349-source-1753414255071-target
       selected: false
       source: '1753414138349'
@@ -444,32 +432,6 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
-    - data:
-        isInIteration: true
-        iteration_id: '1753414276399'
-        sourceType: iteration-start
-        targetType: tool
-      id: 1753414276399start-source-1753414387530-target
-      selected: false
-      source: 1753414276399start
-      sourceHandle: source
-      target: '1753414387530'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
-        isInIteration: true
-        iteration_id: '1753414276399'
-        sourceType: tool
-        targetType: tool
-      id: 1753414387530-source-1753414403009-target
-      selected: false
-      source: '1753414387530'
-      sourceHandle: source
-      target: '1753414403009'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
     - data:
         isInIteration: false
         sourceType: code
@@ -554,44 +516,6 @@ workflow:
       source: '1753436803036'
       sourceHandle: source
       target: '1753437974705'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: true
-        iteration_id: '1753414276399'
-        sourceType: tool
-        targetType: code
-      id: 1753414403009-source-1753681278579-target
-      selected: false
-      source: '1753414403009'
-      sourceHandle: source
-      target: '1753681278579'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
-        isInIteration: true
-        iteration_id: '1753414276399'
-        sourceType: code
-        targetType: code
-      id: 1753681278579-source-1753421605090-target
-      selected: false
-      source: '1753681278579'
-      sourceHandle: source
-      target: '1753421605090'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
-        isInIteration: false
-        sourceType: iteration
-        targetType: llm
-      id: 1753414276399-source-1753684009639-target
-      selected: false
-      source: '1753414276399'
-      sourceHandle: source
-      target: '1753684009639'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -705,42 +629,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1753412973821-source-17537573455000-target
-      selected: false
-      source: '1753412973821'
-      sourceHandle: source
-      target: '17537573455000'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: code
-      id: 17537573455000-source-17537573455001-target
-      selected: false
-      source: '17537573455000'
-      sourceHandle: source
-      target: '17537573455001'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: iteration
-      id: 17537573455001-source-1753414276399-target
-      selected: false
-      source: '17537573455001'
-      sourceHandle: source
-      target: '1753414276399'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: variable-aggregator
         targetType: variable-aggregator
       id: 1753686431084-source-1750844540721-target
@@ -748,18 +636,6 @@ workflow:
       source: '1753686431084'
       sourceHandle: source
       target: '1750844540721'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: variable-aggregator
-      id: 1753684009639-source-1753686431084-target
-      selected: false
-      source: '1753684009639'
-      sourceHandle: source
-      target: '1753686431084'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -784,30 +660,6 @@ workflow:
       source: '1753760026114'
       sourceHandle: source
       target: '1750844540721'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: variable-aggregator
-        targetType: variable-aggregator
-      id: 1744878466157-source-1753760065732-target
-      selected: false
-      source: '1744878466157'
-      sourceHandle: source
-      target: '1753760065732'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: variable-aggregator
-        targetType: if-else
-      id: 1753760065732-source-1751602618703-target
-      selected: false
-      source: '1753760065732'
-      sourceHandle: source
-      target: '1751602618703'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -880,18 +732,6 @@ workflow:
       source: '17430590082510'
       sourceHandle: '1753758073662'
       target: '1753414587601'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: code
-        targetType: tool
-      id: 1753414587601-source-1753413225096-target
-      selected: false
-      source: '1753414587601'
-      sourceHandle: source
-      target: '1753413225096'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -986,6 +826,7 @@ workflow:
         sourceType: iteration-start
         targetType: code
       id: 1758786771169start-source-1758786771169017587867711701-target
+      selected: false
       source: 1758786771169start
       sourceHandle: source
       target: '1758786771169017587867711701'
@@ -998,6 +839,7 @@ workflow:
         sourceType: code
         targetType: tool
       id: 1758786771169017587867711701-source-1758786771169017587867711700-target
+      selected: false
       source: '1758786771169017587867711701'
       sourceHandle: source
       target: '1758786771169017587867711700'
@@ -1010,6 +852,7 @@ workflow:
         sourceType: tool
         targetType: code
       id: 1758786771169017587867711700-source-1758786771169017587867711702-target
+      selected: false
       source: '1758786771169017587867711700'
       sourceHandle: source
       target: '1758786771169017587867711702'
@@ -1021,6 +864,7 @@ workflow:
         sourceType: code
         targetType: iteration
       id: 17587867711701-source-17587867711690-target
+      selected: false
       source: '17587867711701'
       sourceHandle: source
       target: '17587867711690'
@@ -1032,6 +876,7 @@ workflow:
         sourceType: question-classifier
         targetType: code
       id: 17430590082510-1744901735377-17587867711701-target
+      selected: false
       source: '17430590082510'
       sourceHandle: '1744901735377'
       target: '17587867711701'
@@ -1043,6 +888,7 @@ workflow:
         sourceType: if-else
         targetType: code
       id: 1753412450611-true-17587867711701-target
+      selected: false
       source: '1753412450611'
       sourceHandle: 'true'
       target: '17587867711701'
@@ -1054,6 +900,7 @@ workflow:
         sourceType: iteration
         targetType: code
       id: 17587867711690-source-1758787397171-target
+      selected: false
       source: '17587867711690'
       sourceHandle: source
       target: '1758787397171'
@@ -1065,9 +912,185 @@ workflow:
         sourceType: code
         targetType: llm
       id: 1758787397171-source-1744878372490-target
+      selected: false
       source: '1758787397171'
       sourceHandle: source
       target: '1744878372490'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: tool
+      id: 1744878466157-source-1760103303057-target
+      selected: false
+      source: '1744878466157'
+      sourceHandle: source
+      target: '1760103303057'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1760103303057-source-1760103309096-target
+      selected: false
+      source: '1760103303057'
+      sourceHandle: source
+      target: '1760103309096'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1760103309096-source-1760103383062-target
+      selected: false
+      source: '1760103309096'
+      sourceHandle: source
+      target: '1760103383062'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1760103383062'
+        sourceType: iteration-start
+        targetType: code
+      id: 1760103383062start-source-1760103399162-target
+      selected: false
+      source: 1760103383062start
+      sourceHandle: source
+      target: '1760103399162'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760103383062'
+        sourceType: code
+        targetType: tool
+      id: 1760103399162-source-1760103432759-target
+      selected: false
+      source: '1760103399162'
+      sourceHandle: source
+      target: '1760103432759'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760103383062'
+        sourceType: tool
+        targetType: tool
+      id: 1760103432759-source-1760103449660-target
+      selected: false
+      source: '1760103432759'
+      sourceHandle: source
+      target: '1760103449660'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760103383062'
+        sourceType: tool
+        targetType: code
+      id: 1760103449660-source-1760103472918-target
+      selected: false
+      source: '1760103449660'
+      sourceHandle: source
+      target: '1760103472918'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760103383062'
+        sourceType: code
+        targetType: tool
+      id: 1760103472918-source-1760103500707-target
+      selected: false
+      source: '1760103472918'
+      sourceHandle: source
+      target: '1760103500707'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760103383062'
+        sourceType: tool
+        targetType: tool
+      id: 1760103500707-source-1760103531154-target
+      selected: false
+      source: '1760103500707'
+      sourceHandle: source
+      target: '1760103531154'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760103383062'
+        sourceType: tool
+        targetType: code
+      id: 1760103531154-source-1760103536847-target
+      selected: false
+      source: '1760103531154'
+      sourceHandle: source
+      target: '1760103536847'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 1760103383062-source-1760103579374-target
+      selected: false
+      source: '1760103383062'
+      sourceHandle: source
+      target: '1760103579374'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1760103579374-source-1760103615004-target
+      selected: false
+      source: '1760103579374'
+      sourceHandle: source
+      target: '1760103615004'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1760103615004-source-1760103644528-target
+      selected: false
+      source: '1760103615004'
+      sourceHandle: source
+      target: '1760103644528'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1760103644528-source-1751602618703-target
+      selected: false
+      source: '1760103644528'
+      sourceHandle: source
+      target: '1751602618703'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1112,10 +1135,10 @@ workflow:
       id: '1741227526517'
       position:
         x: 30
-        y: 305
+        y: 302
       positionAbsolute:
         x: 30
-        y: 305
+        y: 302
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1132,10 +1155,10 @@ workflow:
       id: '1741592094819'
       position:
         x: 942
-        y: 305
+        y: 302
       positionAbsolute:
         x: 942
-        y: 305
+        y: 302
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1155,10 +1178,10 @@ workflow:
       id: '1741592144815'
       position:
         x: 1246
-        y: 305
+        y: 302
       positionAbsolute:
         x: 1246
-        y: 305
+        y: 302
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1206,10 +1229,10 @@ workflow:
       id: '1742453019576'
       position:
         x: 638
-        y: 305
+        y: 302
       positionAbsolute:
         x: 638
-        y: 305
+        y: 302
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1218,28 +1241,31 @@ workflow:
     - data:
         code: "import json\ndef get_value(data, keys): \n    for key in keys: \n \
           \       value = data.get(key) \n        if value is not None: \n       \
-          \     return value \n    return \"\" \n\ndef main(arg: str, node: str) ->\
-          \ dict:\n    data = json.loads(arg) \n    detail_str = data.get(\"detail\"\
-          , \"\")\n    detail = json.loads(detail_str) if detail_str else {}\n   \
-          \ description = detail.get(\"description\", \"\")\n    lines = description.split(\"\
-          \\n\")\n    raw_tags = data.get(\"raw_tags\", {})\n    try:\n        labels_line\
-          \ = lines[1]\n        start = labels_line.index(\"[\") + 1\n        end\
-          \ = labels_line.index(\"]\")\n        map_content = labels_line[start:end]\n\
-          \        pairs = map_content.split()\n        labels_dict = {pair.split(\"\
-          :\", 1)[0]: pair.split(\":\", 1)[1] for pair in pairs}\n        source_from\
-          \ = labels_dict.get(\"source_from\", \"\")\n    except (IndexError, ValueError):\n\
-          \      source_from = \"\"\n\n    return { \n        \"alertName\": get_value(data,\
-          \ [\"alertname\", \"alertName\", \"alert_name\"]),\n        \"service\"\
-          : get_value(data, [\"svc_name\", \"service\"]), \n        \"endpoint\":\
-          \ get_value(data, [\"endpoint\", \"content_key\"]), \n        \"pod\": get_value(data,\
-          \ [\"pod\", \"src_pod\", \"pod_name\"]), \n        \"namespace\": get_value(data,\
+          \     return value \n    return \"\" \n\ndef main(arg: str, node: str, startTime,\
+          \ endTime) -> dict:\n    SECOND = 1000000  # microseconds\n    MINUTE =\
+          \ 60 * SECOND\n    HOUR = 60 * MINUTE\n    data = json.loads(arg) \n   \
+          \ detail_str = data.get(\"detail\", \"\")\n    detail = json.loads(detail_str)\
+          \ if detail_str else {}\n    description = detail.get(\"description\", \"\
+          \")\n    lines = description.split(\"\\n\")\n    raw_tags = data.get(\"\
+          raw_tags\", {})\n    try:\n        labels_line = lines[1]\n        start\
+          \ = labels_line.index(\"[\") + 1\n        end = labels_line.index(\"]\"\
+          )\n        map_content = labels_line[start:end]\n        pairs = map_content.split()\n\
+          \        labels_dict = {pair.split(\":\", 1)[0]: pair.split(\":\", 1)[1]\
+          \ for pair in pairs}\n        source_from = labels_dict.get(\"source_from\"\
+          , \"\")\n    except (IndexError, ValueError):\n      source_from = \"\"\n\
+          \n    return { \n        \"alertName\": get_value(data, [\"alertname\",\
+          \ \"alertName\", \"alert_name\"]),\n        \"service\": get_value(data,\
+          \ [\"svc_name\", \"service\"]), \n        \"endpoint\": get_value(data,\
+          \ [\"endpoint\", \"content_key\"]), \n        \"pod\": get_value(data, [\"\
+          pod\", \"src_pod\", \"pod_name\"]), \n        \"namespace\": get_value(data,\
           \ [\"namespace\", \"src_namespace\"]),\n        \"pid\": get_value(data,\
           \ [\"pid\"]),\n        \"containerId\": get_value(data, [\"containerId\"\
           ]),\n        \"nodeName\": node if node else get_value(data, [\"node\",\
           \ \"src_node\", \"node_name\", \"nodeName\"]),\n        \"sourceFrom\":\
           \ source_from,\n        \"alertEventId\": get_value(data, [\"alertEventId\"\
           ]),\n        \"comm\": get_value(raw_tags, [\"comm\"]),\n        \"workloadName\"\
-          : get_value(raw_tags, [\"workload_name\"])\n    }"
+          : get_value(raw_tags, [\"workload_name\"]),\n        \"historyStartTime\"\
+          : startTime - (24*HOUR),\n        \"historyEndTime\": startTime\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -1258,6 +1284,12 @@ workflow:
           endpoint:
             children: null
             type: string
+          historyEndTime:
+            children: null
+            type: number
+          historyStartTime:
+            children: null
+            type: number
           namespace:
             children: null
             type: string
@@ -1291,14 +1323,22 @@ workflow:
           - '1741227526517'
           - nodeName
           variable: node
+        - value_selector:
+          - '1741227526517'
+          - startTime
+          variable: startTime
+        - value_selector:
+          - '1741227526517'
+          - endTime
+          variable: endTime
       height: 54
       id: '1742807803325'
       position:
         x: 334
-        y: 305
+        y: 302
       positionAbsolute:
         x: 334
-        y: 305
+        y: 302
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1338,10 +1378,10 @@ workflow:
       id: '17430590082510'
       position:
         x: 3374
-        y: 933
+        y: 758
       positionAbsolute:
         x: 3374
-        y: 933
+        y: 758
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1431,11 +1471,11 @@ workflow:
       height: 90
       id: '1744878372490'
       position:
-        x: 8682.271999720462
-        y: 1063
+        x: 8158
+        y: 888
       positionAbsolute:
-        x: 8682.271999720462
-        y: 1063
+        x: 8158
+        y: 888
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1455,11 +1495,11 @@ workflow:
       height: 131
       id: '1744878466157'
       position:
-        x: 9674
-        y: 547
+        x: 9070
+        y: 474
       positionAbsolute:
-        x: 9674
-        y: 547
+        x: 9070
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1486,11 +1526,11 @@ workflow:
       height: 142
       id: '1744878476249'
       position:
-        x: 12410
-        y: 882
+        x: 15294
+        y: 809
       positionAbsolute:
-        x: 12410
-        y: 882
+        x: 15294
+        y: 809
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1510,10 +1550,10 @@ workflow:
       id: '1745313574375'
       position:
         x: 4418
-        y: 245
+        y: 302
       positionAbsolute:
         x: 4418
-        y: 245
+        y: 302
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1534,10 +1574,10 @@ workflow:
       id: '1745313576757'
       position:
         x: 3678
-        y: 245
+        y: 302
       positionAbsolute:
         x: 3678
-        y: 245
+        y: 302
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1759,11 +1799,11 @@ workflow:
       height: 54
       id: '1750839691646'
       position:
-        x: 11498
-        y: 882
+        x: 14382
+        y: 809
       positionAbsolute:
-        x: 11498
-        y: 882
+        x: 14382
+        y: 809
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1790,11 +1830,11 @@ workflow:
       height: 54
       id: '1750839702220'
       position:
-        x: 11194
-        y: 547
+        x: 14078
+        y: 474
       positionAbsolute:
-        x: 11194
-        y: 547
+        x: 14078
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1854,11 +1894,11 @@ workflow:
       height: 54
       id: '1750840042580'
       position:
-        x: 11194
-        y: 752
+        x: 14078
+        y: 679
       positionAbsolute:
-        x: 11194
-        y: 752
+        x: 14078
+        y: 679
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1893,7 +1933,7 @@ workflow:
 
             # 受影响服务
 
-            {{#1753760065732.output#}}，如果没有数据则忽略这部分，无需提示用户数据为空。
+            {{#1760103579374.impacted_services#}}，如果没有数据则忽略这部分，无需提示用户数据为空。
 
             # 文档数据
 
@@ -1955,11 +1995,11 @@ workflow:
       height: 90
       id: '1750840340832'
       position:
-        x: 10890
-        y: 752
+        x: 13774
+        y: 679
       positionAbsolute:
-        x: 10890
-        y: 752
+        x: 13774
+        y: 679
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1992,11 +2032,11 @@ workflow:
       height: 54
       id: '1750843294839'
       position:
-        x: 11194
-        y: 882
+        x: 14078
+        y: 809
       positionAbsolute:
-        x: 11194
-        y: 882
+        x: 14078
+        y: 809
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2024,11 +2064,11 @@ workflow:
       height: 54
       id: '1750843922551'
       position:
-        x: 11194
-        y: 1012
+        x: 14078
+        y: 939
       positionAbsolute:
-        x: 11194
-        y: 1012
+        x: 14078
+        y: 939
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2056,11 +2096,11 @@ workflow:
       height: 54
       id: '1750843945254'
       position:
-        x: 11194
-        y: 1142
+        x: 14078
+        y: 1069
       positionAbsolute:
-        x: 11194
-        y: 1142
+        x: 14078
+        y: 1069
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2080,11 +2120,11 @@ workflow:
       height: 131
       id: '1750844540721'
       position:
-        x: 9370
-        y: 547
+        x: 8766
+        y: 474
       positionAbsolute:
-        x: 9370
-        y: 547
+        x: 8766
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2111,15 +2151,16 @@ workflow:
           role: user
           text: "#目的\n根据告警根因总结和相关文档生成排障建议和可执行命令。\n如执行命令，或者找xxx排除问题，必须和故障方向有关，避免给出如“建议排查内部错误”类似的过于宽泛的建议。\n\
             # 结论数据\n{{#1744878466157.output#}}\n# 文档\n{{#context#}}\n## 使用要求\n优先根据文档中的与当前告警、\n\
-            服务{{#1753414255071.result#}}、告警根因方向相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推测是xx，建议执行xx”。\n\
+            服务{{#1753414255071.result#}}、告警根因方向相关的内容给出解决方案，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推测是xx，建议执行xx”。\n\
             1. 关键寻找文档中包括但不限于历史告警、解决思路、排查步骤、负责人员等信息。\n2. 优先在文档中检索与服务可用性、日志错误数升高、服务错误率升高相关的解决思路。需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。\n\
             3. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n\
-            4. 如果文档中包含责任联系人、运维人员、负责人等，在建议中添加一条“联系xx进行解决”，没有则不添加。\n#格式模版\n```json\n\
-            {\"suggest\": [\n        {\n            \"action\": \"向支付交易表添加索引\",\n\
-            \            \"level\": \"high\"\n        },\n        {\n            \"\
-            action\": \"扩大数据库节点的CPU资源\",\n            \"level\": \"medium\"\n    \
-            \    },\n         {\n            \"action\": \"联系xx进行解决，联系方式xx\",\n  \
-            \          \"level\": \"medium\"\n        }\n    ] }\n```\n#输出格式\njson格式数据，格式参照模版，不要有其他输出"
+            4. 如果文档中包含责任联系人、运维人员、负责人等，在建议中添加一条“联系xx进行解决”，没有则不添加。\n5. 利用文档中与请求错误率或日志错误数相关的解决步骤生成至少5条建议。\n\
+            #格式模版\n```json\n{\"suggest\": [\n        {\n            \"action\": \"\
+            向支付交易表添加索引\",\n            \"level\": \"high\"\n        },\n        {\n\
+            \            \"action\": \"扩大数据库节点的CPU资源\",\n            \"level\": \"\
+            medium\"\n        },\n         {\n            \"action\": \"联系xx进行解决，联系方式xx\"\
+            ,\n            \"level\": \"medium\"\n        }\n    ] }\n```\n#输出格式\n\
+            json格式数据，格式参照模版，不要有其他输出"
         selected: false
         title: 可行动方向建议
         type: llm
@@ -2129,11 +2170,11 @@ workflow:
       height: 90
       id: '1750846397041'
       position:
-        x: 10890
-        y: 1012
+        x: 13774
+        y: 939
       positionAbsolute:
-        x: 10890
-        y: 1012
+        x: 13774
+        y: 939
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2182,11 +2223,11 @@ workflow:
       height: 90
       id: '1750846407202'
       position:
-        x: 10890
-        y: 1142
+        x: 13774
+        y: 1080.6745530223898
       positionAbsolute:
-        x: 10890
-        y: 1142
+        x: 13774
+        y: 1080.6745530223898
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2258,11 +2299,11 @@ workflow:
       height: 54
       id: '1750941439700'
       position:
-        x: 11194
-        y: 1236
+        x: 14078
+        y: 1163
       positionAbsolute:
-        x: 11194
-        y: 1236
+        x: 14078
+        y: 1163
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2288,12 +2329,13 @@ workflow:
         - id: 2832e05f-6966-49d9-9697-77bde92736a9
           role: user
           text: "#目的\n根据应用的结论生成当前告警情况的描述和排障建议，\n使用结论内的数据和相关文档片段，回答简洁易懂\n# 结论数据\n告警事件：{{#1742807803325.alertName#}}\n\
-            告警事件分析结论：{{#1744878466157.output#}}\n受影响服务总结：{{#1753760065732.output#}}，如果受影响服务总结为空则忽略，不需要描述受影响服务相关内容，也无需提示用户该数据为空。\n\
+            告警事件分析结论：{{#1744878466157.output#}}\n受影响服务总结：{{#1760103644528.text#}}，如果受影响服务总结为空则忽略，不需要描述受影响服务相关内容，也无需提示用户该数据为空。\n\
             服务：{{#1753414255071.result#}}\n# 文档数据\n{{#context#}}\n优先根据文档中的与当前告警、服务、告警根因方向相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推测是xx，建议执行xx”。\n\
             ## 使用要求\n1. 注意关键寻找文档中包括但不限于历史告警、解决思路、告警排查方向、负责人员、业务名称对照等信息。\n2. 优先根据根因中的结论进行方向判断，之后在文档中检索与服务可用性、日志错误数升高、服务错误率升高相关的解决思路。\n\
             3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。。\n4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n\
-            # 时间\n{{#1741227526517.endTime#}}\n# 格式模版参考\n告警报事件结论 \n**事件概述**：\n服务XXX在XX时间段内出现XXX告警\
-            \ (简洁，不要有其他内容)\n**受影响服务**\n简单描述受影响的服务，如果没有相关数据不需要输出“受影响服务”这部分。xx服务成功率下降了xx，xx服务请求量下降了xx，链路中的xx出现错误。\n\
+            5. 根据文档中与请求错误率或日志错误数相关的排障不中内容给出解决建议。如果没有则根据你的经验给出。\n# 时间\n{{#1741227526517.endTime#}}\n\
+            # 格式模版参考\n告警报事件结论 \n**事件概述**：\n服务XXX在XX时间段内出现XXX告警 (简洁，不要有其他内容)\n**受影响服务**\n\
+            （如果没有受影响服务数据则提示未检测到受影响服务）\n影响到界面上xx功能，请求延时从xx升高到xx，错误率从xx升高到xx。（根据受影响服务数据进行描述，不要修改）\n\
             **问题分析**\n初步分析是XXX方向（如果有具体是自身还是下游方向，请给出方向描述），不要有其他内容，给出方向即可\n**解决措施**：\n\
             - 执行XXXX命令（根据文档和你的经验给出3条建议，必须和故障方向有关，避免给出过于宽泛的建议，如“建议排查内部错误”。）\n\n#输出格式\n\
             格式参考模版，注意换行和空格，确保文本美观输出，简单易懂(使用MarkDown格式的文本)，且不要有其他输出"
@@ -2306,11 +2348,11 @@ workflow:
       height: 90
       id: '1750987639392'
       position:
-        x: 10586
-        y: 752
+        x: 13470
+        y: 679
       positionAbsolute:
-        x: 10586
-        y: 752
+        x: 13470
+        y: 679
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2358,11 +2400,11 @@ workflow:
       height: 90
       id: '1751004239868'
       position:
-        x: 12106
-        y: 882
+        x: 14990
+        y: 809
       positionAbsolute:
-        x: 12106
-        y: 882
+        x: 14990
+        y: 809
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2405,11 +2447,11 @@ workflow:
       height: 90
       id: '1751251291730'
       position:
-        x: 10890
-        y: 882
+        x: 13774
+        y: 809
       positionAbsolute:
-        x: 10890
-        y: 882
+        x: 13774
+        y: 809
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2576,11 +2618,11 @@ workflow:
       height: 54
       id: '1751602453263'
       position:
-        x: 11802
-        y: 882
+        x: 14686
+        y: 809
       positionAbsolute:
-        x: 11802
-        y: 882
+        x: 14686
+        y: 809
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2606,11 +2648,11 @@ workflow:
       height: 126
       id: '1751602618703'
       position:
-        x: 10282
-        y: 547
+        x: 13166
+        y: 474
       positionAbsolute:
-        x: 10282
-        y: 547
+        x: 13166
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2629,11 +2671,11 @@ workflow:
       height: 90
       id: '1751602687916'
       position:
-        x: 10586
-        y: 622
+        x: 13470
+        y: 549
       positionAbsolute:
-        x: 10586
-        y: 622
+        x: 13470
+        y: 549
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2665,10 +2707,10 @@ workflow:
       id: '1753411561314'
       position:
         x: 2766
-        y: 417
+        y: 474
       positionAbsolute:
         x: 2766
-        y: 417
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2717,188 +2759,10 @@ workflow:
       id: '1753412450611'
       position:
         x: 3070
-        y: 417
+        y: 474
       positionAbsolute:
         x: 3070
-        y: 417
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "import json\n\ndef main(data):\n    if \"Error\" in data:\n       \
-          \ return {\n            \"services\": []\n        }\n    parents = json.loads(data).get(\"\
-          data\", {}).get(\"parents\", [])\n    services = [item[\"service\"] for\
-          \ item in parents]\n    return{\n        \"services\": services\n    }\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          services:
-            children: null
-            type: array[string]
-        selected: false
-        title: 获取上游服务
-        type: code
-        variables:
-        - value_selector:
-          - '1753413225096'
-          - text
-          variable: data
-      height: 54
-      id: '1753412973821'
-      position:
-        x: 6070
-        y: 849
-      positionAbsolute:
-        x: 6070
-        y: 849
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Service name
-            ja_JP: Service name
-            pt_BR: Service name
-            zh_Hans: 服务名
-          label:
-            en_US: service
-            ja_JP: service
-            pt_BR: service
-            zh_Hans: service
-          llm_description: Service name
-          max: null
-          min: null
-          name: service
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: cluster
-            ja_JP: cluster
-            pt_BR: cluster
-            zh_Hans: 集群
-          label:
-            en_US: cluster
-            ja_JP: cluster
-            pt_BR: cluster
-            zh_Hans: cluster
-          llm_description: cluster
-          max: null
-          min: null
-          name: cluster
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time(Microsecond)
-            ja_JP: Data query start time(Microsecond)
-            pt_BR: Data query start time(Microsecond)
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time(Microsecond)
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time(Microsecond)
-            ja_JP: Data query end time(Microsecond)
-            pt_BR: Data query end time(Microsecond)
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query end time(Microsecond)
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          cluster: ''
-          endTime: ''
-          service: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 查询服务拓扑
-        tool_configurations: {}
-        tool_label: 查询服务拓扑
-        tool_name: dataplane_service_topology
-        tool_node_version: '2'
-        tool_parameters:
-          cluster:
-            type: mixed
-            value: ''
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          service:
-            type: mixed
-            value: '{{#1742807803325.service#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
-        type: tool
-      height: 54
-      id: '1753413225096'
-      position:
-        x: 5766
-        y: 849
-      positionAbsolute:
-        x: 5766
-        y: 849
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3122,10 +2986,10 @@ workflow:
       id: '1753414138349'
       position:
         x: 942
-        y: 417
+        y: 474
       positionAbsolute:
         x: 942
-        y: 417
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3158,388 +3022,15 @@ workflow:
       id: '1753414255071'
       position:
         x: 1246
-        y: 435
+        y: 492
       positionAbsolute:
         x: 1246
-        y: 435
+        y: 492
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
-    - data:
-        desc: ''
-        error_handle_mode: terminated
-        height: 174
-        is_parallel: false
-        iterator_selector:
-        - '1753412973821'
-        - services
-        output_selector:
-        - '1753421605090'
-        - result
-        output_type: array[string]
-        parallel_nums: 10
-        selected: false
-        start_node_id: 1753414276399start
-        title: 迭代
-        type: iteration
-        width: 1420
-      height: 174
-      id: '1753414276399'
-      position:
-        x: 6982
-        y: 807
-      positionAbsolute:
-        x: 6982
-        y: 807
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 1420
-      zIndex: 1
-    - data:
-        desc: ''
-        isInIteration: true
-        selected: false
-        title: ''
-        type: iteration-start
-      draggable: false
-      height: 48
-      id: 1753414276399start
-      parentId: '1753414276399'
-      position:
-        x: 60
-        y: 63
-      positionAbsolute:
-        x: 7042
-        y: 870
-      selectable: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom-iteration-start
-      width: 44
-      zIndex: 1002
-    - data:
-        desc: ''
-        isInIteration: true
-        is_team_authorization: true
-        iteration_id: '1753414276399'
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Specified service name
-            ja_JP: Specified service name
-            pt_BR: Specified service name
-            zh_Hans: 指定的服务名
-          label:
-            en_US: service_name
-            ja_JP: service_name
-            pt_BR: service_name
-            zh_Hans: service_name
-          llm_description: 指定的服务名
-          max: null
-          min: null
-          name: service_name
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Specified endpoint name
-            ja_JP: Specified endpoint name
-            pt_BR: Specified endpoint name
-            zh_Hans: 指定的服务端点名
-          label:
-            en_US: content_key
-            ja_JP: content_key
-            pt_BR: content_key
-            zh_Hans: content_key
-          llm_description: 指定的服务端点名
-          max: null
-          min: null
-          name: content_key
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time(Microsecond)
-            ja_JP: Data query start time(Microsecond)
-            pt_BR: Data query start time(Microsecond)
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time(Microsecond)
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time(Microsecond)
-            ja_JP: Data query end time(Microsecond)
-            pt_BR: Data query end time(Microsecond)
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query end time(Microsecond)
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          content_key: ''
-          endTime: ''
-          service_name: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 服务请求成功率(按服务名和内容键统计,指定时间段内)
-        tool_configurations: {}
-        tool_label: 服务请求成功率(按服务名和内容键统计,指定时间段内)
-        tool_name: Originx 北极星指标 (服务层级) - RED指标 - 请求成功率
-        tool_node_version: '2'
-        tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          service_name:
-            type: mixed
-            value: '{{#1753414276399.item#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
-        type: tool
-      height: 54
-      id: '1753414387530'
-      parentId: '1753414276399'
-      position:
-        x: 204
-        y: 60
-      positionAbsolute:
-        x: 7186
-        y: 867
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-      zIndex: 1002
-    - data:
-        desc: ''
-        isInIteration: true
-        is_team_authorization: true
-        iteration_id: '1753414276399'
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Service name
-            ja_JP: Service name
-            pt_BR: Service name
-            zh_Hans: 服务名
-          label:
-            en_US: service
-            ja_JP: service
-            pt_BR: service
-            zh_Hans: service
-          llm_description: Service name
-          max: null
-          min: null
-          name: service
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: cluster
-            ja_JP: cluster
-            pt_BR: cluster
-            zh_Hans: 集群
-          label:
-            en_US: cluster
-            ja_JP: cluster
-            pt_BR: cluster
-            zh_Hans: cluster
-          llm_description: cluster
-          max: null
-          min: null
-          name: cluster
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: endpoint
-            ja_JP: endpoint
-            pt_BR: endpoint
-            zh_Hans: endpoint
-          label:
-            en_US: endpoint
-            ja_JP: endpoint
-            pt_BR: endpoint
-            zh_Hans: endpoint
-          llm_description: endpoint
-          max: null
-          min: null
-          name: endpoint
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time(Microsecond)
-            ja_JP: Data query start time(Microsecond)
-            pt_BR: Data query start time(Microsecond)
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time(Microsecond)
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time(Microsecond)
-            ja_JP: Data query end time(Microsecond)
-            pt_BR: Data query end time(Microsecond)
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query end time(Microsecond)
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          cluster: ''
-          endTime: ''
-          endpoint: ''
-          service: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 查询服务RED指标
-        tool_configurations: {}
-        tool_label: 查询服务RED指标
-        tool_name: dataplane_service_redcharts
-        tool_node_version: '2'
-        tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          service:
-            type: mixed
-            value: '{{#1753414276399.item#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
-        type: tool
-      height: 54
-      id: '1753414403009'
-      parentId: '1753414276399'
-      position:
-        x: 508
-        y: 60
-      positionAbsolute:
-        x: 7490
-        y: 867
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-      zIndex: 1002
     - data:
         desc: ''
         error_handle_mode: terminated
@@ -3562,10 +3053,10 @@ workflow:
       id: '1753414518300'
       position:
         x: 3982
-        y: 375
+        y: 432
       positionAbsolute:
         x: 3982
-        y: 375
+        y: 432
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3587,7 +3078,7 @@ workflow:
         y: 63
       positionAbsolute:
         x: 4042
-        y: 438
+        y: 495
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -3747,7 +3238,7 @@ workflow:
             value: 1
           pageSize:
             type: constant
-            value: 1
+            value: 99
           query:
             type: mixed
             value: '{{#1753414924837.query#}}'
@@ -3765,7 +3256,7 @@ workflow:
         y: 60
       positionAbsolute:
         x: 4490
-        y: 435
+        y: 492
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3804,10 +3295,10 @@ workflow:
       id: '1753414587601'
       position:
         x: 3678
-        y: 417
+        y: 474
       positionAbsolute:
         x: 3678
-        y: 417
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3884,7 +3375,7 @@ workflow:
         y: 60
       positionAbsolute:
         x: 4186
-        y: 435
+        y: 492
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4056,82 +3547,7 @@ workflow:
         y: 60
       positionAbsolute:
         x: 4794
-        y: 435
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-      zIndex: 1002
-    - data:
-        code: "import json\n\ndef main(success_rate_data_json: str, tps_data_json:\
-          \ str):\n    \"\"\"\n    通过分析最近数据窗口的线性回归斜率来识别下降趋势。\n    \"\"\"\n    try:\n\
-          \        success_rate_data = json.loads(success_rate_data_json)\n      \
-          \  success_metric_data = success_rate_data.get(\"data\", {})\n        tps_data\
-          \ = json.loads(tps_data_json)\n        tps_metric_data = tps_data.get(\"\
-          data\", {})\n    except json.JSONDecodeError as e:\n        print(f\"JSON格式错误:\
-          \ {e}\")\n        return []\n\n    success_rate_slop_threshold = -0.001\n\
-          \    tps_slop_threshold = -0.001\n    success_rate_trend = analyze_trend(success_metric_data,\
-          \ 0, success_rate_slop_threshold)\n    tps_trend = analyze_trend(tps_metric_data,\
-          \ 0, tps_slop_threshold)\n    return {\n        \"result\": json.dumps({\n\
-          \            \"success_rate_trend\": success_rate_trend,\n            \"\
-          tps_trend\": tps_trend\n        })\n    }\n\ndef _calculate_slope(values:\
-          \ list) -> float:\n    n = len(values)\n    if n < 2:\n        return 0.0\n\
-          \n    x_coords = list(range(n))\n    y_coords = values\n\n    sum_x = sum(x_coords)\n\
-          \    sum_y = sum(y_coords)\n    sum_xy = sum(x * y for x, y in zip(x_coords,\
-          \ y_coords))\n    sum_x_squared = sum(x**2 for x in x_coords)\n\n    numerator\
-          \ = n * sum_xy - sum_x * sum_y\n    denominator = n * sum_x_squared - sum_x**2\n\
-          \n    if denominator == 0:\n        return 0.0\n\n    return numerator /\
-          \ denominator\n\n\ndef analyze_trend(metric_data: dict, window_size: int\
-          \ = 10, slope_threshold: float = -0.05):\n    if slope_threshold > 0:\n\
-          \        slope_threshold = -slope_threshold\n\n    result = {}\n    try:\n\
-          \        timeseries_list = metric_data.get('timeseries', [])\n        \n\
-          \        for i, series in enumerate(timeseries_list):\n            legend\
-          \ = series.get('legend', f'未命名序列 {i+1}')\n            chart_data = series.get('chart',\
-          \ {}).get('chartData', {})\n            \n            num_points = len(chart_data)\n\
-          \            \n            if num_points < 2:\n                continue\n\
-          \n            current_window_size = window_size\n            if current_window_size\
-          \ == 0 or current_window_size > num_points:\n                current_window_size\
-          \ = num_points\n\n            sorted_items = sorted(chart_data.items(),\
-          \ key=lambda item: int(item[0]))\n            \n            if current_window_size\
-          \ > 0:\n                recent_values = [item[1] for item in sorted_items[-current_window_size:]]\n\
-          \            else:\n                continue\n\n            slope = _calculate_slope(recent_values)\n\
-          \n            if slope < slope_threshold:\n                result = {\n\
-          \                    \"legend\": legend,\n                    \"reason\"\
-          : f\"最近 {current_window_size} 个点的趋势斜率 {slope:.4f} 低于阈值 {slope_threshold}\"\
-          ,\n                    \"slope\": slope,\n                    \"raw_data\"\
-          : chart_data\n                }\n\n    except (KeyError, IndexError, TypeError)\
-          \ as e:\n        print(f\"处理数据时出错，请检查数据结构: {e}\")\n        return {}\n\n\
-          \    return result"
-        code_language: python3
-        desc: ''
-        isInIteration: true
-        iteration_id: '1753414276399'
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: 分析受影响服务
-        type: code
-        variables:
-        - value_selector:
-          - '1753414387530'
-          - text
-          variable: success_rate_data_json
-        - value_selector:
-          - '1753681278579'
-          - result
-          variable: tps_data_json
-      height: 54
-      id: '1753421605090'
-      parentId: '1753414276399'
-      position:
-        x: 1116
-        y: 60
-      positionAbsolute:
-        x: 8098
-        y: 867
+        y: 492
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4271,11 +3687,11 @@ workflow:
       height: 54
       id: '1753426534118'
       position:
-        x: 6678
-        y: 677
+        x: 7114
+        y: 734
       positionAbsolute:
-        x: 6678
-        y: 677
+        x: 7114
+        y: 734
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4440,10 +3856,10 @@ workflow:
       id: '1753426546760'
       position:
         x: 6070
-        y: 677
+        y: 734
       positionAbsolute:
         x: 6070
-        y: 677
+        y: 734
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4516,11 +3932,11 @@ workflow:
       height: 90
       id: '1753433531861'
       position:
-        x: 8462
-        y: 417
+        x: 8158
+        y: 474
       positionAbsolute:
-        x: 8462
-        y: 417
+        x: 8158
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4575,11 +3991,11 @@ workflow:
       height: 90
       id: '1753436673318'
       position:
-        x: 7570
-        y: 547
+        x: 7854
+        y: 604
       positionAbsolute:
-        x: 7570
-        y: 547
+        x: 7854
+        y: 604
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4636,11 +4052,11 @@ workflow:
       height: 90
       id: '1753436803036'
       position:
-        x: 7570
-        y: 677
+        x: 7854
+        y: 734
       positionAbsolute:
-        x: 7570
-        y: 677
+        x: 7854
+        y: 734
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4839,10 +4255,10 @@ workflow:
       id: '1753436915396'
       position:
         x: 5766
-        y: 547
+        y: 604
       positionAbsolute:
         x: 5766
-        y: 547
+        y: 604
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4873,10 +4289,10 @@ workflow:
       id: '1753437328850'
       position:
         x: 6374
-        y: 677
+        y: 734
       positionAbsolute:
         x: 6374
-        y: 677
+        y: 734
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4954,105 +4370,11 @@ workflow:
       height: 90
       id: '1753437974705'
       position:
-        x: 8462
-        y: 547
+        x: 8158
+        y: 604
       positionAbsolute:
-        x: 8462
-        y: 547
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "\ndef main(arg1: str):\n    red = json.loads(arg1).get(\"data\", [])\n\
-          \    result = {}\n    result[\"data\"] = {\"timeseries\": []} \n\n    for\
-          \ ts in red:\n        if ts[\"title\"] == \"吞吐量\":\n            result[\"\
-          data\"][\"timeseries\"] = ts[\"timeseries\"]\n\n    return {\n        \"\
-          result\": json.dumps(result)\n    }"
-        code_language: python3
-        desc: ''
-        isInIteration: true
-        iteration_id: '1753414276399'
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: 获取请求量
-        type: code
-        variables:
-        - value_selector:
-          - '1753414403009'
-          - text
-          variable: arg1
-      height: 54
-      id: '1753681278579'
-      parentId: '1753414276399'
-      position:
-        x: 812
-        y: 60
-      positionAbsolute:
-        x: 7794
-        y: 867
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-      zIndex: 1002
-    - data:
-        context:
-          enabled: false
-          variable_selector: []
-        desc: ''
-        model:
-          completion_params:
-            temperature: 0.7
-          mode: chat
-          name: /models/qwen2.5-32B
-          provider: langgenius/openai_api_compatible/openai_api_compatible
-        prompt_template:
-        - id: ac73b7b4-a4f3-4363-bf5f-b5a9299f8b87
-          role: system
-          text: 你是一位可观测性领域智能助手，帮助用户分析解决问题。
-        - id: 6528755f-fe11-47bc-992e-026e11c523ae
-          role: user
-          text: '# 任务
-
-            服务出现不可用问题，根据受影响上游服务的求成功率下降情况和请求量下降情况和链路中错误端点总结受影响服务的状况。
-
-            # 数据
-
-            受影响服务{{#1753414276399.output#}}，没有数据则忽略，提示上游服务均正常，无受影响服务。
-
-            对应时间段内相关链路的错误端点{{#17537573455001.errorInstances#}}，没有数据则忽略。
-
-            # 分析思路
-
-            根据受影响服务的请求成功率和请求量的下降情况，总结服务受影响情况（下降程度，平均水平等等）按照受影响程度排序。如果服务的数据处于波动状态，无明显下降趋势你可以忽略。
-
-            如果没有相关数据则提示服务可能没有相关上游拓扑或者受影响服务相关数据均处于正常范围。
-
-            如果有链路中错误的service-instanceId-endpoint组合，则提示链路中该端点出错。
-
-            # 输出
-
-            只需按照受影响程度依次总结服务的受影响情况。语意明确，简洁明了。'
-        selected: false
-        title: 总结受影响服务
-        type: llm
-        variables: []
-        vision:
-          enabled: false
-      height: 90
-      id: '1753684009639'
-      position:
-        x: 8462
-        y: 849
-      positionAbsolute:
-        x: 8462
-        y: 849
+        x: 8158
+        y: 604
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5072,11 +4394,11 @@ workflow:
       height: 131
       id: '1753686431084'
       position:
-        x: 8766
-        y: 547
+        x: 8462
+        y: 474
       positionAbsolute:
-        x: 8766
-        y: 547
+        x: 8462
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5112,10 +4434,10 @@ workflow:
       id: '1753687345334'
       position:
         x: 5158
-        y: 417
+        y: 474
       positionAbsolute:
         x: 5158
-        y: 417
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5255,10 +4577,10 @@ workflow:
       id: '1753691720044'
       position:
         x: 6374
-        y: 547
+        y: 604
       positionAbsolute:
         x: 6374
-        y: 547
+        y: 604
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5372,11 +4694,11 @@ workflow:
       height: 54
       id: '1753691763954'
       position:
-        x: 6678
-        y: 547
+        x: 7114
+        y: 604
       positionAbsolute:
-        x: 6678
-        y: 547
+        x: 7114
+        y: 604
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5410,408 +4732,10 @@ workflow:
       id: '1753755983769'
       position:
         x: 5462
-        y: 417
+        y: 474
       positionAbsolute:
         x: 5462
-        y: 417
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: service name
-            ja_JP: service name
-            pt_BR: service name
-            zh_Hans: 服务名
-          label:
-            en_US: service
-            ja_JP: service
-            pt_BR: service
-            zh_Hans: service
-          llm_description: service name
-          max: null
-          min: null
-          name: service
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: namespace
-            ja_JP: namespace
-            pt_BR: namespace
-            zh_Hans: 命名空间
-          label:
-            en_US: namespace
-            ja_JP: namespace
-            pt_BR: namespace
-            zh_Hans: namespace
-          llm_description: namespace
-          max: null
-          min: null
-          name: namespace
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: endpoint name
-            ja_JP: endpoint name
-            pt_BR: endpoint name
-            zh_Hans: 服务端点
-          label:
-            en_US: endpoint
-            ja_JP: endpoint
-            pt_BR: endpoint
-            zh_Hans: endpoint
-          llm_description: endpoint name
-          max: null
-          min: null
-          name: endpoint
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: instance name
-            ja_JP: instance name
-            pt_BR: instance name
-            zh_Hans: 实例名
-          label:
-            en_US: instance
-            ja_JP: instance
-            pt_BR: instance
-            zh_Hans: instance
-          llm_description: instance name
-          max: null
-          min: null
-          name: instance
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: node name
-            ja_JP: node name
-            pt_BR: node name
-            zh_Hans: 服务端点
-          label:
-            en_US: nodeName
-            ja_JP: nodeName
-            pt_BR: nodeName
-            zh_Hans: 主机名
-          llm_description: node name
-          max: null
-          min: null
-          name: nodeName
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: containerId
-            ja_JP: containerId
-            pt_BR: containerId
-            zh_Hans: 服务端点
-          label:
-            en_US: containerId
-            ja_JP: containerId
-            pt_BR: containerId
-            zh_Hans: 容器id
-          llm_description: node name
-          max: null
-          min: null
-          name: containerId
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: process id
-            ja_JP: process id
-            pt_BR: process id
-            zh_Hans: 进程id
-          label:
-            en_US: pid
-            ja_JP: pid
-            pt_BR: pid
-            zh_Hans: 进程id
-          llm_description: process id
-          max: null
-          min: null
-          name: pid
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: trace id
-            ja_JP: trace id
-            pt_BR: trace id
-            zh_Hans: trace id
-          label:
-            en_US: traceId
-            ja_JP: traceId
-            pt_BR: traceId
-            zh_Hans: traceId
-          llm_description: trace id
-          max: null
-          min: null
-          name: traceId
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: page number
-            ja_JP: page number
-            pt_BR: page number
-            zh_Hans: 页码
-          label:
-            en_US: pageNum
-            ja_JP: pageNum
-            pt_BR: pageNum
-            zh_Hans: 页码
-          llm_description: page number
-          max: null
-          min: null
-          name: pageNum
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: page size
-            ja_JP: page size
-            pt_BR: page size
-            zh_Hans: 每页条数
-          label:
-            en_US: pageSize
-            ja_JP: pageSize
-            pt_BR: pageSize
-            zh_Hans: 每页条数
-          llm_description: page size
-          max: null
-          min: null
-          name: pageSize
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time(Microsecond)
-            ja_JP: Data query start time(Microsecond)
-            pt_BR: Data query start time(Microsecond)
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time(Microsecond)
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time(Microsecond)
-            ja_JP: Data query end time(Microsecond)
-            pt_BR: Data query end time(Microsecond)
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query end time(Microsecond)
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          containerId: ''
-          endTime: ''
-          endpoint: ''
-          instance: ''
-          namespace: ''
-          nodeName: ''
-          pageNum: ''
-          pageSize: ''
-          pid: ''
-          service: ''
-          startTime: ''
-          traceId: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 查询链路数据
-        tool_configurations: {}
-        tool_label: 查询链路数据
-        tool_name: 查询链路数据
-        tool_node_version: '2'
-        tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          instance:
-            type: mixed
-            value: '{{#1742807803325.pod#}}'
-          namespace:
-            type: mixed
-            value: ''
-          nodeName:
-            type: mixed
-            value: '{{#1741227526517.nodeName#}}'
-          pageNum:
-            type: constant
-            value: 1
-          pageSize:
-            type: constant
-            value: 100
-          service:
-            type: mixed
-            value: '{{#1753414255071.result#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
-        type: tool
-      height: 54
-      id: '17537573455000'
-      position:
-        x: 6374
-        y: 849
-      positionAbsolute:
-        x: 6374
-        y: 849
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "import json\n\ndef main(data_json: str):\n    data = json.loads(data_json).get('data',\
-          \ {}).get('list', [])\n\n    error_instances = []\n    seen_keys = set()\n\
-          \n    for trace in data:\n        if not trace.get(\"flags\", {}).get('is_error',\
-          \ False):\n            continue\n\n        service = trace.get('service')\n\
-          \        instance = trace.get('instanceId')\n        endpoint = trace.get('endpoint')\n\
-          \n        unique_key = f\"{service}-{instance}-{endpoint}\"\n        if\
-          \ unique_key in seen_keys:\n            continue\n        seen_keys.add(unique_key)\n\
-          \n        error_instances.append({\n            'endpoint': endpoint,\n\
-          \            'instance': instance,\n            'tid_key': trace.get('tid_key'),\n\
-          \            'service': service\n        })\n\n        if len(error_instances)\
-          \ >= 30:\n            break\n\n    return {\n        'errorInstances': json.dumps(error_instances),\n\
-          \    }\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          errorInstances:
-            children: null
-            type: string
-        selected: false
-        title: 提取故障链路相关端点
-        type: code
-        variables:
-        - value_selector:
-          - '17537573455000'
-          - text
-          variable: data_json
-      height: 54
-      id: '17537573455001'
-      position:
-        x: 6678
-        y: 849
-      positionAbsolute:
-        x: 6678
-        y: 849
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5833,35 +4757,11 @@ workflow:
       height: 54
       id: '1753760026114'
       position:
-        x: 9018.661499834025
-        y: 1101.5
+        x: 8462
+        y: 926.5
       positionAbsolute:
-        x: 9018.661499834025
-        y: 1101.5
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        desc: ''
-        output_type: string
-        selected: false
-        title: 聚合受影响服务
-        type: variable-aggregator
-        variables:
-        - - '1753760026114'
-          - result
-        - - '1753684009639'
-          - text
-      height: 131
-      id: '1753760065732'
-      position:
-        x: 9978
-        y: 547
-      positionAbsolute:
-        x: 9978
-        y: 547
+        x: 8462
+        y: 926.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5894,10 +4794,10 @@ workflow:
       id: '1757318012802'
       position:
         x: 1550
-        y: 417
+        y: 474
       positionAbsolute:
         x: 1550
-        y: 417
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6020,7 +4920,7 @@ workflow:
         tool_parameters:
           knowledge_base_id:
             type: mixed
-            value: ''
+            value: syncause_default
           query:
             type: mixed
             value: '{{#1757318012802.query#}}'
@@ -6032,10 +4932,10 @@ workflow:
       id: '1758696223081'
       position:
         x: 1854
-        y: 417
+        y: 474
       positionAbsolute:
         x: 1854
-        y: 417
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6087,10 +4987,10 @@ workflow:
       id: '1758696226557'
       position:
         x: 2462
-        y: 417
+        y: 474
       positionAbsolute:
         x: 2462
-        y: 417
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6213,7 +5113,7 @@ workflow:
         tool_parameters:
           knowledge_base_id:
             type: mixed
-            value: ''
+            value: syncause_default
           query:
             type: mixed
             value: 联系人或负责人
@@ -6225,11 +5125,11 @@ workflow:
       id: '1758779744723'
       position:
         x: 2158
-        y: 417
+        y: 474
       positionAbsolute:
         x: 2158
-        y: 417
-      selected: true
+        y: 474
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6255,11 +5155,11 @@ workflow:
       height: 174
       id: '17587867711690'
       position:
-        x: 7134
-        y: 1021
+        x: 6678
+        y: 828
       positionAbsolute:
-        x: 7134
-        y: 1021
+        x: 6678
+        y: 828
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6419,7 +5319,7 @@ workflow:
             value: 1
           pageSize:
             type: constant
-            value: 1
+            value: 99
           query:
             type: mixed
             value: '{{#1758786771169017587867711701.query#}}'
@@ -6436,8 +5336,8 @@ workflow:
         x: 476.9192889271508
         y: 74.81565283145574
       positionAbsolute:
-        x: 7610.919288927151
-        y: 1095.8156528314557
+        x: 7154.919288927151
+        y: 902.8156528314557
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6514,8 +5414,8 @@ workflow:
         x: 174.77124553108297
         y: 74.81565283145574
       positionAbsolute:
-        x: 7308.771245531083
-        y: 1095.8156528314557
+        x: 6852.771245531083
+        y: 902.8156528314557
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6686,8 +5586,8 @@ workflow:
         x: 803.3097027947015
         y: 75.20802010927355
       positionAbsolute:
-        x: 7937.3097027947015
-        y: 1096.2080201092735
+        x: 7481.3097027947015
+        y: 903.2080201092735
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6708,8 +5608,8 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: 7158
-        y: 1089
+        x: 6702
+        y: 896
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -6747,11 +5647,11 @@ workflow:
       height: 54
       id: '17587867711701'
       position:
-        x: 6678
-        y: 1063
+        x: 6374
+        y: 888
       positionAbsolute:
-        x: 6678
-        y: 1063
+        x: 6374
+        y: 888
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6786,17 +5686,1409 @@ workflow:
       height: 54
       id: '1758787397171'
       position:
-        x: 8346.395411980613
-        y: 1041.4466022336737
+        x: 7854
+        y: 906
       positionAbsolute:
-        x: 8346.395411980613
-        y: 1041.4466022336737
+        x: 7854
+        y: 906
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Accessed data source id.
+            ja_JP: Accessed data source id.
+            pt_BR: Accessed data source id.
+            zh_Hans: 接入的数据源id
+          label:
+            en_US: Accessed data source id.
+            ja_JP: Accessed data source id.
+            pt_BR: Accessed data source id.
+            zh_Hans: 接入数据源id
+          llm_description: Accessed data source id.
+          max: null
+          min: null
+          name: providerId
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The number of records returned.
+            ja_JP: The number of records returned.
+            pt_BR: The number of records returned.
+            zh_Hans: 返回的记录数量
+          label:
+            en_US: The number of records returned.
+            ja_JP: The number of records returned.
+            pt_BR: The number of records returned.
+            zh_Hans: 返回的记录数量
+          llm_description: The number of records returned.
+          max: null
+          min: null
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The name of service.
+            ja_JP: The name of service.
+            pt_BR: The name of service.
+            zh_Hans: 服务名
+          label:
+            en_US: The name of service.
+            ja_JP: The name of service.
+            pt_BR: The name of service.
+            zh_Hans: 服务名
+          llm_description: The name of service.
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Operation name.
+            ja_JP: Operation name.
+            pt_BR: Operation name.
+            zh_Hans: 操作名
+          label:
+            en_US: Operation name.
+            ja_JP: Operation name.
+            pt_BR: Operation name.
+            zh_Hans: 操作名
+          llm_description: Operation name.
+          max: null
+          min: null
+          name: operation
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Is an error span.
+            ja_JP: Is an error span.
+            pt_BR: Is an error span.
+            zh_Hans: span是否出错
+          label:
+            en_US: Is an error span.
+            ja_JP: Is an error span.
+            pt_BR: Is an error span.
+            zh_Hans: span是否出错
+          llm_description: Is an error span.
+          max: null
+          min: null
+          name: isError
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The min duration of span.
+            ja_JP: The min duration of span.
+            pt_BR: The min duration of span.
+            zh_Hans: span消耗最小值（微秒）
+          label:
+            en_US: The min duration of span(Microsecond).
+            ja_JP: The min duration of span(Microsecond).
+            pt_BR: The min duration of span(Microsecond).
+            zh_Hans: span消耗最小值（微秒）
+          llm_description: The min duration of span(Microsecond).
+          max: null
+          min: null
+          name: minDuration
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The max duration of span(Microsecond).
+            ja_JP: The max duration of span(Microsecond).
+            pt_BR: The max duration of span(Microsecond).
+            zh_Hans: span消耗最大值（微秒）
+          label:
+            en_US: The max duration of span(Microsecond).
+            ja_JP: The max duration of span(Microsecond).
+            pt_BR: The max duration of span(Microsecond).
+            zh_Hans: span消耗最大值（微秒）
+          llm_description: The max duration of span(Microsecond).
+          max: null
+          min: null
+          name: maxDuration
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          isError: ''
+          limit: ''
+          maxDuration: ''
+          minDuration: ''
+          operation: ''
+          providerId: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 在数据平面查询服务traces
+        tool_configurations: {}
+        tool_label: 在数据平面查询服务traces
+        tool_name: dataplane_traces
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          limit:
+            type: constant
+            value: 10
+          service:
+            type: mixed
+            value: '{{#1753414255071.result#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+        type: tool
+      height: 54
+      id: '1760103303057'
+      position:
+        x: 9374
+        y: 474
+      positionAbsolute:
+        x: 9374
+        y: 474
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\n\ndef main(data_json: str, current_service: str):\n\
+          \    traces = json.loads(data_json).get('data', {}).get('data', [])\n  \
+          \  entries = []\n    seen_entries = set()\n    for trace in traces:\n  \
+          \      for span in trace.get('spans', []):\n            parent_id = span.get('parentSpanId',\
+          \ '')\n            if not parent_id:\n                service_name = span.get('serviceName',\
+          \ '')\n                endpoint = span.get('name', '')\n               \
+          \ if service_name and endpoint and (service_name, endpoint) not in seen_entries:\n\
+          \                    entries.append({\n                        \"service\"\
+          : service_name,\n                        \"endpoint\": endpoint,\n     \
+          \               })\n                    seen_entries.add((service_name,\
+          \ endpoint))\n\n    # 将 current_service 和 entries 组合成 service_query 字符串\n\
+          \    all_services = [current_service] + [entry[\"service\"] for entry in\
+          \ entries]\n    return {\n        \"entries\": entries,\n        \"service_query\"\
+          : \" \".join(all_services),\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          entries:
+            children: null
+            type: array[object]
+          service_query:
+            children: null
+            type: string
+        selected: false
+        title: 获取入口服务
+        type: code
+        variables:
+        - value_selector:
+          - '1760103303057'
+          - text
+          variable: data_json
+        - value_selector:
+          - '1753414255071'
+          - result
+          variable: current_service
+      height: 54
+      id: '1760103309096'
+      position:
+        x: 9678
+        y: 474
+      positionAbsolute:
+        x: 9678
+        y: 474
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        is_parallel: false
+        iterator_selector:
+        - '1760103309096'
+        - entries
+        output_selector:
+        - '1760103536847'
+        - result
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1760103383062start
+        title: 迭代 3
+        type: iteration
+        width: 2212
+      height: 148
+      id: '1760103383062'
+      position:
+        x: 9982
+        y: 474
+      positionAbsolute:
+        x: 9982
+        y: 474
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 2212
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1760103383062start
+      parentId: '1760103383062'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 10006
+        y: 542
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "def main(entry):\n    return {\n        \"service\": entry['service'],\n\
+          \        \"endpoint\": entry['endpoint']\n    }"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1760103383062'
+        outputs:
+          endpoint:
+            children: null
+            type: string
+          service:
+            children: null
+            type: string
+        selected: false
+        title: 解析service和endpoing
+        type: code
+        variables:
+        - value_selector:
+          - '1760103383062'
+          - item
+          variable: entry
+      height: 54
+      id: '1760103399162'
+      parentId: '1760103383062'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 10110
+        y: 542
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1760103383062'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 服务名
+          label:
+            en_US: service
+            ja_JP: service
+            pt_BR: service
+            zh_Hans: service
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          label:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: cluster
+          llm_description: cluster
+          max: null
+          min: null
+          name: cluster
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          label:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          llm_description: endpoint
+          max: null
+          min: null
+          name: endpoint
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cluster: ''
+          endTime: ''
+          endpoint: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询服务当前RED指标
+        tool_configurations: {}
+        tool_label: 查询服务RED指标
+        tool_name: dataplane_service_redcharts
+        tool_parameters:
+          cluster:
+            type: mixed
+            value: ''
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          endpoint:
+            type: mixed
+            value: '{{#1760103399162.endpoint#}}'
+          service:
+            type: mixed
+            value: '{{#1760103399162.service#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+        type: tool
+      height: 54
+      id: '1760103432759'
+      parentId: '1760103383062'
+      position:
+        x: 432
+        y: 68
+      positionAbsolute:
+        x: 10414
+        y: 542
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1760103383062'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 服务名
+          label:
+            en_US: service
+            ja_JP: service
+            pt_BR: service
+            zh_Hans: service
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          label:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: cluster
+          llm_description: cluster
+          max: null
+          min: null
+          name: cluster
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          label:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          llm_description: endpoint
+          max: null
+          min: null
+          name: endpoint
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cluster: ''
+          endTime: ''
+          endpoint: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询服务历史RED指标
+        tool_configurations: {}
+        tool_label: 查询服务RED指标
+        tool_name: dataplane_service_redcharts
+        tool_parameters:
+          cluster:
+            type: mixed
+            value: ''
+          endTime:
+            type: variable
+            value:
+            - '1742807803325'
+            - historyEndTime
+          endpoint:
+            type: mixed
+            value: '{{#1760103399162.endpoint#}}'
+          service:
+            type: mixed
+            value: '{{#1760103399162.service#}}'
+          startTime:
+            type: variable
+            value:
+            - '1742807803325'
+            - historyStartTime
+        type: tool
+      height: 54
+      id: '1760103449660'
+      parentId: '1760103383062'
+      position:
+        x: 736
+        y: 68
+      positionAbsolute:
+        x: 10718
+        y: 542
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(red_json: str, history_red_json: str) -> dict:\n    # 处理当前数据\n\
+          \    data = json.loads(red_json)\n    red = data.get('data', [])\n    latency_timeseries\
+          \ = []\n    error_timeseries = []\n    latency_unit = ''\n    error_unit\
+          \ = ''\n    for metric in red:\n        if metric.get('title') == 'Response\
+          \ Time':\n            latency_timeseries = metric.get('timeseries', [])\n\
+          \            latency_unit = metric.get('unit')\n        elif metric.get('title')\
+          \ == 'Error Rate':\n            error_timeseries = metric.get('timeseries',\
+          \ [])\n            error_unit = metric.get('unit')\n    latency_data = {\n\
+          \        'data': {\n            'timeseries': latency_timeseries,\n    \
+          \    },\n        'unit': latency_unit,\n    }\n    error_data = {\n    \
+          \    'data': {\n            'timeseries': error_timeseries,\n        },\n\
+          \        'unit': error_unit,\n    }\n    \n    # 处理历史数据\n    history_data\
+          \ = json.loads(history_red_json)\n    history_red = history_data.get('data',\
+          \ [])\n    history_latency_timeseries = []\n    history_error_timeseries\
+          \ = []\n    history_latency_unit = ''\n    history_error_unit = ''\n   \
+          \ for metric in history_red:\n        if metric.get('title') == 'Response\
+          \ Time':\n            history_latency_timeseries = metric.get('timeseries',\
+          \ [])\n            history_latency_unit = metric.get('unit')\n        elif\
+          \ metric.get('title') == 'Error Rate':\n            history_error_timeseries\
+          \ = metric.get('timeseries', [])\n            history_error_unit = metric.get('unit')\n\
+          \    history_latency_data = {\n        'data': {\n            'timeseries':\
+          \ history_latency_timeseries,\n        },\n        'unit': history_latency_unit,\n\
+          \    }\n    history_error_data = {\n        'data': {\n            'timeseries':\
+          \ history_error_timeseries,\n        },\n        'unit': history_error_unit,\n\
+          \    }\n\n    return {\n        \"request_latency\": json.dumps(latency_data),\n\
+          \        \"request_error_rate\": json.dumps(error_data),\n        \"history_request_latency\"\
+          : json.dumps(history_latency_data),\n        \"history_request_error_rate\"\
+          : json.dumps(history_error_data),\n    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1760103383062'
+        outputs:
+          history_request_error_rate:
+            children: null
+            type: string
+          history_request_latency:
+            children: null
+            type: string
+          request_error_rate:
+            children: null
+            type: string
+          request_latency:
+            children: null
+            type: string
+        selected: false
+        title: 提取请求延时和错误率
+        type: code
+        variables:
+        - value_selector:
+          - '1760103432759'
+          - text
+          variable: red_json
+        - value_selector:
+          - '1760103449660'
+          - text
+          variable: history_red_json
+      height: 54
+      id: '1760103472918'
+      parentId: '1760103383062'
+      position:
+        x: 1040
+        y: 68
+      positionAbsolute:
+        x: 11022
+        y: 542
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1760103383062'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: AlgorithmName
+            ja_JP: AlgorithmName
+            pt_BR: AlgorithmName
+            zh_Hans: 选择的算法
+          label:
+            en_US: AlgorithmName
+            ja_JP: AlgorithmName
+            pt_BR: AlgorithmName
+            zh_Hans: 选择的算法
+          llm_description: AlgorithmName
+          max: null
+          min: null
+          name: algorithmName
+          options:
+          - label:
+              en_US: ebpf_detect
+              ja_JP: ebpf_detect
+              pt_BR: ebpf_detect
+              zh_Hans: 线程北极星指标异常检测
+            value: ebpf_detect
+          - label:
+              en_US: rtt_detect
+              ja_JP: rtt_detect
+              pt_BR: rtt_det
+              zh_Hans: 网络质量指标（RTT）异常检测
+            value: rtt_detect
+          - label:
+              en_US: spike_detect
+              ja_JP: spike_detect
+              pt_BR: spike_detect
+              zh_Hans: 突变异常检测
+            value: spike_detect
+          - label:
+              en_US: trend_detect
+              ja_JP: trend_detect
+              pt_BR: trend_detect
+              zh_Hans: 趋势异常检测
+            value: trend_detect
+          - label:
+              en_US: frequency_detect
+              ja_JP: frequency_detect
+              pt_BR: frequency_detect
+              zh_Hans: 频率异常检测
+            value: frequency_detect
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 时序检测算法
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 检测的指标序列
+          llm_description: data
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: history
+            ja_JP: history
+            pt_BR: history
+            zh_Hans: 历史指标序列
+          label:
+            en_US: history
+            ja_JP: history
+            pt_BR: history
+            zh_Hans: 历史指标序列
+          llm_description: history
+          max: null
+          min: null
+          name: history
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          algorithmName: ''
+          data: ''
+          history: ''
+        provider_id: apo_analysis
+        provider_name: apo_analysis
+        provider_type: builtin
+        selected: false
+        title: 请求延时时序统计分析
+        tool_configurations: {}
+        tool_label: 时序统计分析
+        tool_name: timeSeriesAnalysis
+        tool_parameters:
+          algorithmName:
+            type: constant
+            value: trend_detect
+          data:
+            type: mixed
+            value: '{{#1760103472918.request_latency#}}'
+          history:
+            type: mixed
+            value: '{{#1760103472918.history_request_latency#}}'
+        type: tool
+      height: 54
+      id: '1760103500707'
+      parentId: '1760103383062'
+      position:
+        x: 1344
+        y: 68
+      positionAbsolute:
+        x: 11326
+        y: 542
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1760103383062'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: AlgorithmName
+            ja_JP: AlgorithmName
+            pt_BR: AlgorithmName
+            zh_Hans: 选择的算法
+          label:
+            en_US: AlgorithmName
+            ja_JP: AlgorithmName
+            pt_BR: AlgorithmName
+            zh_Hans: 选择的算法
+          llm_description: AlgorithmName
+          max: null
+          min: null
+          name: algorithmName
+          options:
+          - label:
+              en_US: ebpf_detect
+              ja_JP: ebpf_detect
+              pt_BR: ebpf_detect
+              zh_Hans: 线程北极星指标异常检测
+            value: ebpf_detect
+          - label:
+              en_US: rtt_detect
+              ja_JP: rtt_detect
+              pt_BR: rtt_det
+              zh_Hans: 网络质量指标（RTT）异常检测
+            value: rtt_detect
+          - label:
+              en_US: spike_detect
+              ja_JP: spike_detect
+              pt_BR: spike_detect
+              zh_Hans: 突变异常检测
+            value: spike_detect
+          - label:
+              en_US: trend_detect
+              ja_JP: trend_detect
+              pt_BR: trend_detect
+              zh_Hans: 趋势异常检测
+            value: trend_detect
+          - label:
+              en_US: frequency_detect
+              ja_JP: frequency_detect
+              pt_BR: frequency_detect
+              zh_Hans: 频率异常检测
+            value: frequency_detect
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 时序检测算法
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: data
+            zh_Hans: 检测的指标序列
+          llm_description: data
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: history
+            ja_JP: history
+            pt_BR: history
+            zh_Hans: 历史指标序列
+          label:
+            en_US: history
+            ja_JP: history
+            pt_BR: history
+            zh_Hans: 历史指标序列
+          llm_description: history
+          max: null
+          min: null
+          name: history
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          algorithmName: ''
+          data: ''
+          history: ''
+        provider_id: apo_analysis
+        provider_name: apo_analysis
+        provider_type: builtin
+        selected: false
+        title: 请求错误率时序统计分析
+        tool_configurations: {}
+        tool_label: 时序统计分析
+        tool_name: timeSeriesAnalysis
+        tool_parameters:
+          algorithmName:
+            type: constant
+            value: trend_detect
+          data:
+            type: mixed
+            value: '{{#1760103472918.request_error_rate#}}'
+          history:
+            type: mixed
+            value: '{{#1760103472918.history_request_error_rate#}}'
+        type: tool
+      height: 54
+      id: '1760103531154'
+      parentId: '1760103383062'
+      position:
+        x: 1648
+        y: 68
+      positionAbsolute:
+        x: 11630
+        y: 542
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(latency_json: str, error_rate_json: str) -> dict:\n    latency_data\
+          \ = json.loads(latency_json)\n    error_rate_data = json.loads(error_rate_json)\n\
+          \    data = {\n        \"request_latency\": latency_data,\n        \"request_error_rate\"\
+          : error_rate_data,\n    }\n\n    return {\n        \"result\": json.dumps(data),\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1760103383062'
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 输出
+        type: code
+        variables:
+        - value_selector:
+          - '1760103500707'
+          - text
+          variable: latency_json
+        - value_selector:
+          - '1760103531154'
+          - text
+          variable: error_rate_json
+      height: 54
+      id: '1760103536847'
+      parentId: '1760103383062'
+      position:
+        x: 1952
+        y: 68
+      positionAbsolute:
+        x: 11934
+        y: 542
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "def main(outputs) -> dict:\n    impacted_services = []\n    for item\
+          \ in outputs:\n        abnormal_metrics = json.loads(item)\n        if abnormal_metrics.get('request_latency')\
+          \ or abnormal_metrics.get('request_error_rate'):\n            impacted_services.append(abnormal_metrics)\n\
+          \n    return {\n        \"impacted_services\": json.dumps(impacted_services)\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          impacted_services:
+            children: null
+            type: string
+        selected: false
+        title: 获取受影响服务
+        type: code
+        variables:
+        - value_selector:
+          - '1760103383062'
+          - output
+          variable: outputs
+      height: 54
+      id: '1760103579374'
+      position:
+        x: 12254
+        y: 474
+      positionAbsolute:
+        x: 12254
+        y: 474
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge retrieval query statement
+            ja_JP: Knowledge retrieval query statement
+            pt_BR: Knowledge retrieval query statement
+            zh_Hans: 知识检索查询语句
+          label:
+            en_US: Knowledge Retrieval Query statement
+            ja_JP: Knowledge Retrieval Query statement
+            pt_BR: Knowledge Retrieval Query statement
+            zh_Hans: 知识检索查询语句
+          llm_description: Knowledge retrieval query statement
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top K results
+            ja_JP: Top K results
+            pt_BR: Top K results
+            zh_Hans: 前K个结果
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 前K个结果
+          llm_description: Top K results
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Score threshold for knowledge retrieval
+            ja_JP: Score threshold for knowledge retrieval
+            pt_BR: Score threshold for knowledge retrieval
+            zh_Hans: 知识检索分数阈值
+          label:
+            en_US: Score Threshold
+            ja_JP: Score Threshold
+            pt_BR: Score Threshold
+            zh_Hans: 分数阈值
+          llm_description: Score threshold for knowledge retrieval
+          max: null
+          min: null
+          name: score_threshold
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Knowledge base ID
+            ja_JP: Knowledge base ID
+            pt_BR: Knowledge base ID
+            zh_Hans: 知识库ID
+          label:
+            en_US: Knowledge Base ID
+            ja_JP: Knowledge Base ID
+            pt_BR: Knowledge Base ID
+            zh_Hans: 知识库ID
+          llm_description: Knowledge base ID
+          max: null
+          min: null
+          name: knowledge_base_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          knowledge_base_id: ''
+          query: ''
+          score_threshold: ''
+          top_k: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 在APO检索知识
+        tool_configurations: {}
+        tool_label: 在APO检索知识
+        tool_name: knowledge_retrieval
+        tool_parameters:
+          knowledge_base_id:
+            type: mixed
+            value: syncause_default
+          query:
+            type: mixed
+            value: '{{#1760103309096.service_query#}}'
+          top_k:
+            type: constant
+            value: 5
+        type: tool
+      height: 54
+      id: '1760103615004'
+      position:
+        x: 12558
+        y: 474
+      positionAbsolute:
+        x: 12558
+        y: 474
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1760103615004'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: bd9e0f0c-b601-4947-8829-4524f0d2bb84
+          role: system
+          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+        - id: 537336d6-deef-4fcd-a2c7-7259fe8d06dc
+          role: user
+          text: "# 任务\n某个服务出现告警，请根据受影响服务的异常响应时间和错误率指标，总结服务的受影响情况。\n\n# 数据\n- 受影响服务的异常指标：{{#1760103579374.impacted_services#}}\n\
+            - 服务与界面功能映射文档：{{#context#}}\n- 指标单位：每个异常指标的“unit” key的值为对应指标单位\n\n# 总结要求\n\
+            1. **影响服务总结**  \n   - 根据受影响服务的serviceName和endpoint在文档中寻找对应的界面功能。\n   -\
+            \ 一个服务可能对应多个界面功能，不同服务可能对应相同界面功能，列出所有受影响的服务对应的界面功能及其指标变化情况，相同受影响服务或界面功能只需要描述一次，不要重复。\
+            \  \n   - 描述指标从第一个非零值到最高点的变化情况，例如：“请求延时从300000微秒升高到最高5000000微秒”\n\n2.\
+            \ **服务名与界面功能菜单名替换**  \n   - 在映射文档中查找每个受影响服务的服务名对应的**界面功能菜单名**。  \n   -\
+            \ 如果找到映射，则在总结中必须使用界面功能菜单名描述，而不是直接用服务名或业务名。  \n   - 如果没有对应关系，则只保留服务名，不要硬编。\
+            \  \n   - 示例：  \n     - 输入：`pay-service`  \n     - 映射：`pay-service 支付服务\
+            \ 订单界面支付功能` 必须使用“订单界面支付功能”代替pay-service\n     - 输出表述：`订单界面支付功能受到影响，响应时间无变化/从xx升高到xx，错误率无变化/从xx升高到xx`\
+            \  \n\n3. **语言风格**  \n   - 总结要简洁明了，不使用专业技术术语。  \n   - 用自然的业务化描述（例如“订单界面支付功能请求变慢、错误率升高”）。\
+            \  \n\n4. **数据描述** \n使用原始指标值以及单位描述数据，不要做转化。\n\n5. **边界处理**\n如果没有受影响服务数据，则认为服务没有受到明显影响。\n\
+            \n# 输出\n直接输出 **受影响服务的总结**，不要额外解释。\n"
+        selected: false
+        title: 总结受影响服务
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1760103644528'
+      position:
+        x: 12862
+        y: 474
+      positionAbsolute:
+        x: 12862
+        y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -985.0038692421181
-      y: 45.31638863482635
-      zoom: 0.5629282476016535
+      x: -6509.994598861962
+      y: 10.732026886271797
+      zoom: 0.5293723458831711
