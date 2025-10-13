@@ -3160,10 +3160,8 @@ workflow:
         instruction: 你是一个智能告警分类助手，任务是根据给定的告警事件并对其进行分类。
         instructions: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1744959389144'
@@ -4485,10 +4483,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -4663,10 +4659,8 @@ workflow:
           '
         instructions: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1746777077402'
@@ -5862,10 +5856,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -5966,10 +5958,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -6203,10 +6193,8 @@ workflow:
           '
         instructions: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1743849441196'
@@ -6409,10 +6397,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -8052,10 +8038,8 @@ workflow:
           '
         instructions: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17467775030610'
@@ -8472,10 +8456,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -8716,10 +8698,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10274,10 +10254,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10347,10 +10325,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10577,10 +10553,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10963,10 +10937,8 @@ workflow:
           variable_selector: []
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: af87b10f-e6a5-41a3-876c-871803048be1
@@ -11006,10 +10978,8 @@ workflow:
           - all_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 2fff5ede-e66b-4051-a411-920d1d021f10
@@ -11027,7 +10997,9 @@ workflow:
 
             推断总结：{{#1743850218410.output#}}
 
-            受影响服务：{{#1760106066557.text#}}
+            受到告警影响服务：{{#1760106066557.text#}}
+
+            当前告警的服务：{{#1758628605452.services#}}
 
 
             # 文档数据
@@ -11057,7 +11029,7 @@ workflow:
 
             **告警事件概述**：
 
-            当前告警事件为XXXX (简洁，不要有其他内容)，受影响的服务为xx
+            当前告警事件为XXXX (简洁，不要有其他内容)，当前告警的服务为xx
 
 
             **受影响服务**
@@ -11094,7 +11066,7 @@ workflow:
       positionAbsolute:
         x: 19346
         y: 2638
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -11107,10 +11079,8 @@ workflow:
           - all_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 04f72736-b848-4385-819d-5795c4b28ad2
@@ -11185,10 +11155,8 @@ workflow:
           variable_selector: []
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 7b7ab7e9-d22f-41b1-bf50-2db3aacbaf1e
@@ -11756,10 +11724,8 @@ workflow:
         isInIteration: true
         iteration_id: '1752582732407'
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 84569801-dce7-4e88-b76b-b1b5fa82c34f
@@ -13164,10 +13130,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1490ddad-e8ce-407f-b466-bdc266afdeeb
@@ -13921,10 +13885,8 @@ workflow:
           variable_selector: []
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 76347dc5-1dbd-4934-a1bb-5ad66b656820
@@ -14028,10 +13990,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: e6cb42dc-0606-4843-971f-f43ea2db3f0d
@@ -14103,10 +14063,8 @@ workflow:
         instruction: 根据CPU节流过高初步分析原因，判断是由于自身CPU使用过高引起还是CPU争抢引起。
         instructions: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1752744873302'
@@ -14286,10 +14244,8 @@ workflow:
           - result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 69b76f14-6680-44e0-b56e-b5ecaf9153c5
@@ -15342,10 +15298,8 @@ workflow:
           - alert_result
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 6bfbae05-612e-457c-ae07-f064f30e1575
@@ -17090,7 +17044,7 @@ workflow:
       positionAbsolute:
         x: 3942
         y: 552
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -18527,10 +18481,8 @@ workflow:
           - text
         desc: ''
         model:
-          completion_params:
-            temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: deepseek-chat
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d280d643-f718-49df-9b28-b6f956e1e9a2
@@ -18938,6 +18890,6 @@ workflow:
       width: 244
       zIndex: 1002
     viewport:
-      x: -2781.5074389005777
-      y: -439.98293506631035
-      zoom: 0.25
+      x: -444.40689778145645
+      y: 87.28388840973366
+      zoom: 0.25600335442007016
