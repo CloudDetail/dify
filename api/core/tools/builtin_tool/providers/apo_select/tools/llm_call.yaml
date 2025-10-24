@@ -1,0 +1,85 @@
+identity:
+  name: llm_call
+  author: APO
+  label:
+    en_US: Call AI platform model
+    zh_Hans: 调用人工智能平台模型
+description:
+  human:
+    en_US: Call AI platform model
+    zh_Hans: 调用人工智能平台模型
+  llm: Call AI platform model
+display:
+  type: text
+  title: Call AI platform model
+  unit: ""
+parameters:
+  - name: user
+    type: string
+    required: False
+    label:
+      en_US: User prompt
+      zh_Hans: user 提示词
+    human_description:
+      en_US: User prompt
+      zh_Hans: 用户提示词
+    llm_description: User prompt
+    form: llm
+  - name: system
+    type: string
+    required: False
+    label:
+      en_US: System prompt
+      zh_Hans: system 提示词
+    human_description:
+      en_US: System prompt
+      zh_Hans: 系统提示词
+    llm_description: System prompt
+    form: llm
+  - name: model
+    type: string
+    required: True
+    label:
+      en_US: Model
+      zh_Hans: 模型
+    human_description:
+      en_US: Model
+      zh_Hans: 模型
+    llm_description: Model
+    form: llm
+  - name: temperature
+    type: number
+    required: False
+    label:
+      en_US: Temperature
+      zh_Hans: 温度
+    human_description:
+      en_US: Temperature
+      zh_Hans: 温度
+    llm_description: Temperature
+    default: 0.7
+    form: llm
+  - name: top_p
+    type: number
+    required: False
+    label:
+      en_US: Top p
+      zh_Hans: Top p
+    human_description:
+      en_US: Top p
+      zh_Hans: Top p
+    llm_description: Top p
+    default: 0.7
+    form: llm
+  - name: presence_penalty
+    type: number
+    required: False
+    label:
+      en_US: Presence penalty
+      zh_Hans: 存在惩罚
+    human_description:
+      en_US: Presence penalty
+      zh_Hans: 存在惩罚
+    llm_description: Presence penalty
+    default: 0.0
+    form: llm

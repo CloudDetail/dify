@@ -111,3 +111,11 @@ class APOConfig(BaseSettings):
         description="apo detect series frequency threshold",
         default=3.0,
     )
+    AI_PLATFORM_LLM_URL: str = Field(
+        description="ai platform llm url",
+        default="http://25.78.180.90:19000/lmp-cloud-ias-server/api/llm/chat/completions/",
+    )
+    AI_PLATFORM_LLM_API_KEY: str = Field(
+        description="ai platform llm api key",
+        default="",
+    )

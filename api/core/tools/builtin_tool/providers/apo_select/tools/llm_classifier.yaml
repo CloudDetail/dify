@@ -1,0 +1,96 @@
+identity:
+  name: llm_classifier
+  author: APO
+  label:
+    en_US: Call AI platform model to classify
+    zh_Hans: 调用人工智能平台模型进行分类
+description:
+  human:
+    en_US: Call AI platform model to classify
+    zh_Hans: 调用人工智能平台模型进行分类
+  llm: Call AI platform model to classify
+display:
+  type: text
+  title: Call AI platform model to classify
+  unit: ""
+parameters:
+  - name: input
+    type: string
+    required: True
+    label:
+      en_US: Input
+      zh_Hans: 输入
+    human_description:
+      en_US: Input
+      zh_Hans: 输入
+    llm_description: Input
+    form: llm
+  - name: categories
+    type: string
+    required: True
+    label:
+      en_US: Categories
+      zh_Hans: 分类，数组string，每个元素为一个分类
+    human_description:
+      en_US: Categories
+      zh_Hans: 分类，数组string，每个元素为一个分类
+    llm_description: Categories
+    form: llm
+  - name: instruction
+    type: string
+    required: False
+    label:
+      en_US: Instruction
+      zh_Hans: 指令
+    human_description:
+      en_US: Instruction
+      zh_Hans: 指令
+    llm_description: Instruction
+    form: llm
+  - name: model
+    type: string
+    required: True
+    label:
+      en_US: Model
+      zh_Hans: 模型
+    human_description:
+      en_US: Model
+      zh_Hans: 模型
+    llm_description: Model
+    form: llm
+  - name: temperature
+    type: number
+    required: False
+    label:
+      en_US: Temperature
+      zh_Hans: 温度
+    human_description:
+      en_US: Temperature
+      zh_Hans: 温度
+    llm_description: Temperature
+    default: 0.7
+    form: llm
+  - name: top_p
+    type: number
+    required: False
+    label:
+      en_US: Top p
+      zh_Hans: Top p
+    human_description:
+      en_US: Top p
+      zh_Hans: Top p
+    llm_description: Top p
+    default: 0.7
+    form: llm
+  - name: presence_penalty
+    type: number
+    required: False
+    label:
+      en_US: Presence penalty
+      zh_Hans: 存在惩罚
+    human_description:
+      en_US: Presence penalty
+      zh_Hans: 存在惩罚
+    llm_description: Presence penalty
+    default: 0.0
+    form: llm
