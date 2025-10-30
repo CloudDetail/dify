@@ -5953,7 +5953,7 @@ workflow:
       width: 244
     - data:
         code: "import requests\nimport json\n\n\ndef get_red(query_params):\n    response\
-          \ = requests.get(\n        \"http://192.168.1.16:31363\" + \"/api/dataplane/redcharts\"\
+          \ = requests.get(\n        \"http://apo-backend-svc:8080\" + \"/api/dataplane/redcharts\"\
           , params=query_params\n    )\n    if response.status_code != 200 or len(response.json()[\"\
           results\"]) == 0:\n        return {}\n    metrics = {}\n    metrics[\"latency\"\
           ] = response.json()[\"results\"][0][\"timeseries\"][0][\"chart\"]\n    metrics[\"\
@@ -5963,7 +5963,7 @@ workflow:
           \ start_time, end_time) -> str:\n    params = {\n        \"service\": service,\n\
           \        \"cluster\": cluster,\n        \"startTime\": start_time,\n   \
           \     \"endTime\": end_time,\n    }\n    resp = requests.get(\n        \"\
-          http://192.168.1.16:31363\" + \"/api/dataplane/topology\", params=params\n\
+          http://apo-backend-svc:8080\" + \"/api/dataplane/topology\", params=params\n\
           \    )\n    res = {}\n\n    query_params = {\"startTime\": start_time, \"\
           endTime\": end_time, \"service\": service}\n    metrics = get_red(query_params)\n\
           \    res[\"current\"] = {\n        \"service\": service,\n        \"description\"\
@@ -6022,7 +6022,7 @@ workflow:
       positionAbsolute:
         x: 15670
         y: 1358
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -9190,7 +9190,7 @@ workflow:
       positionAbsolute:
         x: 3678
         y: 585
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -10583,6 +10583,6 @@ workflow:
       width: 244
       zIndex: 1002
     viewport:
-      x: -2249.250299895551
-      y: -113.53526879726374
-      zoom: 0.3782759566781828
+      x: -9892.265862510529
+      y: -509.94773893046795
+      zoom: 0.6550581216933696
