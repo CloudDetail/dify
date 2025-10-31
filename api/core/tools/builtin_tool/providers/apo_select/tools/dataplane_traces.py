@@ -49,7 +49,7 @@ class DataplaneTracesTool(BuiltinTool):
         }
         try:
             empty_response = {
-                "data": [],
+                "data": {},
                 "type": "trace",
                 "display": False,
             }
@@ -69,6 +69,6 @@ class DataplaneTracesTool(BuiltinTool):
         list = json.dumps({
             'type': 'trace',
             'display': False,
-            'data': list[0] if len(list) > 0 else []
+            'data': list[0] if len(list) > 0 else {}
         })
         yield self.create_text_message(list)

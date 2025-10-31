@@ -6022,7 +6022,7 @@ workflow:
       positionAbsolute:
         x: 15670
         y: 1358
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6318,7 +6318,7 @@ workflow:
         code: "import requests\nimport json\n\n\ndef get_red(service, cluster, start_time,\
           \ end_time) -> str:\n    query_params = {\"startTime\": start_time, \"endTime\"\
           : end_time, \"service\": service}\n    response = requests.get(\n      \
-          \  \"http://192.168.1.16:31363\" + \"/api/dataplane/redcharts\", params=query_params\n\
+          \  \"http://apo-backend-svc:8080\" + \"/api/dataplane/redcharts\", params=query_params\n\
           \    )\n    data = []\n    if response.status_code == 200 and len(response.json()[\"\
           results\"]) != 0:\n        la = response.json()[\"results\"][0][\"timeseries\"\
           ][0]\n        data.append(\n            {\n                \"type\": \"\
@@ -6369,7 +6369,7 @@ workflow:
       positionAbsolute:
         x: 15062
         y: 1582
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -10583,6 +10583,6 @@ workflow:
       width: 244
       zIndex: 1002
     viewport:
-      x: -9892.265862510529
-      y: -509.94773893046795
-      zoom: 0.6550581216933696
+      x: -6765.931927189988
+      y: -283.8781939209855
+      zoom: 0.4584636160710502
