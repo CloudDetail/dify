@@ -111,3 +111,7 @@ class APOConfig(BaseSettings):
         description="apo detect series frequency threshold",
         default=3.0,
     )
+    DATA_SOURCE: str = Field (
+        description="metric source from ,options: [dataplane, apo]",
+        default="dataplane",
+    )
