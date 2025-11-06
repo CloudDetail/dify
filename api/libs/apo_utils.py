@@ -1,7 +1,6 @@
 class APOUtils:
-
-    @classmethod
-    def get_step(self, start_time, end_time):
+    @staticmethod
+    def get_step(start_time, end_time):
         time_diff = end_time - start_time
 
         SECOND = 1000000  # microseconds
@@ -73,6 +72,7 @@ class APOUtils:
 
         return step
 
+    @staticmethod
     def get_and_build_metric_params(param: dict, key_map: dict) -> dict:
         """
         从param字典中提取指定的key，并根据key_map映射构建新的参数字典
@@ -114,4 +114,4 @@ def get_history_timeseries(legend: str, labels: dict, history: dict) -> dict:
         current_labels = entry["labels"]
         if labels == current_labels:
             return chart_data
-    return None
+    return {}
