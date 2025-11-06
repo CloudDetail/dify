@@ -1,13 +1,13 @@
 import json
 from collections.abc import Generator
+from dataclasses import asdict
 from typing import Any, Optional
 
-import requests
-
-from configs import dify_config
+from core.tools.builtin_tool.providers.data_source import query_metric
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
+
 
 class SelectContainerCPUTool(BuiltinTool):
     def _invoke(
@@ -25,22 +25,15 @@ class SelectContainerCPUTool(BuiltinTool):
           "pod": "pod",
           "namespace": "namespace"
         }
+
         metric_param = APOUtils.get_and_build_metric_params(tool_parameters, key_map)
-        params = {
-          'metricName': '基础设施情况 - 容器CPU - 容器CPU节流时间 - Containerd',
-          'params': metric_param,
-          'startTime': start_time,
-          'endTime': end_time,
-          'step': APOUtils.get_step(start_time, end_time),
-          }
-        resp = requests.post(dify_config.APO_BACKEND_URL + '/api/metric/query', json=params)
-        list = resp.json()['result']
-        list = json.dumps({
-            'type': 'metric',
-            'display': True,
-            'unit': list['unit'],
-            'data': {
-                "timeseries": list['timeseries']
-            }
-        })
-        yield self.create_text_message(list)
+        query_result = query_metric(
+            metric_name='基础设施情况 - 容器CPU - 容器CPU节流时间 - Containerd',
+            start_time=start_time,
+            end_time=end_time,
+            step=APOUtils.get_step(start_time, end_time),
+            labels=metric_param,
+        )
+        resp = asdict(query_result)
+        resp_str = json.dumps(resp)
+        yield self.create_text_message(resp_str)

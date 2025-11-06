@@ -1,13 +1,13 @@
 import json
 from collections.abc import Generator
+from dataclasses import asdict
 from typing import Any, Optional
 
-import requests
-
-from configs import dify_config
+from core.tools.builtin_tool.providers.data_source import query_metric
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
+
 
 class HostCPUIoWaitRespTool(BuiltinTool):
     def _invoke(
@@ -18,33 +18,22 @@ class HostCPUIoWaitRespTool(BuiltinTool):
         app_id: Optional[str] = None,
         message_id: Optional[str] = None,
     ) -> Generator[ToolInvokeMessage, None, None]:
-        node = tool_parameters.get("node", '.*')
+        node = tool_parameters.get("node", ".*")
         start_time = tool_parameters.get("startTime")
         end_time = tool_parameters.get("endTime")
-        job = tool_parameters.get('job')
-        if not job:
-            job = '.*'
-        params = {
-          'metricName': '宿主机监控指标 - Storage Filesystem - File Descriptor - Open files',
-          'params': {
+        job = tool_parameters.get("job")
+        labels = {
             "node": node,
             "job": job,
-          },
-          'startTime': start_time,
-          'endTime': end_time,
-          'step': APOUtils.get_step(start_time, end_time),
-          }
-        resp = requests.post(
-            f'{dify_config.APO_BACKEND_URL}/api/metric/query', json=params
+        }
+
+        query_result = query_metric(
+            metric_name="宿主机监控指标 - Storage Filesystem - File Descriptor - Open files",
+            start_time=start_time,
+            end_time=end_time,
+            step=APOUtils.get_step(start_time, end_time),
+            labels=labels,
         )
-        resp_data = resp.json()
-        list = resp_data["result"]
-        list = json.dumps({
-            'type': 'metric',
-            'display': True,
-            'unit': list['unit'],
-            'data': {
-                "timeseries": list['timeseries']
-            }
-        })
-        yield self.create_text_message(list)
+        resp = asdict(query_result)
+        resp_str = json.dumps(resp)
+        yield self.create_text_message(resp_str)
