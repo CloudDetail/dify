@@ -42,7 +42,7 @@ class FileService:
         if len(filename) > 200:
             filename = filename.split(".")[0][:200] + "." + extension
 
-        if source == "datasets" and extension not in DOCUMENT_EXTENSIONS:
+        if extension not in DOCUMENT_EXTENSIONS:
             raise UnsupportedFileTypeError()
 
         # get file size
