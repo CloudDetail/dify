@@ -111,6 +111,10 @@ class APOConfig(BaseSettings):
         description="apo detect series frequency threshold",
         default=3.0,
     )
+    DATA_SOURCE: str = Field (
+        description="metric source from ,options: [dataplane, apo]",
+        default="dataplane",
+    )
     AI_PLATFORM_LLM_URL: str = Field(
         description="ai platform llm url",
         default="http://25.78.180.90:19000/lmp-cloud-ias-server/api/llm/chat/completions/",

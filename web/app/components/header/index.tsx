@@ -6,7 +6,6 @@ import { useSelectedLayoutSegment } from 'next/navigation'
 import { Bars3Icon } from '@heroicons/react/20/solid'
 import AccountDropdown from './account-dropdown'
 import AppNav from './app-nav'
-import DatasetNav from './dataset-nav'
 import EnvNav from './env-nav'
 import PluginsNav from './plugins-nav'
 import ToolsNav from './tools-nav'
@@ -86,7 +85,7 @@ const Header = () => {
           <div className='flex items-center'>
             {/* {!isCurrentWorkspaceDatasetOperator && <ExploreNav className={navClassName} />} */}
             {!isCurrentWorkspaceDatasetOperator && <AppNav />}
-            {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />}
+            {/* {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />} */}
             {!isCurrentWorkspaceDatasetOperator && <ToolsNav className={navClassName} />}
           </div>
         )
@@ -103,7 +102,7 @@ const Header = () => {
           <div className='w-full flex flex-col p-2 gap-y-1'>
             {/* {!isCurrentWorkspaceDatasetOperator && <ExploreNav className={navClassName} />} */}
             {!isCurrentWorkspaceDatasetOperator && <AppNav />}
-            {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />}
+            {/* {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />} */}
             {!isCurrentWorkspaceDatasetOperator && <ToolsNav className={navClassName} />}
           </div>
         )

@@ -1,4 +1,5 @@
 import json
+import logging
 from collections.abc import Generator
 from typing import Any, Optional
 
@@ -8,6 +9,8 @@ from configs import dify_config
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
+
+logger = logging.getLogger(__name__)
 
 
 class DataplaneTracesTool(BuiltinTool):
@@ -44,12 +47,28 @@ class DataplaneTracesTool(BuiltinTool):
             "filter": filter,
             "limit": limit
         }
-        resp = requests.post(dify_config.DATAPLANE_URL +
-                             '/datasource/queryTraces', json=params)
-        list = resp.json()['data']
+        try:
+            empty_response = {
+                "data": {},
+                "type": "trace",
+                "display": False,
+            }
+            resp = requests.post(dify_config.DATAPLANE_URL +
+                                 '/datasource/queryTraces', json=params)
+            if resp.status_code >= 400:
+                logger.error(
+                    f"HTTP {resp.status_code} error when querying traces: {resp.text}")
+                yield self.create_text_message(json.dumps(empty_response))
+                return
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Request exception when querying traces: {str(e)}")
+            yield self.create_text_message(json.dumps(empty_response))
+            return
+
+        list = resp.json().get('data', [])
         list = json.dumps({
             'type': 'trace',
             'display': False,
-            'data': list[0] if len(list) > 0 else []
+            'data': list[0] if len(list) > 0 else {}
         })
         yield self.create_text_message(list)

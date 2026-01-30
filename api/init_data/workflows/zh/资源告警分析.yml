@@ -710,18 +710,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: if-else
-        targetType: tool
-      id: 17459267080670-true-1743850453842-target
-      selected: false
-      source: '17459267080670'
-      sourceHandle: 'true'
-      target: '1743850453842'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: tool
         targetType: question-classifier
       id: 1746777077402-source-1743846657026-target
@@ -1166,42 +1154,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: if-else
-        targetType: tool
-      id: 17459267080670-true-1747274324343-target
-      selected: false
-      source: '17459267080670'
-      sourceHandle: 'true'
-      target: '1747274324343'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: llm
-      id: 1747274324343-source-17472781853800-target
-      selected: false
-      source: '1747274324343'
-      sourceHandle: source
-      target: '17472781853800'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: llm
-      id: 1743850453842-source-17472781853800-target
-      selected: false
-      source: '1743850453842'
-      sourceHandle: source
-      target: '17472781853800'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: code
         targetType: tool
       id: 1750988333220-source-1750988315593-target
@@ -1429,18 +1381,6 @@ workflow:
       source: '1752655186497'
       sourceHandle: source
       target: '17526550519390'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: question-classifier
-        targetType: tool
-      id: 1743577315409-2-1752659323846-target
-      selected: false
-      source: '1743577315409'
-      sourceHandle: '2'
-      target: '1752659323846'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1836,18 +1776,6 @@ workflow:
         isInIteration: false
         sourceType: if-else
         targetType: tool
-      id: 1753019933658-true-1752659323846-target
-      selected: false
-      source: '1753019933658'
-      sourceHandle: 'true'
-      target: '1752659323846'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: tool
       id: 1753019933658-d1ef7676-a411-413c-b65d-aad8a3c196d6-1752741317428-target
       selected: false
       source: '1753019933658'
@@ -1985,18 +1913,6 @@ workflow:
       source: '1753019933658'
       sourceHandle: 92782a9c-0bfd-4cc3-83cf-4a78f40bd2a2
       target: '1743672756524'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: code
-      id: 1752659323846-source-1753789618196-target
-      selected: false
-      source: '1752659323846'
-      sourceHandle: source
-      target: '1753789618196'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -3080,6 +2996,94 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1743649517293-715ac0d9-7802-47e8-94a5-c3669bfb953b-1743664113196-target
+      source: '1743649517293'
+      sourceHandle: 715ac0d9-7802-47e8-94a5-c3669bfb953b
+      target: '1743664113196'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 17459267080670-true-1761813411870-target
+      source: '17459267080670'
+      sourceHandle: 'true'
+      target: '1761813411870'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 17459267080670-true-1761813416502-target
+      source: '17459267080670'
+      sourceHandle: 'true'
+      target: '1761813416502'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1761813411870-source-17472781853800-target
+      source: '1761813411870'
+      sourceHandle: source
+      target: '17472781853800'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1761813416502-source-17472781853800-target
+      source: '1761813416502'
+      sourceHandle: source
+      target: '17472781853800'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1743577315409-2-1761815052981-target
+      source: '1743577315409'
+      sourceHandle: '2'
+      target: '1761815052981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1753019933658-true-1761815052981-target
+      source: '1753019933658'
+      sourceHandle: 'true'
+      target: '1761815052981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1761815052981-source-1753789618196-target
+      source: '1761815052981'
+      sourceHandle: source
+      target: '1753789618196'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -3161,7 +3165,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1744959389144'
@@ -3205,6 +3209,24 @@ workflow:
             - namespace
           id: 'true'
           logical_operator: and
+        - case_id: 715ac0d9-7802-47e8-94a5-c3669bfb953b
+          conditions:
+          - comparison_operator: not empty
+            id: 1950f5f0-9c0e-4e82-831c-2fc22e5f0196
+            value: ''
+            varType: string
+            variable_selector:
+            - '1744959389144'
+            - pid
+          - comparison_operator: not empty
+            id: 8c25b881-5ae7-4c90-bad9-46bad0fe6282
+            value: ''
+            varType: string
+            variable_selector:
+            - '1744959389144'
+            - nodeName
+          id: 715ac0d9-7802-47e8-94a5-c3669bfb953b
+          logical_operator: and
         - case_id: f95e88c3-c649-4fb6-871e-3d8174003593
           conditions:
           - comparison_operator: not empty
@@ -3220,7 +3242,7 @@ workflow:
         selected: false
         title: 告警等级分类
         type: if-else
-      height: 200
+      height: 274
       id: '1743649517293'
       position:
         x: 638
@@ -3425,21 +3447,21 @@ workflow:
     - data:
         code: "import json\n\n\ndef main(arg1: str) -> dict:\n    data = json.loads(arg1)\n\
           \n    timeseries = data.get(\"data\", {}).get(\"timeseries\", [])\n\n  \
-          \  namespaces = []\n    pods = []\n    pids = []\n\n    instances = []\n\
-          \    for entry in timeseries:\n        labels = entry.get(\"labels\", {})\n\
-          \n        namespace = labels.get(\"namespace\", None)\n        pod = labels.get(\"\
-          pod\", None)\n        pid = labels.get(\"pid\", None)\n        node = labels.get(\"\
-          node\", None)\n        instance = {\n            \"namespace\": namespace,\n\
-          \            \"pod\": pod,\n            \"pid\": pid,\n            \"node\"\
-          : node,\n        }\n        if namespace and namespace not in namespaces:\n\
-          \            namespaces.append(namespace)\n\n        if pod and pod not\
-          \ in pods:\n            pods.append(pod)\n\n        if pid and pid not in\
-          \ pids:\n            pids.append(pid)\n        if not instance['pod'] and\
-          \ not instance['node'] and not instance['pid']:\n            continue\n\n\
-          \        if instance not in instances:\n            instances.append(instance)\n\
-          \    output = {\"namespaces\": namespaces, \"pods\": pods, \"pids\": pids}\n\
-          \    return {\n        \"result\": json.dumps(output),\n        \"instances\"\
-          : instances\n    }\n"
+          \  namespaces = []\n    pods = []\n    pids = []\n    nodes = []\n\n   \
+          \ instances = []\n    for entry in timeseries:\n        labels = entry.get(\"\
+          labels\", {})\n\n        namespace = labels.get(\"namespace\", None)\n \
+          \       pod = labels.get(\"pod\", None)\n        pid = labels.get(\"pid\"\
+          , None)\n        node = labels.get(\"node\", None)\n        instance = {\n\
+          \            \"namespace\": namespace,\n            \"pod\": pod,\n    \
+          \        \"pid\": pid,\n            \"node\": node,\n        }\n       \
+          \ if namespace and namespace not in namespaces:\n            namespaces.append(namespace)\n\
+          \n        if pod and pod not in pods:\n            pods.append(pod)\n\n\
+          \        if pid and pid not in pids:\n            pids.append(pid)\n   \
+          \     if not instance['pod'] and not instance['node'] and not instance['pid']:\n\
+          \            continue\n\n        if instance not in instances:\n       \
+          \     instances.append(instance)\n    output = {\"namespaces\": namespaces,\
+          \ \"pods\": pods, \"pids\": pids}\n    return {\n        \"result\": json.dumps(output),\n\
+          \        \"instances\": instances\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -3495,12 +3517,13 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "def main(namespace: str, pod: str, pid: str) -> dict:\n    output =\
-          \ {\n        \"namespaces\": [namespace],\n        \"pods\": [pod],\n  \
-          \      \"pids\": [pid],\n    }\n    instances = [{\n        \"namespace\"\
-          : namespace,\n        \"pod\": pod,\n        \"pid\": pid,\n    }]\n   \
-          \ return {\n        \"result\": json.dumps(output),\n        \"instances\"\
-          : instances,\n    }\n"
+        code: "def main(namespace: str, pod: str, pid: str, node: str) -> dict:\n\
+          \    output = {\n        \"namespaces\": [namespace],\n        \"pods\"\
+          : [pod],\n        \"pids\": [pid],\n        \"nodes\": [node]\n    }\n \
+          \   instances = [{\n        \"namespace\": namespace,\n        \"pod\":\
+          \ pod,\n        \"pid\": pid,\n        \"node\": node\n    }]\n    return\
+          \ {\n        \"result\": json.dumps(output),\n        \"instances\": instances,\n\
+          \    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -3526,6 +3549,10 @@ workflow:
           - '1744959389144'
           - pid
           variable: pid
+        - value_selector:
+          - '1744959389144'
+          - nodeName
+          variable: node
       height: 54
       id: '1743664113196'
       position:
@@ -4543,7 +4570,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1743673613633'
       position:
         x: 13286
@@ -4660,7 +4687,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1746777077402'
@@ -5857,7 +5884,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -5959,7 +5986,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -6194,7 +6221,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1743849441196'
@@ -6398,7 +6425,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -6503,124 +6530,6 @@ workflow:
       positionAbsolute:
         x: 13590
         y: 2112
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Specified host name
-            ja_JP: Specified host name
-            pt_BR: Specified host name
-            zh_Hans: 指定的主机名
-          label:
-            en_US: node
-            ja_JP: node
-            pt_BR: node
-            zh_Hans: node
-          llm_description: Specified host name
-          max: null
-          min: null
-          name: node
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time(Microsecond)
-            ja_JP: Data query start time(Microsecond)
-            pt_BR: Data query start time(Microsecond)
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time(Microsecond)
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time(Microsecond)
-            ja_JP: Data query end time(Microsecond)
-            pt_BR: Data query end time(Microsecond)
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query end time(Microsecond)
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          endTime: ''
-          node: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 宿主机磁盘使用率(百分比,不含rootfs)
-        tool_configurations: {}
-        tool_label: 宿主机磁盘使用率(百分比,不含rootfs)
-        tool_name: 宿主机磁盘使用率(百分比,不含rootfs)
-        tool_node_version: '2'
-        tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1743576019537'
-            - endTime
-          node:
-            type: mixed
-            value: '{{#1744959389144.instanceName#}}'
-          startTime:
-            type: variable
-            value:
-            - '1743576019537'
-            - startTime
-        type: tool
-      height: 54
-      id: '1743850453842'
-      position:
-        x: 12090
-        y: 2976
-      positionAbsolute:
-        x: 12090
-        y: 2976
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8039,7 +7948,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17467775030610'
@@ -8247,6 +8156,9 @@ workflow:
         tool_name: 容器磁盘写入耗时每秒(使用Containerd,按Pod和容器统计)
         tool_node_version: '2'
         tool_parameters:
+          cadvisor_job_name:
+            type: mixed
+            value: ''
           endTime:
             type: variable
             value:
@@ -8457,7 +8369,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -8699,7 +8611,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -9814,6 +9726,9 @@ workflow:
             value:
             - '1743576019537'
             - endTime
+          node:
+            type: mixed
+            value: '{{#1744959389144.nodeName#}}'
           pid:
             type: mixed
             value: '{{#17469670619810.result#}}'
@@ -10076,6 +9991,9 @@ workflow:
             value:
             - '1743576019537'
             - endTime
+          node:
+            type: mixed
+            value: '{{#1744959389144.nodeName#}}'
           pid:
             type: mixed
             value: '{{#17469670619810.result#}}'
@@ -10255,7 +10173,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10326,7 +10244,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10428,124 +10346,6 @@ workflow:
       type: custom
       width: 244
     - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: node
-            ja_JP: node
-            pt_BR: node
-            zh_Hans: node
-          label:
-            en_US: node
-            ja_JP: node
-            pt_BR: node
-            zh_Hans: node
-          llm_description: node
-          max: null
-          min: null
-          name: node
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time(Microsecond)
-            ja_JP: Data query start time(Microsecond)
-            pt_BR: Data query start time
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time(Microsecond)
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time(Microsecond)
-            ja_JP: Data query end time(Microsecond)
-            pt_BR: Data query end time(Microsecond)
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query end time(Microsecond)
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          endTime: ''
-          node: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 主机磁盘根分区大小
-        tool_configurations: {}
-        tool_label: 主机磁盘根分区大小
-        tool_name: 主机磁盘根分区大小
-        tool_node_version: '2'
-        tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1743576019537'
-            - endTime
-          node:
-            type: mixed
-            value: '{{#1744959389144.instanceName#}}'
-          startTime:
-            type: variable
-            value:
-            - '1743576019537'
-            - startTime
-        type: tool
-      height: 54
-      id: '1747274324343'
-      position:
-        x: 12090
-        y: 3070
-      positionAbsolute:
-        x: 12090
-        y: 3070
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
         context:
           enabled: true
           variable_selector:
@@ -10554,7 +10354,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10584,7 +10384,7 @@ workflow:
 
             # 分析过程
 
-            根据相关指标数据1.宿主机磁盘使用率{{#1743850453842.text#}}，2.主机磁盘根分区大小{{#1747274324343.text#}}。
+            根据相关指标数据1.宿主机根文件系统使用率{{#1761813411870.text#}}，2.宿主机根文件系统总大小{{#1761813416502.text#}}。
 
             为用户分析磁盘使用情况。
 
@@ -10803,7 +10603,7 @@ workflow:
         tool_parameters:
           evidence:
             type: mixed
-            value: '{"evidence": []}'
+            value: '{{#1753955518503.output#}}'
           overview:
             type: mixed
             value: '{{#1750988484023.result#}}'
@@ -10938,7 +10738,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: af87b10f-e6a5-41a3-876c-871803048be1
@@ -10979,7 +10779,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 2fff5ede-e66b-4051-a411-920d1d021f10
@@ -11066,7 +10866,7 @@ workflow:
       positionAbsolute:
         x: 19346
         y: 2638
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -11080,7 +10880,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 04f72736-b848-4385-819d-5795c4b28ad2
@@ -11156,7 +10956,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 7b7ab7e9-d22f-41b1-bf50-2db3aacbaf1e
@@ -11725,7 +11525,7 @@ workflow:
         iteration_id: '1752582732407'
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 84569801-dce7-4e88-b76b-b1b5fa82c34f
@@ -12320,8 +12120,8 @@ workflow:
           \        data = json.loads(red)\n    except json.JSONDecodeError:\n    \
           \    print(\"Error: Invalid JSON string provided.\")\n        return {\n\
           \            \"tps\": \"{}\"\n        }\n\n    for item in data.get(\"data\"\
-          , []):\n        if item.get(\"title\") == \"吞吐量\":\n            item['pod']\
-          \ = pod\n            return {\n                \"tps\": json.dumps(item)\n\
+          , []):\n        if item.get(\"title\") in [\"吞吐量\", \"Tpm\"]:\n        \
+          \    item['pod'] = pod\n            return {\n                \"tps\": json.dumps(item)\n\
           \            }\n            \n    return {\n        \"tps\": \"{}\"\n  \
           \  }"
         code_language: python3
@@ -12360,202 +12160,6 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Pod name
-            ja_JP: Pod name
-            pt_BR: Pod name
-            zh_Hans: Pod名称
-          label:
-            en_US: Pod name
-            ja_JP: Pod name
-            pt_BR: Pod name
-            zh_Hans: Pod名称
-          llm_description: Pod name
-          max: null
-          min: null
-          name: pod
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Node hostname
-            ja_JP: Node hostname
-            pt_BR: Node hostname
-            zh_Hans: 主机节点名称
-          label:
-            en_US: Node hostname
-            ja_JP: Node hostname
-            pt_BR: Node hostname
-            zh_Hans: 主机节点名称
-          llm_description: Node hostname
-          max: null
-          min: null
-          name: nodeName
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: PID
-            ja_JP: PID
-            pt_BR: PID
-            zh_Hans: 进程id
-          label:
-            en_US: PID
-            ja_JP: PID
-            pt_BR: PID
-            zh_Hans: 进程id
-          llm_description: pid
-          max: null
-          min: null
-          name: pid
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Container ID
-            ja_JP: Container ID
-            pt_BR: Container ID
-            zh_Hans: 容器ID
-          label:
-            en_US: Container ID
-            ja_JP: Container ID
-            pt_BR: Container ID
-            zh_Hans: 容器ID
-          llm_description: Container ID
-          max: null
-          min: null
-          name: containerId
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time(Microsecond)
-            ja_JP: Data query start time(Microsecond)
-            pt_BR: Data query start time
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time(Microsecond)
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time(Microsecond)
-            ja_JP: Data query end time(Microsecond)
-            pt_BR: Data query end time(Microsecond)
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query end time(Microsecond)
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          containerId: ''
-          endTime: ''
-          nodeName: ''
-          pid: ''
-          pod: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 线程在CPU上的耗时折线图（按Pod统计）
-        tool_configurations: {}
-        tool_label: 线程在CPU上的耗时折线图（按Pod统计）
-        tool_name: 线程在CPU上的耗时折线图（按Pod统计）
-        tool_node_version: '2'
-        tool_parameters:
-          containerId:
-            type: mixed
-            value: ''
-          endTime:
-            type: variable
-            value:
-            - '1743576019537'
-            - endTime
-          pod:
-            type: mixed
-            value: '{{#1743670099979.result#}}'
-          startTime:
-            type: variable
-            value:
-            - '1743576019537'
-            - startTime
-        type: tool
-      height: 54
-      id: '1752659323846'
-      position:
-        x: 7894
-        y: 3637
-      positionAbsolute:
-        x: 7894
-        y: 3637
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
         code: "import json\n\ndef main(data_json: str):\n    data = json.loads(data_json)\n\
           \    \n    if isinstance(data, list):\n        return {\"pods\": []}\n\n\
           \    pods = []\n    for timeseries_data in data.get('data', {}).get('timeseries',\
@@ -12573,8 +12177,8 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1752659323846'
-          - text
+          - '1753789618196'
+          - result
           variable: data_json
       height: 54
       id: '17526596567180'
@@ -12660,8 +12264,8 @@ workflow:
           \        data = json.loads(red)\n    except json.JSONDecodeError:\n    \
           \    print(\"Error: Invalid JSON string provided.\")\n        return {\n\
           \            \"tps\": \"{}\"\n        }\n\n    for item in data.get(\"data\"\
-          , []):\n        if item.get(\"title\") == \"吞吐量\":\n            item['pod']\
-          \ = pod\n            return {\n                \"tps\": json.dumps(item)\n\
+          , []):\n        if item.get(\"title\") in [\"吞吐量\", \"Tpm\"]:\n        \
+          \    item['pod'] = pod\n            return {\n                \"tps\": json.dumps(item)\n\
           \            }\n            \n    return {\n        \"tps\": \"{}\"\n  \
           \  }"
         code_language: python3
@@ -13131,7 +12735,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1490ddad-e8ce-407f-b466-bdc266afdeeb
@@ -13886,7 +13490,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 76347dc5-1dbd-4934-a1bb-5ad66b656820
@@ -13991,7 +13595,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: e6cb42dc-0606-4843-971f-f43ea2db3f0d
@@ -14064,7 +13668,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1752744873302'
@@ -14238,14 +13842,12 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: true
-          variable_selector:
-          - '1758628922977'
-          - result
+          enabled: false
+          variable_selector: []
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 69b76f14-6680-44e0-b56e-b5ecaf9153c5
@@ -14807,7 +14409,7 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1752659323846'
+          - '1761815052981'
           - text
           variable: arg1
       height: 54
@@ -14885,25 +14487,25 @@ workflow:
       width: 244
     - data:
         code: "import json\n\ndef main(self_usage: str, other_usage: str, all_tps)\
-          \ -> dict:\n    \"\"\"\n    List: [{\"type\": \"metric\", \"name\": \"\"\
+          \ -> dict:\n    \"\"\"\n    List: [{\"type\": \"metrics\", \"name\": \"\"\
           , \"data\":above}]\n    \"\"\"\n    evidence = []\n\n    self_usage_data\
           \ = json.loads(self_usage)\n    self_usage_timeseries = self_usage_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    self_usage_data[\"timeseries\"\
-          ] = self_usage_timeseries\n    self_usage_data.pop(\"data\", None)\n   \
-          \ self_usage_evidence = {\n        \"type\": \"metric\",\n        \"name\"\
-          : \"当前容器CPU使用率\",\n        \"data\": self_usage_data\n    }\n    evidence.append(self_usage_evidence)\n\
-          \n    other_usage_data = json.loads(other_usage)\n    other_usage_timeseries\
-          \ = other_usage_data.get(\"data\", {}).get(\"timeseries\", [])\n    other_usage_data[\"\
-          timeseries\"] = other_usage_timeseries\n    other_usage_data.pop(\"data\"\
-          , None)\n    other_usage_evidence = {\n        \"type\": \"metric\",\n \
-          \       \"name\": \"节点其他容器CPU使用率\",\n        \"data\": other_usage_data\n\
-          \    }\n    evidence.append(other_usage_evidence)\n\n    for tps_item in\
-          \ all_tps:\n        if tps_item == \"{}\":\n            continue\n     \
-          \   tps_data = json.loads(tps_item)\n        evidence.append({\n       \
-          \     \"type\": \"metric\",\n            \"name\": \"服务吞吐量\",\n        \
-          \    \"data\": json.loads(tps_item)\n        })\n\n    return {\n      \
-          \  \"evidence\": json.dumps({\n            \"evidence\": evidence\n    \
-          \    })\n    }"
+          data\", {}).get(\"timeseries\", [])\n    self_usage_evidence = {\n     \
+          \   \"type\": \"metrics\",\n        \"name\": \"当前容器CPU使用率\",\n        \"\
+          data\": self_usage_timeseries,\n        \"unit\": self_usage_data.get(\"\
+          unit\", \"\")\n    }\n    evidence.append(self_usage_evidence)\n\n    other_usage_data\
+          \ = json.loads(other_usage)\n    other_usage_timeseries = other_usage_data.get(\"\
+          data\", {}).get(\"timeseries\", [])\n    other_usage_evidence = {\n    \
+          \    \"type\": \"metrics\",\n        \"name\": \"节点其他容器CPU使用率\",\n     \
+          \   \"data\": other_usage_timeseries,\n        \"unit\": other_usage_data.get(\"\
+          unit\", \"\")\n    }\n    evidence.append(other_usage_evidence)\n\n    for\
+          \ tps_item in all_tps:\n        if tps_item == \"{}\":\n            continue\n\
+          \        tps_data = json.loads(tps_item)\n        unit = tps_data.get('unit',\
+          \ \"requests/minute\")\n        evidence.append({\n            \"type\"\
+          : \"metrics\",\n            \"name\": \"服务吞吐量\",\n            \"data\":\
+          \ tps_data.get(\"timeseries\", []),\n            \"unit\": unit\n      \
+          \  })\n\n    return {\n        \"evidence\": json.dumps({\n            \"\
+          evidence\": evidence\n        })\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -14940,18 +14542,20 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(cpu: str, all_tps: str) -> dict:\n    \"\"\"\
-          \n    List: [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n \
-          \   \"\"\"\n    evidence = []\n\n    cpu_data = json.loads(cpu)\n    cpu_timeseries\
-          \ = cpu_data.get(\"data\", {}).get(\"timeseries\", [])\n    cpu_data[\"\
-          timeseries\"] = cpu_timeseries\n    cpu_data.pop(\"data\", None)\n    cpu_evidence\
-          \ = {\n        \"type\": \"metric\",\n        \"name\": \"线程在CPU上的耗时\",\n\
-          \        \"data\": cpu_data\n    }\n\n    evidence.append(cpu_evidence)\n\
-          \n    for tps_item in all_tps:\n        if tps_item == \"{}\":\n       \
-          \     continue\n        tps_data = json.loads(tps_item)\n        evidence.append({\n\
-          \            \"type\": \"metric\",\n            \"name\": \"服务吞吐量\",\n \
-          \           \"data\": tps_data\n        })\n\n    return {\n        \"evidence\"\
-          : json.dumps({\n            \"evidence\": evidence\n        })\n    }"
+        code: "import json\n\n\ndef main(cpu: str, all_tps: str) -> dict:\n    \"\"\
+          \"\n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
+          \    \"\"\"\n    evidence = []\n\n    cpu_data = json.loads(cpu)\n    cpu_timeseries\
+          \ = cpu_data.get(\"data\", {}).get(\"timeseries\", [])\n    cpu_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"容器CPU使用率\",\n\
+          \        \"data\": cpu_timeseries,\n        \"unit\": cpu_data.get(\"unit\"\
+          , \"\")\n    }\n\n    evidence.append(cpu_evidence)\n\n    for tps_item\
+          \ in all_tps:\n        if tps_item == \"{}\":\n            continue\n  \
+          \      tps_data = json.loads(tps_item)\n        unit = tps_data.get('unit',\
+          \ \"requests/minute\")\n        evidence.append({\n            \"type\"\
+          : \"metrics\",\n            \"name\": \"服务吞吐量\",\n            \"data\":\
+          \ tps_data.get(\"timeseries\", []),\n            \"unit\": unit\n      \
+          \  })\n\n    return {\n        \"evidence\": json.dumps({\n            \"\
+          evidence\": evidence\n        })\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -14963,7 +14567,7 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1752659323846'
+          - '1761815052981'
           - text
           variable: cpu
         - value_selector:
@@ -14984,19 +14588,20 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(memory: str, all_tps: str) -> dict:\n    \"\
-          \"\"\n    List: [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n\
+        code: "import json\n\n\ndef main(memory: str, all_tps: str) -> dict:\n   \
+          \ \"\"\"\n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
           \    \"\"\"\n    evidence = []\n\n    memory_data = json.loads(memory)\n\
           \    timeseries_data = memory_data.get(\"data\", {}).get(\"timeseries\"\
-          , [])\n    memory_data[\"timeseries\"] = timeseries_data\n    memory_data.pop(\"\
-          data\", None)\n    memory_evidence = {\n        \"type\": \"metric\",\n\
-          \        \"name\": \"容器内存使用量\",\n        \"data\": memory_data\n    }\n\
-          \    evidence.append(memory_evidence)\n\n    for tps_item in all_tps:\n\
-          \        if tps_item == \"{}\":\n            contiune\n        tps_data\
-          \ = json.loads(tps_item)\n        evidence.append({\n            \"type\"\
-          : \"metric\",\n            \"name\": \"服务吞吐量\",\n            \"data\": tps_data\n\
-          \        })\n\n    return {\n        \"evidence\": json.dumps({\n      \
-          \      \"evidence\": evidence\n        })\n    }"
+          , [])\n    unit = memory_data.get(\"unit\", \"\")\n    memory_evidence =\
+          \ {\n        \"type\": \"metrics\",\n        \"name\": \"容器内存使用量\",\n  \
+          \      \"data\": timeseries_data,\n        \"unit\": unit\n    }\n    evidence.append(memory_evidence)\n\
+          \n    for tps_item in all_tps:\n        if tps_item == \"{}\":\n       \
+          \     continue\n        tps_data = json.loads(tps_item)\n        unit =\
+          \ tps_data.get('unit', \"requests/minute\")\n        evidence.append({\n\
+          \            \"type\": \"metrics\",\n            \"name\": \"服务吞吐量\",\n\
+          \            \"data\": tps_data.get(\"timeseries\", []),\n            \"\
+          unit\": unit\n        })\n\n    return {\n        \"evidence\": json.dumps({\n\
+          \            \"evidence\": evidence\n        })\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -15030,13 +14635,13 @@ workflow:
       width: 244
     - data:
         code: "import json\n\ndef main(rtt: str) -> dict:\n    \"\"\"\n    List: [{\"\
-          type\": \"metric\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n    evidence\
+          type\": \"metrics\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n    evidence\
           \ = []\n\n    rtt_data = json.loads(rtt)\n    rtt_timeseries = rtt_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    rtt_data[\"timeseries\"] = rtt_timeseries\n\
-          \    rtt_data.pop(\"data\", None)\n    rtt_evidence = {\n        \"type\"\
-          : \"metric\",\n        \"name\": \"网络调用耗时\",\n        \"data\": rtt_data\n\
-          \    }\n    evidence.append(rtt_evidence)\n\n    return {\n        \"evidence\"\
-          : json.dumps({\n            \"evidence\": evidence\n        })\n    }"
+          data\", {}).get(\"timeseries\", [])\n    rtt_evidence = {\n        \"type\"\
+          : \"metrics\",\n        \"name\": \"网络调用耗时\",\n        \"data\": rtt_timeseries,\n\
+          \        \"unit\": rtt_data.get(\"unit\", \"\")\n    }\n    evidence.append(rtt_evidence)\n\
+          \n    return {\n        \"evidence\": json.dumps({\n            \"evidence\"\
+          : evidence\n        })\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15059,24 +14664,23 @@ workflow:
       positionAbsolute:
         x: 12982
         y: 3676
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
         code: "import json\n\ndef main(usage: str, size: str) -> dict:\n    \"\"\"\
-          \n    List: [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n \
-          \   \"\"\"\n    evidence = []\n\n    usage_data = json.loads(usage)\n  \
-          \  usage_timeseries = usage_data.get(\"data\", {}).get(\"timeseries\", [])\n\
-          \    usage_data[\"timeseries\"] = usage_timeseries\n    usage_data.pop(\"\
-          data\", None)\n    usage_evidence = {\n        \"type\": \"metric\",\n \
-          \       \"name\": \"宿主机磁盘使用率\",\n        \"data\": usage_data\n    }\n \
-          \   evidence.append(usage_evidence)\n\n    size_data = json.loads(size)\n\
-          \    size_timeseries = size_data.get(\"data\", {}).get(\"timeseries\", [])\n\
-          \    size_data[\"timeseries\"] = size_timeseries\n    size_data.pop(\"data\"\
-          , None)\n    size_evidence = {\n        \"type\": \"metric\",\n        \"\
-          name\": \"宿主机磁盘根分区大小\",\n        \"data\": size_data\n    }\n    evidence.append(size_evidence)\
+          \n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
+          \    \"\"\"\n    evidence = []\n\n    usage_data = json.loads(usage)\n \
+          \   usage_timeseries = usage_data.get(\"data\", {}).get(\"timeseries\",\
+          \ [])\n    usage_evidence = {\n        \"type\": \"metrics\",\n        \"\
+          name\": \"宿主机磁盘使用率\",\n        \"data\": usage_timeseries,\n        \"unit\"\
+          : usage_data.get(\"unit\", \"\")\n    }\n    evidence.append(usage_evidence)\n\
+          \n    size_data = json.loads(size)\n    size_timeseries = size_data.get(\"\
+          data\", {}).get(\"timeseries\", [])\n    size_evidence = {\n        \"type\"\
+          : \"metrics\",\n        \"name\": \"宿主机磁盘根分区大小\",\n        \"data\": size_timeseries,\n\
+          \        \"unit\": size_data.get(\"unit\", \"\")\n    }\n    evidence.append(size_evidence)\
           \   \n\n    return {\n        \"evidence\": json.dumps({\n            \"\
           evidence\": evidence\n        })\n    }"
         code_language: python3
@@ -15090,11 +14694,11 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1743850453842'
+          - '1761813411870'
           - text
           variable: usage
         - value_selector:
-          - '1747274324343'
+          - '1761813416502'
           - text
           variable: size
       height: 54
@@ -15299,7 +14903,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 6bfbae05-612e-457c-ae07-f064f30e1575
@@ -15365,19 +14969,19 @@ workflow:
       width: 244
     - data:
         code: "import json\n\ndef main(receive: str, send: str) -> dict:\n    \"\"\
-          \"\n    List: [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n\
+          \"\n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
           \    \"\"\"\n    evidence = []\n\n    receive_data = json.loads(receive)\n\
           \    receive_timeseries = receive_data.get(\"data\", {}).get(\"timeseries\"\
-          , [])\n    receive_data[\"timeseries\"] = receive_timeseries\n    receive_data.pop(\"\
-          data\", None)\n    receive_evidence = {\n        \"type\": \"metric\",\n\
-          \        \"name\": \"容器网络接收带宽\",\n        \"data\": receive_data\n    }\n\
-          \    evidence.append(receive_evidence)\n\n    send_data = json.loads(send)\n\
+          , [])\n    receive_unit = receive_data.get(\"unit\", \"\")\n    receive_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"容器网络接收带宽\",\n\
+          \        \"data\": receive_timeseries,\n        \"unit\": receive_unit\n\
+          \    }\n    evidence.append(receive_evidence)\n\n    send_data = json.loads(send)\n\
           \    send_timeseries = send_data.get(\"data\", {}).get(\"timeseries\", [])\n\
-          \    send_data[\"timeseries\"] = send_timeseries\n    send_data.pop(\"data\"\
-          , None)\n    send_evidence = {\n        \"type\": \"metric\",\n        \"\
-          name\": \"容器网络发送带宽\",\n        \"data\": send_data\n    }\n    evidence.append(send_evidence)\
-          \   \n\n    return {\n        \"evidence\": json.dumps({\n            \"\
-          evidence\": evidence\n        })\n    }"
+          \    send_unit = send_data.get(\"unit\", \"\")\n    send_evidence = {\n\
+          \        \"type\": \"metrics\",\n        \"name\": \"容器网络发送带宽\",\n     \
+          \   \"data\": send_timeseries,\n        \"unit\": send_unit\n    }\n   \
+          \ evidence.append(send_evidence)   \n\n    return {\n        \"evidence\"\
+          : json.dumps({\n            \"evidence\": evidence\n        })\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15411,19 +15015,20 @@ workflow:
       width: 244
     - data:
         code: "import json\n\ndef main(_file: str, epoll: str) -> dict:\n    \"\"\"\
-          \n    List: [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n \
-          \   \"\"\"\n    evidence = []\n\n    file_data = json.loads(_file)\n   \
-          \ file_timeseries = file_data.get(\"data\", {}).get(\"timeseries\", [])\n\
-          \    file_data[\"timeseries\"] = file_timeseries\n    file_data.pop(\"data\"\
-          , None)\n    file_evidence = {\n        \"type\": \"metric\",\n        \"\
-          name\": \"进程在文件上的时间消耗\",\n        \"data\": file_data\n    }\n    evidence.append(file_evidence)\n\
-          \n    epoll_data = json.loads(epoll)\n    epoll_timeseries = epoll_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    epoll_data[\"timeseries\"] = epoll_timeseries\n\
-          \    epoll_data.pop(\"data\", None)\n    epoll_evidence = {\n        \"\
-          type\": \"metric\",\n        \"name\": \"进程在网络等待上的时间消耗\",\n        \"data\"\
-          : epoll_data\n    }\n    evidence.append(epoll_evidence)   \n\n    return\
-          \ {\n        \"evidence\": json.dumps({\n            \"evidence\": evidence\n\
-          \        })\n    }"
+          \n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
+          \    \"\"\"\n    evidence = []\n\n    file_data = json.loads(_file)\n  \
+          \  file_timeseries = file_data.get(\"data\", {}).get(\"timeseries\", [])\n\
+          \    file_unit = file_data.get(\"unit\", \"\")\n    file_evidence = {\n\
+          \        \"type\": \"metrics\",\n        \"name\": \"进程在文件上的时间消耗\",\n  \
+          \      \"data\": file_timeseries,\n        \"unit\": file_unit\n    }\n\
+          \    evidence.append(file_evidence)\n\n    epoll_data = json.loads(epoll)\n\
+          \    epoll_timeseries = epoll_data.get(\"data\", {}).get(\"timeseries\"\
+          , [])\n    epoll_unit = epoll_data.get(\"unit\", \"\")\n    epoll_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"进程在网络等待上的时间消耗\"\
+          ,\n        \"data\": epoll_timeseries,\n        \"unit\": epoll_unit\n \
+          \   }\n    evidence.append(epoll_evidence)   \n\n    return {\n        \"\
+          evidence\": json.dumps({\n            \"evidence\": evidence\n        })\n\
+          \    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15456,33 +15061,33 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(disk_io: str, swap: str, write_consume: str,\
-          \ read_consume: str) -> dict:\n    \"\"\"\n    List: [{\"type\": \"metric\"\
+        code: "import json\n\n\ndef main(disk_io: str, swap: str, write_consume: str,\
+          \ read_consume: str) -> dict:\n    \"\"\"\n    List: [{\"type\": \"metrics\"\
           , \"name\": \"\", \"data\":above}]\n    \"\"\"\n    evidence = []\n\n  \
           \  # Process disk_io data\n    disk_io_data = json.loads(disk_io)\n    disk_io_timeseries\
-          \ = disk_io_data.get(\"data\", {}).get(\"timeseries\", [])\n    disk_io_data[\"\
-          timeseries\"] = disk_io_timeseries\n    disk_io_data.pop(\"data\", None)\n\
-          \    disk_io_evidence = {\n        \"type\": \"metric\",\n        \"name\"\
-          : \"磁盘IO利用率\",\n        \"data\": disk_io_data\n    }\n    evidence.append(disk_io_evidence)\n\
+          \ = disk_io_data.get(\"data\", {}).get(\"timeseries\", [])\n    disk_io_unit\
+          \ = disk_io_data.get(\"unit\", \"\")\n    disk_io_evidence = {\n       \
+          \ \"type\": \"metrics\",\n        \"name\": \"磁盘IO利用率\",\n        \"data\"\
+          : disk_io_timeseries,\n        \"unit\": disk_io_unit\n    }\n    evidence.append(disk_io_evidence)\n\
           \n    # Process swap data\n    swap_data = json.loads(swap)\n    swap_timeseries\
-          \ = swap_data.get(\"data\", {}).get(\"timeseries\", [])\n    swap_data[\"\
-          timeseries\"] = swap_timeseries\n    swap_data.pop(\"data\", None)\n   \
-          \ swap_evidence = {\n        \"type\": \"metric\",\n        \"name\": \"\
-          磁盘交换区使用率\",\n        \"data\": swap_data\n    }\n    evidence.append(swap_evidence)\n\
+          \ = swap_data.get(\"data\", {}).get(\"timeseries\", [])\n    swap_unit =\
+          \ swap_data.get(\"unit\", \"\")\n    swap_evidence = {\n        \"type\"\
+          : \"metrics\",\n        \"name\": \"磁盘交换区使用率\",\n        \"data\": swap_timeseries,\n\
+          \        \"unit\": swap_unit\n    }\n    evidence.append(swap_evidence)\n\
           \n    # Process write_consume data\n    write_consume_data = json.loads(write_consume)\n\
-          \    write_consume_timeseries = write_consume_data.get(\"data\", {}).get(\"\
-          timeseries\", [])\n    write_consume_data[\"timeseries\"] = write_consume_timeseries\n\
-          \    write_consume_data.pop(\"data\", None)\n    write_consume_evidence\
-          \ = {\n        \"type\": \"metric\",\n        \"name\": \"容器磁盘写入耗时\",\n\
-          \        \"data\": write_consume_data\n    }\n    evidence.append(write_consume_evidence)\n\
+          \    write_consume_timeseries = write_consume_data.get(\n        \"data\"\
+          , {}).get(\"timeseries\", [])\n    write_consume_unit = write_consume_data.get(\"\
+          unit\", \"\")\n    write_consume_evidence = {\n        \"type\": \"metrics\"\
+          ,\n        \"name\": \"容器磁盘写入耗时\",\n        \"data\": write_consume_timeseries,\n\
+          \        \"unit\": write_consume_unit\n    }\n    evidence.append(write_consume_evidence)\n\
           \n    # Process read_consume data\n    read_consume_data = json.loads(read_consume)\n\
-          \    read_consume_timeseries = read_consume_data.get(\"data\", {}).get(\"\
-          timeseries\", [])\n    read_consume_data[\"timeseries\"] = read_consume_timeseries\n\
-          \    read_consume_data.pop(\"data\", None)\n    read_consume_evidence =\
-          \ {\n        \"type\": \"metric\",\n        \"name\": \"容器磁盘读取耗时\",\n  \
-          \      \"data\": read_consume_data\n    }\n    evidence.append(read_consume_evidence)\
-          \ \n\n    return {\n        \"evidence\": json.dumps({\n            \"evidence\"\
-          : evidence\n        })\n    }"
+          \    read_consume_timeseries = read_consume_data.get(\n        \"data\"\
+          , {}).get(\"timeseries\", [])\n    read_consume_unit = read_consume_data.get(\"\
+          unit\", \"\")\n    read_consume_evidence = {\n        \"type\": \"metrics\"\
+          ,\n        \"name\": \"容器磁盘读取耗时\",\n        \"data\": read_consume_timeseries,\n\
+          \        \"unit\": read_consume_unit\n    }\n    evidence.append(read_consume_evidence)\n\
+          \n    return {\n        \"evidence\": json.dumps({\n            \"evidence\"\
+          : evidence\n        })\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -15524,24 +15129,25 @@ workflow:
       width: 244
     - data:
         code: "import json\n\ndef main(disk_io: str, swap: str, memory: str) -> dict:\n\
-          \    \"\"\"\n    List: [{\"type\": \"metric\", \"name\": \"\", \"data\"\
+          \    \"\"\"\n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\"\
           :above}]\n    \"\"\"\n    evidence = []\n\n    disk_io_data = json.loads(disk_io)\n\
           \    disk_io_timeseries = disk_io_data.get(\"data\", {}).get(\"timeseries\"\
-          , [])\n    disk_io_data[\"timeseries\"] = disk_io_timeseries\n    disk_io_data.pop(\"\
-          data\", None)\n    disk_io_evidence = {\n        \"type\": \"metric\",\n\
-          \        \"name\": \"磁盘IO利用率\",\n        \"data\": disk_io_data\n    }\n\
-          \    evidence.append(disk_io_evidence)\n\n    swap_data = json.loads(swap)\n\
+          , [])\n    disk_io_unit = disk_io_data.get(\"unit\", \"\")\n    disk_io_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"磁盘IO利用率\",\n\
+          \        \"data\": disk_io_timeseries,\n        \"unit\": disk_io_unit\n\
+          \    }\n    evidence.append(disk_io_evidence)\n\n    swap_data = json.loads(swap)\n\
           \    swap_timeseries = swap_data.get(\"data\", {}).get(\"timeseries\", [])\n\
-          \    swap_data[\"timeseries\"] = swap_timeseries\n    swap_data.pop(\"data\"\
-          , None)\n    swap_evidence = {\n        \"type\": \"metric\",\n        \"\
-          name\": \"磁盘交换区使用率\",\n        \"data\": swap_data\n    }\n    evidence.append(swap_evidence)\n\
-          \n    memory_data = json.loads(memory)\n    memory_timeseries = memory_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    memory_data[\"timeseries\"] = memory_timeseries\n\
-          \    memory_data.pop(\"data\", None)\n    memory_evidence = {\n        \"\
-          type\": \"metric\",\n        \"name\": \"容器内存使用字节数\",\n        \"data\"\
-          : memory_data\n    }\n    evidence.append(memory_evidence)\n\n    return\
-          \ {\n        \"evidence\": json.dumps({\n            \"evidence\": evidence\n\
-          \        })\n    }"
+          \    swap_unit = swap_data.get(\"unit\", \"\")\n    swap_evidence = {\n\
+          \        \"type\": \"metrics\",\n        \"name\": \"磁盘交换区使用率\",\n     \
+          \   \"data\": swap_timeseries,\n        \"unit\": swap_unit\n    }\n   \
+          \ evidence.append(swap_evidence)\n\n    memory_data = json.loads(memory)\n\
+          \    memory_timeseries = memory_data.get(\"data\", {}).get(\"timeseries\"\
+          , [])\n    memory_unit = memory_data.get(\"unit\", \"\")\n    memory_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"容器内存使用字节数\",\n\
+          \        \"data\": memory_timeseries,\n        \"unit\": memory_unit\n \
+          \   }\n    evidence.append(memory_evidence)\n\n    return {\n        \"\
+          evidence\": json.dumps({\n            \"evidence\": evidence\n        })\n\
+          \    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15580,36 +15186,34 @@ workflow:
     - data:
         code: "import json\n\ndef main(disk_io: str, send_loss: str, receive_loss:\
           \ str, send_err: str, receive_err: str) -> dict:\n    \"\"\"\n    List:\
-          \ [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n\
+          \ [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n\
           \    evidence = []\n\n    disk_io_data = json.loads(disk_io)\n    disk_io_timeseries\
-          \ = disk_io_data.get(\"data\", {}).get(\"timeseries\", [])\n    disk_io_data[\"\
-          timeseries\"] = disk_io_timeseries\n    disk_io_data.pop(\"data\", None)\n\
-          \    disk_io_evidence = {\n        \"type\": \"metric\",\n        \"name\"\
-          : \"磁盘IO利用率\",\n        \"data\": disk_io_data\n    }\n    evidence.append(disk_io_evidence)\n\
-          \n    send_loss_data = json.loads(send_loss)\n    send_loss_timeseries =\
-          \ send_loss_data.get(\"data\", {}).get(\"timeseries\", [])\n    send_loss_data[\"\
-          timeseries\"] = send_loss_timeseries\n    send_loss_data.pop(\"data\", None)\n\
-          \    send_loss_evidence = {\n        \"type\": \"metric\",\n        \"name\"\
-          : \"容器网络发送丢包数\",\n        \"data\": send_loss_data\n    }\n    evidence.append(send_loss_evidence)\n\
-          \n    receive_loss_data = json.loads(receive_loss)\n    receive_loss_timeseries\
-          \ = receive_loss_data.get(\"data\", {}).get(\"timeseries\", [])\n    receive_loss_data[\"\
-          timeseries\"] = receive_loss_timeseries\n    receive_loss_data.pop(\"data\"\
-          , None)\n    receive_loss_evidence = {\n        \"type\": \"metric\",\n\
-          \        \"name\": \"容器网络接收丢包数\",\n        \"data\": receive_loss_data\n\
-          \    }\n    evidence.append(receive_loss_evidence)\n\n    send_err_data\
-          \ = json.loads(send_err)\n    send_err_timeseries = send_err_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    send_err_data[\"timeseries\"] =\
-          \ send_err_timeseries\n    send_err_data.pop(\"data\", None)\n    send_err_evidence\
-          \ = {\n        \"type\": \"metric\",\n        \"name\": \"容器网络发送错误包数\",\n\
-          \        \"data\": send_err_data\n    }\n    evidence.append(send_err_evidence)\
-          \   \n\n    receive_err_data = json.loads(receive_err)\n    receive_err_timeseries\
-          \ = receive_err_data.get(\"data\", {}).get(\"timeseries\", [])\n    receive_err_data[\"\
-          timeseries\"] = receive_err_timeseries\n    receive_err_data.pop(\"data\"\
-          , None)\n    receive_err_evidence = {\n        \"type\": \"metric\",\n \
-          \       \"name\": \"容器网络接收错误包数\",\n        \"data\": receive_err_data\n\
-          \    }\n    evidence.append(receive_err_evidence)\n\n    return {\n    \
-          \    \"evidence\": json.dumps({\n            \"evidence\": evidence\n  \
-          \      })\n    }"
+          \ = disk_io_data.get(\"data\", {}).get(\"timeseries\", [])\n    disk_io_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"磁盘IO利用率\",\n\
+          \        \"data\": disk_io_timeseries,\n        \"unit\": disk_io_data.get(\"\
+          unit\", \"\")\n    }\n    evidence.append(disk_io_evidence)\n\n    send_loss_data\
+          \ = json.loads(send_loss)\n    send_loss_timeseries = send_loss_data.get(\"\
+          data\", {}).get(\"timeseries\", [])\n    send_loss_evidence = {\n      \
+          \  \"type\": \"metrics\",\n        \"name\": \"容器网络发送丢包数\",\n        \"\
+          data\": send_loss_timeseries,\n        \"unit\": send_loss_data.get(\"unit\"\
+          , \"\")\n    }\n    evidence.append(send_loss_evidence)\n\n    receive_loss_data\
+          \ = json.loads(receive_loss)\n    receive_loss_timeseries = receive_loss_data.get(\"\
+          data\", {}).get(\"timeseries\", [])\n    receive_loss_evidence = {\n   \
+          \     \"type\": \"metrics\",\n        \"name\": \"容器网络接收丢包数\",\n       \
+          \ \"data\": receive_loss_timeseries,\n        \"unit\": receive_loss_data.get(\"\
+          unit\", \"\")\n    }\n    evidence.append(receive_loss_evidence)\n\n   \
+          \ send_err_data = json.loads(send_err)\n    send_err_timeseries = send_err_data.get(\"\
+          data\", {}).get(\"timeseries\", [])\n    send_err_evidence = {\n       \
+          \ \"type\": \"metrics\",\n        \"name\": \"容器网络发送错误包数\",\n        \"\
+          data\": send_err_timeseries,\n        \"unit\": send_err_data.get(\"unit\"\
+          , \"\")\n    }\n    evidence.append(send_err_evidence)   \n\n    receive_err_data\
+          \ = json.loads(receive_err)\n    receive_err_timeseries = receive_err_data.get(\"\
+          data\", {}).get(\"timeseries\", [])\n    receive_err_evidence = {\n    \
+          \    \"type\": \"metrics\",\n        \"name\": \"容器网络接收错误包数\",\n       \
+          \ \"data\": receive_err_timeseries,\n        \"unit\": receive_err_data.get(\"\
+          unit\", \"\")\n    }\n    evidence.append(receive_err_evidence)\n\n    return\
+          \ {\n        \"evidence\": json.dumps({\n            \"evidence\": evidence\n\
+          \        })\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15655,19 +15259,20 @@ workflow:
       width: 244
     - data:
         code: "import json\n\ndef main(_file: str, epoll: str) -> dict:\n    \"\"\"\
-          \n    List: [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n \
-          \   \"\"\"\n    evidence = []\n\n    file_data = json.loads(_file)\n   \
-          \ file_timeseries = file_data.get(\"data\", {}).get(\"timeseries\", [])\n\
-          \    file_data[\"timeseries\"] = file_timeseries\n    file_data.pop(\"data\"\
-          , None)\n    _file_evidence = {\n        \"type\": \"metric\",\n       \
-          \ \"name\": \"进程在文件上的时间消耗\",\n        \"data\": file_data\n    }\n    evidence.append(_file_evidence)\n\
-          \n    epoll_data = json.loads(epoll)\n    epoll_timeseries = epoll_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    epoll_data[\"timeseries\"] = epoll_timeseries\n\
-          \    epoll_data.pop(\"data\", None)\n    epoll_evidence = {\n        \"\
-          type\": \"metric\",\n        \"name\": \"进程在网络等待上的时间消耗\",\n        \"data\"\
-          : epoll_data\n    }\n    evidence.append(epoll_evidence)   \n\n    return\
-          \ {\n        \"evidence\": json.dumps({\n            \"evidence\": evidence\n\
-          \        })\n    }"
+          \n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
+          \    \"\"\"\n    evidence = []\n\n    file_data = json.loads(_file)\n  \
+          \  file_timeseries = file_data.get(\"data\", {}).get(\"timeseries\", [])\n\
+          \    file_unit = file_data.get(\"unit\", \"\")\n    _file_evidence = {\n\
+          \        \"type\": \"metrics\",\n        \"name\": \"进程在文件上的时间消耗\",\n  \
+          \      \"data\": file_timeseries,\n        \"unit\": file_unit\n    }\n\
+          \    evidence.append(_file_evidence)\n\n    epoll_data = json.loads(epoll)\n\
+          \    epoll_timeseries = epoll_data.get(\"data\", {}).get(\"timeseries\"\
+          , [])\n    epoll_unit = epoll_data.get(\"unit\", \"\")\n    epoll_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"进程在网络等待上的时间消耗\"\
+          ,\n        \"data\": epoll_timeseries,\n        \"unit\": epoll_unit\n \
+          \   }\n    evidence.append(epoll_evidence)   \n\n    return {\n        \"\
+          evidence\": json.dumps({\n            \"evidence\": evidence\n        })\n\
+          \    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15700,26 +15305,27 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(swap: str, write_consume: str, read_consume:\
-          \ str) -> dict:\n    \"\"\"\n    List: [{\"type\": \"metric\", \"name\"\
-          : \"\", \"data\":above}]\n    \"\"\"\n    evidence = []\n\n    swap_data\
+        code: "import json\n\n\ndef main(swap: str, write_consume: str, read_consume:\
+          \ str) -> dict:\n    \"\"\"\n        List: [{\"type\": \"metrics\", \"name\"\
+          : \"\", \"data\":above}]\n        \"\"\"\n    evidence = []\n\n    swap_data\
           \ = json.loads(swap)\n    timeseries_swap = swap_data.get(\"data\", {}).get(\"\
-          timeseries\", [])\n    swap_data[\"timeseries\"] = timeseries_swap\n   \
-          \ swap_data.pop(\"data\", None)\n    swap_evidence = {\n        \"type\"\
-          : \"metric\",\n        \"name\": \"磁盘交换区使用率\",\n        \"data\": swap_data\n\
-          \    }\n    evidence.append(swap_evidence)\n\n    write_consume_data = json.loads(write_consume)\n\
-          \    timeseries_write = write_consume_data.get(\"data\", {}).get(\"timeseries\"\
-          , [])\n    write_consume_data[\"timeseries\"] = timeseries_write\n    write_consume_data.pop(\"\
-          data\", None)\n    write_consume_evidence = {\n        \"type\": \"metric\"\
-          ,\n        \"name\": \"容器磁盘写入耗时\",\n        \"data\": write_consume_data\n\
-          \    }\n    evidence.append(write_consume_evidence)\n\n    read_consume_data\
-          \ = json.loads(read_consume)\n    timeseries_read = read_consume_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    read_consume_data[\"timeseries\"\
-          ] = timeseries_read\n    read_consume_data.pop(\"data\", None)\n    read_consume_evidence\
-          \ = {\n        \"type\": \"metric\",\n        \"name\": \"容器磁盘读取耗时\",\n\
-          \        \"data\": read_consume_data\n    }\n    evidence.append(read_consume_evidence)\
-          \ \n\n    return {\n        \"evidence\": json.dumps({\n            \"evidence\"\
-          : evidence\n        })\n    }"
+          timeseries\", [])\n    swap_unit = swap_data.get(\"unit\", \"\")\n    swap_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"磁盘交换区使用率\",\n\
+          \        \"data\": timeseries_swap,\n        \"unit\": swap_unit\n    }\n\
+          \    evidence.append(swap_evidence)\n\n    write_consume_data = json.loads(write_consume)\n\
+          \    timeseries_write = write_consume_data.get(\n        \"data\", {}).get(\"\
+          timeseries\", [])\n    write_unit = write_consume_data.get(\"unit\", \"\"\
+          )\n    write_consume_evidence = {\n        \"type\": \"metrics\",\n    \
+          \    \"name\": \"容器磁盘写入耗时\",\n        \"data\": timeseries_write,\n    \
+          \    \"unit\": write_unit\n    }\n    evidence.append(write_consume_evidence)\n\
+          \n    read_consume_data = json.loads(read_consume)\n    timeseries_read\
+          \ = read_consume_data.get(\n        \"data\", {}).get(\"timeseries\", [])\n\
+          \    read_unit = read_consume_data.get(\"unit\", \"\")\n    read_consume_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"容器磁盘读取耗时\",\n\
+          \        \"data\": timeseries_read,\n        \"unit\": read_unit\n    }\n\
+          \    evidence.append(read_consume_evidence)\n\n    return {\n        \"\
+          evidence\": json.dumps({\n            \"evidence\": evidence\n        })\n\
+          \    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -15737,7 +15343,7 @@ workflow:
         - value_selector:
           - '17467776423960'
           - text
-          variable: wirte_consume
+          variable: write_consume
         - value_selector:
           - '17467776423971'
           - text
@@ -15756,20 +15362,21 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(swap: str, memory: str) -> dict:\n    \"\"\"\
-          \n    List: [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n \
-          \   \"\"\"\n    evidence = []\n\n    swap_data = json.loads(swap)\n    timeseries_swap\
-          \ = swap_data.get(\"data\", {}).get(\"timeseries\", [])\n    swap_data[\"\
-          timeseries\"] = timeseries_swap\n    swap_data.pop(\"data\", None)\n\n \
-          \   swap_evidence = {\n        \"type\": \"metric\",\n        \"name\":\
-          \ \"磁盘交换区使用率\",\n        \"data\": swap_data\n    }\n    evidence.append(swap_evidence)\n\
-          \n    memory_data = json.loads(memory)\n    timeseries_memory = memory_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    memory_data[\"timeseries\"] = timeseries_memory\n\
-          \    memory_data.pop(\"data\", None)\n\n    memory_evidence = {\n      \
-          \  \"type\": \"metric\",\n        \"name\": \"容器内存使用字节数\",\n        \"data\"\
-          : memory_data\n    }\n    evidence.append(memory_evidence)\n\n    return\
-          \ {\n        \"evidence\": json.dumps({\n            \"evidence\": evidence\n\
-          \        })\n    }"
+        code: "import json\n\n\ndef main(swap: str, memory: str) -> dict:\n    \"\"\
+          \"\n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
+          \    \"\"\"\n    evidence = []\n\n    swap_data = json.loads(swap)\n   \
+          \ timeseries_swap = swap_data.get(\"data\", {}).get(\"timeseries\", [])\n\
+          \    swap_unit = swap_data.get(\"unit\", \"\")\n    swap_evidence = {\n\
+          \        \"type\": \"metrics\",\n        \"name\": \"磁盘交换区使用率\",\n     \
+          \   \"data\": timeseries_swap,\n        \"unit\": swap_unit\n    }\n   \
+          \ evidence.append(swap_evidence)\n\n    memory_data = json.loads(memory)\n\
+          \    timeseries_memory = memory_data.get(\"data\", {}).get(\"timeseries\"\
+          , [])\n    memory_unit = memory_data.get(\"unit\", \"\")\n\n    memory_evidence\
+          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"容器内存使用字节数\",\n\
+          \        \"data\": timeseries_memory,\n        \"unit\": memory_unit\n \
+          \   }\n    evidence.append(memory_evidence)\n\n    return {\n        \"\
+          evidence\": json.dumps({\n            \"evidence\": evidence\n        })\n\
+          \    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -15803,13 +15410,13 @@ workflow:
       width: 244
     - data:
         code: "import json\n\ndef main(read: str) -> dict:\n    \"\"\"\n    List:\
-          \ [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n\
+          \ [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n\
           \    read_data = json.loads(read)\n    read_timeseries = read_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    read_data[\"timeseries\"] = read_timeseries\n\
-          \    read_data.pop(\"data\", None)\n\n    evidence = [{\n        \"type\"\
-          : \"metric\",\n        \"name\": \"容器磁盘读取耗时\",\n        \"data\": read_data\n\
-          \    }]\n\n    return {\n        \"evidence\": json.dumps({\n          \
-          \  \"evidence\": evidence\n        })\n    }"
+          data\", {}).get(\"timeseries\", [])\n\n    evidence = [{\n        \"type\"\
+          : \"metrics\",\n        \"name\": \"容器磁盘读取耗时\",\n        \"data\": read_timeseries,\n\
+          \        \"unit\": read_data.get(\"unit\", \"\")\n    }]\n\n    return {\n\
+          \        \"evidence\": json.dumps({\n            \"evidence\": evidence\n\
+          \        })\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15838,16 +15445,15 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(write: str) -> dict:\n    \"\"\"\n    List:\
-          \ [{\"type\": \"metric\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n\
+        code: "import json\n\n\ndef main(write: str) -> dict:\n    \"\"\"\n    List:\
+          \ [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n\
           \    write_data = json.loads(write)\n    write_timeseries = write_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    write_data[\"timeseries\"] = write_timeseries\n\
-          \    write_data.pop(\"data\", None)\n\n    evidence = [{\n        \"type\"\
-          : \"metric\",\n        \"name\": \"容器磁盘读取耗时\", # Note: The name here is\
-          \ \"容器磁盘读取耗时\", but the variable is \"write\".\n                       \
-          \          # If this is meant to be \"容器磁盘写入耗时\", please adjust the name.\n\
-          \        \"data\": write_data\n    }]\n\n    return {\n        \"evidence\"\
-          : json.dumps({\n            \"evidence\": evidence\n        })\n    }"
+          data\", {}).get(\"timeseries\", [])\n\n    evidence = [{\n        \"type\"\
+          : \"metric\",\n        # Note: The name here is \"容器磁盘写入耗时\", but the variable\
+          \ is \"write\".\n        \"name\": \"容器磁盘写入耗时\",\n        \"data\": write_timeseries,\n\
+          \        \"unit\": write_data.get(\"unit\", \"\")\n    }]\n\n    return\
+          \ {\n        \"evidence\": json.dumps({\n            \"evidence\": evidence\n\
+          \        })\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -15877,12 +15483,12 @@ workflow:
       width: 244
     - data:
         code: "import json\n\ndef main(fd: str) -> dict:\n    \"\"\"\n    List: [{\"\
-          type\": \"metric\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n    fd_data\
+          type\": \"metrics\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n    fd_data\
           \ = json.loads(fd)\n    fd_timeseries = fd_data.get(\"data\", {}).get(\"\
-          timeseries\", [])\n    fd_data[\"timeseries\"] = fd_timeseries\n    fd_data.pop(\"\
-          data\", None)\n\n    evidence = [{\n        \"type\": \"metric\",\n    \
-          \    \"name\": \"容器磁盘读取耗时\",\n        \"data\": fd_data\n    }]\n\n    return\
-          \ {\n        \"evidence\": json.dumps({\n            \"evidence\": evidence\n\
+          timeseries\", [])\n\n    evidence = [{\n        \"type\": \"metrics\",\n\
+          \        \"name\": \"容器磁盘读取耗时\",\n        \"data\": fd_timeseries,\n   \
+          \     \"unit\": fd_data.get(\"unit\", \"\")\n    }]\n\n    return {\n  \
+          \      \"evidence\": json.dumps({\n            \"evidence\": evidence\n\
           \        })\n    }"
         code_language: python3
         desc: ''
@@ -16877,9 +16483,9 @@ workflow:
         code: "import json\n\ndef main(service_name_outputs: list[str]) -> dict:\n\
           \    services = []\n    for service_name_output in service_name_outputs:\n\
           \        service = json.loads(service_name_output).get('data', '')\n   \
-          \     services.append(service)\n\n    return {\n        \"query\": \" \"\
-          .join(str(service) for service in services),\n        \"services\": services\n\
-          \    }\n"
+          \     if service:\n            services.append(service)\n\n    return {\n\
+          \        \"query\": \" \".join(str(service) for service in services),\n\
+          \        \"services\": services\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -18482,7 +18088,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: /models/qwen2.5-32B
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d280d643-f718-49df-9b28-b6f956e1e9a2
@@ -18889,7 +18495,464 @@ workflow:
       type: custom
       width: 244
       zIndex: 1002
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Prometheus job name for host metrics
+            ja_JP: Prometheus job name for host metrics
+            pt_BR: Prometheus job name for host metrics
+            zh_Hans: Prometheus任务名称（宿主机指标）
+          label:
+            en_US: Prometheus Job
+            ja_JP: Prometheus Job
+            pt_BR: Tarefa Prometheus
+            zh_Hans: Prometheus任务
+          llm_description: Unique identifier for metrics scrape job
+          max: null
+          min: null
+          name: job
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Host node identifier
+            ja_JP: Host node identifier
+            pt_BR: Host node identifier
+            zh_Hans: 宿主机节点标识
+          label:
+            en_US: Host Node
+            ja_JP: Host Node
+            pt_BR: Host Node
+            zh_Hans: 宿主机节点
+          llm_description: Unique identifier for host node
+          max: null
+          min: null
+          name: node
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          job: ''
+          node: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询宿主机根文件系统使用率
+        tool_configurations: {}
+        tool_label: 查询宿主机根文件系统使用率
+        tool_name: 查询宿主机根文件系统使用率
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - endTime
+          node:
+            type: mixed
+            value: '{{#1744959389144.instanceName#}}'
+          startTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - startTime
+        type: tool
+      height: 54
+      id: '1761813411870'
+      position:
+        x: 12090
+        y: 2946.132921433965
+      positionAbsolute:
+        x: 12090
+        y: 2946.132921433965
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Prometheus job name for host metrics
+            ja_JP: Prometheus job name for host metrics
+            pt_BR: Prometheus job name for host metrics
+            zh_Hans: Prometheus任务名称（宿主机指标）
+          label:
+            en_US: Prometheus Job
+            ja_JP: Prometheus Job
+            pt_BR: Tarefa Prometheus
+            zh_Hans: Prometheus任务
+          llm_description: Unique identifier for metrics scrape job
+          max: null
+          min: null
+          name: job
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Host node identifier
+            ja_JP: Host node identifier
+            pt_BR: Host node identifier
+            zh_Hans: 宿主机节点标识
+          label:
+            en_US: Host Node
+            ja_JP: Host Node
+            pt_BR: Host Node
+            zh_Hans: 宿主机节点
+          llm_description: Unique identifier for host node
+          max: null
+          min: null
+          name: node
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          job: ''
+          node: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询宿主机根文件系统总大小
+        tool_configurations: {}
+        tool_label: 查询宿主机根文件系统总大小
+        tool_name: 查询宿主机根文件系统总大小
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - endTime
+          job:
+            type: mixed
+            value: ''
+          node:
+            type: mixed
+            value: '{{#1744959389144.instanceName#}}'
+          startTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - startTime
+        type: tool
+      height: 54
+      id: '1761813416502'
+      position:
+        x: 12080.905770551093
+        y: 3043.3079558204845
+      positionAbsolute:
+        x: 12080.905770551093
+        y: 3043.3079558204845
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cAdvisor job name
+            ja_JP: cAdvisor job name
+            pt_BR: cAdvisor job name
+            zh_Hans: cAdvisor任务名称
+          label:
+            en_US: cAdvisor job name
+            ja_JP: cAdvisor job name
+            pt_BR: cAdvisor job name
+            zh_Hans: cAdvisor任务名称
+          llm_description: cAdvisor job name
+          max: null
+          min: null
+          name: cadvisor_job_name
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Namespace
+            ja_JP: Namespace
+            pt_BR: Namespace
+            zh_Hans: 命名空间
+          label:
+            en_US: Namespace
+            ja_JP: Namespace
+            pt_BR: Namespace
+            zh_Hans: 命名空间
+          llm_description: Namespace
+          max: null
+          min: null
+          name: namespace
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Pod name
+            ja_JP: Pod name
+            pt_BR: Pod name
+            zh_Hans: Pod名称
+          label:
+            en_US: Pod name
+            ja_JP: Pod name
+            pt_BR: Pod name
+            zh_Hans: Pod名称
+          llm_description: Pod name
+          max: null
+          min: null
+          name: pod
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cadvisor_job_name: ''
+          endTime: ''
+          namespace: ''
+          pod: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 容器CPU使用率(使用Containerd容器运行时,按容器和Pod统计)
+        tool_configurations: {}
+        tool_label: 容器CPU使用率(使用Containerd容器运行时,按容器和Pod统计)
+        tool_name: 容器CPU使用率(使用Containerd容器运行时,按容器和Pod统计)
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - endTime
+          namespace:
+            type: mixed
+            value: ''
+          pod:
+            type: mixed
+            value: '{{#1743670099979.result#}}'
+          startTime:
+            type: variable
+            value:
+            - '1743576019537'
+            - startTime
+        type: tool
+      height: 54
+      id: '1761815052981'
+      position:
+        x: 7903.061554952144
+        y: 3590.413956830906
+      positionAbsolute:
+        x: 7903.061554952144
+        y: 3590.413956830906
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -444.40689778145645
-      y: 87.28388840973366
-      zoom: 0.25600335442007016
+      x: -650.5119601889021
+      y: -53.24920816324092
+      zoom: 0.25

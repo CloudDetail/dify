@@ -1,13 +1,12 @@
 import json
 from collections.abc import Generator
-from typing import Any, Optional, Dict
+from typing import Any, Dict, Optional
 
 import requests
 
 from configs import dify_config
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
-from libs.apo_utils import APOUtils
 
 
 class ServiceTopologyTool(BuiltinTool):
@@ -32,8 +31,14 @@ class ServiceTopologyTool(BuiltinTool):
         }
 
         try:
+            url = ""
+            if dify_config.DATA_SOURCE == 'apo':
+                url = f"{dify_config.APO_BACKEND_URL}/api/dataplane/topology"
+            else:
+                url = f"{dify_config.DATAPLANE_URL}/dataplane/topology"
+
             response = requests.get(
-                f"{dify_config.APO_BACKEND_URL}/api/dataplane/topology",
+                url,
                 params=query_params,
                 timeout=10,
             )
@@ -50,7 +55,7 @@ class ServiceTopologyTool(BuiltinTool):
                 return {
                     "endpoint": node["id"],
                     "group": node["category"],
-                    "isTraced": True,  
+                    "isTraced": True,
                     "service": node["name"],
                     "system": node["category"]
                 }
@@ -70,7 +75,7 @@ class ServiceTopologyTool(BuiltinTool):
             ]
 
             formatted_data = json.dumps({
-                "type": "toopology",
+                "type": "topology",
                 "display": True,
                 "data": {
                     "children": formatted_children,

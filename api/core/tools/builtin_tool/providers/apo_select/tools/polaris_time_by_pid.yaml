@@ -25,6 +25,17 @@ parameters:
       zh_Hans: 进程id（正则查询格式：pid1|pid2）
     llm_description: Process identity(eg:pid1|pid2)
     form: llm
+  - name: node
+    type: string
+    required: False
+    label:
+      en_US: Node (eg:node1|node2)
+      zh_Hans: 节点id（正则查询格式：node1|node2）
+    human_description:
+      en_US: Node identity(eg:node1|node2)
+      zh_Hans: 节点id（正则查询格式：node1|node2）
+    llm_description: Node identity(eg:node1|node2)
+    form: llm
   - name: type
     type: string
     required: False
