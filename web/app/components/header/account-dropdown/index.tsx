@@ -6,7 +6,6 @@ import { useContext } from 'use-context-selector'
 import { RiArrowDownSLine } from '@remixicon/react'
 import Link from 'next/link'
 import { Menu, Transition } from '@headlessui/react'
-import Indicator from '../indicator'
 import AccountAbout from '../account-about'
 import classNames from '@/utils/classnames'
 import I18n from '@/context/i18n'
@@ -126,22 +125,22 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                       <ArrowUpRight className='hidden w-[14px] h-[14px] text-text-tertiary group-hover:flex' />
                     </Link>}
                   </Menu.Item>
-                  {/* <Menu.Item>
+                  <Menu.Item>
                     {({ active }) => (
                       <div
                         className={classNames(
                           itemClassName,
-                          active && "bg-state-base-hover",
+                          active && 'bg-state-base-hover',
                         )}
                         onClick={() =>
-                          setShowAccountSettingModal({ payload: "members" })
+                          setShowAccountSettingModal({ payload: 'members' })
                         }
                       >
-                        <div>{t("common.userProfile.settings")}</div>
+                        <div>{t('common.userProfile.settings')}</div>
                       </div>
                     )}
                   </Menu.Item>
-                  */}
+
                   {/* {canEmailSupport && <Menu.Item>
                       {({ active }) => <a
                         className={classNames(itemClassName, 'group justify-between',
@@ -205,7 +204,7 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                       </Link>
                     )}
                   </Menu.Item> */}
-                  {document?.body?.getAttribute('data-public-site-about')
+                  {/* {document?.body?.getAttribute('data-public-site-about')
                     !== 'hide' && (
                     <Menu.Item>
                       {({ active }) => (
@@ -234,7 +233,7 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                         </div>
                       )}
                     </Menu.Item>
-                  )}
+                  )} */}
                 </div>
                 {/* {!sessionStorage.getItem("disable_log_out") && (
                   <Menu.Item>

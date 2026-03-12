@@ -3,7 +3,6 @@ import {
   useRef,
 } from 'react'
 import {
-  RiArrowRightUpLine,
   RiArrowUpDoubleLine,
 } from '@remixicon/react'
 import { useTranslation } from 'react-i18next'
@@ -11,7 +10,6 @@ import { useMarketplace } from './hooks'
 import List from '@/app/components/plugins/marketplace/list'
 import Loading from '@/app/components/base/loading'
 import { getLocaleOnClient } from '@/i18n'
-import { MARKETPLACE_URL_PREFIX } from '@/config'
 
 type MarketplaceProps = {
   searchPluginText: string
@@ -56,7 +54,7 @@ const Marketplace = ({
         className='absolute top-2 left-1/2 -translate-x-1/2 w-4 h-4 text-text-quaternary cursor-pointer'
         onClick={() => onMarketplaceScroll()}
       />
-      <div className='sticky top-0 pt-5 pb-3 bg-background-default-subtle z-10'>
+      {/* <div className='sticky top-0 pt-5 pb-3 bg-background-default-subtle z-10'>
         <div className='title-2xl-semi-bold bg-gradient-to-r from-[rgba(11,165,236,0.95)] to-[rgba(21,90,239,0.95)] bg-clip-text text-transparent'>
           {t('plugin.marketplace.moreFrom')}
         </div>
@@ -91,7 +89,7 @@ const Marketplace = ({
             <RiArrowRightUpLine className='w-4 h-4' />
           </a>
         </div>
-      </div>
+      </div> */}
       {
         isLoading && page === 1 && (
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
