@@ -103,3 +103,63 @@ parameters:
       pt_BR: evidence
     llm_description: evidence
     form: llm
+  - name: alertDirection
+    type: string
+    label:
+      en_US: alertDirection
+      zh_Hans: 故障方向
+      pt_BR: alertDirection
+    human_description:
+      en_US: alertDirection
+      zh_Hans: 故障方向
+      pt_BR: alertDirection
+    llm_description: alertDirection
+    form: llm
+  - name: analyzeRunId
+    type: string
+    label:
+      en_US: analyzeRunId
+      zh_Hans: 分析运行ID
+      pt_BR: analyzeRunId
+    human_description:
+      en_US: analyzeRunId
+      zh_Hans: 分析运行ID
+      pt_BR: analyzeRunId
+    llm_description: analyzeRunId
+    form: llm
+  - name: impactScope
+    type: string
+    label:
+      en_US: impactScope
+      zh_Hans: 影响范围
+      pt_BR: impactScope
+    human_description:
+      en_US: impactScope
+      zh_Hans: 影响范围
+      pt_BR: impactScope
+    llm_description: impactScope
+    form: llm
+  - name: infraCheckResult
+    type: string
+    label:
+      en_US: infraCheckResult
+      zh_Hans: 基础设施检查结果
+      pt_BR: infraCheckResult
+    human_description:
+      en_US: infraCheckResult
+      zh_Hans: 基础设施检查结果
+      pt_BR: infraCheckResult
+    llm_description: infraCheckResult
+    form: llm
+  - name: networkCheckResult
+    type: string
+    label:
+      en_US: networkCheckResult
+      zh_Hans: 网络检查结果
+      pt_BR: networkCheckResult
+    human_description:
+      en_US: networkCheckResult
+      zh_Hans: 网络检查结果
+      pt_BR: networkCheckResult
+    llm_description: networkCheckResult
+    form: llm

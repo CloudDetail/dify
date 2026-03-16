@@ -25,6 +25,13 @@ class AlertReportGen(BuiltinTool):
         rootCauseAnalysis = convert_to_json(tool_parameters.get("rootCauseAnalysis"), "rootCauseAnalysis", errormsgs)
         suggest = convert_to_json(tool_parameters.get("suggest"), "suggest", errormsgs).get("suggest", {})
         evidence = convert_to_json(tool_parameters.get("evidence"), "evidence", errormsgs).get("evidence", {})
+
+        alertDirection = tool_parameters.get("alertDirection")
+        analyzeRunId = tool_parameters.get("analyzeRunId")
+        impactScope = tool_parameters.get("impactScope")
+        infraCheckResult = tool_parameters.get("infraCheckResult")
+        networkCheckResult = tool_parameters.get("networkCheckResult")
+
         json_data = {
             'reportType': reportType,
             'overview': overview,
@@ -32,7 +39,12 @@ class AlertReportGen(BuiltinTool):
             'topology': topology,
             'rootCauseAnalysis': rootCauseAnalysis,
             'suggest': suggest,
-            'evidence': evidence
+            'evidence': evidence,
+            'alertDirection': alertDirection,
+            'analyzeRunId': analyzeRunId,
+            'impactScope': impactScope,
+            'infraCheckResult': infraCheckResult,
+            'networkCheckResult': networkCheckResult
         }
         resp = requests.post(dify_config.APO_BACKEND_URL + '/api/alerts/events/report/add', json=json_data)
         if resp.status_code != 200:
