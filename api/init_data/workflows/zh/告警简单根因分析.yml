@@ -9,11 +9,7 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/deepseek:0.0.5@fd6efd37c2a931911de8ab9ca3ba2da303bef146d45ee87ad896b04b36d09403
-- current_identifier: null
-  type: package
-  value:
-    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
+    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.30@065d5a0ef2af4f50887dbb245113a9754eec8ea7f0d753fa4102395f52fdfed8
 kind: app
 version: 0.1.5
 workflow:
@@ -584,78 +580,6 @@ workflow:
         isInIteration: false
         sourceType: code
         targetType: tool
-      id: 1750661889002-source-1750754610625-target
-      selected: false
-      source: '1750661889002'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750662168285-source-1750754610625-target
-      selected: false
-      source: '1750662168285'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750672701216-source-1750754610625-target
-      selected: false
-      source: '1750672701216'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 17506728633540-source-1750754610625-target
-      selected: false
-      source: '17506728633540'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750750056742-source-1750754610625-target
-      selected: false
-      source: '1750750056742'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750769951427-source-1750754610625-target
-      selected: false
-      source: '1750769951427'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
       id: 1750830567613-source-1750830747193-target
       selected: false
       source: '1750830567613'
@@ -733,18 +657,6 @@ workflow:
       source: '1750927458985'
       sourceHandle: source
       target: '1750769951427'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: end
-      id: 1750995139153-source-1741502839759-target
-      selected: false
-      source: '1750995139153'
-      sourceHandle: source
-      target: '1741502839759'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -925,30 +837,6 @@ workflow:
       source: '17473562733380'
       sourceHandle: source
       target: '17515143872690'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: llm
-      id: 1751601681225-source-1750995139153-target
-      selected: false
-      source: '1751601681225'
-      sourceHandle: source
-      target: '1750995139153'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: tool
-      id: 1750754610625-source-1751601681225-target
-      selected: false
-      source: '1750754610625'
-      sourceHandle: source
-      target: '1751601681225'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1543,6 +1431,160 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: tool
+      id: 1750754610625-source-1751601681225-target
+      source: '1750754610625'
+      sourceHandle: source
+      target: '1751601681225'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: end
+      id: 1751601681225-source-1741502839759-target
+      source: '1751601681225'
+      sourceHandle: source
+      target: '1741502839759'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1750995139153-source-1750754610625-target
+      source: '1750995139153'
+      sourceHandle: source
+      target: '1750754610625'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1762841596113-source-1750754610625-target
+      source: '1762841596113'
+      sourceHandle: source
+      target: '1750754610625'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1762841632088-source-1750754610625-target
+      source: '1762841632088'
+      sourceHandle: source
+      target: '1750754610625'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1773653474273-source-1750995139153-target
+      source: '1773653474273'
+      sourceHandle: source
+      target: '1750995139153'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1773653474273-source-1762841596113-target
+      source: '1773653474273'
+      sourceHandle: source
+      target: '1762841596113'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1773653474273-source-1762841632088-target
+      source: '1773653474273'
+      sourceHandle: source
+      target: '1762841632088'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750661889002-source-1773653474273-target
+      source: '1750661889002'
+      sourceHandle: source
+      target: '1773653474273'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750662168285-source-1773653474273-target
+      source: '1750662168285'
+      sourceHandle: source
+      target: '1773653474273'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750672701216-source-1773653474273-target
+      source: '1750672701216'
+      sourceHandle: source
+      target: '1773653474273'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 17506728633540-source-1773653474273-target
+      source: '17506728633540'
+      sourceHandle: source
+      target: '1773653474273'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750750056742-source-1773653474273-target
+      source: '1750750056742'
+      sourceHandle: source
+      target: '1773653474273'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750769951427-source-1773653474273-target
+      source: '1750769951427'
+      sourceHandle: source
+      target: '1773653474273'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -1614,17 +1656,25 @@ workflow:
           - '1751601681225'
           - text
           variable: output
+        - value_selector:
+          - '1762841596113'
+          - text
+          variable: impactScope
+        - value_selector:
+          - '1762841632088'
+          - text
+          variable: networkCheck
         selected: false
         title: End
         type: end
-      height: 142
+      height: 194
       id: '1741502839759'
       position:
-        x: 16886
-        y: 1134
+        x: 18385.41058348893
+        y: 1098.5754258913485
       positionAbsolute:
-        x: 16886
-        y: 1134
+        x: 18385.41058348893
+        y: 1098.5754258913485
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1810,7 +1860,7 @@ workflow:
           - result
         - - '1750658087300'
           - result
-      height: 131
+      height: 130
       id: '1741597274153'
       position:
         x: 1550
@@ -1915,12 +1965,15 @@ workflow:
           ]),\n        \"pid\": get_value(data, [\"pid\"]),\n        \"node\": node,\n\
           \        \"containerId\": get_value(data, [\"containerId\", \"container_id\"\
           ]),\n        \"alertEventId\": get_value(data, [\"alertEventId\"]),\n  \
-          \      \"historyStartTime\": startTime - (24*HOUR),\n        \"historyEndTime\"\
-          : startTime,\n    }\n"
+          \      \"alertId\": get_value(data, [\"alertId\"]),\n        \"historyStartTime\"\
+          : startTime - (24*HOUR),\n        \"historyEndTime\": startTime,\n    }\n"
         code_language: python3
         desc: ''
         outputs:
           alertEventId:
+            children: null
+            type: string
+          alertId:
             children: null
             type: string
           alertName:
@@ -4837,8 +4890,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a56f2cfc-7dfc-4483-888e-80b4a5eca5c8
           role: system
@@ -5734,8 +5787,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 42284b17-9b6e-4660-aaad-9ba66584a21e
           role: system
@@ -5791,16 +5844,17 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(alertEventId: str, run_id: str) -> dict:\n    data = {\n\
-          \        \"alertEventId\": alertEventId,\n        \"runId\": run_id\n  \
-          \  }\n    return {\n        \"result\": json.dumps(data),\n    }\n"
+        code: "\ndef main(alertEventId: str, run_id: str, alertId: str) -> dict:\n\
+          \    data = {\n        \"alertEventId\": alertEventId,\n        \"runId\"\
+          : run_id,\n        \"alertId\" alertId\n    }\n    return {\n        \"\
+          result\": json.dumps(data),\n    }\n"
         code_language: python3
         desc: ''
         outputs:
           result:
             children: null
             type: string
-        selected: false
+        selected: true
         title: 报告标签
         type: code
         variables:
@@ -5812,6 +5866,10 @@ workflow:
           - sys
           - workflow_run_id
           variable: run_id
+        - value_selector:
+          - '1742807803325'
+          - alertId
+          variable: alertId
       height: 54
       id: '1750662168285'
       position:
@@ -5820,7 +5878,7 @@ workflow:
       positionAbsolute:
         x: 15670
         y: 1040
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6218,9 +6276,24 @@ workflow:
         tool_name: Generate alert analysis report
         tool_node_version: '2'
         tool_parameters:
+          alertDirection:
+            type: mixed
+            value: '{{#1750995139153.text#}}'
+          analyzeRunId:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
           evidence:
             type: mixed
             value: '{{#1750769951427.result#}}'
+          impactScope:
+            type: mixed
+            value: '{{#1762841596113.text#}}'
+          infraCheckResult:
+            type: mixed
+            value: 无影响
+          networkCheckResult:
+            type: mixed
+            value: '{{#1762841632088.text#}}'
           overview:
             type: mixed
             value: '{{#1750661889002.result#}}'
@@ -6243,11 +6316,11 @@ workflow:
       height: 54
       id: '1750754610625'
       position:
-        x: 15974
-        y: 1134
+        x: 17103.35544622512
+        y: 1252.695781056118
       positionAbsolute:
-        x: 15974
-        y: 1134
+        x: 17103.35544622512
+        y: 1252.695781056118
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6369,7 +6442,7 @@ workflow:
       positionAbsolute:
         x: 15062
         y: 1582
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6663,8 +6736,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: eb2032a5-ca17-48b4-b532-1c45ed948e91
           role: system
@@ -6710,8 +6783,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 0d6f5be7-b8d0-4354-ae42-7ad580e19039
           role: system
@@ -6791,11 +6864,11 @@ workflow:
       height: 90
       id: '1750995139153'
       position:
-        x: 16582
-        y: 1134
+        x: 16760.830260162416
+        y: 1079.7488203682603
       positionAbsolute:
-        x: 16582
-        y: 1134
+        x: 16760.830260162416
+        y: 1079.7488203682603
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7603,7 +7676,12 @@ workflow:
           \ json.dumps(filtered)\n    \ndef main(arg1: str) -> dict:\n    res = analyze_data(arg1)\n\
           \    return {\n        \"result\": res,\n    }\n"
         code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: ''
         desc: ''
+        error_strategy: default-value
         outputs:
           result:
             children: null
@@ -7616,7 +7694,7 @@ workflow:
           - '17473562733380'
           - text
           variable: arg1
-      height: 54
+      height: 90
       id: '17515143872690'
       position:
         x: 6110
@@ -7793,11 +7871,11 @@ workflow:
       height: 54
       id: '1751601681225'
       position:
-        x: 16278
-        y: 1134
+        x: 17584.576262560746
+        y: 1264
       positionAbsolute:
-        x: 16278
-        y: 1134
+        x: 17584.576262560746
+        y: 1264
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8158,7 +8236,7 @@ workflow:
           - result
         - - '1754298166852'
           - abnormal_downstream_instances
-      height: 131
+      height: 130
       id: '1754375770920'
       position:
         x: 8846
@@ -8250,8 +8328,8 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17430596469370'
         - text
@@ -8285,7 +8363,7 @@ workflow:
           - text
         - - '17430596469370'
           - text
-      height: 131
+      height: 130
       id: '1754385689812'
       position:
         x: 9454
@@ -9440,6 +9518,9 @@ workflow:
             value:
             - '1741227526517'
             - endTime
+          isError:
+            type: mixed
+            value: ''
           limit:
             type: constant
             value: 10
@@ -9468,8 +9549,8 @@ workflow:
     - data:
         code: "import json\n\n\ndef main(data_json: str, current_service: str):\n\
           \    traces = json.loads(data_json).get('data', {}).get('data', [])\n  \
-          \  entries = []\n    seen_entries = set()\n    for trace in traces:\n  \
-          \      for span in trace.get('spans', []):\n            parent_id = span.get('parentSpanId',\
+          \  entries = []\n    seen_entries = set()\n    for trace in traces or []:\n\
+          \        for span in trace.get('spans', []):\n            parent_id = span.get('parentSpanId',\
           \ '')\n            if not parent_id:\n                service_name = span.get('serviceName',\
           \ '')\n                endpoint = span.get('name', '')\n               \
           \ if service_name and endpoint and (service_name, endpoint) not in seen_entries:\n\
@@ -10582,7 +10663,141 @@ workflow:
       type: custom
       width: 244
       zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 423f4e8d-b98c-43b1-a53a-bc139e0921fd
+          role: system
+          text: 你是一负责总结的助手
+        - id: 567af067-a5b8-48cb-a79b-81e025723899
+          role: user
+          text: '# 任务
+
+            从告警事件和影响服务信息中提取受影响服务名
+
+            # 输出
+
+            受影响服务的名称，且服务名必须完整
+
+            如 “影响到xxxx”, xxxx如服务连接平台，不能是服务平台
+
+            如果未检测到受影响服务，输出无影响
+
+            # 数据
+
+            告警内容
+
+            {{#1742807803325.alertName#}}
+
+            影响服务
+
+            {{#1759065784647.text#}}'
+        selected: false
+        title: 影响面
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1762841596113'
+      position:
+        x: 16755.001784813772
+        y: 1247.236578576005
+      positionAbsolute:
+        x: 16755.001784813772
+        y: 1247.236578576005
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 66b96d23-6ff5-493b-971d-f022a2c96555
+          role: system
+          text: 你是一负责总结的助手
+        - id: d4d298df-0ffa-4c40-ba3f-a83bd7ce8a19
+          role: user
+          text: '# 任务
+
+            根据网络指标状态总结
+
+            通常认为100ms以下的网络都是正常的
+
+            必简洁短小
+
+            # 输出
+
+            十个字以内，不要太多
+
+            参考格式
+
+            认为正常输出 “无影响”
+
+            认为异常输出 “网络RTT 1m/10m/1h 20ms/30ms/25ms”
+
+            # RTT数据
+
+            {{#17515143872690.result#}}'
+        selected: false
+        title: 网络检查
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1762841632088'
+      position:
+        x: 16728.516781411006
+        y: 1461.3086024091428
+      positionAbsolute:
+        x: 16728.516781411006
+        y: 1461.3086024091428
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: '""'
+        title: Template 3
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1773653474273'
+      position:
+        x: 16087.737645071811
+        y: 1123.5268428479897
+      positionAbsolute:
+        x: 16087.737645071811
+        y: 1123.5268428479897
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -6765.931927189988
-      y: -283.8781939209855
-      zoom: 0.4584636160710502
+      x: -11944.307888444817
+      y: -640.0374887662636
+      zoom: 0.779310081727825

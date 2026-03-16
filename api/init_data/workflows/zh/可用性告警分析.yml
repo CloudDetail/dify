@@ -9,7 +9,7 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
+    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.30@065d5a0ef2af4f50887dbb245113a9754eec8ea7f0d753fa4102395f52fdfed8
 kind: app
 version: 0.1.5
 workflow:
@@ -134,30 +134,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750839702220-source-1750839691646-target
-      selected: false
-      source: '1750839702220'
-      sourceHandle: source
-      target: '1750839691646'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750840042580-source-1750839691646-target
-      selected: false
-      source: '1750840042580'
-      sourceHandle: source
-      target: '1750839691646'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: llm
         targetType: code
       id: 1750840340832-source-1750840042580-target
@@ -165,42 +141,6 @@ workflow:
       source: '1750840340832'
       sourceHandle: source
       target: '1750840042580'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750843294839-source-1750839691646-target
-      selected: false
-      source: '1750843294839'
-      sourceHandle: source
-      target: '1750839691646'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750843922551-source-1750839691646-target
-      selected: false
-      source: '1750843922551'
-      sourceHandle: source
-      target: '1750839691646'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750843945254-source-1750839691646-target
-      selected: false
-      source: '1750843945254'
-      sourceHandle: source
-      target: '1750839691646'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -242,18 +182,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750941439700-source-1750839691646-target
-      selected: false
-      source: '1750941439700'
-      sourceHandle: source
-      target: '1750839691646'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: llm
         targetType: llm
       id: 1750987639392-source-1750840340832-target
@@ -267,36 +195,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: llm
-        targetType: end
-      id: 1751004239868-source-1744878476249-target
-      selected: false
-      source: '1751004239868'
-      sourceHandle: source
-      target: '1744878476249'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
         targetType: code
       id: 1751251291730-source-1750843294839-target
       selected: false
       source: '1751251291730'
       sourceHandle: source
       target: '1750843294839'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: llm
-      id: 1751602453263-source-1751004239868-target
-      selected: false
-      source: '1751602453263'
-      sourceHandle: source
-      target: '1751004239868'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1094,6 +998,127 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: end
+      id: 1751602453263-source-1744878476249-target
+      source: '1751602453263'
+      sourceHandle: source
+      target: '1744878476249'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1751004239868-source-1750839691646-target
+      source: '1751004239868'
+      sourceHandle: source
+      target: '1750839691646'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1762842519615-source-1750839691646-target
+      source: '1762842519615'
+      sourceHandle: source
+      target: '1750839691646'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750843294839-source-1773653983729-target
+      source: '1750843294839'
+      sourceHandle: source
+      target: '1773653983729'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1773653983729-source-1751004239868-target
+      source: '1773653983729'
+      sourceHandle: source
+      target: '1751004239868'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1773653983729-source-1762842519615-target
+      source: '1773653983729'
+      sourceHandle: source
+      target: '1762842519615'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750839702220-source-1773653983729-target
+      source: '1750839702220'
+      sourceHandle: source
+      target: '1773653983729'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750840042580-source-1773653983729-target
+      source: '1750840042580'
+      sourceHandle: source
+      target: '1773653983729'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750843922551-source-1773653983729-target
+      source: '1750843922551'
+      sourceHandle: source
+      target: '1773653983729'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750843945254-source-1773653983729-target
+      source: '1750843945254'
+      sourceHandle: source
+      target: '1773653983729'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750941439700-source-1773653983729-target
+      source: '1750941439700'
+      sourceHandle: source
+      target: '1773653983729'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -1263,13 +1288,17 @@ workflow:
           ]),\n        \"nodeName\": node if node else get_value(data, [\"node\",\
           \ \"src_node\", \"node_name\", \"nodeName\"]),\n        \"sourceFrom\":\
           \ source_from,\n        \"alertEventId\": get_value(data, [\"alertEventId\"\
-          ]),\n        \"comm\": get_value(raw_tags, [\"comm\"]),\n        \"workloadName\"\
-          : get_value(raw_tags, [\"workload_name\"]),\n        \"historyStartTime\"\
-          : startTime - (24*HOUR),\n        \"historyEndTime\": startTime\n    }"
+          ]),\n        \"alertId\": get_value(data, [\"alertId\"]),\n        \"comm\"\
+          : get_value(raw_tags, [\"comm\"]),\n        \"workloadName\": get_value(raw_tags,\
+          \ [\"workload_name\"]),\n        \"historyStartTime\": startTime - (24*HOUR),\n\
+          \        \"historyEndTime\": startTime\n    }"
         code_language: python3
         desc: ''
         outputs:
           alertEventId:
+            children: null
+            type: string
+          alertId:
             children: null
             type: string
           alertName:
@@ -1492,7 +1521,7 @@ workflow:
           - text
         - - '1753686431084'
           - output
-      height: 131
+      height: 130
       id: '1744878466157'
       position:
         x: 9070
@@ -1520,17 +1549,21 @@ workflow:
           - '1751004239868'
           - text
           variable: alertDirection
+        - value_selector:
+          - '1762842519615'
+          - text
+          variable: impactScope
         selected: false
         title: 结束
         type: end
-      height: 142
+      height: 168
       id: '1744878476249'
       position:
-        x: 15294
-        y: 809
+        x: 15727.950518050711
+        y: 749.7806181610744
       positionAbsolute:
-        x: 15294
-        y: 809
+        x: 15727.950518050711
+        y: 749.7806181610744
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1774,9 +1807,24 @@ workflow:
         tool_name: Generate alert analysis report
         tool_node_version: '2'
         tool_parameters:
+          alertDirection:
+            type: mixed
+            value: '{{#1751004239868.text#}}'
+          analyzeRunId:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
           evidence:
             type: mixed
             value: '{{#1750843294839.result#}}'
+          impactScope:
+            type: mixed
+            value: '{{#1762842519615.text#}}'
+          infraCheckResult:
+            type: mixed
+            value: 无影响
+          networkCheckResult:
+            type: mixed
+            value: 无影响
           overview:
             type: mixed
             value: '{{#1750840042580.result#}}'
@@ -1799,27 +1847,27 @@ workflow:
       height: 54
       id: '1750839691646'
       position:
-        x: 14382
-        y: 809
+        x: 14967.428747543498
+        y: 815.6715526785584
       positionAbsolute:
-        x: 14382
-        y: 809
+        x: 14967.428747543498
+        y: 815.6715526785584
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "\n\ndef main(alertEventId: str) -> dict:\n    data = {\n        \"\
-          alertEventId\": alertEventId\n    }\n    return {\n        \"result\": json.dumps(data),\n\
-          \    }\n"
+        code: "\n\ndef main(alertEventId: str, alertId) -> dict:\n    data = {\n \
+          \       \"alertEventId\": alertEventId\n        \"alertId\": alertId\n \
+          \   }\n    return {\n        \"result\": json.dumps(data),\n    }\n"
         code_language: python3
         desc: ''
         outputs:
           result:
             children: null
             type: string
-        selected: false
+        selected: true
         title: 报告标签
         type: code
         variables:
@@ -1827,6 +1875,10 @@ workflow:
           - '1742807803325'
           - alertEventId
           variable: alertEventId
+        - value_selector:
+          - '1742807803325'
+          - alertId
+          variable: alertId
       height: 54
       id: '1750839702220'
       position:
@@ -1835,7 +1887,7 @@ workflow:
       positionAbsolute:
         x: 14078
         y: 474
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -2117,7 +2169,7 @@ workflow:
           - error_logs_str
         - - '1753687345334'
           - error_logs_str
-      height: 131
+      height: 130
       id: '1750844540721'
       position:
         x: 8766
@@ -2299,11 +2351,11 @@ workflow:
       height: 54
       id: '1750941439700'
       position:
-        x: 14078
-        y: 1163
+        x: 14051.313789285767
+        y: 1209.7008687499088
       positionAbsolute:
-        x: 14078
-        y: 1163
+        x: 14051.313789285767
+        y: 1209.7008687499088
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2400,11 +2452,11 @@ workflow:
       height: 90
       id: '1751004239868'
       position:
-        x: 14990
-        y: 809
+        x: 14642.667596294974
+        y: 679
       positionAbsolute:
-        x: 14990
-        y: 809
+        x: 14642.667596294974
+        y: 679
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2618,11 +2670,11 @@ workflow:
       height: 54
       id: '1751602453263'
       position:
-        x: 14686
-        y: 809
+        x: 15298.11495825773
+        y: 782.3137892857665
       positionAbsolute:
-        x: 14686
-        y: 809
+        x: 15298.11495825773
+        y: 782.3137892857665
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4391,7 +4443,7 @@ workflow:
           - text
         - - '1753437974705'
           - text
-      height: 131
+      height: 130
       id: '1753686431084'
       position:
         x: 8462
@@ -7033,7 +7085,7 @@ workflow:
       positionAbsolute:
         x: 12558
         y: 474
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -7088,7 +7140,65 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 223c0504-2efb-495e-b9d9-592fbbe60dd4
+          role: system
+          text: 你是一个善于总结的助手
+        - id: 786f899a-9ad1-4e30-849a-ef418b921ae1
+          role: user
+          text: "# 任务\n根据告警事件和影响服务并总结影响范围\n必简洁短小\n# 输出\n十个字以内，不要太多\n如 “xxxx”服务不可用\n\
+            \     “xxxx” 服务出现延时问题\n# 数据\n告警内容\n{{#1742807803325.alertName#}}\n影响服务\n\
+            {{#1760103644528.text#}}"
+        selected: false
+        title: 影响面
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1762842519615'
+      position:
+        x: 14620.985050089661
+        y: 877.7132648917179
+      positionAbsolute:
+        x: 14620.985050089661
+        y: 877.7132648917179
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: '""'
+        title: Template 3
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1773653983729'
+      position:
+        x: 14382
+        y: 809
+      positionAbsolute:
+        x: 14382
+        y: 809
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -6509.994598861962
-      y: 10.732026886271797
-      zoom: 0.5293723458831711
+      x: -8237.694365882158
+      y: -144.7714113696003
+      zoom: 0.5995605809807294

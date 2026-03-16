@@ -9,7 +9,7 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
+    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.30@065d5a0ef2af4f50887dbb245113a9754eec8ea7f0d753fa4102395f52fdfed8
 kind: app
 version: 0.1.5
 workflow:
@@ -1154,30 +1154,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750988333220-source-1750988315593-target
-      selected: false
-      source: '1750988333220'
-      sourceHandle: source
-      target: '1750988315593'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750988484023-source-1750988315593-target
-      selected: false
-      source: '1750988484023'
-      sourceHandle: source
-      target: '1750988315593'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: llm
         targetType: code
       id: 1750988845336-source-1750988484023-target
@@ -1209,42 +1185,6 @@ workflow:
       source: '1750990566608'
       sourceHandle: source
       target: '1750990570740'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750990570740-source-1750988315593-target
-      selected: false
-      source: '1750990570740'
-      sourceHandle: source
-      target: '1750988315593'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: end
-      id: 1750995788076-source-17438490239160-target
-      selected: false
-      source: '1750995788076'
-      sourceHandle: source
-      target: '17438490239160'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: llm
-      id: 1751602121596-source-1750995788076-target
-      selected: false
-      source: '1751602121596'
-      sourceHandle: source
-      target: '1750995788076'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1661,18 +1601,6 @@ workflow:
       source: '1752808097130'
       sourceHandle: source
       target: '1752808187410'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1752808187410-source-1750988315593-target
-      selected: false
-      source: '1752808187410'
-      sourceHandle: source
-      target: '1750988315593'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -2641,17 +2569,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 17540319953985-source-1750988315593-target
-      source: '17540319953985'
-      sourceHandle: source
-      target: '1750988315593'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         isInLoop: false
         sourceType: variable-aggregator
         targetType: variable-aggregator
@@ -3084,6 +3001,160 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: end
+      id: 1762942797184-false-17438490239160-target
+      source: '1762942797184'
+      sourceHandle: 'false'
+      target: '17438490239160'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: end
+      id: 1762942797184-true-17629429014520-target
+      source: '1762942797184'
+      sourceHandle: 'true'
+      target: '17629429014520'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: if-else
+      id: 1751602121596-source-1762942797184-target
+      source: '1751602121596'
+      sourceHandle: source
+      target: '1762942797184'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1750995788076-source-1750988315593-target
+      source: '1750995788076'
+      sourceHandle: source
+      target: '1750988315593'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1773654320946-source-1750995788076-target
+      source: '1773654320946'
+      sourceHandle: source
+      target: '1750995788076'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1773654320946-source-1762842961303-target
+      source: '1773654320946'
+      sourceHandle: source
+      target: '1762842961303'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1762842961303-source-1750988315593-target
+      source: '1762842961303'
+      sourceHandle: source
+      target: '1750988315593'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1762842738370-source-1750988315593-target
+      source: '1762842738370'
+      sourceHandle: source
+      target: '1750988315593'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1773654320946-source-1762842738370-target
+      source: '1773654320946'
+      sourceHandle: source
+      target: '1762842738370'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 17540319953985-source-1773654320946-target
+      source: '17540319953985'
+      sourceHandle: source
+      target: '1773654320946'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1752808187410-source-1773654320946-target
+      source: '1752808187410'
+      sourceHandle: source
+      target: '1773654320946'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750990570740-source-1773654320946-target
+      source: '1750990570740'
+      sourceHandle: source
+      target: '1773654320946'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750988484023-source-1773654320946-target
+      source: '1750988484023'
+      sourceHandle: source
+      target: '1773654320946'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1750988333220-source-1773654320946-target
+      source: '1750988333220'
+      sourceHandle: source
+      target: '1773654320946'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -3503,7 +3574,7 @@ workflow:
           - result
         - - '1743652552181'
           - result
-      height: 131
+      height: 130
       id: '1743664106885'
       position:
         x: 1550
@@ -4489,7 +4560,7 @@ workflow:
           - text
         - - '1743847618976'
           - text
-      height: 153
+      height: 152
       id: '1743673518843'
       position:
         x: 11198
@@ -4570,7 +4641,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1743673613633'
       position:
         x: 13286
@@ -5961,17 +6032,25 @@ workflow:
           - '1750995788076'
           - text
           variable: alertDirection
+        - value_selector:
+          - '1762842738370'
+          - text
+          variable: impactScope
+        - value_selector:
+          - '1762842961303'
+          - text
+          variable: infraCheck
         selected: false
         title: 结论
         type: end
-      height: 142
+      height: 194
       id: '17438490239160'
       position:
-        x: 21434
-        y: 2526
+        x: 22667.766871324427
+        y: 2520.376076208213
       positionAbsolute:
-        x: 21434
-        y: 2526
+        x: 22667.766871324427
+        y: 2520.376076208213
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6522,7 +6601,7 @@ workflow:
           - result
         - - '1753941294981'
           - text
-      height: 395
+      height: 394
       id: '1743850218410'
       position:
         x: 13590
@@ -6548,14 +6627,17 @@ workflow:
           \ [\"containerId\", \"container_id\", \"containerID\"]),\n        \"pid\"\
           : get_value(data, [\"pid\", \"process_id\", \"processId\"]),\n        \"\
           instanceName\": instance,\n        \"service\": get_value(data, [\"service\"\
-          ]),\n        \"alertEventId\": get_value(data, [\"alertEventId\"])\n   \
-          \ }\n\n  \ndef get_value(data, keys): \n  for key in keys: \n    value =\
-          \ data.get(key) \n    if value is not None: \n      return value \n  return\
-          \ \"\" \n"
+          ]),\n        \"alertEventId\": get_value(data, [\"alertEventId\"]),\n  \
+          \      \"alertId\": get_value(data, [\"alertId\"])\n    }\n\n  \ndef get_value(data,\
+          \ keys): \n  for key in keys: \n    value = data.get(key) \n    if value\
+          \ is not None: \n      return value \n  return \"\" \n"
         code_language: python3
         desc: ''
         outputs:
           alertEventId:
+            children: null
+            type: string
+          alertId:
             children: null
             type: string
           alertName:
@@ -10601,9 +10683,24 @@ workflow:
         tool_name: Generate alert analysis report
         tool_node_version: '2'
         tool_parameters:
+          alertDirection:
+            type: mixed
+            value: '{{#1750995788076.text#}}'
+          analyzeRunId:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
           evidence:
             type: mixed
             value: '{{#1753955518503.output#}}'
+          impactScope:
+            type: mixed
+            value: '{{#1762842738370.text#}}'
+          infraCheckResult:
+            type: mixed
+            value: '{{#1762842961303.text#}}'
+          networkCheckResult:
+            type: mixed
+            value: 无影响
           overview:
             type: mixed
             value: '{{#1750988484023.result#}}'
@@ -10626,27 +10723,27 @@ workflow:
       height: 54
       id: '1750988315593'
       position:
-        x: 20522
-        y: 2526
+        x: 21133.150895723884
+        y: 2406.4310968397303
       positionAbsolute:
-        x: 20522
-        y: 2526
+        x: 21133.150895723884
+        y: 2406.4310968397303
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "\ndef main(alertEventId: str) -> dict:\n    data = {\n        \"alertEventId\"\
-          : alertEventId\n    }\n    return {\n        \"result\": json.dumps(data),\n\
-          \    }"
+        code: "\ndef main(alertEventId: str, alertId: str) -> dict:\n    data = {\n\
+          \        \"alertEventId\": alertEventId,\n        \"alertId\": alertId\n\
+          \    }\n    return {\n        \"result\": json.dumps(data),\n    }"
         code_language: python3
         desc: ''
         outputs:
           result:
             children: null
             type: string
-        selected: false
+        selected: true
         title: 生成报告标签
         type: code
         variables:
@@ -10654,6 +10751,10 @@ workflow:
           - '1744959389144'
           - alertEventId
           variable: alertEventId
+        - value_selector:
+          - '1744959389144'
+          - alertId
+          variable: alertId
       height: 54
       id: '1750988333220'
       position:
@@ -10662,7 +10763,7 @@ workflow:
       positionAbsolute:
         x: 20218
         y: 2750
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -10861,11 +10962,11 @@ workflow:
       height: 90
       id: '1750988869166'
       position:
-        x: 19346
-        y: 2638
+        x: 19137.914819703878
+        y: 2739.2306282521677
       positionAbsolute:
-        x: 19346
-        y: 2638
+        x: 19137.914819703878
+        y: 2739.2306282521677
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10976,11 +11077,11 @@ workflow:
       height: 90
       id: '1750995788076'
       position:
-        x: 21130
-        y: 2526
+        x: 20883.492749806574
+        y: 2300
       positionAbsolute:
-        x: 21130
-        y: 2526
+        x: 20883.492749806574
+        y: 2300
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11152,11 +11253,11 @@ workflow:
       height: 54
       id: '1751602121596'
       position:
-        x: 20826
-        y: 2526
+        x: 21464.325646442125
+        y: 2319.0537237437816
       positionAbsolute:
-        x: 20826
-        y: 2526
+        x: 21464.325646442125
+        y: 2319.0537237437816
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13769,7 +13870,7 @@ workflow:
           - result
         - - '1752804688058'
           - result
-      height: 153
+      height: 152
       id: '1752804755713'
       position:
         x: 8806
@@ -14004,7 +14105,7 @@ workflow:
           - result
         - - '1753789618196'
           - result
-      height: 153
+      height: 152
       id: '1752818532791'
       position:
         x: 9110
@@ -14116,11 +14217,11 @@ workflow:
       height: 54
       id: '1752827602226'
       position:
-        x: 12090
-        y: 3658
+        x: 12737.367665647349
+        y: 3667.1178544457375
       positionAbsolute:
-        x: 12090
-        y: 3658
+        x: 12737.367665647349
+        y: 3667.1178544457375
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14495,12 +14596,12 @@ workflow:
           data\": self_usage_timeseries,\n        \"unit\": self_usage_data.get(\"\
           unit\", \"\")\n    }\n    evidence.append(self_usage_evidence)\n\n    other_usage_data\
           \ = json.loads(other_usage)\n    other_usage_timeseries = other_usage_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    other_usage_evidence = {\n    \
-          \    \"type\": \"metrics\",\n        \"name\": \"节点其他容器CPU使用率\",\n     \
-          \   \"data\": other_usage_timeseries,\n        \"unit\": other_usage_data.get(\"\
+          data\", {}).get(\"timeseries\", [])[:10]\n    other_usage_evidence = {\n\
+          \        \"type\": \"metrics\",\n        \"name\": \"节点其他容器CPU使用率\",\n \
+          \       \"data\": other_usage_timeseries,\n        \"unit\": other_usage_data.get(\"\
           unit\", \"\")\n    }\n    evidence.append(other_usage_evidence)\n\n    for\
-          \ tps_item in all_tps:\n        if tps_item == \"{}\":\n            continue\n\
-          \        tps_data = json.loads(tps_item)\n        unit = tps_data.get('unit',\
+          \ tps_item in all_tps[:10]:\n        if tps_item == \"{}\":\n          \
+          \  continue\n        tps_data = json.loads(tps_item)\n        unit = tps_data.get('unit',\
           \ \"requests/minute\")\n        evidence.append({\n            \"type\"\
           : \"metrics\",\n            \"name\": \"服务吞吐量\",\n            \"data\":\
           \ tps_data.get(\"timeseries\", []),\n            \"unit\": unit\n      \
@@ -14664,7 +14765,7 @@ workflow:
       positionAbsolute:
         x: 12982
         y: 3676
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -15603,7 +15704,7 @@ workflow:
           - evidence
         - - '1753954284388'
           - evidence
-      height: 439
+      height: 438
       id: '1753955518503'
       position:
         x: 13894
@@ -16364,7 +16465,7 @@ workflow:
           - instances
         - - '1743652552181'
           - instances
-      height: 131
+      height: 130
       id: '1758627861794'
       position:
         x: 1854
@@ -17328,10 +17429,10 @@ workflow:
     - data:
         code: "import json\n\n\ndef main(data_json: str):\n    traces = json.loads(data_json).get('data',\
           \ {}).get('data', [])\n    entries = []\n    seen_entries = set()\n    for\
-          \ trace in traces:\n        for span in trace.get('spans', []):\n      \
-          \      parent_id = span.get('parentSpanId', '')\n            if not parent_id:\n\
-          \                service_name = span.get('serviceName', '')\n          \
-          \      endpoint = span.get('name', '')\n                if service_name\
+          \ trace in traces or []:\n        for span in trace.get('spans', []):\n\
+          \            parent_id = span.get('parentSpanId', '')\n            if not\
+          \ parent_id:\n                service_name = span.get('serviceName', '')\n\
+          \                endpoint = span.get('name', '')\n                if service_name\
           \ and endpoint and (service_name, endpoint) not in seen_entries:\n     \
           \               entries.append({\n                        \"service\": service_name,\n\
           \                        \"endpoint\": endpoint,\n                    })\n\
@@ -18952,7 +19053,218 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: a3af6dc4-5069-4149-8ebc-f59b4258b8ee
+          role: system
+          text: 你是一个善于总结的助手
+        - id: 822d182c-1ce3-452b-b067-b20e86b1c87f
+          role: user
+          text: '# 任务
+
+            从总结和原始告警事件中提取受影响服务名
+
+            # 输出
+
+            受影响服务的名称，且服务名必须完整
+
+            1如 “影响到xxxx”, xxxx如服务连接平台，不能是服务平台
+
+            2如果未检测到受影响服务，将就直接把pod名作为服务，并带上告警类型。例如 <pod-xxxx> 的xx资源受到影响
+
+            3如果是告警是主机相关，就显示节点名。例 <主机-xxxx>受到xx影响
+
+            # 数据
+
+            总结结论
+
+            {{#1760106066557.text#}}
+
+            告警事件
+
+            {{#1743576019537.params#}}'
+        selected: false
+        title: 影响面
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1762842738370'
+      position:
+        x: 20883.492749806574
+        y: 2703.272472885543
+      positionAbsolute:
+        x: 20883.492749806574
+        y: 2703.272472885543
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: /models/qwen2.5-32B
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: ac4cb350-46ae-477f-8007-264812a4a7b6
+          role: system
+          text: 你是一个总结助手
+        - id: b30e4767-f195-41d8-a6cc-c4da64a60abc
+          role: user
+          text: '# 任务
+
+            根据基础资源指标状态总结
+
+            必简洁短小
+
+            # 输出
+
+            十个字以内，不要太多
+
+            参考格式
+
+            认为正常输出 “无影响”
+
+            认为异常输出 “xxx 1m/10m/1h xx%/xx%/xx%”
+
+            xx为资源类型（cpu,内存，磁盘，网络）
+
+            # 数据
+
+            告警内容
+
+            {{#1744959389144.alertName#}}
+
+            数据
+
+            {{#1753955518503.output#}}'
+        selected: false
+        title: 资源检查
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1762842961303'
+      position:
+        x: 20811.47966040323
+        y: 2520.376076208213
+      positionAbsolute:
+        x: 20811.47966040323
+        y: 2520.376076208213
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: aa10fde3-d6d2-4fd9-ba81-f18d798503e5
+            value: 网络
+            varType: string
+            variable_selector:
+            - '1744959389144'
+            - alertName
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 11
+        type: if-else
+      height: 126
+      id: '1762942797184'
+      position:
+        x: 21941.473447906967
+        y: 2494.5240124688635
+      positionAbsolute:
+        x: 21941.473447906967
+        y: 2494.5240124688635
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1743850218410'
+          - output
+          variable: text
+        - value_selector:
+          - '1751602121596'
+          - text
+          variable: output
+        - value_selector:
+          - '1750995788076'
+          - text
+          variable: alertDirection
+        - value_selector:
+          - '1762842738370'
+          - text
+          variable: impactScope
+        - value_selector:
+          - '1762842961303'
+          - text
+          variable: networkCheck
+        selected: false
+        title: 网络结论
+        type: end
+      height: 194
+      id: '17629429014520'
+      position:
+        x: 22382.765524834027
+        y: 2319.0537237437816
+      positionAbsolute:
+        x: 22382.765524834027
+        y: 2319.0537237437816
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: '""'
+        title: Template 6
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1773654320946'
+      position:
+        x: 20493.466511745846
+        y: 2520.376076208213
+      positionAbsolute:
+        x: 20493.466511745846
+        y: 2520.376076208213
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -650.5119601889021
-      y: -53.24920816324092
-      zoom: 0.25
+      x: -14527.499405661536
+      y: -1580.592481673511
+      zoom: 0.7359773124459075
