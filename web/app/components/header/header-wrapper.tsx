@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import s from './index.module.css'
 import classNames from '@/utils/classnames'
@@ -12,6 +13,18 @@ const HeaderWrapper = ({
 }: HeaderWrapperProps) => {
   const pathname = usePathname()
   const isBordered = ['/apps', '/datasets', '/datasets/create', '/tools'].includes(pathname)
+
+  const [hideHeader, setHideHeader] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem('hideHeader') === 'true')
+        setHideHeader(true)
+    }
+  }, [])
+
+  if (hideHeader)
+    return null
 
   return (
     <div className={classNames(
