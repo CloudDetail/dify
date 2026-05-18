@@ -1,17 +1,17 @@
 identity:
-  name: 查询进程内存使用
+  name: 查询进程读取字节速率
   author: APO
   label:
-    en_US: Query process memory usage
-    zh_Hans: 查询进程内存使用
+    en_US: Query process read bytes rate
+    zh_Hans: 查询进程读取字节速率
 description:
   human:
-    en_US: Query process memory usage
-    zh_Hans: 查询进程内存使用
-  llm: Query process memory usage
+    en_US: Query process read bytes rate
+    zh_Hans: 查询进程读取字节速率
+  llm: Query process read bytes rate
 display:
   type: metric
-  title: 进程监控指标 - 进程内存使用
+  title: 进程监控指标 - 进程读取字节速率
   unit: "bytes"
 parameters:
   - name: nodeName
