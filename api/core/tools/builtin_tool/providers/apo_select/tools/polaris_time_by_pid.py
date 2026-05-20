@@ -55,7 +55,7 @@ class PolarisTimeByPidTool(BuiltinTool):
         result = []
         for ts in timeseries:
             labels = ts['labels']
-            if labels['pid'] in pids and (not nodes or labels['node'] in nodes):
+            if labels['pid'] in pids and (not nodes or labels['node_name'] in nodes):
                 result.append(ts)
 
         resp_json = json.dumps({
