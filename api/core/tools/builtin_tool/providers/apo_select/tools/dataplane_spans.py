@@ -13,7 +13,7 @@ from libs.apo_utils import APOUtils
 def _first_non_empty_span(items: list[Any]) -> Any:
     for item in items:
         if isinstance(item, dict) and item.get("data"):
-            return item
+            return item["data"]
     return []
 
 
