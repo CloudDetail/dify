@@ -103,3 +103,195 @@ parameters:
       pt_BR: evidence
     llm_description: evidence
     form: llm
+  - name: alertDirection
+    type: string
+    label:
+      en_US: alertDirection
+      zh_Hans: 故障方向
+      pt_BR: alertDirection
+    human_description:
+      en_US: alertDirection
+      zh_Hans: 故障方向
+      pt_BR: alertDirection
+    llm_description: alertDirection
+    form: llm
+  - name: analyzeRunId
+    type: string
+    label:
+      en_US: analyzeRunId
+      zh_Hans: 分析运行ID
+      pt_BR: analyzeRunId
+    human_description:
+      en_US: analyzeRunId
+      zh_Hans: 分析运行ID
+      pt_BR: analyzeRunId
+    llm_description: analyzeRunId
+    form: llm
+  - name: alertEventId
+    type: string
+    label:
+      en_US: alertEventId
+      zh_Hans: 告警事件ID
+      pt_BR: alertEventId
+    human_description:
+      en_US: alert event id
+      zh_Hans: 告警事件ID
+      pt_BR: alert event id
+    llm_description: alertEventId
+    form: llm
+  - name: alertId
+    type: string
+    label:
+      en_US: alertId
+      zh_Hans: 告警ID
+      pt_BR: alertId
+    human_description:
+      en_US: alert id
+      zh_Hans: 告警ID
+      pt_BR: alert id
+    llm_description: alertId
+    form: llm
+  - name: service
+    type: string
+    label:
+      en_US: service
+      zh_Hans: 服务
+      pt_BR: service
+    human_description:
+      en_US: service
+      zh_Hans: 服务
+      pt_BR: service
+    llm_description: service
+    form: llm
+  - name: endpoint
+    type: string
+    label:
+      en_US: endpoint
+      zh_Hans: 端点
+      pt_BR: endpoint
+    human_description:
+      en_US: endpoint
+      zh_Hans: 端点
+      pt_BR: endpoint
+    llm_description: endpoint
+    form: llm
+  - name: pod
+    type: string
+    label:
+      en_US: pod
+      zh_Hans: Pod
+      pt_BR: pod
+    human_description:
+      en_US: pod
+      zh_Hans: Pod
+      pt_BR: pod
+    llm_description: pod
+    form: llm
+  - name: namespace
+    type: string
+    label:
+      en_US: namespace
+      zh_Hans: 命名空间
+      pt_BR: namespace
+    human_description:
+      en_US: namespace
+      zh_Hans: 命名空间
+      pt_BR: namespace
+    llm_description: namespace
+    form: llm
+  - name: nodeName
+    type: string
+    label:
+      en_US: nodeName
+      zh_Hans: 节点
+      pt_BR: nodeName
+    human_description:
+      en_US: node name
+      zh_Hans: 节点
+      pt_BR: node name
+    llm_description: nodeName
+    form: llm
+  - name: pid
+    type: string
+    label:
+      en_US: pid
+      zh_Hans: 进程ID
+      pt_BR: pid
+    human_description:
+      en_US: process id
+      zh_Hans: 进程ID
+      pt_BR: process id
+    llm_description: pid
+    form: llm
+  - name: containerId
+    type: string
+    label:
+      en_US: containerId
+      zh_Hans: 容器ID
+      pt_BR: containerId
+    human_description:
+      en_US: container id
+      zh_Hans: 容器ID
+      pt_BR: container id
+    llm_description: containerId
+    form: llm
+  - name: startTime
+    type: number
+    label:
+      en_US: startTime
+      zh_Hans: 开始时间
+      pt_BR: startTime
+    human_description:
+      en_US: Start timestamp in microseconds
+      zh_Hans: 查询开始时间（微秒）
+      pt_BR: Start timestamp in microseconds
+    llm_description: startTime
+    form: llm
+  - name: endTime
+    type: number
+    label:
+      en_US: endTime
+      zh_Hans: 结束时间
+      pt_BR: endTime
+    human_description:
+      en_US: End timestamp in microseconds
+      zh_Hans: 查询结束时间（微秒）
+      pt_BR: End timestamp in microseconds
+    llm_description: endTime
+    form: llm
+  - name: impactScope
+    type: string
+    label:
+      en_US: impactScope
+      zh_Hans: 影响范围
+      pt_BR: impactScope
+    human_description:
+      en_US: impactScope
+      zh_Hans: 影响范围
+      pt_BR: impactScope
+    llm_description: impactScope
+    form: llm
+  - name: infraCheckResult
+    type: string
+    label:
+      en_US: infraCheckResult
+      zh_Hans: 基础设施检查结果
+      pt_BR: infraCheckResult
+    human_description:
+      en_US: infraCheckResult
+      zh_Hans: 基础设施检查结果
+      pt_BR: infraCheckResult
+    llm_description: infraCheckResult
+    form: llm
+  - name: networkCheckResult
+    type: string
+    label:
+      en_US: networkCheckResult
+      zh_Hans: 网络检查结果
+      pt_BR: networkCheckResult
+    human_description:
+      en_US: networkCheckResult
+      zh_Hans: 网络检查结果
+      pt_BR: networkCheckResult
+    llm_description: networkCheckResult
+    form: llm
