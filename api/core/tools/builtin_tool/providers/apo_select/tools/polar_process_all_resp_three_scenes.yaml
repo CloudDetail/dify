@@ -1,0 +1,96 @@
+identity:
+  name: polar_process_all_resp_three_scenes
+  author: APO
+  label:
+    en_US: Thread Polaris Metrics Process All (Three Scenes)
+    zh_Hans: Thread Polaris Metrics - 北极星指标（进程） - 各类型耗时折线图 - 所有类型列表（三场景）
+    pt_BR: Thread Polaris Metrics Process All (Three Scenes)
+description:
+  human:
+    en_US: Thread Polaris Metrics Process All (Three Scenes)
+    zh_Hans: Thread Polaris Metrics - 北极星指标（进程） - 各类型耗时折线图 - 所有类型列表（三场景）
+    pt_BR: Thread Polaris Metrics Process All (Three Scenes)
+  llm: Thread Polaris Metrics - 北极星指标（进程） - 各类型耗时折线图 - 所有类型列表（三场景）
+display:
+  type: metric
+  title: Thread Polaris Metrics - 北极星指标（进程） - 各类型耗时折线图 - 所有类型列表（三场景）
+  unit: ns
+parameters:
+  - name: pod
+    type: string
+    required: false
+    label:
+      en_US: pod
+      zh_Hans: pod
+      pt_BR: pod
+    human_description:
+      en_US: Pod scenario parameter. When provided, the tool queries by pod scene.
+      zh_Hans: Pod 场景参数，提供后按 Pod 场景查询。
+      pt_BR: Pod scenario parameter. When provided, the tool queries by pod scene.
+    llm_description: Pod scenario parameter. When provided, the tool queries by pod scene.
+    form: llm
+  - name: containerId
+    type: string
+    required: false
+    label:
+      en_US: containerId
+      zh_Hans: containerId
+      pt_BR: containerId
+    human_description:
+      en_US: Container scenario parameter. When provided, the tool queries by container scene.
+      zh_Hans: Container 场景参数，提供后按 Container 场景查询。
+      pt_BR: Container scenario parameter. When provided, the tool queries by container scene.
+    llm_description: Container scenario parameter. When provided, the tool queries by container scene.
+    form: llm
+  - name: nodeName
+    type: string
+    required: false
+    label:
+      en_US: nodeName
+      zh_Hans: nodeName
+      pt_BR: nodeName
+    human_description:
+      en_US: VM scenario node hostname. Used together with pid when pod and containerId are absent.
+      zh_Hans: VM 场景节点主机名，在未提供 pod 和 containerId 时与 pid 一起使用。
+      pt_BR: VM scenario node hostname. Used together with pid when pod and containerId are absent.
+    llm_description: VM scenario node hostname. Used together with pid when pod and containerId are absent.
+    form: llm
+  - name: pid
+    type: string
+    required: false
+    label:
+      en_US: pid
+      zh_Hans: pid
+      pt_BR: pid
+    human_description:
+      en_US: VM scenario process ID. Used together with nodeName when pod and containerId are absent.
+      zh_Hans: VM 场景进程 ID，在未提供 pod 和 containerId 时与 nodeName 一起使用。
+      pt_BR: VM scenario process ID. Used together with nodeName when pod and containerId are absent.
+    llm_description: VM scenario process ID. Used together with nodeName when pod and containerId are absent.
+    form: llm
+  - name: startTime
+    type: number
+    required: true
+    label:
+      en_US: startTime
+      zh_Hans: startTime
+      pt_BR: startTime
+    human_description:
+      en_US: Data query start time(Microsecond)
+      zh_Hans: 开始时间 (微秒)
+      pt_BR: Data query start time(Microsecond)
+    llm_description: Data query start time(Microsecond)
+    form: llm
+  - name: endTime
+    type: number
+    required: true
+    label:
+      en_US: endTime
+      zh_Hans: endTime
+      pt_BR: endTime
+    human_description:
+      en_US: Data query end time(Microsecond)
+      zh_Hans: 结束时间 (微秒)
+      pt_BR: Data query end time(Microsecond)
+    llm_description: Data query end time(Microsecond)
+    form: llm
