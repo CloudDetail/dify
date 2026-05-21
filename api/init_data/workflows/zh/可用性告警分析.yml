@@ -1017,32 +1017,6 @@ workflow:
       type: custom
       zIndex: 1002
     - data:
-        isInIteration: true
-        iteration_id: '1760103383062'
-        sourceType: tool
-        targetType: tool
-      id: 1760103500707-source-1760103531154-target
-      selected: false
-      source: '1760103500707'
-      sourceHandle: source
-      target: '1760103531154'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
-        isInIteration: true
-        iteration_id: '1760103383062'
-        sourceType: tool
-        targetType: code
-      id: 1760103531154-source-1760103536847-target
-      selected: false
-      source: '1760103531154'
-      sourceHandle: source
-      target: '1760103536847'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
         isInIteration: false
         sourceType: iteration
         targetType: code
@@ -1123,6 +1097,30 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1760103383062'
+        sourceType: tool
+        targetType: code
+      id: 1760103500707-source-1779350144879-target
+      source: '1760103500707'
+      sourceHandle: source
+      target: '1779350144879'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1760103383062'
+        sourceType: code
+        targetType: code
+      id: 1779350144879-source-1760103536847-target
+      source: '1779350144879'
+      sourceHandle: source
+      target: '1760103536847'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
     nodes:
     - data:
         desc: ''
@@ -6021,7 +6019,7 @@ workflow:
       positionAbsolute:
         x: 10278
         y: 474
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6691,153 +6689,6 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        desc: ''
-        isInIteration: true
-        is_team_authorization: true
-        iteration_id: '1760103383062'
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: AlgorithmName
-            ja_JP: AlgorithmName
-            pt_BR: AlgorithmName
-            zh_Hans: 选择的算法
-          label:
-            en_US: AlgorithmName
-            ja_JP: AlgorithmName
-            pt_BR: AlgorithmName
-            zh_Hans: 选择的算法
-          llm_description: AlgorithmName
-          max: null
-          min: null
-          name: algorithmName
-          options:
-          - label:
-              en_US: ebpf_detect
-              ja_JP: ebpf_detect
-              pt_BR: ebpf_detect
-              zh_Hans: 线程北极星指标异常检测
-            value: ebpf_detect
-          - label:
-              en_US: rtt_detect
-              ja_JP: rtt_detect
-              pt_BR: rtt_det
-              zh_Hans: 网络质量指标（RTT）异常检测
-            value: rtt_detect
-          - label:
-              en_US: spike_detect
-              ja_JP: spike_detect
-              pt_BR: spike_detect
-              zh_Hans: 突变异常检测
-            value: spike_detect
-          - label:
-              en_US: trend_detect
-              ja_JP: trend_detect
-              pt_BR: trend_detect
-              zh_Hans: 趋势异常检测
-            value: trend_detect
-          - label:
-              en_US: frequency_detect
-              ja_JP: frequency_detect
-              pt_BR: frequency_detect
-              zh_Hans: 频率异常检测
-            value: frequency_detect
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: select
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: data
-            ja_JP: data
-            pt_BR: data
-            zh_Hans: 时序检测算法
-          label:
-            en_US: data
-            ja_JP: data
-            pt_BR: data
-            zh_Hans: 检测的指标序列
-          llm_description: data
-          max: null
-          min: null
-          name: data
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: history
-            ja_JP: history
-            pt_BR: history
-            zh_Hans: 历史指标序列
-          label:
-            en_US: history
-            ja_JP: history
-            pt_BR: history
-            zh_Hans: 历史指标序列
-          llm_description: history
-          max: null
-          min: null
-          name: history
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        params:
-          algorithmName: ''
-          data: ''
-          history: ''
-        provider_id: apo_analysis
-        provider_name: apo_analysis
-        provider_type: builtin
-        selected: false
-        title: 请求错误率时序统计分析
-        tool_configurations: {}
-        tool_label: 时序统计分析
-        tool_name: timeSeriesAnalysis
-        tool_parameters:
-          algorithmName:
-            type: constant
-            value: trend_detect
-          data:
-            type: mixed
-            value: '{{#1760103472918.request_error_rate#}}'
-          history:
-            type: mixed
-            value: '{{#1760103472918.history_request_error_rate#}}'
-        type: tool
-      height: 54
-      id: '1760103531154'
-      parentId: '1760103383062'
-      position:
-        x: 1648
-        y: 68
-      positionAbsolute:
-        x: 12230
-        y: 542
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-      zIndex: 1002
-    - data:
         code: "\ndef main(latency_json: str, error_rate_json: str) -> dict:\n    latency_data\
           \ = json.loads(latency_json)\n    error_rate_data = json.loads(error_rate_json)\n\
           \    data = {\n        \"request_latency\": latency_data,\n        \"request_error_rate\"\
@@ -6860,8 +6711,8 @@ workflow:
           - text
           variable: latency_json
         - value_selector:
-          - '1760103531154'
-          - text
+          - '1779350144879'
+          - result
           variable: error_rate_json
       height: 54
       id: '1760103536847'
@@ -7305,7 +7156,49 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        code: "import json\n\ndef main(data_json: str) -> dict:\n    data = json.loads(data_json)\n\
+          \n    # 获取 timeseries\n    timeseries = data.get(\"data\", {}).get(\"timeseries\"\
+          , [])\n\n    # 保存错误率 > 0 的时序\n    abnormal_series = []\n\n    for series\
+          \ in timeseries:\n        chart_data = (\n            series.get(\"chart\"\
+          , {})\n                  .get(\"chartData\", {})\n        )\n\n        #\
+          \ 检查是否存在任意一个时间点错误率 > 0\n        has_error = any(\n            value > 0\n\
+          \            for value in chart_data.values()\n            if isinstance(value,\
+          \ (int, float))\n        )\n\n        if has_error:\n            abnormal_series.append(series)\n\
+          \n    return {\n        \"result\": json.dumps(abnormal_series, ensure_ascii=False)\n\
+          \    }"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1760103383062'
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 请求错误率检测
+        type: code
+        variables:
+        - value_selector:
+          - '1760103472918'
+          - request_error_rate
+          variable: data_json
+      height: 54
+      id: '1779350144879'
+      parentId: '1760103383062'
+      position:
+        x: 1648
+        y: 68
+      positionAbsolute:
+        x: 12230
+        y: 542
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
     viewport:
-      x: -5098.46341018621
-      y: -166.7290202677633
-      zoom: 0.5377557691815474
+      x: -10585.312849624139
+      y: -207.52346408453764
+      zoom: 0.8986213036600212
