@@ -13,6 +13,13 @@ from libs.apo_utils import APOUtils
 logger = logging.getLogger(__name__)
 
 
+def _first_non_empty_trace(items: list[Any]) -> dict[str, Any]:
+    for item in items:
+        if isinstance(item, dict) and item.get("data"):
+            return item
+    return {}
+
+
 class DataplaneTracesTool(BuiltinTool):
     def _invoke(
         self,
@@ -69,6 +76,6 @@ class DataplaneTracesTool(BuiltinTool):
         list = json.dumps({
             'type': 'trace',
             'display': False,
-            'data': list[0] if len(list) > 0 else {}
+            'data': _first_non_empty_trace(list)
         })
         yield self.create_text_message(list)

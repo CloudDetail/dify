@@ -10,6 +10,13 @@ from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
 
 
+def _first_non_empty_span(items: list[Any]) -> Any:
+    for item in items:
+        if isinstance(item, dict) and item.get("data"):
+            return item
+    return []
+
+
 class DataplaneSpansTool(BuiltinTool):
     def _invoke(
         self,
@@ -50,6 +57,6 @@ class DataplaneSpansTool(BuiltinTool):
         list = json.dumps({
             'type': 'span',
             'display': False,
-            'data': list[0] if len(list) > 0 else []
+            'data': _first_non_empty_span(list)
         })
         yield self.create_text_message(list)
