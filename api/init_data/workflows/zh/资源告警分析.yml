@@ -1295,19 +1295,6 @@ workflow:
     - data:
         isInIteration: true
         iteration_id: '1752655186497'
-        sourceType: iteration-start
-        targetType: tool
-      id: 1752655186497start-source-1752655362608-target
-      selected: false
-      source: 1752655186497start
-      sourceHandle: source
-      target: '1752655362608'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
-        isInIteration: true
-        iteration_id: '1752655186497'
         sourceType: tool
         targetType: code
       id: 1752655362608-source-1752655367750-target
@@ -1356,19 +1343,6 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
-    - data:
-        isInIteration: true
-        iteration_id: '17526597221060'
-        sourceType: iteration-start
-        targetType: tool
-      id: 1752659722106start-source-1752659777922-target
-      selected: false
-      source: 1752659722106start
-      sourceHandle: source
-      target: '1752659777922'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
     - data:
         isInIteration: true
         iteration_id: '17526597221060'
@@ -1837,18 +1811,6 @@ workflow:
       source: '1753019933658'
       sourceHandle: 92782a9c-0bfd-4cc3-83cf-4a78f40bd2a2
       target: '1743672756524'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: code
-      id: 1753789618196-source-17526596567180-target
-      selected: false
-      source: '1753789618196'
-      sourceHandle: source
-      target: '17526596567180'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -3330,6 +3292,67 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '17526597221060'
+        sourceType: iteration-start
+        targetType: code
+      id: 1752659722106start-source-1779328368764-target
+      selected: false
+      source: 1752659722106start
+      sourceHandle: source
+      target: '1779328368764'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '17526597221060'
+        sourceType: code
+        targetType: tool
+      id: 1779328368764-source-1752659777922-target
+      selected: false
+      source: '1779328368764'
+      sourceHandle: source
+      target: '1752659777922'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1753789618196-source-17526596567180-target
+      source: '1753789618196'
+      sourceHandle: source
+      target: '17526596567180'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1752655186497'
+        sourceType: iteration-start
+        targetType: code
+      id: 1752655186497start-source-1779331496803-target
+      source: 1752655186497start
+      sourceHandle: source
+      target: '1779331496803'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1752655186497'
+        sourceType: code
+        targetType: tool
+      id: 1779331496803-source-1752655362608-target
+      source: '1779331496803'
+      sourceHandle: source
+      target: '1752655362608'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
     nodes:
     - data:
         desc: ''
@@ -6214,10 +6237,10 @@ workflow:
       height: 142
       id: '17438490239160'
       position:
-        x: 23834
+        x: 24434
         y: 2526
       positionAbsolute:
-        x: 23834
+        x: 24434
         y: 2526
       selected: false
       sourcePosition: right
@@ -6772,10 +6795,10 @@ workflow:
       height: 395
       id: '1743850218410'
       position:
-        x: 15990
+        x: 16590
         y: 2112
       positionAbsolute:
-        x: 15990
+        x: 16590
         y: 2112
       selected: false
       sourcePosition: right
@@ -10406,7 +10429,7 @@ workflow:
       positionAbsolute:
         x: 8806
         y: 646
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -10873,10 +10896,10 @@ workflow:
       height: 54
       id: '1750988315593'
       position:
-        x: 22922
+        x: 23522
         y: 2526
       positionAbsolute:
-        x: 22922
+        x: 23522
         y: 2526
       selected: false
       sourcePosition: right
@@ -10904,10 +10927,10 @@ workflow:
       height: 54
       id: '1750988333220'
       position:
-        x: 22618
+        x: 23218
         y: 2750
       positionAbsolute:
-        x: 22618
+        x: 23218
         y: 2750
       selected: false
       sourcePosition: right
@@ -10968,10 +10991,10 @@ workflow:
       height: 54
       id: '1750988484023'
       position:
-        x: 22618
+        x: 23218
         y: 2656
       positionAbsolute:
-        x: 22618
+        x: 23218
         y: 2656
       selected: false
       sourcePosition: right
@@ -11007,10 +11030,10 @@ workflow:
       height: 90
       id: '1750988845336'
       position:
-        x: 22182
+        x: 22782
         y: 2698
       positionAbsolute:
-        x: 22182
+        x: 22782
         y: 2698
       selected: false
       sourcePosition: right
@@ -11108,10 +11131,10 @@ workflow:
       height: 90
       id: '1750988869166'
       position:
-        x: 21746
+        x: 22346
         y: 2636
       positionAbsolute:
-        x: 21746
+        x: 22346
         y: 2636
       selected: false
       sourcePosition: right
@@ -11154,10 +11177,10 @@ workflow:
       height: 90
       id: '1750990566608'
       position:
-        x: 22182
+        x: 22782
         y: 2568
       positionAbsolute:
-        x: 22182
+        x: 22782
         y: 2568
       selected: false
       sourcePosition: right
@@ -11186,10 +11209,10 @@ workflow:
       height: 54
       id: '1750990570740'
       position:
-        x: 22618
+        x: 23218
         y: 2526
       positionAbsolute:
-        x: 22618
+        x: 23218
         y: 2526
       selected: false
       sourcePosition: right
@@ -11223,10 +11246,10 @@ workflow:
       height: 90
       id: '1750995788076'
       position:
-        x: 23530
+        x: 24130
         y: 2526
       positionAbsolute:
-        x: 23530
+        x: 24130
         y: 2526
       selected: false
       sourcePosition: right
@@ -11399,10 +11422,10 @@ workflow:
       height: 54
       id: '1751602121596'
       position:
-        x: 23226
+        x: 23826
         y: 2526
       positionAbsolute:
-        x: 23226
+        x: 23826
         y: 2526
       selected: false
       sourcePosition: right
@@ -11429,10 +11452,10 @@ workflow:
       height: 126
       id: '1751602227575'
       position:
-        x: 20530
+        x: 21130
         y: 2112
       positionAbsolute:
-        x: 20530
+        x: 21130
         y: 2112
       selected: false
       sourcePosition: right
@@ -11452,10 +11475,10 @@ workflow:
       height: 90
       id: '1751602318456'
       position:
-        x: 20834
+        x: 21434
         y: 2112
       positionAbsolute:
-        x: 20834
+        x: 21434
         y: 2112
       selected: false
       sourcePosition: right
@@ -11836,12 +11859,12 @@ workflow:
       height: 90
       id: '17526550519390'
       position:
-        x: 13582
-        y: 3224
+        x: 13791.107844497425
+        y: 3208.5740114715013
       positionAbsolute:
-        x: 13582
-        y: 3224
-      selected: false
+        x: 13791.107844497425
+        y: 3208.5740114715013
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -11854,7 +11877,7 @@ workflow:
         is_parallel: false
         iterator_selector:
         - '1752655200938'
-        - pods
+        - instances
         output_selector:
         - '1752655378049'
         - tps
@@ -11864,7 +11887,7 @@ workflow:
         start_node_id: 1752655186497start
         title: 获取请求量
         type: iteration
-        width: 1420
+        width: 1676
       height: 174
       id: '1752655186497'
       position:
@@ -11877,7 +11900,7 @@ workflow:
       sourcePosition: right
       targetPosition: left
       type: custom
-      width: 1420
+      width: 1676
       zIndex: 1
     - data:
         desc: ''
@@ -11903,14 +11926,34 @@ workflow:
       width: 44
       zIndex: 1002
     - data:
-        code: "import json\n\ndef main(data_json: str):\n    data = json.loads(data_json)\n\
-          \n    pods = []\n    for timeseries_data in data:\n        pod_name = timeseries_data.get('labels',\
-          \ {}).get('pod')\n        if pod_name:\n            pods.append(pod_name)\n\
-          \n    return {\n        \"pods\": list(set(pods))\n    } \n"
+        code: "import json\n\ndef main(result_json_str: str) -> dict:\n    try:\n\
+          \        # 解析上一步算法输出的 result 字符串\n        data = json.loads(result_json_str)\n\
+          \    except (json.JSONDecodeError, TypeError):\n        return {\"instances\"\
+          : []}\n\n    if not isinstance(data, dict):\n        return {\"instances\"\
+          : []}\n\n    # 从上一步的输出结构中获取 top_usage 和 abnormal 列表\n    top_usage = data.get('top_usage',\
+          \ [])\n    abnormal = data.get('abnormal', [])\n    \n    # 确保它们都是列表结构\n\
+          \    if not isinstance(top_usage, list): top_usage = []\n    if not isinstance(abnormal,\
+          \ list): abnormal = []\n\n    # 将两个列表合并在一起进行实例提取（优先处理 Top 3，再处理异常）\n   \
+          \ combined_entries = top_usage + abnormal\n\n    node_keys = ['node', 'node_name',\
+          \ 'nodename', 'nodeName', 'instance_name', 'instanceName']\n    unique_instances\
+          \ = {}\n\n    for entry in combined_entries:\n        labels = entry.get('labels',\
+          \ {})\n        if not isinstance(labels, dict):\n            continue\n\n\
+          \        pod = labels.get('pod', '')\n        container_id = labels.get('containerId',\
+          \ labels.get('container', ''))  # 智能兼容\n        pid = labels.get('pid',\
+          \ '')\n\n        node = ''\n        for key in node_keys:\n            if\
+          \ key in labels:\n                node = labels[key]\n                break\n\
+          \n        # 如果关键字段全为空，则跳过\n        if not any([pod, container_id, node,\
+          \ pid]):\n            continue\n\n        instance_dict = {\n          \
+          \  \"pod\": pod,\n            \"containerId\": container_id,\n         \
+          \   \"node\": node,\n            \"pid\": pid\n        }\n\n        # 核心去重逻辑（利用元组作为字典的\
+          \ key）\n        unique_key = (pod, container_id, node, pid)\n        unique_instances[unique_key]\
+          \ = instance_dict\n\n    # 原代码中的 list(...values()[:30]) 语法在 Python 中会报 TypeError（dict_values\
+          \ 不支持切片）\n    # 这里修正为先转 list，再取前 30 个元素\n    return {\n        \"instances\"\
+          : list(unique_instances.values())[:30]\n    }"
         code_language: python3
         desc: ''
         outputs:
-          pods:
+          instances:
             children: null
             type: array[string]
         selected: false
@@ -11920,7 +11963,7 @@ workflow:
         - value_selector:
           - '1752827682722'
           - result
-          variable: data_json
+          variable: result_json_str
       height: 54
       id: '1752655200938'
       position:
@@ -12095,10 +12138,10 @@ workflow:
       id: '1752655320531'
       parentId: '1752655186497'
       position:
-        x: 812
+        x: 1112
         y: 60
       positionAbsolute:
-        x: 12914
+        x: 13214
         y: 3224
       selected: false
       sourcePosition: right
@@ -12299,14 +12342,23 @@ workflow:
         tool_name: dataplane_instance_service
         tool_node_version: '2'
         tool_parameters:
+          containerId:
+            type: mixed
+            value: '{{#1779331496803.containerId#}}'
           endTime:
             type: variable
             value:
             - '1743576019537'
             - endTime
+          nodeName:
+            type: mixed
+            value: '{{#1779331496803.node#}}'
+          pid:
+            type: mixed
+            value: '{{#1779331496803.pid#}}'
           pod:
             type: mixed
-            value: '{{#1752655186497.item#}}'
+            value: '{{#1779331496803.pod#}}'
           startTime:
             type: variable
             value:
@@ -12317,10 +12369,10 @@ workflow:
       id: '1752655362608'
       parentId: '1752655186497'
       position:
-        x: 204
+        x: 504
         y: 60
       positionAbsolute:
-        x: 12306
+        x: 12606
         y: 3224
       selected: false
       sourcePosition: right
@@ -12351,10 +12403,10 @@ workflow:
       id: '1752655367750'
       parentId: '1752655186497'
       position:
-        x: 508
+        x: 808
         y: 60
       positionAbsolute:
-        x: 12610
+        x: 12910
         y: 3224
       selected: false
       sourcePosition: right
@@ -12395,10 +12447,10 @@ workflow:
       id: '1752655378049'
       parentId: '1752655186497'
       position:
-        x: 1116
+        x: 1416
         y: 60
       positionAbsolute:
-        x: 13218
+        x: 13518
         y: 3224
       selected: false
       sourcePosition: right
@@ -12407,18 +12459,36 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "import json\n\ndef main(data_json: str):\n    data = json.loads(data_json)\n\
-          \    \n    if isinstance(data, list):\n        return {\"pods\": []}\n\n\
-          \    pods = []\n    for timeseries_data in data.get('data', {}).get('timeseries',\
-          \ []):\n        pod_name = timeseries_data.get('labels', {}).get('pod')\n\
-          \        if pod_name:\n            pods.append(pod_name)\n\n    return {\n\
-          \        \"pods\": list(set(pods))\n    }"
+        code: "import json\n\ndef main(result_json_str: str) -> dict:\n    try:\n\
+          \        # 解析上一步算法输出的 result 字符串\n        data = json.loads(result_json_str)\n\
+          \    except (json.JSONDecodeError, TypeError):\n        return {\"instances\"\
+          : []}\n\n    if not isinstance(data, dict):\n        return {\"instances\"\
+          : []}\n\n    # 从上一步的输出结构中获取 top_usage 和 abnormal 列表\n    top_usage = data.get('top_usage',\
+          \ [])\n    abnormal = data.get('abnormal', [])\n    \n    # 确保它们都是列表结构\n\
+          \    if not isinstance(top_usage, list): top_usage = []\n    if not isinstance(abnormal,\
+          \ list): abnormal = []\n\n    # 将两个列表合并在一起进行实例提取（优先处理 Top 3，再处理异常）\n   \
+          \ combined_entries = top_usage + abnormal\n\n    node_keys = ['node', 'node_name',\
+          \ 'nodename', 'nodeName', 'instance_name', 'instanceName']\n    unique_instances\
+          \ = {}\n\n    for entry in combined_entries:\n        labels = entry.get('labels',\
+          \ {})\n        if not isinstance(labels, dict):\n            continue\n\n\
+          \        pod = labels.get('pod', '')\n        container_id = labels.get('containerId',\
+          \ labels.get('container', ''))  # 智能兼容\n        pid = labels.get('pid',\
+          \ '')\n\n        node = ''\n        for key in node_keys:\n            if\
+          \ key in labels:\n                node = labels[key]\n                break\n\
+          \n        # 如果关键字段全为空，则跳过\n        if not any([pod, container_id, node,\
+          \ pid]):\n            continue\n\n        instance_dict = {\n          \
+          \  \"pod\": pod,\n            \"containerId\": container_id,\n         \
+          \   \"node\": node,\n            \"pid\": pid\n        }\n\n        # 核心去重逻辑（利用元组作为字典的\
+          \ key）\n        unique_key = (pod, container_id, node, pid)\n        unique_instances[unique_key]\
+          \ = instance_dict\n\n    # 原代码中的 list(...values()[:30]) 语法在 Python 中会报 TypeError（dict_values\
+          \ 不支持切片）\n    # 这里修正为先转 list，再取前 30 个元素\n    return {\n        \"instances\"\
+          : list(unique_instances.values())[:30]\n    }"
         code_language: python3
         desc: ''
         outputs:
-          pods:
+          instances:
             children: null
-            type: array[string]
+            type: array[object]
         selected: false
         title: 获取异常实例名
         type: code
@@ -12426,14 +12496,14 @@ workflow:
         - value_selector:
           - '1753789618196'
           - result
-          variable: data_json
+          variable: result_json_str
       height: 54
       id: '17526596567180'
       position:
-        x: 9102
+        x: 9702
         y: 3637
       positionAbsolute:
-        x: 9102
+        x: 9702
         y: 3637
       selected: false
       sourcePosition: right
@@ -12457,20 +12527,20 @@ workflow:
         start_node_id: 1752659722106start
         title: 获取请求量
         type: iteration
-        width: 1420
+        width: 1676
       height: 174
       id: '17526597221060'
       position:
-        x: 10318
+        x: 10918
         y: 3392
       positionAbsolute:
-        x: 10318
+        x: 10918
         y: 3392
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
-      width: 1420
+      width: 1676
       zIndex: 1
     - data:
         code: "\ndef main(data_json: str) -> dict:\n    data = json.loads(data_json).get('data',\
@@ -12495,10 +12565,10 @@ workflow:
       id: '1752659722106017526597221072'
       parentId: '17526597221060'
       position:
-        x: 508
+        x: 808
         y: 60
       positionAbsolute:
-        x: 10826
+        x: 11726
         y: 3452
       selected: false
       sourcePosition: right
@@ -12539,10 +12609,10 @@ workflow:
       id: '1752659722106017526597221073'
       parentId: '17526597221060'
       position:
-        x: 1116
+        x: 1416
         y: 60
       positionAbsolute:
-        x: 11434
+        x: 12334
         y: 3452
       selected: false
       sourcePosition: right
@@ -12564,7 +12634,7 @@ workflow:
         x: 60
         y: 63
       positionAbsolute:
-        x: 10378
+        x: 10978
         y: 3455
       selectable: false
       selected: false
@@ -12768,15 +12838,21 @@ workflow:
         tool_parameters:
           containerId:
             type: mixed
-            value: ''
+            value: '{{#1779328368764.containerId#}}'
           endTime:
             type: variable
             value:
             - '1743576019537'
             - endTime
+          nodeName:
+            type: mixed
+            value: '{{#1779328368764.node#}}'
+          pid:
+            type: mixed
+            value: '{{#1779328368764.pid#}}'
           pod:
             type: mixed
-            value: '{{#17526597221060.item#}}'
+            value: '{{#1779328368764.pod#}}'
           startTime:
             type: variable
             value:
@@ -12787,10 +12863,10 @@ workflow:
       id: '1752659777922'
       parentId: '17526597221060'
       position:
-        x: 204
+        x: 504
         y: 60
       positionAbsolute:
-        x: 10522
+        x: 11422
         y: 3452
       selected: false
       sourcePosition: right
@@ -12962,10 +13038,10 @@ workflow:
       id: '1752659811737'
       parentId: '17526597221060'
       position:
-        x: 812
+        x: 1112
         y: 60
       positionAbsolute:
-        x: 11130
+        x: 12030
         y: 3452
       selected: false
       sourcePosition: right
@@ -13043,11 +13119,11 @@ workflow:
       height: 90
       id: '1752660000891'
       position:
-        x: 11798
-        y: 3434
+        x: 12758.599488158161
+        y: 3426.9097239252037
       positionAbsolute:
-        x: 11798
-        y: 3434
+        x: 12758.599488158161
+        y: 3426.9097239252037
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13823,10 +13899,10 @@ workflow:
       height: 152
       id: '1752753916357'
       position:
-        x: 12690
+        x: 13290
         y: 3403
       positionAbsolute:
-        x: 12690
+        x: 13290
         y: 3403
       selected: false
       sourcePosition: right
@@ -13894,10 +13970,10 @@ workflow:
       height: 96
       id: '1752754438301'
       position:
-        x: 13582
+        x: 14182
         y: 3546
       positionAbsolute:
-        x: 13582
+        x: 14182
         y: 3546
       selected: false
       sourcePosition: right
@@ -13940,14 +14016,20 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(arg1: str) -> dict:\n    pods = arg1.split(\"|\")\n    return\
-          \ {\n        \"result\": pods\n    }\n"
+        code: "def main(arg1: str) -> dict:\n    if not arg1:\n        return {\"\
+          result\": []}\n\n    pods = arg1.split(\"|\")\n    instances = []\n\n  \
+          \  seen_pods = set()\n\n    for pod in pods:\n        pod = pod.strip()\n\
+          \        if not pod or pod in seen_pods:\n            continue\n\n     \
+          \   seen_pods.add(pod)\n        instances.append({\n            \"pod\"\
+          : pod,\n            \"node\": \"\",\n            \"pid\": \"\",\n      \
+          \      \"containerId\": \"\"\n        })\n\n    return {\n        \"result\"\
+          : instances[:30]\n    }"
         code_language: python3
         desc: ''
         outputs:
           result:
             children: null
-            type: array[string]
+            type: array[object]
         selected: false
         title: 受影响pods
         type: code
@@ -13970,18 +14052,36 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(data: str):\n    timeseries = json.loads(data)\n\
-          \    pods = []\n    for entry in timeseries:\n        pod = _get_value(entry.get('labels',\
-          \ {}), [\"pod\", \"pod_name\"])\n        if pod:\n            pods.append(pod)\n\
-          \    return {\n        \"result\": pods\n    }\n\ndef _get_value(labels:\
-          \ dict, keys: list[str]):\n    for key in keys:\n        value = labels.get(key)\n\
-          \        if value:\n            return value \n\n    return \"\""
+        code: "import json\n\ndef main(data: str):\n    try:\n        timeseries =\
+          \ json.loads(data)\n    except (json.JSONDecodeError, TypeError):\n    \
+          \    return {\"result\": []}\n        \n    if not isinstance(timeseries,\
+          \ list):\n        return {\"result\": []}\n\n    # 使用 dict 的 key 特性来做字典去重\n\
+          \    unique_instances = {}\n    \n    # 定义各字段可能出现的键名列表\n    node_keys =\
+          \ [\"node\", \"node_name\", \"nodename\", \"nodeName\", \"instance_name\"\
+          , \"instanceName\"]\n    container_keys = [\"containerId\", \"container\"\
+          ]\n    pod_keys = [\"pod\", \"pod_name\"]\n    pid_keys = [\"pid\"]\n\n\
+          \    for entry in timeseries:\n        if not isinstance(entry, dict):\n\
+          \            continue\n            \n        labels = entry.get('labels',\
+          \ {})\n        \n        # 统一使用 _get_value 提取各字段\n        pod = _get_value(labels,\
+          \ pod_keys)\n        container_id = _get_value(labels, container_keys)\n\
+          \        node = _get_value(labels, node_keys)\n        pid = _get_value(labels,\
+          \ pid_keys)\n\n        # 过滤掉完全没有有效信息的空条目\n        if not any([pod, container_id,\
+          \ node, pid]):\n            continue\n\n        # 构造目标 dict 结构\n       \
+          \ instance_dict = {\n            \"pod\": pod,\n            \"containerId\"\
+          : container_id,\n            \"node\": node,\n            \"pid\": pid\n\
+          \        }\n\n        # 生成联合唯一 Key 用于去重\n        unique_key = (pod, container_id,\
+          \ node, pid)\n        unique_instances[unique_key] = instance_dict\n\n \
+          \   return {\n        \"result\": list(unique_instances.values()[:30])\n\
+          \    }\n\ndef _get_value(labels: dict, keys: list[str]):\n    if not isinstance(labels,\
+          \ dict):\n        return \"\"\n        \n    for key in keys:\n        value\
+          \ = labels.get(key)\n        if value:\n            return str(value)  #\
+          \ 确保 pid 等数字类型也能统一转成字符串处理\n\n    return \"\""
         code_language: python3
         desc: ''
         outputs:
           result:
             children: null
-            type: array[string]
+            type: array[object]
         selected: false
         title: 其他pods
         type: code
@@ -14004,25 +14104,38 @@ workflow:
       type: custom
       width: 244
     - data:
+        advanced_settings:
+          group_enabled: false
+          groups:
+          - groupId: 7dc1b8aa-6f63-459d-ab4c-96aa638b0fc8
+            group_name: Group1
+            output_type: array[string]
+            variables:
+            - - '17526596567180'
+              - instances
+            - - '1752804650899'
+              - result
+            - - '1752804688058'
+              - result
         desc: ''
-        output_type: array[string]
+        output_type: array[object]
         selected: false
         title: 异常pods
         type: variable-aggregator
         variables:
-        - - '17526596567180'
-          - pods
         - - '1752804650899'
           - result
+        - - '17526596567180'
+          - instances
         - - '1752804688058'
           - result
       height: 153
       id: '1752804755713'
       position:
-        x: 9406
+        x: 10006
         y: 3438.5
       positionAbsolute:
-        x: 9406
+        x: 10006
         y: 3438.5
       selected: false
       sourcePosition: right
@@ -14128,10 +14241,10 @@ workflow:
       height: 90
       id: '1752808097130'
       position:
-        x: 22182
+        x: 22782
         y: 2438
       positionAbsolute:
-        x: 22182
+        x: 22782
         y: 2438
       selected: false
       sourcePosition: right
@@ -14160,10 +14273,10 @@ workflow:
       height: 54
       id: '1752808187410'
       position:
-        x: 22618
+        x: 23218
         y: 2396
       positionAbsolute:
-        x: 22618
+        x: 23218
         y: 2396
       selected: false
       sourcePosition: right
@@ -14254,11 +14367,11 @@ workflow:
       height: 153
       id: '1752818532791'
       position:
-        x: 9710
-        y: 3402.5
+        x: 10321.623678059621
+        y: 3426.9097239252037
       positionAbsolute:
-        x: 9710
-        y: 3402.5
+        x: 10321.623678059621
+        y: 3426.9097239252037
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14375,28 +14488,33 @@ workflow:
       width: 244
     - data:
         code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n      \
-          \  return 0\n    return sum(values) / len(values)\n\ndef _get_standard_deviation(avg,\
+          \  return 0\n    return sum(values) / len(values)\n\n\ndef _get_standard_deviation(avg,\
           \ values):\n    if len(values) == 0:\n        return 0\n    squared_diffs\
-          \ = [(x - avg)**2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
+          \ = [(x - avg) ** 2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
           \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\
-          \ndef analyze_data(result_str: str):        \n\n        data = json.loads(result_str)\n\
-          \        timeseries = data.get('data', {}).get('timeseries', [])[:75]\n\
-          \        unit = data.get('unit', '')\n        filtered = []\n\n        for\
-          \ entry in timeseries:\n            labels = entry.get('labels', {})\n\n\
-          \            chart = entry.get('chart', {}).get('chartData', {})\n     \
-          \       values = [v for v in chart.values() if v != 0]\n\n            if\
-          \ len(values) == 0:\n                continue\n\n            avg = _get_avg(values)\n\
-          \            variance = _get_standard_deviation(avg, values)\n\n       \
-          \     threshold = avg + 1 * variance\n            \n            count =\
-          \ 0\n            for _, value in chart.items():\n                if value\
-          \ > threshold:\n                    count += 1\n\n            if count !=\
-          \ 0:\n                res = {\n                    \"chart\": chart,\n \
-          \                   \"abnormalCount\": count,\n                    \"labels\"\
-          : labels,\n                    \"avg\": avg,\n                    \"unit\"\
-          : unit\n                }\n                filtered.append(res)\n      \
-          \          \n\n        return json.dumps(filtered)\n    \ndef main(arg1:\
-          \ str) -> dict:\n    res = analyze_data(arg1)\n    return {\n        \"\
-          result\": res,\n    }"
+          \n\ndef main(data_json: str) -> dict:\n    data = json.loads(data_json)\n\
+          \    timeseries = data.get(\"data\", {}).get(\"timeseries\", [])\n    unit\
+          \ = data.get(\"unit\", \"\")\n\n    abnormal_list = []\n    top_usage_list\
+          \ = []\n\n    for index, entry in enumerate(timeseries):\n        labels\
+          \ = entry.get(\"labels\", {})\n        chart = entry.get(\"chart\", {}).get(\"\
+          chartData\", {})\n        values = [v for v in chart.values() if v != 0]\n\
+          \n        if len(values) == 0:\n            continue\n\n        avg = _get_avg(values)\n\
+          \n        # 1. 收集 Top 3 数据（这里同步补上了 chart 字段）\n        top_usage_list.append({\n\
+          \            \"chart\": chart, \n            \"labels\": labels, \n    \
+          \        \"avg\": avg, \n            \"unit\": unit\n        })\n\n    \
+          \    # 2. 收集 异常算法 数据 (保留原算法前 75 条的限制)\n        if index < 75:\n        \
+          \    variance = _get_standard_deviation(avg, values)\n            threshold\
+          \ = avg + 1 * variance\n\n            count = 0\n            for _, value\
+          \ in chart.items():\n                if value > threshold:\n           \
+          \         count += 1\n\n            if count != 0:\n                res\
+          \ = {\n                    \"chart\": chart,\n                    \"abnormalCount\"\
+          : count,\n                    \"labels\": labels,\n                    \"\
+          avg\": avg,\n                    \"unit\": unit,\n                }\n  \
+          \              abnormal_list.append(res)\n\n    # 排序并筛选出 Top 3 实例\n    top_three\
+          \ = sorted(top_usage_list, key=lambda x: x[\"avg\"], reverse=True)[:3]\n\
+          \n    # 组装返回的 JSON 结构\n    output_data = {\n        \"top_usage\": top_three,\
+          \ \n        \"abnormal\": abnormal_list\n    }\n\n    return {\"result\"\
+          : json.dumps(output_data, ensure_ascii=False)}"
         code_language: python3
         desc: ''
         outputs:
@@ -14410,7 +14528,7 @@ workflow:
         - value_selector:
           - '1779093169008'
           - output
-          variable: arg1
+          variable: data_json
       height: 54
       id: '1752827682722'
       position:
@@ -14642,9 +14760,34 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(arg1: str) -> dict:\n    data = json.loads(arg1)\n    data['data']['timeseries']\
-          \ = data['data']['timeseries'][:10]\n    return {\n        \"result\": json.dumps(data)\n\
-          \    }\n"
+        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n      \
+          \  return 0\n    return sum(values) / len(values)\n\n\ndef _get_standard_deviation(avg,\
+          \ values):\n    if len(values) == 0:\n        return 0\n    squared_diffs\
+          \ = [(x - avg) ** 2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
+          \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\
+          \n\ndef main(data_json: str) -> dict:\n    data = json.loads(data_json)\n\
+          \    timeseries = data.get(\"data\", {}).get(\"timeseries\", [])\n    unit\
+          \ = data.get(\"unit\", \"\")\n\n    abnormal_list = []\n    top_usage_list\
+          \ = []\n\n    for index, entry in enumerate(timeseries):\n        labels\
+          \ = entry.get(\"labels\", {})\n        chart = entry.get(\"chart\", {}).get(\"\
+          chartData\", {})\n        values = [v for v in chart.values() if v != 0]\n\
+          \n        if len(values) == 0:\n            continue\n\n        avg = _get_avg(values)\n\
+          \n        # 1. 收集 Top 3 数据（这里同步补上了 chart 字段）\n        top_usage_list.append({\n\
+          \            \"chart\": chart, \n            \"labels\": labels, \n    \
+          \        \"avg\": avg, \n            \"unit\": unit\n        })\n\n    \
+          \    # 2. 收集 异常算法 数据 (保留原算法前 75 条的限制)\n        if index < 75:\n        \
+          \    variance = _get_standard_deviation(avg, values)\n            threshold\
+          \ = avg + 1 * variance\n\n            count = 0\n            for _, value\
+          \ in chart.items():\n                if value > threshold:\n           \
+          \         count += 1\n\n            if count != 0:\n                res\
+          \ = {\n                    \"chart\": chart,\n                    \"abnormalCount\"\
+          : count,\n                    \"labels\": labels,\n                    \"\
+          avg\": avg,\n                    \"unit\": unit,\n                }\n  \
+          \              abnormal_list.append(res)\n\n    # 排序并筛选出 Top 3 实例\n    top_three\
+          \ = sorted(top_usage_list, key=lambda x: x[\"avg\"], reverse=True)[:3]\n\
+          \n    # 组装返回的 JSON 结构\n    output_data = {\n        \"top_usage\": top_three,\
+          \ \n        \"abnormal\": abnormal_list\n    }\n\n    return {\"result\"\
+          : json.dumps(output_data, ensure_ascii=False)}"
         code_language: python3
         desc: ''
         outputs:
@@ -14658,15 +14801,15 @@ workflow:
         - value_selector:
           - '1779092938701'
           - output
-          variable: arg1
+          variable: data_json
       height: 54
       id: '1753789618196'
       position:
-        x: 8798
-        y: 3601
+        x: 8691.247008147504
+        y: 3627.1928709620174
       positionAbsolute:
-        x: 8798
-        y: 3601
+        x: 8691.247008147504
+        y: 3627.1928709620174
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14692,10 +14835,10 @@ workflow:
       height: 54
       id: '1753853974605'
       position:
-        x: 10014
+        x: 10614
         y: 3509
       positionAbsolute:
-        x: 10014
+        x: 10614
         y: 3509
       selected: false
       sourcePosition: right
@@ -14778,10 +14921,10 @@ workflow:
       height: 54
       id: '1753865125982'
       position:
-        x: 13886
+        x: 14486
         y: 3546
       positionAbsolute:
-        x: 13886
+        x: 14486
         y: 3546
       selected: false
       sourcePosition: right
@@ -14824,10 +14967,10 @@ workflow:
       height: 54
       id: '1753931802138'
       position:
-        x: 13886
+        x: 14486
         y: 3452
       positionAbsolute:
-        x: 13886
+        x: 14486
         y: 3452
       selected: false
       sourcePosition: right
@@ -14870,11 +15013,11 @@ workflow:
       height: 54
       id: '1753932004742'
       position:
-        x: 13886
-        y: 3224
+        x: 14074.53985979276
+        y: 3200.004017844558
       positionAbsolute:
-        x: 13886
-        y: 3224
+        x: 14074.53985979276
+        y: 3200.004017844558
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15853,10 +15996,10 @@ workflow:
       height: 439
       id: '1753955518503'
       position:
-        x: 16294
+        x: 16894
         y: 2112
       positionAbsolute:
-        x: 16294
+        x: 16894
         y: 2112
       selected: false
       sourcePosition: right
@@ -16080,10 +16223,10 @@ workflow:
       height: 54
       id: '17540319953970'
       position:
-        x: 20834
+        x: 21434
         y: 2242
       positionAbsolute:
-        x: 20834
+        x: 21434
         y: 2242
       selected: false
       sourcePosition: right
@@ -16115,10 +16258,10 @@ workflow:
       height: 54
       id: '17540319953971'
       position:
-        x: 21138
+        x: 21738
         y: 2224
       positionAbsolute:
-        x: 21138
+        x: 21738
         y: 2224
       selected: false
       sourcePosition: right
@@ -16258,10 +16401,10 @@ workflow:
       height: 54
       id: '17540319953972'
       position:
-        x: 21442
+        x: 22042
         y: 2224
       positionAbsolute:
-        x: 21442
+        x: 22042
         y: 2224
       selected: false
       sourcePosition: right
@@ -16298,10 +16441,10 @@ workflow:
       height: 54
       id: '17540319953973'
       position:
-        x: 21746
+        x: 22346
         y: 2224
       positionAbsolute:
-        x: 21746
+        x: 22346
         y: 2224
       selected: false
       sourcePosition: right
@@ -16329,10 +16472,10 @@ workflow:
       height: 174
       id: '17540319953974'
       position:
-        x: 22050
+        x: 22650
         y: 2224
       positionAbsolute:
-        x: 22050
+        x: 22650
         y: 2224
       selected: false
       sourcePosition: right
@@ -16354,7 +16497,7 @@ workflow:
         x: 60
         y: 63
       positionAbsolute:
-        x: 22110
+        x: 22710
         y: 2287
       selectable: false
       selected: false
@@ -16418,10 +16561,10 @@ workflow:
       height: 54
       id: '17540319953985'
       position:
-        x: 22618
+        x: 23218
         y: 2224
       positionAbsolute:
-        x: 22618
+        x: 23218
         y: 2224
       selected: false
       sourcePosition: right
@@ -16592,7 +16735,7 @@ workflow:
         x: 204
         y: 60
       positionAbsolute:
-        x: 22254
+        x: 22854
         y: 2284
       selected: false
       sourcePosition: right
@@ -16674,6 +16817,7 @@ workflow:
         x: 2218.5366376805996
         y: 615
       selectable: false
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom-iteration-start
@@ -17266,10 +17410,10 @@ workflow:
       height: 148
       id: '1760105153157'
       position:
-        x: 16598
+        x: 17198
         y: 2112
       positionAbsolute:
-        x: 16598
+        x: 17198
         y: 2112
       selected: false
       sourcePosition: right
@@ -17291,9 +17435,10 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: 16622
+        x: 17222
         y: 2180
       selectable: false
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom-iteration-start
@@ -17565,7 +17710,7 @@ workflow:
         x: 128
         y: 68
       positionAbsolute:
-        x: 16726
+        x: 17326
         y: 2180
       selected: false
       sourcePosition: right
@@ -17608,7 +17753,7 @@ workflow:
         x: 430.4009656533017
         y: 68
       positionAbsolute:
-        x: 17028.4009656533
+        x: 17628.4009656533
         y: 2180
       selected: false
       sourcePosition: right
@@ -17643,10 +17788,10 @@ workflow:
       height: 54
       id: '1760105330930'
       position:
-        x: 17350
+        x: 17950
         y: 2112
       positionAbsolute:
-        x: 17350
+        x: 17950
         y: 2112
       selected: false
       sourcePosition: right
@@ -17673,10 +17818,10 @@ workflow:
       height: 148
       id: '1760105659487'
       position:
-        x: 17654
+        x: 18254
         y: 2112
       positionAbsolute:
-        x: 17654
+        x: 18254
         y: 2112
       selected: false
       sourcePosition: right
@@ -17698,9 +17843,10 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: 17678
+        x: 18278
         y: 2180
       selectable: false
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom-iteration-start
@@ -17872,7 +18018,7 @@ workflow:
         x: 428
         y: 68
       positionAbsolute:
-        x: 18082
+        x: 18682
         y: 2180
       selected: false
       sourcePosition: right
@@ -17909,7 +18055,7 @@ workflow:
         x: 128
         y: 68
       positionAbsolute:
-        x: 17782
+        x: 18382
         y: 2180
       selected: false
       sourcePosition: right
@@ -17957,7 +18103,7 @@ workflow:
         x: 732
         y: 68
       positionAbsolute:
-        x: 18386
+        x: 18986
         y: 2180
       selected: false
       sourcePosition: right
@@ -18101,7 +18247,7 @@ workflow:
         x: 1036
         y: 68
       positionAbsolute:
-        x: 18690
+        x: 19290
         y: 2180
       selected: false
       sourcePosition: right
@@ -18245,7 +18391,7 @@ workflow:
         x: 1340
         y: 68
       positionAbsolute:
-        x: 18994
+        x: 19594
         y: 2180
       selected: false
       sourcePosition: right
@@ -18286,7 +18432,7 @@ workflow:
         x: 1644
         y: 68
       positionAbsolute:
-        x: 19298
+        x: 19898
         y: 2180
       selected: false
       sourcePosition: right
@@ -18317,10 +18463,10 @@ workflow:
       height: 54
       id: '1760106063352'
       position:
-        x: 19618
+        x: 20218
         y: 2112
       positionAbsolute:
-        x: 19618
+        x: 20218
         y: 2112
       selected: false
       sourcePosition: right
@@ -18365,10 +18511,10 @@ workflow:
       height: 90
       id: '1760106066557'
       position:
-        x: 20226
+        x: 20826
         y: 2112
       positionAbsolute:
-        x: 20226
+        x: 20826
         y: 2112
       selected: false
       sourcePosition: right
@@ -18503,10 +18649,10 @@ workflow:
       height: 54
       id: '1760106121324'
       position:
-        x: 19922
+        x: 20522
         y: 2112
       positionAbsolute:
-        x: 19922
+        x: 20522
         y: 2112
       selected: false
       sourcePosition: right
@@ -19569,6 +19715,7 @@ workflow:
       positionAbsolute:
         x: 9410
         y: 3317
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -19767,6 +19914,7 @@ workflow:
       positionAbsolute:
         x: 9714
         y: 4073
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -19994,7 +20142,95 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        code: "\ndef main(arg1) -> dict:\n    return {\n        \"pod\": arg1.get(\"\
+          pod\"),\n        \"containerId\": arg1.get(\"containerId\"),\n        \"\
+          node\": arg1.get(\"node\"),\n        \"pid\": arg1.get(\"pid\")\n    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '17526597221060'
+        outputs:
+          containerId:
+            children: null
+            type: string
+          node:
+            children: null
+            type: string
+          pid:
+            children: null
+            type: string
+          pod:
+            children: null
+            type: string
+        selected: false
+        title: 解析实例
+        type: code
+        variables:
+        - value_selector:
+          - '17526597221060'
+          - item
+          variable: arg1
+      height: 54
+      id: '1779328368764'
+      parentId: '17526597221060'
+      position:
+        x: 204
+        y: 60
+      positionAbsolute:
+        x: 11122
+        y: 3452
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(arg1) -> dict:\n    return {\n        \"pod\": arg1.get(\"\
+          pod\"),\n        \"containerId\": arg1.get(\"containerId\"),\n        \"\
+          node\": arg1.get(\"node\"),\n        \"pid\": arg1.get(\"pid\")\n    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1752655186497'
+        outputs:
+          containerId:
+            children: null
+            type: string
+          node:
+            children: null
+            type: string
+          pid:
+            children: null
+            type: string
+          pod:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 79
+        type: code
+        variables:
+        - value_selector:
+          - '1752655186497'
+          - item
+          variable: arg2
+      height: 54
+      id: '1779331496803'
+      parentId: '1752655186497'
+      position:
+        x: 204
+        y: 60
+      positionAbsolute:
+        x: 12306
+        y: 3224
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
     viewport:
-      x: -9898.313722293782
-      y: -741.6982032654637
-      zoom: 0.9948519227360922
+      x: -4590.511296445913
+      y: -702.4797366044783
+      zoom: 0.3453147419404504

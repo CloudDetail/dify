@@ -271,18 +271,6 @@ workflow:
     - data:
         isInIteration: false
         sourceType: if-else
-        targetType: code
-      id: 1745494305165-true-17430589567120-target
-      selected: false
-      source: '1745494305165'
-      sourceHandle: 'true'
-      target: '17430589567120'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
         targetType: template-transform
       id: 1745494305165-false-1745494335273-target
       selected: false
@@ -1337,17 +1325,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: if-else
-      id: 1758694051591-source-1747355869184-target
-      source: '1758694051591'
-      sourceHandle: source
-      target: '1747355869184'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: tool
         targetType: tool
       id: 1758694014155-source-1758770073925-target
@@ -1543,6 +1520,87 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: if-else
+      id: 1758694051591-source-1747355869184-target
+      source: '1758694051591'
+      sourceHandle: source
+      target: '1747355869184'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: iteration
+      id: 1745494305165-true-1779332497301-target
+      source: '1745494305165'
+      sourceHandle: 'true'
+      target: '1779332497301'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 1779332497301-source-17430589567120-target
+      source: '1779332497301'
+      sourceHandle: source
+      target: '17430589567120'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1779332497301'
+        sourceType: tool
+        targetType: tool
+      id: 1779332543996-source-1779343651578-target
+      source: '1779332543996'
+      sourceHandle: source
+      target: '1779343651578'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1779332497301'
+        sourceType: tool
+        targetType: code
+      id: 1779343651578-source-1779332548470-target
+      source: '1779343651578'
+      sourceHandle: source
+      target: '1779332548470'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1779332497301'
+        sourceType: iteration-start
+        targetType: code
+      id: 1779332497301start-source-1779344618725-target
+      source: 1779332497301start
+      sourceHandle: source
+      target: '1779344618725'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1779332497301'
+        sourceType: code
+        targetType: tool
+      id: 1779344618725-source-1779332543996-target
+      source: '1779344618725'
+      sourceHandle: source
+      target: '1779332543996'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
     nodes:
     - data:
         desc: ''
@@ -1620,11 +1678,11 @@ workflow:
       height: 142
       id: '1741502839759'
       position:
-        x: 16886
-        y: 1134
+        x: 17938
+        y: 1022
       positionAbsolute:
-        x: 16886
-        y: 1134
+        x: 17938
+        y: 1022
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1743,14 +1801,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1741512806512'
       position:
-        x: 9758
-        y: 890
+        x: 10810
+        y: 778
       positionAbsolute:
-        x: 9758
-        y: 890
+        x: 10810
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1790,10 +1848,10 @@ workflow:
       id: '1741592144815'
       position:
         x: 1246
-        y: 343
+        y: 361
       positionAbsolute:
         x: 1246
-        y: 343
+        y: 361
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1976,10 +2034,10 @@ workflow:
       height: 54
       id: '1742807803325'
       position:
-        x: 332.4344098948601
+        x: 334
         y: 361
       positionAbsolute:
-        x: 332.4344098948601
+        x: 334
         y: 361
       selected: false
       sourcePosition: right
@@ -1987,10 +2045,32 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(data: dict) -> dict:\n    return {\n        \"pod\": data.get(\"\
-          podName\", \"\"),\n        \"namespace\": data.get(\"namespace\", \"\"),\n\
-          \        \"pid\": str(data.get(\"pid\", \"\")),\n        \"node\": data.get(\"\
-          nodeName\", \"\"),\n    }\n"
+        code: "import json\nfrom typing import Any\n\n\ndef main(data: list[str])\
+          \ -> dict:\n    best_record = None\n    best_score = float(\"-inf\")\n\n\
+          \    for item in data:\n        parsed = _parse_record(item)\n        if\
+          \ parsed is None:\n            continue\n\n        score = _to_float(parsed.get(\"\
+          score\", 0.0))\n        if score > best_score:\n            best_score =\
+          \ score\n            best_record = parsed\n\n    if best_record is None:\n\
+          \        return _empty_result()\n\n    return {\n        \"pod\": _read_pod(best_record),\n\
+          \        \"namespace\": str(best_record.get(\"namespace\", \"\") or \"\"\
+          ),\n        \"pid\": _read_pid(best_record),\n        \"node\": _read_node(best_record),\n\
+          \    }\n\n\ndef _parse_record(item: Any) -> dict[str, Any] | None:\n   \
+          \ if isinstance(item, str):\n        return json.loads(item)\n    return\
+          \ None\n\n\ndef _read_pod(record: dict[str, Any]) -> str:\n    instance\
+          \ = record.get(\"instance\")\n    if isinstance(instance, dict):\n     \
+          \   return str(instance.get(\"pod\", \"\") or \"\")\n    return str(record.get(\"\
+          podName\", record.get(\"pod\", \"\")) or \"\")\n\n\ndef _read_pid(record:\
+          \ dict[str, Any]) -> str:\n    instance = record.get(\"instance\")\n   \
+          \ if isinstance(instance, dict):\n        return str(instance.get(\"pid\"\
+          , \"\") or \"\")\n    return str(record.get(\"pid\", \"\") or \"\")\n\n\n\
+          def _read_node(record: dict[str, Any]) -> str:\n    instance = record.get(\"\
+          instance\")\n    if isinstance(instance, dict):\n        return str(instance.get(\"\
+          node\", \"\") or \"\")\n    return str(record.get(\"nodeName\", record.get(\"\
+          node\", \"\")) or \"\")\n\n\ndef _to_float(value: Any) -> float:\n    try:\n\
+          \        return float(value)\n    except (TypeError, ValueError):\n    \
+          \    return 0.0\n\n\ndef _empty_result() -> dict[str, str]:\n    return\
+          \ {\n        \"pod\": \"\",\n        \"namespace\": \"\",\n        \"pid\"\
+          : \"\",\n        \"node\": \"\",\n    }"
         code_language: python3
         desc: ''
         isInIteration: true
@@ -2013,17 +2093,17 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1741509454645'
-          - first
+          - '1779332497301'
+          - output
           variable: data
       height: 54
       id: '17430589567120'
       position:
-        x: 2462
-        y: 585
+        x: 3514
+        y: 491
       positionAbsolute:
-        x: 2462
-        y: 585
+        x: 3514
+        y: 491
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2149,11 +2229,11 @@ workflow:
       height: 54
       id: '17430595109950'
       position:
-        x: 4894
-        y: 773
+        x: 5946
+        y: 661
       positionAbsolute:
-        x: 4894
-        y: 773
+        x: 5946
+        y: 661
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2324,11 +2404,11 @@ workflow:
       height: 54
       id: '17430595158080'
       position:
-        x: 5198
-        y: 773
+        x: 6250
+        y: 661
       positionAbsolute:
-        x: 5198
-        y: 773
+        x: 6250
+        y: 661
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2385,14 +2465,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '17430596469370'
       position:
-        x: 6718
-        y: 773
+        x: 7770
+        y: 661
       positionAbsolute:
-        x: 6718
-        y: 773
+        x: 7770
+        y: 661
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2518,11 +2598,11 @@ workflow:
       height: 54
       id: '17430597987060'
       position:
-        x: 5198
-        y: 1211
+        x: 6250
+        y: 1099
       positionAbsolute:
-        x: 5198
-        y: 1211
+        x: 6250
+        y: 1099
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2648,11 +2728,11 @@ workflow:
       height: 54
       id: '17430598907140'
       position:
-        x: 4590
-        y: 679
+        x: 5642
+        y: 567
       positionAbsolute:
-        x: 4590
-        y: 679
+        x: 5642
+        y: 567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2806,11 +2886,11 @@ workflow:
       height: 54
       id: '17430598942980'
       position:
-        x: 4894
-        y: 679
+        x: 5946
+        y: 567
       positionAbsolute:
-        x: 4894
-        y: 679
+        x: 5946
+        y: 567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2936,11 +3016,11 @@ workflow:
       height: 54
       id: '17430610599980'
       position:
-        x: 4894
-        y: 961
+        x: 5946
+        y: 849
       positionAbsolute:
-        x: 4894
-        y: 961
+        x: 5946
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3094,11 +3174,11 @@ workflow:
       height: 54
       id: '17430610640640'
       position:
-        x: 5198
-        y: 961
+        x: 6250
+        y: 849
       positionAbsolute:
-        x: 5198
-        y: 961
+        x: 6250
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3224,11 +3304,11 @@ workflow:
       height: 54
       id: '17430610719970'
       position:
-        x: 4894
-        y: 585
+        x: 5946
+        y: 473
       positionAbsolute:
-        x: 4894
-        y: 585
+        x: 5946
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3373,11 +3453,11 @@ workflow:
       height: 54
       id: '17430610756270'
       position:
-        x: 5198
-        y: 585
+        x: 6250
+        y: 473
       positionAbsolute:
-        x: 5198
-        y: 585
+        x: 6250
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3414,11 +3494,11 @@ workflow:
       height: 54
       id: '1744255998058'
       position:
-        x: 5502
-        y: 979
+        x: 6554
+        y: 849
       positionAbsolute:
-        x: 5502
-        y: 979
+        x: 6554
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3454,11 +3534,11 @@ workflow:
       height: 54
       id: '17442560822670'
       position:
-        x: 5198
-        y: 679
+        x: 6250
+        y: 567
       positionAbsolute:
-        x: 5198
-        y: 679
+        x: 6250
+        y: 567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3559,11 +3639,11 @@ workflow:
       height: 54
       id: '1744287265980'
       position:
-        x: 6110
-        y: 992
+        x: 7162
+        y: 849
       positionAbsolute:
-        x: 6110
-        y: 992
+        x: 7162
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3605,11 +3685,11 @@ workflow:
       height: 54
       id: '1744290470304'
       position:
-        x: 6414
-        y: 961
+        x: 7466
+        y: 849
       positionAbsolute:
-        x: 6414
-        y: 961
+        x: 7466
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3710,11 +3790,11 @@ workflow:
       height: 54
       id: '17443356883380'
       position:
-        x: 5806
-        y: 603
+        x: 6858
+        y: 473
       positionAbsolute:
-        x: 5806
-        y: 603
+        x: 6858
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3815,11 +3895,11 @@ workflow:
       height: 54
       id: '17443357536900'
       position:
-        x: 5806
-        y: 697
+        x: 6858
+        y: 567
       positionAbsolute:
-        x: 5806
-        y: 697
+        x: 6858
+        y: 567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3920,11 +4000,11 @@ workflow:
       height: 54
       id: '17443357893440'
       position:
-        x: 6110
-        y: 1242
+        x: 7162
+        y: 1099
       positionAbsolute:
-        x: 6110
-        y: 1242
+        x: 7162
+        y: 1099
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4025,11 +4105,11 @@ workflow:
       height: 54
       id: '17443357899060'
       position:
-        x: 5806
-        y: 791
+        x: 6858
+        y: 661
       positionAbsolute:
-        x: 5806
-        y: 791
+        x: 6858
+        y: 661
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4071,11 +4151,11 @@ workflow:
       height: 54
       id: '17443388421360'
       position:
-        x: 6414
-        y: 1211
+        x: 7466
+        y: 1099
       positionAbsolute:
-        x: 6414
-        y: 1211
+        x: 7466
+        y: 1099
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4117,11 +4197,11 @@ workflow:
       height: 54
       id: '17443388433580'
       position:
-        x: 6110
-        y: 804
+        x: 7162
+        y: 661
       positionAbsolute:
-        x: 6110
-        y: 804
+        x: 7162
+        y: 661
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4163,11 +4243,11 @@ workflow:
       height: 54
       id: '17443388438160'
       position:
-        x: 6110
-        y: 710
+        x: 7162
+        y: 567
       positionAbsolute:
-        x: 6110
-        y: 710
+        x: 7162
+        y: 567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4209,11 +4289,11 @@ workflow:
       height: 54
       id: '17443388443000'
       position:
-        x: 6110
-        y: 616
+        x: 7162
+        y: 473
       positionAbsolute:
-        x: 6110
-        y: 616
+        x: 7162
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4259,11 +4339,11 @@ workflow:
       height: 54
       id: '1745494335273'
       position:
-        x: 2462
-        y: 473
+        x: 2836
+        y: 614
       positionAbsolute:
-        x: 2462
-        y: 473
+        x: 2836
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4282,11 +4362,11 @@ workflow:
       height: 90
       id: '1745494338512'
       position:
-        x: 2766
-        y: 455
+        x: 3514
+        y: 614
       positionAbsolute:
-        x: 2766
-        y: 455
+        x: 3514
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4312,11 +4392,11 @@ workflow:
       height: 126
       id: '1747355869184'
       position:
-        x: 4286
-        y: 585
+        x: 5338
+        y: 473
       positionAbsolute:
-        x: 4286
-        y: 585
+        x: 5338
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4467,11 +4547,11 @@ workflow:
       height: 54
       id: '1747355986489'
       position:
-        x: 4590
-        y: 1086
+        x: 5642
+        y: 974
       positionAbsolute:
-        x: 4590
-        y: 1086
+        x: 5642
+        y: 974
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4624,11 +4704,11 @@ workflow:
       height: 54
       id: '17473562733380'
       position:
-        x: 5806
-        y: 885
+        x: 6858
+        y: 755
       positionAbsolute:
-        x: 5806
-        y: 885
+        x: 6858
+        y: 755
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4683,11 +4763,11 @@ workflow:
       height: 54
       id: '17473564423850'
       position:
-        x: 4894
-        y: 1086
+        x: 5946
+        y: 974
       positionAbsolute:
-        x: 4894
-        y: 1086
+        x: 5946
+        y: 974
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4740,11 +4820,11 @@ workflow:
       height: 54
       id: '1747356893645'
       position:
-        x: 5198
-        y: 1086
+        x: 6250
+        y: 974
       positionAbsolute:
-        x: 5198
-        y: 1086
+        x: 6250
+        y: 974
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4787,14 +4867,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '17473569800940'
       position:
-        x: 5502
-        y: 1086
+        x: 6554
+        y: 953
       positionAbsolute:
-        x: 5502
-        y: 1086
+        x: 6554
+        y: 953
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4818,11 +4898,11 @@ workflow:
       height: 116
       id: '1747357345949'
       position:
-        x: 6110
-        y: 1086
+        x: 7162
+        y: 943
       positionAbsolute:
-        x: 6110
-        y: 1086
+        x: 7162
+        y: 943
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4870,14 +4950,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750068431868'
       position:
-        x: 15366
-        y: 1134
+        x: 16418
+        y: 1001
       positionAbsolute:
-        x: 15366
-        y: 1134
+        x: 16418
+        y: 1001
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4917,14 +4997,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '17501667334220'
       position:
-        x: 5806
-        y: 1086
+        x: 6858
+        y: 953
       positionAbsolute:
-        x: 5806
-        y: 1086
+        x: 6858
+        y: 953
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5321,10 +5401,10 @@ workflow:
       id: '1750658087300'
       position:
         x: 1246
-        y: 473
+        y: 491
       positionAbsolute:
         x: 1246
-        y: 473
+        y: 491
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5374,10 +5454,10 @@ workflow:
       id: '1750658174684'
       position:
         x: 1246
-        y: 567
+        y: 585
       positionAbsolute:
         x: 1246
-        y: 567
+        y: 585
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5544,11 +5624,11 @@ workflow:
       height: 54
       id: '1750661176423'
       position:
-        x: 5502
-        y: 1229
+        x: 6554
+        y: 1099
       positionAbsolute:
-        x: 5502
-        y: 1229
+        x: 6554
+        y: 1099
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5599,11 +5679,11 @@ workflow:
       height: 54
       id: '1750661889002'
       position:
-        x: 15670
-        y: 890
+        x: 16722
+        y: 778
       positionAbsolute:
-        x: 15670
-        y: 890
+        x: 16722
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5712,14 +5792,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750662084996'
       position:
-        x: 14758
-        y: 872
+        x: 15810
+        y: 778
       positionAbsolute:
-        x: 14758
-        y: 872
+        x: 15810
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5777,14 +5857,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750662088384'
       position:
-        x: 15062
-        y: 872
+        x: 16114
+        y: 778
       positionAbsolute:
-        x: 15062
-        y: 872
+        x: 16114
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5815,11 +5895,11 @@ workflow:
       height: 54
       id: '1750662168285'
       position:
-        x: 15670
-        y: 1040
+        x: 16722
+        y: 928
       positionAbsolute:
-        x: 15670
-        y: 1040
+        x: 16722
+        y: 928
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5866,14 +5946,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750662408086'
       position:
-        x: 15366
-        y: 1264
+        x: 16418
+        y: 1137
       positionAbsolute:
-        x: 15366
-        y: 1264
+        x: 16418
+        y: 1137
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5905,11 +5985,11 @@ workflow:
       height: 54
       id: '1750672701216'
       position:
-        x: 15670
-        y: 1134
+        x: 16722
+        y: 1022
       positionAbsolute:
-        x: 15670
-        y: 1134
+        x: 16722
+        y: 1022
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5941,11 +6021,11 @@ workflow:
       height: 54
       id: '17506728633540'
       position:
-        x: 15670
-        y: 1264
+        x: 16722
+        y: 1158
       positionAbsolute:
-        x: 15670
-        y: 1264
+        x: 16722
+        y: 1158
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6017,11 +6097,11 @@ workflow:
       height: 54
       id: '1750750056742'
       position:
-        x: 15670
-        y: 1358
+        x: 16722
+        y: 1252
       positionAbsolute:
-        x: 15670
-        y: 1358
+        x: 16722
+        y: 1252
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6243,11 +6323,11 @@ workflow:
       height: 54
       id: '1750754610625'
       position:
-        x: 15974
-        y: 1134
+        x: 17026
+        y: 1022
       positionAbsolute:
-        x: 15974
-        y: 1134
+        x: 17026
+        y: 1022
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6304,11 +6384,11 @@ workflow:
       height: 54
       id: '1750769951427'
       position:
-        x: 15670
-        y: 1452
+        x: 16722
+        y: 1346
       positionAbsolute:
-        x: 15670
-        y: 1452
+        x: 16722
+        y: 1346
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6364,12 +6444,12 @@ workflow:
       height: 54
       id: '1750819000832'
       position:
-        x: 15062
-        y: 1582
+        x: 16114
+        y: 1503
       positionAbsolute:
-        x: 15062
-        y: 1582
-      selected: true
+        x: 16114
+        y: 1503
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6419,11 +6499,11 @@ workflow:
       height: 54
       id: '1750830567613'
       position:
-        x: 14150
-        y: 1452
+        x: 15202
+        y: 1364
       positionAbsolute:
-        x: 14150
-        y: 1452
+        x: 15202
+        y: 1364
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6593,11 +6673,11 @@ workflow:
       height: 54
       id: '1750830747193'
       position:
-        x: 14454
-        y: 1452
+        x: 15506
+        y: 1346
       positionAbsolute:
-        x: 14454
-        y: 1452
+        x: 15506
+        y: 1346
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6644,11 +6724,11 @@ workflow:
       height: 54
       id: '1750830805330'
       position:
-        x: 14758
-        y: 1452
+        x: 15810
+        y: 1367
       positionAbsolute:
-        x: 14758
-        y: 1452
+        x: 15810
+        y: 1367
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6688,14 +6768,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750927215923'
       position:
-        x: 15366
-        y: 1452
+        x: 16418
+        y: 1325
       positionAbsolute:
-        x: 15366
-        y: 1452
+        x: 16418
+        y: 1325
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6735,14 +6815,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750927458985'
       position:
-        x: 15366
-        y: 1582
+        x: 16418
+        y: 1461
       positionAbsolute:
-        x: 15366
-        y: 1582
+        x: 16418
+        y: 1461
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6788,14 +6868,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750995139153'
       position:
-        x: 16582
-        y: 1134
+        x: 17634
+        y: 1022
       positionAbsolute:
-        x: 16582
-        y: 1134
+        x: 17634
+        y: 1022
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6842,11 +6922,11 @@ workflow:
       height: 54
       id: '1751112705936'
       position:
-        x: 5806
-        y: 1229
+        x: 6858
+        y: 1099
       positionAbsolute:
-        x: 5806
-        y: 1229
+        x: 6858
+        y: 1099
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6893,11 +6973,11 @@ workflow:
       height: 54
       id: '17511127594560'
       position:
-        x: 5806
-        y: 979
+        x: 6858
+        y: 849
       positionAbsolute:
-        x: 5806
-        y: 979
+        x: 6858
+        y: 849
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6944,11 +7024,11 @@ workflow:
       height: 54
       id: '17511128355920'
       position:
-        x: 5502
-        y: 791
+        x: 6554
+        y: 661
       positionAbsolute:
-        x: 5502
-        y: 791
+        x: 6554
+        y: 661
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6995,11 +7075,11 @@ workflow:
       height: 54
       id: '17511128736240'
       position:
-        x: 5502
-        y: 697
+        x: 6554
+        y: 567
       positionAbsolute:
-        x: 5502
-        y: 697
+        x: 6554
+        y: 567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7046,11 +7126,11 @@ workflow:
       height: 54
       id: '17511129103380'
       position:
-        x: 5502
-        y: 603
+        x: 6554
+        y: 473
       positionAbsolute:
-        x: 5502
-        y: 603
+        x: 6554
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7220,11 +7300,11 @@ workflow:
       height: 54
       id: '1751504789699'
       position:
-        x: 6414
-        y: 773
+        x: 7466
+        y: 661
       positionAbsolute:
-        x: 6414
-        y: 773
+        x: 7466
+        y: 661
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7394,11 +7474,11 @@ workflow:
       height: 54
       id: '17515048509810'
       position:
-        x: 6414
-        y: 679
+        x: 7466
+        y: 567
       positionAbsolute:
-        x: 6414
-        y: 679
+        x: 7466
+        y: 567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7568,11 +7648,11 @@ workflow:
       height: 54
       id: '17515048888700'
       position:
-        x: 6414
-        y: 585
+        x: 7466
+        y: 473
       positionAbsolute:
-        x: 6414
-        y: 585
+        x: 7466
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7619,11 +7699,11 @@ workflow:
       height: 54
       id: '17515143872690'
       position:
-        x: 6110
-        y: 898
+        x: 7162
+        y: 755
       positionAbsolute:
-        x: 6110
-        y: 898
+        x: 7162
+        y: 755
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7793,11 +7873,11 @@ workflow:
       height: 54
       id: '1751601681225'
       position:
-        x: 16278
-        y: 1134
+        x: 17330
+        y: 1022
       positionAbsolute:
-        x: 16278
-        y: 1134
+        x: 17330
+        y: 1022
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7823,11 +7903,11 @@ workflow:
       height: 126
       id: '1751601842740'
       position:
-        x: 13846
-        y: 890
+        x: 14898
+        y: 778
       positionAbsolute:
-        x: 13846
-        y: 890
+        x: 14898
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7846,11 +7926,11 @@ workflow:
       height: 90
       id: '1751601994805'
       position:
-        x: 14150
-        y: 947
+        x: 15202
+        y: 853
       positionAbsolute:
-        x: 14150
-        y: 947
+        x: 15202
+        y: 853
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7915,11 +7995,11 @@ workflow:
       height: 54
       id: '1753840330051'
       position:
-        x: 15366
-        y: 908
+        x: 16418
+        y: 778
       positionAbsolute:
-        x: 15366
-        y: 908
+        x: 16418
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8066,11 +8146,11 @@ workflow:
       height: 54
       id: '1754298166852'
       position:
-        x: 6414
-        y: 867
+        x: 7466
+        y: 755
       positionAbsolute:
-        x: 6414
-        y: 867
+        x: 7466
+        y: 755
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8107,11 +8187,11 @@ workflow:
       height: 174
       id: '1754299061896'
       position:
-        x: 7326
-        y: 890
+        x: 8378
+        y: 778
       positionAbsolute:
-        x: 7326
-        y: 890
+        x: 8378
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8137,11 +8217,11 @@ workflow:
       height: 54
       id: '1754299310647'
       position:
-        x: 2766
-        y: 585
+        x: 3818
+        y: 473
       positionAbsolute:
-        x: 2766
-        y: 585
+        x: 3818
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8161,11 +8241,11 @@ workflow:
       height: 131
       id: '1754375770920'
       position:
-        x: 8846
-        y: 985.5
+        x: 9898
+        y: 873.5
       positionAbsolute:
-        x: 8846
-        y: 985.5
+        x: 9898
+        y: 873.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8225,14 +8305,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1754382620041'
       position:
-        x: 9150
-        y: 985.5
+        x: 10202
+        y: 873.5
       positionAbsolute:
-        x: 9150
-        y: 985.5
+        x: 10202
+        y: 873.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8261,14 +8341,14 @@ workflow:
         type: question-classifier
         vision:
           enabled: false
-      height: 168
+      height: 174
       id: '1754385298311'
       position:
-        x: 7022
-        y: 773
+        x: 8074
+        y: 661
       positionAbsolute:
-        x: 7022
-        y: 773
+        x: 8074
+        y: 661
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8288,11 +8368,11 @@ workflow:
       height: 131
       id: '1754385689812'
       position:
-        x: 9454
-        y: 890
+        x: 10506
+        y: 778
       positionAbsolute:
-        x: 9454
-        y: 890
+        x: 10506
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8564,11 +8644,11 @@ workflow:
       height: 54
       id: '1754442999808'
       position:
-        x: 8238
-        y: 1042.5
+        x: 9290
+        y: 930.5
       positionAbsolute:
-        x: 8238
-        y: 1042.5
+        x: 9290
+        y: 930.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8732,11 +8812,11 @@ workflow:
       height: 54
       id: '1754462459105'
       position:
-        x: 7630
-        y: 1042.5
+        x: 8682
+        y: 930.5
       positionAbsolute:
-        x: 7630
-        y: 1042.5
+        x: 8682
+        y: 930.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8781,11 +8861,11 @@ workflow:
       height: 54
       id: '1754462485033'
       position:
-        x: 7934
-        y: 1042.5
+        x: 8986
+        y: 930.5
       positionAbsolute:
-        x: 7934
-        y: 1042.5
+        x: 8986
+        y: 930.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8815,11 +8895,11 @@ workflow:
       height: 54
       id: '1754634901289'
       position:
-        x: 8542
-        y: 1042.5
+        x: 9594
+        y: 930.5
       positionAbsolute:
-        x: 8542
-        y: 1042.5
+        x: 9594
+        y: 930.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8851,11 +8931,11 @@ workflow:
       height: 54
       id: '1757065154374'
       position:
-        x: 3070
-        y: 585
+        x: 4122
+        y: 473
       positionAbsolute:
-        x: 3070
-        y: 585
+        x: 4122
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8992,11 +9072,11 @@ workflow:
       height: 54
       id: '1758694014155'
       position:
-        x: 3374
-        y: 585
+        x: 4426
+        y: 473
       positionAbsolute:
-        x: 3374
-        y: 585
+        x: 4426
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9047,11 +9127,11 @@ workflow:
       height: 54
       id: '1758694051591'
       position:
-        x: 3982
-        y: 585
+        x: 5034
+        y: 473
       positionAbsolute:
-        x: 3982
-        y: 585
+        x: 5034
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9185,11 +9265,11 @@ workflow:
       height: 54
       id: '1758770073925'
       position:
-        x: 3678
-        y: 585
+        x: 4730
+        y: 473
       positionAbsolute:
-        x: 3678
-        y: 585
+        x: 4730
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9455,11 +9535,11 @@ workflow:
       height: 54
       id: '1759065773395'
       position:
-        x: 10062
-        y: 890
+        x: 11114
+        y: 778
       positionAbsolute:
-        x: 10062
-        y: 890
+        x: 11114
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9504,11 +9584,11 @@ workflow:
       height: 54
       id: '1759065776597'
       position:
-        x: 10366
-        y: 890
+        x: 11418
+        y: 778
       positionAbsolute:
-        x: 10366
-        y: 890
+        x: 11418
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9535,11 +9615,11 @@ workflow:
       height: 157
       id: '1759065780515'
       position:
-        x: 10670
-        y: 890
+        x: 11722
+        y: 778
       positionAbsolute:
-        x: 10670
-        y: 890
+        x: 11722
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9560,8 +9640,8 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: 10694
-        y: 958
+        x: 11746
+        y: 846
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -9605,14 +9685,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1759065784647'
       position:
-        x: 13542
-        y: 890
+        x: 14594
+        y: 778
       positionAbsolute:
-        x: 13542
-        y: 890
+        x: 14594
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9784,8 +9864,8 @@ workflow:
         x: 428
         y: 68
       positionAbsolute:
-        x: 11098
-        y: 958
+        x: 12150
+        y: 846
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9857,8 +9937,8 @@ workflow:
         x: 1032
         y: 68
       positionAbsolute:
-        x: 11702
-        y: 958
+        x: 12754
+        y: 846
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10004,8 +10084,8 @@ workflow:
         x: 1334.1215331400635
         y: 69.8784668599369
       positionAbsolute:
-        x: 12004.121533140064
-        y: 959.8784668599369
+        x: 13056.121533140064
+        y: 847.8784668599369
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10035,11 +10115,11 @@ workflow:
       height: 54
       id: '1759068866492'
       position:
-        x: 12934
-        y: 890
+        x: 13986
+        y: 778
       positionAbsolute:
-        x: 12934
-        y: 890
+        x: 13986
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10173,11 +10253,11 @@ workflow:
       height: 54
       id: '1759069387678'
       position:
-        x: 13238
-        y: 890
+        x: 14290
+        y: 778
       positionAbsolute:
-        x: 13238
-        y: 890
+        x: 14290
+        y: 778
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10322,8 +10402,8 @@ workflow:
         x: 1640
         y: 68
       positionAbsolute:
-        x: 12310
-        y: 958
+        x: 13362
+        y: 846
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10363,8 +10443,8 @@ workflow:
         x: 1944
         y: 68
       positionAbsolute:
-        x: 12614
-        y: 958
+        x: 13666
+        y: 846
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10537,8 +10617,8 @@ workflow:
         x: 732
         y: 68
       positionAbsolute:
-        x: 11402
-        y: 958
+        x: 12454
+        y: 846
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10574,15 +10654,659 @@ workflow:
         x: 128
         y: 68
       positionAbsolute:
-        x: 10798
-        y: 958
+        x: 11850
+        y: 846
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
       zIndex: 1002
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        is_parallel: false
+        iterator_selector:
+        - '1741597274153'
+        - output
+        output_selector:
+        - '1779332548470'
+        - result
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1779332497301start
+        title: 迭代 2
+        type: iteration
+        width: 1292
+      height: 148
+      id: '1779332497301'
+      position:
+        x: 2462
+        y: 426
+      positionAbsolute:
+        x: 2462
+        y: 426
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 1292
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1779332497301start
+      parentId: '1779332497301'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 2486
+        y: 494
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1779332497301'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Pod scenario parameter. When provided, the tool queries by pod
+              scene.
+            ja_JP: Pod scenario parameter. When provided, the tool queries by pod
+              scene.
+            pt_BR: Pod scenario parameter. When provided, the tool queries by pod
+              scene.
+            zh_Hans: Pod 场景参数，提供后按 Pod 场景查询。
+          label:
+            en_US: pod
+            ja_JP: pod
+            pt_BR: pod
+            zh_Hans: pod
+          llm_description: Pod scenario parameter. When provided, the tool queries
+            by pod scene.
+          max: null
+          min: null
+          name: pod
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Container scenario parameter. When provided, the tool queries by
+              container scene.
+            ja_JP: Container scenario parameter. When provided, the tool queries by
+              container scene.
+            pt_BR: Container scenario parameter. When provided, the tool queries by
+              container scene.
+            zh_Hans: Container 场景参数，提供后按 Container 场景查询。
+          label:
+            en_US: containerId
+            ja_JP: containerId
+            pt_BR: containerId
+            zh_Hans: containerId
+          llm_description: Container scenario parameter. When provided, the tool queries
+            by container scene.
+          max: null
+          min: null
+          name: containerId
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: VM scenario node hostname. Used together with pid when pod and
+              containerId are absent.
+            ja_JP: VM scenario node hostname. Used together with pid when pod and
+              containerId are absent.
+            pt_BR: VM scenario node hostname. Used together with pid when pod and
+              containerId are absent.
+            zh_Hans: VM 场景节点主机名，在未提供 pod 和 containerId 时与 pid 一起使用。
+          label:
+            en_US: nodeName
+            ja_JP: nodeName
+            pt_BR: nodeName
+            zh_Hans: nodeName
+          llm_description: VM scenario node hostname. Used together with pid when
+            pod and containerId are absent.
+          max: null
+          min: null
+          name: nodeName
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: VM scenario process ID. Used together with nodeName when pod and
+              containerId are absent.
+            ja_JP: VM scenario process ID. Used together with nodeName when pod and
+              containerId are absent.
+            pt_BR: VM scenario process ID. Used together with nodeName when pod and
+              containerId are absent.
+            zh_Hans: VM 场景进程 ID，在未提供 pod 和 containerId 时与 nodeName 一起使用。
+          label:
+            en_US: pid
+            ja_JP: pid
+            pt_BR: pid
+            zh_Hans: pid
+          llm_description: VM scenario process ID. Used together with nodeName when
+            pod and containerId are absent.
+          max: null
+          min: null
+          name: pid
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          containerId: ''
+          endTime: ''
+          nodeName: ''
+          pid: ''
+          pod: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 实例当前延时
+        tool_configurations: {}
+        tool_label: Thread Polaris Metrics - 北极星指标（进程） - 各类型耗时折线图 - 所有类型列表（三场景）
+        tool_name: polar_process_all_resp_three_scenes
+        tool_parameters:
+          containerId:
+            type: mixed
+            value: '{{#1779344618725.containerId#}}'
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          nodeName:
+            type: mixed
+            value: '{{#1779344618725.nodeName#}}'
+          pid:
+            type: mixed
+            value: '{{#1779344618725.pid#}}'
+          pod:
+            type: mixed
+            value: '{{#1779344618725.podName#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+        type: tool
+      height: 54
+      id: '1779332543996'
+      parentId: '1779332497301'
+      position:
+        x: 428
+        y: 68
+      positionAbsolute:
+        x: 2890
+        y: 494
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "import json\nfrom typing import Any\n\n\nRESOURCE_WEIGHTS = {\n   \
+          \ \"cpu\": 1.0,\n    \"user\": 1.0,\n    \"sys\": 1.5,\n    \"runq\": 2.0,\n\
+          \    \"sched\": 2.0,\n    \"net\": 3.0,\n    \"network\": 3.0,\n    \"socket\"\
+          : 3.0,\n    \"tcp\": 3.0,\n    \"udp\": 2.5,\n    \"file\": 2.5,\n    \"\
+          disk\": 2.5,\n    \"block\": 2.5,\n    \"fs\": 2.5,\n    \"epoll\": 3.0,\n\
+          \    \"poll\": 3.0,\n    \"select\": 3.0,\n    \"io\": 2.5,\n    \"iowait\"\
+          : 2.5,\n    \"lock\": 2.0,\n    \"mutex\": 2.0,\n    \"mem\": 1.5,\n   \
+          \ \"memory\": 1.5,\n    \"gc\": 1.5,\n    \"other\": 1.0,\n}\n\n\ndef main(now_json:\
+          \ str, history_json):\n    now_payload = _parse_payload(now_json)\n    history_payload\
+          \ = _parse_payload(history_json)\n\n    now_groups = _group_timeseries(now_payload)\n\
+          \    history_groups = _group_timeseries(history_payload)\n    instance_keys\
+          \ = sorted(set(now_groups) | set(history_groups))\n    if len(instance_keys)\
+          \ > 1:\n        raise ValueError(\"expected metrics for exactly one instance\"\
+          )\n\n    instance_key = instance_keys[0] if instance_keys else _build_instance_key({})\n\
+          \    now_resources = now_groups.get(instance_key, {})\n    history_resources\
+          \ = history_groups.get(instance_key, {})\n    resource_types = sorted(set(now_resources)\
+          \ | set(history_resources))\n\n    resource_scores = {}\n    score = 0.0\n\
+          \    primary_resource = \"\"\n    primary_contribution = -1.0\n\n    for\
+          \ resource_type in resource_types:\n        current_value = _average(now_resources.get(resource_type,\
+          \ []))\n        baseline_value = _average(history_resources.get(resource_type,\
+          \ []))\n        ratio = _safe_ratio(current_value, baseline_value)\n   \
+          \     weight = _resource_weight(resource_type)\n        contribution = max(ratio\
+          \ - 1.0, 0.0) * weight\n\n        resource_scores[resource_type] = {\n \
+          \           \"current\": current_value,\n            \"baseline\": baseline_value,\n\
+          \            \"ratio\": ratio,\n            \"weight\": weight,\n      \
+          \      \"contribution\": contribution,\n        }\n        score += contribution\n\
+          \n        if contribution > primary_contribution:\n            primary_contribution\
+          \ = contribution\n            primary_resource = resource_type\n\n    result\
+          \ = {\n        \"instance\": _decode_instance_key(instance_key),\n     \
+          \   \"score\": round(score, 6),\n        \"primaryResource\": primary_resource,\n\
+          \        \"resourceScores\": resource_scores,\n    }\n    return {\"result\"\
+          : json.dumps(result, ensure_ascii=False)}\n\n\ndef _parse_payload(payload:\
+          \ Any) -> dict[str, Any]:\n    if isinstance(payload, str):\n        return\
+          \ json.loads(payload)\n    if isinstance(payload, dict):\n        return\
+          \ payload\n    raise TypeError(\"payload must be a JSON string or dict\"\
+          )\n\n\ndef _group_timeseries(payload: dict[str, Any]) -> dict[str, dict[str,\
+          \ list[float]]]:\n    grouped: dict[str, dict[str, list[float]]] = {}\n\
+          \    for series in payload.get(\"data\", {}).get(\"timeseries\", []):\n\
+          \        labels = series.get(\"labels\", {})\n        resource_type = str(labels.get(\"\
+          type\", \"other\") or \"other\").lower()\n        instance_key = _build_instance_key(labels)\n\
+          \        grouped.setdefault(instance_key, {}).setdefault(resource_type,\
+          \ []).extend(_chart_values(series))\n    return grouped\n\n\ndef _build_instance_key(labels:\
+          \ dict[str, Any]) -> str:\n    pod = str(labels.get(\"pod\", \"\") or \"\
+          \")\n    container_id = str(labels.get(\"containerId\", labels.get(\"container_id\"\
+          , \"\")) or \"\")\n    pid = str(labels.get(\"pid\", \"\") or \"\")\n  \
+          \  node = str(labels.get(\"node\", labels.get(\"node_name\", \"\")) or \"\
+          \")\n    return json.dumps({\"pod\": pod, \"containerId\": container_id,\
+          \ \"pid\": pid, \"node\": node}, sort_keys=True)\n\n\ndef _decode_instance_key(instance_key:\
+          \ str) -> dict[str, str]:\n    return json.loads(instance_key)\n\n\ndef\
+          \ _chart_values(series: dict[str, Any]) -> list[float]:\n    chart_data\
+          \ = series.get(\"chart\", {}).get(\"chartData\", {})\n    values = []\n\
+          \    for value in chart_data.values():\n        if value is None:\n    \
+          \        continue\n        try:\n            values.append(float(value))\n\
+          \        except (TypeError, ValueError):\n            continue\n    return\
+          \ values\n\n\ndef _average(values: list[float]) -> float:\n    if not values:\n\
+          \        return 0.0\n    return sum(values) / len(values)\n\n\ndef _safe_ratio(current_value:\
+          \ float, baseline_value: float) -> float:\n    if baseline_value > 0:\n\
+          \        return current_value / baseline_value\n    if current_value > 0:\n\
+          \        return current_value\n    return 0.0\n\n\ndef _resource_weight(resource_type:\
+          \ str) -> float:\n    return RESOURCE_WEIGHTS.get(resource_type.lower(),\
+          \ 1.0)"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1779332497301'
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 计算贡献值
+        type: code
+        variables:
+        - value_selector:
+          - '1779332543996'
+          - text
+          variable: now_json
+        - value_selector:
+          - '1779343651578'
+          - text
+          variable: history_json
+      height: 54
+      id: '1779332548470'
+      parentId: '1779332497301'
+      position:
+        x: 1032
+        y: 68
+      positionAbsolute:
+        x: 3494
+        y: 494
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        is_team_authorization: true
+        iteration_id: '1779332497301'
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Pod scenario parameter. When provided, the tool queries by pod
+              scene.
+            ja_JP: Pod scenario parameter. When provided, the tool queries by pod
+              scene.
+            pt_BR: Pod scenario parameter. When provided, the tool queries by pod
+              scene.
+            zh_Hans: Pod 场景参数，提供后按 Pod 场景查询。
+          label:
+            en_US: pod
+            ja_JP: pod
+            pt_BR: pod
+            zh_Hans: pod
+          llm_description: Pod scenario parameter. When provided, the tool queries
+            by pod scene.
+          max: null
+          min: null
+          name: pod
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Container scenario parameter. When provided, the tool queries by
+              container scene.
+            ja_JP: Container scenario parameter. When provided, the tool queries by
+              container scene.
+            pt_BR: Container scenario parameter. When provided, the tool queries by
+              container scene.
+            zh_Hans: Container 场景参数，提供后按 Container 场景查询。
+          label:
+            en_US: containerId
+            ja_JP: containerId
+            pt_BR: containerId
+            zh_Hans: containerId
+          llm_description: Container scenario parameter. When provided, the tool queries
+            by container scene.
+          max: null
+          min: null
+          name: containerId
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: VM scenario node hostname. Used together with pid when pod and
+              containerId are absent.
+            ja_JP: VM scenario node hostname. Used together with pid when pod and
+              containerId are absent.
+            pt_BR: VM scenario node hostname. Used together with pid when pod and
+              containerId are absent.
+            zh_Hans: VM 场景节点主机名，在未提供 pod 和 containerId 时与 pid 一起使用。
+          label:
+            en_US: nodeName
+            ja_JP: nodeName
+            pt_BR: nodeName
+            zh_Hans: nodeName
+          llm_description: VM scenario node hostname. Used together with pid when
+            pod and containerId are absent.
+          max: null
+          min: null
+          name: nodeName
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: VM scenario process ID. Used together with nodeName when pod and
+              containerId are absent.
+            ja_JP: VM scenario process ID. Used together with nodeName when pod and
+              containerId are absent.
+            pt_BR: VM scenario process ID. Used together with nodeName when pod and
+              containerId are absent.
+            zh_Hans: VM 场景进程 ID，在未提供 pod 和 containerId 时与 nodeName 一起使用。
+          label:
+            en_US: pid
+            ja_JP: pid
+            pt_BR: pid
+            zh_Hans: pid
+          llm_description: VM scenario process ID. Used together with nodeName when
+            pod and containerId are absent.
+          max: null
+          min: null
+          name: pid
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          containerId: ''
+          endTime: ''
+          nodeName: ''
+          pid: ''
+          pod: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 实例过去延时
+        tool_configurations: {}
+        tool_label: Thread Polaris Metrics - 北极星指标（进程） - 各类型耗时折线图 - 所有类型列表（三场景）
+        tool_name: polar_process_all_resp_three_scenes
+        tool_parameters:
+          containerId:
+            type: mixed
+            value: '{{#1779344618725.containerId#}}'
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          nodeName:
+            type: mixed
+            value: '{{#1779344618725.nodeName#}}'
+          pid:
+            type: mixed
+            value: '{{#1779344618725.pid#}}'
+          pod:
+            type: mixed
+            value: '{{#1779344618725.podName#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+        type: tool
+      height: 54
+      id: '1779343651578'
+      parentId: '1779332497301'
+      position:
+        x: 732
+        y: 68
+      positionAbsolute:
+        x: 3194
+        y: 494
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "def main(arg1) -> dict:\n    arg1 = arg1 or {}\n\n    return {\n  \
+          \      'service': arg1.get('service', ''),\n        'podName': arg1.get('podName',\
+          \ ''),\n        'containerId': arg1.get('containerId', ''),\n        'pid':\
+          \ str(arg1.get('pid', '')),\n        'nodeName': arg1.get('nodeName', ''),\n\
+          \        'endpoint': arg1.get('endpoint', '')\n    }"
+        code_language: python3
+        desc: ''
+        isInIteration: true
+        iteration_id: '1779332497301'
+        outputs:
+          containerId:
+            children: null
+            type: string
+          endpoint:
+            children: null
+            type: string
+          nodeName:
+            children: null
+            type: string
+          pid:
+            children: null
+            type: string
+          podName:
+            children: null
+            type: string
+          service:
+            children: null
+            type: string
+        selected: false
+        title: 解析实例
+        type: code
+        variables:
+        - value_selector:
+          - '1779332497301'
+          - item
+          variable: arg1
+      height: 54
+      id: '1779344618725'
+      parentId: '1779332497301'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 2590
+        y: 494
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
     viewport:
-      x: -6765.931927189988
-      y: -283.8781939209855
-      zoom: 0.4584636160710502
+      x: -2959.1999999999994
+      y: -144.0999999999999
+      zoom: 0.7

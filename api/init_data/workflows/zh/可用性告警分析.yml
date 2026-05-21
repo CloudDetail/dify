@@ -14,7 +14,15 @@ kind: app
 version: 0.1.5
 workflow:
   conversation_variables: []
-  environment_variables: []
+  environment_variables:
+  - description: ''
+    id: aa8680c9-8480-4c80-9970-6e52a05a5c28
+    name: is_vm
+    selector:
+    - env
+    - is_vm
+    value: 'false'
+    value_type: string
   features:
     file_upload:
       allowed_file_extensions:
@@ -429,18 +437,6 @@ workflow:
       source: '1753414138349'
       sourceHandle: source
       target: '1753414255071'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: iteration
-      id: 1753414587601-source-1753414518300-target
-      selected: false
-      source: '1753414587601'
-      sourceHandle: source
-      target: '1753414518300'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1094,6 +1090,39 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1753414587601-source-1779264984142-target
+      source: '1753414587601'
+      sourceHandle: source
+      target: '1779264984142'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1779264984142-source-1779266302359-target
+      source: '1779264984142'
+      sourceHandle: source
+      target: '1779266302359'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1779266302359-source-1753414518300-target
+      source: '1779266302359'
+      sourceHandle: source
+      target: '1753414518300'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -1374,7 +1403,7 @@ workflow:
         type: question-classifier
         vision:
           enabled: false
-      height: 240
+      height: 246
       id: '17430590082510'
       position:
         x: 3374
@@ -1468,7 +1497,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1744878372490'
       position:
         x: 8158
@@ -1495,10 +1524,10 @@ workflow:
       height: 131
       id: '1744878466157'
       position:
-        x: 9070
+        x: 9670
         y: 474
       positionAbsolute:
-        x: 9070
+        x: 9670
         y: 474
       selected: false
       sourcePosition: right
@@ -1526,10 +1555,10 @@ workflow:
       height: 142
       id: '1744878476249'
       position:
-        x: 15294
+        x: 15894
         y: 809
       positionAbsolute:
-        x: 15294
+        x: 15894
         y: 809
       selected: false
       sourcePosition: right
@@ -1799,10 +1828,10 @@ workflow:
       height: 54
       id: '1750839691646'
       position:
-        x: 14382
+        x: 14982
         y: 809
       positionAbsolute:
-        x: 14382
+        x: 14982
         y: 809
       selected: false
       sourcePosition: right
@@ -1830,10 +1859,10 @@ workflow:
       height: 54
       id: '1750839702220'
       position:
-        x: 14078
+        x: 14678
         y: 474
       positionAbsolute:
-        x: 14078
+        x: 14678
         y: 474
       selected: false
       sourcePosition: right
@@ -1894,10 +1923,10 @@ workflow:
       height: 54
       id: '1750840042580'
       position:
-        x: 14078
+        x: 14678
         y: 679
       positionAbsolute:
-        x: 14078
+        x: 14678
         y: 679
       selected: false
       sourcePosition: right
@@ -1992,13 +2021,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750840340832'
       position:
-        x: 13774
+        x: 14374
         y: 679
       positionAbsolute:
-        x: 13774
+        x: 14374
         y: 679
       selected: false
       sourcePosition: right
@@ -2032,10 +2061,10 @@ workflow:
       height: 54
       id: '1750843294839'
       position:
-        x: 14078
+        x: 14678
         y: 809
       positionAbsolute:
-        x: 14078
+        x: 14678
         y: 809
       selected: false
       sourcePosition: right
@@ -2064,10 +2093,10 @@ workflow:
       height: 54
       id: '1750843922551'
       position:
-        x: 14078
+        x: 14678
         y: 939
       positionAbsolute:
-        x: 14078
+        x: 14678
         y: 939
       selected: false
       sourcePosition: right
@@ -2096,10 +2125,10 @@ workflow:
       height: 54
       id: '1750843945254'
       position:
-        x: 14078
+        x: 14678
         y: 1069
       positionAbsolute:
-        x: 14078
+        x: 14678
         y: 1069
       selected: false
       sourcePosition: right
@@ -2120,10 +2149,10 @@ workflow:
       height: 131
       id: '1750844540721'
       position:
-        x: 8766
+        x: 9366
         y: 474
       positionAbsolute:
-        x: 8766
+        x: 9366
         y: 474
       selected: false
       sourcePosition: right
@@ -2167,13 +2196,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750846397041'
       position:
-        x: 13774
+        x: 14374
         y: 939
       positionAbsolute:
-        x: 13774
+        x: 14374
         y: 939
       selected: false
       sourcePosition: right
@@ -2220,13 +2249,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750846407202'
       position:
-        x: 13774
+        x: 14374
         y: 1080.6745530223898
       positionAbsolute:
-        x: 13774
+        x: 14374
         y: 1080.6745530223898
       selected: false
       sourcePosition: right
@@ -2299,10 +2328,10 @@ workflow:
       height: 54
       id: '1750941439700'
       position:
-        x: 14078
+        x: 14678
         y: 1163
       positionAbsolute:
-        x: 14078
+        x: 14678
         y: 1163
       selected: false
       sourcePosition: right
@@ -2345,13 +2374,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1750987639392'
       position:
-        x: 13470
+        x: 14070
         y: 679
       positionAbsolute:
-        x: 13470
+        x: 14070
         y: 679
       selected: false
       sourcePosition: right
@@ -2397,13 +2426,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1751004239868'
       position:
-        x: 14990
+        x: 15590
         y: 809
       positionAbsolute:
-        x: 14990
+        x: 15590
         y: 809
       selected: false
       sourcePosition: right
@@ -2444,13 +2473,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1751251291730'
       position:
-        x: 13774
+        x: 14374
         y: 809
       positionAbsolute:
-        x: 13774
+        x: 14374
         y: 809
       selected: false
       sourcePosition: right
@@ -2618,10 +2647,10 @@ workflow:
       height: 54
       id: '1751602453263'
       position:
-        x: 14686
+        x: 15286
         y: 809
       positionAbsolute:
-        x: 14686
+        x: 15286
         y: 809
       selected: false
       sourcePosition: right
@@ -2648,10 +2677,10 @@ workflow:
       height: 126
       id: '1751602618703'
       position:
-        x: 13166
+        x: 13766
         y: 474
       positionAbsolute:
-        x: 13166
+        x: 13766
         y: 474
       selected: false
       sourcePosition: right
@@ -2671,10 +2700,10 @@ workflow:
       height: 90
       id: '1751602687916'
       position:
-        x: 13470
+        x: 14070
         y: 549
       positionAbsolute:
-        x: 13470
+        x: 14070
         y: 549
       selected: false
       sourcePosition: right
@@ -3052,10 +3081,10 @@ workflow:
       height: 174
       id: '1753414518300'
       position:
-        x: 3982
+        x: 4582
         y: 432
       positionAbsolute:
-        x: 3982
+        x: 4582
         y: 432
       selected: false
       sourcePosition: right
@@ -3077,7 +3106,7 @@ workflow:
         x: 60
         y: 63
       positionAbsolute:
-        x: 4042
+        x: 4642
         y: 495
       selectable: false
       sourcePosition: right
@@ -3241,7 +3270,7 @@ workflow:
             value: 99
           query:
             type: mixed
-            value: '{{#1753414924837.query#}}'
+            value: '{{#1779266302359.query#}}'
           startTime:
             type: variable
             value:
@@ -3255,7 +3284,7 @@ workflow:
         x: 508
         y: 60
       positionAbsolute:
-        x: 4490
+        x: 5090
         y: 492
       selected: false
       sourcePosition: right
@@ -3305,22 +3334,8 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(pod: str, service: str, node: str, pid: str, containerId:\
-          \ str, sourceFrom: str, item) -> dict:\n    query = ''\n    if len(containerId)\
-          \ > 0 and len(node) > 0:\n        query = f\"\"\"container_id='{containerId}'\
-          \ and host_name='{node}'\"\"\"\n    elif len(pod) > 0 and len(service) >\
-          \ 0:\n        query = f\"\"\"k8s_pod_name='{pod}' and container_name='{service}'\"\
-          \"\"\n    elif len(pod) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\"\
-          \"\"\n    elif len(node) > 0 and len(pid) > 0:\n        query = f\"\"\"\
-          host_name='{node}' and pid='{pid}'\"\"\"\n    elif len(service) > 0:\n \
-          \       query = f\"\"\"container_name='{service}'\"\"\"\n    elif len(containerId)\
-          \ > 0:\n        query = f\"\"\"container_id='{containerId}'\"\"\"\n    elif\
-          \ len(node) > 0:\n        query = f\"\"\"host_name='{node}'\"\"\"\n\n  \
-          \  if len(sourceFrom) > 0:\n        if len(query) > 0:\n            query\
-          \ += f\" and source='{sourceFrom}'\"\n        else:\n            query =\
-          \ f\"\"\"source='{sourceFrom}'\"\"\"\n    \n    return {\n        \"query\"\
-          : query,\n        \"startTime\": item[\"startTime\"],\n        \"endTime\"\
-          : item[\"endTime\"]\n    }"
+        code: "\ndef main(item) -> dict:\n\n    return {\n        \"startTime\": item[\"\
+          startTime\"],\n        \"endTime\": item[\"endTime\"]\n    }"
         code_language: python3
         desc: ''
         isInIteration: true
@@ -3336,33 +3351,9 @@ workflow:
             children: null
             type: number
         selected: false
-        title: 获取查询条件
+        title: 解析时间区间
         type: code
         variables:
-        - value_selector:
-          - '1742807803325'
-          - pod
-          variable: pod
-        - value_selector:
-          - '1742807803325'
-          - service
-          variable: service
-        - value_selector:
-          - '1742807803325'
-          - nodeName
-          variable: node
-        - value_selector:
-          - '1742807803325'
-          - pid
-          variable: pid
-        - value_selector:
-          - '1742807803325'
-          - containerId
-          variable: containerId
-        - value_selector:
-          - '1742807803325'
-          - sourceFrom
-          variable: sourceFrom
         - value_selector:
           - '1753414518300'
           - item
@@ -3371,11 +3362,11 @@ workflow:
       id: '1753414924837'
       parentId: '1753414518300'
       position:
-        x: 204
-        y: 60
+        x: 183.47631028706564
+        y: 65
       positionAbsolute:
-        x: 4186
-        y: 492
+        x: 4765.476310287066
+        y: 497
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3546,7 +3537,7 @@ workflow:
         x: 812
         y: 60
       positionAbsolute:
-        x: 4794
+        x: 5394
         y: 492
       selected: false
       sourcePosition: right
@@ -3687,10 +3678,10 @@ workflow:
       height: 54
       id: '1753426534118'
       position:
-        x: 7114
+        x: 7714
         y: 734
       positionAbsolute:
-        x: 7114
+        x: 7714
         y: 734
       selected: false
       sourcePosition: right
@@ -3855,10 +3846,10 @@ workflow:
       height: 54
       id: '1753426546760'
       position:
-        x: 6070
+        x: 6670
         y: 734
       positionAbsolute:
-        x: 6070
+        x: 6670
         y: 734
       selected: false
       sourcePosition: right
@@ -3929,13 +3920,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1753433531861'
       position:
-        x: 8158
+        x: 8758
         y: 474
       positionAbsolute:
-        x: 8158
+        x: 8758
         y: 474
       selected: false
       sourcePosition: right
@@ -3988,13 +3979,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1753436673318'
       position:
-        x: 7854
+        x: 8454
         y: 604
       positionAbsolute:
-        x: 7854
+        x: 8454
         y: 604
       selected: false
       sourcePosition: right
@@ -4049,13 +4040,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1753436803036'
       position:
-        x: 7854
+        x: 8454
         y: 734
       positionAbsolute:
-        x: 7854
+        x: 8454
         y: 734
       selected: false
       sourcePosition: right
@@ -4254,10 +4245,10 @@ workflow:
       height: 54
       id: '1753436915396'
       position:
-        x: 5766
+        x: 6366
         y: 604
       positionAbsolute:
-        x: 5766
+        x: 6366
         y: 604
       selected: false
       sourcePosition: right
@@ -4288,10 +4279,10 @@ workflow:
       height: 54
       id: '1753437328850'
       position:
-        x: 6374
+        x: 6974
         y: 734
       positionAbsolute:
-        x: 6374
+        x: 6974
         y: 734
       selected: false
       sourcePosition: right
@@ -4367,13 +4358,13 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1753437974705'
       position:
-        x: 8158
+        x: 8758
         y: 604
       positionAbsolute:
-        x: 8158
+        x: 8758
         y: 604
       selected: false
       sourcePosition: right
@@ -4394,10 +4385,10 @@ workflow:
       height: 131
       id: '1753686431084'
       position:
-        x: 8462
+        x: 9062
         y: 474
       positionAbsolute:
-        x: 8462
+        x: 9062
         y: 474
       selected: false
       sourcePosition: right
@@ -4433,10 +4424,10 @@ workflow:
       height: 54
       id: '1753687345334'
       position:
-        x: 5158
+        x: 5758
         y: 474
       positionAbsolute:
-        x: 5158
+        x: 5758
         y: 474
       selected: false
       sourcePosition: right
@@ -4576,10 +4567,10 @@ workflow:
       height: 54
       id: '1753691720044'
       position:
-        x: 6374
+        x: 6974
         y: 604
       positionAbsolute:
-        x: 6374
+        x: 6974
         y: 604
       selected: false
       sourcePosition: right
@@ -4694,10 +4685,10 @@ workflow:
       height: 54
       id: '1753691763954'
       position:
-        x: 7114
+        x: 7714
         y: 604
       positionAbsolute:
-        x: 7114
+        x: 7714
         y: 604
       selected: false
       sourcePosition: right
@@ -4731,10 +4722,10 @@ workflow:
       height: 152
       id: '1753755983769'
       position:
-        x: 5462
+        x: 6062
         y: 474
       positionAbsolute:
-        x: 5462
+        x: 6062
         y: 474
       selected: false
       sourcePosition: right
@@ -5956,10 +5947,10 @@ workflow:
       height: 54
       id: '1760103303057'
       position:
-        x: 9374
+        x: 9974
         y: 474
       positionAbsolute:
-        x: 9374
+        x: 9974
         y: 474
       selected: false
       sourcePosition: right
@@ -5968,25 +5959,45 @@ workflow:
       width: 244
     - data:
         code: "import json\n\n\ndef main(data_json: str, current_service: str):\n\
-          \    traces = json.loads(data_json).get('data', {}).get('data', [])\n  \
-          \  entries = []\n    seen_entries = set()\n    for trace in traces:\n  \
-          \      for span in trace.get('spans', []):\n            parent_id = span.get('parentSpanId',\
-          \ '')\n            if not parent_id:\n                service_name = span.get('serviceName',\
-          \ '')\n                endpoint = span.get('name', '')\n               \
-          \ if service_name and endpoint and (service_name, endpoint) not in seen_entries:\n\
-          \                    entries.append({\n                        \"service\"\
-          : service_name,\n                        \"endpoint\": endpoint,\n     \
-          \               })\n                    seen_entries.add((service_name,\
-          \ endpoint))\n\n    # 将 current_service 和 entries 组合成 service_query 字符串\n\
-          \    all_services = [current_service] + [entry[\"service\"] for entry in\
-          \ entries]\n    return {\n        \"entries\": entries,\n        \"service_query\"\
-          : \" \".join(all_services),\n    }\n"
+          \    empty_result = {\n        \"entries\": [],\n        \"service_query\"\
+          : current_service or \"\",\n        \"error\": \"\",\n    }\n\n    try:\n\
+          \        # 解析 JSON\n        data = json.loads(data_json)\n\n        # 安全获取\
+          \ traces\n        traces = (\n            data.get(\"data\", {})\n     \
+          \           .get(\"data\")\n        )\n\n        # data 可能为 null\n     \
+          \   if not traces:\n            empty_result[\"error\"] = data.get(\"data\"\
+          , {}).get(\"error\", \"\")\n            return empty_result\n\n        entries\
+          \ = []\n        seen_entries = set()\n        service_set = set()\n\n  \
+          \      # 当前服务去重\n        if current_service:\n            service_set.add(current_service)\n\
+          \n        for trace in traces:\n            if not isinstance(trace, dict):\n\
+          \                continue\n\n            spans = trace.get(\"spans\", [])\n\
+          \n            if not isinstance(spans, list):\n                continue\n\
+          \n            for span in spans:\n                if not isinstance(span,\
+          \ dict):\n                    continue\n\n                parent_id = span.get(\"\
+          parentSpanId\")\n\n                # 只保留 root span\n                if parent_id\
+          \ not in (\"\", None, \"0\", 0):\n                    continue\n\n     \
+          \           service_name = span.get(\"serviceName\", \"\").strip()\n   \
+          \             endpoint = span.get(\"name\", \"\").strip()\n\n          \
+          \      # 必要字段校验\n                if not service_name or not endpoint:\n\
+          \                    continue\n\n                key = (service_name, endpoint)\n\
+          \n                # 去重\n                if key in seen_entries:\n      \
+          \              continue\n\n                seen_entries.add(key)\n\n   \
+          \             entries.append({\n                    \"service\": service_name,\n\
+          \                    \"endpoint\": endpoint,\n                })\n\n   \
+          \             service_set.add(service_name)\n\n        return {\n      \
+          \      \"entries\": entries,\n            \"service_query\": \" \".join(sorted(service_set)),\n\
+          \            \"error\": \"\",\n        }\n\n    except json.JSONDecodeError\
+          \ as e:\n        empty_result[\"error\"] = f\"JSON decode error: {str(e)}\"\
+          \n        return empty_result\n\n    except Exception as e:\n        empty_result[\"\
+          error\"] = f\"Unexpected error: {str(e)}\"\n        return empty_result"
         code_language: python3
         desc: ''
         outputs:
           entries:
             children: null
             type: array[object]
+          error:
+            children: null
+            type: string
           service_query:
             children: null
             type: string
@@ -6005,12 +6016,12 @@ workflow:
       height: 54
       id: '1760103309096'
       position:
-        x: 9678
+        x: 10278
         y: 474
       positionAbsolute:
-        x: 9678
+        x: 10278
         y: 474
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6035,10 +6046,10 @@ workflow:
       height: 148
       id: '1760103383062'
       position:
-        x: 9982
+        x: 10582
         y: 474
       positionAbsolute:
-        x: 9982
+        x: 10582
         y: 474
       selected: false
       sourcePosition: right
@@ -6060,7 +6071,7 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: 10006
+        x: 10606
         y: 542
       selectable: false
       sourcePosition: right
@@ -6097,7 +6108,7 @@ workflow:
         x: 128
         y: 68
       positionAbsolute:
-        x: 10110
+        x: 10710
         y: 542
       selected: false
       sourcePosition: right
@@ -6274,7 +6285,7 @@ workflow:
         x: 432
         y: 68
       positionAbsolute:
-        x: 10414
+        x: 11014
         y: 542
       selected: false
       sourcePosition: right
@@ -6451,7 +6462,7 @@ workflow:
         x: 736
         y: 68
       positionAbsolute:
-        x: 10718
+        x: 11318
         y: 542
       selected: false
       sourcePosition: right
@@ -6524,7 +6535,7 @@ workflow:
         x: 1040
         y: 68
       positionAbsolute:
-        x: 11022
+        x: 11622
         y: 542
       selected: false
       sourcePosition: right
@@ -6671,7 +6682,7 @@ workflow:
         x: 1344
         y: 68
       positionAbsolute:
-        x: 11326
+        x: 11926
         y: 542
       selected: false
       sourcePosition: right
@@ -6818,7 +6829,7 @@ workflow:
         x: 1648
         y: 68
       positionAbsolute:
-        x: 11630
+        x: 12230
         y: 542
       selected: false
       sourcePosition: right
@@ -6859,7 +6870,7 @@ workflow:
         x: 1952
         y: 68
       positionAbsolute:
-        x: 11934
+        x: 12534
         y: 542
       selected: false
       sourcePosition: right
@@ -6890,10 +6901,10 @@ workflow:
       height: 54
       id: '1760103579374'
       position:
-        x: 12254
+        x: 12854
         y: 474
       positionAbsolute:
-        x: 12254
+        x: 12854
         y: 474
       selected: false
       sourcePosition: right
@@ -7028,12 +7039,12 @@ workflow:
       height: 54
       id: '1760103615004'
       position:
-        x: 12558
+        x: 13158
         y: 474
       positionAbsolute:
-        x: 12558
+        x: 13158
         y: 474
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -7075,20 +7086,226 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 90
+      height: 96
       id: '1760103644528'
       position:
-        x: 12862
+        x: 13462
         y: 474
       positionAbsolute:
-        x: 12862
+        x: 13462
         y: 474
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 服务名
+          label:
+            en_US: service
+            ja_JP: service
+            pt_BR: service
+            zh_Hans: service
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          label:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: cluster
+          llm_description: cluster
+          max: null
+          min: null
+          name: cluster
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cluster: ''
+          endTime: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询服务实例
+        tool_configurations: {}
+        tool_label: 查询服务实例
+        tool_name: dataplane_service_instances
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          service:
+            type: mixed
+            value: '{{#1742807803325.service#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+        type: tool
+      height: 54
+      id: '1779264984142'
+      position:
+        x: 3982
+        y: 432
+      positionAbsolute:
+        x: 3982
+        y: 432
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(text: str, is_vm: str, sourceFrom: str) ->\
+          \ dict:\n    data = json.loads(text)\n\n    instances = data.get(\"data\"\
+          , [])\n    queries = []\n\n    vm_mode = str(is_vm).lower() == \"true\"\n\
+          \n    for item in instances:\n        service = str(item.get(\"service\"\
+          , \"\") or \"\")\n        container_id = str(item.get(\"containerId\", \"\
+          \") or \"\")\n        pod = str(item.get(\"podName\", \"\") or \"\")\n \
+          \       node = str(item.get(\"nodeName\", \"\") or \"\")\n        pid =\
+          \ str(item.get(\"pid\", \"\") or \"\")\n\n        query = \"\"\n\n     \
+          \   # VM模式下，不拼接 container_name=service\n        if vm_mode:\n          \
+          \  if len(container_id) > 0 and len(node) > 0:\n                query =\
+          \ f\"\"\"container_id='{container_id}' and host_name='{node}'\"\"\"\n  \
+          \          elif len(pod) > 0:\n                query = f\"\"\"k8s_pod_name='{pod}'\"\
+          \"\"\n            elif len(node) > 0 and len(pid) > 0:\n               \
+          \ query = f\"\"\"host_name='{node}' and pid='{pid}'\"\"\"\n            elif\
+          \ len(container_id) > 0:\n                query = f\"\"\"container_id='{container_id}'\"\
+          \"\"\n            elif len(node) > 0:\n                query = f\"\"\"host_name='{node}'\"\
+          \"\"\n        else:\n            if len(container_id) > 0 and len(node)\
+          \ > 0:\n                query = f\"\"\"container_id='{container_id}' and\
+          \ host_name='{node}'\"\"\"\n            elif len(pod) > 0 and len(service)\
+          \ > 0:\n                query = f\"\"\"k8s_pod_name='{pod}' and container_name='{service}'\"\
+          \"\"\n            elif len(pod) > 0:\n                query = f\"\"\"k8s_pod_name='{pod}'\"\
+          \"\"\n            elif len(node) > 0 and len(pid) > 0:\n               \
+          \ query = f\"\"\"host_name='{node}' and pid='{pid}'\"\"\"\n            elif\
+          \ len(service) > 0:\n                query = f\"\"\"container_name='{service}'\"\
+          \"\"\n            elif len(container_id) > 0:\n                query = f\"\
+          \"\"container_id='{container_id}'\"\"\"\n            elif len(node) > 0:\n\
+          \                query = f\"\"\"host_name='{node}'\"\"\"\n\n        if query:\n\
+          \            queries.append(f\"({query})\")\n\n    final_query = \" OR \"\
+          .join(queries)\n    if len(sourceFrom) > 0:\n        if len(final_query)\
+          \ > 0:\n            final_query += f\" and source='{sourceFrom}'\"\n   \
+          \     else:\n            final_query = f\"\"\"source='{sourceFrom}'\"\"\"\
+          \n    return {\n        \"query\": final_query,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          query:
+            children: null
+            type: string
+        selected: false
+        title: 获取查询条件
+        type: code
+        variables:
+        - value_selector:
+          - '1779264984142'
+          - text
+          variable: text
+        - value_selector:
+          - env
+          - is_vm
+          variable: is_vm
+      height: 54
+      id: '1779266302359'
+      position:
+        x: 4282
+        y: 432
+      positionAbsolute:
+        x: 4282
+        y: 432
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -6509.994598861962
-      y: 10.732026886271797
-      zoom: 0.5293723458831711
+      x: -5098.46341018621
+      y: -166.7290202677633
+      zoom: 0.5377557691815474
