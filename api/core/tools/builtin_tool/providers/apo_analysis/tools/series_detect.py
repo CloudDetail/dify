@@ -4,10 +4,10 @@ from typing import Any, Optional
 
 import numpy as np
 
+from configs.apo import APOConfig
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_detect import FrequencyAnomalyDetector, ShockAnomalyDetector, TrendAnomalyDetector
-from configs.apo import APOConfig
 
 
 def _get_avg(values):

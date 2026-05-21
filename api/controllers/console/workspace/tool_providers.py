@@ -1,6 +1,6 @@
 import io
-import requests
 
+import requests
 from flask import send_file
 from flask_login import current_user  # type: ignore
 from flask_restful import Resource, reqparse  # type: ignore
@@ -12,9 +12,9 @@ from controllers.console import api
 from controllers.console.wraps import account_initialization_required, enterprise_license_required, setup_required
 from core.model_runtime.utils.encoders import jsonable_encoder
 from extensions.ext_database import db
+from libs.apo_utils import APOUtils
 from libs.helper import alphanumeric, uuid_value
 from libs.login import login_required
-from libs.apo_utils import APOUtils
 from services.tools.api_tools_manage_service import ApiToolManageService
 from services.tools.builtin_tools_manage_service import BuiltinToolManageService
 from services.tools.tool_labels_service import ToolLabelsService
@@ -563,6 +563,7 @@ class ToolBuiltinListApi(Resource):
             ]
         )
 
+
 class APOToolListApi(Resource):
     def get(self):
         user = current_user
@@ -579,6 +580,7 @@ class APOToolListApi(Resource):
                 )
             ]
         )
+
 
 class APOToolBuiltinListApi(Resource):
     def get(self):
@@ -606,6 +608,7 @@ class APOToolBuiltinListApi(Resource):
             ]
         )
 
+
 def get_url(type):
     match type:
         case "metric":
@@ -614,6 +617,7 @@ def get_url(type):
             return dify_config.APO_BACKEND_URL + "/api/alerts/descendant/anormal/delta"
         case "topology":
             return dify_config.APO_BACKEND_URL + "/api/service/relation"
+
 
 class APOToolPreviewApi(Resource):
     def post(self):
@@ -713,7 +717,6 @@ class APOToolPreviewApi(Resource):
                     'data': content,
                 }
         return jsonable_encoder(res)
-
 
 
 class ToolApiListApi(Resource):

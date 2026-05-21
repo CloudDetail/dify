@@ -1,11 +1,12 @@
-import os
-import logging
 import asyncio
+import logging
+import os
 import threading
-
 from functools import partial
+
 from configs import dify_config
 from services.plugin.plugin_service import PluginService
+
 from .admin import get_admin
 from .decorator import initializer
 
@@ -13,6 +14,7 @@ PLUGIN_CHECK_INTERVAL = 180
 
 plugin_ids = []
 plugin_unique_identifiers = []
+
 
 @initializer(priority=4)
 def init_plugin():
@@ -49,7 +51,7 @@ def init_plugin():
                 PluginService.install_from_local_pkg(admin.current_tenant_id, [response.unique_identifier])
 
         except Exception as e:
-            logging.error(f"Failed to install plugin: {file_entry.path} {str(e)}")
+            logging.exception(f"Failed to install plugin: {file_entry.path} {str(e)}")
 
     if not dify_config.OFFLINE_MODE:
         threading.Thread(
@@ -57,16 +59,19 @@ def init_plugin():
             daemon=True
         ).start()
 
+
 def _get_plugin_id(plugin_unique_identifier: str) -> str:
     return plugin_unique_identifier.split(':')[0]
     
+
 def _run_async_activation(tenant_id: str):
     try:
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         loop.run_until_complete(_activate_plugin(tenant_id))
     except Exception as e:
-        logging.error(f"Async activation crashed: {str(e)}")
+        logging.exception(f"Async activation crashed: {str(e)}")
+
 
 async def _activate_plugin(tenant_id: str):
     max_retries = 10
@@ -93,6 +98,6 @@ async def _activate_plugin(tenant_id: str):
             retry_count += 1
             
         except Exception as e:
-            logging.error(f"Activation failed: {str(e)}")
+            logging.exception(f"Activation failed: {str(e)}")
             
     logging.error("Plugin activation timeout")

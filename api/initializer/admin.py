@@ -1,6 +1,7 @@
 from extensions.ext_database import db
 from models import Account, Tenant, TenantAccountJoin, TenantAccountRole
 
+
 def get_admin() -> Account:
     admin = db.session.query(Account).filter_by(name="admin").first()
     tenant_account_join = db.session.query(TenantAccountJoin).filter_by(account_id=admin.id, role=TenantAccountRole.OWNER).first()

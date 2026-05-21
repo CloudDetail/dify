@@ -28,11 +28,11 @@ class QueryFullLogsTool(BuiltinTool):
             "dataBase": "apo",
             "endTime": end_time,
             "isExternal": False,
-            "pageNum" : page_num,
-            "pageSize" : page_size,
-            "query" : query,
-            "startTime" : start_time,
-            "tableName" : "raw_logs",
+            "pageNum": page_num,
+            "pageSize": page_size,
+            "query": query,
+            "startTime": start_time,
+            "tableName": "raw_logs",
         }
 
         url = dify_config.APO_BACKEND_URL + "/api/log/query"
@@ -45,10 +45,10 @@ class QueryFullLogsTool(BuiltinTool):
         contents = []
         if raw_logs:
             for raw_log in raw_logs:
-                content = raw_log.get('content','')
+                content = raw_log.get('content', '')
                 timestamp = raw_log.get('timestamp')
                 tags = raw_log.get('tags', {})
-                contents.append({'body': content, 'timestamp':timestamp, 'tags': tags})
+                contents.append({'body': content, 'timestamp': timestamp, 'tags': tags})
 
         list = json.dumps({
             'type': 'log',

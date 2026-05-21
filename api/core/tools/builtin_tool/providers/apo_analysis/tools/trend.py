@@ -1,8 +1,9 @@
 import json
-import numpy as np
-from scipy import stats
 from collections.abc import Generator
 from typing import Any, Optional
+
+import numpy as np
+from scipy import stats
 
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
@@ -57,9 +58,9 @@ class TrendTool(BuiltinTool):
         result = {
             "overall_slope": slope,  # 整体斜率
             "p_value": p_value,     # 统计显著性
-            "std_dev": np.std(values), # 数据标准差
-            "local_trend_variability": np.std(local_trends), # 局部趋势变化的标准差
-            "data_points": len(values), # 数据点数量
+            "std_dev": np.std(values),  # 数据标准差
+            "local_trend_variability": np.std(local_trends),  # 局部趋势变化的标准差
+            "data_points": len(values),  # 数据点数量
         }
     
         # 判断趋势类型

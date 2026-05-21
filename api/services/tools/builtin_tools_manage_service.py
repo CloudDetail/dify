@@ -289,7 +289,7 @@ class BuiltinToolManageService:
         return BuiltinToolProviderSort.sort(result)
     
     @staticmethod
-    def list_apo_tools(user_id: str, tenant_id: str, tool_type: str, query: str|None, language: str) -> list[ToolProviderApiEntity]:
+    def list_apo_tools(user_id: str, tenant_id: str, tool_type: str, query: str | None, language: str) -> list[ToolProviderApiEntity]:
         """
         list apo tools
         """
@@ -412,7 +412,6 @@ class BuiltinToolManageService:
                     if provider_controller.entity.identity.name not in ["apo_select", "apo_analysis", "apo_rule"]:
                         continue
                   
-
                     # convert provider controller to user provider
                     user_builtin_provider = ToolTransformService.builtin_provider_to_user_provider(
                         provider_controller=provider_controller,

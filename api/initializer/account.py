@@ -1,8 +1,9 @@
-from models import Account
 from extensions.ext_database import db
-from services.account_service import RegisterService, AccountService, TenantService
-from .decorator import initializer
+from models import Account
+from services.account_service import AccountService, RegisterService, TenantService
+
 from .admin import get_admin
+from .decorator import initializer
 
 
 @initializer(priority=1)

@@ -15,7 +15,7 @@ from extensions.ext_database import db
 from fields.member_fields import account_with_role_list_fields
 from libs.login import login_required
 from models.account import Account, TenantAccountRole
-from services.account_service import RegisterService, TenantService, AccountService
+from services.account_service import AccountService, RegisterService, TenantService
 from services.errors.account import AccountAlreadyInTenantError
 
 
@@ -30,6 +30,7 @@ class MemberListApi(Resource):
         members = TenantService.get_tenant_members(current_user.current_tenant)
         return {"result": "success", "accounts": members}, 200
 
+
 class APOAddMemberApi(Resource):
     def post(self):
         parser = reqparse.RequestParser()
@@ -39,7 +40,7 @@ class APOAddMemberApi(Resource):
         parser.add_argument("language", type=str, required=False, location="json")
         args = parser.parse_args()
 
-        invitee_email = args["username"]+"@apo.com"
+        invitee_email = args["username"] + "@apo.com"
         password = args["password"]
         invitee_role = args["role"]
         interface_language = args["language"]
@@ -56,7 +57,7 @@ class APOAddMemberApi(Resource):
             RegisterService.apo_add_new_member(
                 tenant[0], invitee_email, password, interface_language, role=invitee_role, inviter=inviter
             )    
-            add_result = {"result": "success","email": invitee_email}
+            add_result = {"result": "success", "email": invitee_email}
         except AccountAlreadyInTenantError:
             add_result = {"result": "success", "email": invitee_email}
         except Exception as e:
@@ -143,7 +144,7 @@ class MemberCancelInviteApi(Resource):
 class APORemoveMemberApi(Resource):
     """remove member by username"""
     def delete(self, username):
-        member = db.session.query(Account).filter(Account.email == str(username+'@apo.com')).first()
+        member = db.session.query(Account).filter(Account.email == str(username + '@apo.com')).first()
         if member is None or member.email == "admin@apo.com":
             abort(404)
         else:
@@ -166,6 +167,7 @@ class APORemoveMemberApi(Resource):
                 return {"result": "failed", "message": str(e)}, 400
 
         return {"result": "success", "message": "ok"}, 200
+
 
 class MemberUpdateRoleApi(Resource):
     """Update member role."""
@@ -207,6 +209,7 @@ class DatasetOperatorMemberListApi(Resource):
     def get(self):
         members = TenantService.get_dataset_operator_members(current_user.current_tenant)
         return {"result": "success", "accounts": members}, 200
+
 
 api.add_resource(APOAddMemberApi, "/workspaces/apo/members/add")
 api.add_resource(APORemoveMemberApi, "/workspaces/apo/members/<string:username>")

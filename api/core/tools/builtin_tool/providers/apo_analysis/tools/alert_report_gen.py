@@ -1,11 +1,13 @@
 import json
-import requests
 from collections.abc import Generator
 from typing import Any, Optional
 
+import requests
+
+from configs import dify_config
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
-from configs import dify_config
+
 
 class AlertReportGen(BuiltinTool):
     def _invoke(

@@ -58,10 +58,12 @@ class AbnormalChartTool(BuiltinTool):
 
         yield self.create_text_message(json.dumps(filtered))
     
+
 def _get_avg(values):
     if not values:
         return 0
     return sum(values) / len(values)
+
 
 def _get_standard_deviation(avg, values):
     if len(values) == 0:

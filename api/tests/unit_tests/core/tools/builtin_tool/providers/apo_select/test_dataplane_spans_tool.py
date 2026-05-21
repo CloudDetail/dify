@@ -1,8 +1,7 @@
 import json
 import sys
 from importlib import import_module
-from types import ModuleType
-from types import SimpleNamespace
+from types import ModuleType, SimpleNamespace
 
 
 def test_dataplane_spans_returns_inner_data_of_first_non_empty_provider(monkeypatch):
@@ -34,7 +33,7 @@ def test_dataplane_spans_returns_inner_data_of_first_non_empty_provider(monkeypa
     )
 
     tool_module = import_module("core.tools.builtin_tool.providers.apo_select.tools.dataplane_spans")
-    tool_cls = getattr(tool_module, "DataplaneSpansTool")
+    tool_cls = tool_module.DataplaneSpansTool
     tool = tool_cls.__new__(tool_cls)
 
     expected_data = [

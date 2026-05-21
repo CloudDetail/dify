@@ -318,10 +318,12 @@ class ToolDescription(BaseModel):
     human: I18nObject = Field(..., description="The description presented to the user")
     llm: str = Field(..., description="The description presented to the LLM")
 
+
 class APODisPlay(BaseModel):
     type: str = Field(..., description="The type of the apo data display")
     unit: str = Field(..., description="The unit of the apo data display")
     title: str = Field(..., description="The title of the apo data display")
+
 
 class ToolEntity(BaseModel):
     identity: ToolIdentity

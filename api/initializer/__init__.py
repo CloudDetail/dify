@@ -1,11 +1,9 @@
-from flask import Flask
-from . import (
-    account,
-    workflow,
-    plugin
-)
-from .decorator import _initializers
 import os
+
+from flask import Flask
+
+from . import account, plugin, workflow
+from .decorator import _initializers
 
 
 def run_initializers(app: Flask):

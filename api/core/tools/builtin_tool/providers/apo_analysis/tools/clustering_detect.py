@@ -4,9 +4,9 @@ from typing import Any, Optional
 
 import numpy as np
 
+from configs.apo import APOConfig
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
-from configs.apo import APOConfig
 
 
 def mse_anomaly_score(current: np.ndarray, history: np.ndarray = None) -> float:

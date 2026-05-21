@@ -1,18 +1,15 @@
 import json
 from pathlib import Path
 
-import json
-from pathlib import Path
-from typing import List, Dict
+from templates import PARAM_TEMPLATE, PYTHON_TEMPLATE, YAML_TEMPLATE
 
-from templates import YAML_TEMPLATE, PARAM_TEMPLATE, PYTHON_TEMPLATE
 
 class ToolGenerator:
     def __init__(self, config_path: str):
         self.config = self.load_config(config_path)
     
-    def load_config(self, path: str) -> List[Dict]:
-        with open(path, 'r', encoding='utf-8') as f:
+    def load_config(self, path: str) -> list[dict]:
+        with open(path, encoding='utf-8') as f:
             return json.load(f)
     
     def generate_all(self, output_path: str):
@@ -20,7 +17,7 @@ class ToolGenerator:
         for tool in self.config:
             self._generate_tool(tool, base_path)
     
-    def _generate_tool(self, tool: Dict, base_path: Path):
+    def _generate_tool(self, tool: dict, base_path: Path):
         tool_dir = base_path
         tool_dir.mkdir(parents=True, exist_ok=True)
         
@@ -32,7 +29,7 @@ class ToolGenerator:
         with open(tool_dir / f"{tool['metric_name']}.py", 'w', encoding='utf-8') as f:
             f.write(python_content)
     
-    def _build_yaml(self, tool: Dict) -> str:
+    def _build_yaml(self, tool: dict) -> str:
         params_block = "\n".join(
             PARAM_TEMPLATE.format(
                 name=param["name"],
@@ -60,7 +57,7 @@ class ToolGenerator:
             params_block=params_block
         )
     
-    def _build_python(self, tool: Dict) -> str:
+    def _build_python(self, tool: dict) -> str:
         param_lines = "\n".join(
             f"        {param['name']} = tool_parameters.get('{param['name']}', '.*')"
             for param in tool["params"]

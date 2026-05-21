@@ -11,7 +11,6 @@ from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
 
-
 PROCESS_RESOURCE_KEY_MAP = {
     "nodeName": "instance_name",
     "pid": "pid",

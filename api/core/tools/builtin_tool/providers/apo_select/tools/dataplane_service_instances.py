@@ -1,6 +1,6 @@
 import json
 from collections.abc import Generator
-from typing import Any, Dict, Optional
+from typing import Any, Optional
 
 import requests
 
@@ -13,7 +13,7 @@ class ServiceInstancesTool(BuiltinTool):
     def _invoke(
         self,
         user_id: str,
-        tool_parameters: Dict[str, Any],
+        tool_parameters: dict[str, Any],
         conversation_id: Optional[str] = None,
         app_id: Optional[str] = None,
         message_id: Optional[str] = None,

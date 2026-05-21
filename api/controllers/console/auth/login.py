@@ -96,6 +96,7 @@ class LoginApi(Resource):
         AccountService.reset_login_error_rate_limit(args["email"])
         return {"result": "success", "data": token_pair.model_dump()}
 
+
 class APOLoginApi(Resource):
     """Resource for apo user login."""
 
@@ -158,6 +159,7 @@ class APOLoginApi(Resource):
         # AccountService.reset_login_error_rate_limit(args["email"])
         return {"result": "success", "data": token_pair.model_dump()}
     
+
 class APOAnonymousApi(Resource):
     """Resource for apo anonymous login."""
 
@@ -220,6 +222,7 @@ class APOAnonymousApi(Resource):
         token_pair = AccountService.login(account=account, ip_address=extract_remote_ip(request))
         # AccountService.reset_login_error_rate_limit(args["email"])
         return {"result": "success", "data": token_pair.model_dump()}
+
 
 class LogoutApi(Resource):
     @setup_required

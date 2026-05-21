@@ -7,7 +7,7 @@ import requests
 from configs import dify_config
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
-from libs.apo_utils import APOUtils
+
 
 # TODO need more test
 class ServiceProcessStartTime(BuiltinTool):
@@ -69,7 +69,6 @@ class ServiceProcessStartTime(BuiltinTool):
                 except Exception:
                     pass
             
-
         resp_json = json.dumps({
             "type": "metric",
             "display": False,

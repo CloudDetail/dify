@@ -191,6 +191,7 @@ class AccountPasswordApi(Resource):
 
         return {"result": "success"}
   
+
 class APOAccountPasswordApi(Resource):
     def post(self):
         parser = reqparse.RequestParser()
@@ -200,7 +201,7 @@ class APOAccountPasswordApi(Resource):
         # parser.add_argument("repeat_new_password", type=str, required=True, location="json")
         args = parser.parse_args()
 
-        current_user = AccountService.get_user_through_email(args["username"]+"@apo.com")
+        current_user = AccountService.get_user_through_email(args["username"] + "@apo.com")
         if not current_user:
             return {"result": "failed", "message": "Account not found"}
 
@@ -222,7 +223,7 @@ class APOAccountResetPasswordApi(Resource):
         parser.add_argument("new_password", type=str, required=True, location="json")
         args = parser.parse_args()
 
-        current_user = AccountService.get_user_through_email(args["username"]+"@apo.com")
+        current_user = AccountService.get_user_through_email(args["username"] + "@apo.com")
         if not current_user:
             return {"result": "failed", "message": "Account not found"}
 
@@ -232,6 +233,7 @@ class APOAccountResetPasswordApi(Resource):
             return {"result": "failed", "message": "Current password incorrect"}
 
         return {"result": "success"}
+
 
 class AccountIntegrateApi(Resource):
     integrate_fields = {

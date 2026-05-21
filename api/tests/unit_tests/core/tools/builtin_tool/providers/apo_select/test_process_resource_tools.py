@@ -2,13 +2,11 @@ import json
 import sys
 from dataclasses import asdict
 from importlib import import_module
-from types import ModuleType
-from types import SimpleNamespace
+from types import ModuleType, SimpleNamespace
 
 import pytest
 
 from core.tools.builtin_tool.providers.data_source import QueryMetricResult
-
 
 START_TIME = 1_700_000_000_000_000
 END_TIME = 1_700_000_600_000_000

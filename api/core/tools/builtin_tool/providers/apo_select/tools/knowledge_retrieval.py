@@ -7,7 +7,6 @@ import requests
 from configs import dify_config
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
-from models.dataset import Dataset
 
 
 class KnowledgeRetrievalTool(BuiltinTool):
@@ -27,7 +26,7 @@ class KnowledgeRetrievalTool(BuiltinTool):
 
         data = {
             "query": query,
-            "knowledge_id": knowledge_base_id if knowledge_base_id else dify_config.APO_DEFAULT_KNOWLEDGE_BASE_ID,
+            "knowledge_id": knowledge_base_id or dify_config.APO_DEFAULT_KNOWLEDGE_BASE_ID,
             "retrieval_setting": {
                 "top_k": top_k,
                 "score_threshold": score_threshold

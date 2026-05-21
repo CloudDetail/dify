@@ -1,19 +1,21 @@
-import os
-import yaml
-import logging
 import json
+import logging
+import os
+from typing import Union
 
+import yaml
 from sqlalchemy.exc import SQLAlchemyError
+
+from configs.app_config import APOConfig
+from contexts import tenant_id
+from extensions.ext_database import db
+from models import ApiToken, App, InstalledApp, Workflow
 from services.app_dsl_service import AppDslService
 from services.workflow_service import WorkflowService
-from extensions.ext_database import db
-from .decorator import initializer
+
 from .admin import get_admin
-from models import App, ApiToken, Workflow, InstalledApp
-from contexts import tenant_id
-from configs.app_config import APOConfig
-from typing import Union
-from sqlalchemy.dialects.postgresql import JSONB
+from .decorator import initializer
+
 
 @initializer(priority=3)
 def init_workflow():
@@ -36,11 +38,11 @@ def init_workflow():
         if not file_entry.name.endswith('.yaml') and not file_entry.name.endswith('.yml') or file_entry.name.startswith('.'):
             continue
         try:
-            with open(file_entry.path, 'r', encoding='utf-8') as file:
+            with open(file_entry.path, encoding='utf-8') as file:
                 content = file.read()
                 workflows.append(content)
         except Exception as e:
-            logging.error(f"Failed to read file: {file_entry.path}")
+            logging.exception(f"Failed to read file: {file_entry.path}")
     
     admin = get_admin()
     try:
@@ -59,7 +61,7 @@ def init_workflow():
                 account=admin,
                 import_mode="yaml-content",
                 yaml_content=w,
-                app_id=result if result else None
+                app_id=result or None
             )
 
             app_model = (
@@ -82,6 +84,7 @@ def init_workflow():
         raise
     finally:
         tenant_id.reset(original_token)
+
 
 def _check_workflow_to_update(session, content, account) -> Union[str, bool, None]:
     """Check if the workflow needs to be updated or created.
@@ -132,8 +135,9 @@ def _check_workflow_to_update(session, content, account) -> Union[str, bool, Non
             return False
 
     except Exception as e:
-        logging.error(f"Failed to check workflow: {str(e)}")
+        logging.exception(f"Failed to check workflow: {str(e)}")
         return False
+
 
 def _generate_api_key(session, app_id, account, key=None):
     if not app_id or not account:
@@ -228,9 +232,9 @@ def _adjust_workflows(language, account):
 
     except SQLAlchemyError as e:
         db.session.rollback()
-        logging.error(f"Database error occurred: {str(e)}")
+        logging.exception(f"Database error occurred: {str(e)}")
         raise
     except Exception as e:
         db.session.rollback()
-        logging.error(f"Unexpected error: {str(e)}")
+        logging.exception(f"Unexpected error: {str(e)}")
         raise

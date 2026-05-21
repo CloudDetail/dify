@@ -1,20 +1,19 @@
 import json
 from collections.abc import Generator
-from typing import Any, Optional, Dict
+from typing import Any, Optional
 
 import requests
 
 from configs import dify_config
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
-from libs.apo_utils import APOUtils
 
 
 class ServiceEndpointsTool(BuiltinTool):
     def _invoke(
         self,
         user_id: str,
-        tool_parameters: Dict[str, Any],
+        tool_parameters: dict[str, Any],
         conversation_id: Optional[str] = None,
         app_id: Optional[str] = None,
         message_id: Optional[str] = None,
@@ -53,7 +52,7 @@ class ServiceEndpointsTool(BuiltinTool):
             yield self.create_text_message(formatted_data)
 
         except requests.RequestException as e:
-            yield self.create_text_message(json.dumps({"error" : f"Error: Failed to fetch data from API. {str(e)}"}))
+            yield self.create_text_message(json.dumps({"error": f"Error: Failed to fetch data from API. {str(e)}"}))
         except json.JSONDecodeError:
             yield self.create_text_message(json.dumps({"error": "Error: Invalid JSON response from API."}))
         except Exception as e:

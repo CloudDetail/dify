@@ -1,6 +1,7 @@
-from typing import Callable, List, Tuple
+from collections.abc import Callable
 
-_initializers: List[Tuple[Callable, int]] = []
+_initializers: list[tuple[Callable, int]] = []
+
 
 def initializer(priority: int = 10) -> Callable:
     def decorator(func: Callable) -> Callable:
