@@ -1810,9 +1810,26 @@ workflow:
           alertDirection:
             type: mixed
             value: '{{#1751004239868.text#}}'
+          alertEventId:
+            type: mixed
+            value: '{{#1742807803325.alertEventId#}}'
+          alertId:
+            type: mixed
+            value: '{{#1742807803325.alertId#}}'
           analyzeRunId:
             type: mixed
             value: '{{#sys.workflow_run_id#}}'
+          containerId:
+            type: mixed
+            value: '{{#1742807803325.containerId#}}'
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          endpoint:
+            type: mixed
+            value: '{{#1742807803325.endpoint#}}'
           evidence:
             type: mixed
             value: '{{#1750843294839.result#}}'
@@ -1822,18 +1839,38 @@ workflow:
           infraCheckResult:
             type: mixed
             value: 无影响
+          namespace:
+            type: mixed
+            value: '{{#1742807803325.namespace#}}'
           networkCheckResult:
             type: mixed
             value: 无影响
+          nodeName:
+            type: mixed
+            value: '{{#1742807803325.nodeName#}}'
           overview:
             type: mixed
             value: '{{#1750840042580.result#}}'
+          pid:
+            type: mixed
+            value: '{{#1742807803325.pid#}}'
+          pod:
+            type: mixed
+            value: '{{#1742807803325.pod#}}'
           reportType:
             type: mixed
             value: error
           rootCauseAnalysis:
             type: mixed
             value: '{{#1750843945254.result#}}'
+          service:
+            type: mixed
+            value: '{{#1742807803325.service#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
           suggest:
             type: mixed
             value: '{{#1750843922551.result#}}'
