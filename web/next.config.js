@@ -14,8 +14,8 @@ const withMDX = require('@next/mdx')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/dify',
-  assetPrefix: '/dify',
+  // basePath: '/dify',
+  // assetPrefix: '/dify',
   // trailingSlash: true,
   webpack: (config, { dev, isServer }) => {
     config.plugins.push(codeInspectorPlugin({ bundler: 'webpack' }))

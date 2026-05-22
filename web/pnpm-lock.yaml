@@ -175,6 +175,9 @@ importers:
       line-clamp:
         specifier: ^1.0.0
         version: 1.0.0
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
