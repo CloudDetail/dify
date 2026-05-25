@@ -7199,6 +7199,10 @@ workflow:
           - env
           - is_vm
           variable: is_vm
+        - value_selector:
+          - '1742807803325'
+          - sourceFrom
+          variable: sourceFrom
       height: 54
       id: '1779266302359'
       position:

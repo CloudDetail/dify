@@ -13830,34 +13830,47 @@ workflow:
           role: user
           text: '# 目的
 
-            根据相关指标数据，分析告警的正确性或者产生的原因，最后提供恰当的解决思路。
+            根据相关指标数据，分析 CPU CFS throttling / 节流时间类告警的可信原因，并给出下一步确认思路。
+
+            # 输入数据
+
+            - 受告警影响容器的普通 CPU 使用率：{{#1752744646406.text#}}
+
+            - 节点上其他容器 CPU 使用率增速最高的实例：{{#17528257033920.top_abnormal_growths#}}
+
+            - 节点上其他容器 CPU 使用率均值最高的实例：{{#17528257033920.top_abnormal_means#}}
+
+            - 告警名称：{{#1744959389144.alertName#}}
+
+            - 告警容器 / Pod：{{#1744959389144.pod#}}
+
+            # 关键约束
+
+            1. 如果告警名称包含 cpucfsthrottled、throttled、cfs_throttled 或“节流”，普通 CPU 使用率只能作为辅助证据，不能直接等同于 CFS throttling 指标。
+
+            2. 判断节流告警时，应优先寻找或引用 throttling 相关指标：CPU throttling ratio、CFS throttled periods、CFS throttled seconds、container_cpu_cfs_throttled_periods_total、container_cpu_cfs_throttled_seconds_total、container_cpu_cfs_periods_total、CPU quota / limit / request。
+
+            3. 如果当前输入只有普通 CPU 使用率和节点其他容器 CPU 使用率，必须说明“当前缺少 throttling 专项指标，无法仅凭普通 CPU 使用率确认节流根因”，并使用“初步倾向 / 待确认 / 可能”表述。
+
+            4. 当前容器 CPU 使用率低或接近 0 时，不要写“自身 CPU 使用过多”；应优先考虑 CPU quota / limit 设置偏低、短时突发被 CFS 限流、采样粒度掩盖峰值，或证据不足待确认。
+
+            5. 节点其他容器 CPU 使用率高时，只能说明可能存在节点 CPU 争抢，需要结合节点 allocatable、CPU pressure、容器 throttling 指标确认。
 
             # 分析过程
 
-            根据相关指标数据：受告警影响容器的CPU使用率{{#1752744646406.text#}}，节点上其他容器CPU使用率增速最高的实例{{#17528257033920.top_abnormal_growths#}}和均值最高的实例{{#17528257033920.top_abnormal_means#}}，告警{{#1744959389144.alertName#}}，告警容器{{#1744959389144.pod#}}。
+            1. 先判断现有证据属于“节流专项指标”还是“普通 CPU 辅助指标”。
 
-            1. 分析受告警影响容器的CPU使用率，判断初步原因：
+            2. 再分析受影响容器 CPU 使用率趋势、节点其他容器 CPU 使用率和请求量关系。
 
-            - 如果处于持续高位，代表容器使用CPU达到限制，节流时间过高由于自身CPU使用过多。
-
-            - 如果处于低位，代表可能是由于CPU争抢导致容器被限流。
-
-            - 如果是周期性峰值（低谷非0时）或突发峰值，代表可能是由于突发流量导致的，节流原因是由于自身CPU使用过多。
-
-            2. 分析节点上其他容器CPU使用率，识别CPU使用率最多的几个容器，如果当前容器CPU使用率远高于其他容器，则原因为自身CPU使用过多。
-
-            3. 根据判断的初步原因，从程序运行和程序本身的功能给出告警可能的产生原因（下列方向只能给出一个）：
-
-            - 自身CPU使用过多：总结使用量水平。
-
-            - CPU争抢：总结争抢过多的容器有哪些。
-
+            3. 只能在证据支持时选择一个初步方向：自身 CPU 消耗压力、节点 CPU 争抢、CPU quota / limit 设置偏低或短时突发、证据不足待确认。
 
             # 输出
 
-            - 若相关值在正常范围内，给出你推断的产生告警的其他原因。
+            - 用三段输出：当前现象、支持判断、待确认项。
 
-            - 若相关值异常，一句话描述当前告警异常状况：在xx时间段内哪些实例的线程消耗了多少CPU，时间段内的请求量为xx，并给出你推断出的疑似根因的所有容器、疑似原因。若不涉及容器则回复中忽略容器。格式为：容器xx产生告警xx的原因是：自身CPU使用过多/节点其他容器争抢导致（只能给出一个原因）。
+            - 结论必须避免“根因确定为”这类定案表达，除非输入中已经包含明确的 throttling 专项指标异常。
+
+            - 如果只能基于普通 CPU 使用率判断，明确写出该指标是辅助证据，并列出需要补查的 throttling 指标。
 
             '
         selected: false
@@ -13935,7 +13948,7 @@ workflow:
           role: user
           text: '# 目的
 
-            根据节流时间告警初步方向判断{{#1752744873302.text#}}和容器线程CPU消耗与请求量关系{{#1752660000891.text#}}以及相关文档片段，给出告警{{#1744959389144.alertName#}}的结论和可执行建议。
+            根据节流时间告警初步方向判断{{#1752744873302.text#}}和容器线程CPU消耗与请求量关系{{#1752660000891.text#}}以及相关文档片段，给出告警{{#1744959389144.alertName#}}的可信结论和可执行建议。
 
             # 文档数据
 
@@ -13955,17 +13968,31 @@ workflow:
 
             # 分析过程
 
-            根据初步方向类型：
+            1. 先区分证据类型：
 
-            - 自身CPU使用过多：总结容器线程CPU消耗是由请求量引起。
+            - 节流专项证据：CPU throttling ratio、CFS throttled periods / seconds、container_cpu_cfs_throttled_periods_total、container_cpu_cfs_throttled_seconds_total、container_cpu_cfs_periods_total、CPU quota / limit / request。
 
-            - 周期性峰值：总结是否由请求量引起。
+            - 辅助证据：普通 CPU 使用率、节点其他容器 CPU 使用率、服务吞吐量、请求量关系。
 
-            - CPU争抢：总结争抢过多的容器有哪些，以及这些容器CPU使用过多是否由请求量引起。
+            2. 如果缺少节流专项证据，普通 CPU 使用率不能作为主证据写入“支撑指标”，只能描述为辅助判断，并要求补查 throttling 指标。
+
+            3. 当前容器 CPU 使用率低或接近 0 时，不要总结为“自身 CPU 使用过多”；应表达为“更可能与 CPU quota / limit 设置偏低、短时突发被 CFS 限流或采样粒度有关，需补充确认”。
+
+            4. 节点其他容器 CPU 使用率高时，可以提出“节点 CPU 争抢”方向，但必须说明需要结合节点 CPU pressure、allocatable 与 throttling 专项指标确认。
 
             # 输出
 
-            - 保留结论中对指标趋势的描述，总结节流时间告警的产生原因与辅助证据如：告警xx产生的原因是容器xx自身CPU使用过多/所在节点容器争抢CPU导致，其CPU使用率与请求量无关，推测CPU升高原因为xx。
+            - 输出包含：当前现象、支持判断、当前结论、建议补查项。
+
+            - 标题和结论使用“初步定位为 / 更可能与 / 待确认”表达，不使用“根因确定为”。
+
+            - 可执行建议优先级：
+
+            P1：补查当前容器 throttling 专项指标与 CPU quota / limit / request。
+
+            P1：确认告警 Pod 所在节点是否存在 CPU pressure 或同节点容器争抢。
+
+            P2：结合服务吞吐量、入口耗时和错误率确认业务影响。
 
             '
         selected: false
@@ -14884,26 +14911,58 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(self_usage: str, other_usage: str, all_tps)\
-          \ -> dict:\n    \"\"\"\n    List: [{\"type\": \"metrics\", \"name\": \"\"\
-          , \"data\":above}]\n    \"\"\"\n    evidence = []\n\n    self_usage_data\
-          \ = json.loads(self_usage)\n    self_usage_timeseries = self_usage_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    self_usage_evidence = {\n     \
-          \   \"type\": \"metrics\",\n        \"name\": \"当前容器CPU使用率\",\n        \"\
-          data\": self_usage_timeseries,\n        \"unit\": self_usage_data.get(\"\
-          unit\", \"\")\n    }\n    evidence.append(self_usage_evidence)\n\n    other_usage_data\
-          \ = json.loads(other_usage)\n    other_usage_timeseries = other_usage_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    other_usage_evidence = {\n    \
-          \    \"type\": \"metrics\",\n        \"name\": \"节点其他容器CPU使用率\",\n     \
-          \   \"data\": other_usage_timeseries,\n        \"unit\": other_usage_data.get(\"\
-          unit\", \"\")\n    }\n    evidence.append(other_usage_evidence)\n\n    for\
-          \ tps_item in all_tps:\n        if tps_item == \"{}\":\n            continue\n\
-          \        tps_data = json.loads(tps_item)\n        unit = tps_data.get('unit',\
-          \ \"requests/minute\")\n        evidence.append({\n            \"type\"\
-          : \"metrics\",\n            \"name\": \"服务吞吐量\",\n            \"data\":\
-          \ tps_data.get(\"timeseries\", []),\n            \"unit\": unit\n      \
-          \  })\n\n    return {\n        \"evidence\": json.dumps({\n            \"\
-          evidence\": evidence\n        })\n    }"
+        code: |
+          import json
+
+          def main(self_usage: str, other_usage: str, all_tps) -> dict:
+              """
+              List: [{"type": "metrics", "name": "", "data": above}]
+              """
+              evidence = []
+
+              self_usage_data = json.loads(self_usage)
+              self_usage_timeseries = self_usage_data.get("data", {}).get("timeseries", [])
+              self_usage_evidence = {
+                  "type": "metrics",
+                  "name": "当前容器CPU使用率",
+                  "summary": "普通 CPU 使用率为节流分析辅助指标",
+                  "description": "普通 CPU 使用率仅用于辅助判断 CPU CFS throttling 成因，不能等同于 CFS throttling 指标；需结合 throttling ratio、CFS throttled periods/seconds 与 CPU quota/limit/request 确认。",
+                  "data": self_usage_timeseries,
+                  "unit": self_usage_data.get("unit", "")
+              }
+              evidence.append(self_usage_evidence)
+
+              other_usage_data = json.loads(other_usage)
+              other_usage_timeseries = other_usage_data.get("data", {}).get("timeseries", [])
+              other_usage_evidence = {
+                  "type": "metrics",
+                  "name": "节点其他容器CPU使用率",
+                  "summary": "同节点 CPU 使用率为节流分析辅助指标",
+                  "description": "同节点其他容器 CPU 使用率仅用于辅助判断节点 CPU 争抢，不能单独证明 CFS throttling 根因；需结合节点 CPU pressure、allocatable 与当前容器 throttling 指标确认。",
+                  "data": other_usage_timeseries,
+                  "unit": other_usage_data.get("unit", "")
+              }
+              evidence.append(other_usage_evidence)
+
+              for tps_item in all_tps:
+                  if tps_item == "{}":
+                      continue
+                  tps_data = json.loads(tps_item)
+                  unit = tps_data.get("unit", "requests/minute")
+                  evidence.append({
+                      "type": "metrics",
+                      "name": "服务吞吐量",
+                      "summary": "服务吞吐量用于辅助判断是否存在流量驱动的 CPU 压力",
+                      "description": "服务吞吐量用于判断 CPU 消耗是否与请求量变化相关，不能单独证明 CFS throttling 根因。",
+                      "data": tps_data.get("timeseries", []),
+                      "unit": unit
+                  })
+
+              return {
+                  "evidence": json.dumps({
+                      "evidence": evidence
+                  })
+              }
         code_language: python3
         desc: ''
         outputs:
