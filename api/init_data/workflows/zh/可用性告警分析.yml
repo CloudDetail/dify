@@ -1390,7 +1390,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1742807803325'
@@ -1426,7 +1426,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 615ece65-9193-4bad-a375-d51b67dbaafc
@@ -1992,7 +1992,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d21add02-97db-4fa3-a6e8-d4387617ce2a
@@ -2122,10 +2122,12 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }"
+        code: "import json\nimport re\n\ndef _extract_json(text: str) -> str:\n   \
+          \ raw = (text or '').strip()\n    match = re.search(r'```(?:json)?\\s*(.*?)\\\
+          s*```', raw, re.DOTALL | re.IGNORECASE)\n    return match.group(1).strip()\
+          \ if match else raw\n\ndef main(raw_data: str) -> dict:\n    rootcause\
+          \ = json.loads(_extract_json(raw_data))\n    return {\n        'result'\
+          : json.dumps(rootcause, ensure_ascii=False),\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -2154,10 +2156,12 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }"
+        code: "import json\nimport re\n\ndef _extract_json(text: str) -> str:\n   \
+          \ raw = (text or '').strip()\n    match = re.search(r'```(?:json)?\\s*(.*?)\\\
+          s*```', raw, re.DOTALL | re.IGNORECASE)\n    return match.group(1).strip()\
+          \ if match else raw\n\ndef main(raw_data: str) -> dict:\n    rootcause\
+          \ = json.loads(_extract_json(raw_data))\n    return {\n        'result'\
+          : json.dumps(rootcause, ensure_ascii=False),\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -2220,7 +2224,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 7694ae43-c744-4e62-9a51-fb4b8d8fe597
@@ -2268,7 +2272,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 0e0b95f4-141c-413e-8a29-1b17b745495f
@@ -2399,7 +2403,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 45ec55b5-ae91-45b8-989c-83f81cee1712
@@ -2446,7 +2450,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d33542e3-ac5c-48f1-970b-fa7ab0ffd0ef
@@ -2498,7 +2502,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d3326874-756a-4db9-9634-3725cf97b6e7
@@ -3917,7 +3921,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1a251b76-1e32-4905-b8d1-859a76bf6237
@@ -3992,7 +3996,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 33d6ac62-5c51-4b4a-a568-15502d859538
@@ -4051,7 +4055,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 46ff962f-3331-441e-8d37-f179e08c916d
@@ -4350,7 +4354,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bc74b5ac-8d4a-4145-9724-a48a089545fc
@@ -6963,7 +6967,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bd9e0f0c-b601-4947-8829-4524f0d2bb84
