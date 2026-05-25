@@ -11163,11 +11163,23 @@ workflow:
             1. 关键寻找文档中包括但不限于历史告警、解决思路、负责人员等信息。\n2. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。\n\
             3. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n\
             4. 如果文档中包含责任联系人、运维人员、负责人等，在建议中添加一条“联系xx进行解决”，没有则不添加。\n5. 注意使用文档中与当前出现告警的资源进行回答。\n\
-            \n# 格式模版\n```json\n{\"suggest\": [\n        {\n            \"action\"\
-            : \"Add index to payment transaction table.\",\n            \"level\"\
-            : \"high\"\n        },\n        {\n            \"action\": \"Scale up\
-            \ database node CPU resources.\",\n            \"level\": \"medium\"\n\
-            \        }\n    ] }\n```\n#输出格式\naction建议为中文\njson格式数据，格式参考模版，内容包含排障详细步骤，至少5条建议，不要输出其他内容"
+            \n# suggest字段要求\n1. 每条建议必须包含 action、summary、level；有明确依据时补充 verification、verificationSummary、trigger、risk。\n\
+            2. action 写完整可执行处置动作，包含资源对象、命令、观察项或回滚条件，供报告后面“处置建议”大板块展示。\n3. summary\
+            \ 写首屏“处置建议”摘要卡短文案，必须基于 action 重新改写，不要截断 action，不要用省略号，不要使用 Markdown\
+            \ 或列表。\n4. verification 写完整验证方式；verificationSummary 写首屏验证短文案，必须基于 verification\
+            \ 重新改写，不要截断 verification，不要用省略号，不要使用 Markdown 或列表。\n5. trigger 写适用条件，有依据才写；risk\
+            \ 写执行风险或影响范围，有依据才写；没有依据时不要编造。\n\n# 格式模版\n{\"suggest\": [\n        {\n\
+            \            \"action\": \"登录异常节点，执行 free -m、top -o %MEM 和 kubectl describe\
+            \ pod <pod名> -n <命名空间>，确认内存占用最高的进程、容器重启和 OOM 记录。\",\n            \"summary\"\
+            : \"定位节点内存占用来源\",\n            \"verification\": \"确认异常节点内存使用率回落，目标 Pod\
+            \ 无新增 OOM 或重启记录。\",\n            \"verificationSummary\": \"确认内存回落且无新增重启\"\
+            ,\n            \"trigger\": \"节点或容器内存使用率持续高于阈值时执行\",\n            \"risk\"\
+            : \"排查命令只读无风险，重启或驱逐操作需确认业务影响\",\n            \"level\": \"high\"\n  \
+            \      },\n        {\n            \"action\": \"如确认单个 Pod 占用异常，先执行 kubectl\
+            \ top pod -n <命名空间> 定位，再按业务窗口重启异常 Pod 或临时扩容副本数。\",\n            \"summary\"\
+            : \"处理高内存 Pod\",\n            \"verification\": \"观察 Pod 重建后内存曲线和告警状态是否恢复。\"\
+            ,\n            \"verificationSummary\": \"观察内存曲线和告警恢复\",\n            \"\
+            level\": \"medium\"\n        }\n    ] }\n#输出格式\naction建议为中文；json格式数据，格式参考模版，内容包含排障详细步骤，至少5条建议，不要输出其他内容；不要输出Markdown代码块、解释文字或省略号"
         selected: false
         title: 行动建议
         type: llm
@@ -11188,10 +11200,20 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }"
+        code: "import json\nimport re\n\ndef _strip_think(text: str) -> str:\n   \
+          \ return re.sub(r\"<think>.*?</think>\", \"\", text or \"\", flags=re.DOTALL\
+          \ | re.IGNORECASE)\n\ndef _extract_json(text: str) -> str:\n    text =\
+          \ _strip_think(text).strip()\n    fence = re.search(r\"```(?:json)?\\s*(.*?)```\"\
+          , text, re.DOTALL | re.IGNORECASE)\n    if fence:\n        text = fence.group(1).strip()\n\
+          \n    starts = [i for i in (text.find(\"{\"), text.find(\"[\")) if i >=\
+          \ 0]\n    if not starts:\n        return \"{}\"\n    start = min(starts)\n\
+          \    opener = text[start]\n    closer = \"}\" if opener == \"{\" else \"\
+          ]\"\n    end = text.rfind(closer)\n    if end < start:\n        return\
+          \ \"{}\"\n    return text[start:end + 1]\n\ndef main(raw_data: str) ->\
+          \ dict:\n    try:\n        json_str = _extract_json(raw_data)\n        data\
+          \ = json.loads(json_str)\n    except Exception:\n        data = {}\n   \
+          \ return {\n        \"result\": json.dumps(data, ensure_ascii=False)\n \
+          \   }"
         code_language: python3
         desc: ''
         outputs:

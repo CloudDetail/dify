@@ -9,10 +9,6 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/deepseek:0.0.5@fd6efd37c2a931911de8ab9ca3ba2da303bef146d45ee87ad896b04b36d09403
-- current_identifier: null
-  type: package
-  value:
     plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
 kind: app
 version: 0.1.5
@@ -1734,7 +1730,7 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 169877de-aa4a-44db-90ef-2cc8f68882c4
@@ -2428,7 +2424,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
@@ -4841,7 +4837,7 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
@@ -4917,8 +4913,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: apo-gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a56f2cfc-7dfc-4483-888e-80b4a5eca5c8
           role: system
@@ -4972,7 +4968,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a56f2cfc-7dfc-4483-888e-80b4a5eca5c8
@@ -5700,7 +5696,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 8ecc69bb-4504-40cc-9475-d9da1d54e2f8
@@ -5814,8 +5810,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: apo-gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 42284b17-9b6e-4660-aaad-9ba66584a21e
           role: system
@@ -5916,7 +5912,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 9cf805ef-c561-4b9a-a3cd-3e970fc59285
@@ -6810,8 +6806,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: apo-gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: eb2032a5-ca17-48b4-b532-1c45ed948e91
           role: system
@@ -6857,8 +6853,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: apo-gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 0d6f5be7-b8d0-4354-ae42-7ad580e19039
           role: system
@@ -6904,7 +6900,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bf855196-6899-4b0c-a363-404c077ba96f
@@ -8327,7 +8323,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: c77a6a17-bbbb-4880-8b2a-56a7fcbb419e
@@ -8397,8 +8393,8 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: apo-gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17430596469370'
         - text
@@ -9726,7 +9722,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 4f5e05a2-9d18-4254-9499-442e9af0652a
