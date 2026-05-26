@@ -2525,6 +2525,78 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1750988484023-source-1764048001003-target
+      selected: false
+      source: '1750988484023'
+      sourceHandle: source
+      target: '1764048001003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1750990570740-source-1764048001003-target
+      selected: false
+      source: '1750990570740'
+      sourceHandle: source
+      target: '1764048001003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1752808187410-source-1764048001003-target
+      selected: false
+      source: '1752808187410'
+      sourceHandle: source
+      target: '1764048001003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17540319953985-source-1764048001003-target
+      selected: false
+      source: '17540319953985'
+      sourceHandle: source
+      target: '1764048001003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1753955518503-source-1764048001003-target
+      selected: false
+      source: '1753955518503'
+      sourceHandle: source
+      target: '1764048001003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1764048001003-source-1750988315593-target
+      selected: false
+      source: '1764048001003'
+      sourceHandle: source
+      target: '1750988315593'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
         isInLoop: false
         sourceType: variable-aggregator
         targetType: variable-aggregator
@@ -3434,7 +3506,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1744959389144'
@@ -4957,7 +5029,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1746777077402'
@@ -6154,7 +6226,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -6256,7 +6328,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -6491,7 +6563,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1743849441196'
@@ -6695,7 +6767,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -8218,7 +8290,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17467775030610'
@@ -8639,7 +8711,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -8881,7 +8953,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10443,7 +10515,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10514,7 +10586,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10624,7 +10696,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10853,10 +10925,35 @@ workflow:
           scope: null
           template: null
           type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: reportView
+            ja_JP: reportView
+            pt_BR: reportView
+            zh_Hans: 新版报告展示结构，增量输出，不替代已有字段
+          label:
+            en_US: reportView
+            ja_JP: reportView
+            pt_BR: reportView
+            zh_Hans: 报告展示结构
+          llm_description: additive report view data for the new report page
+          max: null
+          min: null
+          name: reportView
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
         params:
           evidence: ''
           overview: ''
           reportType: ''
+          reportView: ''
           rootCauseAnalysis: ''
           suggest: ''
           tags: ''
@@ -10880,6 +10977,9 @@ workflow:
           reportType:
             type: mixed
             value: infra
+          reportView:
+            type: mixed
+            value: '{{#1764048001003.text#}}'
           rootCauseAnalysis:
             type: mixed
             value: '{{#1752808187410.result#}}'
@@ -10901,6 +11001,91 @@ workflow:
       positionAbsolute:
         x: 23522
         y: 2526
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 9cf62a7a-3f65-4741-9e28-040480010031
+          role: system
+          text: 你是可观测性报告展示结构生成助手，只输出严格 JSON。
+        - id: 9cf62a7a-3f65-4741-9e28-040480010032
+          role: user
+          text: |
+            # 目的
+            基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence 输出结构。
+
+            # 输入
+            reportType: infra
+
+            overview:
+            {{#1750988484023.result#}}
+
+            rootCauseAnalysis:
+            {{#1752808187410.result#}}
+
+            suggest:
+            {{#1750990570740.result#}}
+
+            evidence:
+            {{#1753955518503.output#}}
+
+            topology:
+            {{#17540319953985.result#}}
+
+            # 输出格式
+            只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。
+            {
+              "version": "v1",
+              "headline": "一句话根因判断",
+              "conclusionSummary": "一句话说明关键证据",
+              "faultLocation": {"label": "故障位置", "target": "服务/实例/节点", "summary": "简单说明"},
+              "summaryCards": [{"type": "symptom|rootCause|excluded", "title": "短标题", "summary": "一句话"}],
+              "rootCauseMetricRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
+              "businessImpact": null,
+              "timeline": [],
+              "analysisSteps": [],
+              "actionTitles": [{"suggestIndex": 0, "title": "降低异常日志输出"}],
+              "evidenceHighlights": [{"evidenceIndex": 0, "title": "CPU 使用率升高", "summary": "使用原始证据中的结论或描述"}]
+            }
+
+            # 严格规则
+            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。没有这个 type 时，不要为了支撑指标做推断，rootCauseMetricRefs 输出空数组。
+            2. 首屏右上角支撑指标只放根因证据指标：从 evidence 中选择 type=metrics 且有真实 chartData 的证据，写入 rootCauseMetricRefs。evidenceIndex 使用 evidence 数组的从 0 开始下标。
+            3. 指标名称、描述、legend、unit 必须匹配主根因方向。
+            4. RED 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。
+            5. 没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。
+            6. 支撑指标映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime 使用 GC、堆内存、线程、协程、FD、OOM；infra 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。
+            7. faultLocation 必须简单易懂；无法定位时输出 null。
+            8. businessImpact 没有明确业务影响时输出 null，不要编造。
+            9. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。
+            10. evidenceHighlights 的 summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。
+        selected: false
+        title: 生成报告展示结构
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1764048001003'
+      position:
+        x: 23218
+        y: 2955
+      positionAbsolute:
+        x: 23218
+        y: 2955
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -13823,7 +14008,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 76347dc5-1dbd-4934-a1bb-5ad66b656820
@@ -13928,7 +14113,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: e6cb42dc-0606-4843-971f-f43ea2db3f0d
@@ -14001,7 +14186,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1752744873302'
@@ -15313,7 +15498,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 6bfbae05-612e-457c-ae07-f064f30e1575

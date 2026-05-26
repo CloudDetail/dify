@@ -423,7 +423,7 @@ workflow:
           completion_params:
             temperature: 0.1
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1745224781828'

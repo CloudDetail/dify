@@ -103,3 +103,16 @@ parameters:
       pt_BR: evidence
     llm_description: evidence
     form: llm
+  - name: reportView
+    type: string
+    required: false
+    label:
+      en_US: reportView
+      zh_Hans: 报告展示结构
+      pt_BR: reportView
+    human_description:
+      en_US: reportView
+      zh_Hans: 新版报告展示结构，增量输出，不替代已有字段
+      pt_BR: reportView
+    llm_description: additive report view data for the new report page
+    form: llm

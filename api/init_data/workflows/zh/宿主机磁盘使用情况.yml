@@ -257,8 +257,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 3dee2638-1569-47be-a5ac-db155a932893
           role: system

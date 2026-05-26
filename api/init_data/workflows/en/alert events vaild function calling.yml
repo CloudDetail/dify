@@ -212,9 +212,9 @@ workflow:
             value:
               completion_params: {}
               mode: chat
-              model: deepseek-chat
+              model: gpt-5.4
               model_type: llm
-              provider: langgenius/deepseek/deepseek
+              provider: langgenius/openai_api_compatible/openai_api_compatible
               type: model-selector
           query:
             type: constant
@@ -948,8 +948,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1741159085487'
         - text

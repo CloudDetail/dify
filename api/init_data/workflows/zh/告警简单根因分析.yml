@@ -643,6 +643,78 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
+        targetType: llm
+      id: 1750661889002-source-1764048001002-target
+      selected: false
+      source: '1750661889002'
+      sourceHandle: source
+      target: '1764048001002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1750672701216-source-1764048001002-target
+      selected: false
+      source: '1750672701216'
+      sourceHandle: source
+      target: '1764048001002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17506728633540-source-1764048001002-target
+      selected: false
+      source: '17506728633540'
+      sourceHandle: source
+      target: '1764048001002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1750750056742-source-1764048001002-target
+      selected: false
+      source: '1750750056742'
+      sourceHandle: source
+      target: '1764048001002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1750769951427-source-1764048001002-target
+      selected: false
+      source: '1750769951427'
+      sourceHandle: source
+      target: '1764048001002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1764048001002-source-1750754610625-target
+      selected: false
+      source: '1764048001002'
+      sourceHandle: source
+      target: '1750754610625'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
         targetType: tool
       id: 1750830567613-source-1750830747193-target
       selected: false
@@ -1734,7 +1806,7 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 169877de-aa4a-44db-90ef-2cc8f68882c4
@@ -2428,7 +2500,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
@@ -4841,7 +4913,7 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
@@ -4917,8 +4989,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a56f2cfc-7dfc-4483-888e-80b4a5eca5c8
           role: system
@@ -4972,7 +5044,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a56f2cfc-7dfc-4483-888e-80b4a5eca5c8
@@ -5700,7 +5772,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 8ecc69bb-4504-40cc-9475-d9da1d54e2f8
@@ -5814,8 +5886,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 42284b17-9b6e-4660-aaad-9ba66584a21e
           role: system
@@ -5916,7 +5988,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 9cf805ef-c561-4b9a-a3cd-3e970fc59285
@@ -6292,10 +6364,35 @@ workflow:
           scope: null
           template: null
           type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: reportView
+            ja_JP: reportView
+            pt_BR: reportView
+            zh_Hans: 新版报告展示结构，增量输出，不替代已有字段
+          label:
+            en_US: reportView
+            ja_JP: reportView
+            pt_BR: reportView
+            zh_Hans: 报告展示结构
+          llm_description: additive report view data for the new report page
+          max: null
+          min: null
+          name: reportView
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
         params:
           evidence: ''
           overview: ''
           reportType: ''
+          reportView: ''
           rootCauseAnalysis: ''
           suggest: ''
           tags: ''
@@ -6319,6 +6416,9 @@ workflow:
           reportType:
             type: mixed
             value: slow
+          reportView:
+            type: mixed
+            value: '{{#1764048001002.text#}}'
           rootCauseAnalysis:
             type: mixed
             value: '{{#1750672701216.result#}}'
@@ -6340,6 +6440,91 @@ workflow:
       positionAbsolute:
         x: 17026
         y: 1022
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 6d2d37cf-5d8d-4ec8-bf8b-040480010021
+          role: system
+          text: 你是可观测性报告展示结构生成助手，只输出严格 JSON。
+        - id: 6d2d37cf-5d8d-4ec8-bf8b-040480010022
+          role: user
+          text: |
+            # 目的
+            基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence 输出结构。
+
+            # 输入
+            reportType: slow
+
+            overview:
+            {{#1750661889002.result#}}
+
+            rootCauseAnalysis:
+            {{#1750672701216.result#}}
+
+            suggest:
+            {{#17506728633540.result#}}
+
+            evidence:
+            {{#1750769951427.result#}}
+
+            topology:
+            {{#1750750056742.result#}}
+
+            # 输出格式
+            只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。
+            {
+              "version": "v1",
+              "headline": "一句话根因判断",
+              "conclusionSummary": "一句话说明关键证据",
+              "faultLocation": {"label": "故障位置", "target": "服务/实例/节点", "summary": "简单说明"},
+              "summaryCards": [{"type": "symptom|rootCause|excluded", "title": "短标题", "summary": "一句话"}],
+              "rootCauseMetricRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
+              "businessImpact": null,
+              "timeline": [],
+              "analysisSteps": [],
+              "actionTitles": [{"suggestIndex": 0, "title": "降低异常日志输出"}],
+              "evidenceHighlights": [{"evidenceIndex": 0, "title": "CPU 使用率升高", "summary": "使用原始证据中的结论或描述"}]
+            }
+
+            # 严格规则
+            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。没有这个 type 时，不要为了支撑指标做推断，rootCauseMetricRefs 输出空数组。
+            2. 首屏右上角支撑指标只放根因证据指标：从 evidence 中选择 type=metrics 且有真实 chartData 的证据，写入 rootCauseMetricRefs。evidenceIndex 使用 evidence 数组的从 0 开始下标。
+            3. 指标名称、描述、legend、unit 必须匹配主根因方向。
+            4. RED 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。
+            5. 没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。
+            6. 支撑指标映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime 使用 GC、堆内存、线程、协程、FD、OOM；infra 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。
+            7. faultLocation 必须简单易懂；无法定位时输出 null。
+            8. businessImpact 没有明确业务影响时输出 null，不要编造。
+            9. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。
+            10. evidenceHighlights 的 summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。
+        selected: false
+        title: 生成报告展示结构
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1764048001002'
+      position:
+        x: 16722
+        y: 1225
+      positionAbsolute:
+        x: 16722
+        y: 1225
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6755,8 +6940,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: eb2032a5-ca17-48b4-b532-1c45ed948e91
           role: system
@@ -6802,8 +6987,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 0d6f5be7-b8d0-4354-ae42-7ad580e19039
           role: system
@@ -6849,7 +7034,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bf855196-6899-4b0c-a363-404c077ba96f
@@ -8272,7 +8457,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: c77a6a17-bbbb-4880-8b2a-56a7fcbb419e
@@ -8342,8 +8527,8 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17430596469370'
         - text
@@ -9671,7 +9856,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 4f5e05a2-9d18-4254-9499-442e9af0652a

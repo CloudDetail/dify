@@ -27,6 +27,7 @@ class AlertReportGen(BuiltinTool):
         rootCauseAnalysis = convert_to_json(tool_parameters.get("rootCauseAnalysis"), "rootCauseAnalysis", errormsgs)
         suggest = convert_to_json(tool_parameters.get("suggest"), "suggest", errormsgs).get("suggest", {})
         evidence = convert_to_json(tool_parameters.get("evidence"), "evidence", errormsgs).get("evidence", {})
+        reportView = convert_to_json(tool_parameters.get("reportView"), "reportView", errormsgs, required=False)
         json_data = {
             'reportType': reportType,
             'overview': overview,
@@ -36,6 +37,8 @@ class AlertReportGen(BuiltinTool):
             'suggest': suggest,
             'evidence': evidence
         }
+        if reportView:
+            json_data['reportView'] = reportView
         resp = requests.post(dify_config.APO_BACKEND_URL + '/api/alerts/events/report/add', json=json_data)
         if resp.status_code != 200:
             errormsgs.append(f"Error while creating report, msg: {resp.text}")
@@ -48,9 +51,20 @@ class AlertReportGen(BuiltinTool):
         yield self.create_text_message(list)
 
 
-def convert_to_json(data, name: str, errormsgs: list) -> dict:
+def convert_to_json(data, name: str, errormsgs: list, required: bool = True) -> dict:
+    if data is None or data == "":
+        if required:
+            errormsgs.append(f'{name} Invalid JSON')
+        return {}
+    if isinstance(data, dict):
+        return data
+    data = data.strip()
+    if data.startswith("```") and data.endswith("```"):
+        data = data.split("\n", 1)[1].rsplit("\n", 1)[0]
+        if data.startswith("json"):
+            data = data[4:].strip()
     try:
         return json.loads(data)
     except:
         errormsgs.append(f'{name} Invalid JSON')
-        return {}  
+        return {}
