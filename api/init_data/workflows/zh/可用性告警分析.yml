@@ -2070,10 +2070,20 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }"
+        code: "import json\nimport re\n\ndef _extract_json(text: str) -> str:\n  \
+          \  raw = (text or \"\").strip()\n    if not raw:\n        raise ValueError(\"\
+          empty input\")\n\n    # 先兼容 ```json ... ``` 包裹\n    match = re.search(r\"\
+          ```(?:json)?\\s*(.*?)\\s*```\", raw, re.DOTALL | re.IGNORECASE)\n    if\
+          \ match:\n        raw = match.group(1).strip()\n\n    # 去掉模型推理标签\n    raw\
+          \ = re.sub(r\"<think>.*?</think>\", \"\", raw, flags=re.DOTALL | re.IGNORECASE).strip()\n\
+          \n    # 从文本中扫描首个可解析的完整 JSON\n    decoder = json.JSONDecoder()\n    for i,\
+          \ ch in enumerate(raw):\n        if ch not in \"{[\":\n            continue\n\
+          \        try:\n            obj, end = decoder.raw_decode(raw, i)\n     \
+          \       return json.dumps(obj, ensure_ascii=False)\n        except json.JSONDecodeError:\n\
+          \            continue\n\n    raise ValueError(\"no valid JSON object or\
+          \ array found in input\")\n\ndef main(raw_data: str) -> dict:\n    rootcause\
+          \ = json.loads(_extract_json(raw_data))\n    return {\n        \"result\"\
+          : json.dumps(rootcause, ensure_ascii=False),\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -2096,16 +2106,26 @@ workflow:
       positionAbsolute:
         x: 14678
         y: 939
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }"
+        code: "import json\nimport re\n\ndef _extract_json(text: str) -> str:\n  \
+          \  raw = (text or \"\").strip()\n    if not raw:\n        raise ValueError(\"\
+          empty input\")\n\n    # 先兼容 ```json ... ``` 包裹\n    match = re.search(r\"\
+          ```(?:json)?\\s*(.*?)\\s*```\", raw, re.DOTALL | re.IGNORECASE)\n    if\
+          \ match:\n        raw = match.group(1).strip()\n\n    # 去掉模型推理标签\n    raw\
+          \ = re.sub(r\"<think>.*?</think>\", \"\", raw, flags=re.DOTALL | re.IGNORECASE).strip()\n\
+          \n    # 从文本中扫描首个可解析的完整 JSON\n    decoder = json.JSONDecoder()\n    for i,\
+          \ ch in enumerate(raw):\n        if ch not in \"{[\":\n            continue\n\
+          \        try:\n            obj, end = decoder.raw_decode(raw, i)\n     \
+          \       return json.dumps(obj, ensure_ascii=False)\n        except json.JSONDecodeError:\n\
+          \            continue\n\n    raise ValueError(\"no valid JSON object or\
+          \ array found in input\")\n\ndef main(raw_data: str) -> dict:\n    rootcause\
+          \ = json.loads(_extract_json(raw_data))\n    return {\n        \"result\"\
+          : json.dumps(rootcause, ensure_ascii=False),\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -7192,13 +7212,13 @@ workflow:
       positionAbsolute:
         x: 12230
         y: 542
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
       zIndex: 1002
     viewport:
-      x: -10585.312849624139
-      y: -207.52346408453764
-      zoom: 0.8986213036600212
+      x: -9961.845927666765
+      y: -389.63974783227616
+      zoom: 0.7156418733228685

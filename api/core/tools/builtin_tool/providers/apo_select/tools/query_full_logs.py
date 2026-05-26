@@ -39,7 +39,7 @@ class QueryFullLogsTool(BuiltinTool):
         resp = requests.post(
             url=url,
             json=params,
-        )  
+        )
 
         raw_logs = resp.json().get('logs', [])
         contents = []

@@ -11188,10 +11188,20 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }"
+        code: "import json\nimport re\n\ndef _extract_json(text: str) -> str:\n  \
+          \  raw = (text or \"\").strip()\n    if not raw:\n        raise ValueError(\"\
+          empty input\")\n\n    # 先兼容 ```json ... ``` 包裹\n    match = re.search(r\"\
+          ```(?:json)?\\s*(.*?)\\s*```\", raw, re.DOTALL | re.IGNORECASE)\n    if\
+          \ match:\n        raw = match.group(1).strip()\n\n    # 去掉模型推理标签\n    raw\
+          \ = re.sub(r\"<think>.*?</think>\", \"\", raw, flags=re.DOTALL | re.IGNORECASE).strip()\n\
+          \n    # 从文本中扫描首个可解析的完整 JSON\n    decoder = json.JSONDecoder()\n    for i,\
+          \ ch in enumerate(raw):\n        if ch not in \"{[\":\n            continue\n\
+          \        try:\n            obj, end = decoder.raw_decode(raw, i)\n     \
+          \       return json.dumps(obj, ensure_ascii=False)\n        except json.JSONDecodeError:\n\
+          \            continue\n\n    raise ValueError(\"no valid JSON object or\
+          \ array found in input\")\n\ndef main(raw_data: str) -> dict:\n    rootcause\
+          \ = json.loads(_extract_json(raw_data))\n    return {\n        \"result\"\
+          : json.dumps(rootcause, ensure_ascii=False),\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -11864,7 +11874,7 @@ workflow:
       positionAbsolute:
         x: 13791.107844497425
         y: 3208.5740114715013
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -14252,17 +14262,27 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }\n"
+        code: "import json\nimport re\n\ndef _extract_json(text: str) -> str:\n  \
+          \  raw = (text or \"\").strip()\n    if not raw:\n        raise ValueError(\"\
+          empty input\")\n\n    # 先兼容 ```json ... ``` 包裹\n    match = re.search(r\"\
+          ```(?:json)?\\s*(.*?)\\s*```\", raw, re.DOTALL | re.IGNORECASE)\n    if\
+          \ match:\n        raw = match.group(1).strip()\n\n    # 去掉模型推理标签\n    raw\
+          \ = re.sub(r\"<think>.*?</think>\", \"\", raw, flags=re.DOTALL | re.IGNORECASE).strip()\n\
+          \n    # 从文本中扫描首个可解析的完整 JSON\n    decoder = json.JSONDecoder()\n    for i,\
+          \ ch in enumerate(raw):\n        if ch not in \"{[\":\n            continue\n\
+          \        try:\n            obj, end = decoder.raw_decode(raw, i)\n     \
+          \       return json.dumps(obj, ensure_ascii=False)\n        except json.JSONDecodeError:\n\
+          \            continue\n\n    raise ValueError(\"no valid JSON object or\
+          \ array found in input\")\n\ndef main(raw_data: str) -> dict:\n    rootcause\
+          \ = json.loads(_extract_json(raw_data))\n    return {\n        \"result\"\
+          : json.dumps(rootcause, ensure_ascii=False),\n    }"
         code_language: python3
         desc: ''
         outputs:
           result:
             children: null
             type: string
-        selected: false
+        selected: true
         title: 根因方向json
         type: code
         variables:
@@ -14278,7 +14298,7 @@ workflow:
       positionAbsolute:
         x: 23218
         y: 2396
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -20231,6 +20251,6 @@ workflow:
       width: 244
       zIndex: 1002
     viewport:
-      x: -4590.511296445913
-      y: -702.4797366044783
-      zoom: 0.3453147419404504
+      x: -17283.59116963766
+      y: -1694.1760843042384
+      zoom: 0.7600320066556204

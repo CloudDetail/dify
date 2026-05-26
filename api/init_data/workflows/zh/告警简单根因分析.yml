@@ -5960,14 +5960,20 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\n\ndef main(raw_data: str) -> dict:\n    try:\n        pattern\
-          \ = r\"```(?:\\njson|json)(.*?)```\"\n        match = re.search(pattern,\
-          \ raw_data, re.DOTALL)\n        if match is None:\n            json_str\
-          \ = raw_data.strip(\"```\")\n            json_str = json_str.strip(\"json\"\
-          )\n        else:\n            json_str = match.group(1)\n        data =\
-          \ json.loads(json_str)\n        return {\n            \"result\": json.dumps(data)\n\
-          \        }\n    except Exception:\n        raise ValueError(\"get json data\
-          \ error\")"
+        code: "import json\nimport re\n\ndef _extract_json(text: str) -> str:\n  \
+          \  raw = (text or \"\").strip()\n    if not raw:\n        raise ValueError(\"\
+          empty input\")\n\n    # 先兼容 ```json ... ``` 包裹\n    match = re.search(r\"\
+          ```(?:json)?\\s*(.*?)\\s*```\", raw, re.DOTALL | re.IGNORECASE)\n    if\
+          \ match:\n        raw = match.group(1).strip()\n\n    # 去掉模型推理标签\n    raw\
+          \ = re.sub(r\"<think>.*?</think>\", \"\", raw, flags=re.DOTALL | re.IGNORECASE).strip()\n\
+          \n    # 从文本中扫描首个可解析的完整 JSON\n    decoder = json.JSONDecoder()\n    for i,\
+          \ ch in enumerate(raw):\n        if ch not in \"{[\":\n            continue\n\
+          \        try:\n            obj, end = decoder.raw_decode(raw, i)\n     \
+          \       return json.dumps(obj, ensure_ascii=False)\n        except json.JSONDecodeError:\n\
+          \            continue\n\n    raise ValueError(\"no valid JSON object or\
+          \ array found in input\")\n\ndef main(raw_data: str) -> dict:\n    rootcause\
+          \ = json.loads(_extract_json(raw_data))\n    return {\n        \"result\"\
+          : json.dumps(rootcause, ensure_ascii=False),\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -5990,20 +5996,26 @@ workflow:
       positionAbsolute:
         x: 16722
         y: 1022
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "import re\n\ndef main(raw_data: str) -> dict:\n    try:\n        pattern\
-          \ = r\"```(?:\\njson|json)(.*?)```\"\n        match = re.search(pattern,\
-          \ raw_data, re.DOTALL)\n        if match is None:\n            json_str\
-          \ = raw_data.strip(\"```\")\n            json_str = json_str.strip(\"json\"\
-          )\n        else:\n            json_str = match.group(1)\n        data =\
-          \ json.loads(json_str)\n        return {\n            \"result\": json.dumps(data)\n\
-          \        }\n    except Exception:\n        raise ValueError(\"get json data\
-          \ error\")"
+        code: "import json\nimport re\n\ndef _extract_json(text: str) -> str:\n  \
+          \  raw = (text or \"\").strip()\n    if not raw:\n        raise ValueError(\"\
+          empty input\")\n\n    # 先兼容 ```json ... ``` 包裹\n    match = re.search(r\"\
+          ```(?:json)?\\s*(.*?)\\s*```\", raw, re.DOTALL | re.IGNORECASE)\n    if\
+          \ match:\n        raw = match.group(1).strip()\n\n    # 去掉模型推理标签\n    raw\
+          \ = re.sub(r\"<think>.*?</think>\", \"\", raw, flags=re.DOTALL | re.IGNORECASE).strip()\n\
+          \n    # 从文本中扫描首个可解析的完整 JSON\n    decoder = json.JSONDecoder()\n    for i,\
+          \ ch in enumerate(raw):\n        if ch not in \"{[\":\n            continue\n\
+          \        try:\n            obj, end = decoder.raw_decode(raw, i)\n     \
+          \       return json.dumps(obj, ensure_ascii=False)\n        except json.JSONDecodeError:\n\
+          \            continue\n\n    raise ValueError(\"no valid JSON object or\
+          \ array found in input\")\n\ndef main(raw_data: str) -> dict:\n    rootcause\
+          \ = json.loads(_extract_json(raw_data))\n    return {\n        \"result\"\
+          : json.dumps(rootcause, ensure_ascii=False),\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -11300,13 +11312,13 @@ workflow:
       positionAbsolute:
         x: 2590
         y: 494
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
       zIndex: 1002
     viewport:
-      x: -2959.1999999999994
-      y: -144.0999999999999
-      zoom: 0.7
+      x: -12072.711280590416
+      y: -566.5102188762075
+      zoom: 0.751861273830243
