@@ -370,7 +370,7 @@ workflow:
           \n    apikey = \"app-JDtZH1DfQtQb1SjzC3as680C\"\n    match arg1:\n     \
           \   case \"request_latency\":\n            res = \"a2d4d3aa-3401-4393-859e-df051bdd5cd1\"\
           \n        case \"service_availability\":\n            res = \"40dea201-7aa4-4e27-865b-6ebeab91a0c3\"\
-          \n            apikey = \"app-LmlwNJaxmSWRCd2DCk6MhkDd\"\n        case \"\
+          \n            apikey = \"app-bDzCIa3SQQIdO2QyhLZMEUDz\"\n        case \"\
           infrastructure\":\n            res = \"f514d742-6043-498e-98f1-ab03cbcb0250\"\
           \n            apikey = \"app-aIEZTMcRkOicrNK1ZegT80wQ\"\n    return {\n\
           \        \"result\": res,\n        \"apikey\": apikey,\n    }\n"
@@ -423,7 +423,7 @@ workflow:
           completion_params:
             temperature: 0.1
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1745224781828'

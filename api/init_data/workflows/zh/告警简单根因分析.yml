@@ -9,11 +9,7 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/deepseek:0.0.5@fd6efd37c2a931911de8ab9ca3ba2da303bef146d45ee87ad896b04b36d09403
-- current_identifier: null
-  type: package
-  value:
-    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
+    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.30@065d5a0ef2af4f50887dbb245113a9754eec8ea7f0d753fa4102395f52fdfed8
 kind: app
 version: 0.1.5
 workflow:
@@ -415,10 +411,22 @@ workflow:
     - data:
         isInIteration: false
         sourceType: llm
-        targetType: end
-      id: 17501667334220-source-1747357345949-target
+        targetType: code
+      id: 17501667334220-source-1764049100002-target
       selected: false
       source: '17501667334220'
+      sourceHandle: source
+      target: '1764049100002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1764049100002-source-1747357345949-target
+      selected: false
+      source: '1764049100002'
       sourceHandle: source
       target: '1747357345949'
       targetHandle: target
@@ -571,72 +579,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: tool
-      id: 1750661889002-source-1750754610625-target
-      selected: false
-      source: '1750661889002'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750662168285-source-1750754610625-target
+        targetType: llm
+      id: 1750662168285-source-1764048001002-target
       selected: false
       source: '1750662168285'
       sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750672701216-source-1750754610625-target
-      selected: false
-      source: '1750672701216'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 17506728633540-source-1750754610625-target
-      selected: false
-      source: '17506728633540'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750750056742-source-1750754610625-target
-      selected: false
-      source: '1750750056742'
-      sourceHandle: source
-      target: '1750754610625'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750769951427-source-1750754610625-target
-      selected: false
-      source: '1750769951427'
-      sourceHandle: source
-      target: '1750754610625'
+      target: '1764048001002'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -799,10 +747,22 @@ workflow:
     - data:
         isInIteration: false
         sourceType: llm
-        targetType: end
-      id: 1750995139153-source-1741502839759-target
+        targetType: code
+      id: 1750995139153-source-1764049100001-target
       selected: false
       source: '1750995139153'
+      sourceHandle: source
+      target: '1764049100001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1764049100001-source-1741502839759-target
+      selected: false
+      source: '1764049100001'
       sourceHandle: source
       target: '1741502839759'
       targetHandle: target
@@ -1737,8 +1697,8 @@ workflow:
           - text
           variable: text
         - value_selector:
-          - '1750995139153'
-          - text
+          - '1764049100001'
+          - result
           variable: alertDirection
         - value_selector:
           - '1751601681225'
@@ -1750,11 +1710,11 @@ workflow:
       height: 142
       id: '1741502839759'
       position:
-        x: 17938
-        y: 1022
+        x: 18542
+        y: 1451.5
       positionAbsolute:
-        x: 17938
-        y: 1022
+        x: 18542
+        y: 1451.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1806,7 +1766,7 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 169877de-aa4a-44db-90ef-2cc8f68882c4
@@ -1873,14 +1833,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1741512806512'
       position:
-        x: 10810
-        y: 778
+        x: 11110
+        y: 1022.5
       positionAbsolute:
-        x: 10810
-        y: 778
+        x: 11110
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1940,7 +1900,7 @@ workflow:
           - result
         - - '1750658087300'
           - result
-      height: 131
+      height: 130
       id: '1741597274153'
       position:
         x: 1550
@@ -2171,11 +2131,11 @@ workflow:
       height: 54
       id: '17430589567120'
       position:
-        x: 3514
-        y: 491
+        x: 3814
+        y: 614
       positionAbsolute:
-        x: 3514
-        y: 491
+        x: 3814
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2301,11 +2261,11 @@ workflow:
       height: 54
       id: '17430595109950'
       position:
-        x: 5946
-        y: 661
+        x: 6246
+        y: 833
       positionAbsolute:
-        x: 5946
-        y: 661
+        x: 6246
+        y: 833
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2476,11 +2436,11 @@ workflow:
       height: 54
       id: '17430595158080'
       position:
-        x: 6250
-        y: 661
+        x: 6550
+        y: 833
       positionAbsolute:
-        x: 6250
-        y: 661
+        x: 6550
+        y: 833
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2500,7 +2460,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
@@ -2537,14 +2497,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17430596469370'
       position:
-        x: 7770
-        y: 661
+        x: 8070
+        y: 927
       positionAbsolute:
-        x: 7770
-        y: 661
+        x: 8070
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2670,11 +2630,11 @@ workflow:
       height: 54
       id: '17430597987060'
       position:
-        x: 6250
-        y: 1099
+        x: 6550
+        y: 1115
       positionAbsolute:
-        x: 6250
-        y: 1099
+        x: 6550
+        y: 1115
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2800,11 +2760,11 @@ workflow:
       height: 54
       id: '17430598907140'
       position:
-        x: 5642
-        y: 567
+        x: 5942
+        y: 739
       positionAbsolute:
-        x: 5642
-        y: 567
+        x: 5942
+        y: 739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2958,11 +2918,11 @@ workflow:
       height: 54
       id: '17430598942980'
       position:
-        x: 5946
-        y: 567
+        x: 6246
+        y: 739
       positionAbsolute:
-        x: 5946
-        y: 567
+        x: 6246
+        y: 739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3088,11 +3048,11 @@ workflow:
       height: 54
       id: '17430610599980'
       position:
-        x: 5946
-        y: 849
+        x: 6246
+        y: 1021
       positionAbsolute:
-        x: 5946
-        y: 849
+        x: 6246
+        y: 1021
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3246,11 +3206,11 @@ workflow:
       height: 54
       id: '17430610640640'
       position:
-        x: 6250
-        y: 849
+        x: 6550
+        y: 1021
       positionAbsolute:
-        x: 6250
-        y: 849
+        x: 6550
+        y: 1021
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3376,11 +3336,11 @@ workflow:
       height: 54
       id: '17430610719970'
       position:
-        x: 5946
-        y: 473
+        x: 6246
+        y: 927
       positionAbsolute:
-        x: 5946
-        y: 473
+        x: 6246
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3525,11 +3485,11 @@ workflow:
       height: 54
       id: '17430610756270'
       position:
-        x: 6250
-        y: 473
+        x: 6550
+        y: 927
       positionAbsolute:
-        x: 6250
-        y: 473
+        x: 6550
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3566,11 +3526,11 @@ workflow:
       height: 54
       id: '1744255998058'
       position:
-        x: 6554
-        y: 849
+        x: 6854
+        y: 1021
       positionAbsolute:
-        x: 6554
-        y: 849
+        x: 6854
+        y: 1021
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3606,11 +3566,11 @@ workflow:
       height: 54
       id: '17442560822670'
       position:
-        x: 6250
-        y: 567
+        x: 6550
+        y: 739
       positionAbsolute:
-        x: 6250
-        y: 567
+        x: 6550
+        y: 739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3711,11 +3671,11 @@ workflow:
       height: 54
       id: '1744287265980'
       position:
-        x: 7162
-        y: 849
+        x: 7462
+        y: 1021
       positionAbsolute:
-        x: 7162
-        y: 849
+        x: 7462
+        y: 1021
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3757,11 +3717,11 @@ workflow:
       height: 54
       id: '1744290470304'
       position:
-        x: 7466
-        y: 849
+        x: 7766
+        y: 1021
       positionAbsolute:
-        x: 7466
-        y: 849
+        x: 7766
+        y: 1021
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3862,11 +3822,11 @@ workflow:
       height: 54
       id: '17443356883380'
       position:
-        x: 6858
-        y: 473
+        x: 7158
+        y: 927
       positionAbsolute:
-        x: 6858
-        y: 473
+        x: 7158
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3967,11 +3927,11 @@ workflow:
       height: 54
       id: '17443357536900'
       position:
-        x: 6858
-        y: 567
+        x: 7158
+        y: 739
       positionAbsolute:
-        x: 6858
-        y: 567
+        x: 7158
+        y: 739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4072,11 +4032,11 @@ workflow:
       height: 54
       id: '17443357893440'
       position:
-        x: 7162
-        y: 1099
+        x: 7462
+        y: 1115
       positionAbsolute:
-        x: 7162
-        y: 1099
+        x: 7462
+        y: 1115
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4177,11 +4137,11 @@ workflow:
       height: 54
       id: '17443357899060'
       position:
-        x: 6858
-        y: 661
+        x: 7158
+        y: 833
       positionAbsolute:
-        x: 6858
-        y: 661
+        x: 7158
+        y: 833
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4223,11 +4183,11 @@ workflow:
       height: 54
       id: '17443388421360'
       position:
-        x: 7466
-        y: 1099
+        x: 7766
+        y: 1115
       positionAbsolute:
-        x: 7466
-        y: 1099
+        x: 7766
+        y: 1115
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4269,11 +4229,11 @@ workflow:
       height: 54
       id: '17443388433580'
       position:
-        x: 7162
-        y: 661
+        x: 7462
+        y: 833
       positionAbsolute:
-        x: 7162
-        y: 661
+        x: 7462
+        y: 833
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4315,11 +4275,11 @@ workflow:
       height: 54
       id: '17443388438160'
       position:
-        x: 7162
-        y: 567
+        x: 7462
+        y: 739
       positionAbsolute:
-        x: 7162
-        y: 567
+        x: 7462
+        y: 739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4361,11 +4321,11 @@ workflow:
       height: 54
       id: '17443388443000'
       position:
-        x: 7162
-        y: 473
+        x: 7462
+        y: 927
       positionAbsolute:
-        x: 7162
-        y: 473
+        x: 7462
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4411,11 +4371,11 @@ workflow:
       height: 54
       id: '1745494335273'
       position:
-        x: 2836
-        y: 614
+        x: 2986
+        y: 520
       positionAbsolute:
-        x: 2836
-        y: 614
+        x: 2986
+        y: 520
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4434,11 +4394,11 @@ workflow:
       height: 90
       id: '1745494338512'
       position:
-        x: 3514
-        y: 614
+        x: 3814
+        y: 455
       positionAbsolute:
-        x: 3514
-        y: 614
+        x: 3814
+        y: 455
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4464,11 +4424,11 @@ workflow:
       height: 126
       id: '1747355869184'
       position:
-        x: 5338
-        y: 473
+        x: 5638
+        y: 614
       positionAbsolute:
-        x: 5338
-        y: 473
+        x: 5638
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4619,11 +4579,11 @@ workflow:
       height: 54
       id: '1747355986489'
       position:
-        x: 5642
-        y: 974
+        x: 5942
+        y: 614
       positionAbsolute:
-        x: 5642
-        y: 974
+        x: 5942
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4749,7 +4709,7 @@ workflow:
         tool_parameters:
           containerId:
             type: mixed
-            value: '{{#1742807803325.containerId#}}'
+            value: /
           endTime:
             type: variable
             value:
@@ -4776,11 +4736,11 @@ workflow:
       height: 54
       id: '17473562733380'
       position:
-        x: 6858
-        y: 755
+        x: 7158
+        y: 1209
       positionAbsolute:
-        x: 6858
-        y: 755
+        x: 7158
+        y: 1209
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4835,11 +4795,11 @@ workflow:
       height: 54
       id: '17473564423850'
       position:
-        x: 5946
-        y: 974
+        x: 6246
+        y: 614
       positionAbsolute:
-        x: 5946
-        y: 974
+        x: 6246
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4892,11 +4852,44 @@ workflow:
       height: 54
       id: '1747356893645'
       position:
-        x: 6250
-        y: 974
+        x: 6550
+        y: 614
       positionAbsolute:
-        x: 6250
-        y: 974
+        x: 6550
+        y: 614
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\n\n\ndef main(raw_data: str) -> dict:\n    text = raw_data or\
+          \ \"\"\n    text = re.sub(r\"<think>.*?</think>\", \"\", text, flags=re.DOTALL\
+          \ | re.IGNORECASE).strip()\n    text = re.sub(r\"<think>.*\", \"\", text,\
+          \ flags=re.DOTALL | re.IGNORECASE).strip()\n    return {\n        \"result\"\
+          : text,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 清理故障方向
+        type: code
+        variables:
+        - value_selector:
+          - '17501667334220'
+          - text
+          variable: raw_data
+      height: 54
+      id: '1764049100002'
+      position:
+        x: 7310
+        y: 596
+      positionAbsolute:
+        x: 7310
+        y: 596
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4913,7 +4906,7 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
@@ -4939,14 +4932,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17473569800940'
       position:
-        x: 6554
-        y: 953
+        x: 6854
+        y: 596
       positionAbsolute:
-        x: 6554
-        y: 953
+        x: 6854
+        y: 596
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4961,8 +4954,8 @@ workflow:
           - text
           variable: text
         - value_selector:
-          - '17501667334220'
-          - text
+          - '1764049100002'
+          - result
           variable: alertDirection
         selected: false
         title: 结束
@@ -4970,11 +4963,11 @@ workflow:
       height: 116
       id: '1747357345949'
       position:
-        x: 7162
-        y: 943
+        x: 7462
+        y: 583
       positionAbsolute:
-        x: 7162
-        y: 943
+        x: 7462
+        y: 583
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4989,7 +4982,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a56f2cfc-7dfc-4483-888e-80b4a5eca5c8
@@ -5022,14 +5015,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750068431868'
       position:
-        x: 16418
-        y: 1001
+        x: 16718
+        y: 1358.5
       positionAbsolute:
-        x: 16418
-        y: 1001
+        x: 16718
+        y: 1358.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5044,7 +5037,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a56f2cfc-7dfc-4483-888e-80b4a5eca5c8
@@ -5069,14 +5062,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '17501667334220'
       position:
-        x: 6858
-        y: 953
+        x: 7158
+        y: 596
       positionAbsolute:
-        x: 6858
-        y: 953
+        x: 7158
+        y: 596
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5300,10 +5293,10 @@ workflow:
       id: '1750657927551'
       position:
         x: 942
-        y: 567
+        y: 473
       positionAbsolute:
         x: 942
-        y: 567
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5443,10 +5436,10 @@ workflow:
       id: '1750657965188'
       position:
         x: 942
-        y: 473
+        y: 567
       positionAbsolute:
         x: 942
-        y: 473
+        y: 567
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5473,10 +5466,10 @@ workflow:
       id: '1750658087300'
       position:
         x: 1246
-        y: 491
+        y: 585
       positionAbsolute:
         x: 1246
-        y: 491
+        y: 585
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5526,10 +5519,10 @@ workflow:
       id: '1750658174684'
       position:
         x: 1246
-        y: 585
+        y: 491
       positionAbsolute:
         x: 1246
-        y: 585
+        y: 491
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5696,11 +5689,11 @@ workflow:
       height: 54
       id: '1750661176423'
       position:
-        x: 6554
-        y: 1099
+        x: 6854
+        y: 1115
       positionAbsolute:
-        x: 6554
-        y: 1099
+        x: 6854
+        y: 1115
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5751,11 +5744,11 @@ workflow:
       height: 54
       id: '1750661889002'
       position:
-        x: 16722
-        y: 778
+        x: 17022
+        y: 1264.5
       positionAbsolute:
-        x: 16722
-        y: 778
+        x: 17022
+        y: 1264.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5772,7 +5765,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 8ecc69bb-4504-40cc-9475-d9da1d54e2f8
@@ -5864,14 +5857,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750662084996'
       position:
-        x: 15810
-        y: 778
+        x: 16110
+        y: 1264.5
       positionAbsolute:
-        x: 15810
-        y: 778
+        x: 16110
+        y: 1264.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5886,7 +5879,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 42284b17-9b6e-4660-aaad-9ba66584a21e
@@ -5929,14 +5922,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750662088384'
       position:
-        x: 16114
-        y: 778
+        x: 16414
+        y: 1264.5
       positionAbsolute:
-        x: 16114
-        y: 778
+        x: 16414
+        y: 1264.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5967,11 +5960,11 @@ workflow:
       height: 54
       id: '1750662168285'
       position:
-        x: 16722
-        y: 928
+        x: 17326
+        y: 1770.5
       positionAbsolute:
-        x: 16722
-        y: 928
+        x: 17326
+        y: 1770.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5988,7 +5981,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 9cf805ef-c561-4b9a-a3cd-3e970fc59285
@@ -6018,14 +6011,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750662408086'
       position:
-        x: 16418
-        y: 1137
+        x: 16718
+        y: 1508.5
       positionAbsolute:
-        x: 16418
-        y: 1137
+        x: 16718
+        y: 1508.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6063,12 +6056,12 @@ workflow:
       height: 54
       id: '1750672701216'
       position:
-        x: 16722
-        y: 1022
+        x: 17022
+        y: 1376.5
       positionAbsolute:
-        x: 16722
-        y: 1022
-      selected: true
+        x: 17022
+        y: 1376.5
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6105,11 +6098,11 @@ workflow:
       height: 54
       id: '17506728633540'
       position:
-        x: 16722
-        y: 1158
+        x: 17022
+        y: 1526.5
       positionAbsolute:
-        x: 16722
-        y: 1158
+        x: 17022
+        y: 1526.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6181,11 +6174,11 @@ workflow:
       height: 54
       id: '1750750056742'
       position:
-        x: 16722
-        y: 1252
+        x: 17022
+        y: 1620.5
       positionAbsolute:
-        x: 16722
-        y: 1252
+        x: 17022
+        y: 1620.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6435,11 +6428,11 @@ workflow:
       height: 54
       id: '1750754610625'
       position:
-        x: 17026
-        y: 1022
+        x: 17630
+        y: 1451.5
       positionAbsolute:
-        x: 17026
-        y: 1022
+        x: 17630
+        y: 1451.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6454,7 +6447,7 @@ workflow:
           completion_params:
             temperature: 0.2
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 6d2d37cf-5d8d-4ec8-bf8b-040480010021
@@ -6462,69 +6455,49 @@ workflow:
           text: 你是可观测性报告展示结构生成助手，只输出严格 JSON。
         - id: 6d2d37cf-5d8d-4ec8-bf8b-040480010022
           role: user
-          text: |
-            # 目的
-            基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence 输出结构。
-
-            # 输入
-            reportType: slow
-
-            overview:
-            {{#1750661889002.result#}}
-
-            rootCauseAnalysis:
-            {{#1750672701216.result#}}
-
-            suggest:
-            {{#17506728633540.result#}}
-
-            evidence:
-            {{#1750769951427.result#}}
-
-            topology:
-            {{#1750750056742.result#}}
-
-            # 输出格式
-            只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。
-            {
-              "version": "v1",
-              "headline": "一句话根因判断",
-              "conclusionSummary": "一句话说明关键证据",
-              "faultLocation": {"label": "故障位置", "target": "服务/实例/节点", "summary": "简单说明"},
-              "summaryCards": [{"type": "symptom|rootCause|excluded", "title": "短标题", "summary": "一句话"}],
-              "rootCauseMetricRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
-              "businessImpact": null,
-              "timeline": [],
-              "analysisSteps": [],
-              "actionTitles": [{"suggestIndex": 0, "title": "降低异常日志输出"}],
-              "evidenceHighlights": [{"evidenceIndex": 0, "title": "CPU 使用率升高", "summary": "使用原始证据中的结论或描述"}]
-            }
-
-            # 严格规则
-            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。没有这个 type 时，不要为了支撑指标做推断，rootCauseMetricRefs 输出空数组。
-            2. 首屏右上角支撑指标只放根因证据指标：从 evidence 中选择 type=metrics 且有真实 chartData 的证据，写入 rootCauseMetricRefs。evidenceIndex 使用 evidence 数组的从 0 开始下标。
-            3. 指标名称、描述、legend、unit 必须匹配主根因方向。
-            4. RED 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。
-            5. 没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。
-            6. 支撑指标映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime 使用 GC、堆内存、线程、协程、FD、OOM；infra 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。
-            7. faultLocation 必须简单易懂；无法定位时输出 null。
-            8. businessImpact 没有明确业务影响时输出 null，不要编造。
-            9. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。
-            10. evidenceHighlights 的 summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。
+          text: "# 目的\n基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence\
+            \ 输出结构。\n\n# 输入\nreportType: slow\n\noverview:\n{{#1750661889002.result#}}\n\
+            \nrootCauseAnalysis:\n{{#1750672701216.result#}}\n\nsuggest:\n{{#17506728633540.result#}}\n\
+            \nevidence:\n{{#1750769951427.result#}}\n\ntopology:\n{{#1750750056742.result#}}\n\
+            \n# 输出格式\n只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。\n\
+            {\n  \"version\": \"v1\",\n  \"headline\": \"一句话根因判断\",\n  \"conclusionSummary\"\
+            : \"一句话说明关键证据\",\n  \"faultLocation\": {\"label\": \"故障位置\", \"target\"\
+            : \"服务/实例/节点\", \"summary\": \"简单说明\"},\n  \"summaryCards\": [{\"type\"\
+            : \"symptom|rootCause|excluded\", \"title\": \"短标题\", \"summary\": \"\
+            一句话\"}],\n  \"rootCauseMetricRefs\": [{\"evidenceIndex\": 0, \"title\"\
+            : \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"businessImpact\": null,\n\
+            \  \"timeline\": [],\n  \"analysisSteps\": [],\n  \"actionTitles\": [{\"\
+            suggestIndex\": 0, \"title\": \"降低异常日志输出\"}],\n  \"evidenceHighlights\"\
+            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率升高\", \"summary\": \"使用原始证据中的结论或描述\"\
+            }]\n}\n\n# 严格规则\n1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。没有这个\
+            \ type 时，不要为了支撑指标做推断，rootCauseMetricRefs 输出空数组。\n2. 首屏右上角支撑指标只放根因证据指标：从\
+            \ evidence 中选择 type=metrics 且有真实 chartData 的证据，写入 rootCauseMetricRefs。evidenceIndex\
+            \ 使用 evidence 数组的从 0 开始下标。\n3. 指标名称、描述、legend、unit 必须匹配主根因方向。\n4. RED\
+            \ 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra\
+            \ 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。\n5. 没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。\n\
+            6. 支撑指标映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code\
+            \ 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry\
+            \ 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage\
+            \ 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime 使用 GC、堆内存、线程、协程、FD、OOM；infra\
+            \ 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖\
+            \ 5xx；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。\n\
+            7. faultLocation 必须简单易懂；无法定位时输出 null。\n8. businessImpact 没有明确业务影响时输出 null，不要编造。\n\
+            9. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。\n10. evidenceHighlights\
+            \ 的 summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。\n"
         selected: false
         title: 生成报告展示结构
         type: llm
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1764048001002'
       position:
-        x: 16722
-        y: 1225
+        x: 17326
+        y: 1433.5
       positionAbsolute:
-        x: 16722
-        y: 1225
+        x: 17326
+        y: 1433.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6581,11 +6554,11 @@ workflow:
       height: 54
       id: '1750769951427'
       position:
-        x: 16722
-        y: 1346
+        x: 17022
+        y: 1022.5
       positionAbsolute:
-        x: 16722
-        y: 1346
+        x: 17022
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6641,11 +6614,11 @@ workflow:
       height: 54
       id: '1750819000832'
       position:
-        x: 16114
-        y: 1503
+        x: 16414
+        y: 1040.5
       positionAbsolute:
-        x: 16114
-        y: 1503
+        x: 16414
+        y: 1040.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6696,11 +6669,11 @@ workflow:
       height: 54
       id: '1750830567613'
       position:
-        x: 15202
-        y: 1364
+        x: 15502
+        y: 1040.5
       positionAbsolute:
-        x: 15202
-        y: 1364
+        x: 15502
+        y: 1040.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6870,11 +6843,11 @@ workflow:
       height: 54
       id: '1750830747193'
       position:
-        x: 15506
-        y: 1346
+        x: 15806
+        y: 1022.5
       positionAbsolute:
-        x: 15506
-        y: 1346
+        x: 15806
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6921,11 +6894,11 @@ workflow:
       height: 54
       id: '1750830805330'
       position:
-        x: 15810
-        y: 1367
+        x: 16110
+        y: 1040.5
       positionAbsolute:
-        x: 15810
-        y: 1367
+        x: 16110
+        y: 1040.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6940,7 +6913,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: eb2032a5-ca17-48b4-b532-1c45ed948e91
@@ -6965,14 +6938,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750927215923'
       position:
-        x: 16418
-        y: 1325
+        x: 16718
+        y: 1134.5
       positionAbsolute:
-        x: 16418
-        y: 1325
+        x: 16718
+        y: 1134.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6987,7 +6960,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 0d6f5be7-b8d0-4354-ae42-7ad580e19039
@@ -7012,14 +6985,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750927458985'
       position:
-        x: 16418
-        y: 1461
+        x: 16718
+        y: 1004.5
       positionAbsolute:
-        x: 16418
-        y: 1461
+        x: 16718
+        y: 1004.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7034,7 +7007,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bf855196-6899-4b0c-a363-404c077ba96f
@@ -7065,14 +7038,47 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750995139153'
       position:
-        x: 17634
-        y: 1022
+        x: 18238
+        y: 1451.5
       positionAbsolute:
-        x: 17634
-        y: 1022
+        x: 18238
+        y: 1451.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\n\n\ndef main(raw_data: str) -> dict:\n    text = raw_data or\
+          \ \"\"\n    text = re.sub(r\"<think>.*?</think>\", \"\", text, flags=re.DOTALL\
+          \ | re.IGNORECASE).strip()\n    text = re.sub(r\"<think>.*\", \"\", text,\
+          \ flags=re.DOTALL | re.IGNORECASE).strip()\n    return {\n        \"result\"\
+          : text,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 清理故障方向
+        type: code
+        variables:
+        - value_selector:
+          - '1750995139153'
+          - text
+          variable: raw_data
+      height: 54
+      id: '1764049100001'
+      position:
+        x: 18542
+        y: 1451.5
+      positionAbsolute:
+        x: 18542
+        y: 1451.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7119,11 +7125,11 @@ workflow:
       height: 54
       id: '1751112705936'
       position:
-        x: 6858
-        y: 1099
+        x: 7158
+        y: 1115
       positionAbsolute:
-        x: 6858
-        y: 1099
+        x: 7158
+        y: 1115
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7170,11 +7176,11 @@ workflow:
       height: 54
       id: '17511127594560'
       position:
-        x: 6858
-        y: 849
+        x: 7158
+        y: 1021
       positionAbsolute:
-        x: 6858
-        y: 849
+        x: 7158
+        y: 1021
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7221,11 +7227,11 @@ workflow:
       height: 54
       id: '17511128355920'
       position:
-        x: 6554
-        y: 661
+        x: 6854
+        y: 833
       positionAbsolute:
-        x: 6554
-        y: 661
+        x: 6854
+        y: 833
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7272,11 +7278,11 @@ workflow:
       height: 54
       id: '17511128736240'
       position:
-        x: 6554
-        y: 567
+        x: 6854
+        y: 739
       positionAbsolute:
-        x: 6554
-        y: 567
+        x: 6854
+        y: 739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7323,11 +7329,11 @@ workflow:
       height: 54
       id: '17511129103380'
       position:
-        x: 6554
-        y: 473
+        x: 6854
+        y: 927
       positionAbsolute:
-        x: 6554
-        y: 473
+        x: 6854
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7497,11 +7503,11 @@ workflow:
       height: 54
       id: '1751504789699'
       position:
-        x: 7466
-        y: 661
+        x: 7766
+        y: 833
       positionAbsolute:
-        x: 7466
-        y: 661
+        x: 7766
+        y: 833
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7671,11 +7677,11 @@ workflow:
       height: 54
       id: '17515048509810'
       position:
-        x: 7466
-        y: 567
+        x: 7766
+        y: 739
       positionAbsolute:
-        x: 7466
-        y: 567
+        x: 7766
+        y: 739
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7845,11 +7851,11 @@ workflow:
       height: 54
       id: '17515048888700'
       position:
-        x: 7466
-        y: 473
+        x: 7766
+        y: 927
       positionAbsolute:
-        x: 7466
-        y: 473
+        x: 7766
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7896,11 +7902,11 @@ workflow:
       height: 54
       id: '17515143872690'
       position:
-        x: 7162
-        y: 755
+        x: 7462
+        y: 1209
       positionAbsolute:
-        x: 7162
-        y: 755
+        x: 7462
+        y: 1209
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8070,11 +8076,11 @@ workflow:
       height: 54
       id: '1751601681225'
       position:
-        x: 17330
-        y: 1022
+        x: 17934
+        y: 1451.5
       positionAbsolute:
-        x: 17330
-        y: 1022
+        x: 17934
+        y: 1451.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8100,11 +8106,11 @@ workflow:
       height: 126
       id: '1751601842740'
       position:
-        x: 14898
-        y: 778
+        x: 15198
+        y: 1022.5
       positionAbsolute:
-        x: 14898
-        y: 778
+        x: 15198
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8123,11 +8129,11 @@ workflow:
       height: 90
       id: '1751601994805'
       position:
-        x: 15202
-        y: 853
+        x: 15502
+        y: 1695.5
       positionAbsolute:
-        x: 15202
-        y: 853
+        x: 15502
+        y: 1695.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8192,11 +8198,11 @@ workflow:
       height: 54
       id: '1753840330051'
       position:
-        x: 16418
-        y: 778
+        x: 16718
+        y: 1264.5
       positionAbsolute:
-        x: 16418
-        y: 778
+        x: 16718
+        y: 1264.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8343,11 +8349,11 @@ workflow:
       height: 54
       id: '1754298166852'
       position:
-        x: 7466
-        y: 755
+        x: 7766
+        y: 1209
       positionAbsolute:
-        x: 7466
-        y: 755
+        x: 7766
+        y: 1209
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8384,11 +8390,11 @@ workflow:
       height: 174
       id: '1754299061896'
       position:
-        x: 8378
-        y: 778
+        x: 8678
+        y: 927
       positionAbsolute:
-        x: 8378
-        y: 778
+        x: 8678
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8414,11 +8420,11 @@ workflow:
       height: 54
       id: '1754299310647'
       position:
-        x: 3818
-        y: 473
+        x: 4118
+        y: 614
       positionAbsolute:
-        x: 3818
-        y: 473
+        x: 4118
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8435,14 +8441,14 @@ workflow:
           - result
         - - '1754298166852'
           - abnormal_downstream_instances
-      height: 131
+      height: 130
       id: '1754375770920'
       position:
-        x: 9898
-        y: 873.5
+        x: 10198
+        y: 927
       positionAbsolute:
-        x: 9898
-        y: 873.5
+        x: 10198
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8457,7 +8463,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: c77a6a17-bbbb-4880-8b2a-56a7fcbb419e
@@ -8502,14 +8508,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1754382620041'
       position:
-        x: 10202
-        y: 873.5
+        x: 10502
+        y: 927
       positionAbsolute:
-        x: 10202
-        y: 873.5
+        x: 10502
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8527,7 +8533,7 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17430596469370'
@@ -8538,14 +8544,14 @@ workflow:
         type: question-classifier
         vision:
           enabled: false
-      height: 174
+      height: 168
       id: '1754385298311'
       position:
-        x: 8074
-        y: 661
+        x: 8374
+        y: 927
       positionAbsolute:
-        x: 8074
-        y: 661
+        x: 8374
+        y: 927
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8562,14 +8568,14 @@ workflow:
           - text
         - - '17430596469370'
           - text
-      height: 131
+      height: 130
       id: '1754385689812'
       position:
-        x: 10506
-        y: 778
+        x: 10806
+        y: 1022.5
       positionAbsolute:
-        x: 10506
-        y: 778
+        x: 10806
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8841,11 +8847,11 @@ workflow:
       height: 54
       id: '1754442999808'
       position:
-        x: 9290
-        y: 930.5
+        x: 9590
+        y: 1079.5
       positionAbsolute:
-        x: 9290
-        y: 930.5
+        x: 9590
+        y: 1079.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9009,11 +9015,11 @@ workflow:
       height: 54
       id: '1754462459105'
       position:
-        x: 8682
-        y: 930.5
+        x: 8982
+        y: 1079.5
       positionAbsolute:
-        x: 8682
-        y: 930.5
+        x: 8982
+        y: 1079.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9058,11 +9064,11 @@ workflow:
       height: 54
       id: '1754462485033'
       position:
-        x: 8986
-        y: 930.5
+        x: 9286
+        y: 1079.5
       positionAbsolute:
-        x: 8986
-        y: 930.5
+        x: 9286
+        y: 1079.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9092,11 +9098,11 @@ workflow:
       height: 54
       id: '1754634901289'
       position:
-        x: 9594
-        y: 930.5
+        x: 9894
+        y: 1079.5
       positionAbsolute:
-        x: 9594
-        y: 930.5
+        x: 9894
+        y: 1079.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9128,11 +9134,11 @@ workflow:
       height: 54
       id: '1757065154374'
       position:
-        x: 4122
-        y: 473
+        x: 4422
+        y: 614
       positionAbsolute:
-        x: 4122
-        y: 473
+        x: 4422
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9269,11 +9275,11 @@ workflow:
       height: 54
       id: '1758694014155'
       position:
-        x: 4426
-        y: 473
+        x: 4726
+        y: 614
       positionAbsolute:
-        x: 4426
-        y: 473
+        x: 4726
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9324,11 +9330,11 @@ workflow:
       height: 54
       id: '1758694051591'
       position:
-        x: 5034
-        y: 473
+        x: 5334
+        y: 614
       positionAbsolute:
-        x: 5034
-        y: 473
+        x: 5334
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9462,11 +9468,11 @@ workflow:
       height: 54
       id: '1758770073925'
       position:
-        x: 4730
-        y: 473
+        x: 5030
+        y: 614
       positionAbsolute:
-        x: 4730
-        y: 473
+        x: 5030
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9732,11 +9738,11 @@ workflow:
       height: 54
       id: '1759065773395'
       position:
-        x: 11114
-        y: 778
+        x: 11414
+        y: 1022.5
       positionAbsolute:
-        x: 11114
-        y: 778
+        x: 11414
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9781,11 +9787,11 @@ workflow:
       height: 54
       id: '1759065776597'
       position:
-        x: 11418
-        y: 778
+        x: 11718
+        y: 1022.5
       positionAbsolute:
-        x: 11418
-        y: 778
+        x: 11718
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9812,11 +9818,11 @@ workflow:
       height: 157
       id: '1759065780515'
       position:
-        x: 11722
-        y: 778
+        x: 12022
+        y: 1022.5
       positionAbsolute:
-        x: 11722
-        y: 778
+        x: 12022
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9837,8 +9843,8 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: 11746
-        y: 846
+        x: 12046
+        y: 1090.5
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -9856,7 +9862,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 4f5e05a2-9d18-4254-9499-442e9af0652a
@@ -9882,14 +9888,14 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1759065784647'
       position:
-        x: 14594
-        y: 778
+        x: 14894
+        y: 1022.5
       positionAbsolute:
-        x: 14594
-        y: 778
+        x: 14894
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10061,8 +10067,8 @@ workflow:
         x: 428
         y: 68
       positionAbsolute:
-        x: 12150
-        y: 846
+        x: 12450
+        y: 1090.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10134,8 +10140,8 @@ workflow:
         x: 1032
         y: 68
       positionAbsolute:
-        x: 12754
-        y: 846
+        x: 13054
+        y: 1090.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10281,8 +10287,8 @@ workflow:
         x: 1334.1215331400635
         y: 69.8784668599369
       positionAbsolute:
-        x: 13056.121533140064
-        y: 847.8784668599369
+        x: 13356.121533140064
+        y: 1092.378466859937
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10312,11 +10318,11 @@ workflow:
       height: 54
       id: '1759068866492'
       position:
-        x: 13986
-        y: 778
+        x: 14286
+        y: 1022.5
       positionAbsolute:
-        x: 13986
-        y: 778
+        x: 14286
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10450,11 +10456,11 @@ workflow:
       height: 54
       id: '1759069387678'
       position:
-        x: 14290
-        y: 778
+        x: 14590
+        y: 1022.5
       positionAbsolute:
-        x: 14290
-        y: 778
+        x: 14590
+        y: 1022.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10599,8 +10605,8 @@ workflow:
         x: 1640
         y: 68
       positionAbsolute:
-        x: 13362
-        y: 846
+        x: 13662
+        y: 1090.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10640,8 +10646,8 @@ workflow:
         x: 1944
         y: 68
       positionAbsolute:
-        x: 13666
-        y: 846
+        x: 13966
+        y: 1090.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10814,8 +10820,8 @@ workflow:
         x: 732
         y: 68
       positionAbsolute:
-        x: 12454
-        y: 846
+        x: 12754
+        y: 1090.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10851,8 +10857,8 @@ workflow:
         x: 128
         y: 68
       positionAbsolute:
-        x: 11850
-        y: 846
+        x: 12150
+        y: 1090.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10880,10 +10886,10 @@ workflow:
       id: '1779332497301'
       position:
         x: 2462
-        y: 426
+        y: 614
       positionAbsolute:
         x: 2462
-        y: 426
+        y: 614
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10905,7 +10911,7 @@ workflow:
         y: 68
       positionAbsolute:
         x: 2486
-        y: 494
+        y: 682
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -11126,7 +11132,7 @@ workflow:
         y: 68
       positionAbsolute:
         x: 2890
-        y: 494
+        y: 682
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11223,7 +11229,7 @@ workflow:
         y: 68
       positionAbsolute:
         x: 3494
-        y: 494
+        y: 682
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11444,7 +11450,7 @@ workflow:
         y: 68
       positionAbsolute:
         x: 3194
-        y: 494
+        y: 682
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11480,7 +11486,7 @@ workflow:
           service:
             children: null
             type: string
-        selected: false
+        selected: true
         title: 解析实例
         type: code
         variables:
@@ -11496,14 +11502,14 @@ workflow:
         y: 68
       positionAbsolute:
         x: 2590
-        y: 494
-      selected: false
+        y: 682
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
       zIndex: 1002
     viewport:
-      x: -12072.711280590416
-      y: -566.5102188762075
-      zoom: 0.751861273830243
+      x: -3610.9285714285716
+      y: 143.1428571428571
+      zoom: 0.25

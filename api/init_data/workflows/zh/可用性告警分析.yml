@@ -9,7 +9,7 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
+    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.30@065d5a0ef2af4f50887dbb245113a9754eec8ea7f0d753fa4102395f52fdfed8
 kind: app
 version: 0.1.5
 workflow:
@@ -142,30 +142,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750839702220-source-1750839691646-target
-      selected: false
-      source: '1750839702220'
-      sourceHandle: source
-      target: '1750839691646'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750840042580-source-1750839691646-target
-      selected: false
-      source: '1750840042580'
-      sourceHandle: source
-      target: '1750839691646'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: llm
         targetType: code
       id: 1750840340832-source-1750840042580-target
@@ -173,42 +149,6 @@ workflow:
       source: '1750840340832'
       sourceHandle: source
       target: '1750840042580'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750843294839-source-1750839691646-target
-      selected: false
-      source: '1750843294839'
-      sourceHandle: source
-      target: '1750839691646'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750843922551-source-1750839691646-target
-      selected: false
-      source: '1750843922551'
-      sourceHandle: source
-      target: '1750839691646'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750843945254-source-1750839691646-target
-      selected: false
-      source: '1750843945254'
-      sourceHandle: source
-      target: '1750839691646'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -251,12 +191,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: tool
-      id: 1750941439700-source-1750839691646-target
+        targetType: llm
+      id: 1750839702220-source-1764048001001-target
       selected: false
-      source: '1750941439700'
+      source: '1750839702220'
       sourceHandle: source
-      target: '1750839691646'
+      target: '1764048001001'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -347,10 +287,22 @@ workflow:
     - data:
         isInIteration: false
         sourceType: llm
-        targetType: end
-      id: 1751004239868-source-1744878476249-target
+        targetType: code
+      id: 1751004239868-source-1764049100003-target
       selected: false
       source: '1751004239868'
+      sourceHandle: source
+      target: '1764049100003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1764049100003-source-1744878476249-target
+      selected: false
+      source: '1764049100003'
       sourceHandle: source
       target: '1744878476249'
       targetHandle: target
@@ -1462,7 +1414,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1742807803325'
@@ -1473,7 +1425,7 @@ workflow:
         type: question-classifier
         vision:
           enabled: false
-      height: 246
+      height: 240
       id: '17430590082510'
       position:
         x: 3374
@@ -1498,7 +1450,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 615ece65-9193-4bad-a375-d51b67dbaafc
@@ -1567,7 +1519,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1744878372490'
       position:
         x: 8158
@@ -1616,8 +1568,8 @@ workflow:
           - text
           variable: output
         - value_selector:
-          - '1751004239868'
-          - text
+          - '1764049100003'
+          - result
           variable: alertDirection
         selected: false
         title: 结束
@@ -1937,6 +1889,39 @@ workflow:
       type: custom
       width: 244
     - data:
+        code: "import re\n\n\ndef main(raw_data: str) -> dict:\n    text = raw_data or\
+          \ \"\"\n    text = re.sub(r\"<think>.*?</think>\", \"\", text, flags=re.DOTALL\
+          \ | re.IGNORECASE).strip()\n    text = re.sub(r\"<think>.*\", \"\", text,\
+          \ flags=re.DOTALL | re.IGNORECASE).strip()\n    return {\n        \"result\"\
+          : text,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 清理故障方向
+        type: code
+        variables:
+        - value_selector:
+          - '1751004239868'
+          - text
+          variable: raw_data
+      height: 54
+      id: '1764049100003'
+      position:
+        x: 15894
+        y: 809
+      positionAbsolute:
+        x: 15894
+        y: 809
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
         context:
           enabled: false
           variable_selector: []
@@ -1945,7 +1930,7 @@ workflow:
           completion_params:
             temperature: 0.2
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 77c2f2f1-8e4f-4a1f-8d76-040480010011
@@ -1953,55 +1938,35 @@ workflow:
           text: 你是可观测性报告展示结构生成助手，只输出严格 JSON。
         - id: 77c2f2f1-8e4f-4a1f-8d76-040480010012
           role: user
-          text: |
-            # 目的
-            基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence 输出结构。
-
-            # 输入
-            reportType: error
-
-            overview:
-            {{#1750840042580.result#}}
-
-            rootCauseAnalysis:
-            {{#1750843945254.result#}}
-
-            suggest:
-            {{#1750843922551.result#}}
-
-            evidence:
-            {{#1750843294839.result#}}
-
-            topology:
-            {{#1750941439700.result#}}
-
-            # 输出格式
-            只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。
-            {
-              "version": "v1",
-              "headline": "一句话根因判断",
-              "conclusionSummary": "一句话说明关键证据",
-              "faultLocation": {"label": "故障位置", "target": "服务/实例/节点", "summary": "简单说明"},
-              "summaryCards": [{"type": "symptom|rootCause|excluded", "title": "短标题", "summary": "一句话"}],
-              "rootCauseMetricRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
-              "businessImpact": null,
-              "timeline": [],
-              "analysisSteps": [],
-              "actionTitles": [{"suggestIndex": 0, "title": "降低异常日志输出"}],
-              "evidenceHighlights": [{"evidenceIndex": 0, "title": "CPU 使用率升高", "summary": "使用原始证据中的结论或描述"}]
-            }
-
-            # 严格规则
-            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。没有这个 type 时，不要为了支撑指标做推断，rootCauseMetricRefs 输出空数组。
-            2. 首屏右上角支撑指标只放根因证据指标：从 evidence 中选择 type=metrics 且有真实 chartData 的证据，写入 rootCauseMetricRefs。evidenceIndex 使用 evidence 数组的从 0 开始下标。
-            3. 指标名称、描述、legend、unit 必须匹配主根因方向。
-            4. RED 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。
-            5. 没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。
-            6. 支撑指标映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime 使用 GC、堆内存、线程、协程、FD、OOM；infra 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。
-            7. faultLocation 必须简单易懂；无法定位时输出 null。
-            8. businessImpact 没有明确业务影响时输出 null，不要编造。
-            9. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。
-            10. evidenceHighlights 的 summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。
+          text: "# 目的\n基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence\
+            \ 输出结构。\n\n# 输入\nreportType: error\n\noverview:\n{{#1750840042580.result#}}\n\
+            \nrootCauseAnalysis:\n{{#1750843945254.result#}}\n\nsuggest:\n{{#1750843922551.result#}}\n\
+            \nevidence:\n{{#1750843294839.result#}}\n\ntopology:\n{{#1750941439700.result#}}\n\
+            \n# 输出格式\n只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。\n\
+            {\n  \"version\": \"v1\",\n  \"headline\": \"一句话根因判断\",\n  \"conclusionSummary\"\
+            : \"一句话说明关键证据\",\n  \"faultLocation\": {\"label\": \"故障位置\", \"target\"\
+            : \"服务/实例/节点\", \"summary\": \"简单说明\"},\n  \"summaryCards\": [{\"type\"\
+            : \"symptom|rootCause|excluded\", \"title\": \"短标题\", \"summary\": \"\
+            一句话\"}],\n  \"rootCauseMetricRefs\": [{\"evidenceIndex\": 0, \"title\"\
+            : \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"businessImpact\": null,\n\
+            \  \"timeline\": [],\n  \"analysisSteps\": [],\n  \"actionTitles\": [{\"\
+            suggestIndex\": 0, \"title\": \"降低异常日志输出\"}],\n  \"evidenceHighlights\"\
+            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率升高\", \"summary\": \"使用原始证据中的结论或描述\"\
+            }]\n}\n\n# 严格规则\n1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。没有这个\
+            \ type 时，不要为了支撑指标做推断，rootCauseMetricRefs 输出空数组。\n2. 首屏右上角支撑指标只放根因证据指标：从\
+            \ evidence 中选择 type=metrics 且有真实 chartData 的证据，写入 rootCauseMetricRefs。evidenceIndex\
+            \ 使用 evidence 数组的从 0 开始下标。\n3. 指标名称、描述、legend、unit 必须匹配主根因方向。\n4. RED\
+            \ 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra\
+            \ 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。\n5. 没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。\n\
+            6. 支撑指标映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code\
+            \ 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry\
+            \ 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage\
+            \ 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime 使用 GC、堆内存、线程、协程、FD、OOM；infra\
+            \ 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖\
+            \ 5xx；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。\n\
+            7. faultLocation 必须简单易懂；无法定位时输出 null。\n8. businessImpact 没有明确业务影响时输出 null，不要编造。\n\
+            9. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。\n10. evidenceHighlights\
+            \ 的 summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。\n"
         selected: false
         title: 生成报告展示结构
         type: llm
@@ -2125,7 +2090,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d21add02-97db-4fa3-a6e8-d4387617ce2a
@@ -2204,7 +2169,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750840340832'
       position:
         x: 14374
@@ -2291,7 +2256,7 @@ workflow:
       positionAbsolute:
         x: 14678
         y: 939
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -2373,7 +2338,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 7694ae43-c744-4e62-9a51-fb4b8d8fe597
@@ -2399,7 +2364,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750846397041'
       position:
         x: 14374
@@ -2421,7 +2386,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 0e0b95f4-141c-413e-8a29-1b17b745495f
@@ -2452,7 +2417,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750846407202'
       position:
         x: 14374
@@ -2552,7 +2517,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 45ec55b5-ae91-45b8-989c-83f81cee1712
@@ -2571,13 +2536,13 @@ workflow:
             **问题分析**\n初步分析是XXX方向（如果有具体是自身还是下游方向，请给出方向描述），不要有其他内容，给出方向即可\n**解决措施**：\n\
             - 执行XXXX命令（根据文档和你的经验给出3条建议，必须和故障方向有关，避免给出过于宽泛的建议，如“建议排查内部错误”。）\n\n#输出格式\n\
             格式参考模版，注意换行和空格，确保文本美观输出，简单易懂(使用MarkDown格式的文本)，且不要有其他输出"
-        selected: false
+        selected: true
         title: 总结
         type: llm
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1750987639392'
       position:
         x: 14070
@@ -2585,7 +2550,7 @@ workflow:
       positionAbsolute:
         x: 14070
         y: 679
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -2599,7 +2564,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d33542e3-ac5c-48f1-970b-fa7ab0ffd0ef
@@ -2629,7 +2594,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1751004239868'
       position:
         x: 15590
@@ -2651,7 +2616,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d3326874-756a-4db9-9634-3725cf97b6e7
@@ -2676,7 +2641,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1751251291730'
       position:
         x: 14374
@@ -3547,9 +3512,6 @@ workflow:
           endTime:
             children: null
             type: number
-          query:
-            children: null
-            type: string
           startTime:
             children: null
             type: number
@@ -4070,7 +4032,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1a251b76-1e32-4905-b8d1-859a76bf6237
@@ -4123,7 +4085,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1753433531861'
       position:
         x: 8758
@@ -4145,7 +4107,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 33d6ac62-5c51-4b4a-a568-15502d859538
@@ -4182,7 +4144,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1753436673318'
       position:
         x: 8454
@@ -4204,7 +4166,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 46ff962f-3331-441e-8d37-f179e08c916d
@@ -4243,7 +4205,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1753436803036'
       position:
         x: 8454
@@ -4503,7 +4465,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bc74b5ac-8d4a-4145-9724-a48a089545fc
@@ -4561,7 +4523,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1753437974705'
       position:
         x: 8758
@@ -5349,11 +5311,11 @@ workflow:
       height: 174
       id: '17587867711690'
       position:
-        x: 6678
-        y: 828
+        x: 6615.10500486386
+        y: 832.9653943528531
       positionAbsolute:
-        x: 6678
-        y: 828
+        x: 6615.10500486386
+        y: 832.9653943528531
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5530,8 +5492,8 @@ workflow:
         x: 476.9192889271508
         y: 74.81565283145574
       positionAbsolute:
-        x: 7154.919288927151
-        y: 902.8156528314557
+        x: 7092.024293791011
+        y: 907.7810471843088
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5608,8 +5570,8 @@ workflow:
         x: 174.77124553108297
         y: 74.81565283145574
       positionAbsolute:
-        x: 6852.771245531083
-        y: 902.8156528314557
+        x: 6789.876250394943
+        y: 907.7810471843088
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5780,8 +5742,8 @@ workflow:
         x: 803.3097027947015
         y: 75.20802010927355
       positionAbsolute:
-        x: 7481.3097027947015
-        y: 903.2080201092735
+        x: 7418.414707658561
+        y: 908.1734144621266
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5802,8 +5764,8 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: 6702
-        y: 896
+        x: 6639.10500486386
+        y: 900.9653943528531
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -7116,7 +7078,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bd9e0f0c-b601-4947-8829-4524f0d2bb84
@@ -7142,7 +7104,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1760103644528'
       position:
         x: 13462
@@ -7348,6 +7310,10 @@ workflow:
           - env
           - is_vm
           variable: is_vm
+        - value_selector:
+          - '1742807803325'
+          - sourceFrom
+          variable: sourceFrom
       height: 54
       id: '1779266302359'
       position:
@@ -7404,6 +7370,6 @@ workflow:
       width: 244
       zIndex: 1002
     viewport:
-      x: -9961.845927666765
-      y: -389.63974783227616
-      zoom: 0.7156418733228685
+      x: -10663.443441447282
+      y: -158.39420927556438
+      zoom: 0.7770505299860839

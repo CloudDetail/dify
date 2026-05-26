@@ -9,7 +9,7 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/deepseek:0.0.5@fd6efd37c2a931911de8ab9ca3ba2da303bef146d45ee87ad896b04b36d09403
+    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
 kind: app
 version: 0.1.5
 workflow:
@@ -329,7 +329,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 07268a7f-bab7-4d87-8023-b1cf767599f5
@@ -382,7 +382,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1741230295029'
@@ -997,7 +997,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 68f610cd-e65e-4776-8167-ee307974e383

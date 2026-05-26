@@ -1247,7 +1247,7 @@ workflow:
         - value_selector:
           - '1752138870713'
           - text
-          variable: output
+          variable: text
         selected: false
         title: 结束
         type: end
@@ -1365,7 +1365,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1741157526222'
@@ -2856,7 +2856,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: c981a70d-9ebb-4f03-949a-8d78826f9bda
@@ -5983,7 +5983,7 @@ workflow:
         - value_selector:
           - '1744093531084'
           - output
-          variable: output
+          variable: text
         selected: false
         title: 结束
         type: end
@@ -6009,7 +6009,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a1de005a-fbe2-44a6-9b2c-bb021ae6b3a4
@@ -6308,11 +6308,11 @@ workflow:
         - value_selector:
           - '1744339618961'
           - abnormal
-          variable: output
+          variable: text
         - value_selector:
           - '1744627472534'
           - output
-          variable: conclusion
+          variable: output
         selected: false
         title: 结束 3
         type: end
@@ -6522,11 +6522,11 @@ workflow:
         - value_selector:
           - '1744599772545'
           - abnormal
-          variable: output
+          variable: text
         - value_selector:
           - '1744599772545'
           - conclusion
-          variable: conclusion
+          variable: output
         selected: false
         title: 结束 4
         type: end
@@ -7290,7 +7290,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1f3e1690-58bf-4bc0-be08-4fab41ac13cf
@@ -7361,7 +7361,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 6b23adfe-47ca-40af-aeb1-ce2f1533826a
@@ -7432,7 +7432,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 8fd2de89-ee56-4bed-a1e7-caf728a0c5fe
@@ -7885,7 +7885,7 @@ workflow:
         - value_selector:
           - '1753358645238'
           - valid
-          variable: output
+          variable: text
         selected: false
         title: 结束 6
         type: end

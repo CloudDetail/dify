@@ -1,4 +1,5 @@
 import json
+import re
 from collections.abc import Generator
 from typing import Any, Optional
 
@@ -59,6 +60,8 @@ def convert_to_json(data, name: str, errormsgs: list, required: bool = True) -> 
     if isinstance(data, dict):
         return data
     data = data.strip()
+    data = re.sub(r"<think>.*?</think>", "", data, flags=re.DOTALL | re.IGNORECASE).strip()
+    data = re.sub(r"<think>.*", "", data, flags=re.DOTALL | re.IGNORECASE).strip()
     if data.startswith("```") and data.endswith("```"):
         data = data.split("\n", 1)[1].rsplit("\n", 1)[0]
         if data.startswith("json"):
