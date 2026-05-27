@@ -29,6 +29,7 @@ class AlertReportGen(BuiltinTool):
         suggest = convert_to_json(tool_parameters.get("suggest"), "suggest", errormsgs).get("suggest", {})
         evidence = convert_to_json(tool_parameters.get("evidence"), "evidence", errormsgs).get("evidence", {})
         reportView = convert_to_json(tool_parameters.get("reportView"), "reportView", errormsgs, required=False)
+        evidence, reportView = deduplicate_evidence_and_report_view(evidence, reportView)
         json_data = {
             'reportType': reportType,
             'overview': overview,
@@ -50,6 +51,72 @@ class AlertReportGen(BuiltinTool):
         })
 
         yield self.create_text_message(list)
+
+
+def deduplicate_evidence_and_report_view(evidence: Any, reportView: Any) -> tuple[Any, Any]:
+    if not isinstance(evidence, list):
+        return evidence, reportView
+
+    seen_indexes = {}
+    index_mapping = {}
+    deduplicated_evidence = []
+
+    for index, item in enumerate(evidence):
+        key = stable_json_fingerprint(item)
+        if key in seen_indexes:
+            index_mapping[index] = seen_indexes[key]
+            continue
+
+        new_index = len(deduplicated_evidence)
+        seen_indexes[key] = new_index
+        index_mapping[index] = new_index
+        deduplicated_evidence.append(item)
+
+    if len(deduplicated_evidence) == len(evidence):
+        return evidence, reportView
+
+    if isinstance(reportView, dict):
+        reportView = remap_report_view_evidence_indexes(reportView, index_mapping)
+
+    return deduplicated_evidence, reportView
+
+
+def remap_report_view_evidence_indexes(reportView: dict, index_mapping: dict[int, int]) -> dict:
+    normalized_report_view = dict(reportView)
+    for field in ("rootCauseEvidenceRefs", "rootCauseMetricRefs", "evidenceHighlights"):
+        refs = reportView.get(field)
+        if isinstance(refs, list):
+            normalized_report_view[field] = remap_report_view_ref_list(refs, index_mapping)
+    return normalized_report_view
+
+
+def remap_report_view_ref_list(refs: list, index_mapping: dict[int, int]) -> list:
+    deduplicated_refs = []
+    seen_refs = set()
+
+    for ref in refs:
+        normalized_ref = ref
+        if isinstance(ref, dict):
+            normalized_ref = dict(ref)
+            evidence_index = normalized_ref.get("evidenceIndex")
+            if type(evidence_index) is int and evidence_index in index_mapping:
+                normalized_ref["evidenceIndex"] = index_mapping[evidence_index]
+
+        key = stable_json_fingerprint(normalized_ref)
+        if key in seen_refs:
+            continue
+
+        seen_refs.add(key)
+        deduplicated_refs.append(normalized_ref)
+
+    return deduplicated_refs
+
+
+def stable_json_fingerprint(data: Any) -> str:
+    try:
+        return json.dumps(data, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    except (TypeError, ValueError):
+        return repr(data)
 
 
 def convert_to_json(data, name: str, errormsgs: list, required: bool = True) -> dict:

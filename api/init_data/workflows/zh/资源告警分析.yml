@@ -2537,18 +2537,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: variable-aggregator
-        targetType: llm
-      id: 1753955518503-source-1764048001003-target
-      selected: false
-      source: '1753955518503'
-      sourceHandle: source
-      target: '1764048001003'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: llm
         targetType: tool
       id: 1764048001003-source-1750988315593-target
@@ -11050,25 +11038,30 @@ workflow:
               "conclusionSummary": "一句话说明关键证据",
               "faultLocation": {"label": "故障位置", "target": "服务/实例/节点", "summary": "简单说明"},
               "summaryCards": [{"type": "symptom|rootCause|excluded", "title": "短标题", "summary": "一句话"}],
+              "rootCauseEvidenceRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
               "rootCauseMetricRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
               "businessImpact": null,
-              "timeline": [],
-              "analysisSteps": [],
+              "timeline": [{"timestamp": 1779811334000000, "title": "事件短标题", "summary": "一句话事件说明"}],
+              "analysisSteps": [{"title": "排查步骤短标题", "summary": "一句话说明"}],
               "actionTitles": [{"suggestIndex": 0, "title": "降低异常日志输出"}],
               "evidenceHighlights": [{"evidenceIndex": 0, "title": "CPU 使用率升高", "summary": "使用原始证据中的结论或描述"}]
             }
 
             # 严格规则
-            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。没有这个 type 时，不要为了支撑指标做推断，rootCauseMetricRefs 输出空数组。
-            2. 首屏右上角支撑指标只放根因证据指标：从 evidence 中选择 type=metrics 且有真实 chartData 的证据，写入 rootCauseMetricRefs。evidenceIndex 使用 evidence 数组的从 0 开始下标。
-            3. 指标名称、描述、legend、unit 必须匹配主根因方向。
-            4. RED 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。
-            5. 没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。
-            6. 支撑指标映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime 使用 GC、堆内存、线程、协程、FD、OOM；infra 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。
-            7. faultLocation 必须简单易懂；无法定位时输出 null。
-            8. businessImpact 没有明确业务影响时输出 null，不要编造。
-            9. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。
-            10. evidenceHighlights 的 summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。
+            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。type 别名归一：disk 按 storage，file 按 runtime/storage，memory 按 runtime/infra，system 按 infra/runtime/cpu/memory，config 按 config/dependency/log，self 按 code/log/runtime。没有这个 type 时，不要为了支撑证据做推断，rootCauseEvidenceRefs 和 rootCauseMetricRefs 输出空数组。
+            2. 首屏右上角支撑证据只放根因证据：从 evidence 中选择与主根因直接相关的 type=metrics/red/log/traces 证据，写入 rootCauseEvidenceRefs。rootCauseEvidenceRefs 是首屏支撑证据唯一来源，evidenceIndex 使用 evidence 数组的从 0 开始下标。
+            3. 引用 metrics/red 时必须有真实 chartData，指标名称、描述、legend、unit 必须匹配主根因方向；引用 log/traces 时 title/summary 必须直接描述异常日志、慢 span、下游调用或超时事实。
+            4. downstream/dependency 根因必须优先引用具体下游服务、具体接口耗时、错误率、超时、慢调用分布、下游数据库/MySQL/SQL 查询耗时、锁等待、连接池等待、下游调用异常日志或慢 trace；如果 major reason 已给出下游服务、接口或数据库实例，例如 ts-travel-plan-service 的 POST /api/v1/travelplanservice/travelPlan/cheapest，则优先引用该服务/接口的耗时、错误、超时指标、异常日志或慢 trace；例如 ts-config-service 访问 train-ticket-mysql-master-0 时 SQL 查询变慢、锁等待或连接池等待升高，则优先引用 MySQL/数据库/SQL/锁等待/连接池等待相关 evidence；如果只有日志证据，例如 requesttemplate-demo 调用 localhost:58082 /api/jpa-demo/sleep 出现 ResourceAccessException、SocketTimeoutException、Read timed out，也必须写入 rootCauseEvidenceRefs，不要因为没有 chartData 而留空。
+            5. RED 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。
+            6. rootCauseMetricRefs 仅作为兼容字段：只有 rootCauseEvidenceRefs 中引用 metrics/red 证据且有真实 chartData 时才同步填入；没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。
+            7. 支撑证据映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage/disk 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event、CPU、内存；config 使用配置拉取失败、配置中心错误、DB 连接失败、连接串/凭据错误、初始化失败日志；self 使用应用异常、错误日志、panic、stack、runtime 异常；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。
+            8. faultLocation 必须简单易懂；无法定位时输出 null。
+            9. businessImpact 没有明确业务影响时输出 null，不要编造。
+            10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。
+            11. evidenceHighlights 只服务关键证据摘要，不是首屏支撑证据来源；summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代 rootCauseEvidenceRefs，不能伪装成支撑指标。
+            12. timeline 只使用 {"timestamp": number, "title": string, "summary": string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。
+            13. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出 time、detail、content、description 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入 analysisSteps。
+            14. analysisSteps 只使用 {"title": string, "summary": string} 结构，不输出 timestamp、time、detail 字段。
         selected: false
         title: 生成报告展示结构
         type: llm

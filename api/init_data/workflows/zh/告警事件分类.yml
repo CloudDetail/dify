@@ -9,7 +9,7 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
+    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.30@065d5a0ef2af4f50887dbb245113a9754eec8ea7f0d753fa4102395f52fdfed8
 kind: app
 version: 0.1.5
 workflow:
@@ -352,13 +352,13 @@ workflow:
           - class_name
         - - '1745224789961'
           - result
-      height: 131
+      height: 130
       id: '1745225185151'
       position:
-        x: 1842
+        x: 1840.4517061537445
         y: 264.5
       positionAbsolute:
-        x: 1842
+        x: 1840.4517061537445
         y: 264.5
       selected: false
       sourcePosition: right
@@ -369,11 +369,12 @@ workflow:
         code: "\ndef main(arg1: str) -> dict:\n    res = \"a2d4d3aa-3401-4393-859e-df051bdd5cd1\"\
           \n    apikey = \"app-JDtZH1DfQtQb1SjzC3as680C\"\n    match arg1:\n     \
           \   case \"request_latency\":\n            res = \"a2d4d3aa-3401-4393-859e-df051bdd5cd1\"\
-          \n        case \"service_availability\":\n            res = \"40dea201-7aa4-4e27-865b-6ebeab91a0c3\"\
+          \n            apikey = \"app-oZ8AfTTPJs6giugoFQFFMiqa\"\n        case \"\
+          service_availability\":\n            res = \"40dea201-7aa4-4e27-865b-6ebeab91a0c3\"\
           \n            apikey = \"app-bDzCIa3SQQIdO2QyhLZMEUDz\"\n        case \"\
           infrastructure\":\n            res = \"f514d742-6043-498e-98f1-ab03cbcb0250\"\
-          \n            apikey = \"app-aIEZTMcRkOicrNK1ZegT80wQ\"\n    return {\n\
-          \        \"result\": res,\n        \"apikey\": apikey,\n    }\n"
+          \n            apikey=\"app-MYG2Ijp8TZcgWROdFj7nqviT\"\n    return {\n  \
+          \      \"result\": res,\n        \"apikey\": apikey,\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -383,7 +384,7 @@ workflow:
           result:
             children: null
             type: string
-        selected: false
+        selected: true
         title: get worflow_id
         type: code
         variables:
@@ -399,7 +400,7 @@ workflow:
       positionAbsolute:
         x: 2157.7717573272403
         y: 264.5
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -627,7 +628,7 @@ workflow:
       positionAbsolute:
         x: 955.818577554794
         y: 351.23463144810154
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
