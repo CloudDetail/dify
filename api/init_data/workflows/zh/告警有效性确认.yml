@@ -1113,9 +1113,20 @@ workflow:
     - data:
         isInIteration: false
         sourceType: llm
-        targetType: end
-      id: 1752138870713-source-1741157560922-target
+        targetType: code
+      id: 1752138870713-source-1753361200000-target
       source: '1752138870713'
+      sourceHandle: source
+      target: '1753361200000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1753361200000-source-1741157560922-target
+      source: '1753361200000'
       sourceHandle: source
       target: '1741157560922'
       targetHandle: target
@@ -1245,7 +1256,7 @@ workflow:
         desc: ''
         outputs:
         - value_selector:
-          - '1752138870713'
+          - '1753361200000'
           - text
           variable: text
         selected: false
@@ -1254,10 +1265,10 @@ workflow:
       height: 90
       id: '1741157560922'
       position:
-        x: 3982
+        x: 4286
         y: 3133
       positionAbsolute:
-        x: 3982
+        x: 4286
         y: 3133
       selected: false
       sourcePosition: right
@@ -1365,7 +1376,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1741157526222'
@@ -1434,6 +1445,44 @@ workflow:
       positionAbsolute:
         x: 2462
         y: 2077
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: |
+          import re
+
+          def main(text: str) -> dict:
+              cleaned = re.sub(r"<think>.*?</think>", "", text or "", flags=re.DOTALL | re.IGNORECASE).strip()
+              cleaned = re.sub(r"<think>.*", "", cleaned, flags=re.DOTALL | re.IGNORECASE).strip()
+              match = re.search(r"\b(true|false)\b", cleaned, flags=re.IGNORECASE)
+              if match:
+                  cleaned = match.group(1).lower()
+              return {"text": cleaned}
+        code_language: python3
+        desc: ''
+        outputs:
+          text:
+            children: null
+            type: string
+        selected: false
+        title: 清洗分类结果
+        type: code
+        variables:
+        - value_selector:
+          - '1752138870713'
+          - text
+          variable: text
+      height: 54
+      id: '1753361200000'
+      position:
+        x: 3982
+        y: 3133
+      positionAbsolute:
+        x: 3982
+        y: 3133
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2856,7 +2905,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: c981a70d-9ebb-4f03-949a-8d78826f9bda
@@ -6009,7 +6058,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a1de005a-fbe2-44a6-9b2c-bb021ae6b3a4
@@ -7290,7 +7339,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1f3e1690-58bf-4bc0-be08-4fab41ac13cf
@@ -7361,7 +7410,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 6b23adfe-47ca-40af-aeb1-ce2f1533826a
@@ -7432,7 +7481,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 8fd2de89-ee56-4bed-a1e7-caf728a0c5fe

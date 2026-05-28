@@ -1139,24 +1139,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: tool
-      id: 1750988333220-source-1750988315593-target
+        targetType: llm
+      id: 1750988333220-source-1764048001003-target
       selected: false
       source: '1750988333220'
       sourceHandle: source
-      target: '1750988315593'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750988484023-source-1750988315593-target
-      selected: false
-      source: '1750988484023'
-      sourceHandle: source
-      target: '1750988315593'
+      target: '1764048001003'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1198,23 +1186,23 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1750990570740-source-1750988315593-target
+        sourceType: llm
+        targetType: code
+      id: 1750995788076-source-1764049100004-target
       selected: false
-      source: '1750990570740'
+      source: '1750995788076'
       sourceHandle: source
-      target: '1750988315593'
+      target: '1764049100004'
       targetHandle: target
       type: custom
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: llm
+        sourceType: code
         targetType: end
-      id: 1750995788076-source-17438490239160-target
+      id: 1764049100004-source-17438490239160-target
       selected: false
-      source: '1750995788076'
+      source: '1764049100004'
       sourceHandle: source
       target: '17438490239160'
       targetHandle: target
@@ -1607,18 +1595,6 @@ workflow:
       source: '1752808097130'
       sourceHandle: source
       target: '1752808187410'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: tool
-      id: 1752808187410-source-1750988315593-target
-      selected: false
-      source: '1752808187410'
-      sourceHandle: source
-      target: '1750988315593'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -2514,10 +2490,58 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: tool
-      id: 17540319953985-source-1750988315593-target
+        targetType: llm
+      id: 1750988484023-source-1764048001003-target
+      selected: false
+      source: '1750988484023'
+      sourceHandle: source
+      target: '1764048001003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1750990570740-source-1764048001003-target
+      selected: false
+      source: '1750990570740'
+      sourceHandle: source
+      target: '1764048001003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1752808187410-source-1764048001003-target
+      selected: false
+      source: '1752808187410'
+      sourceHandle: source
+      target: '1764048001003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17540319953985-source-1764048001003-target
       selected: false
       source: '17540319953985'
+      sourceHandle: source
+      target: '1764048001003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1764048001003-source-1750988315593-target
+      selected: false
+      source: '1764048001003'
       sourceHandle: source
       target: '1750988315593'
       targetHandle: target
@@ -3434,7 +3458,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1744959389144'
@@ -4773,6 +4797,39 @@ workflow:
       type: custom
       width: 244
     - data:
+        code: "import re\n\n\ndef main(raw_data: str) -> dict:\n    text = raw_data or\
+          \ \"\"\n    text = re.sub(r\"<think>.*?</think>\", \"\", text, flags=re.DOTALL\
+          \ | re.IGNORECASE).strip()\n    text = re.sub(r\"<think>.*\", \"\", text,\
+          \ flags=re.DOTALL | re.IGNORECASE).strip()\n    return {\n        \"result\"\
+          : text,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 清理故障方向
+        type: code
+        variables:
+        - value_selector:
+          - '1750995788076'
+          - text
+          variable: raw_data
+      height: 54
+      id: '1764049100004'
+      position:
+        x: 24434
+        y: 2526
+      positionAbsolute:
+        x: 24434
+        y: 2526
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
         context:
           enabled: true
           variable_selector:
@@ -4781,7 +4838,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -4957,7 +5014,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1746777077402'
@@ -6154,7 +6211,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -6228,8 +6285,8 @@ workflow:
           - text
           variable: output
         - value_selector:
-          - '1750995788076'
-          - text
+          - '1764049100004'
+          - result
           variable: alertDirection
         selected: false
         title: 结论
@@ -6256,7 +6313,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -6491,7 +6548,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1743849441196'
@@ -6695,7 +6752,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -8218,7 +8275,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17467775030610'
@@ -8639,7 +8696,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -8881,7 +8938,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10443,7 +10500,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10514,7 +10571,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10624,7 +10681,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10853,10 +10910,35 @@ workflow:
           scope: null
           template: null
           type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: reportView
+            ja_JP: reportView
+            pt_BR: reportView
+            zh_Hans: 新版报告展示结构，增量输出，不替代已有字段
+          label:
+            en_US: reportView
+            ja_JP: reportView
+            pt_BR: reportView
+            zh_Hans: 报告展示结构
+          llm_description: additive report view data for the new report page
+          max: null
+          min: null
+          name: reportView
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
         params:
           evidence: ''
           overview: ''
           reportType: ''
+          reportView: ''
           rootCauseAnalysis: ''
           suggest: ''
           tags: ''
@@ -10880,6 +10962,9 @@ workflow:
           reportType:
             type: mixed
             value: infra
+          reportView:
+            type: mixed
+            value: '{{#1764048001003.text#}}'
           rootCauseAnalysis:
             type: mixed
             value: '{{#1752808187410.result#}}'
@@ -10901,6 +10986,98 @@ workflow:
       positionAbsolute:
         x: 23522
         y: 2526
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: apo-gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 9cf62a7a-3f65-4741-9e28-040480010031
+          role: system
+          text: 你是可观测性报告展示结构生成助手，只输出严格 JSON。
+        - id: 9cf62a7a-3f65-4741-9e28-040480010032
+          role: user
+          text: |
+            # 目的
+            基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence 输出结构。
+
+            # 输入
+            reportType: infra
+
+            overview:
+            {{#1750988484023.result#}}
+
+            rootCauseAnalysis:
+            {{#1752808187410.result#}}
+
+            suggest:
+            {{#1750990570740.result#}}
+
+            evidence:
+            {{#1753955518503.output#}}
+
+            topology:
+            {{#17540319953985.result#}}
+
+            # 输出格式
+            只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。
+            {
+              "version": "v1",
+              "headline": "一句话根因判断",
+              "conclusionSummary": "一句话说明关键证据；如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），不要输出时间戳原值",
+              "faultLocation": {"label": "故障位置", "target": "服务/实例/节点", "summary": "简单说明"},
+              "summaryCards": [{"type": "symptom|rootCause|excluded", "title": "短标题", "summary": "一句话"}],
+              "rootCauseEvidenceRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
+              "rootCauseMetricRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
+              "businessImpact": null,
+              "timeline": [{"timestamp": 1779811334000000, "title": "事件短标题", "summary": "一句话事件说明"}],
+              "analysisSteps": [{"title": "排查步骤短标题", "summary": "一句话说明"}],
+              "actionTitles": [{"suggestIndex": 0, "title": "降低异常日志输出"}],
+              "evidenceHighlights": [{"evidenceIndex": 0, "title": "CPU 使用率升高", "summary": "使用原始证据中的结论或描述"}]
+            }
+
+            # 严格规则
+            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。type 别名归一：disk 按 storage，file 按 runtime/storage，memory 按 runtime/infra，system 按 infra/runtime/cpu/memory，config 按 config/dependency/log，self 按 code/log/runtime。没有这个 type 时，不要为了支撑证据做推断，rootCauseEvidenceRefs 和 rootCauseMetricRefs 输出空数组。
+            2. 首屏右上角支撑证据只放根因证据：从 evidence 中选择与主根因直接相关的 type=metrics/red/log/traces 证据，写入 rootCauseEvidenceRefs。rootCauseEvidenceRefs 是首屏支撑证据唯一来源，evidenceIndex 使用 evidence 数组的从 0 开始下标。
+            3. 引用 metrics/red 时必须有真实 chartData，指标名称、描述、legend、unit 必须匹配主根因方向；引用 log/traces 时 title/summary 必须直接描述异常日志、慢 span、下游调用或超时事实。rootCauseEvidenceRefs/rootCauseMetricRefs 的 summary 如引用耗时、延迟、慢 span 等时间指标，必须使用可读时间单位，不要直接输出原始裸小数秒；例如 0.0019s 应写成 1.9ms，0.0007s 应写成 0.7ms。
+            4. downstream/dependency 根因必须优先引用具体下游服务、具体接口耗时、错误率、超时、慢调用分布、下游数据库/MySQL/SQL 查询耗时、锁等待、连接池等待、下游调用异常日志或慢 trace；如果 major reason 已给出下游服务、接口或数据库实例，例如 ts-travel-plan-service 的 POST /api/v1/travelplanservice/travelPlan/cheapest，则优先引用该服务/接口的耗时、错误、超时指标、异常日志或慢 trace；例如 ts-config-service 访问 train-ticket-mysql-master-0 时 SQL 查询变慢、锁等待或连接池等待升高，则优先引用 MySQL/数据库/SQL/锁等待/连接池等待相关 evidence；如果只有日志证据，例如 requesttemplate-demo 调用 localhost:58082 /api/jpa-demo/sleep 出现 ResourceAccessException、SocketTimeoutException、Read timed out，也必须写入 rootCauseEvidenceRefs，不要因为没有 chartData 而留空。
+            5. RED 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。
+            6. rootCauseMetricRefs 仅作为兼容字段：只有 rootCauseEvidenceRefs 中引用 metrics/red 证据且有真实 chartData 时才同步填入；没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。
+            7. 支撑证据映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage/disk 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event、CPU、内存；config 使用配置拉取失败、配置中心错误、DB 连接失败、连接串/凭据错误、初始化失败日志；self 使用应用异常、错误日志、panic、stack、runtime 异常；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。
+            8. faultLocation 必须简单易懂；无法定位时输出 null。
+            9. businessImpact 没有明确业务影响时输出 null，不要编造。
+            10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。
+            11. evidenceHighlights 只服务关键证据摘要，不是首屏支撑证据来源；summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代 rootCauseEvidenceRefs，不能伪装成支撑指标。
+            12. conclusionSummary 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），禁止输出 Unix 秒/毫秒/微秒时间戳原值。
+            13. timeline 只使用 {"timestamp": number, "title": string, "summary": string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。
+            14. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出 time、detail、content、description 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入 analysisSteps。
+            15. analysisSteps 只使用 {"title": string, "summary": string} 结构，不输出 timestamp、time、detail 字段。
+            16. summaryCards 是首屏摘要，必须简洁，最多输出 3 张卡片：symptom、rootCause、excluded。rootCause 卡必须从 rootCauseAnalysis.other 中 level=major 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other 中 level=normal 的方向归纳。excluded.title 示例：已排除xx、xx方向，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个 reason，不得机械罗列多个方向；不得把 level=minor 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。
+        selected: false
+        title: 生成报告展示结构
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1764048001003'
+      position:
+        x: 23218
+        y: 2955
+      positionAbsolute:
+        x: 23218
+        y: 2955
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -11008,7 +11185,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: af87b10f-e6a5-41a3-876c-871803048be1
@@ -11049,7 +11226,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 2fff5ede-e66b-4051-a411-920d1d021f10
@@ -11150,7 +11327,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 04f72736-b848-4385-819d-5795c4b28ad2
@@ -11236,7 +11413,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 7b7ab7e9-d22f-41b1-bf50-2db3aacbaf1e
@@ -11805,7 +11982,7 @@ workflow:
         iteration_id: '1752582732407'
         model:
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 84569801-dce7-4e88-b76b-b1b5fa82c34f
@@ -13068,7 +13245,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1490ddad-e8ce-407f-b466-bdc266afdeeb
@@ -13823,7 +14000,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 76347dc5-1dbd-4934-a1bb-5ad66b656820
@@ -13928,7 +14105,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: e6cb42dc-0606-4843-971f-f43ea2db3f0d
@@ -14001,7 +14178,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1752744873302'
@@ -14081,7 +14258,7 @@ workflow:
           : container_id,\n            \"node\": node,\n            \"pid\": pid\n\
           \        }\n\n        # 生成联合唯一 Key 用于去重\n        unique_key = (pod, container_id,\
           \ node, pid)\n        unique_instances[unique_key] = instance_dict\n\n \
-          \   return {\n        \"result\": list(unique_instances.values()[:30])\n\
+          \   return {\n        \"result\": list(unique_instances.values())[:30]\n\
           \    }\n\ndef _get_value(labels: dict, keys: list[str]):\n    if not isinstance(labels,\
           \ dict):\n        return \"\"\n        \n    for key in keys:\n        value\
           \ = labels.get(key)\n        if value:\n            return str(value)  #\
@@ -14217,7 +14394,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 69b76f14-6680-44e0-b56e-b5ecaf9153c5
@@ -15313,7 +15490,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 6bfbae05-612e-457c-ae07-f064f30e1575
@@ -18502,7 +18679,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: gpt-5.4
+          name: apo-gpt-5.4
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d280d643-f718-49df-9b28-b6f956e1e9a2

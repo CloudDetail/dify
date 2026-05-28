@@ -1671,8 +1671,8 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
           role: system
@@ -1861,8 +1861,8 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 169877de-aa4a-44db-90ef-2cc8f68882c4
           role: system
@@ -2226,8 +2226,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1742807803325'
         - alertName
@@ -2263,8 +2263,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 25386b5d-4509-477b-bdab-d835cd12b104
           role: system
@@ -2329,8 +2329,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 893c9a67-e9e3-4c2c-8ed2-6301998d555b
           role: system
@@ -3896,8 +3896,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1742807803325'
         - alertName
@@ -4279,8 +4279,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 25386b5d-4509-477b-bdab-d835cd12b104
           role: system
@@ -4373,8 +4373,8 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 893c9a67-e9e3-4c2c-8ed2-6301998d555b
           role: system
@@ -4710,8 +4710,8 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: gpt-5.4
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
           role: system
