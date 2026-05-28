@@ -11035,7 +11035,7 @@ workflow:
             {
               "version": "v1",
               "headline": "一句话根因判断",
-              "conclusionSummary": "一句话说明关键证据",
+              "conclusionSummary": "一句话说明关键证据；如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），不要输出时间戳原值",
               "faultLocation": {"label": "故障位置", "target": "服务/实例/节点", "summary": "简单说明"},
               "summaryCards": [{"type": "symptom|rootCause|excluded", "title": "短标题", "summary": "一句话"}],
               "rootCauseEvidenceRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
@@ -11050,7 +11050,7 @@ workflow:
             # 严格规则
             1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。type 别名归一：disk 按 storage，file 按 runtime/storage，memory 按 runtime/infra，system 按 infra/runtime/cpu/memory，config 按 config/dependency/log，self 按 code/log/runtime。没有这个 type 时，不要为了支撑证据做推断，rootCauseEvidenceRefs 和 rootCauseMetricRefs 输出空数组。
             2. 首屏右上角支撑证据只放根因证据：从 evidence 中选择与主根因直接相关的 type=metrics/red/log/traces 证据，写入 rootCauseEvidenceRefs。rootCauseEvidenceRefs 是首屏支撑证据唯一来源，evidenceIndex 使用 evidence 数组的从 0 开始下标。
-            3. 引用 metrics/red 时必须有真实 chartData，指标名称、描述、legend、unit 必须匹配主根因方向；引用 log/traces 时 title/summary 必须直接描述异常日志、慢 span、下游调用或超时事实。
+            3. 引用 metrics/red 时必须有真实 chartData，指标名称、描述、legend、unit 必须匹配主根因方向；引用 log/traces 时 title/summary 必须直接描述异常日志、慢 span、下游调用或超时事实。rootCauseEvidenceRefs/rootCauseMetricRefs 的 summary 如引用耗时、延迟、慢 span 等时间指标，必须使用可读时间单位，不要直接输出原始裸小数秒；例如 0.0019s 应写成 1.9ms，0.0007s 应写成 0.7ms。
             4. downstream/dependency 根因必须优先引用具体下游服务、具体接口耗时、错误率、超时、慢调用分布、下游数据库/MySQL/SQL 查询耗时、锁等待、连接池等待、下游调用异常日志或慢 trace；如果 major reason 已给出下游服务、接口或数据库实例，例如 ts-travel-plan-service 的 POST /api/v1/travelplanservice/travelPlan/cheapest，则优先引用该服务/接口的耗时、错误、超时指标、异常日志或慢 trace；例如 ts-config-service 访问 train-ticket-mysql-master-0 时 SQL 查询变慢、锁等待或连接池等待升高，则优先引用 MySQL/数据库/SQL/锁等待/连接池等待相关 evidence；如果只有日志证据，例如 requesttemplate-demo 调用 localhost:58082 /api/jpa-demo/sleep 出现 ResourceAccessException、SocketTimeoutException、Read timed out，也必须写入 rootCauseEvidenceRefs，不要因为没有 chartData 而留空。
             5. RED 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。
             6. rootCauseMetricRefs 仅作为兼容字段：只有 rootCauseEvidenceRefs 中引用 metrics/red 证据且有真实 chartData 时才同步填入；没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。
@@ -11059,9 +11059,11 @@ workflow:
             9. businessImpact 没有明确业务影响时输出 null，不要编造。
             10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。
             11. evidenceHighlights 只服务关键证据摘要，不是首屏支撑证据来源；summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代 rootCauseEvidenceRefs，不能伪装成支撑指标。
-            12. timeline 只使用 {"timestamp": number, "title": string, "summary": string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。
-            13. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出 time、detail、content、description 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入 analysisSteps。
-            14. analysisSteps 只使用 {"title": string, "summary": string} 结构，不输出 timestamp、time、detail 字段。
+            12. conclusionSummary 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），禁止输出 Unix 秒/毫秒/微秒时间戳原值。
+            13. timeline 只使用 {"timestamp": number, "title": string, "summary": string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。
+            14. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出 time、detail、content、description 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入 analysisSteps。
+            15. analysisSteps 只使用 {"title": string, "summary": string} 结构，不输出 timestamp、time、detail 字段。
+            16. summaryCards 是首屏摘要，必须简洁，最多输出 3 张卡片：symptom、rootCause、excluded。rootCause 卡必须从 rootCauseAnalysis.other 中 level=major 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other 中 level=normal 的方向归纳。excluded.title 示例：已排除xx、xx方向，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个 reason，不得机械罗列多个方向；不得把 level=minor 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。
         selected: false
         title: 生成报告展示结构
         type: llm
@@ -14256,7 +14258,7 @@ workflow:
           : container_id,\n            \"node\": node,\n            \"pid\": pid\n\
           \        }\n\n        # 生成联合唯一 Key 用于去重\n        unique_key = (pod, container_id,\
           \ node, pid)\n        unique_instances[unique_key] = instance_dict\n\n \
-          \   return {\n        \"result\": list(unique_instances.values()[:30])\n\
+          \   return {\n        \"result\": list(unique_instances.values())[:30]\n\
           \    }\n\ndef _get_value(labels: dict, keys: list[str]):\n    if not isinstance(labels,\
           \ dict):\n        return \"\"\n        \n    for key in keys:\n        value\
           \ = labels.get(key)\n        if value:\n            return str(value)  #\

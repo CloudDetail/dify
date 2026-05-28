@@ -99,8 +99,9 @@ def remap_report_view_ref_list(refs: list, index_mapping: dict[int, int]) -> lis
         if isinstance(ref, dict):
             normalized_ref = dict(ref)
             evidence_index = normalized_ref.get("evidenceIndex")
-            if type(evidence_index) is int and evidence_index in index_mapping:
-                normalized_ref["evidenceIndex"] = index_mapping[evidence_index]
+            normalized_evidence_index = normalize_evidence_index(evidence_index)
+            if normalized_evidence_index is not None and normalized_evidence_index in index_mapping:
+                normalized_ref["evidenceIndex"] = index_mapping[normalized_evidence_index]
 
         key = stable_json_fingerprint(normalized_ref)
         if key in seen_refs:
@@ -110,6 +111,16 @@ def remap_report_view_ref_list(refs: list, index_mapping: dict[int, int]) -> lis
         deduplicated_refs.append(normalized_ref)
 
     return deduplicated_refs
+
+
+def normalize_evidence_index(value: Any) -> int | None:
+    if type(value) is int:
+        return value
+    if type(value) is float and value.is_integer():
+        return int(value)
+    if isinstance(value, str) and re.fullmatch(r"\d+", value.strip()):
+        return int(value.strip())
+    return None
 
 
 def stable_json_fingerprint(data: Any) -> str:
