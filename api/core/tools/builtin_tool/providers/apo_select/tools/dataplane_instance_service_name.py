@@ -22,7 +22,7 @@ class InstanceServiceTool(BuiltinTool):
         pod = tool_parameters.get('pod')
         container_id = tool_parameters.get('containerId')
         pid = tool_parameters.get('pid')
-        node = tool_parameters.get('node')
+        node = tool_parameters.get('nodeName') or tool_parameters.get('node')
         start_time = tool_parameters.get('startTime')
         end_time = tool_parameters.get('endTime')
         cluster = tool_parameters.get('cluster', '')
@@ -94,4 +94,3 @@ def query_service_name(
         indent=2,
     )
     return formatted_data
-
