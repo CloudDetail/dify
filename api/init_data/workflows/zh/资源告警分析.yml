@@ -1179,18 +1179,6 @@ workflow:
     - data:
         isInIteration: false
         sourceType: llm
-        targetType: code
-      id: 1750988845336-source-1750988484023-target
-      selected: false
-      source: '1750988845336'
-      sourceHandle: source
-      target: '1750988484023'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
         targetType: llm
       id: 1750988869166-source-1750988845336-target
       selected: false
@@ -1221,18 +1209,6 @@ workflow:
       source: '1750990570740'
       sourceHandle: source
       target: '1750988315593'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: end
-      id: 1750995788076-source-17438490239160-target
-      selected: false
-      source: '1750995788076'
-      sourceHandle: source
-      target: '17438490239160'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -2521,6 +2497,7 @@ workflow:
         sourceType: question-classifier
         targetType: code
       id: 1752803753654-2-1752818508497-target
+      selected: false
       source: '1752803753654'
       sourceHandle: '2'
       target: '1752818508497'
@@ -2532,6 +2509,7 @@ workflow:
         sourceType: code
         targetType: variable-aggregator
       id: 1752804688058-source-1752804755713-target
+      selected: false
       source: '1752804688058'
       sourceHandle: source
       target: '1752804755713'
@@ -2543,6 +2521,7 @@ workflow:
         sourceType: code
         targetType: code
       id: 1752818508497-source-1752804688058-target
+      selected: false
       source: '1752818508497'
       sourceHandle: source
       target: '1752804688058'
@@ -2554,6 +2533,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1751602227575-false-17540319953970-target
+      selected: false
       source: '1751602227575'
       sourceHandle: 'false'
       target: '17540319953970'
@@ -2565,6 +2545,7 @@ workflow:
         sourceType: tool
         targetType: code
       id: 17540319953970-source-17540319953971-target
+      selected: false
       source: '17540319953970'
       sourceHandle: source
       target: '17540319953971'
@@ -2576,6 +2557,7 @@ workflow:
         sourceType: code
         targetType: tool
       id: 17540319953971-source-17540319953972-target
+      selected: false
       source: '17540319953971'
       sourceHandle: source
       target: '17540319953972'
@@ -2587,6 +2569,7 @@ workflow:
         sourceType: tool
         targetType: code
       id: 17540319953972-source-17540319953973-target
+      selected: false
       source: '17540319953972'
       sourceHandle: source
       target: '17540319953973'
@@ -2598,6 +2581,7 @@ workflow:
         sourceType: code
         targetType: iteration
       id: 17540319953973-source-17540319953974-target
+      selected: false
       source: '17540319953973'
       sourceHandle: source
       target: '17540319953974'
@@ -2609,6 +2593,7 @@ workflow:
         sourceType: iteration
         targetType: code
       id: 17540319953974-source-17540319953985-target
+      selected: false
       source: '17540319953974'
       sourceHandle: source
       target: '17540319953985'
@@ -2621,6 +2606,7 @@ workflow:
         sourceType: iteration-start
         targetType: tool
       id: 1754031995397start-source-1754032122310-target
+      selected: false
       source: 1754031995397start
       sourceHandle: source
       target: '1754032122310'
@@ -2644,6 +2630,7 @@ workflow:
         sourceType: code
         targetType: tool
       id: 17540319953985-source-1750988315593-target
+      selected: false
       source: '17540319953985'
       sourceHandle: source
       target: '1750988315593'
@@ -2680,6 +2667,7 @@ workflow:
         sourceType: code
         targetType: if-else
       id: 1743670099979-source-1753019933658-target
+      selected: false
       source: '1743670099979'
       sourceHandle: source
       target: '1753019933658'
@@ -2691,6 +2679,7 @@ workflow:
         sourceType: code
         targetType: if-else
       id: 1743670061370-source-1753019933658-target
+      selected: false
       source: '1743670061370'
       sourceHandle: source
       target: '1753019933658'
@@ -2704,6 +2693,7 @@ workflow:
         sourceType: iteration-start
         targetType: code
       id: 1758628253496start-source-1758628283567-target
+      selected: false
       source: 1758628253496start
       sourceHandle: source
       target: '1758628283567'
@@ -2728,6 +2718,7 @@ workflow:
         sourceType: variable-aggregator
         targetType: iteration
       id: 1758627861794-source-1758628253496-target
+      selected: false
       source: '1758627861794'
       sourceHandle: source
       target: '1758628253496'
@@ -2739,6 +2730,7 @@ workflow:
         sourceType: code
         targetType: tool
       id: 1758628605452-source-1758697197702-target
+      selected: false
       source: '1758628605452'
       sourceHandle: source
       target: '1758697197702'
@@ -2750,6 +2742,7 @@ workflow:
         sourceType: code
         targetType: code
       id: 1758697299707-source-17469670619810-target
+      selected: false
       source: '1758697299707'
       sourceHandle: source
       target: '17469670619810'
@@ -2761,6 +2754,7 @@ workflow:
         sourceType: code
         targetType: code
       id: 1758697299707-source-1743670099979-target
+      selected: false
       source: '1758697299707'
       sourceHandle: source
       target: '1743670099979'
@@ -2772,6 +2766,7 @@ workflow:
         sourceType: code
         targetType: code
       id: 1758697299707-source-1743670061370-target
+      selected: false
       source: '1758697299707'
       sourceHandle: source
       target: '1743670061370'
@@ -2783,6 +2778,7 @@ workflow:
         sourceType: tool
         targetType: code
       id: 1758697118275-source-1758697299707-target
+      selected: false
       source: '1758697118275'
       sourceHandle: source
       target: '1758697299707'
@@ -2794,6 +2790,7 @@ workflow:
         sourceType: tool
         targetType: tool
       id: 1758697197702-source-1758771570920-target
+      selected: false
       source: '1758697197702'
       sourceHandle: source
       target: '1758771570920'
@@ -2805,6 +2802,7 @@ workflow:
         sourceType: tool
         targetType: tool
       id: 1758771570920-source-1758697118275-target
+      selected: false
       source: '1758771570920'
       sourceHandle: source
       target: '1758697118275'
@@ -2816,6 +2814,7 @@ workflow:
         sourceType: variable-aggregator
         targetType: iteration
       id: 1753955518503-source-1760105153157-target
+      selected: false
       source: '1753955518503'
       sourceHandle: source
       target: '1760105153157'
@@ -2828,6 +2827,7 @@ workflow:
         sourceType: iteration-start
         targetType: tool
       id: 1760105153157start-source-1760105193905-target
+      selected: false
       source: 1760105153157start
       sourceHandle: source
       target: '1760105193905'
@@ -2840,6 +2840,7 @@ workflow:
         sourceType: tool
         targetType: code
       id: 1760105193905-source-1760105219443-target
+      selected: false
       source: '1760105193905'
       sourceHandle: source
       target: '1760105219443'
@@ -2851,6 +2852,7 @@ workflow:
         sourceType: iteration
         targetType: code
       id: 1760105153157-source-1760105330930-target
+      selected: false
       source: '1760105153157'
       sourceHandle: source
       target: '1760105330930'
@@ -2862,6 +2864,7 @@ workflow:
         sourceType: code
         targetType: iteration
       id: 1760105330930-source-1760105659487-target
+      selected: false
       source: '1760105330930'
       sourceHandle: source
       target: '1760105659487'
@@ -2874,6 +2877,7 @@ workflow:
         sourceType: iteration-start
         targetType: code
       id: 1760105659487start-source-1760105779888-target
+      selected: false
       source: 1760105659487start
       sourceHandle: source
       target: '1760105779888'
@@ -2886,6 +2890,7 @@ workflow:
         sourceType: code
         targetType: tool
       id: 1760105779888-source-1760105668827-target
+      selected: false
       source: '1760105779888'
       sourceHandle: source
       target: '1760105668827'
@@ -2898,6 +2903,7 @@ workflow:
         sourceType: tool
         targetType: code
       id: 1760105668827-source-1760105843418-target
+      selected: false
       source: '1760105668827'
       sourceHandle: source
       target: '1760105843418'
@@ -2910,6 +2916,7 @@ workflow:
         sourceType: code
         targetType: tool
       id: 1760105843418-source-1760105862805-target
+      selected: false
       source: '1760105843418'
       sourceHandle: source
       target: '1760105862805'
@@ -2922,6 +2929,7 @@ workflow:
         sourceType: tool
         targetType: tool
       id: 1760105862805-source-1760105875013-target
+      selected: false
       source: '1760105862805'
       sourceHandle: source
       target: '1760105875013'
@@ -2934,6 +2942,7 @@ workflow:
         sourceType: tool
         targetType: code
       id: 1760105875013-source-1760105889818-target
+      selected: false
       source: '1760105875013'
       sourceHandle: source
       target: '1760105889818'
@@ -2945,6 +2954,7 @@ workflow:
         sourceType: iteration
         targetType: code
       id: 1760105659487-source-1760106063352-target
+      selected: false
       source: '1760105659487'
       sourceHandle: source
       target: '1760106063352'
@@ -2956,6 +2966,7 @@ workflow:
         sourceType: code
         targetType: tool
       id: 1760106063352-source-1760106121324-target
+      selected: false
       source: '1760106063352'
       sourceHandle: source
       target: '1760106121324'
@@ -2967,6 +2978,7 @@ workflow:
         sourceType: tool
         targetType: llm
       id: 1760106121324-source-1760106066557-target
+      selected: false
       source: '1760106121324'
       sourceHandle: source
       target: '1760106066557'
@@ -2978,6 +2990,7 @@ workflow:
         sourceType: llm
         targetType: if-else
       id: 1760106066557-source-1751602227575-target
+      selected: false
       source: '1760106066557'
       sourceHandle: source
       target: '1751602227575'
@@ -2990,6 +3003,7 @@ workflow:
         sourceType: code
         targetType: tool
       id: 1758628283567-source-1760161705179-target
+      selected: false
       source: '1758628283567'
       sourceHandle: source
       target: '1760161705179'
@@ -3001,6 +3015,7 @@ workflow:
         sourceType: if-else
         targetType: code
       id: 1743649517293-715ac0d9-7802-47e8-94a5-c3669bfb953b-1743664113196-target
+      selected: false
       source: '1743649517293'
       sourceHandle: 715ac0d9-7802-47e8-94a5-c3669bfb953b
       target: '1743664113196'
@@ -3012,6 +3027,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 17459267080670-true-1761813411870-target
+      selected: false
       source: '17459267080670'
       sourceHandle: 'true'
       target: '1761813411870'
@@ -3023,6 +3039,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 17459267080670-true-1761813416502-target
+      selected: false
       source: '17459267080670'
       sourceHandle: 'true'
       target: '1761813416502'
@@ -3034,6 +3051,7 @@ workflow:
         sourceType: tool
         targetType: llm
       id: 1761813411870-source-17472781853800-target
+      selected: false
       source: '1761813411870'
       sourceHandle: source
       target: '17472781853800'
@@ -3045,6 +3063,7 @@ workflow:
         sourceType: tool
         targetType: llm
       id: 1761813416502-source-17472781853800-target
+      selected: false
       source: '1761813416502'
       sourceHandle: source
       target: '17472781853800'
@@ -3056,6 +3075,7 @@ workflow:
         sourceType: question-classifier
         targetType: tool
       id: 1743577315409-2-1761815052981-target
+      selected: false
       source: '1743577315409'
       sourceHandle: '2'
       target: '1761815052981'
@@ -3067,6 +3087,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1753019933658-true-1761815052981-target
+      selected: false
       source: '1753019933658'
       sourceHandle: 'true'
       target: '1761815052981'
@@ -3078,9 +3099,54 @@ workflow:
         sourceType: tool
         targetType: code
       id: 1761815052981-source-1753789618196-target
+      selected: false
       source: '1761815052981'
       sourceHandle: source
       target: '1753789618196'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1750988845336-source-17644120377860-target
+      source: '1750988845336'
+      sourceHandle: source
+      target: '17644120377860'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 17644120377860-source-1750988484023-target
+      source: '17644120377860'
+      sourceHandle: source
+      target: '1750988484023'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1750995788076-source-1764918854522-target
+      source: '1750995788076'
+      sourceHandle: source
+      target: '1764918854522'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1764918854522-source-17438490239160-target
+      source: '1764918854522'
+      sourceHandle: source
+      target: '17438490239160'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -3165,7 +3231,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1744959389144'
@@ -3503,7 +3569,7 @@ workflow:
           - result
         - - '1743652552181'
           - result
-      height: 131
+      height: 130
       id: '1743664106885'
       position:
         x: 1550
@@ -4489,7 +4555,7 @@ workflow:
           - text
         - - '1743847618976'
           - text
-      height: 153
+      height: 152
       id: '1743673518843'
       position:
         x: 11198
@@ -4511,7 +4577,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: deepseek-chat
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -4570,7 +4636,7 @@ workflow:
         variables: []
         vision:
           enabled: false
-      height: 96
+      height: 90
       id: '1743673613633'
       position:
         x: 13286
@@ -4687,7 +4753,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1746777077402'
@@ -5884,12 +5950,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 394f3fde-0d44-43dc-9c6d-6737b88c199d
           role: user
           text: '# 目的
@@ -5958,8 +6024,8 @@ workflow:
           - text
           variable: output
         - value_selector:
-          - '1750995788076'
-          - text
+          - '1764918854522'
+          - result
           variable: alertDirection
         selected: false
         title: 结论
@@ -5967,10 +6033,10 @@ workflow:
       height: 142
       id: '17438490239160'
       position:
-        x: 21434
+        x: 21734
         y: 2526
       positionAbsolute:
-        x: 21434
+        x: 21734
         y: 2526
       selected: false
       sourcePosition: right
@@ -5986,12 +6052,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 394f3fde-0d44-43dc-9c6d-6737b88c199d
           role: user
           text: '# 目的
@@ -6221,7 +6287,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1743849441196'
@@ -6425,12 +6491,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 394f3fde-0d44-43dc-9c6d-6737b88c199d
           role: user
           text: '# 目的
@@ -6522,7 +6588,7 @@ workflow:
           - result
         - - '1753941294981'
           - text
-      height: 395
+      height: 394
       id: '1743850218410'
       position:
         x: 13590
@@ -7948,7 +8014,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17467775030610'
@@ -8369,12 +8435,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 394f3fde-0d44-43dc-9c6d-6737b88c199d
           role: user
           text: '# 目的
@@ -8611,12 +8677,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 394f3fde-0d44-43dc-9c6d-6737b88c199d
           role: user
           text: '# 目的
@@ -10173,7 +10239,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
@@ -10244,12 +10310,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 394f3fde-0d44-43dc-9c6d-6737b88c199d
           role: user
           text: '# 目的
@@ -10354,12 +10420,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 5426b9f0-37c8-45b7-9faa-49695110dc7d
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 394f3fde-0d44-43dc-9c6d-6737b88c199d
           role: user
           text: '# 目的
@@ -10691,8 +10757,8 @@ workflow:
           - endTime
           variable: timestamp
         - value_selector:
-          - '1750988845336'
-          - text
+          - '17644120377860'
+          - detail
           variable: reason
         - value_selector:
           - '1744959389144'
@@ -10715,8 +10781,8 @@ workflow:
           - service
           variable: service
         - value_selector:
-          - '1750988869166'
-          - text
+          - '17644120377860'
+          - conclusion
           variable: detail
       height: 54
       id: '1750988484023'
@@ -10738,12 +10804,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: af87b10f-e6a5-41a3-876c-871803048be1
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: cb955092-396e-4262-bb69-f60546511ad4
           role: user
           text: "#目的\n根据应用的结论生成根因方向的结论\n#结论数据\n{{#1743850218410.output#}}\n# 时间\n\
@@ -10760,11 +10826,11 @@ workflow:
       height: 90
       id: '1750988845336'
       position:
-        x: 19782
-        y: 2698
+        x: 19597.09808293602
+        y: 2808.838664504923
       positionAbsolute:
-        x: 19782
-        y: 2698
+        x: 19597.09808293602
+        y: 2808.838664504923
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10779,12 +10845,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 2fff5ede-e66b-4051-a411-920d1d021f10
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: e2fbc5b9-89bb-4b6b-8002-c35aeed18594
           role: user
           text: '# 目的
@@ -10861,11 +10927,11 @@ workflow:
       height: 90
       id: '1750988869166'
       position:
-        x: 19346
-        y: 2638
+        x: 19203.229707619437
+        y: 2772.9353373108993
       positionAbsolute:
-        x: 19346
-        y: 2638
+        x: 19203.229707619437
+        y: 2772.9353373108993
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -10880,12 +10946,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 04f72736-b848-4385-819d-5795c4b28ad2
           role: system
-          text: 你是一个可观测领域的智能体，需要帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: bcbe26b2-893a-4c88-994e-2a8228a69b84
           role: user
           text: "# 目的\n生成建议用户的行动建议\n如执行命令，或者找xxx排除问题\n# 结论数据\n{{#1743850218410.output#}}\n\
@@ -10918,10 +10984,16 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }"
+        code: "import re\n\ndef main(raw_data: str) -> dict:\n    try:\n        raw_data\
+          \ = remove_detail(raw_data)\n        pattern = r\"```(?:\\njson|json)(.*?)```\"\
+          \n        match = re.search(pattern, raw_data, re.DOTALL)\n        if match\
+          \ is None:\n            json_str = raw_data.strip(\"```\")\n           \
+          \ json_str = json_str.strip(\"json\")\n        else:\n            json_str\
+          \ = match.group(1)\n        data = json.loads(json_str)\n        return\
+          \ {\n            \"result\": json.dumps(data)\n        }\n    except Exception:\n\
+          \        raise ValueError(\"get json data error\")\n\ndef remove_detail(arg1:\
+          \ str) -> str:\n    pattern = r'<details[\\s\\S]*?</details>'\n    res =\
+          \ re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n    return res.strip()"
         code_language: python3
         desc: ''
         outputs:
@@ -10956,18 +11028,18 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 7b7ab7e9-d22f-41b1-bf50-2db3aacbaf1e
           role: system
-          text: ''
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: cd6a570d-f5e0-4f56-8fd5-937563838009
           role: user
           text: "#目的\n从故障结论和告警事件中提取故障方向\n# 注意\n根据结论的内容划分故障方向\n1 如果网络链路rtt异常，给出网络异常\n\
             2 磁盘，内存等异常 给出资源类问题 \n#结论数据\n{{#1743850218410.output#}}\n#告警事件描述\n{{#1744959389144.alertName#}}\n\
             #输出内容\n故障方向，只输出四个字就好 （如网络方向，基础设施资源类异常等）"
-        selected: false
+        selected: true
         title: 故障方向
         type: llm
         variables: []
@@ -10981,7 +11053,7 @@ workflow:
       positionAbsolute:
         x: 21130
         y: 2526
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -11525,12 +11597,12 @@ workflow:
         iteration_id: '1752582732407'
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 84569801-dce7-4e88-b76b-b1b5fa82c34f
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: ca05dc56-798d-46c9-802f-2a132b46dcd9
           role: user
           text: '# 目的
@@ -12735,7 +12807,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1490ddad-e8ce-407f-b466-bdc266afdeeb
@@ -13490,7 +13562,7 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 76347dc5-1dbd-4934-a1bb-5ad66b656820
@@ -13595,12 +13667,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: e6cb42dc-0606-4843-971f-f43ea2db3f0d
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 8147fd2e-806b-4670-a3b3-4978bb0cbabb
           role: user
           text: '# 目的
@@ -13668,7 +13740,7 @@ workflow:
         instructions: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1752744873302'
@@ -13769,7 +13841,7 @@ workflow:
           - result
         - - '1752804688058'
           - result
-      height: 153
+      height: 152
       id: '1752804755713'
       position:
         x: 8806
@@ -13847,12 +13919,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 69b76f14-6680-44e0-b56e-b5ecaf9153c5
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: f01e03c2-249d-448d-b0be-1bab87511d19
           role: user
           text: "# 目的\n根据分析结论生成告警的根因方向\n# 结论数据\n{{#1743850218410.output#}}\n\n# 注意\n\
@@ -13892,10 +13964,16 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }\n"
+        code: "import re\n\ndef main(raw_data: str) -> dict:\n    try:\n        raw_data\
+          \ = remove_detail(raw_data)\n        pattern = r\"```(?:\\njson|json)(.*?)```\"\
+          \n        match = re.search(pattern, raw_data, re.DOTALL)\n        if match\
+          \ is None:\n            json_str = raw_data.strip(\"```\")\n           \
+          \ json_str = json_str.strip(\"json\")\n        else:\n            json_str\
+          \ = match.group(1)\n        data = json.loads(json_str)\n        return\
+          \ {\n            \"result\": json.dumps(data)\n        }\n    except Exception:\n\
+          \        raise ValueError(\"get json data error\")\n\ndef remove_detail(arg1:\
+          \ str) -> str:\n    pattern = r'<details[\\s\\S]*?</details>'\n    res =\
+          \ re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n    return res.strip()"
         code_language: python3
         desc: ''
         outputs:
@@ -14004,7 +14082,7 @@ workflow:
           - result
         - - '1753789618196'
           - result
-      height: 153
+      height: 152
       id: '1752818532791'
       position:
         x: 9110
@@ -14384,11 +14462,11 @@ workflow:
       height: 892
       id: '1753019933658'
       position:
-        x: 4854
-        y: 646
+        x: 4652.4096966541165
+        y: 1120.419285317754
       positionAbsolute:
-        x: 4854
-        y: 646
+        x: 4652.4096966541165
+        y: 1120.419285317754
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -14664,7 +14742,7 @@ workflow:
       positionAbsolute:
         x: 12982
         y: 3676
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -14903,12 +14981,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 6bfbae05-612e-457c-ae07-f064f30e1575
           role: system
-          text: 你是一名可观测性领域智能助手和排障专家，帮助用户分析出现告警的原因。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 55823276-a91d-4487-a5dd-81e3c3031d2a
           role: user
           text: '# 目的
@@ -15247,11 +15325,11 @@ workflow:
       height: 54
       id: '1753943563066'
       position:
-        x: 13286
-        y: 1378
+        x: 13221.579258316086
+        y: 1400.6343146456993
       positionAbsolute:
-        x: 13286
-        y: 1378
+        x: 13221.579258316086
+        y: 1400.6343146456993
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -15603,7 +15681,7 @@ workflow:
           - evidence
         - - '1753954284388'
           - evidence
-      height: 439
+      height: 438
       id: '1753955518503'
       position:
         x: 13894
@@ -16364,7 +16442,7 @@ workflow:
           - instances
         - - '1743652552181'
           - instances
-      height: 131
+      height: 130
       id: '1758627861794'
       position:
         x: 1854
@@ -16778,7 +16856,7 @@ workflow:
             value: '{{#1758628605452.query#}}'
           top_k:
             type: constant
-            value: 5
+            value: 3
         type: tool
       height: 54
       id: '1758697197702'
@@ -16983,7 +17061,7 @@ workflow:
             value: 联系人或负责人
           top_k:
             type: constant
-            value: 5
+            value: 2
         type: tool
       height: 54
       id: '1758771570920'
@@ -18088,12 +18166,12 @@ workflow:
         desc: ''
         model:
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d280d643-f718-49df-9b28-b6f956e1e9a2
           role: system
-          text: 你是一个可观测性智能助手，帮助用户解决问题。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 93095ce2-0a5b-44a5-9d96-8e32e38bf954
           role: user
           text: "# 任务\n某个服务出现告警，请根据受影响服务的异常响应时间和错误率指标，总结服务的受影响情况。\n\n# 数据\n- 受影响服务的异常指标：{{#1760106063352.impacted_services#}}\n\
@@ -18952,7 +19030,77 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        code: "import re\n\ndef main(conclusion: str, detail: str) -> dict:\n    return\
+          \ {\n        \"conclusion\": close_detail(conclusion),\n        \"detail\"\
+          : close_detail(detail)\n    }\n\ndef close_detail(raw_data: str) -> str:\n\
+          \    closed = re.sub(r'\\sopen(?=\\s|>|/>)', '', raw_data)\n    return closed"
+        code_language: python3
+        desc: ''
+        outputs:
+          conclusion:
+            children: null
+            type: string
+          detail:
+            children: null
+            type: string
+        selected: false
+        title: 关闭思考展示
+        type: code
+        variables:
+        - value_selector:
+          - '1750988869166'
+          - text
+          variable: conclusion
+        - value_selector:
+          - '1750988845336'
+          - text
+          variable: detail
+      height: 54
+      id: '17644120377860'
+      position:
+        x: 19922.55822547161
+        y: 2778.18890413947
+      positionAbsolute:
+        x: 19922.55822547161
+        y: 2778.18890413947
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\ndef main(arg1: str) -> dict:\n    pattern = r'<details[\\\
+          s\\S]*?</details>'\n    res = re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n\
+          \    return {\n        \"result\": res.strip()\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 移除故障方向思考部分
+        type: code
+        variables:
+        - value_selector:
+          - '1750995788076'
+          - text
+          variable: arg1
+      height: 54
+      id: '1764918854522'
+      position:
+        x: 21434
+        y: 2526
+      positionAbsolute:
+        x: 21434
+        y: 2526
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -650.5119601889021
-      y: -53.24920816324092
-      zoom: 0.25
+      x: -12590.116000975671
+      y: -1755.6500980256183
+      zoom: 0.8705505632961253

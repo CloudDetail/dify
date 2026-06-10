@@ -1112,17 +1112,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: llm
-        targetType: end
-      id: 1752138870713-source-1741157560922-target
-      source: '1752138870713'
-      sourceHandle: source
-      target: '1741157560922'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: if-else
         targetType: tool
       id: 1750058827536-f15918a3-b6a0-48a0-ab08-758f0862fd4c-1753355666153-target
@@ -1175,6 +1164,28 @@ workflow:
       source: '1741158559444'
       sourceHandle: '1753360372736'
       target: '1753355666153'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1752138870713-source-1764639543074-target
+      source: '1752138870713'
+      sourceHandle: source
+      target: '1764639543074'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1764639543074-source-1741157560922-target
+      source: '1764639543074'
+      sourceHandle: source
+      target: '1741157560922'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1245,8 +1256,8 @@ workflow:
         desc: ''
         outputs:
         - value_selector:
-          - '1752138870713'
-          - text
+          - '1764639543074'
+          - result
           variable: text
         selected: false
         title: 结束
@@ -1254,10 +1265,10 @@ workflow:
       height: 90
       id: '1741157560922'
       position:
-        x: 3982
+        x: 4282
         y: 3133
       positionAbsolute:
-        x: 3982
+        x: 4282
         y: 3133
       selected: false
       sourcePosition: right
@@ -1365,7 +1376,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1741157526222'
@@ -1426,7 +1437,7 @@ workflow:
           - text
         - - '1748272742118'
           - text
-      height: 417
+      height: 416
       id: '1741162531836'
       position:
         x: 2462
@@ -2856,7 +2867,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: c981a70d-9ebb-4f03-949a-8d78826f9bda
@@ -2913,10 +2924,10 @@ workflow:
       id: '1742366141890'
       position:
         x: 3070
-        y: 2847
+        y: 2848.3195079107727
       positionAbsolute:
         x: 3070
-        y: 2847
+        y: 2848.3195079107727
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2952,7 +2963,7 @@ workflow:
           - '1741157526222'
           - endTime
           variable: arg2
-      height: 79
+      height: 80
       id: '1742433446760'
       position:
         x: 638
@@ -3147,7 +3158,7 @@ workflow:
           - text
         - - '17482728139340'
           - text
-      height: 417
+      height: 416
       id: '1742434016239'
       position:
         x: 2766
@@ -4489,7 +4500,7 @@ workflow:
       positionAbsolute:
         x: 334
         y: 638
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6009,7 +6020,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a1de005a-fbe2-44a6-9b2c-bb021ae6b3a4
@@ -6554,7 +6565,7 @@ workflow:
           - conclusion
         - - '1744339618961'
           - conclusion
-      height: 131
+      height: 130
       id: '1744627472534'
       position:
         x: 3374
@@ -7245,12 +7256,12 @@ workflow:
       height: 942
       id: '1750058827536'
       position:
-        x: 1550
-        y: 1554
+        x: 1519.2802140679253
+        y: 1695.3095369983898
       positionAbsolute:
-        x: 1550
-        y: 1554
-      selected: false
+        x: 1519.2802140679253
+        y: 1695.3095369983898
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -7268,7 +7279,7 @@ workflow:
           - text
         - - '1751515586426'
           - text
-      height: 153
+      height: 152
       id: '1750745724225'
       position:
         x: 3374
@@ -7290,7 +7301,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1f3e1690-58bf-4bc0-be08-4fab41ac13cf
@@ -7361,7 +7372,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 6b23adfe-47ca-40af-aeb1-ce2f1533826a
@@ -7414,10 +7425,10 @@ workflow:
       id: '1751515586426'
       position:
         x: 3070
-        y: 3470
+        y: 3468.4842834334895
       positionAbsolute:
         x: 3070
-        y: 3470
+        y: 3468.4842834334895
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7432,7 +7443,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 8fd2de89-ee56-4bed-a1e7-caf728a0c5fe
@@ -7459,7 +7470,7 @@ workflow:
             # 注意
 
             请仔细检查文本，并寻找关于告警有效性的结论，不要错误分类'
-        selected: false
+        selected: true
         title: 结论分类
         type: llm
         variables: []
@@ -7902,7 +7913,38 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        code: "import re\ndef main(arg1: str) -> dict:\n    pattern = r'<details[\\\
+          s\\S]*?</details>'\n    res = re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n\
+          \    return {\n        \"result\": res.strip()\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 移除输出思考部分
+        type: code
+        variables:
+        - value_selector:
+          - '1752138870713'
+          - text
+          variable: arg1
+      height: 54
+      id: '1764639543074'
+      position:
+        x: 3985.446095064991
+        y: 3133
+      positionAbsolute:
+        x: 3985.446095064991
+        y: 3133
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: 14.479106220962876
-      y: -136.44434232948117
+      x: -281.3462062798385
+      y: -410.33810100388905
       zoom: 0.25

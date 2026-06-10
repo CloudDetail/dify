@@ -158,18 +158,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: llm
-        targetType: code
-      id: 1750840340832-source-1750840042580-target
-      selected: false
-      source: '1750840340832'
-      sourceHandle: source
-      target: '1750840042580'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: code
         targetType: tool
       id: 1750843294839-source-1750839691646-target
@@ -261,18 +249,6 @@ workflow:
       source: '1750987639392'
       sourceHandle: source
       target: '1750840340832'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: end
-      id: 1751004239868-source-1744878476249-target
-      selected: false
-      source: '1751004239868'
-      sourceHandle: source
-      target: '1744878476249'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1094,6 +1070,50 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1750840340832-source-1764639205459-target
+      source: '1750840340832'
+      sourceHandle: source
+      target: '1764639205459'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1764639205459-source-1750840042580-target
+      source: '1764639205459'
+      sourceHandle: source
+      target: '1750840042580'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1751004239868-source-1764918951353-target
+      source: '1751004239868'
+      sourceHandle: source
+      target: '1764918951353'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1764918951353-source-1744878476249-target
+      source: '1764918951353'
+      sourceHandle: source
+      target: '1744878476249'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -1363,7 +1383,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '1742807803325'
@@ -1377,11 +1397,11 @@ workflow:
       height: 240
       id: '17430590082510'
       position:
-        x: 3374
-        y: 758
+        x: 3403.5987191520685
+        y: 632.6407188853584
       positionAbsolute:
-        x: 3374
-        y: 758
+        x: 3403.5987191520685
+        y: 632.6407188853584
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1399,7 +1419,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 615ece65-9193-4bad-a375-d51b67dbaafc
@@ -1492,7 +1512,7 @@ workflow:
           - text
         - - '1753686431084'
           - output
-      height: 131
+      height: 130
       id: '1744878466157'
       position:
         x: 9070
@@ -1517,8 +1537,8 @@ workflow:
           - text
           variable: output
         - value_selector:
-          - '1751004239868'
-          - text
+          - '1764918951353'
+          - result
           variable: alertDirection
         selected: false
         title: 结束
@@ -1526,10 +1546,10 @@ workflow:
       height: 142
       id: '1744878476249'
       position:
-        x: 15294
+        x: 15894
         y: 809
       positionAbsolute:
-        x: 15294
+        x: 15894
         y: 809
       selected: false
       sourcePosition: right
@@ -1799,10 +1819,10 @@ workflow:
       height: 54
       id: '1750839691646'
       position:
-        x: 14382
+        x: 14682
         y: 809
       positionAbsolute:
-        x: 14382
+        x: 14682
         y: 809
       selected: false
       sourcePosition: right
@@ -1864,8 +1884,8 @@ workflow:
           - endTime
           variable: timestamp
         - value_selector:
-          - '1750840340832'
-          - text
+          - '1764639205459'
+          - reason
           variable: reason
         - value_selector:
           - '1742807803325'
@@ -1888,16 +1908,16 @@ workflow:
           - service
           variable: service
         - value_selector:
-          - '1750987639392'
-          - text
+          - '1764639205459'
+          - detail
           variable: detail
       height: 54
       id: '1750840042580'
       position:
-        x: 14078
+        x: 14378
         y: 679
       positionAbsolute:
-        x: 14078
+        x: 14378
         y: 679
       selected: false
       sourcePosition: right
@@ -1913,7 +1933,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d21add02-97db-4fa3-a6e8-d4387617ce2a
@@ -2043,10 +2063,13 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }"
+        code: "import re\ndef main(raw_data: str) -> dict:\n    raw_data = remove_detail(raw_data)\n\
+          \    pattern = r'```json\\n(.*?)\\n```'\n    match = re.search(pattern,\
+          \ raw_data, re.DOTALL)\n\n    json_str = match.group(1)\n    rootcause =\
+          \ json.loads(json_str)\n    return {\n        \"result\": json.dumps(rootcause),\n\
+          \    }\n\ndef remove_detail(arg1: str) -> str:\n    pattern = r'<details[\\\
+          s\\S]*?</details>'\n    res = re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n\
+          \    return res.strip()"
         code_language: python3
         desc: ''
         outputs:
@@ -2075,10 +2098,13 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\ndef main(raw_data: str) -> dict:\n    pattern = r'```json\\\
-          n(.*?)\\n```'\n    match = re.search(pattern, raw_data, re.DOTALL)\n\n \
-          \   json_str = match.group(1)\n    rootcause = json.loads(json_str)\n  \
-          \  return {\n        \"result\": json.dumps(rootcause),\n    }"
+        code: "import re\ndef main(raw_data: str) -> dict:\n    raw_data = remove_detail(raw_data)\n\
+          \    pattern = r'```json\\n(.*?)\\n```'\n    match = re.search(pattern,\
+          \ raw_data, re.DOTALL)\n\n    json_str = match.group(1)\n    rootcause =\
+          \ json.loads(json_str)\n    return {\n        \"result\": json.dumps(rootcause),\n\
+          \    }\n\ndef remove_detail(arg1: str) -> str:\n    pattern = r'<details[\\\
+          s\\S]*?</details>'\n    res = re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n\
+          \    return res.strip()"
         code_language: python3
         desc: ''
         outputs:
@@ -2117,7 +2143,7 @@ workflow:
           - error_logs_str
         - - '1753687345334'
           - error_logs_str
-      height: 131
+      height: 130
       id: '1750844540721'
       position:
         x: 8766
@@ -2141,7 +2167,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 7694ae43-c744-4e62-9a51-fb4b8d8fe597
@@ -2189,7 +2215,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 0e0b95f4-141c-413e-8a29-1b17b745495f
@@ -2320,7 +2346,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 45ec55b5-ae91-45b8-989c-83f81cee1712
@@ -2367,7 +2393,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d33542e3-ac5c-48f1-970b-fa7ab0ffd0ef
@@ -2391,7 +2417,7 @@ workflow:
             #输出内容
 
             故障方向，只需输出几个字的故障方向描述 （如网络方向，下游依赖问题，cpu方向， 自身问题，下游出错导致等）'
-        selected: false
+        selected: true
         title: LLM 8
         type: llm
         variables: []
@@ -2400,12 +2426,12 @@ workflow:
       height: 90
       id: '1751004239868'
       position:
-        x: 14990
+        x: 15290
         y: 809
       positionAbsolute:
-        x: 14990
+        x: 15290
         y: 809
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -2419,7 +2445,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: d3326874-756a-4db9-9634-3725cf97b6e7
@@ -2618,10 +2644,10 @@ workflow:
       height: 54
       id: '1751602453263'
       position:
-        x: 14686
+        x: 14986
         y: 809
       positionAbsolute:
-        x: 14686
+        x: 14986
         y: 809
       selected: false
       sourcePosition: right
@@ -3876,7 +3902,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 1a251b76-1e32-4905-b8d1-859a76bf6237
@@ -3951,7 +3977,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 33d6ac62-5c51-4b4a-a568-15502d859538
@@ -4010,7 +4036,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 46ff962f-3331-441e-8d37-f179e08c916d
@@ -4309,7 +4335,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bc74b5ac-8d4a-4145-9724-a48a089545fc
@@ -4391,7 +4417,7 @@ workflow:
           - text
         - - '1753437974705'
           - text
-      height: 131
+      height: 130
       id: '1753686431084'
       position:
         x: 8462
@@ -7033,7 +7059,7 @@ workflow:
       positionAbsolute:
         x: 12558
         y: 474
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -7049,7 +7075,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bd9e0f0c-b601-4947-8829-4524f0d2bb84
@@ -7088,7 +7114,77 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        code: "import re\n\ndef main(reason: str, detail: str) -> dict:\n    return\
+          \ {\n        \"reason\": close_detail(reason),\n        \"detail\": close_detail(detail)\n\
+          \    }\n\ndef close_detail(raw_data: str) -> str:\n    closed = re.sub(r'\\\
+          sopen(?=\\s|>|/>)', '', raw_data)\n    return closed\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          detail:
+            children: null
+            type: string
+          reason:
+            children: null
+            type: string
+        selected: false
+        title: 关闭思考展开
+        type: code
+        variables:
+        - value_selector:
+          - '1750840340832'
+          - text
+          variable: reason
+        - value_selector:
+          - '1750987639392'
+          - text
+          variable: detail
+      height: 54
+      id: '1764639205459'
+      position:
+        x: 14078
+        y: 679
+      positionAbsolute:
+        x: 14078
+        y: 679
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\ndef main(arg1: str) -> dict:\n    pattern = r'<details[\\\
+          s\\S]*?</details>'\n    res = re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n\
+          \    return {\n        \"result\": res.strip()\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 移除故障方向思考部分
+        type: code
+        variables:
+        - value_selector:
+          - '1751004239868'
+          - text
+          variable: arg1
+      height: 54
+      id: '1764918951353'
+      position:
+        x: 15594
+        y: 809
+      positionAbsolute:
+        x: 15594
+        y: 809
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -6509.994598861962
-      y: 10.732026886271797
-      zoom: 0.5293723458831711
+      x: -8343.852916525051
+      y: -179.76099352572692
+      zoom: 0.5743491774985183

@@ -9,10 +9,6 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/deepseek:0.0.5@fd6efd37c2a931911de8ab9ca3ba2da303bef146d45ee87ad896b04b36d09403
-- current_identifier: null
-  type: package
-  value:
     plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
 kind: app
 version: 0.1.5
@@ -547,18 +543,6 @@ workflow:
     - data:
         isInIteration: false
         sourceType: llm
-        targetType: llm
-      id: 1750662084996-source-1750662088384-target
-      selected: false
-      source: '1750662084996'
-      sourceHandle: source
-      target: '1750662088384'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
         targetType: code
       id: 1750068431868-source-1750672701216-target
       selected: false
@@ -733,18 +717,6 @@ workflow:
       source: '1750927458985'
       sourceHandle: source
       target: '1750769951427'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: end
-      id: 1750995139153-source-1741502839759-target
-      selected: false
-      source: '1750995139153'
-      sourceHandle: source
-      target: '1741502839759'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1038,18 +1010,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: llm
-        targetType: code
-      id: 1750662088384-source-1753840330051-target
-      selected: false
-      source: '1750662088384'
-      sourceHandle: source
-      target: '1753840330051'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: code
         targetType: code
       id: 1753840330051-source-1750661889002-target
@@ -1313,18 +1273,6 @@ workflow:
       type: custom
       zIndex: 0
     - data:
-        isInLoop: false
-        sourceType: variable-aggregator
-        targetType: llm
-      id: 1754385689812-source-1741512806512-target
-      selected: false
-      source: '1754385689812'
-      sourceHandle: source
-      target: '1741512806512'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
         isInIteration: false
         sourceType: code
         targetType: tool
@@ -1370,18 +1318,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: llm
-        targetType: tool
-      id: 1741512806512-source-1759065773395-target
-      selected: false
-      source: '1741512806512'
-      sourceHandle: source
-      target: '1759065773395'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: tool
         targetType: code
       id: 1759065773395-source-1759065776597-target
@@ -1401,18 +1337,6 @@ workflow:
       source: '1759065776597'
       sourceHandle: source
       target: '1759065780515'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: if-else
-      id: 1759065784647-source-1751601842740-target
-      selected: false
-      source: '1759065784647'
-      sourceHandle: source
-      target: '1751601842740'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1450,18 +1374,6 @@ workflow:
       source: '1759068866492'
       sourceHandle: source
       target: '1759069387678'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: llm
-      id: 1759069387678-source-1759065784647-target
-      selected: false
-      source: '1759069387678'
-      sourceHandle: source
-      target: '1759065784647'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1543,6 +1455,149 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1750995139153-source-1764918718274-target
+      source: '1750995139153'
+      sourceHandle: source
+      target: '1764918718274'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1764918718274-source-1741502839759-target
+      source: '1764918718274'
+      sourceHandle: source
+      target: '1741502839759'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: tool
+      id: 1754385689812-source-1759065773395-target
+      source: '1754385689812'
+      sourceHandle: source
+      target: '1759065773395'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: if-else
+      id: 1759069387678-source-1765248621363-target
+      source: '1759069387678'
+      sourceHandle: source
+      target: '1765248621363'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1765248621363-false-1765248684075-target
+      source: '1765248621363'
+      sourceHandle: 'false'
+      target: '1765248684075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1765248684075-source-1765248713862-target
+      source: '1765248684075'
+      sourceHandle: source
+      target: '1765248713862'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: if-else
+      id: 1765248713862-source-1751601842740-target
+      source: '1765248713862'
+      sourceHandle: source
+      target: '1751601842740'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1765248621363-true-1759065784647-target
+      source: '1765248621363'
+      sourceHandle: 'true'
+      target: '1759065784647'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 1759065784647-source-1765248713862-target
+      source: '1759065784647'
+      sourceHandle: source
+      target: '1765248713862'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1765250408784-source-1753840330051-target
+      source: '1765250408784'
+      sourceHandle: source
+      target: '1753840330051'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1750662088384-source-1764638782010-target
+      source: '1750662088384'
+      sourceHandle: source
+      target: '1764638782010'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1764638782010-source-1765250408784-target
+      source: '1764638782010'
+      sourceHandle: source
+      target: '1765250408784'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1750662084996-source-1750662088384-target
+      source: '1750662084996'
+      sourceHandle: source
+      target: '1750662088384'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -1607,8 +1662,8 @@ workflow:
           - text
           variable: text
         - value_selector:
-          - '1750995139153'
-          - text
+          - '1764918718274'
+          - result
           variable: alertDirection
         - value_selector:
           - '1751601681225'
@@ -1620,10 +1675,10 @@ workflow:
       height: 142
       id: '1741502839759'
       position:
-        x: 16886
+        x: 17494
         y: 1134
       positionAbsolute:
-        x: 16886
+        x: 17494
         y: 1134
       selected: false
       sourcePosition: right
@@ -1666,97 +1721,6 @@ workflow:
       type: custom
       width: 244
     - data:
-        context:
-          enabled: true
-          variable_selector:
-          - '1758694051591'
-          - all_result
-        desc: ''
-        model:
-          completion_params:
-            temperature: 0.6
-          mode: chat
-          name: /models/qwen2.5-32B
-          provider: langgenius/openai_api_compatible/openai_api_compatible
-        prompt_template:
-        - id: 169877de-aa4a-44db-90ef-2cc8f68882c4
-          role: system
-          text: 你是可观测性领域的智能助手，协助用户分析解决问题。
-        - id: c9d29276-dfa5-4042-b1c6-562260f9cc7c
-          role: user
-          text: '# 目的
-
-            基于服务层级聚合Pod信息并输出服务级概览报告。需确保各Pod具体运行状态的可视化呈现清晰直观。
-
-            同时在原有的结论基础上，根据文档和你的经验针对异常线程最多的根因方向给出具体执行解决问题的建议和与问题相关的需要执行的命令。
-
-            # 可执行命令举例
-
-            根因为CPU：使用top -H -p <PID>查看占用，pidstat -t -p <PID> 1查看使用率等命令
-
-            根因为网络质量问题：ss -s查看全局socket状态，ss -tunap查看所有TCP/UDP连接，nstat -z 查看重传等命令
-
-            根因为EPOLL：strace -e epoll_wait,epoll_pwait -tt -T -p <PID>追踪epoll调用耗时，perf
-            trace -e epoll:*查看epoll相关事件等命令
-
-            根因为CPU抢占（runq）：dstat -l 1 查看系统负载，mpstat -P ALL 1查看CPU的%idle和%util等命令
-
-            根因为文件读取（file）：iotop -o -p <PID>查看进程级磁盘IO，strace -e trace=file -tt -T -p
-            <PID>查看文件相关的系统调用等命令
-
-            # 文档
-
-            {{#context#}}
-
-            ## 使用要求
-
-            优先根据文档中的与当前告警或服务{{#1754299310647.service#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，建议执行xx”。
-
-            1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
-
-            2. 优先根据根因中的结论进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。
-
-            3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。
-
-            4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。
-
-            # 注意事项
-
-            1. 结论中若CPU相关告警事件综合影响系数较高，应优先指导处理CPU资源瓶颈
-
-            2. 采用树状层级化输出格式，服务级汇总指标与Pod明细指标需通过缩进形成清晰继承关系
-
-            3. 故障归因分析需保持单一维度，禁止构建跨维度关联（如GC与锁竞争）
-
-            4. 当网络栈耗时(net)异常增高但网络往返延迟(RTT)处于基线范围时，需重点提示检查下游依赖服务
-
-
-            # 结论数据源
-
-            {{#1754385689812.output#}}
-
-
-            '
-        selected: false
-        title: 可行动方向建议
-        type: llm
-        variables: []
-        vision:
-          enabled: false
-      height: 90
-      id: '1741512806512'
-      position:
-        x: 9758
-        y: 890
-      positionAbsolute:
-        x: 9758
-        y: 890
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
         desc: ''
         selected: false
         template: 告警事件信息不足，无法进行根因分析
@@ -1790,10 +1754,10 @@ workflow:
       id: '1741592144815'
       position:
         x: 1246
-        y: 343
+        y: 361
       positionAbsolute:
         x: 1246
-        y: 343
+        y: 361
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1810,7 +1774,7 @@ workflow:
           - result
         - - '1750658087300'
           - result
-      height: 131
+      height: 130
       id: '1741597274153'
       position:
         x: 1550
@@ -1976,10 +1940,10 @@ workflow:
       height: 54
       id: '1742807803325'
       position:
-        x: 332.4344098948601
+        x: 334
         y: 361
       positionAbsolute:
-        x: 332.4344098948601
+        x: 334
         y: 361
       selected: false
       sourcePosition: right
@@ -2348,12 +2312,12 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
           role: system
-          text: 你是可观测性领域的智能助手，协助用户分析解决问题。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 2b2ad468-efcd-4bcc-aeb9-d53d2f2770ad
           role: user
           text: "# 分析目标\n基于跨资源类别的异常线程数据，判断应用实例{{#17430589567120.pod#}}是否受告警事件{{#1742807803325.alertName#}}影响。并根据异常线程数据判断故障方向并根据文档和你的经验推断根因。\n\
@@ -3415,10 +3379,10 @@ workflow:
       id: '1744255998058'
       position:
         x: 5502
-        y: 979
+        y: 961
       positionAbsolute:
         x: 5502
-        y: 979
+        y: 961
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3560,10 +3524,10 @@ workflow:
       id: '1744287265980'
       position:
         x: 6110
-        y: 992
+        y: 961
       positionAbsolute:
         x: 6110
-        y: 992
+        y: 961
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3711,10 +3675,10 @@ workflow:
       id: '17443356883380'
       position:
         x: 5806
-        y: 603
+        y: 585
       positionAbsolute:
         x: 5806
-        y: 603
+        y: 585
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3816,10 +3780,10 @@ workflow:
       id: '17443357536900'
       position:
         x: 5806
-        y: 697
+        y: 679
       positionAbsolute:
         x: 5806
-        y: 697
+        y: 679
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3921,10 +3885,10 @@ workflow:
       id: '17443357893440'
       position:
         x: 6110
-        y: 1242
+        y: 1211
       positionAbsolute:
         x: 6110
-        y: 1242
+        y: 1211
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4026,10 +3990,10 @@ workflow:
       id: '17443357899060'
       position:
         x: 5806
-        y: 791
+        y: 773
       positionAbsolute:
         x: 5806
-        y: 791
+        y: 773
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4118,10 +4082,10 @@ workflow:
       id: '17443388433580'
       position:
         x: 6110
-        y: 804
+        y: 773
       positionAbsolute:
         x: 6110
-        y: 804
+        y: 773
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4164,10 +4128,10 @@ workflow:
       id: '17443388438160'
       position:
         x: 6110
-        y: 710
+        y: 679
       positionAbsolute:
         x: 6110
-        y: 710
+        y: 679
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4210,10 +4174,10 @@ workflow:
       id: '17443388443000'
       position:
         x: 6110
-        y: 616
+        y: 585
       positionAbsolute:
         x: 6110
-        y: 616
+        y: 585
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4283,10 +4247,10 @@ workflow:
       id: '1745494338512'
       position:
         x: 2766
-        y: 455
+        y: 473
       positionAbsolute:
         x: 2766
-        y: 455
+        y: 473
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4625,10 +4589,10 @@ workflow:
       id: '17473562733380'
       position:
         x: 5806
-        y: 885
+        y: 867
       positionAbsolute:
         x: 5806
-        y: 885
+        y: 867
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4761,12 +4725,12 @@ workflow:
           completion_params:
             temperature: 0.6
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: cd35fff4-a037-4e72-af99-2ff8299fc5d2
           role: system
-          text: 你是可观测性领域的智能助手，协助用户分析解决问题。
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 2b2ad468-efcd-4bcc-aeb9-d53d2f2770ad
           role: user
           text: "# 分析目标\n基于NET消耗的异常线程数据和RTT异常长数据，判断应用实例{{#17430589567120.pod#}}是否受告警事件{{#1742807803325.alertName#}}影响，并进行初步根因定位。\n\
@@ -4791,10 +4755,10 @@ workflow:
       id: '17473569800940'
       position:
         x: 5502
-        y: 1086
+        y: 1068
       positionAbsolute:
         x: 5502
-        y: 1086
+        y: 1068
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4819,10 +4783,10 @@ workflow:
       id: '1747357345949'
       position:
         x: 6110
-        y: 1086
+        y: 1055
       positionAbsolute:
         x: 6110
-        y: 1086
+        y: 1055
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4837,12 +4801,12 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: qwen3.5-35b-a3b
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a56f2cfc-7dfc-4483-888e-80b4a5eca5c8
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 10633a48-9249-408a-8a23-63cdc1eaabfc
           role: user
           text: "#目的\n根据应用的结论生成根因方向的结论\n如果该方向无异常，level为normal\n#结论数据\n{{#1754385689812.output#}}\n\
@@ -4873,11 +4837,11 @@ workflow:
       height: 90
       id: '1750068431868'
       position:
-        x: 15366
-        y: 1134
+        x: 15670
+        y: 1116
       positionAbsolute:
-        x: 15366
-        y: 1134
+        x: 15670
+        y: 1116
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4892,7 +4856,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: a56f2cfc-7dfc-4483-888e-80b4a5eca5c8
@@ -4921,10 +4885,10 @@ workflow:
       id: '17501667334220'
       position:
         x: 5806
-        y: 1086
+        y: 1068
       positionAbsolute:
         x: 5806
-        y: 1086
+        y: 1068
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5321,10 +5285,10 @@ workflow:
       id: '1750658087300'
       position:
         x: 1246
-        y: 473
+        y: 491
       positionAbsolute:
         x: 1246
-        y: 473
+        y: 491
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5374,10 +5338,10 @@ workflow:
       id: '1750658174684'
       position:
         x: 1246
-        y: 567
+        y: 585
       positionAbsolute:
         x: 1246
-        y: 567
+        y: 585
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5545,10 +5509,10 @@ workflow:
       id: '1750661176423'
       position:
         x: 5502
-        y: 1229
+        y: 1211
       positionAbsolute:
         x: 5502
-        y: 1229
+        y: 1211
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5581,8 +5545,8 @@ workflow:
           - endTime
           variable: timestamp
         - value_selector:
-          - '1750662088384'
-          - text
+          - '1765250408784'
+          - reason
           variable: reason
         - value_selector:
           - '1753840330051'
@@ -5599,10 +5563,10 @@ workflow:
       height: 54
       id: '1750661889002'
       position:
-        x: 15670
+        x: 15974
         y: 890
       positionAbsolute:
-        x: 15670
+        x: 15974
         y: 890
       selected: false
       sourcePosition: right
@@ -5620,12 +5584,12 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 8ecc69bb-4504-40cc-9475-d9da1d54e2f8
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 47fedf0d-54f2-4912-8e87-da9e60b6aa0b
           role: user
           text: '#目的
@@ -5680,7 +5644,7 @@ workflow:
 
             告警事件：{{#1742807803325.alertName#}}
 
-            受影响服务：{{#1759065784647.text#}}
+            受影响服务：{{#1765248713862.output#}}
 
             当前告警的服务：{{#1754299310647.service#}}
 
@@ -5715,11 +5679,11 @@ workflow:
       height: 90
       id: '1750662084996'
       position:
-        x: 14758
-        y: 872
+        x: 14648.053157450284
+        y: 895.8497605164085
       positionAbsolute:
-        x: 14758
-        y: 872
+        x: 14648.053157450284
+        y: 895.8497605164085
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5734,12 +5698,12 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: qwen3.5-35b-a3b
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 42284b17-9b6e-4660-aaad-9ba66584a21e
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 3d52c2b4-81a0-47d2-bedd-ef62955c057b
           role: user
           text: '#目的
@@ -5780,11 +5744,11 @@ workflow:
       height: 90
       id: '1750662088384'
       position:
-        x: 15062
-        y: 872
+        x: 14897.295309306992
+        y: 876.2592373504281
       positionAbsolute:
-        x: 15062
-        y: 872
+        x: 14897.295309306992
+        y: 876.2592373504281
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5815,10 +5779,10 @@ workflow:
       height: 54
       id: '1750662168285'
       position:
-        x: 15670
+        x: 15974
         y: 1040
       positionAbsolute:
-        x: 15670
+        x: 15974
         y: 1040
       selected: false
       sourcePosition: right
@@ -5836,12 +5800,12 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 9cf805ef-c561-4b9a-a3cd-3e970fc59285
           role: system
-          text: 你是一个智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 904153b5-a654-458e-9452-23aa907cfa57
           role: user
           text: "# 目的\n根据告警根因总结和相关文档生成排障建议和可执行命令，建议聚焦于可执行命令，避免输出“检查服务健康状态”等模糊建议。\n\
@@ -5869,25 +5833,27 @@ workflow:
       height: 90
       id: '1750662408086'
       position:
-        x: 15366
-        y: 1264
+        x: 15670
+        y: 1246
       positionAbsolute:
-        x: 15366
-        y: 1264
+        x: 15670
+        y: 1246
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "import re\n\ndef main(raw_data: str) -> dict:\n    try:\n        pattern\
-          \ = r\"```(?:\\njson|json)(.*?)```\"\n        match = re.search(pattern,\
-          \ raw_data, re.DOTALL)\n        if match is None:\n            json_str\
-          \ = raw_data.strip(\"```\")\n            json_str = json_str.strip(\"json\"\
-          )\n        else:\n            json_str = match.group(1)\n        data =\
-          \ json.loads(json_str)\n        return {\n            \"result\": json.dumps(data)\n\
-          \        }\n    except Exception:\n        raise ValueError(\"get json data\
-          \ error\")"
+        code: "import re\n\ndef main(raw_data: str) -> dict:\n    try:\n        raw_data\
+          \ = remove_detail(raw_data)\n        pattern = r\"```(?:\\njson|json)(.*?)```\"\
+          \n        match = re.search(pattern, raw_data, re.DOTALL)\n        if match\
+          \ is None:\n            json_str = raw_data.strip(\"```\")\n           \
+          \ json_str = json_str.strip(\"json\")\n        else:\n            json_str\
+          \ = match.group(1)\n        data = json.loads(json_str)\n        return\
+          \ {\n            \"result\": json.dumps(data)\n        }\n    except Exception:\n\
+          \        raise ValueError(\"get json data error\")\n\ndef remove_detail(arg1:\
+          \ str) -> str:\n    pattern = r'<details[\\s\\S]*?</details>'\n    res =\
+          \ re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n    return res.strip()"
         code_language: python3
         desc: ''
         outputs:
@@ -5905,10 +5871,10 @@ workflow:
       height: 54
       id: '1750672701216'
       position:
-        x: 15670
+        x: 15974
         y: 1134
       positionAbsolute:
-        x: 15670
+        x: 15974
         y: 1134
       selected: false
       sourcePosition: right
@@ -5916,14 +5882,16 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\n\ndef main(raw_data: str) -> dict:\n    try:\n        pattern\
-          \ = r\"```(?:\\njson|json)(.*?)```\"\n        match = re.search(pattern,\
-          \ raw_data, re.DOTALL)\n        if match is None:\n            json_str\
-          \ = raw_data.strip(\"```\")\n            json_str = json_str.strip(\"json\"\
-          )\n        else:\n            json_str = match.group(1)\n        data =\
-          \ json.loads(json_str)\n        return {\n            \"result\": json.dumps(data)\n\
-          \        }\n    except Exception:\n        raise ValueError(\"get json data\
-          \ error\")"
+        code: "import re\n\ndef main(raw_data: str) -> dict:\n    try:\n        raw_data\
+          \ = remove_detail(raw_data)\n        pattern = r\"```(?:\\njson|json)(.*?)```\"\
+          \n        match = re.search(pattern, raw_data, re.DOTALL)\n        if match\
+          \ is None:\n            json_str = raw_data.strip(\"```\")\n           \
+          \ json_str = json_str.strip(\"json\")\n        else:\n            json_str\
+          \ = match.group(1)\n        data = json.loads(json_str)\n        return\
+          \ {\n            \"result\": json.dumps(data)\n        }\n    except Exception\
+          \ as e:\n        raise ValueError(\"get json data error\",e)\n\n\ndef remove_detail(arg1:\
+          \ str) -> str:\n    pattern = r'<details[\\s\\S]*?</details>'\n    res =\
+          \ re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n    return res.strip()"
         code_language: python3
         desc: ''
         outputs:
@@ -5941,10 +5909,10 @@ workflow:
       height: 54
       id: '17506728633540'
       position:
-        x: 15670
+        x: 15974
         y: 1264
       positionAbsolute:
-        x: 15670
+        x: 15974
         y: 1264
       selected: false
       sourcePosition: right
@@ -6017,10 +5985,10 @@ workflow:
       height: 54
       id: '1750750056742'
       position:
-        x: 15670
+        x: 15974
         y: 1358
       positionAbsolute:
-        x: 15670
+        x: 15974
         y: 1358
       selected: false
       sourcePosition: right
@@ -6243,10 +6211,10 @@ workflow:
       height: 54
       id: '1750754610625'
       position:
-        x: 15974
+        x: 16278
         y: 1134
       positionAbsolute:
-        x: 15974
+        x: 16278
         y: 1134
       selected: false
       sourcePosition: right
@@ -6304,10 +6272,10 @@ workflow:
       height: 54
       id: '1750769951427'
       position:
-        x: 15670
+        x: 15974
         y: 1452
       positionAbsolute:
-        x: 15670
+        x: 15974
         y: 1452
       selected: false
       sourcePosition: right
@@ -6364,12 +6332,12 @@ workflow:
       height: 54
       id: '1750819000832'
       position:
-        x: 15062
+        x: 15366
         y: 1582
       positionAbsolute:
-        x: 15062
+        x: 15366
         y: 1582
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -6419,11 +6387,11 @@ workflow:
       height: 54
       id: '1750830567613'
       position:
-        x: 14150
-        y: 1452
+        x: 14454
+        y: 1470
       positionAbsolute:
-        x: 14150
-        y: 1452
+        x: 14454
+        y: 1470
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6593,11 +6561,11 @@ workflow:
       height: 54
       id: '1750830747193'
       position:
-        x: 14454
-        y: 1452
+        x: 14758
+        y: 1470
       positionAbsolute:
-        x: 14454
-        y: 1452
+        x: 14758
+        y: 1470
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6644,11 +6612,11 @@ workflow:
       height: 54
       id: '1750830805330'
       position:
-        x: 14758
-        y: 1452
+        x: 15062
+        y: 1470
       positionAbsolute:
-        x: 14758
-        y: 1452
+        x: 15062
+        y: 1470
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6663,12 +6631,12 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: qwen3.5-35b-a3b
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: eb2032a5-ca17-48b4-b532-1c45ed948e91
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 5b7f74ed-32ec-4351-a51d-74a723bad9a8
           role: user
           text: '# 目的
@@ -6691,11 +6659,11 @@ workflow:
       height: 90
       id: '1750927215923'
       position:
-        x: 15366
-        y: 1452
+        x: 15670
+        y: 1434
       positionAbsolute:
-        x: 15366
-        y: 1452
+        x: 15670
+        y: 1434
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6710,12 +6678,12 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: qwen3.5-35b-a3b
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 0d6f5be7-b8d0-4354-ae42-7ad580e19039
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: e090acfc-76e6-47e7-8296-465513ee7c4b
           role: user
           text: '# 目的
@@ -6738,11 +6706,11 @@ workflow:
       height: 90
       id: '1750927458985'
       position:
-        x: 15366
-        y: 1582
+        x: 15670
+        y: 1564
       positionAbsolute:
-        x: 15366
-        y: 1582
+        x: 15670
+        y: 1564
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6757,12 +6725,12 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: bf855196-6899-4b0c-a363-404c077ba96f
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 0ee4016d-1cbb-4dbb-89de-2d76f3caeebc
           role: user
           text: '#目的
@@ -6791,10 +6759,10 @@ workflow:
       height: 90
       id: '1750995139153'
       position:
-        x: 16582
+        x: 16886
         y: 1134
       positionAbsolute:
-        x: 16582
+        x: 16886
         y: 1134
       selected: false
       sourcePosition: right
@@ -6817,7 +6785,7 @@ workflow:
           \            variance = _get_standard_deviation(avg, values)\n\n       \
           \     threshold = avg + 1 * variance\n            \n            count =\
           \ 0\n            for _, value in chart.items():\n                if value\
-          \ > threshold:\n                    count += 1\n\n            if count !=\
+          \ > threshold:\n                    count += 1\n\n            if count >\
           \ 0:\n                res = {\n                    \"chart\": chart,\n \
           \                   \"abnormalCount\": count,\n                    \"labels\"\
           : labels,\n                    \"avg\": avg,\n                    \"unit\"\
@@ -6843,10 +6811,10 @@ workflow:
       id: '1751112705936'
       position:
         x: 5806
-        y: 1229
+        y: 1211
       positionAbsolute:
         x: 5806
-        y: 1229
+        y: 1211
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6894,10 +6862,10 @@ workflow:
       id: '17511127594560'
       position:
         x: 5806
-        y: 979
+        y: 961
       positionAbsolute:
         x: 5806
-        y: 979
+        y: 961
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6919,7 +6887,7 @@ workflow:
           \            variance = _get_standard_deviation(avg, values)\n\n       \
           \     threshold = avg + 1 * variance\n            \n            count =\
           \ 0\n            for _, value in chart.items():\n                if value\
-          \ > threshold:\n                    count += 1\n\n            if count !=\
+          \ > threshold:\n                    count += 1\n\n            if count >\
           \ 0:\n                res = {\n                    \"chart\": chart,\n \
           \                   \"abnormalCount\": count,\n                    \"labels\"\
           : labels,\n                    \"avg\": avg,\n                    \"unit\"\
@@ -6945,10 +6913,10 @@ workflow:
       id: '17511128355920'
       position:
         x: 5502
-        y: 791
+        y: 773
       positionAbsolute:
         x: 5502
-        y: 791
+        y: 773
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6970,7 +6938,7 @@ workflow:
           \            variance = _get_standard_deviation(avg, values)\n\n       \
           \     threshold = avg + 1 * variance\n            \n            count =\
           \ 0\n            for _, value in chart.items():\n                if value\
-          \ > threshold:\n                    count += 1\n\n            if count !=\
+          \ > threshold:\n                    count += 1\n\n            if count >\
           \ 0:\n                res = {\n                    \"chart\": chart,\n \
           \                   \"abnormalCount\": count,\n                    \"labels\"\
           : labels,\n                    \"avg\": avg,\n                    \"unit\"\
@@ -6996,10 +6964,10 @@ workflow:
       id: '17511128736240'
       position:
         x: 5502
-        y: 697
+        y: 679
       positionAbsolute:
         x: 5502
-        y: 697
+        y: 679
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7021,7 +6989,7 @@ workflow:
           \            variance = _get_standard_deviation(avg, values)\n\n       \
           \     threshold = avg + 1 * variance\n            \n            count =\
           \ 0\n            for _, value in chart.items():\n                if value\
-          \ > threshold:\n                    count += 1\n\n            if count !=\
+          \ > threshold:\n                    count += 1\n\n            if count >\
           \ 0:\n                res = {\n                    \"chart\": chart,\n \
           \                   \"abnormalCount\": count,\n                    \"labels\"\
           : labels,\n                    \"avg\": avg,\n                    \"unit\"\
@@ -7047,10 +7015,10 @@ workflow:
       id: '17511129103380'
       position:
         x: 5502
-        y: 603
+        y: 585
       positionAbsolute:
         x: 5502
-        y: 603
+        y: 585
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7620,10 +7588,10 @@ workflow:
       id: '17515143872690'
       position:
         x: 6110
-        y: 898
+        y: 867
       positionAbsolute:
         x: 6110
-        y: 898
+        y: 867
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7793,10 +7761,10 @@ workflow:
       height: 54
       id: '1751601681225'
       position:
-        x: 16278
+        x: 16582
         y: 1134
       positionAbsolute:
-        x: 16278
+        x: 16582
         y: 1134
       selected: false
       sourcePosition: right
@@ -7823,10 +7791,10 @@ workflow:
       height: 126
       id: '1751601842740'
       position:
-        x: 13846
+        x: 14150
         y: 890
       positionAbsolute:
-        x: 13846
+        x: 14150
         y: 890
       selected: false
       sourcePosition: right
@@ -7846,11 +7814,11 @@ workflow:
       height: 90
       id: '1751601994805'
       position:
-        x: 14150
-        y: 947
+        x: 14402.0325748625
+        y: 833.9987824658871
       positionAbsolute:
-        x: 14150
-        y: 947
+        x: 14402.0325748625
+        y: 833.9987824658871
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7909,17 +7877,17 @@ workflow:
           - text
           variable: runq
         - value_selector:
-          - '1750662084996'
-          - text
+          - '1764638782010'
+          - detail
           variable: report
       height: 54
       id: '1753840330051'
       position:
-        x: 15366
-        y: 908
+        x: 15670
+        y: 890
       positionAbsolute:
-        x: 15366
-        y: 908
+        x: 15670
+        y: 890
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8107,11 +8075,11 @@ workflow:
       height: 174
       id: '1754299061896'
       position:
-        x: 7326
-        y: 890
+        x: 7337.765354996651
+        y: 1002
       positionAbsolute:
-        x: 7326
-        y: 890
+        x: 7337.765354996651
+        y: 1002
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8138,10 +8106,10 @@ workflow:
       id: '1754299310647'
       position:
         x: 2766
-        y: 585
+        y: 603
       positionAbsolute:
         x: 2766
-        y: 585
+        y: 603
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8158,14 +8126,14 @@ workflow:
           - result
         - - '1754298166852'
           - abnormal_downstream_instances
-      height: 131
+      height: 130
       id: '1754375770920'
       position:
         x: 8846
-        y: 985.5
+        y: 985
       positionAbsolute:
         x: 8846
-        y: 985.5
+        y: 985
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8180,12 +8148,12 @@ workflow:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: c77a6a17-bbbb-4880-8b2a-56a7fcbb419e
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: a7ee2369-e05a-4e41-b423-78b3c05e03b9
           role: user
           text: '# 目的
@@ -8229,10 +8197,10 @@ workflow:
       id: '1754382620041'
       position:
         x: 9150
-        y: 985.5
+        y: 985
       positionAbsolute:
         x: 9150
-        y: 985.5
+        y: 985
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8245,13 +8213,14 @@ workflow:
         - id: '2'
           name: 其他非网络方向故障
         desc: ''
+        instruction: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         instructions: ''
         model:
           completion_params:
             temperature: 0.3
           mode: chat
-          name: deepseek-chat
-          provider: langgenius/deepseek/deepseek
+          name: qwen3.5-35b-a3b
+          provider: langgenius/openai_api_compatible/openai_api_compatible
         query_variable_selector:
         - '17430596469370'
         - text
@@ -8285,7 +8254,7 @@ workflow:
           - text
         - - '17430596469370'
           - text
-      height: 131
+      height: 130
       id: '1754385689812'
       position:
         x: 9454
@@ -8565,10 +8534,10 @@ workflow:
       id: '1754442999808'
       position:
         x: 8238
-        y: 1042.5
+        y: 1042
       positionAbsolute:
         x: 8238
-        y: 1042.5
+        y: 1042
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8733,10 +8702,10 @@ workflow:
       id: '1754462459105'
       position:
         x: 7630
-        y: 1042.5
+        y: 1042
       positionAbsolute:
         x: 7630
-        y: 1042.5
+        y: 1042
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8782,10 +8751,10 @@ workflow:
       id: '1754462485033'
       position:
         x: 7934
-        y: 1042.5
+        y: 1042
       positionAbsolute:
         x: 7934
-        y: 1042.5
+        y: 1042
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8796,8 +8765,8 @@ workflow:
           data\", {})\n    spans = data.get(\"data\", [])\n    client_spans = [span\
           \ for span in spans if span.get(\"spanKind\") == \"client\"]\n    sorted_client_spans_desc\
           \ = sorted(client_spans, key=lambda x: x.get(\"duration\", 0), reverse=True)\n\
-          \n    data[\"data\"] = sorted_client_spans_desc[:10]\n    return {\n   \
-          \     \"result\": json.dumps(data)\n    }"
+          \n    data[\"data\"] = sorted_client_spans_desc[:5]\n    return {\n    \
+          \    \"result\": json.dumps(data)\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -8816,10 +8785,10 @@ workflow:
       id: '1754634901289'
       position:
         x: 8542
-        y: 1042.5
+        y: 1042
       positionAbsolute:
         x: 8542
-        y: 1042.5
+        y: 1042
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -8987,7 +8956,7 @@ workflow:
             value: ''
           top_k:
             type: constant
-            value: 10
+            value: 3
         type: tool
       height: 54
       id: '1758694014155'
@@ -9180,7 +9149,7 @@ workflow:
             value: 联系人或负责人
           top_k:
             type: constant
-            value: 5
+            value: 2
         type: tool
       height: 54
       id: '1758770073925'
@@ -9455,10 +9424,10 @@ workflow:
       height: 54
       id: '1759065773395'
       position:
-        x: 10062
+        x: 9758
         y: 890
       positionAbsolute:
-        x: 10062
+        x: 9758
         y: 890
       selected: false
       sourcePosition: right
@@ -9504,10 +9473,10 @@ workflow:
       height: 54
       id: '1759065776597'
       position:
-        x: 10366
+        x: 10062
         y: 890
       positionAbsolute:
-        x: 10366
+        x: 10062
         y: 890
       selected: false
       sourcePosition: right
@@ -9535,10 +9504,10 @@ workflow:
       height: 157
       id: '1759065780515'
       position:
-        x: 10670
+        x: 10366
         y: 890
       positionAbsolute:
-        x: 10670
+        x: 10366
         y: 890
       selected: false
       sourcePosition: right
@@ -9560,7 +9529,7 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: 10694
+        x: 10390
         y: 958
       selectable: false
       sourcePosition: right
@@ -9579,12 +9548,12 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: /models/qwen2.5-32B
+          name: qwen3.5-35b-a3b
           provider: langgenius/openai_api_compatible/openai_api_compatible
         prompt_template:
         - id: 4f5e05a2-9d18-4254-9499-442e9af0652a
           role: system
-          text: 你是一个可观测性领域的智能助手，帮助用户解决问题
+          text: 你是可观测性领域的智能助手，协助用户分析解决问题。优先理解问题，指令和数据，快速回答，不要深入思考。
         - id: 3844d983-36a5-4695-b6e9-2c4978203396
           role: user
           text: "# 任务\n某个服务出现告警，请根据受影响服务的异常响应时间和错误率指标，总结服务的受影响情况。\n\n# 数据\n- 受影响服务的异常指标：{{#1759068866492.impacted_services#}}\n\
@@ -9609,10 +9578,10 @@ workflow:
       id: '1759065784647'
       position:
         x: 13542
-        y: 890
+        y: 1002
       positionAbsolute:
         x: 13542
-        y: 890
+        y: 1002
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -9784,7 +9753,7 @@ workflow:
         x: 428
         y: 68
       positionAbsolute:
-        x: 11098
+        x: 10794
         y: 958
       selected: false
       sourcePosition: right
@@ -9857,7 +9826,7 @@ workflow:
         x: 1032
         y: 68
       positionAbsolute:
-        x: 11702
+        x: 11398
         y: 958
       selected: false
       sourcePosition: right
@@ -10004,7 +9973,7 @@ workflow:
         x: 1334.1215331400635
         y: 69.8784668599369
       positionAbsolute:
-        x: 12004.121533140064
+        x: 11700.121533140064
         y: 959.8784668599369
       selected: false
       sourcePosition: right
@@ -10035,10 +10004,10 @@ workflow:
       height: 54
       id: '1759068866492'
       position:
-        x: 12934
+        x: 12630
         y: 890
       positionAbsolute:
-        x: 12934
+        x: 12630
         y: 890
       selected: false
       sourcePosition: right
@@ -10173,10 +10142,10 @@ workflow:
       height: 54
       id: '1759069387678'
       position:
-        x: 13238
+        x: 12934
         y: 890
       positionAbsolute:
-        x: 13238
+        x: 12934
         y: 890
       selected: false
       sourcePosition: right
@@ -10322,7 +10291,7 @@ workflow:
         x: 1640
         y: 68
       positionAbsolute:
-        x: 12310
+        x: 12006
         y: 958
       selected: false
       sourcePosition: right
@@ -10363,7 +10332,7 @@ workflow:
         x: 1944
         y: 68
       positionAbsolute:
-        x: 12614
+        x: 12310
         y: 958
       selected: false
       sourcePosition: right
@@ -10537,7 +10506,7 @@ workflow:
         x: 732
         y: 68
       positionAbsolute:
-        x: 11402
+        x: 11098
         y: 958
       selected: false
       sourcePosition: right
@@ -10574,7 +10543,7 @@ workflow:
         x: 128
         y: 68
       positionAbsolute:
-        x: 10798
+        x: 10494
         y: 958
       selected: false
       sourcePosition: right
@@ -10582,7 +10551,176 @@ workflow:
       type: custom
       width: 244
       zIndex: 1002
+    - data:
+        code: "import re\n\ndef main(detail: str) -> dict:\n    return {\n       \
+          \ \"detail\": close_detail(detail)\n    }\n\ndef close_detail(raw_data:\
+          \ str) -> str:\n    closed = re.sub(r'\\sopen(?=\\s|>|/>)', '', raw_data)\n\
+          \    return closed"
+        code_language: python3
+        desc: ''
+        outputs:
+          detail:
+            children: null
+            type: string
+        selected: false
+        title: 关闭思考展开
+        type: code
+        variables:
+        - value_selector:
+          - '1750662084996'
+          - text
+          variable: detail
+      height: 54
+      id: '1764638782010'
+      position:
+        x: 15157.421988277516
+        y: 876.2592373504281
+      positionAbsolute:
+        x: 15157.421988277516
+        y: 876.2592373504281
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\ndef main(arg1: str) -> dict:\n    pattern = r'<details[\\\
+          s\\S]*?</details>'\n    res = re.sub(pattern, '', arg1, flags=re.IGNORECASE)\n\
+          \    return {\n        \"result\": res.strip()\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 移除故障方向思考部分
+        type: code
+        variables:
+        - value_selector:
+          - '1750995139153'
+          - text
+          variable: arg1
+      height: 54
+      id: '1764918718274'
+      position:
+        x: 17190
+        y: 1134
+      positionAbsolute:
+        x: 17190
+        y: 1134
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is not
+            id: 84a02716-79ac-4145-be37-2ad1ad128e91
+            value: '[]'
+            varType: string
+            variable_selector:
+            - '1759068866492'
+            - impacted_services
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 6
+        type: if-else
+      height: 126
+      id: '1765248621363'
+      position:
+        x: 13238
+        y: 890
+      positionAbsolute:
+        x: 13238
+        y: 890
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: 未检测到受影响服务
+        title: 未检测到受影响服务
+        type: template-transform
+        variables: []
+      height: 54
+      id: '1765248684075'
+      position:
+        x: 13542
+        y: 908
+      positionAbsolute:
+        x: 13542
+        y: 908
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: 聚合受影响服务
+        type: variable-aggregator
+        variables:
+        - - '1765248684075'
+          - output
+        - - '1759065784647'
+          - text
+      height: 130
+      id: '1765248713862'
+      position:
+        x: 13846
+        y: 890
+      positionAbsolute:
+        x: 13846
+        y: 890
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\n\ndef main(reason: str) -> dict:\n    return {\n       \
+          \ \"reason\": close_detail(reason)\n    }\n\ndef close_detail(raw_data:\
+          \ str) -> str:\n    closed = re.sub(r'\\sopen(?=\\s|>|/>)', '', raw_data)\n\
+          \    return closed"
+        code_language: python3
+        desc: ''
+        outputs:
+          reason:
+            children: null
+            type: string
+        selected: false
+        title: 关闭思考展开
+        type: code
+        variables:
+        - value_selector:
+          - '1750662088384'
+          - text
+          variable: reason
+      height: 54
+      id: '1765250408784'
+      position:
+        x: 15414.83476629292
+        y: 890
+      positionAbsolute:
+        x: 15414.83476629292
+        y: 890
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -6765.931927189988
-      y: -283.8781939209855
-      zoom: 0.4584636160710502
+      x: -12990.466989706803
+      y: -785.8573726884133
+      zoom: 0.8040888484979263
