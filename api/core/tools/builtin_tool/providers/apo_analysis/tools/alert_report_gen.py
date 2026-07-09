@@ -8,6 +8,7 @@ import requests
 from configs import dify_config
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
+from libs.apo_report_cleanup import load_first_json_value
 
 
 class AlertReportGen(BuiltinTool):
@@ -137,15 +138,8 @@ def convert_to_json(data, name: str, errormsgs: list, required: bool = True) -> 
         return {}
     if isinstance(data, dict):
         return data
-    data = data.strip()
-    data = re.sub(r"<think>.*?</think>", "", data, flags=re.DOTALL | re.IGNORECASE).strip()
-    data = re.sub(r"<think>.*", "", data, flags=re.DOTALL | re.IGNORECASE).strip()
-    if data.startswith("```") and data.endswith("```"):
-        data = data.split("\n", 1)[1].rsplit("\n", 1)[0]
-        if data.startswith("json"):
-            data = data[4:].strip()
     try:
-        return json.loads(data)
-    except:
+        return load_first_json_value(data)
+    except ValueError:
         errormsgs.append(f'{name} Invalid JSON')
         return {}

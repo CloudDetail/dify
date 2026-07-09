@@ -4,6 +4,7 @@ from typing import Any, Optional
 from configs import dify_config
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
+from libs.apo_report_cleanup import strip_llm_thinking_blocks
 
 
 class GetAlertReportURL(BuiltinTool):
@@ -29,6 +30,7 @@ class GetAlertReportURL(BuiltinTool):
         
         url = f'{frontPrefix}/#/report?alertEventId={alertEventId}&startTime={start_time}&endTime={end}'
         
+        reportText = strip_llm_thinking_blocks(reportText)
         if reportText:
             res = f'{reportText}\n{url}'
         else:

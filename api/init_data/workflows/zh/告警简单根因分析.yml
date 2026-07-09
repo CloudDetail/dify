@@ -543,10 +543,22 @@ workflow:
     - data:
         isInIteration: false
         sourceType: llm
-        targetType: llm
-      id: 1750662084996-source-1750662088384-target
+        targetType: code
+      id: 1750662084996-source-1764049100003-target
       selected: false
       source: '1750662084996'
+      sourceHandle: source
+      target: '1764049100003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1764049100003-source-1750662088384-target
+      selected: false
+      source: '1764049100003'
       sourceHandle: source
       target: '1750662088384'
       targetHandle: target
@@ -4896,6 +4908,40 @@ workflow:
       type: custom
       width: 244
     - data:
+        code: "import re\n\n\ndef main(raw_data: str) -> dict:\n    text = raw_data or\
+          \ \"\"\n    text = re.sub(r\"<details\\b[^>]*>\\s*<summary\\b[^>]*>[^<]*thinking[^<]*</summary>.*?</details>\"\
+          , \"\", text, flags=re.DOTALL | re.IGNORECASE).strip()\n    text = re.sub(r\"\
+          <think\\b[^>]*>.*?</think\\s*>\", \"\", text, flags=re.DOTALL | re.IGNORECASE).strip()\n\
+          \    text = re.sub(r\"<think\\b[^>]*>.*\", \"\", text, flags=re.DOTALL |\
+          \ re.IGNORECASE).strip()\n    return {\n        \"result\": text,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 清理告警分析报告
+        type: code
+        variables:
+        - value_selector:
+          - '1750662084996'
+          - text
+          variable: raw_data
+      height: 54
+      id: '1764049100003'
+      position:
+        x: 16414
+        y: 1142
+      positionAbsolute:
+        x: 16414
+        y: 1142
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
         context:
           enabled: false
           variable_selector: []
@@ -8086,7 +8132,7 @@ workflow:
             value: ''
           reportText:
             type: mixed
-            value: '{{#1750662084996.text#}}'
+            value: '{{#1764049100003.result#}}'
           startTime:
             type: variable
             value:
@@ -8212,8 +8258,8 @@ workflow:
           - text
           variable: runq
         - value_selector:
-          - '1750662084996'
-          - text
+          - '1764049100003'
+          - result
           variable: report
       height: 54
       id: '1753840330051'
