@@ -5,6 +5,8 @@ from collections import defaultdict, deque
 
 import yaml
 
+from scripts.build_alert_simple_root_cause_workflow_v2 import build, main as generate_v2
+
 
 WORKFLOW_DIR = Path(__file__).parents[3] / "init_data" / "workflows" / "zh"
 SOURCE = WORKFLOW_DIR / "告警简单根因分析.yml"
@@ -159,6 +161,18 @@ def test_v2_graph_has_unique_nodes_and_valid_edges():
     for edge in graph["edges"]:
         assert edge["source"] in known
         assert edge["target"] in known
+
+
+def test_v2_generation_is_deterministic_and_preserves_source():
+    source_before = SOURCE.read_bytes()
+    first = build()
+    second = build()
+
+    generate_v2()
+
+    assert first == second
+    assert load_workflow() == first
+    assert SOURCE.read_bytes() == source_before
 
 
 def test_environment_context_detects_vm_container_and_unknown():
