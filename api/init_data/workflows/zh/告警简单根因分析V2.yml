@@ -1645,6 +1645,18 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 1002
+    - id: 1742807803325-source-v2_runtime_environment_context-target
+      type: custom
+      source: '1742807803325'
+      sourceHandle: source
+      target: v2_runtime_environment_context
+      targetHandle: target
+      selected: false
+      zIndex: 0
+      data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
     nodes:
     - data:
         desc: ''
@@ -1835,7 +1847,13 @@ workflow:
             {{#1754385689812.output#}}
 
 
-            '
+
+
+            # 运行环境约束
+
+            {{#v2_runtime_environment_context.prompt_context#}}
+
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。'
         selected: false
         title: 可行动方向建议
         type: llm
@@ -2477,7 +2495,7 @@ workflow:
             - 基于北极星指标与分析规则输出单一归因结论。\n- 若网络/Epoll类异常但网络往返延迟正常，归因为下游依赖问题。\n\n# 输入数据\n-cpu：{{#17443388433580.result#}}  \n- net：{{#17443388438160.result#}}\
             \  \n- file：{{#17443388421360.result#}}  \n- epoll：{{#1744290470304.result#}}  \n- RunQ：{{#17443388443000.result#}}\n\
             - 网络往返延迟数据总结：{{#1754298166852.result#}}\n\n# 输出准则\n- 使用简洁的非技术表述，避免歧义，如：RunQ为cpu抢占， RTT为网络往返延迟。\n- 结论需聚焦可执行建议（\"\
-            可能存在性能问题\"，“检查服务状态”等模糊建议）。"
+            可能存在性能问题\"，“检查服务状态”等模糊建议）。\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。"
         selected: false
         title: llm analysis root cause
         type: llm
@@ -4768,7 +4786,7 @@ workflow:
             - 如果是下游网络链路延迟异常则列出异常的网络链路延迟和对应下游。\n- 如果是自身网络导致下游网络链路延迟异常则给出造成的影响并说明是自身原因导致与下游的网络链路延迟升高\n- 最后根据分析规则判断错误方向。\n\n\n\
             **初步根因结论**\n- 明确告警事件对应用的影响状态。\n- 基于北极星指标与分析规则输出单一归因结论。\n\n# 输入数据\n- 北极星指标NET消耗异常均值最高的实例{{#1747356893645.top_abnormal_means#}}，北极星指标NET消耗异常增速均值最高的实例{{#1747356893645.top_abnormal_growths#}}\n\
             - 容器网络链路延迟异常消耗均值最高的实例{{#1747356893645.top_abnormal_means#}}\n容器网络链路延迟异常增速均值最高的实例\n\n# 输出准则\n- 使用简洁的非技术表述，避免歧义。\n\
-            - 结论需聚焦可执行建议（如\"检查代码嵌套\"而非\"可能存在性能问题\"）。"
+            - 结论需聚焦可执行建议（如\"检查代码嵌套\"而非\"可能存在性能问题\"）。\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。"
         selected: false
         title: 网络方向分析
         type: llm
@@ -4844,7 +4862,7 @@ workflow:
             \    \"reason\": \"\",\n                \"type\": \"storage\",\n                \"level\": \"normal\"\n      \
             \      },\n            {\n                \"reason\": \"\",\n                \"type\": \"downstream\",\n     \
             \           \"level\": \"normal\"\n            }\n        ]\n    }\n#输出格式\ntype只能为(downstream, storage,net,code,cpu),且每种一个(5种类型需要全部出现)，不要重复，不要有其他内容\n\
-            json格式数据，格式参数模版，不要有其他输出"
+            json格式数据，格式参数模版，不要有其他输出\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。"
         selected: false
         title: 根因方向JSON
         type: llm
@@ -5831,7 +5849,8 @@ workflow:
             \n# 格式模版\n{\"suggest\": [\n        {\n            \"action\": \"向交易记录表添加索引\",\n            \"level\": \"high\"\
             \n        },\n        {\n            \"action\": \"扩大数据库节点CPU资源\",\n            \"level\": \"medium\"\n      \
             \  },\n        {\n            \"action\": \"联系xx进行解决，联系方式xx\",\n             \"level\": \"high\"\n    ] }\n# 输出格式\n\
-            json格式数据，格式参考模版，内容包含排障详细步骤，至少5条建议，不要输出其他内容"
+            json格式数据，格式参考模版，内容包含排障详细步骤，至少5条建议，不要输出其他内容\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n\
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。"
         selected: false
         title: 可行动建议JSON
         type: llm
@@ -6299,7 +6318,8 @@ workflow:
             \ 只使用 {\"title\": string, \"summary\": string} 结构，不输出 timestamp、time、detail 字段。\n16. summaryCards 是首屏摘要，必须简洁，最多输出\
             \ 3 张卡片：symptom、rootCause、excluded。rootCause 卡必须从 rootCauseAnalysis.other 中 level=major 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other\
             \ 中 level=normal 的方向归纳。excluded.title 示例：已排除xx、xx方向，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个 reason，不得机械罗列多个方向；不得把\
-            \ level=minor 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。\n"
+            \ level=minor 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。\n\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n\
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。"
         selected: false
         title: 生成报告展示结构
         type: llm
@@ -8196,7 +8216,13 @@ workflow:
 
             输出你的总结，逻辑清晰，语句简洁，避免过于专业用词。
 
-            '
+
+
+            # 运行环境约束
+
+            {{#v2_runtime_environment_context.prompt_context#}}
+
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。'
         selected: false
         title: 总结下游影响
         type: llm
@@ -11115,6 +11141,74 @@ workflow:
       type: custom
       width: 244
       zIndex: 1002
+    - id: v2_runtime_environment_context
+      type: custom
+      position:
+        x: 4118
+        y: 420
+      positionAbsolute:
+        x: 4118
+        y: 420
+      width: 244
+      height: 54
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      data:
+        type: code
+        title: 运行环境上下文
+        desc: ''
+        code_language: python3
+        code: "def main(pod: str, container_id: str, node: str, pid: str) -> dict:\n    pod = str(pod or \"\").strip()\n \
+          \   container_id = str(container_id or \"\").strip()\n    node = str(node or \"\").strip()\n    pid = str(pid or\
+          \ \"\").strip()\n\n    if not pod and not container_id and node and pid:\n        return {\n            \"scene\"\
+          : \"vm\",\n            \"instance_term\": \"进程实例\",\n            \"location_text\": f\"主机 {node} 上的进程 PID {pid}\"\
+          ,\n            \"allowed_command_context\": \"top, pidstat, ss, nstat, iotop, strace, perf, systemctl, journalctl\"\
+          ,\n            \"forbidden_terms\": \"Pod, 容器, Namespace, Deployment, K8s, Kubernetes, OOMKill, kubectl, docker\"\
+          ,\n            \"prompt_context\": \"当前为纯虚拟机环境。使用主机、进程、PID、系统服务等术语；禁止输出任何容器或 Kubernetes 专属术语与命令。\",\n        }\n\
+          \    if pod or container_id:\n        return {\n            \"scene\": \"container\",\n            \"instance_term\"\
+          : \"应用实例\",\n            \"location_text\": pod or container_id,\n            \"allowed_command_context\": \"仅使用与现有证据匹配的容器或\
+          \ Kubernetes 命令\",\n            \"forbidden_terms\": \"\",\n            \"prompt_context\": \"当前为容器环境，可使用 Pod、容器和\
+          \ Kubernetes 术语，但命令必须与证据匹配。\",\n        }\n    return {\n        \"scene\": \"unknown\",\n        \"instance_term\"\
+          : \"实例\",\n        \"location_text\": node,\n        \"allowed_command_context\": \"使用跨环境通用诊断命令\",\n        \"forbidden_terms\"\
+          : \"不得猜测 Pod、容器或虚拟机\",\n        \"prompt_context\": \"当前运行环境不明确，必须使用实例、运行节点、进程或服务等中性术语。\",\n    }\n"
+        selected: false
+        variables:
+        - variable: pod
+          value_selector:
+          - '1742807803325'
+          - pod
+        - variable: container_id
+          value_selector:
+          - '1742807803325'
+          - containerId
+        - variable: node
+          value_selector:
+          - '1742807803325'
+          - node
+        - variable: pid
+          value_selector:
+          - '1742807803325'
+          - pid
+        outputs:
+          scene:
+            type: string
+            children: null
+          instance_term:
+            type: string
+            children: null
+          location_text:
+            type: string
+            children: null
+          allowed_command_context:
+            type: string
+            children: null
+          forbidden_terms:
+            type: string
+            children: null
+          prompt_context:
+            type: string
+            children: null
     viewport:
       x: -3610.9285714285716
       y: 143.1428571428571
