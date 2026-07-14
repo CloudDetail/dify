@@ -55,6 +55,233 @@ ENV_AWARE_TITLES = {
     "生成报告展示结构",
 }
 
+RTT_DETECTION_CODE = '''import json
+import math
+import statistics
+
+
+ABSOLUTE_THRESHOLD = 0.05
+SPARSE_MIN_SPIKE = 0.02
+SPARSE_ZERO_RATIO = 0.5
+SPARSE_POSITIVE_RATIO = 0.2
+ROBUST_SIGMA_FACTOR = 3.0
+MIN_RELATIVE_INCREASE = 1.5
+
+
+def _valid_values(chart):
+    values = []
+    for raw in chart.values():
+        if isinstance(raw, bool) or not isinstance(raw, (int, float)):
+            continue
+        value = float(raw)
+        if math.isfinite(value) and value >= 0:
+            values.append(value)
+    return values
+
+
+def _robust_baseline(positive):
+    if len(positive) < 3:
+        return None
+    median = statistics.median(positive)
+    deviations = [abs(value - median) for value in positive]
+    mad = statistics.median(deviations)
+    robust_sigma = 1.4826 * mad
+    if robust_sigma == 0:
+        robust_sigma = statistics.pstdev(positive)
+    upper = median + ROBUST_SIGMA_FACTOR * robust_sigma
+    return {"median": median, "robust_sigma": robust_sigma, "upper": upper}
+
+
+def analyze_data(result_str: str):
+    try:
+        data = json.loads(result_str)
+    except (TypeError, json.JSONDecodeError):
+        return json.dumps([])
+
+    timeseries = data.get("data", {}).get("timeseries", []) or []
+    unit = data.get("unit", "")
+    filtered = []
+
+    for entry in timeseries:
+        labels = entry.get("labels", {}) or {}
+        legend = str(entry.get("legend", "") or "")
+        chart = entry.get("chart", {}).get("chartData", {}) or {}
+        values = _valid_values(chart)
+        if not values:
+            continue
+
+        positive = [value for value in values if value > 0]
+        if not positive:
+            continue
+
+        total_count = len(values)
+        positive_count = len(positive)
+        zero_count = total_count - positive_count
+        zero_ratio = zero_count / total_count
+        positive_ratio = positive_count / total_count
+        spike = max(positive)
+        avg = sum(positive) / positive_count
+        reasons = []
+        abnormal_values = set()
+
+        for index, value in enumerate(values):
+            if value > ABSOLUTE_THRESHOLD:
+                abnormal_values.add(index)
+        if abnormal_values:
+            reasons.append("absolute")
+
+        baseline = _robust_baseline(positive)
+        if baseline and baseline["median"] > 0:
+            robust_hits = {
+                index
+                for index, value in enumerate(values)
+                if value > baseline["upper"] and value / baseline["median"] >= MIN_RELATIVE_INCREASE
+            }
+            if robust_hits:
+                abnormal_values.update(robust_hits)
+                reasons.append("robust_baseline")
+
+        if (
+            zero_ratio >= SPARSE_ZERO_RATIO
+            and positive_ratio <= SPARSE_POSITIVE_RATIO
+            and spike >= SPARSE_MIN_SPIKE
+        ):
+            reasons.append("sparse_spike")
+            abnormal_values.update(index for index, value in enumerate(values) if value == spike)
+
+        if not reasons:
+            continue
+
+        filtered.append({
+            "chart": chart,
+            "abnormalCount": len(abnormal_values),
+            "labels": labels,
+            "legend": legend,
+            "avg": avg,
+            "unit": unit,
+            "spike": spike,
+            "zeroRatio": zero_ratio,
+            "positiveCount": positive_count,
+            "detectionReasons": reasons,
+            "baseline": baseline or {},
+        })
+
+    return json.dumps(filtered)
+
+
+def main(arg1: str) -> dict:
+    return {"result": analyze_data(arg1)}
+'''
+
+RTT_ATTRIBUTION_CODE = '''import json
+from collections import defaultdict
+
+
+def _load(data_json):
+    try:
+        data = json.loads(data_json)
+    except (TypeError, json.JSONDecodeError):
+        return []
+    return data if isinstance(data, list) else []
+
+
+def _target_identity(item, unknown_index):
+    labels = item.get("labels", {}) or {}
+    for key in ("dst_pod", "dst_ip"):
+        value = str(labels.get(key, "") or "").strip()
+        if value:
+            return value, True
+    legend = str(item.get("legend", "") or "").strip()
+    if legend:
+        return legend, True
+    return f"unknown_dst_instance_{unknown_index}", False
+
+
+def main(data_json):
+    data = _load(data_json)
+    if not data:
+        return {
+            "result": "未检测到可用于归因的 RTT 异常数据，需要通过调用链补充分析。",
+            "direction_summary": "未明确归因",
+            "abnormal_downstream_instances": "[]",
+            "evidence_quality": "insufficient",
+            "requires_span_fallback": True,
+        }
+
+    first_labels = data[0].get("labels", {}) or {}
+    src_pod = first_labels.get("src_pod") or first_labels.get("pod") or "当前实例"
+    src_node = first_labels.get("src_node") or first_labels.get("node") or ""
+    src_ip = first_labels.get("src_ip") or ""
+    instances = []
+    details_by_node = defaultdict(list)
+    valid_count = 0
+    complete_count = 0
+    seen = set()
+
+    for index, item in enumerate(data, start=1):
+        labels = item.get("labels", {}) or {}
+        identity, is_valid = _target_identity(item, index)
+        if not is_valid or identity in seen:
+            continue
+        seen.add(identity)
+        valid_count += 1
+        dst_node = str(labels.get("dst_node", "") or "").strip()
+        dst_ip = str(labels.get("dst_ip", "") or "").strip()
+        if dst_node and dst_ip:
+            complete_count += 1
+        avg = item.get("avg")
+        unit = item.get("unit", "")
+        spike = item.get("spike")
+        instance = {
+            "instance_name": identity,
+            "rtt_avg": f"{avg}{unit}",
+            "rtt_spike": f"{spike}{unit}",
+            "node": dst_node,
+            "ip": dst_ip,
+            "evidence_quality": "complete" if dst_node and dst_ip else "partial",
+        }
+        instances.append(instance)
+        if dst_node:
+            details_by_node[dst_node].append(instance)
+
+    if valid_count == 0:
+        return {
+            "result": "检测到 RTT 波动，但缺少可识别的下游目标，需要通过高耗时 Span 补充归因。",
+            "direction_summary": "未明确归因",
+            "abnormal_downstream_instances": "[]",
+            "evidence_quality": "insufficient",
+            "requires_span_fallback": True,
+        }
+
+    evidence_quality = "complete" if complete_count == valid_count else "partial"
+    distinct_nodes = len(details_by_node)
+    dominant_node = None
+    for node, node_instances in details_by_node.items():
+        if len(node_instances) > 1 and len(node_instances) / valid_count >= 0.7:
+            dominant_node = node
+            break
+
+    if dominant_node:
+        direction = "下游节点问题"
+        result = f"{src_pod} 的 RTT 异常主要集中在下游节点 {dominant_node}，将结合高耗时 Span 补充具体调用证据。"
+    elif distinct_nodes >= 3 or valid_count >= 5:
+        direction = "自身问题"
+        location = " ".join(value for value in (src_node, src_ip) if value)
+        result = f"{src_pod} 与多个下游目标的 RTT 同时异常，倾向自身网络问题。{location}".strip()
+    else:
+        direction = "下游实例问题"
+        names = "、".join(instance["instance_name"] for instance in instances)
+        result = f"{src_pod} 与下游实例 {names} 的 RTT 异常，将结合高耗时 Span 补充具体调用证据。"
+
+    return {
+        "result": result,
+        "direction_summary": direction,
+        "abnormal_downstream_instances": json.dumps(instances),
+        "evidence_quality": evidence_quality,
+        "requires_span_fallback": direction != "自身问题" or evidence_quality != "complete",
+    }
+'''
+
 
 class NoAliasDumper(yaml.SafeDumper):
     def ignore_aliases(self, data: Any) -> bool:
@@ -139,12 +366,28 @@ def inject_environment_prompts(document: dict) -> None:
                 prompt["text"] = prompt.get("text", "") + section
 
 
+def replace_rtt_nodes(document: dict) -> None:
+    detection = node_by_id(document, "17515143872690")
+    detection["data"]["code"] = RTT_DETECTION_CODE
+
+    attribution = node_by_id(document, "1754298166852")
+    attribution["data"]["code"] = RTT_ATTRIBUTION_CODE
+    attribution["data"]["outputs"] = {
+        "abnormal_downstream_instances": {"type": "string", "children": None},
+        "direction_summary": {"type": "string", "children": None},
+        "evidence_quality": {"type": "string", "children": None},
+        "requires_span_fallback": {"type": "boolean", "children": None},
+        "result": {"type": "string", "children": None},
+    }
+
+
 def build() -> dict:
     document = yaml.safe_load(SOURCE.read_text(encoding="utf-8"))
     document = copy.deepcopy(document)
     document["app"]["name"] = "告警简单根因分析V2"
     add_environment_context(document)
     inject_environment_prompts(document)
+    replace_rtt_nodes(document)
     return document
 
 

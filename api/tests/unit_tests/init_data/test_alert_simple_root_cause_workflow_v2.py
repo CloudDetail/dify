@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import Callable
+import json
 
 import yaml
 
@@ -28,6 +29,38 @@ def code_node_main(title: str) -> Callable:
 
 def prompt_text(node: dict) -> str:
     return "\n".join(item.get("text", "") for item in node["data"].get("prompt_template", []))
+
+
+def complete_labels(**overrides) -> dict:
+    labels = {
+        "src_pod": "source-pod",
+        "src_node": "source-node",
+        "src_ip": "10.0.0.1",
+        "dst_pod": "target-pod",
+        "dst_node": "target-node",
+        "dst_ip": "10.0.0.2",
+    }
+    labels.update(overrides)
+    return labels
+
+
+def series(values: list[float], labels: dict, legend: str = "target") -> dict:
+    return {
+        "legend": legend,
+        "labels": labels,
+        "chart": {"chartData": {str(index): value for index, value in enumerate(values)}},
+    }
+
+
+def run_rtt_detection(timeseries: list[dict]) -> list[dict]:
+    main = code_node_main("RTT分析")
+    payload = json.dumps({"unit": "s", "data": {"timeseries": timeseries}})
+    return json.loads(main(payload)["result"])
+
+
+def run_rtt_attribution(detected: list[dict]) -> dict:
+    main = code_node_main("分析RTT问题")
+    return main(json.dumps(detected))
 
 
 def test_v2_workflow_exists_and_has_distinct_name():
@@ -81,3 +114,51 @@ def test_key_llm_prompts_reference_environment_context():
             text = prompt_text(node)
             assert "{{#v2_runtime_environment_context.prompt_context#}}" in text, title
             assert "运行环境上下文优先" in text, title
+
+
+def test_sparse_40ms_rtt_spike_is_detected():
+    detected = run_rtt_detection([series([0.0] * 99 + [0.04], complete_labels())])
+
+    assert len(detected) == 1
+    assert "sparse_spike" in detected[0]["detectionReasons"]
+
+
+def test_rtt_detection_processes_series_after_first_ten():
+    normal = [
+        series([0.0, 0.0], complete_labels(dst_pod=f"normal-{index}"))
+        for index in range(10)
+    ]
+    detected = run_rtt_detection(
+        normal + [series([0.0, 0.08], complete_labels(dst_pod="late"), legend="late")]
+    )
+
+    assert detected[0]["labels"]["dst_pod"] == "late"
+
+
+def test_missing_dst_node_or_ip_does_not_drop_instance():
+    detected = [
+        {
+            "labels": {"dst_pod": "db-1"},
+            "legend": "db-1",
+            "avg": 0.04,
+            "spike": 0.04,
+            "unit": "s",
+        }
+    ]
+
+    result = run_rtt_attribution(detected)
+    instances = json.loads(result["abnormal_downstream_instances"])
+
+    assert result["direction_summary"] == "下游实例问题"
+    assert instances[0]["instance_name"] == "db-1"
+    assert result["evidence_quality"] == "partial"
+
+
+def test_attribution_never_returns_empty_downstream_problem():
+    result = run_rtt_attribution(
+        [{"labels": {}, "legend": "", "avg": 0.04, "spike": 0.04, "unit": "s"}]
+    )
+
+    assert result["direction_summary"] == "未明确归因"
+    assert result["requires_span_fallback"] is True
+    assert json.loads(result["abnormal_downstream_instances"]) == []

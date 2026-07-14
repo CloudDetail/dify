@@ -7633,21 +7633,39 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n        return 0\n    return sum(values) / len(values)\n\
-          \ndef _get_standard_deviation(avg, values):\n    if len(values) == 0:\n        return 0\n    squared_diffs = [(x\
-          \ - avg)**2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n    variance = sum_squared_diffs / (len(values))\n\
-          \    return variance**0.5\n\ndef analyze_data(result_str: str):        \n\n        data = json.loads(result_str)\n\
-          \        timeseries = data.get('data', {}).get('timeseries', [])[:10]\n        unit = data.get('unit', '')\n   \
-          \     filtered = []\n\n        for entry in timeseries:\n            labels = entry.get('labels', {})\n\n      \
-          \      chart = entry.get('chart', {}).get('chartData', {})\n            values = [v for v in chart.values() if v\
-          \ != 0]\n\n            if len(values) == 0:\n                continue\n\n            avg = _get_avg(values)\n  \
-          \          variance = _get_standard_deviation(avg, values)\n\n            threshold = avg + 1 * variance\n     \
-          \       \n            count = 0\n            for _, value in chart.items():\n                if value > 0.05:\n\
-          \                    count += 1\n\n            if count != 0:\n                res = {\n                    \"chart\"\
-          : chart,\n                    \"abnormalCount\": count,\n                    \"labels\": labels,\n             \
-          \       \"avg\": avg,\n                    \"unit\": unit,\n                    \"spike\": max(values)\n       \
-          \         }\n                filtered.append(res)\n                \n\n        return json.dumps(filtered)\n   \
-          \ \ndef main(arg1: str) -> dict:\n    res = analyze_data(arg1)\n    return {\n        \"result\": res,\n    }\n"
+        code: "import json\nimport math\nimport statistics\n\n\nABSOLUTE_THRESHOLD = 0.05\nSPARSE_MIN_SPIKE = 0.02\nSPARSE_ZERO_RATIO\
+          \ = 0.5\nSPARSE_POSITIVE_RATIO = 0.2\nROBUST_SIGMA_FACTOR = 3.0\nMIN_RELATIVE_INCREASE = 1.5\n\n\ndef _valid_values(chart):\n\
+          \    values = []\n    for raw in chart.values():\n        if isinstance(raw, bool) or not isinstance(raw, (int,\
+          \ float)):\n            continue\n        value = float(raw)\n        if math.isfinite(value) and value >= 0:\n\
+          \            values.append(value)\n    return values\n\n\ndef _robust_baseline(positive):\n    if len(positive)\
+          \ < 3:\n        return None\n    median = statistics.median(positive)\n    deviations = [abs(value - median) for\
+          \ value in positive]\n    mad = statistics.median(deviations)\n    robust_sigma = 1.4826 * mad\n    if robust_sigma\
+          \ == 0:\n        robust_sigma = statistics.pstdev(positive)\n    upper = median + ROBUST_SIGMA_FACTOR * robust_sigma\n\
+          \    return {\"median\": median, \"robust_sigma\": robust_sigma, \"upper\": upper}\n\n\ndef analyze_data(result_str:\
+          \ str):\n    try:\n        data = json.loads(result_str)\n    except (TypeError, json.JSONDecodeError):\n      \
+          \  return json.dumps([])\n\n    timeseries = data.get(\"data\", {}).get(\"timeseries\", []) or []\n    unit = data.get(\"\
+          unit\", \"\")\n    filtered = []\n\n    for entry in timeseries:\n        labels = entry.get(\"labels\", {}) or\
+          \ {}\n        legend = str(entry.get(\"legend\", \"\") or \"\")\n        chart = entry.get(\"chart\", {}).get(\"\
+          chartData\", {}) or {}\n        values = _valid_values(chart)\n        if not values:\n            continue\n\n\
+          \        positive = [value for value in values if value > 0]\n        if not positive:\n            continue\n\n\
+          \        total_count = len(values)\n        positive_count = len(positive)\n        zero_count = total_count - positive_count\n\
+          \        zero_ratio = zero_count / total_count\n        positive_ratio = positive_count / total_count\n        spike\
+          \ = max(positive)\n        avg = sum(positive) / positive_count\n        reasons = []\n        abnormal_values =\
+          \ set()\n\n        for index, value in enumerate(values):\n            if value > ABSOLUTE_THRESHOLD:\n        \
+          \        abnormal_values.add(index)\n        if abnormal_values:\n            reasons.append(\"absolute\")\n\n \
+          \       baseline = _robust_baseline(positive)\n        if baseline and baseline[\"median\"] > 0:\n            robust_hits\
+          \ = {\n                index\n                for index, value in enumerate(values)\n                if value >\
+          \ baseline[\"upper\"] and value / baseline[\"median\"] >= MIN_RELATIVE_INCREASE\n            }\n            if robust_hits:\n\
+          \                abnormal_values.update(robust_hits)\n                reasons.append(\"robust_baseline\")\n\n  \
+          \      if (\n            zero_ratio >= SPARSE_ZERO_RATIO\n            and positive_ratio <= SPARSE_POSITIVE_RATIO\n\
+          \            and spike >= SPARSE_MIN_SPIKE\n        ):\n            reasons.append(\"sparse_spike\")\n         \
+          \   abnormal_values.update(index for index, value in enumerate(values) if value == spike)\n\n        if not reasons:\n\
+          \            continue\n\n        filtered.append({\n            \"chart\": chart,\n            \"abnormalCount\"\
+          : len(abnormal_values),\n            \"labels\": labels,\n            \"legend\": legend,\n            \"avg\":\
+          \ avg,\n            \"unit\": unit,\n            \"spike\": spike,\n            \"zeroRatio\": zero_ratio,\n   \
+          \         \"positiveCount\": positive_count,\n            \"detectionReasons\": reasons,\n            \"baseline\"\
+          : baseline or {},\n        })\n\n    return json.dumps(filtered)\n\n\ndef main(arg1: str) -> dict:\n    return {\"\
+          result\": analyze_data(arg1)}\n"
         code_language: python3
         desc: ''
         outputs:
@@ -7962,98 +7980,60 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\nfrom collections import defaultdict\n\n\ndef main(data_json):\n    \"\"\"\n    分析 RTT 异常数据，并给出潜在问题归因。\n\
-          \    分为自身问题和下游问题两大类，下游问题细分为节点异常和实例异常。\n    在\"高集中度下游节点问题\"的结论中，会额外列出其他非主要节点的异常实例。\n    每个异常实例的信息中会包含其异常均值和单位。\n\n\
-          \    Args:\n        data_json (str): 包含 RTT 异常数据的 JSON 字符串。\n                        预期格式为一个列表，每个元素代表一个异常的源-目标 RTT\
-          \ 对。\n\n    Returns:\n        dict: 包含分析结果的字典，格式为：\n        {\n            \"result\": str,  # 分析结论文本\n        \
-          \    \"direction_summary\": str,  # 异常方向总结：自身问题/下游节点问题/下游实例问题\n            \"abnormal_downstream_instances\": list\
-          \  # 异常下游实例列表，仅在方向为下游实例问题时返回\n        }\n    \"\"\"\n    data = json.loads(data_json)\n\n    if not data:\n    \
-          \    return {\n            \"result\": \"未检测到 RTT 异常数据。\",\n            \"direction_summary\": \"未明确归因\",\n    \
-          \        \"abnormal_downstream_instances\": \"[]\"\n        }\n\n    first_instance_labels = data[0].get('labels',\
-          \ {})\n    src_pod = first_instance_labels.get('src_pod')\n    src_node = first_instance_labels.get('src_node')\n\
-          \    src_ip = first_instance_labels.get('src_ip')\n\n    # abnormal_destinations_by_node 存储每个dst_node下所有异常pod和ip，以及它们的RTT详情\n\
-          \    # 为了去重，我们将details存储为一个字典，键是dst_pod\n    abnormal_destinations_by_node = defaultdict(\n        lambda: {'pods':\
-          \ set(), 'ips': set(), 'details': {}})\n\n    # dst_node_abnormal_pod_counts 统计每个dst_node下有多少个异常的dst_pod（用于集中度判断）\n\
-          \    dst_node_abnormal_pod_counts = defaultdict(int)\n\n    # 存储所有已处理的 dst_pod，用于去重\n    processed_dst_pods = set()\n\
-          \    total_abnormal_dest_pairs = 0  # 统计 src_pod 异常的目标对数量 (src_pod -> dst_pod)\n\n    # 存储所有异常实例的详细信息，用于后续返回\n \
-          \   all_abnormal_instances = []\n    unknown_dst_id = 1\n    # 修改数据处理循环以支持去重\n    for item in data:\n        labels\
-          \ = item.get('labels', {})\n        current_dst_pod = labels.get('dst_pod')\n        current_dst_node = labels.get('dst_node')\n\
-          \        current_dst_ip = labels.get('dst_ip')\n        current_avg = item.get('avg')\n        current_unit = item.get('unit')\n\
-          \        current_spike = item.get(\"spike\")\n        if not current_dst_pod:\n            current_dst_pod = f\"\
-          unknown_dst_instance_{unknown_dst_id}\"\n            unknown_dst_id += 1\n\n        if current_dst_pod and current_dst_node\
-          \ and current_dst_ip:\n            # 去重：如果这个 dst_pod 已经处理过，则跳过\n            if current_dst_pod in processed_dst_pods:\n\
-          \                continue\n\n            processed_dst_pods.add(current_dst_pod)\n\n            total_abnormal_dest_pairs\
-          \ += 1\n            abnormal_destinations_by_node[current_dst_node]['pods'].add(\n                current_dst_pod)\n\
-          \            abnormal_destinations_by_node[current_dst_node]['ips'].add(\n                current_dst_ip)\n    \
-          \        abnormal_destinations_by_node[current_dst_node]['details'][current_dst_pod] = (\n                f\"{current_dst_pod}\
-          \ (Avg RTT: {current_avg}{current_unit}, Spike RTT{current_spike})\"\n            )\n            dst_node_abnormal_pod_counts[current_dst_node]\
-          \ += 1\n\n            # 收集所有异常实例信息\n            all_abnormal_instances.append({\n                \"instance_name\"\
-          : current_dst_pod,\n                \"rtt_avg\": current_avg,\n                \"rtt_unit\": current_unit,\n   \
-          \             \"node\": current_dst_node\n            })\n\n    num_distinct_abnormal_dst_nodes = len(abnormal_destinations_by_node)\n\
-          \n    conclusion = []\n    direction_summary = \"\"\n    abnormal_downstream_instances = []\n\n    # 1. 尝试识别\"高集中度下游节点问题\"\
-          \n    # 寻找是否存在一个主导的异常下游节点\n    dominant_dst_node_info = None\n    for dst_node, count in dst_node_abnormal_pod_counts.items():\n\
-          \        # 如果某个节点下的异常 pod 数量占总异常 pod 数量的比例很高 (例如 >= 70%)\n        # 且该节点下有多个异常 pod (count > 1)\n        # 阈值可调\n\
-          \        if total_abnormal_dest_pairs > 0 and (count / total_abnormal_dest_pairs) >= 0.7 and count > 1:\n      \
-          \      dominant_dst_node_info = {\n                'node': dst_node,\n                # Keep original set\n    \
-          \            'pods_set': abnormal_destinations_by_node[dst_node]['pods'],\n                'ips': abnormal_destinations_by_node[dst_node]['ips'],\n\
-          \                # Use collected details\n                'details': abnormal_destinations_by_node[dst_node]['details'],\n\
-          \                'count': count\n            }\n            break\n\n    if dominant_dst_node_info:\n        # 场景\
-          \ A: 高集中度下游节点问题\n        direction_summary = \"下游节点问题\"\n        dst_node = dominant_dst_node_info['node']\n   \
-          \     # Use details for string representation, sort for consistent output\n        dst_pods_details_str = \", \"\
-          .join(\n            sorted(dominant_dst_node_info['details'].values()))\n        dst_ips_str = \", \".join(dominant_dst_node_info['ips'])\n\
-          \n        # 收集其他非主导节点的异常实例，作为可能存在的\"同时存在实例异常\"\n        other_abnormal_instances_details = []\n        for other_node,\
-          \ other_info in abnormal_destinations_by_node.items():\n            if other_node != dst_node:\n               \
-          \ # Use details for other nodes too\n                other_abnormal_instances_details.extend(\n                \
-          \    [f\"{detail} (在节点 {other_node} 上)\" for detail in other_info['details'].values(\n                    )]\n \
-          \               )\n\n        main_conclusion = (\n            f\"实例 **{src_pod}** RTT 出现问题的原因是**下游问题**，主要表现为**节点异常**。\"\
-          \n            f\"异常高度集中在下游节点 **{dst_node}** (**{dst_ips_str}**)，其上大量实例 (**{dst_pods_details_str}**) 出现异常。\"\n  \
-          \          f\"**建议优先检查下游节点 {dst_node} ({dst_ips_str}) 的网络配置、资源使用和整体健康状况。**\"\n        )\n        if other_abnormal_instances_details:\n\
-          \            # Sort for consistent output\n            main_conclusion += (\n                f\"\\n同时，也观察到以下下游实例可能存在独立异常或受其他因素影响：**{';\
-          \ '.join(sorted(other_abnormal_instances_details))}**。\"\n            )\n        conclusion.append(main_conclusion)\n\
-          \n    # 2. 如果没有明确的\"高集中度下游节点问题\"，则判断是\"自身问题\"还是\"下游实例问题\"\n    if not conclusion:\n        # 判断是否为\"自身问题\"：异常分布广泛，影响多个不同下游节点，且没有一个主导节点\n\
-          \        # 阈值：如果异常下游节点数量较多 (>=3)，或者异常下游实例总数较多 (>=5)\n        # 这些阈值可以根据实际环境调整\n        if num_distinct_abnormal_dst_nodes\
-          \ >= 3 or total_abnormal_dest_pairs >= 5:\n            # 场景 B: 自身问题\n            direction_summary = \"自身问题\"\n\
-          \            other_abnormal_downstreams_str = []\n            for node, info in abnormal_destinations_by_node.items():\n\
-          \                # Sort for consistent output\n                pods_details_str = \", \".join(sorted(info['details'].values()))\n\
-          \                other_abnormal_downstreams_str.append(\n                    f\"节点 {node} (实例: {pods_details_str})\"\
-          )\n\n            conclusion.append(\n                f\"实例 **{src_pod}** RTT 出现问题的原因很可能是**自身问题**。\"\n          \
-          \      f\"与多个不同下游 ({'; '.join(other_abnormal_downstreams_str)}) 的 RTT 均出现问题，且异常分布较广，不集中在特定下游节点。\"\n            \
-          \    f\"**建议检查 {src_node} ({src_ip}) {src_pod} 的网络配置、资源使用（CPU/内存/网络IO）和自身服务运行状态。**\"\n            )\n        else:\n\
-          \            # 场景 C: 下游实例问题 (没有主导节点，且异常数量相对较少，指向特定实例)\n            # 这包括了单个实例异常和少数几个实例异常的情况\n            direction_summary\
-          \ = \"下游实例问题\"\n\n            # 构建异常下游实例列表\n            for instance in all_abnormal_instances:\n              \
-          \  abnormal_downstream_instances.append({\n                    \"instance_name\": instance[\"instance_name\"],\n\
-          \                    \"rtt_avg\": f\"{instance['rtt_avg']}{instance['rtt_unit']}\"\n                })\n\n     \
-          \       abnormal_instances_list = []\n            for node, info in abnormal_destinations_by_node.items():\n   \
-          \             # Add details for each instance\n                abnormal_instances_list.extend(\n               \
-          \     [f\"{detail} (在节点 {node} 上)\" for detail in info['details'].values()]\n                )\n\n            #\
-          \ Sort for consistent output\n            abnormal_instances_list = sorted(abnormal_instances_list)\n\n        \
-          \    if len(abnormal_instances_list) == 1:\n                conclusion.append(\n                    f\"实例 **{src_pod}**\
-          \ RTT 出现问题的原因是**下游问题**，表现为**实例异常**。\"\n                    f\"仅与特定下游实例 **{abnormal_instances_list[0]}** RTT 出现异常。\"\
-          \n                    f\"**建议检查该实例的健康状况。**\"\n                )\n            else:\n                conclusion.append(\n\
-          \                    f\"实例 **{src_pod}** RTT 出现问题的原因是**下游问题**，表现为**实例异常**。\"\n                    f\"与以下特定下游实例 RTT\
-          \ 出现异常：**{', '.join(abnormal_instances_list)}**。\"\n                    f\"**建议检查这些特定实例的健康状况。**\"\n            \
-          \    )\n\n    if not conclusion:\n        direction_summary = \"未明确归因\"\n        abnormal_details_str_list = []\n\
-          \        for dst_node, info in abnormal_destinations_by_node.items():\n            # Use details for inconsistent\
-          \ output\n            pods_details_str = \", \".join(sorted(info['details'].values()))\n            ips_str = \"\
-          , \".join(info['ips'])\n            abnormal_details_str_list.append(\n                f\"下游节点 {dst_node} (IP: {ips_str})\
-          \ 的实例: {pods_details_str}\")\n\n        conclusion.append(\n            f\"实例 {src_pod} RTT 出现异常，但无法明确归因于单一原因。\"\
-          \n            f\"共检测到与 {total_abnormal_dest_pairs} 个下游目标实例的 RTT 异常，涉及 {num_distinct_abnormal_dst_nodes} 个不同的下游节点。\"\
-          \n            # Sort for consistent output\n            f\"具体异常下游：{'; '.join(sorted(abnormal_details_str_list))}。\"\
-          \n            f\"**建议深入分析 {src_pod} 和上述下游目标的网络路径及各自的资源使用情况。**\"\n        )\n\n    return {\n        \"result\":\
-          \ \"\\n\".join(conclusion),\n        \"direction_summary\": direction_summary,\n        \"abnormal_downstream_instances\"\
-          : json.dumps(abnormal_downstream_instances) if direction_summary == \"下游实例问题\" else \"[]\"\n    }\n"
+        code: "import json\nfrom collections import defaultdict\n\n\ndef _load(data_json):\n    try:\n        data = json.loads(data_json)\n\
+          \    except (TypeError, json.JSONDecodeError):\n        return []\n    return data if isinstance(data, list) else\
+          \ []\n\n\ndef _target_identity(item, unknown_index):\n    labels = item.get(\"labels\", {}) or {}\n    for key in\
+          \ (\"dst_pod\", \"dst_ip\"):\n        value = str(labels.get(key, \"\") or \"\").strip()\n        if value:\n  \
+          \          return value, True\n    legend = str(item.get(\"legend\", \"\") or \"\").strip()\n    if legend:\n  \
+          \      return legend, True\n    return f\"unknown_dst_instance_{unknown_index}\", False\n\n\ndef main(data_json):\n\
+          \    data = _load(data_json)\n    if not data:\n        return {\n            \"result\": \"未检测到可用于归因的 RTT 异常数据，需要通过调用链补充分析。\"\
+          ,\n            \"direction_summary\": \"未明确归因\",\n            \"abnormal_downstream_instances\": \"[]\",\n     \
+          \       \"evidence_quality\": \"insufficient\",\n            \"requires_span_fallback\": True,\n        }\n\n  \
+          \  first_labels = data[0].get(\"labels\", {}) or {}\n    src_pod = first_labels.get(\"src_pod\") or first_labels.get(\"\
+          pod\") or \"当前实例\"\n    src_node = first_labels.get(\"src_node\") or first_labels.get(\"node\") or \"\"\n    src_ip\
+          \ = first_labels.get(\"src_ip\") or \"\"\n    instances = []\n    details_by_node = defaultdict(list)\n    valid_count\
+          \ = 0\n    complete_count = 0\n    seen = set()\n\n    for index, item in enumerate(data, start=1):\n        labels\
+          \ = item.get(\"labels\", {}) or {}\n        identity, is_valid = _target_identity(item, index)\n        if not is_valid\
+          \ or identity in seen:\n            continue\n        seen.add(identity)\n        valid_count += 1\n        dst_node\
+          \ = str(labels.get(\"dst_node\", \"\") or \"\").strip()\n        dst_ip = str(labels.get(\"dst_ip\", \"\") or \"\
+          \").strip()\n        if dst_node and dst_ip:\n            complete_count += 1\n        avg = item.get(\"avg\")\n\
+          \        unit = item.get(\"unit\", \"\")\n        spike = item.get(\"spike\")\n        instance = {\n          \
+          \  \"instance_name\": identity,\n            \"rtt_avg\": f\"{avg}{unit}\",\n            \"rtt_spike\": f\"{spike}{unit}\"\
+          ,\n            \"node\": dst_node,\n            \"ip\": dst_ip,\n            \"evidence_quality\": \"complete\"\
+          \ if dst_node and dst_ip else \"partial\",\n        }\n        instances.append(instance)\n        if dst_node:\n\
+          \            details_by_node[dst_node].append(instance)\n\n    if valid_count == 0:\n        return {\n        \
+          \    \"result\": \"检测到 RTT 波动，但缺少可识别的下游目标，需要通过高耗时 Span 补充归因。\",\n            \"direction_summary\": \"未明确归因\",\n\
+          \            \"abnormal_downstream_instances\": \"[]\",\n            \"evidence_quality\": \"insufficient\",\n \
+          \           \"requires_span_fallback\": True,\n        }\n\n    evidence_quality = \"complete\" if complete_count\
+          \ == valid_count else \"partial\"\n    distinct_nodes = len(details_by_node)\n    dominant_node = None\n    for\
+          \ node, node_instances in details_by_node.items():\n        if len(node_instances) > 1 and len(node_instances) /\
+          \ valid_count >= 0.7:\n            dominant_node = node\n            break\n\n    if dominant_node:\n        direction\
+          \ = \"下游节点问题\"\n        result = f\"{src_pod} 的 RTT 异常主要集中在下游节点 {dominant_node}，将结合高耗时 Span 补充具体调用证据。\"\n    elif\
+          \ distinct_nodes >= 3 or valid_count >= 5:\n        direction = \"自身问题\"\n        location = \" \".join(value for\
+          \ value in (src_node, src_ip) if value)\n        result = f\"{src_pod} 与多个下游目标的 RTT 同时异常，倾向自身网络问题。{location}\".strip()\n\
+          \    else:\n        direction = \"下游实例问题\"\n        names = \"、\".join(instance[\"instance_name\"] for instance\
+          \ in instances)\n        result = f\"{src_pod} 与下游实例 {names} 的 RTT 异常，将结合高耗时 Span 补充具体调用证据。\"\n\n    return {\n\
+          \        \"result\": result,\n        \"direction_summary\": direction,\n        \"abnormal_downstream_instances\"\
+          : json.dumps(instances),\n        \"evidence_quality\": evidence_quality,\n        \"requires_span_fallback\": direction\
+          \ != \"自身问题\" or evidence_quality != \"complete\",\n    }\n"
         code_language: python3
         desc: ''
         outputs:
           abnormal_downstream_instances:
-            children: null
             type: string
+            children: null
           direction_summary:
-            children: null
             type: string
+            children: null
+          evidence_quality:
+            type: string
+            children: null
+          requires_span_fallback:
+            type: boolean
+            children: null
           result:
-            children: null
             type: string
+            children: null
         selected: false
         title: 分析RTT问题
         type: code
