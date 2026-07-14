@@ -203,3 +203,6 @@ api/.vscode
 plugins.jsonl
 
 api/tools_generator/metrics_conf.json
+
+# Local git worktrees
+/.worktrees/
