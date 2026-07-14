@@ -1403,18 +1403,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: tool
-        targetType: code
-      id: 1759065773395-source-1759065776597-target
-      selected: false
-      source: '1759065773395'
-      sourceHandle: source
-      target: '1759065776597'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: code
         targetType: iteration
       id: 1759065776597-source-1759065780515-target
@@ -1669,6 +1657,54 @@ workflow:
         isInIteration: false
         sourceType: if-else
         targetType: tool
+    - id: 1741512806512-source-v2_error_trace_query-target
+      type: custom
+      source: '1741512806512'
+      sourceHandle: source
+      target: v2_error_trace_query
+      targetHandle: target
+      selected: false
+      zIndex: 0
+      data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+    - id: 1759065773395-source-v2_trace_merge-target
+      type: custom
+      source: '1759065773395'
+      sourceHandle: source
+      target: v2_trace_merge
+      targetHandle: target
+      selected: false
+      zIndex: 0
+      data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+    - id: v2_error_trace_query-source-v2_trace_merge-target
+      type: custom
+      source: v2_error_trace_query
+      sourceHandle: source
+      target: v2_trace_merge
+      targetHandle: target
+      selected: false
+      zIndex: 0
+      data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+    - id: v2_trace_merge-source-1759065776597-target
+      type: custom
+      source: v2_trace_merge
+      sourceHandle: source
+      target: '1759065776597'
+      targetHandle: target
+      selected: false
+      zIndex: 0
+      data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
     nodes:
     - data:
         desc: ''
@@ -9453,9 +9489,9 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 在数据平面查询服务traces
+        title: 在数据平面查询慢traces
         tool_configurations: {}
-        tool_label: 在数据平面查询服务traces
+        tool_label: 在数据平面查询慢traces
         tool_name: dataplane_traces
         tool_parameters:
           endTime:
@@ -9465,7 +9501,7 @@ workflow:
             - endTime
           limit:
             type: constant
-            value: 10
+            value: 30
           service:
             type: mixed
             value: '{{#1754299310647.service#}}'
@@ -9474,6 +9510,9 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          minDuration:
+            type: constant
+            value: 200000
         type: tool
       height: 54
       id: '1759065773395'
@@ -9489,15 +9528,17 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef main(data_json: str, current_service: str):\n    traces = json.loads(data_json).get('data',\
-          \ {}).get('data', [])\n    entries = []\n    seen_entries = set()\n    for trace in traces:\n        for span in\
-          \ trace.get('spans', []):\n            parent_id = span.get('parentSpanId', '')\n            if not parent_id:\n\
-          \                service_name = span.get('serviceName', '')\n                endpoint = span.get('name', '')\n \
-          \               if service_name and endpoint and (service_name, endpoint) not in seen_entries:\n               \
-          \     entries.append({\n                        \"service\": service_name,\n                        \"endpoint\"\
-          : endpoint,\n                    })\n                    seen_entries.add((service_name, endpoint))\n\n    # 将 current_service\
-          \ 和 entries 组合成 service_query 字符串\n    all_services = [current_service] + [entry[\"service\"] for entry in entries]\n\
-          \    return {\n        \"entries\": entries,\n        \"service_query\": \" \".join(all_services),\n    }\n"
+        code: "import json\n\n\ndef main(data_json: str, current_service: str):\n    try:\n        traces = json.loads(data_json).get(\"\
+          traces\", [])\n    except (TypeError, json.JSONDecodeError):\n        traces = []\n    entries = []\n    seen =\
+          \ set()\n    trace_evidence = []\n    services = {current_service} if current_service else set()\n\n    for trace\
+          \ in traces:\n        entry = trace.get(\"entry\", {}) or {}\n        service = str(entry.get(\"service\", \"\"\
+          ) or \"\").strip()\n        endpoint = str(entry.get(\"endpoint\", \"\") or \"\").strip()\n        if service and\
+          \ endpoint and (service, endpoint) not in seen:\n            entries.append({\"service\": service, \"endpoint\"\
+          : endpoint})\n            seen.add((service, endpoint))\n            services.add(service)\n        trace_evidence.append({\n\
+          \            \"traceId\": trace.get(\"traceId\", \"\"),\n            \"duration\": trace.get(\"duration\", 0),\n\
+          \            \"error\": trace.get(\"error\", False),\n            \"slowestSpan\": trace.get(\"slowestSpan\"),\n\
+          \            \"errorSpan\": trace.get(\"errorSpan\"),\n        })\n\n    return {\n        \"entries\": entries,\n\
+          \        \"service_query\": \" \".join(sorted(services)),\n        \"trace_evidence\": trace_evidence,\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -9507,13 +9548,16 @@ workflow:
           service_query:
             children: null
             type: string
+          trace_evidence:
+            type: array[object]
+            children: null
         selected: false
         title: 获取入口服务
         type: code
         variables:
         - value_selector:
-          - '1759065773395'
-          - text
+          - v2_trace_merge
+          - result
           variable: data_json
         - value_selector:
           - '1754299310647'
@@ -11240,6 +11284,351 @@ workflow:
             type: string
             children: null
           prompt_context:
+            type: string
+            children: null
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Accessed data source id.
+            ja_JP: Accessed data source id.
+            pt_BR: Accessed data source id.
+            zh_Hans: 接入的数据源id
+          label:
+            en_US: Accessed data source id.
+            ja_JP: Accessed data source id.
+            pt_BR: Accessed data source id.
+            zh_Hans: 接入数据源id
+          llm_description: Accessed data source id.
+          max: null
+          min: null
+          name: providerId
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The number of records returned.
+            ja_JP: The number of records returned.
+            pt_BR: The number of records returned.
+            zh_Hans: 返回的记录数量
+          label:
+            en_US: The number of records returned.
+            ja_JP: The number of records returned.
+            pt_BR: The number of records returned.
+            zh_Hans: 返回的记录数量
+          llm_description: The number of records returned.
+          max: null
+          min: null
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The name of service.
+            ja_JP: The name of service.
+            pt_BR: The name of service.
+            zh_Hans: 服务名
+          label:
+            en_US: The name of service.
+            ja_JP: The name of service.
+            pt_BR: The name of service.
+            zh_Hans: 服务名
+          llm_description: The name of service.
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Operation name.
+            ja_JP: Operation name.
+            pt_BR: Operation name.
+            zh_Hans: 操作名
+          label:
+            en_US: Operation name.
+            ja_JP: Operation name.
+            pt_BR: Operation name.
+            zh_Hans: 操作名
+          llm_description: Operation name.
+          max: null
+          min: null
+          name: operation
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Is an error span.
+            ja_JP: Is an error span.
+            pt_BR: Is an error span.
+            zh_Hans: span是否出错
+          label:
+            en_US: Is an error span.
+            ja_JP: Is an error span.
+            pt_BR: Is an error span.
+            zh_Hans: span是否出错
+          llm_description: Is an error span.
+          max: null
+          min: null
+          name: isError
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The min duration of span.
+            ja_JP: The min duration of span.
+            pt_BR: The min duration of span.
+            zh_Hans: span消耗最小值（微秒）
+          label:
+            en_US: The min duration of span(Microsecond).
+            ja_JP: The min duration of span(Microsecond).
+            pt_BR: The min duration of span(Microsecond).
+            zh_Hans: span消耗最小值（微秒）
+          llm_description: The min duration of span(Microsecond).
+          max: null
+          min: null
+          name: minDuration
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The max duration of span(Microsecond).
+            ja_JP: The max duration of span(Microsecond).
+            pt_BR: The max duration of span(Microsecond).
+            zh_Hans: span消耗最大值（微秒）
+          label:
+            en_US: The max duration of span(Microsecond).
+            ja_JP: The max duration of span(Microsecond).
+            pt_BR: The max duration of span(Microsecond).
+            zh_Hans: span消耗最大值（微秒）
+          llm_description: The max duration of span(Microsecond).
+          max: null
+          min: null
+          name: maxDuration
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          isError: ''
+          limit: ''
+          maxDuration: ''
+          minDuration: ''
+          operation: ''
+          providerId: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 在数据平面查询错误traces
+        tool_configurations: {}
+        tool_label: 在数据平面查询错误traces
+        tool_name: dataplane_traces
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          limit:
+            type: constant
+            value: 20
+          service:
+            type: mixed
+            value: '{{#1754299310647.service#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+          isError:
+            type: constant
+            value: true
+        type: tool
+      height: 54
+      id: v2_error_trace_query
+      position:
+        x: 11414
+        y: 1170
+      positionAbsolute:
+        x: 11414
+        y: 1170
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - id: v2_trace_merge
+      type: custom
+      position:
+        x: 11718
+        y: 900
+      positionAbsolute:
+        x: 11718
+        y: 900
+      width: 244
+      height: 54
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      data:
+        type: code
+        title: 合并慢Trace与错误Trace
+        desc: ''
+        code_language: python3
+        code: "import json\n\n\ndef _loads(value):\n    if isinstance(value, dict):\n        return value\n    try:\n    \
+          \    return json.loads(value)\n    except (TypeError, json.JSONDecodeError):\n        return {}\n\n\ndef _trace_items(value):\n\
+          \    payload = _loads(value)\n    data = payload.get(\"data\", {}) if isinstance(payload, dict) else {}\n    if\
+          \ isinstance(data, list):\n        return data\n    if isinstance(data, dict):\n        items = data.get(\"data\"\
+          , data.get(\"traces\", []))\n        return items if isinstance(items, list) else []\n    return []\n\n\ndef _attributes(span):\n\
+          \    value = span.get(\"attributes\", {})\n    return value if isinstance(value, dict) else {}\n\n\ndef _normalize_span(span):\n\
+          \    attributes = _attributes(span)\n    return {\n        \"spanId\": span.get(\"spanId\", \"\"),\n        \"parentSpanId\"\
+          : span.get(\"parentSpanId\", \"\"),\n        \"service\": span.get(\"serviceName\", \"\"),\n        \"operation\"\
+          : span.get(\"name\", \"\"),\n        \"duration\": span.get(\"duration\", 0) or 0,\n        \"error\": bool(span.get(\"\
+          error\") or span.get(\"isError\") or span.get(\"status\") == \"error\"),\n        \"dbSystem\": attributes.get(\"\
+          db.system\", \"\"),\n        \"dbStatement\": str(attributes.get(\"db.statement\", \"\") or \"\")[:240],\n     \
+          \   \"peerService\": span.get(\"peerService\") or attributes.get(\"peer.service\") or \"\",\n    }\n\n\ndef _normalize_trace(trace):\n\
+          \    spans = [span for span in trace.get(\"spans\", []) if isinstance(span, dict)]\n    roots = [span for span in\
+          \ spans if span.get(\"parentSpanId\") in (\"\", None, \"0\", 0)]\n    root = roots[0] if roots else (spans[0] if\
+          \ spans else {})\n    dependencies = [span for span in spans if span is not root]\n    slowest_source = dependencies\
+          \ or spans\n    slowest = max(slowest_source, key=lambda item: item.get(\"duration\", 0) or 0, default={})\n   \
+          \ errors = [\n        span\n        for span in spans\n        if span.get(\"error\") or span.get(\"isError\") or\
+          \ span.get(\"status\") == \"error\"\n    ]\n    error_span = max(errors, key=lambda item: item.get(\"duration\"\
+          , 0) or 0, default={})\n    duration = trace.get(\"duration\", 0) or max(\n        (span.get(\"duration\", 0) or\
+          \ 0 for span in spans),\n        default=0,\n    )\n    is_error = bool(trace.get(\"error\") or trace.get(\"isError\"\
+          ) or errors)\n    return {\n        \"traceId\": str(trace.get(\"traceId\", trace.get(\"trace_id\", \"\")) or \"\
+          \"),\n        \"duration\": duration,\n        \"error\": is_error,\n        \"timestamp\": trace.get(\"timestamp\"\
+          , trace.get(\"startTime\", 0)) or 0,\n        \"entry\": {\n            \"service\": root.get(\"serviceName\", \"\
+          \"),\n            \"endpoint\": root.get(\"name\", \"\"),\n        },\n        \"slowestSpan\": _normalize_span(slowest)\
+          \ if slowest else None,\n        \"errorSpan\": _normalize_span(error_span) if error_span else None,\n    }\n\n\n\
+          def main(slow_trace_data, error_trace_data):\n    slow_raw = _trace_items(slow_trace_data)\n    error_raw = _trace_items(error_trace_data)\n\
+          \    merged = {}\n\n    for trace in slow_raw + error_raw:\n        if not isinstance(trace, dict):\n          \
+          \  continue\n        normalized = _normalize_trace(trace)\n        trace_id = normalized[\"traceId\"]\n        if\
+          \ not trace_id:\n            continue\n        previous = merged.get(trace_id)\n        if previous is None or normalized[\"\
+          duration\"] > previous[\"duration\"]:\n            merged[trace_id] = normalized\n        elif normalized[\"error\"\
+          ]:\n            previous[\"error\"] = True\n            if normalized[\"errorSpan\"]:\n                previous[\"\
+          errorSpan\"] = normalized[\"errorSpan\"]\n\n    slow_ids = []\n    for trace in sorted(\n        (_normalize_trace(item)\
+          \ for item in slow_raw if isinstance(item, dict)),\n        key=lambda item: item[\"duration\"],\n        reverse=True,\n\
+          \    ):\n        trace_id = trace[\"traceId\"]\n        if trace_id and trace_id not in slow_ids:\n            slow_ids.append(trace_id)\n\
+          \        if len(slow_ids) == 10:\n            break\n\n    selected = [merged[trace_id] for trace_id in slow_ids\
+          \ if trace_id in merged]\n    selected_ids = {item[\"traceId\"] for item in selected}\n    remaining = [item for\
+          \ trace_id, item in merged.items() if trace_id not in selected_ids]\n    remaining.sort(\n        key=lambda item:\
+          \ (\n            item[\"error\"],\n            item[\"duration\"],\n            (item[\"slowestSpan\"] or {}).get(\"\
+          duration\", 0),\n            item[\"timestamp\"],\n        ),\n        reverse=True,\n    )\n    selected.extend(remaining[:\
+          \ max(0, 30 - len(selected))])\n    return {\"result\": json.dumps({\"traces\": selected})}\n"
+        selected: false
+        variables:
+        - variable: slow_trace_data
+          value_selector:
+          - '1759065773395'
+          - text
+        - variable: error_trace_data
+          value_selector:
+          - v2_error_trace_query
+          - text
+        outputs:
+          result:
             type: string
             children: null
     viewport:

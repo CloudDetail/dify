@@ -397,6 +397,165 @@ def main(rtt_instances, span_data):
     }
 '''
 
+TRACE_MERGE_CODE = '''import json
+
+
+def _loads(value):
+    if isinstance(value, dict):
+        return value
+    try:
+        return json.loads(value)
+    except (TypeError, json.JSONDecodeError):
+        return {}
+
+
+def _trace_items(value):
+    payload = _loads(value)
+    data = payload.get("data", {}) if isinstance(payload, dict) else {}
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict):
+        items = data.get("data", data.get("traces", []))
+        return items if isinstance(items, list) else []
+    return []
+
+
+def _attributes(span):
+    value = span.get("attributes", {})
+    return value if isinstance(value, dict) else {}
+
+
+def _normalize_span(span):
+    attributes = _attributes(span)
+    return {
+        "spanId": span.get("spanId", ""),
+        "parentSpanId": span.get("parentSpanId", ""),
+        "service": span.get("serviceName", ""),
+        "operation": span.get("name", ""),
+        "duration": span.get("duration", 0) or 0,
+        "error": bool(span.get("error") or span.get("isError") or span.get("status") == "error"),
+        "dbSystem": attributes.get("db.system", ""),
+        "dbStatement": str(attributes.get("db.statement", "") or "")[:240],
+        "peerService": span.get("peerService") or attributes.get("peer.service") or "",
+    }
+
+
+def _normalize_trace(trace):
+    spans = [span for span in trace.get("spans", []) if isinstance(span, dict)]
+    roots = [span for span in spans if span.get("parentSpanId") in ("", None, "0", 0)]
+    root = roots[0] if roots else (spans[0] if spans else {})
+    dependencies = [span for span in spans if span is not root]
+    slowest_source = dependencies or spans
+    slowest = max(slowest_source, key=lambda item: item.get("duration", 0) or 0, default={})
+    errors = [
+        span
+        for span in spans
+        if span.get("error") or span.get("isError") or span.get("status") == "error"
+    ]
+    error_span = max(errors, key=lambda item: item.get("duration", 0) or 0, default={})
+    duration = trace.get("duration", 0) or max(
+        (span.get("duration", 0) or 0 for span in spans),
+        default=0,
+    )
+    is_error = bool(trace.get("error") or trace.get("isError") or errors)
+    return {
+        "traceId": str(trace.get("traceId", trace.get("trace_id", "")) or ""),
+        "duration": duration,
+        "error": is_error,
+        "timestamp": trace.get("timestamp", trace.get("startTime", 0)) or 0,
+        "entry": {
+            "service": root.get("serviceName", ""),
+            "endpoint": root.get("name", ""),
+        },
+        "slowestSpan": _normalize_span(slowest) if slowest else None,
+        "errorSpan": _normalize_span(error_span) if error_span else None,
+    }
+
+
+def main(slow_trace_data, error_trace_data):
+    slow_raw = _trace_items(slow_trace_data)
+    error_raw = _trace_items(error_trace_data)
+    merged = {}
+
+    for trace in slow_raw + error_raw:
+        if not isinstance(trace, dict):
+            continue
+        normalized = _normalize_trace(trace)
+        trace_id = normalized["traceId"]
+        if not trace_id:
+            continue
+        previous = merged.get(trace_id)
+        if previous is None or normalized["duration"] > previous["duration"]:
+            merged[trace_id] = normalized
+        elif normalized["error"]:
+            previous["error"] = True
+            if normalized["errorSpan"]:
+                previous["errorSpan"] = normalized["errorSpan"]
+
+    slow_ids = []
+    for trace in sorted(
+        (_normalize_trace(item) for item in slow_raw if isinstance(item, dict)),
+        key=lambda item: item["duration"],
+        reverse=True,
+    ):
+        trace_id = trace["traceId"]
+        if trace_id and trace_id not in slow_ids:
+            slow_ids.append(trace_id)
+        if len(slow_ids) == 10:
+            break
+
+    selected = [merged[trace_id] for trace_id in slow_ids if trace_id in merged]
+    selected_ids = {item["traceId"] for item in selected}
+    remaining = [item for trace_id, item in merged.items() if trace_id not in selected_ids]
+    remaining.sort(
+        key=lambda item: (
+            item["error"],
+            item["duration"],
+            (item["slowestSpan"] or {}).get("duration", 0),
+            item["timestamp"],
+        ),
+        reverse=True,
+    )
+    selected.extend(remaining[: max(0, 30 - len(selected))])
+    return {"result": json.dumps({"traces": selected})}
+'''
+
+TRACE_ENTRY_CODE = '''import json
+
+
+def main(data_json: str, current_service: str):
+    try:
+        traces = json.loads(data_json).get("traces", [])
+    except (TypeError, json.JSONDecodeError):
+        traces = []
+    entries = []
+    seen = set()
+    trace_evidence = []
+    services = {current_service} if current_service else set()
+
+    for trace in traces:
+        entry = trace.get("entry", {}) or {}
+        service = str(entry.get("service", "") or "").strip()
+        endpoint = str(entry.get("endpoint", "") or "").strip()
+        if service and endpoint and (service, endpoint) not in seen:
+            entries.append({"service": service, "endpoint": endpoint})
+            seen.add((service, endpoint))
+            services.add(service)
+        trace_evidence.append({
+            "traceId": trace.get("traceId", ""),
+            "duration": trace.get("duration", 0),
+            "error": trace.get("error", False),
+            "slowestSpan": trace.get("slowestSpan"),
+            "errorSpan": trace.get("errorSpan"),
+        })
+
+    return {
+        "entries": entries,
+        "service_query": " ".join(sorted(services)),
+        "trace_evidence": trace_evidence,
+    }
+'''
+
 
 class NoAliasDumper(yaml.SafeDumper):
     def ignore_aliases(self, data: Any) -> bool:
@@ -584,6 +743,117 @@ def rewire_span_enrichment(document: dict) -> None:
     )
 
 
+def add_representative_trace_sampling(document: dict) -> None:
+    graph = document["workflow"]["graph"]
+    slow = node_by_id(document, "1759065773395")
+    slow["data"]["title"] = "在数据平面查询慢traces"
+    slow["data"]["tool_label"] = "在数据平面查询慢traces"
+    slow_params = slow["data"]["tool_parameters"]
+    slow_params["limit"] = {"type": "constant", "value": 30}
+    slow_params["minDuration"] = {"type": "constant", "value": 200000}
+
+    error = copy.deepcopy(slow)
+    error_id = "v2_error_trace_query"
+    error["id"] = error_id
+    error["position"] = {"x": 11414, "y": 1170}
+    error["positionAbsolute"] = {"x": 11414, "y": 1170}
+    error["data"]["title"] = "在数据平面查询错误traces"
+    error["data"]["tool_label"] = "在数据平面查询错误traces"
+    error_params = error["data"]["tool_parameters"]
+    error_params["limit"] = {"type": "constant", "value": 20}
+    error_params["isError"] = {"type": "constant", "value": True}
+    error_params.pop("minDuration", None)
+    graph["nodes"].append(error)
+
+    merge_id = "v2_trace_merge"
+    graph["nodes"].append(
+        {
+            "id": merge_id,
+            "type": "custom",
+            "position": {"x": 11718, "y": 900},
+            "positionAbsolute": {"x": 11718, "y": 900},
+            "width": 244,
+            "height": 54,
+            "selected": False,
+            "sourcePosition": "right",
+            "targetPosition": "left",
+            "data": {
+                "type": "code",
+                "title": "合并慢Trace与错误Trace",
+                "desc": "",
+                "code_language": "python3",
+                "code": TRACE_MERGE_CODE,
+                "selected": False,
+                "variables": [
+                    {"variable": "slow_trace_data", "value_selector": ["1759065773395", "text"]},
+                    {"variable": "error_trace_data", "value_selector": [error_id, "text"]},
+                ],
+                "outputs": {"result": {"type": "string", "children": None}},
+            },
+        }
+    )
+
+    entry = node_by_id(document, "1759065776597")
+    entry["data"]["code"] = TRACE_ENTRY_CODE
+    entry["data"]["variables"][0]["value_selector"] = [merge_id, "result"]
+    entry["data"]["outputs"]["trace_evidence"] = {"type": "array[object]", "children": None}
+
+    predecessor = "1741512806512"
+    graph["edges"] = [
+        edge
+        for edge in graph["edges"]
+        if not (edge["source"] == "1759065773395" and edge["target"] == "1759065776597")
+    ]
+    graph["edges"].extend(
+        [
+            {
+                "id": f"{predecessor}-source-{error_id}-target",
+                "type": "custom",
+                "source": predecessor,
+                "sourceHandle": "source",
+                "target": error_id,
+                "targetHandle": "target",
+                "selected": False,
+                "zIndex": 0,
+                "data": {"isInIteration": False, "sourceType": "llm", "targetType": "tool"},
+            },
+            {
+                "id": f"1759065773395-source-{merge_id}-target",
+                "type": "custom",
+                "source": "1759065773395",
+                "sourceHandle": "source",
+                "target": merge_id,
+                "targetHandle": "target",
+                "selected": False,
+                "zIndex": 0,
+                "data": {"isInIteration": False, "sourceType": "tool", "targetType": "code"},
+            },
+            {
+                "id": f"{error_id}-source-{merge_id}-target",
+                "type": "custom",
+                "source": error_id,
+                "sourceHandle": "source",
+                "target": merge_id,
+                "targetHandle": "target",
+                "selected": False,
+                "zIndex": 0,
+                "data": {"isInIteration": False, "sourceType": "tool", "targetType": "code"},
+            },
+            {
+                "id": f"{merge_id}-source-1759065776597-target",
+                "type": "custom",
+                "source": merge_id,
+                "sourceHandle": "source",
+                "target": "1759065776597",
+                "targetHandle": "target",
+                "selected": False,
+                "zIndex": 0,
+                "data": {"isInIteration": False, "sourceType": "code", "targetType": "code"},
+            },
+        ]
+    )
+
+
 def build() -> dict:
     document = yaml.safe_load(SOURCE.read_text(encoding="utf-8"))
     document = copy.deepcopy(document)
@@ -593,6 +863,7 @@ def build() -> dict:
     replace_rtt_nodes(document)
     replace_p90_and_merge_nodes(document)
     rewire_span_enrichment(document)
+    add_representative_trace_sampling(document)
     return document
 
 

@@ -94,6 +94,55 @@ def condition_case_handle(value: str) -> str:
     raise AssertionError(value)
 
 
+def trace_payload(traces: list[dict]) -> str:
+    return json.dumps({"type": "trace", "data": {"data": traces}})
+
+
+def span(
+    name: str,
+    duration: int,
+    *,
+    service: str = "app",
+    parent_span_id: str = "root",
+    error: bool = False,
+    attributes: dict | None = None,
+) -> dict:
+    return {
+        "spanId": f"span-{name}",
+        "parentSpanId": parent_span_id,
+        "name": name,
+        "serviceName": service,
+        "duration": duration,
+        "error": error,
+        "attributes": attributes or {},
+    }
+
+
+def trace(trace_id: str, duration: int, *, error: bool = False, child: dict | None = None) -> dict:
+    spans = [
+        span(
+            "GET /entry",
+            duration,
+            service="entry-service",
+            parent_span_id="",
+            error=error,
+        )
+    ]
+    if child:
+        spans.append(child)
+    return {"traceId": trace_id, "duration": duration, "error": error, "spans": spans}
+
+
+def database_span(duration: int, *, error: bool = True) -> dict:
+    return span(
+        "SELECT orders",
+        duration,
+        service="mysql",
+        error=error,
+        attributes={"db.system": "mysql", "db.statement": "SELECT * FROM orders"},
+    )
+
+
 def test_v2_workflow_exists_and_has_distinct_name():
     workflow = load_workflow()
 
@@ -261,3 +310,43 @@ def test_merge_keeps_rtt_and_database_span_evidence():
     assert result["rtt_instances"][0]["instance_name"] == "mysql-1"
     assert result["span_dependencies"][0]["db_system"] == "mysql"
     assert result["evidence_status"] == "complete"
+
+
+def test_trace_merge_deduplicates_and_preserves_slow_trace():
+    main = code_node_main("合并慢Trace与错误Trace")
+    slow = trace_payload([trace("slow-db", 2_000_000, child=database_span(1_800_000))])
+    errors = trace_payload(
+        [trace(f"short-{index}", 5_000, error=True) for index in range(20)]
+        + [trace("slow-db", 2_000_000, error=True, child=database_span(1_800_000))]
+    )
+
+    result = json.loads(main(slow, errors)["result"])
+    ids = [item["traceId"] for item in result["traces"]]
+
+    assert ids.count("slow-db") == 1
+    assert "slow-db" in ids
+
+
+def test_trace_merge_extracts_root_slowest_and_error_spans():
+    main = code_node_main("合并慢Trace与错误Trace")
+    payload = trace_payload(
+        [trace("database", 2_000_000, child=database_span(1_800_000, error=True))]
+    )
+
+    item = json.loads(main(payload, trace_payload([]))["result"])["traces"][0]
+
+    assert item["entry"]["service"] == "entry-service"
+    assert item["slowestSpan"]["dbSystem"] == "mysql"
+    assert item["errorSpan"] is not None
+
+
+def test_trace_queries_split_slow_and_error_samples():
+    slow = nodes_by_title("在数据平面查询慢traces")[0]
+    error = nodes_by_title("在数据平面查询错误traces")[0]
+    slow_params = slow["data"]["tool_parameters"]
+    error_params = error["data"]["tool_parameters"]
+
+    assert slow_params["limit"]["value"] == 30
+    assert slow_params["minDuration"]["value"] == 200000
+    assert error_params["limit"]["value"] == 20
+    assert error_params["isError"]["value"] is True
