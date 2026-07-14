@@ -282,6 +282,121 @@ def main(data_json):
     }
 '''
 
+P90_CODE = '''import json
+import math
+
+
+FALLBACK_US = 200000
+
+
+def _fallback():
+    return {"p90_value_us": FALLBACK_US, "threshold_source": "fallback"}
+
+
+def main(data_json):
+    try:
+        data = json.loads(data_json).get("data", [])
+    except (TypeError, json.JSONDecodeError):
+        return _fallback()
+
+    values = []
+    unit = ""
+    for item in data:
+        if item.get("title") != "Response Time":
+            continue
+        item_unit = str(item.get("unit", "") or "").lower().strip()
+        if not unit:
+            unit = item_unit
+        if item_unit != unit:
+            continue
+        for timeseries in item.get("timeseries", []) or []:
+            chart = timeseries.get("chart", {}).get("chartData", {}) or {}
+            for raw in chart.values():
+                if isinstance(raw, bool) or not isinstance(raw, (int, float)):
+                    continue
+                value = float(raw)
+                if math.isfinite(value) and value > 0:
+                    values.append(value)
+
+    if not values or unit not in {"ms", "s", "us"}:
+        return _fallback()
+
+    values.sort()
+    index = (len(values) - 1) * 0.9
+    lower = int(index)
+    upper = min(lower + 1, len(values) - 1)
+    fraction = index - lower
+    p90 = values[lower] * (1 - fraction) + values[upper] * fraction
+    multiplier = {"us": 1, "ms": 1000, "s": 1000000}[unit]
+    return {
+        "p90_value_us": round(p90 * multiplier),
+        "threshold_source": "response_time_p90",
+    }
+'''
+
+MERGE_DOWNSTREAM_CODE = '''import json
+
+
+def _loads(value, default):
+    if isinstance(value, (list, dict)):
+        return value
+    try:
+        return json.loads(value)
+    except (TypeError, json.JSONDecodeError):
+        return default
+
+
+def _statement_summary(value):
+    text = str(value or "").strip()
+    return text if len(text) <= 240 else text[:237] + "..."
+
+
+def _span_items(span_data):
+    payload = _loads(span_data, {})
+    data = payload.get("data", {}) if isinstance(payload, dict) else {}
+    if isinstance(data, dict):
+        items = data.get("data", [])
+    else:
+        items = []
+    return items if isinstance(items, list) else []
+
+
+def main(rtt_instances, span_data):
+    rtt = _loads(rtt_instances, [])
+    if not isinstance(rtt, list):
+        rtt = []
+    dependencies = []
+    for span in _span_items(span_data):
+        if not isinstance(span, dict):
+            continue
+        attributes = span.get("attributes", {}) or {}
+        dependencies.append({
+            "service": span.get("peerService") or span.get("serviceName") or attributes.get("peer.service") or "",
+            "instance": span.get("instance") or attributes.get("server.address") or attributes.get("net.peer.name") or "",
+            "operation": span.get("name", ""),
+            "db_system": attributes.get("db.system", ""),
+            "statement": _statement_summary(attributes.get("db.statement", "")),
+            "duration": span.get("duration", 0),
+            "error": bool(span.get("error") or span.get("isError") or span.get("status") == "error"),
+            "trace_id": span.get("traceId", ""),
+            "span_id": span.get("spanId", ""),
+        })
+
+    if rtt and dependencies:
+        status = "complete"
+    elif rtt or dependencies:
+        status = "partial"
+    else:
+        status = "empty"
+    return {
+        "result": json.dumps({
+            "rtt_instances": rtt,
+            "span_dependencies": dependencies,
+            "evidence_status": status,
+        })
+    }
+'''
+
 
 class NoAliasDumper(yaml.SafeDumper):
     def ignore_aliases(self, data: Any) -> bool:
@@ -381,6 +496,94 @@ def replace_rtt_nodes(document: dict) -> None:
     }
 
 
+def replace_p90_and_merge_nodes(document: dict) -> None:
+    p90 = node_by_id(document, "1754462485033")
+    p90["data"]["code"] = P90_CODE
+    p90["data"]["outputs"] = {
+        "p90_value_us": {"type": "number", "children": None},
+        "threshold_source": {"type": "string", "children": None},
+    }
+
+    merge = node_by_id(document, "1754375770920")
+    merge["data"] = {
+        "type": "code",
+        "title": "合并RTT与Span下游证据",
+        "desc": "",
+        "code_language": "python3",
+        "code": MERGE_DOWNSTREAM_CODE,
+        "selected": False,
+        "variables": [
+            {
+                "variable": "rtt_instances",
+                "value_selector": ["1754298166852", "abnormal_downstream_instances"],
+            },
+            {"variable": "span_data", "value_selector": ["1754634901289", "result"]},
+        ],
+        "outputs": {"result": {"type": "string", "children": None}},
+    }
+
+    for node in document["workflow"]["graph"]["nodes"]:
+        for prompt in node.get("data", {}).get("prompt_template", []):
+            prompt["text"] = prompt.get("text", "").replace(
+                "{{#1754375770920.output#}}", "{{#1754375770920.result#}}"
+            )
+
+
+def rewire_span_enrichment(document: dict) -> None:
+    graph = document["workflow"]["graph"]
+    condition = node_by_id(document, "1754299061896")
+    downstream_instance_handle = None
+    for case in condition["data"]["cases"]:
+        conditions = case.get("conditions", [])
+        if conditions and conditions[0].get("value") == "下游实例问题":
+            downstream_instance_handle = case["case_id"]
+            break
+    if downstream_instance_handle is None:
+        raise ValueError("missing downstream instance branch")
+
+    node_case_handle = "v2_downstream_node_case"
+    condition["data"]["cases"].append(
+        {
+            "case_id": node_case_handle,
+            "id": node_case_handle,
+            "logical_operator": "and",
+            "conditions": [
+                {
+                    "id": "v2_downstream_node_condition",
+                    "comparison_operator": "contains",
+                    "value": "下游节点问题",
+                    "varType": "string",
+                    "variable_selector": ["1754298166852", "direction_summary"],
+                }
+            ],
+        }
+    )
+
+    for edge in graph["edges"]:
+        if edge["source"] == "1754299061896" and edge.get("sourceHandle") == downstream_instance_handle:
+            edge["target"] = "1754462459105"
+            edge["id"] = f"1754299061896-{downstream_instance_handle}-1754462459105-target"
+            edge["data"]["targetType"] = "tool"
+
+    graph["edges"].append(
+        {
+            "id": f"1754299061896-{node_case_handle}-1754462459105-target",
+            "type": "custom",
+            "source": "1754299061896",
+            "sourceHandle": node_case_handle,
+            "target": "1754462459105",
+            "targetHandle": "target",
+            "selected": False,
+            "zIndex": 0,
+            "data": {
+                "isInIteration": False,
+                "sourceType": "if-else",
+                "targetType": "tool",
+            },
+        }
+    )
+
+
 def build() -> dict:
     document = yaml.safe_load(SOURCE.read_text(encoding="utf-8"))
     document = copy.deepcopy(document)
@@ -388,6 +591,8 @@ def build() -> dict:
     add_environment_context(document)
     inject_environment_prompts(document)
     replace_rtt_nodes(document)
+    replace_p90_and_merge_nodes(document)
+    rewire_span_enrichment(document)
     return document
 
 

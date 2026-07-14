@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Callable
 import json
+from collections import defaultdict, deque
 
 import yaml
 
@@ -61,6 +62,36 @@ def run_rtt_detection(timeseries: list[dict]) -> list[dict]:
 def run_rtt_attribution(detected: list[dict]) -> dict:
     main = code_node_main("分析RTT问题")
     return main(json.dumps(detected))
+
+
+def graph_path_exists(source: str, target: str, source_handle: str | None = None) -> bool:
+    graph = load_workflow()["workflow"]["graph"]
+    outgoing = defaultdict(list)
+    for edge in graph["edges"]:
+        outgoing[edge["source"]].append(edge)
+    queue = deque([(source, True)])
+    seen = set()
+    while queue:
+        current, first = queue.popleft()
+        if current == target:
+            return True
+        if current in seen:
+            continue
+        seen.add(current)
+        for edge in outgoing[current]:
+            if first and source_handle is not None and edge.get("sourceHandle") != source_handle:
+                continue
+            queue.append((edge["target"], False))
+    return False
+
+
+def condition_case_handle(value: str) -> str:
+    node = nodes_by_title("条件分支 5")[0]
+    for case in node["data"]["cases"]:
+        conditions = case.get("conditions", [])
+        if conditions and conditions[0].get("value") == value:
+            return case["case_id"]
+    raise AssertionError(value)
 
 
 def test_v2_workflow_exists_and_has_distinct_name():
@@ -162,3 +193,71 @@ def test_attribution_never_returns_empty_downstream_problem():
     assert result["direction_summary"] == "未明确归因"
     assert result["requires_span_fallback"] is True
     assert json.loads(result["abnormal_downstream_instances"]) == []
+
+
+def test_p90_uses_all_response_time_series_and_ignores_zeroes():
+    main = code_node_main("计算延时P90数据")
+    payload = json.dumps(
+        {
+            "data": [
+                {
+                    "title": "吞吐量",
+                    "unit": "count",
+                    "timeseries": [{"chart": {"chartData": {"1": 999}}}],
+                },
+                {
+                    "title": "Response Time",
+                    "unit": "ms",
+                    "timeseries": [
+                        {"chart": {"chartData": {"1": 0, "2": 100}}},
+                        {"chart": {"chartData": {"1": 200, "2": 300}}},
+                    ],
+                },
+            ]
+        }
+    )
+
+    result = main(payload)
+
+    assert result["threshold_source"] == "response_time_p90"
+    assert result["p90_value_us"] == 280000
+
+
+def test_downstream_instance_branch_reaches_span_query():
+    handle = condition_case_handle("下游实例问题")
+
+    assert graph_path_exists("1754299061896", "1754442999808", source_handle=handle)
+
+
+def test_downstream_node_branch_reaches_span_query():
+    handle = condition_case_handle("下游节点问题")
+
+    assert graph_path_exists("1754299061896", "1754442999808", source_handle=handle)
+
+
+def test_merge_keeps_rtt_and_database_span_evidence():
+    main = code_node_main("合并RTT与Span下游证据")
+    rtt_instances = json.dumps([{"instance_name": "mysql-1", "rtt_avg": "40ms"}])
+    span_data = json.dumps(
+        {
+            "data": {
+                "data": [
+                    {
+                        "serviceName": "mysql",
+                        "spanKind": "client",
+                        "name": "SELECT orders",
+                        "duration": 900000,
+                        "traceId": "trace-1",
+                        "spanId": "span-1",
+                        "attributes": {"db.system": "mysql", "db.statement": "SELECT * FROM orders"},
+                    }
+                ]
+            }
+        }
+    )
+
+    result = json.loads(main(rtt_instances, span_data)["result"])
+
+    assert result["rtt_instances"][0]["instance_name"] == "mysql-1"
+    assert result["span_dependencies"][0]["db_system"] == "mysql"
+    assert result["evidence_status"] == "complete"

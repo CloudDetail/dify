@@ -1107,12 +1107,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: if-else
-        targetType: variable-aggregator
-      id: 1754299061896-97e70559-279b-400f-9670-fb05aa27f53e-1754375770920-target
+        targetType: tool
+      id: 1754299061896-97e70559-279b-400f-9670-fb05aa27f53e-1754462459105-target
       selected: false
       source: '1754299061896'
       sourceHandle: 97e70559-279b-400f-9670-fb05aa27f53e
-      target: '1754375770920'
+      target: '1754462459105'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1657,6 +1657,18 @@ workflow:
         isInIteration: false
         sourceType: code
         targetType: code
+    - id: 1754299061896-v2_downstream_node_case-1754462459105-target
+      type: custom
+      source: '1754299061896'
+      sourceHandle: v2_downstream_node_case
+      target: '1754462459105'
+      targetHandle: target
+      selected: false
+      zIndex: 0
+      data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
     nodes:
     - data:
         desc: ''
@@ -8079,6 +8091,17 @@ workflow:
             - direction_summary
           id: 97e70559-279b-400f-9670-fb05aa27f53e
           logical_operator: and
+        - case_id: v2_downstream_node_case
+          id: v2_downstream_node_case
+          logical_operator: and
+          conditions:
+          - id: v2_downstream_node_condition
+            comparison_operator: contains
+            value: 下游节点问题
+            varType: string
+            variable_selector:
+            - '1754298166852'
+            - direction_summary
         desc: ''
         selected: false
         title: 条件分支 5
@@ -8126,16 +8149,43 @@ workflow:
       type: custom
       width: 244
     - data:
+        type: code
+        title: 合并RTT与Span下游证据
         desc: ''
-        output_type: string
+        code_language: python3
+        code: "import json\n\n\ndef _loads(value, default):\n    if isinstance(value, (list, dict)):\n        return value\n\
+          \    try:\n        return json.loads(value)\n    except (TypeError, json.JSONDecodeError):\n        return default\n\
+          \n\ndef _statement_summary(value):\n    text = str(value or \"\").strip()\n    return text if len(text) <= 240 else\
+          \ text[:237] + \"...\"\n\n\ndef _span_items(span_data):\n    payload = _loads(span_data, {})\n    data = payload.get(\"\
+          data\", {}) if isinstance(payload, dict) else {}\n    if isinstance(data, dict):\n        items = data.get(\"data\"\
+          , [])\n    else:\n        items = []\n    return items if isinstance(items, list) else []\n\n\ndef main(rtt_instances,\
+          \ span_data):\n    rtt = _loads(rtt_instances, [])\n    if not isinstance(rtt, list):\n        rtt = []\n    dependencies\
+          \ = []\n    for span in _span_items(span_data):\n        if not isinstance(span, dict):\n            continue\n\
+          \        attributes = span.get(\"attributes\", {}) or {}\n        dependencies.append({\n            \"service\"\
+          : span.get(\"peerService\") or span.get(\"serviceName\") or attributes.get(\"peer.service\") or \"\",\n        \
+          \    \"instance\": span.get(\"instance\") or attributes.get(\"server.address\") or attributes.get(\"net.peer.name\"\
+          ) or \"\",\n            \"operation\": span.get(\"name\", \"\"),\n            \"db_system\": attributes.get(\"db.system\"\
+          , \"\"),\n            \"statement\": _statement_summary(attributes.get(\"db.statement\", \"\")),\n            \"\
+          duration\": span.get(\"duration\", 0),\n            \"error\": bool(span.get(\"error\") or span.get(\"isError\"\
+          ) or span.get(\"status\") == \"error\"),\n            \"trace_id\": span.get(\"traceId\", \"\"),\n            \"\
+          span_id\": span.get(\"spanId\", \"\"),\n        })\n\n    if rtt and dependencies:\n        status = \"complete\"\
+          \n    elif rtt or dependencies:\n        status = \"partial\"\n    else:\n        status = \"empty\"\n    return\
+          \ {\n        \"result\": json.dumps({\n            \"rtt_instances\": rtt,\n            \"span_dependencies\": dependencies,\n\
+          \            \"evidence_status\": status,\n        })\n    }\n"
         selected: false
-        title: 下游依赖实例
-        type: variable-aggregator
         variables:
-        - - '1754634901289'
-          - result
-        - - '1754298166852'
+        - variable: rtt_instances
+          value_selector:
+          - '1754298166852'
           - abnormal_downstream_instances
+        - variable: span_data
+          value_selector:
+          - '1754634901289'
+          - result
+        outputs:
+          result:
+            type: string
+            children: null
       height: 130
       id: '1754375770920'
       position:
@@ -8176,7 +8226,7 @@ workflow:
 
             告警总结{{#17430596469370.text#}}
 
-            下游{{#1754375770920.output#}}
+            下游{{#1754375770920.result#}}
 
             告警事件{{#1742807803325.alertName#}}
 
@@ -8727,26 +8777,29 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(data_json):\n    try:\n        data = json.loads(data_json).get(\"data\", [])\n   \
-          \ except json.JSONDecodeError:\n        return {\"p90_value_us\": 200000}\n\n    response_time_data = None\n   \
-          \ for item in data:\n        if item.get(\"title\") == \"Response Time\" or item.get(\"title\") == \"吞吐量\":\n  \
-          \          response_time_data = item\n            break\n            \n    if not response_time_data:\n        return\
-          \ {\"p90_value_us\": 200000}\n\n    timeseries = response_time_data.get(\"timeseries\", [])\n    if not timeseries:\n\
-          \        return {\"p90_value_us\": 200000}\n\n    chart_data = timeseries[0].get(\"chart\", {}).get(\"chartData\"\
-          , {})\n    values = list(chart_data.values())\n    \n    if not values:\n        return {\"p90_value_us\": 200000}\n\
-          \n    values.sort()\n    n = len(values)\n    index = (n - 1) * 0.9\n    \n    if index.is_integer():\n        p90_value\
-          \ = values[int(index)]\n    else:\n        lower_index = int(index)\n        upper_index = lower_index + 1\n   \
-          \     fraction = index - lower_index\n        p90_value = values[lower_index] * (1 - fraction) + values[upper_index]\
-          \ * fraction\n        \n    unit = response_time_data.get(\"unit\", \"\").lower().strip()\n\n    if unit == \"ms\"\
-          :\n        p90_value_us = p90_value * 1000\n    elif unit == \"s\":\n        p90_value_us = p90_value * 1000000\n\
-          \    elif unit == \"us\":\n        p90_value_us = p90_value\n    else:\n        return {\"p90_value_us\": 200000}\n\
-          \n    p90_value_us = round(p90_value_us)\n\n    return {\"p90_value_us\": p90_value_us}"
+        code: "import json\nimport math\n\n\nFALLBACK_US = 200000\n\n\ndef _fallback():\n    return {\"p90_value_us\": FALLBACK_US,\
+          \ \"threshold_source\": \"fallback\"}\n\n\ndef main(data_json):\n    try:\n        data = json.loads(data_json).get(\"\
+          data\", [])\n    except (TypeError, json.JSONDecodeError):\n        return _fallback()\n\n    values = []\n    unit\
+          \ = \"\"\n    for item in data:\n        if item.get(\"title\") != \"Response Time\":\n            continue\n  \
+          \      item_unit = str(item.get(\"unit\", \"\") or \"\").lower().strip()\n        if not unit:\n            unit\
+          \ = item_unit\n        if item_unit != unit:\n            continue\n        for timeseries in item.get(\"timeseries\"\
+          , []) or []:\n            chart = timeseries.get(\"chart\", {}).get(\"chartData\", {}) or {}\n            for raw\
+          \ in chart.values():\n                if isinstance(raw, bool) or not isinstance(raw, (int, float)):\n         \
+          \           continue\n                value = float(raw)\n                if math.isfinite(value) and value > 0:\n\
+          \                    values.append(value)\n\n    if not values or unit not in {\"ms\", \"s\", \"us\"}:\n       \
+          \ return _fallback()\n\n    values.sort()\n    index = (len(values) - 1) * 0.9\n    lower = int(index)\n    upper\
+          \ = min(lower + 1, len(values) - 1)\n    fraction = index - lower\n    p90 = values[lower] * (1 - fraction) + values[upper]\
+          \ * fraction\n    multiplier = {\"us\": 1, \"ms\": 1000, \"s\": 1000000}[unit]\n    return {\n        \"p90_value_us\"\
+          : round(p90 * multiplier),\n        \"threshold_source\": \"response_time_p90\",\n    }\n"
         code_language: python3
         desc: ''
         outputs:
           p90_value_us:
-            children: null
             type: number
+            children: null
+          threshold_source:
+            type: string
+            children: null
         selected: false
         title: 计算延时P90数据
         type: code
