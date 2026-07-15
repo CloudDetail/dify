@@ -5,6 +5,7 @@ from collections import defaultdict, deque
 
 import yaml
 
+from core.workflow.graph_engine.entities.graph import Graph
 from scripts.build_alert_simple_root_cause_workflow_v2 import build, main as generate_v2
 
 
@@ -161,6 +162,12 @@ def test_v2_graph_has_unique_nodes_and_valid_edges():
     for edge in graph["edges"]:
         assert edge["source"] in known
         assert edge["target"] in known
+
+
+def test_v2_graph_respects_parallel_depth_limit():
+    graph_config = load_workflow()["workflow"]["graph"]
+
+    Graph.init(graph_config)
 
 
 def test_v2_generation_is_deterministic_and_preserves_source():

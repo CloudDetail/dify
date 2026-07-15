@@ -232,9 +232,9 @@ workflow:
         isInIteration: false
         sourceType: code
         targetType: if-else
-      id: 1742807803325-source-1742453019576-target
+      id: v2_runtime_environment_context-source-1742453019576-target
       selected: false
-      source: '1742807803325'
+      source: v2_runtime_environment_context
       sourceHandle: source
       target: '1742453019576'
       targetHandle: target
@@ -1657,9 +1657,9 @@ workflow:
         isInIteration: false
         sourceType: if-else
         targetType: tool
-    - id: 1741512806512-source-v2_error_trace_query-target
+    - id: 1759065773395-source-v2_error_trace_query-target
       type: custom
-      source: '1741512806512'
+      source: '1759065773395'
       sourceHandle: source
       target: v2_error_trace_query
       targetHandle: target
@@ -1667,20 +1667,8 @@ workflow:
       zIndex: 0
       data:
         isInIteration: false
-        sourceType: llm
-        targetType: tool
-    - id: 1759065773395-source-v2_trace_merge-target
-      type: custom
-      source: '1759065773395'
-      sourceHandle: source
-      target: v2_trace_merge
-      targetHandle: target
-      selected: false
-      zIndex: 0
-      data:
-        isInIteration: false
         sourceType: tool
-        targetType: code
+        targetType: tool
     - id: v2_error_trace_query-source-v2_trace_merge-target
       type: custom
       source: v2_error_trace_query

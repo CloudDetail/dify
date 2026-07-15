@@ -606,6 +606,11 @@ def add_environment_context(document: dict) -> None:
             },
         }
     )
+    for edge in graph["edges"]:
+        if edge["source"] == "1742807803325":
+            edge["source"] = ENVIRONMENT_NODE_ID
+            edge["id"] = edge["id"].replace("1742807803325-source", f"{ENVIRONMENT_NODE_ID}-source")
+            edge["data"]["sourceType"] = "code"
     graph["edges"].append(
         {
             "id": f"1742807803325-source-{ENVIRONMENT_NODE_ID}-target",
@@ -798,7 +803,6 @@ def add_representative_trace_sampling(document: dict) -> None:
     entry["data"]["variables"][0]["value_selector"] = [merge_id, "result"]
     entry["data"]["outputs"]["trace_evidence"] = {"type": "array[object]", "children": None}
 
-    predecessor = "1741512806512"
     graph["edges"] = [
         edge
         for edge in graph["edges"]
@@ -807,26 +811,15 @@ def add_representative_trace_sampling(document: dict) -> None:
     graph["edges"].extend(
         [
             {
-                "id": f"{predecessor}-source-{error_id}-target",
+                "id": f"1759065773395-source-{error_id}-target",
                 "type": "custom",
-                "source": predecessor,
+                "source": "1759065773395",
                 "sourceHandle": "source",
                 "target": error_id,
                 "targetHandle": "target",
                 "selected": False,
                 "zIndex": 0,
-                "data": {"isInIteration": False, "sourceType": "llm", "targetType": "tool"},
-            },
-            {
-                "id": f"1759065773395-source-{merge_id}-target",
-                "type": "custom",
-                "source": "1759065773395",
-                "sourceHandle": "source",
-                "target": merge_id,
-                "targetHandle": "target",
-                "selected": False,
-                "zIndex": 0,
-                "data": {"isInIteration": False, "sourceType": "tool", "targetType": "code"},
+                "data": {"isInIteration": False, "sourceType": "tool", "targetType": "tool"},
             },
             {
                 "id": f"{error_id}-source-{merge_id}-target",
