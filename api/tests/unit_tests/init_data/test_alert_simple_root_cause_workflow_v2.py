@@ -13,6 +13,15 @@ from scripts.build_alert_simple_root_cause_workflow_v2 import build, main as gen
 WORKFLOW_DIR = Path(__file__).parents[3] / "init_data" / "workflows" / "zh"
 SOURCE = WORKFLOW_DIR / "告警简单根因分析.yml"
 V2 = WORKFLOW_DIR / "告警简单根因分析V2.yml"
+OUTPUT_PROMPT_NODE_IDS = {
+    "1741512806512",
+    "17430596469370",
+    "17473569800940",
+    "1750662084996",
+    "1750662408086",
+    "1764048001002",
+    "1754382620041",
+}
 
 
 def load_workflow(path: Path = V2) -> dict:
@@ -34,6 +43,12 @@ def code_node_main(title: str) -> Callable:
 
 def prompt_text(node: dict) -> str:
     return "\n".join(item.get("text", "") for item in node["data"].get("prompt_template", []))
+
+
+def node_prompt(node_id: str) -> str:
+    nodes = load_workflow()["workflow"]["graph"]["nodes"]
+    node = next(node for node in nodes if node["id"] == node_id)
+    return prompt_text(node)
 
 
 def complete_labels(**overrides) -> dict:
@@ -224,6 +239,32 @@ def test_key_llm_prompts_reference_environment_context():
             text = prompt_text(node)
             assert "{{#v2_runtime_environment_context.prompt_context#}}" in text, title
             assert "运行环境上下文优先" in text, title
+
+
+def test_epoll_guidance_uses_network_diagnostics_instead_of_epoll_tracing():
+    prompts = node_prompt("1741512806512") + node_prompt("1750662408086")
+
+    assert "strace -e epoll_wait" not in prompts
+    assert "epoll_pwait" not in prompts
+    assert "perf trace -e epoll:" not in prompts
+    for expected in ("ss -s", "nstat -az", "RTT", "下游 Span"):
+        assert expected in prompts
+
+
+def test_root_cause_prompt_uses_real_service_and_environment_identity():
+    prompt = node_prompt("17430596469370")
+
+    assert "服务xx" not in prompt
+    assert "{{#1754299310647.service#}}" in prompt
+    assert "{{#v2_runtime_environment_context.location_text#}}" in prompt
+    assert "服务名为空时省略" in prompt
+
+
+def test_output_prompts_do_not_treat_pod_as_the_only_instance_type():
+    for node_id in OUTPUT_PROMPT_NODE_IDS:
+        prompt = node_prompt(node_id)
+        assert "{{#v2_runtime_environment_context.prompt_context#}}" in prompt
+        assert "不得因为指标或工具名称包含“按Pod统计”" in prompt
 
 
 def test_sparse_40ms_rtt_spike_is_detected():

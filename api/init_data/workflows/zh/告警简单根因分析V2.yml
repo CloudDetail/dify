@@ -1835,7 +1835,7 @@ workflow:
           role: user
           text: '# 目的
 
-            基于服务层级聚合Pod信息并输出服务级概览报告。需确保各Pod具体运行状态的可视化呈现清晰直观。
+            基于服务层级聚合运行对象信息并输出服务级概览报告，清晰呈现各主机进程、实例或 Pod 的实际运行状态。
 
             同时在原有的结论基础上，根据文档和你的经验针对异常线程最多的根因方向给出具体执行解决问题的建议和与问题相关的需要执行的命令。
 
@@ -1845,7 +1845,8 @@ workflow:
 
             根因为网络质量问题：ss -s查看全局socket状态，ss -tunap查看所有TCP/UDP连接，nstat -z 查看重传等命令
 
-            根因为EPOLL：strace -e epoll_wait,epoll_pwait -tt -T -p <PID>追踪epoll调用耗时，perf trace -e epoll:*查看epoll相关事件等命令
+            根因为 EPOLL：保留 EPOLL 作为异常方向，但建议从网络连接和等待原因排查。优先结合 RTT、下游 Span、超时和重传证据；可按证据选择 ss -s、ss -antp、nstat -az、sar -n TCP,ETCP
+            1、ip -s link。不要默认建议跟踪 epoll 系统调用，也不要机械输出全部命令。
 
             根因为CPU抢占（runq）：dstat -l 1 查看系统负载，mpstat -P ALL 1查看CPU的%idle和%util等命令
 
@@ -1871,7 +1872,7 @@ workflow:
 
             1. 结论中若CPU相关告警事件综合影响系数较高，应优先指导处理CPU资源瓶颈
 
-            2. 采用树状层级化输出格式，服务级汇总指标与Pod明细指标需通过缩进形成清晰继承关系
+            2. 采用树状层级化输出格式，服务级汇总指标与运行对象明细指标需通过缩进形成清晰继承关系
 
             3. 故障归因分析需保持单一维度，禁止构建跨维度关联（如GC与锁竞争）
 
@@ -1889,7 +1890,24 @@ workflow:
 
             {{#v2_runtime_environment_context.prompt_context#}}
 
-            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。'
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。
+
+
+            # 输出身份与环境规则
+
+            - 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。
+
+            - 运行对象：{{#v2_runtime_environment_context.location_text#}}。
+
+            - 对象类型：{{#v2_runtime_environment_context.instance_term#}}。
+
+            - {{#v2_runtime_environment_context.prompt_context#}}
+
+            - 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。
+
+            - 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。
+
+            '
         selected: false
         title: 可行动方向建议
         type: llm
@@ -2515,8 +2533,8 @@ workflow:
           text: 你是可观测性领域的智能助手，协助用户分析解决问题。
         - id: 2b2ad468-efcd-4bcc-aeb9-d53d2f2770ad
           role: user
-          text: "# 分析目标\n基于跨资源类别的异常线程数据，判断应用实例{{#17430589567120.pod#}}是否受告警事件{{#1742807803325.alertName#}}影响。并根据异常线程数据判断故障方向并根据文档和你的经验推断根因。\n\
-            \n# 文档\n{{#context#}}\n## 使用要求\n优先根据文档中的与当前告警或服务{{#1754299310647.service#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推断出/可能是xxx”。\n\
+          text: "# 分析目标\n基于跨资源类别的异常线程数据，判断运行对象{{#v2_runtime_environment_context.location_text#}}是否受告警事件{{#1742807803325.alertName#}}影响。并根据异常线程数据判断故障方向并根据文档和你的经验推断根因。\n\
+            \n# 文档\n{{#context#}}\n## 使用要求\n优先根据文档中的与当前告警或服务{{#1754299310647.service#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据知识库文档，推断出具体根因”。\n\
             1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。\n2. 优先根据异常线程数进行方向判断，确认根因方向之后在文档中检索与根因方向相关的内容。\n3. 需要聚焦于与根因方向相关的文档片段，忽略无关的文档片段。\n\
             4. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏，没有则忽略这条规则。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n\
             \n# 输入数据规范\n- **分资源类别数据**：线程延迟及关联的北极星指标（如网络类延迟加上对应的异常网络往返延迟数据总结,不要忽略网络往返延迟数据总结）。\n- **异常数据点计数**：延迟超过同类型线程历史均值20%的实例数，需标注线程延迟均值。\n\
@@ -2525,13 +2543,17 @@ workflow:
             \n2. **误判规避**\n- 优先考虑平均延时最高的方向，不要误判！！\n\n- 若CPU或运行队列（RunQ）延迟突增且无并发网络/epoll异常，优先归因为CPU资源争用。\n\n3. **故障方向优先级（降序）**\n\
             'CPU > 网络 > Epoll > 文件 > RunQ'\n\n# 根因归因与建议\n- **CPU延迟突增**：根因为CPU方向，建议如检查代码过度嵌套问题，确认后执行版本回滚。\n- **CPU抢占过高**：根因为CPU抢占，建议如排查同节点进程的资源争用。\n\
             - **网络/Epoll延迟**：需要给出进一步方向，根据网络往返总结，若网络往返延迟异常，比如自身网络有问题，与多个不同下游节点ping延迟升高 → 根因为网络质量问题;若网络往返延迟正常，比如没有异常网络连接或者下游网络有问题\
-            \ → 根因为xx（如果总结中明确指出下游）下游依赖问题。\n- **文件操作延迟升高**：根因为磁盘读写问题，建议如检查文件句柄是否打开过多，是否读取大文件。\n- **RunQ延迟徒增**：根因为CPU抢占。\n-\
-            \ 只能给出一个问题方向，不要出现xx和xx方向问题，只能说明主要问题。\n\n# 输出格式\n**服务xx**的**应用实例**:{{#17430589567120.pod#}}  \n**北极星指标趋势摘要**\n\
-            - 按指标维度描述显著变化，如xxx个线程xxxxx,若无异常标注\"未观测到显著偏离\"。\n- 描述网络往返延迟质量：网络往返延迟状况总结和出现异常的网络往返延迟的均值和峰值。\n\n**初步根因结论**\n- 明确告警事件对应用的影响状态。\n\
-            - 基于北极星指标与分析规则输出单一归因结论。\n- 若网络/Epoll类异常但网络往返延迟正常，归因为下游依赖问题。\n\n# 输入数据\n-cpu：{{#17443388433580.result#}}  \n- net：{{#17443388438160.result#}}\
-            \  \n- file：{{#17443388421360.result#}}  \n- epoll：{{#1744290470304.result#}}  \n- RunQ：{{#17443388443000.result#}}\n\
-            - 网络往返延迟数据总结：{{#1754298166852.result#}}\n\n# 输出准则\n- 使用简洁的非技术表述，避免歧义，如：RunQ为cpu抢占， RTT为网络往返延迟。\n- 结论需聚焦可执行建议（\"\
-            可能存在性能问题\"，“检查服务状态”等模糊建议）。\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。"
+            \ → 根因为总结中明确指出的具体下游依赖问题。\n- **文件操作延迟升高**：根因为磁盘读写问题，建议如检查文件句柄是否打开过多，是否读取大文件。\n- **RunQ延迟徒增**：根因为CPU抢占。\n- 只能给出一个主要问题方向，禁止并列多个根因方向。\n\
+            \n# 输出格式\n**服务**：{{#1754299310647.service#}}  \n**运行对象**：{{#v2_runtime_environment_context.location_text#}}  \n\
+            **对象类型**：{{#v2_runtime_environment_context.instance_term#}}  \n**北极星指标趋势摘要**\n- 按实际线程数量和指标维度描述显著变化，若无异常标注\"未观测到显著偏离\"\
+            。\n- 描述网络往返延迟质量：网络往返延迟状况总结和出现异常的网络往返延迟的均值和峰值。\n\n**初步根因结论**\n- 明确告警事件对应用的影响状态。\n- 基于北极星指标与分析规则输出单一归因结论。\n- 若网络/Epoll类异常但网络往返延迟正常，归因为下游依赖问题。\n\
+            \n# 输入数据\n-cpu：{{#17443388433580.result#}}  \n- net：{{#17443388438160.result#}}  \n- file：{{#17443388421360.result#}}\
+            \  \n- epoll：{{#1744290470304.result#}}  \n- RunQ：{{#17443388443000.result#}}\n- 网络往返延迟数据总结：{{#1754298166852.result#}}\n\
+            \n# 输出准则\n- 使用简洁的非技术表述，避免歧义，如：RunQ为cpu抢占， RTT为网络往返延迟。\n- 结论需聚焦可执行建议（\"可能存在性能问题\"，“检查服务状态”等模糊建议）。\n\n# 运行环境约束\n\
+            {{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\n# 输出身份与环境规则\n\
+            - 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n- 运行对象：{{#v2_runtime_environment_context.location_text#}}。\n\
+            - 对象类型：{{#v2_runtime_environment_context.instance_term#}}。\n- {{#v2_runtime_environment_context.prompt_context#}}\n\
+            - 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。\n- 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n"
         selected: false
         title: llm analysis root cause
         type: llm
@@ -4814,15 +4836,18 @@ workflow:
           text: 你是可观测性领域的智能助手，协助用户分析解决问题。
         - id: 2b2ad468-efcd-4bcc-aeb9-d53d2f2770ad
           role: user
-          text: "# 分析目标\n基于NET消耗的异常线程数据和RTT异常长数据，判断应用实例{{#17430589567120.pod#}}是否受告警事件{{#1742807803325.alertName#}}影响，并进行初步根因定位。\n\
-            \n# 输入数据规范\n- 线程在北极星指标NET上的异常消耗样本。\n- Pod相关下游容器网络链路延迟异常消耗样本。\n\n# 分析规则\n1. **主异常方向判定**\n- 标注异常线程的延迟均值。\n- 识别延迟增幅最显著的线程。\n\
+          text: "# 分析目标\n基于NET消耗的异常线程数据和RTT异常长数据，判断运行对象{{#v2_runtime_environment_context.location_text#}}是否受告警事件{{#1742807803325.alertName#}}影响，并进行初步根因定位。\n\
+            \n# 输入数据规范\n- 线程在北极星指标NET上的异常消耗样本。\n- 当前运行对象相关的下游网络链路延迟异常消耗样本。\n\n# 分析规则\n1. **主异常方向判定**\n- 标注异常线程的延迟均值。\n- 识别延迟增幅最显著的线程。\n\
             - 根据RTT识别是自身异常还是下游异常\n2. **网络链路延迟识别思路**\n- 网络链路延迟显著增高或接近0.05s附近\n- 若只有个别网络链路延迟出现异常（比如只有一个下游网络链路延迟异常）则认为网络异常是由下游导致，而非自身网络问题\n\
-            - 若有多个网络链路延迟同步出现异常（比如有3个及以上下游网络链路延迟异常）则认为是容器自身网络出现问题，进而影响了网络链路延迟.\n3. \n若无相关NET或网络链路延迟异常数据，则认为该时间段内对应数据无明显异常，可能只是出现短时间小幅波动。提示用户该数据无异常。\n\
-            \n# 输出格式\n**应用实例**:{{#17430589567120.pod#}}  \n**北极星指标趋势摘要**\n- 按指标维度描述显著变化，若无异常标注\"未观测到显著偏离\"。\n**与下游容器网络链路延迟分析**\n\
-            - 如果是下游网络链路延迟异常则列出异常的网络链路延迟和对应下游。\n- 如果是自身网络导致下游网络链路延迟异常则给出造成的影响并说明是自身原因导致与下游的网络链路延迟升高\n- 最后根据分析规则判断错误方向。\n\n\n\
-            **初步根因结论**\n- 明确告警事件对应用的影响状态。\n- 基于北极星指标与分析规则输出单一归因结论。\n\n# 输入数据\n- 北极星指标NET消耗异常均值最高的实例{{#1747356893645.top_abnormal_means#}}，北极星指标NET消耗异常增速均值最高的实例{{#1747356893645.top_abnormal_growths#}}\n\
-            - 容器网络链路延迟异常消耗均值最高的实例{{#1747356893645.top_abnormal_means#}}\n容器网络链路延迟异常增速均值最高的实例\n\n# 输出准则\n- 使用简洁的非技术表述，避免歧义。\n\
-            - 结论需聚焦可执行建议（如\"检查代码嵌套\"而非\"可能存在性能问题\"）。\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。"
+            - 若有多个网络链路延迟同步出现异常（比如有3个及以上下游网络链路延迟异常）则认为是当前运行对象自身网络出现问题，进而影响了网络链路延迟.\n3. \n若无相关NET或网络链路延迟异常数据，则认为该时间段内对应数据无明显异常，可能只是出现短时间小幅波动。提示用户该数据无异常。\n\
+            \n# 输出格式\n**运行对象**：{{#v2_runtime_environment_context.location_text#}}  \n**北极星指标趋势摘要**\n- 按指标维度描述显著变化，若无异常标注\"\
+            未观测到显著偏离\"。\n**与下游网络链路延迟分析**\n- 如果是下游网络链路延迟异常则列出异常的网络链路延迟和对应下游。\n- 如果是自身网络导致下游网络链路延迟异常则给出造成的影响并说明是自身原因导致与下游的网络链路延迟升高\n\
+            - 最后根据分析规则判断错误方向。\n\n\n**初步根因结论**\n- 明确告警事件对应用的影响状态。\n- 基于北极星指标与分析规则输出单一归因结论。\n\n# 输入数据\n- 北极星指标NET消耗异常均值最高的实例{{#1747356893645.top_abnormal_means#}}，北极星指标NET消耗异常增速均值最高的实例{{#1747356893645.top_abnormal_growths#}}\n\
+            - 网络链路延迟异常消耗均值最高的实例{{#1747356893645.top_abnormal_means#}}\n网络链路延迟异常增速均值最高的实例\n\n# 输出准则\n- 使用简洁的非技术表述，避免歧义。\n-\
+            \ 结论需聚焦可执行建议（如\"检查代码嵌套\"而非\"可能存在性能问题\"）。\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\
+            \n# 输出身份与环境规则\n- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n- 运行对象：{{#v2_runtime_environment_context.location_text#}}。\n\
+            - 对象类型：{{#v2_runtime_environment_context.instance_term#}}。\n- {{#v2_runtime_environment_context.prompt_context#}}\n\
+            - 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。\n- 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n"
         selected: false
         title: 网络方向分析
         type: llm
@@ -5675,26 +5700,26 @@ workflow:
             **事件概述**：
 
 
-            xx服务的xxx实例当前告警事件为XXXX (简洁，不要有其他内容)
+            使用真实服务名和运行对象描述当前告警事件；服务名为空时省略服务字段。
 
 
             **受影响服务**
 
             （如果没有受影响服务数据则提示未检测到受影响服务）
 
-            影响到界面上xx功能，请求延时从xx升高到xx，错误率从xx升高到xx。（根据受影响服务数据进行描述，不要修改）
+            根据受影响服务数据描述具体业务功能、响应时间和错误率变化；缺少数据时不要编造。
 
 
             **问题分析**
 
 
-            初步分析是XXX问题（CPU方向、网络质量、CPU抢占、xx下游依赖、文件读写），不要有其他内容，给出方向即可
+            只输出已确认的单一根因方向，例如 CPU、网络质量、CPU 抢占、具体下游依赖或文件读写。
 
 
             **解决措施**：
 
 
-            - 执行XXXX命令（必须和故障方向有关）
+            - 执行与故障方向和运行环境匹配的命令。
 
             例如：如果网络往返延迟异常，建议执行traceroute <目标IP地址或域名>排查具体问题。
 
@@ -5708,7 +5733,7 @@ workflow:
 
             时间：{{#1741227526517.endTime#}}
 
-            当前实例：{{#17430589567120.pod#}}
+            当前运行对象：{{#v2_runtime_environment_context.location_text#}}
 
             告警事件：{{#1742807803325.alertName#}}
 
@@ -5722,7 +5747,7 @@ workflow:
 
             ### 使用要求
 
-            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据xx文档，推测是xx，建议执行xx”。
+            优先根据文档中的与当前告警或服务相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容要给内容出处文档名称，表明是“根据知识库文档，说明判断依据并给出具体建议”。
 
             1. 注意关键寻找文档中包括但不限于历史告警、解决思路、负责人员、业务名称对照等信息。
 
@@ -5737,7 +5762,24 @@ workflow:
 
             # 输出格式
 
-            格式参考模版，注意换行和空格，确保文本美观输出，简单易懂(使用MarkDown格式的文本)，且不要有其他输出'
+            格式参考模版，注意换行和空格，确保文本美观输出，简单易懂(使用MarkDown格式的文本)，且不要有其他输出
+
+
+            # 输出身份与环境规则
+
+            - 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。
+
+            - 运行对象：{{#v2_runtime_environment_context.location_text#}}。
+
+            - 对象类型：{{#v2_runtime_environment_context.instance_term#}}。
+
+            - {{#v2_runtime_environment_context.prompt_context#}}
+
+            - 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。
+
+            - 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。
+
+            '
         selected: false
         title: 描述
         type: llm
@@ -5877,16 +5919,20 @@ workflow:
           role: user
           text: "# 目的\n根据告警根因总结和相关文档生成排障建议和可执行命令，建议聚焦于可执行命令，避免输出“检查服务健康状态”等模糊建议。\n# 可执行命令举例\n优先根据文档中与根因相关的片段给出解决建议。\n\n根因为CPU：使用top\
             \ -H -p <PID>查看占用，pidstat -t -p <PID> 1查看使用率等命令\n根因为网络质量问题：ss -s查看全局socket状态，ss -tunap查看所有TCP/UDP连接，nstat -z 查看重传等命令\n\
-            根因为EPOLL：strace -e epoll_wait,epoll_pwait -tt -T -p <PID>追踪epoll调用耗时，perf trace -e epoll:*查看epoll相关事件等命令\n根因为CPU抢占（runq）：dstat\
-            \ -l 1 查看系统负载，mpstat -P ALL 1查看CPU的%idle和%util等命令\n根因为文件读取（file）：iotop -o -p <PID>查看进程级磁盘IO，strace -e trace=file\
-            \ -tt -T -p <PID>查看文件相关的系统调用等命令\n# 结论数据\n{{#1754385689812.output#}}\n# 文档\n{{#context#}}\n## 使用要求\n必须先找出根据文档中的与当前告警或服务{{#1754299310647.service#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容，需要说明是“根据知识库文档，建议执行xx，联系xx进行解决”。\n\
+            根因为 EPOLL：保留 EPOLL 作为异常方向，但建议从网络连接和等待原因排查。优先结合 RTT、下游 Span、超时和重传证据；可按证据选择 ss -s、ss -antp、nstat -az、sar -n TCP,ETCP\
+            \ 1、ip -s link。不要默认建议跟踪 epoll 系统调用，也不要机械输出全部命令。\n根因为CPU抢占（runq）：dstat -l 1 查看系统负载，mpstat -P ALL 1查看CPU的%idle和%util等命令\n\
+            根因为文件读取（file）：iotop -o -p <PID>查看进程级磁盘IO，strace -e trace=file -tt -T -p <PID>查看文件相关的系统调用等命令\n# 结论数据\n{{#1754385689812.output#}}\n\
+            # 文档\n{{#context#}}\n## 使用要求\n必须先找出根据文档中的与当前告警或服务{{#1754299310647.service#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容，需要说明是“根据知识库文档给出具体建议；有真实负责人信息时再给出联系方式”。\n\
             1. 关键寻找文档中包括但不限于历史告警、解决思路、负责人员等信息。\n2. 优先检索与服务延时升高相关的文档片段，只允许使用与当前根因方向相关的文档片段，如果片段与根因不相关，则完全忽略。如：根因方向为网络，聚焦于文档中与解决网络故障相关的片段，忽略文档中与网络故障无关的内容。\n\
             3. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n4. 如果文档中包含责任联系人、运维人员、负责人等，在建议中添加一条“联系xx进行解决”，没有则不添加。\n\
             \n# 格式模版\n{\"suggest\": [\n        {\n            \"action\": \"向交易记录表添加索引\",\n            \"level\": \"high\"\
             \n        },\n        {\n            \"action\": \"扩大数据库节点CPU资源\",\n            \"level\": \"medium\"\n      \
             \  },\n        {\n            \"action\": \"联系xx进行解决，联系方式xx\",\n             \"level\": \"high\"\n    ] }\n# 输出格式\n\
             json格式数据，格式参考模版，内容包含排障详细步骤，至少5条建议，不要输出其他内容\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n\
-            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。"
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\n# 输出身份与环境规则\n- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n\
+            - 运行对象：{{#v2_runtime_environment_context.location_text#}}。\n- 对象类型：{{#v2_runtime_environment_context.instance_term#}}。\n\
+            - {{#v2_runtime_environment_context.prompt_context#}}\n- 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。\n\
+            - 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n"
         selected: false
         title: 可行动建议JSON
         type: llm
@@ -6342,20 +6388,23 @@ workflow:
             \ rootCauseEvidenceRefs 中引用 metrics/red 证据且有真实 chartData 时才同步填入；没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。\n\
             7. 支撑证据映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log\
             \ 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage/disk\
-            \ 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system 使用 Pod\
-            \ 重启、OOMKill、节点资源、容器状态、K8s Event、CPU、内存；config 使用配置拉取失败、配置中心错误、DB 连接失败、连接串/凭据错误、初始化失败日志；self 使用应用异常、错误日志、panic、stack、runtime\
-            \ 异常；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic\
-            \ 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。\n8. faultLocation 必须简单易懂；无法定位时输出 null。\n9. businessImpact\
-            \ 没有明确业务影响时输出 null，不要编造。\n10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。\n11. evidenceHighlights 只服务关键证据摘要，不是首屏支撑证据来源；summary\
-            \ 优先使用原始 evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代 rootCauseEvidenceRefs，不能伪装成支撑指标。\n12. conclusionSummary\
-            \ 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），禁止输出 Unix 秒/毫秒/微秒时间戳原值。\n13. timeline 只使用 {\"timestamp\": number, \"\
-            title\": string, \"summary\": string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。\n14. 有明确时间点或可换算时间戳时才输出\
+            \ 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system 按运行环境选择证据：VM\
+            \ 使用主机资源、进程状态和系统日志；容器使用 Pod 重启、OOMKill、节点资源、容器状态和 K8s Event；环境不明确时使用通用 CPU、内存和系统证据；config 使用配置拉取失败、配置中心错误、DB 连接失败、连接串/凭据错误、初始化失败日志；self\
+            \ 使用应用异常、错误日志、panic、stack、runtime 异常；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL\
+            \ 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。\n8. faultLocation\
+            \ 必须简单易懂；无法定位时输出 null。\n9. businessImpact 没有明确业务影响时输出 null，不要编造。\n10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。\n\
+            11. evidenceHighlights 只服务关键证据摘要，不是首屏支撑证据来源；summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代 rootCauseEvidenceRefs，不能伪装成支撑指标。\n\
+            12. conclusionSummary 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），禁止输出 Unix 秒/毫秒/微秒时间戳原值。\n13. timeline 只使用 {\"timestamp\"\
+            : number, \"title\": string, \"summary\": string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。\n14. 有明确时间点或可换算时间戳时才输出\
             \ timeline；禁止输出 time、detail、content、description 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入 analysisSteps。\n15. analysisSteps\
             \ 只使用 {\"title\": string, \"summary\": string} 结构，不输出 timestamp、time、detail 字段。\n16. summaryCards 是首屏摘要，必须简洁，最多输出\
             \ 3 张卡片：symptom、rootCause、excluded。rootCause 卡必须从 rootCauseAnalysis.other 中 level=major 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other\
-            \ 中 level=normal 的方向归纳。excluded.title 示例：已排除xx、xx方向，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个 reason，不得机械罗列多个方向；不得把\
-            \ level=minor 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。\n\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n\
-            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。"
+            \ 中 level=normal 的方向归纳。excluded.title 使用真实方向，例如“已排除 CPU、文件方向”，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个\
+            \ reason，不得机械罗列多个方向；不得把 level=minor 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。\n\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n\
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\n# 输出身份与环境规则\n- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n\
+            - 运行对象：{{#v2_runtime_environment_context.location_text#}}。\n- 对象类型：{{#v2_runtime_environment_context.instance_term#}}。\n\
+            - {{#v2_runtime_environment_context.prompt_context#}}\n- 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。\n\
+            - 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n"
         selected: false
         title: 生成报告展示结构
         type: llm
@@ -8246,7 +8295,7 @@ workflow:
 
             # 数据
 
-            当前实例{{#1742807803325.pod#}}
+            当前运行对象{{#v2_runtime_environment_context.location_text#}}
 
             告警总结{{#17430596469370.text#}}
 
@@ -8262,9 +8311,9 @@ workflow:
 
             1. 保留原总结中的各方向异常线程的描述、根因推导分析流程和根因方向总结，在此基础上为网络方向总结添加下游依赖详情描述。
 
-            2. 添加下游实例对当前实例产生告警的描述，如：”当前实例产生xx告警，初步推断为下游xxx实例/服务引起。“如果没有告警报告链接或者告警，则不需要描述相关的内容，如果有detail信息则添加对调用接口或者调用数据查询语句的具体描述。
+            2. 使用真实告警名称和下游服务/实例描述下游影响；没有具体下游证据时明确说明证据不足，不得使用占位词。如果没有告警报告链接或者告警，则不需要描述相关的内容，如果有detail信息则添加对调用接口或者调用数据查询语句的具体描述。
 
-            3. 细化报告根因问题，如“下游依赖问题”改为“xxx下游依赖问题”xx为具体下游服务。
+            3. 有具体下游服务时将“下游依赖问题”细化为该服务的下游依赖问题；没有具体服务时保留通用表述。
 
             # 输出
 
@@ -8276,7 +8325,24 @@ workflow:
 
             {{#v2_runtime_environment_context.prompt_context#}}
 
-            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。'
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。
+
+
+            # 输出身份与环境规则
+
+            - 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。
+
+            - 运行对象：{{#v2_runtime_environment_context.location_text#}}。
+
+            - 对象类型：{{#v2_runtime_environment_context.instance_term#}}。
+
+            - {{#v2_runtime_environment_context.prompt_context#}}
+
+            - 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。
+
+            - 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。
+
+            '
         selected: false
         title: 总结下游影响
         type: llm

@@ -55,6 +55,33 @@ ENV_AWARE_TITLES = {
     "生成报告展示结构",
 }
 
+PROMPT_REFINEMENT_NODE_IDS = {
+    "1741512806512",
+    "17430596469370",
+    "17473569800940",
+    "1750662084996",
+    "1750662408086",
+    "1764048001002",
+    "1754382620041",
+}
+
+EPOLL_NETWORK_GUIDANCE = (
+    "根因为 EPOLL：保留 EPOLL 作为异常方向，但建议从网络连接和等待原因排查。"
+    "优先结合 RTT、下游 Span、超时和重传证据；可按证据选择 ss -s、ss -antp、nstat -az、"
+    "sar -n TCP,ETCP 1、ip -s link。不要默认建议跟踪 epoll 系统调用，也不要机械输出全部命令。"
+)
+
+COMMON_OUTPUT_IDENTITY_RULES = '''
+
+# 输出身份与环境规则
+- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。
+- 运行对象：{{#v2_runtime_environment_context.location_text#}}。
+- 对象类型：{{#v2_runtime_environment_context.instance_term#}}。
+- {{#v2_runtime_environment_context.prompt_context#}}
+- 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。
+- 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。
+'''
+
 RTT_DETECTION_CODE = '''import json
 import math
 import statistics
@@ -645,6 +672,157 @@ def inject_environment_prompts(document: dict) -> None:
                 prompt["text"] = prompt.get("text", "") + section
 
 
+def _user_prompt(node: dict) -> dict:
+    for prompt in node.get("data", {}).get("prompt_template", []):
+        if prompt.get("role") == "user":
+            return prompt
+    raise ValueError(f"user prompt missing: {node['id']}")
+
+
+def _replace(text: str, old: str, new: str) -> str:
+    return text.replace(old, new)
+
+
+def refine_output_prompts(document: dict) -> None:
+    nodes = {node["id"]: node for node in document["workflow"]["graph"]["nodes"]}
+
+    action = _user_prompt(nodes["1741512806512"])
+    action_text = action["text"]
+    action_text = _replace(
+        action_text,
+        "基于服务层级聚合Pod信息并输出服务级概览报告。需确保各Pod具体运行状态的可视化呈现清晰直观。",
+        "基于服务层级聚合运行对象信息并输出服务级概览报告，清晰呈现各主机进程、实例或 Pod 的实际运行状态。",
+    )
+    action_text = _replace(
+        action_text,
+        "根因为EPOLL：strace -e epoll_wait,epoll_pwait -tt -T -p <PID>追踪epoll调用耗时，perf trace -e epoll:*查看epoll相关事件等命令",
+        EPOLL_NETWORK_GUIDANCE,
+    )
+    action_text = _replace(action_text, "服务级汇总指标与Pod明细指标", "服务级汇总指标与运行对象明细指标")
+    action["text"] = action_text
+
+    root_cause = _user_prompt(nodes["17430596469370"])
+    root_text = root_cause["text"]
+    root_text = _replace(
+        root_text,
+        "基于跨资源类别的异常线程数据，判断应用实例{{#17430589567120.pod#}}是否受告警事件",
+        "基于跨资源类别的异常线程数据，判断运行对象{{#v2_runtime_environment_context.location_text#}}是否受告警事件",
+    )
+    root_text = _replace(root_text, "根据xx文档，推断出/可能是xxx", "根据知识库文档，推断出具体根因")
+    root_text = _replace(
+        root_text,
+        "根因为xx（如果总结中明确指出下游）下游依赖问题",
+        "根因为总结中明确指出的具体下游依赖问题",
+    )
+    root_text = _replace(
+        root_text,
+        "只能给出一个问题方向，不要出现xx和xx方向问题，只能说明主要问题。",
+        "只能给出一个主要问题方向，禁止并列多个根因方向。",
+    )
+    root_text = _replace(
+        root_text,
+        "**服务xx**的**应用实例**:{{#17430589567120.pod#}}  ",
+        "**服务**：{{#1754299310647.service#}}  \n**运行对象**：{{#v2_runtime_environment_context.location_text#}}  \n**对象类型**：{{#v2_runtime_environment_context.instance_term#}}  ",
+    )
+    root_text = _replace(
+        root_text,
+        "按指标维度描述显著变化，如xxx个线程xxxxx,若无异常标注",
+        "按实际线程数量和指标维度描述显著变化，若无异常标注",
+    )
+    root_cause["text"] = root_text
+
+    network = _user_prompt(nodes["17473569800940"])
+    network_text = network["text"]
+    network_text = _replace(
+        network_text,
+        "判断应用实例{{#17430589567120.pod#}}是否受告警事件",
+        "判断运行对象{{#v2_runtime_environment_context.location_text#}}是否受告警事件",
+    )
+    network_text = _replace(network_text, "Pod相关下游容器网络链路", "当前运行对象相关的下游网络链路")
+    network_text = _replace(network_text, "容器自身网络出现问题", "当前运行对象自身网络出现问题")
+    network_text = _replace(
+        network_text,
+        "**应用实例**:{{#17430589567120.pod#}}",
+        "**运行对象**：{{#v2_runtime_environment_context.location_text#}}",
+    )
+    network_text = network_text.replace("下游容器网络链路", "下游网络链路")
+    network_text = network_text.replace("容器网络链路", "网络链路")
+    network["text"] = network_text
+
+    description = _user_prompt(nodes["1750662084996"])
+    description_text = description["text"]
+    description_text = _replace(
+        description_text,
+        "xx服务的xxx实例当前告警事件为XXXX (简洁，不要有其他内容)",
+        "使用真实服务名和运行对象描述当前告警事件；服务名为空时省略服务字段。",
+    )
+    description_text = _replace(
+        description_text,
+        "影响到界面上xx功能，请求延时从xx升高到xx，错误率从xx升高到xx。（根据受影响服务数据进行描述，不要修改）",
+        "根据受影响服务数据描述具体业务功能、响应时间和错误率变化；缺少数据时不要编造。",
+    )
+    description_text = _replace(
+        description_text,
+        "初步分析是XXX问题（CPU方向、网络质量、CPU抢占、xx下游依赖、文件读写），不要有其他内容，给出方向即可",
+        "只输出已确认的单一根因方向，例如 CPU、网络质量、CPU 抢占、具体下游依赖或文件读写。",
+    )
+    description_text = _replace(description_text, "执行XXXX命令（必须和故障方向有关）", "执行与故障方向和运行环境匹配的命令。")
+    description_text = _replace(
+        description_text,
+        "当前实例：{{#17430589567120.pod#}}",
+        "当前运行对象：{{#v2_runtime_environment_context.location_text#}}",
+    )
+    description_text = _replace(description_text, "根据xx文档，推测是xx，建议执行xx", "根据知识库文档，说明判断依据并给出具体建议")
+    description["text"] = description_text
+
+    suggest_json = _user_prompt(nodes["1750662408086"])
+    suggest_text = suggest_json["text"]
+    suggest_text = _replace(
+        suggest_text,
+        "根因为EPOLL：strace -e epoll_wait,epoll_pwait -tt -T -p <PID>追踪epoll调用耗时，perf trace -e epoll:*查看epoll相关事件等命令",
+        EPOLL_NETWORK_GUIDANCE,
+    )
+    suggest_text = _replace(suggest_text, "根据知识库文档，建议执行xx，联系xx进行解决", "根据知识库文档给出具体建议；有真实负责人信息时再给出联系方式")
+    suggest_json["text"] = suggest_text
+
+    report_view = _user_prompt(nodes["1764048001002"])
+    report_text = report_view["text"]
+    report_text = _replace(
+        report_text,
+        "infra/system 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event、CPU、内存",
+        "infra/system 按运行环境选择证据：VM 使用主机资源、进程状态和系统日志；容器使用 Pod 重启、OOMKill、节点资源、容器状态和 K8s Event；环境不明确时使用通用 CPU、内存和系统证据",
+    )
+    report_text = _replace(
+        report_text,
+        "excluded.title 示例：已排除xx、xx方向",
+        "excluded.title 使用真实方向，例如“已排除 CPU、文件方向”",
+    )
+    report_view["text"] = report_text
+
+    downstream = _user_prompt(nodes["1754382620041"])
+    downstream_text = downstream["text"]
+    downstream_text = _replace(
+        downstream_text,
+        "当前实例{{#1742807803325.pod#}}",
+        "当前运行对象{{#v2_runtime_environment_context.location_text#}}",
+    )
+    downstream_text = _replace(
+        downstream_text,
+        "添加下游实例对当前实例产生告警的描述，如：”当前实例产生xx告警，初步推断为下游xxx实例/服务引起。“",
+        "使用真实告警名称和下游服务/实例描述下游影响；没有具体下游证据时明确说明证据不足，不得使用占位词。",
+    )
+    downstream_text = _replace(
+        downstream_text,
+        "细化报告根因问题，如“下游依赖问题”改为“xxx下游依赖问题”xx为具体下游服务。",
+        "有具体下游服务时将“下游依赖问题”细化为该服务的下游依赖问题；没有具体服务时保留通用表述。",
+    )
+    downstream["text"] = downstream_text
+
+    for node_id in PROMPT_REFINEMENT_NODE_IDS:
+        prompt = _user_prompt(nodes[node_id])
+        prompt["text"] = prompt["text"] + COMMON_OUTPUT_IDENTITY_RULES
+
+
 def replace_rtt_nodes(document: dict) -> None:
     detection = node_by_id(document, "17515143872690")
     detection["data"]["code"] = RTT_DETECTION_CODE
@@ -853,6 +1031,7 @@ def build() -> dict:
     document["app"]["name"] = "告警简单根因分析V2"
     add_environment_context(document)
     inject_environment_prompts(document)
+    refine_output_prompts(document)
     replace_rtt_nodes(document)
     replace_p90_and_merge_nodes(document)
     rewire_span_enrichment(document)
