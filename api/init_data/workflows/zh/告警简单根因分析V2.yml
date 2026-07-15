@@ -8024,8 +8024,8 @@ workflow:
           \      return legend, True\n    return f\"unknown_dst_instance_{unknown_index}\", False\n\n\ndef main(data_json):\n\
           \    data = _load(data_json)\n    if not data:\n        return {\n            \"result\": \"未检测到可用于归因的 RTT 异常数据，需要通过调用链补充分析。\"\
           ,\n            \"direction_summary\": \"未明确归因\",\n            \"abnormal_downstream_instances\": \"[]\",\n     \
-          \       \"evidence_quality\": \"insufficient\",\n            \"requires_span_fallback\": True,\n        }\n\n  \
-          \  first_labels = data[0].get(\"labels\", {}) or {}\n    src_pod = first_labels.get(\"src_pod\") or first_labels.get(\"\
+          \       \"evidence_quality\": \"insufficient\",\n            \"requires_span_fallback\": \"true\",\n        }\n\n\
+          \    first_labels = data[0].get(\"labels\", {}) or {}\n    src_pod = first_labels.get(\"src_pod\") or first_labels.get(\"\
           pod\") or \"当前实例\"\n    src_node = first_labels.get(\"src_node\") or first_labels.get(\"node\") or \"\"\n    src_ip\
           \ = first_labels.get(\"src_ip\") or \"\"\n    instances = []\n    details_by_node = defaultdict(list)\n    valid_count\
           \ = 0\n    complete_count = 0\n    seen = set()\n\n    for index, item in enumerate(data, start=1):\n        labels\
@@ -8040,7 +8040,7 @@ workflow:
           \            details_by_node[dst_node].append(instance)\n\n    if valid_count == 0:\n        return {\n        \
           \    \"result\": \"检测到 RTT 波动，但缺少可识别的下游目标，需要通过高耗时 Span 补充归因。\",\n            \"direction_summary\": \"未明确归因\",\n\
           \            \"abnormal_downstream_instances\": \"[]\",\n            \"evidence_quality\": \"insufficient\",\n \
-          \           \"requires_span_fallback\": True,\n        }\n\n    evidence_quality = \"complete\" if complete_count\
+          \           \"requires_span_fallback\": \"true\",\n        }\n\n    evidence_quality = \"complete\" if complete_count\
           \ == valid_count else \"partial\"\n    distinct_nodes = len(details_by_node)\n    dominant_node = None\n    for\
           \ node, node_instances in details_by_node.items():\n        if len(node_instances) > 1 and len(node_instances) /\
           \ valid_count >= 0.7:\n            dominant_node = node\n            break\n\n    if dominant_node:\n        direction\
@@ -8050,8 +8050,8 @@ workflow:
           \    else:\n        direction = \"下游实例问题\"\n        names = \"、\".join(instance[\"instance_name\"] for instance\
           \ in instances)\n        result = f\"{src_pod} 与下游实例 {names} 的 RTT 异常，将结合高耗时 Span 补充具体调用证据。\"\n\n    return {\n\
           \        \"result\": result,\n        \"direction_summary\": direction,\n        \"abnormal_downstream_instances\"\
-          : json.dumps(instances),\n        \"evidence_quality\": evidence_quality,\n        \"requires_span_fallback\": direction\
-          \ != \"自身问题\" or evidence_quality != \"complete\",\n    }\n"
+          : json.dumps(instances),\n        \"evidence_quality\": evidence_quality,\n        \"requires_span_fallback\": \"\
+          true\" if direction != \"自身问题\" or evidence_quality != \"complete\" else \"false\",\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -8065,7 +8065,7 @@ workflow:
             type: string
             children: null
           requires_span_fallback:
-            type: boolean
+            type: string
             children: null
           result:
             type: string

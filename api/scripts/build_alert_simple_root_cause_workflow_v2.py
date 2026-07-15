@@ -205,7 +205,7 @@ def main(data_json):
             "direction_summary": "未明确归因",
             "abnormal_downstream_instances": "[]",
             "evidence_quality": "insufficient",
-            "requires_span_fallback": True,
+            "requires_span_fallback": "true",
         }
 
     first_labels = data[0].get("labels", {}) or {}
@@ -250,7 +250,7 @@ def main(data_json):
             "direction_summary": "未明确归因",
             "abnormal_downstream_instances": "[]",
             "evidence_quality": "insufficient",
-            "requires_span_fallback": True,
+            "requires_span_fallback": "true",
         }
 
     evidence_quality = "complete" if complete_count == valid_count else "partial"
@@ -278,7 +278,7 @@ def main(data_json):
         "direction_summary": direction,
         "abnormal_downstream_instances": json.dumps(instances),
         "evidence_quality": evidence_quality,
-        "requires_span_fallback": direction != "自身问题" or evidence_quality != "complete",
+        "requires_span_fallback": "true" if direction != "自身问题" or evidence_quality != "complete" else "false",
     }
 '''
 
@@ -655,7 +655,7 @@ def replace_rtt_nodes(document: dict) -> None:
         "abnormal_downstream_instances": {"type": "string", "children": None},
         "direction_summary": {"type": "string", "children": None},
         "evidence_quality": {"type": "string", "children": None},
-        "requires_span_fallback": {"type": "boolean", "children": None},
+        "requires_span_fallback": {"type": "string", "children": None},
         "result": {"type": "string", "children": None},
     }
 

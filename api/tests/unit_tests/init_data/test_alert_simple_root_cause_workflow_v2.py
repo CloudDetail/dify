@@ -6,6 +6,7 @@ from collections import defaultdict, deque
 import yaml
 
 from core.workflow.graph_engine.entities.graph import Graph
+from core.workflow.nodes.code.entities import CodeNodeData
 from scripts.build_alert_simple_root_cause_workflow_v2 import build, main as generate_v2
 
 
@@ -170,6 +171,14 @@ def test_v2_graph_respects_parallel_depth_limit():
     Graph.init(graph_config)
 
 
+def test_v2_code_node_output_schemas_are_supported():
+    nodes = load_workflow()["workflow"]["graph"]["nodes"]
+
+    for node in nodes:
+        if node.get("data", {}).get("type") == "code":
+            CodeNodeData.model_validate(node["data"])
+
+
 def test_v2_generation_is_deterministic_and_preserves_source():
     source_before = SOURCE.read_bytes()
     first = build()
@@ -261,7 +270,7 @@ def test_attribution_never_returns_empty_downstream_problem():
     )
 
     assert result["direction_summary"] == "未明确归因"
-    assert result["requires_span_fallback"] is True
+    assert result["requires_span_fallback"] == "true"
     assert json.loads(result["abnormal_downstream_instances"]) == []
 
 
