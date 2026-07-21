@@ -24,3 +24,11 @@ def test_report_view_workflows_pass_report_view_to_alert_report_tool():
 
         assert "tool_name: Generate alert analysis report" in workflow_text
         assert f"value: '{{{{#{report_view_node_id}.text#}}}}'" in workflow_text
+
+
+def test_alert_simple_root_cause_instance_history_uses_history_window():
+    workflow_text = (WORKFLOW_DIR / "告警简单根因分析.yml").read_text(encoding="utf-8")
+    history_node = workflow_text.split("title: 实例过去延时", maxsplit=1)[1].split("type: tool", maxsplit=1)[0]
+
+    assert "- '1742807803325'\n            - historyStartTime" in history_node
+    assert "- '1742807803325'\n            - historyEndTime" in history_node
