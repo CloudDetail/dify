@@ -3,6 +3,7 @@ from pathlib import Path
 WORKFLOW_DIR = Path(__file__).parents[3] / "init_data" / "workflows" / "zh"
 REPORT_VIEW_WORKFLOWS = {
     "告警简单根因分析.yml": "1764048001002",
+    "告警简单根因分析V2.yml": "1764048001002",
     "可用性告警分析.yml": "1764048001001",
     "资源告警分析.yml": "1764048001003",
 }
