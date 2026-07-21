@@ -7,12 +7,10 @@ import yaml
 
 from core.workflow.graph_engine.entities.graph import Graph
 from core.workflow.nodes.code.entities import CodeNodeData
-from scripts.build_alert_simple_root_cause_workflow_v2 import build, main as generate_v2
 
 
 WORKFLOW_DIR = Path(__file__).parents[3] / "init_data" / "workflows" / "zh"
-SOURCE = WORKFLOW_DIR / "告警简单根因分析.yml"
-V2 = WORKFLOW_DIR / "告警简单根因分析V2.yml"
+WORKFLOW = WORKFLOW_DIR / "告警简单根因分析.yml"
 OUTPUT_PROMPT_NODE_IDS = {
     "1741512806512",
     "17430596469370",
@@ -24,7 +22,7 @@ OUTPUT_PROMPT_NODE_IDS = {
 }
 
 
-def load_workflow(path: Path = V2) -> dict:
+def load_workflow(path: Path = WORKFLOW) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
@@ -162,14 +160,13 @@ def database_span(duration: int, *, error: bool = True) -> dict:
     )
 
 
-def test_v2_workflow_exists_and_has_distinct_name():
+def test_workflow_uses_canonical_name():
     workflow = load_workflow()
 
-    assert workflow["app"]["name"] == "告警简单根因分析V2"
-    assert SOURCE.read_bytes() != V2.read_bytes()
+    assert workflow["app"]["name"] == "告警简单根因分析"
 
 
-def test_v2_graph_has_unique_nodes_and_valid_edges():
+def test_workflow_graph_has_unique_nodes_and_valid_edges():
     graph = load_workflow()["workflow"]["graph"]
     node_ids = [node["id"] for node in graph["nodes"]]
 
@@ -180,30 +177,18 @@ def test_v2_graph_has_unique_nodes_and_valid_edges():
         assert edge["target"] in known
 
 
-def test_v2_graph_respects_parallel_depth_limit():
+def test_workflow_graph_respects_parallel_depth_limit():
     graph_config = load_workflow()["workflow"]["graph"]
 
     Graph.init(graph_config)
 
 
-def test_v2_code_node_output_schemas_are_supported():
+def test_workflow_code_node_output_schemas_are_supported():
     nodes = load_workflow()["workflow"]["graph"]["nodes"]
 
     for node in nodes:
         if node.get("data", {}).get("type") == "code":
             CodeNodeData.model_validate(node["data"])
-
-
-def test_v2_generation_is_deterministic_and_preserves_source():
-    source_before = SOURCE.read_bytes()
-    first = build()
-    second = build()
-
-    generate_v2()
-
-    assert first == second
-    assert load_workflow() == first
-    assert SOURCE.read_bytes() == source_before
 
 
 def test_environment_context_detects_vm_container_and_unknown():

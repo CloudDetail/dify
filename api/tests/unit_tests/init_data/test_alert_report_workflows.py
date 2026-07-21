@@ -3,7 +3,6 @@ from pathlib import Path
 WORKFLOW_DIR = Path(__file__).parents[3] / "init_data" / "workflows" / "zh"
 REPORT_VIEW_WORKFLOWS = {
     "告警简单根因分析.yml": "1764048001002",
-    "告警简单根因分析V2.yml": "1764048001002",
     "可用性告警分析.yml": "1764048001001",
     "资源告警分析.yml": "1764048001003",
 }
@@ -28,9 +27,8 @@ def test_report_view_workflows_pass_report_view_to_alert_report_tool():
 
 
 def test_alert_simple_root_cause_instance_history_uses_history_window():
-    for workflow_name in ("告警简单根因分析.yml", "告警简单根因分析V2.yml"):
-        workflow_text = (WORKFLOW_DIR / workflow_name).read_text(encoding="utf-8")
-        history_node = workflow_text.split("title: 实例过去延时", maxsplit=1)[1].split("type: tool", maxsplit=1)[0]
+    workflow_text = (WORKFLOW_DIR / "告警简单根因分析.yml").read_text(encoding="utf-8")
+    history_node = workflow_text.split("title: 实例过去延时", maxsplit=1)[1].split("type: tool", maxsplit=1)[0]
 
-        assert "- '1742807803325'\n            - historyStartTime" in history_node
-        assert "- '1742807803325'\n            - historyEndTime" in history_node
+    assert "- '1742807803325'\n            - historyStartTime" in history_node
+    assert "- '1742807803325'\n            - historyEndTime" in history_node
