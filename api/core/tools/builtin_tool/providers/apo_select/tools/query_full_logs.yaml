@@ -6,9 +6,9 @@ identity:
     zh_Hans: 查询全量日志
 description:
   human:
-    en_US: Query all logs.
-    zh_Hans: 查询全量日志
-  llm: Query all logs.
+    en_US: Query logs through Dataplane providers.
+    zh_Hans: 通过 Dataplane 数据源查询日志
+  llm: Query logs through Dataplane providers.
 display:
   type: log
   title: log
@@ -18,12 +18,12 @@ parameters:
     type: string
     required: false
     label:
-      en_US: Query condition(clickhouse where clause).
-      zh_Hans: 查询条件（clickhouse where子句）
+      en_US: Compatible log equality filters
+      zh_Hans: 兼容的日志等值过滤条件
     human_description:
-      en_US: Query condition(clickhouse where clause).
-      zh_Hans: 查询条件（clickhouse where子句）
-    llm_description: Query condition(clickhouse where clause).
+      en_US: Legacy equality-only raw_logs condition, combined with AND/OR.
+      zh_Hans: 兼容现有工作流的 raw_logs 等值条件，支持 AND/OR 组合
+    llm_description: Legacy equality-only raw_logs condition. Supported fields map to Dataplane log filters.
     form: llm
 
   - name: pageNum
