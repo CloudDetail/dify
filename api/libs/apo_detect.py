@@ -3,6 +3,8 @@ from typing import Any, Optional
 import numpy as np
 from scipy import stats
 
+from libs.apo_oscillation import OscillationDetector
+
 _HAS_SM = False
 
 
@@ -11,6 +13,7 @@ class ShockAnomalyDetector:
         self.k_tukey = k_tukey
         self.min_duration = min_duration
         self.window_size = window_size
+        self.oscillation_detector = OscillationDetector()
 
     @staticmethod
     def diff_positive(series: np.ndarray) -> np.ndarray:
@@ -30,6 +33,7 @@ class ShockAnomalyDetector:
     def detect(
         self, current_series: np.ndarray, history_series: Optional[np.ndarray] = None
     ) -> list[tuple[int, float]]:
+        current_series = np.asarray(current_series, dtype=float)
         if len(current_series) < 2:
             return []
 
@@ -37,7 +41,7 @@ class ShockAnomalyDetector:
         hist_pos_diff = self.diff_positive(
             history_series) if history_series is not None else None
 
-        anomalies = []
+        candidate_indices = []
         global_positive = curr_pos_diff[curr_pos_diff > 0]
         upper_curr = self.tukey_upper(global_positive, self.k_tukey)
 
@@ -71,9 +75,12 @@ class ShockAnomalyDetector:
             if x_t <= upper_sub:
                 continue
 
-            anomalies.append((t, float(current_series[t])))
+            candidate_indices.append(t)
 
-        return anomalies
+        filtered_indices = self.oscillation_detector.filter_expected_points(
+            current_series, candidate_indices
+        )
+        return [(index, float(current_series[index])) for index in filtered_indices]
 
 
 class TrendAnomalyDetector:
