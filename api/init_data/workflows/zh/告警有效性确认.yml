@@ -949,6 +949,17 @@ workflow:
         isInIteration: false
         sourceType: if-else
         targetType: tool
+      id: 1750058827536-6879e58c-f4b1-4c06-9b80-6256f471cb55-17429797453350-target
+      source: '1750058827536'
+      sourceHandle: 6879e58c-f4b1-4c06-9b80-6256f471cb55
+      target: '17429797453350'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
       id: 1750058827536-f8ec6e72-e1ed-46d4-8bbc-f7bb562f79fc-1741328742817-target
       source: '1750058827536'
       sourceHandle: f8ec6e72-e1ed-46d4-8bbc-f7bb562f79fc
@@ -7287,11 +7298,21 @@ workflow:
             - '1750057744917'
             - result
           logical_operator: and
+        - case_id: 6879e58c-f4b1-4c06-9b80-6256f471cb55
+          conditions:
+          - comparison_operator: is
+            id: 9ae9e263-e078-44f2-9096-59c64e167439
+            value: 主机内存使用率
+            varType: string
+            variable_selector:
+            - '1750057744917'
+            - result
+          logical_operator: and
         desc: ''
         selected: false
         title: 条件分支 3
         type: if-else
-      height: 942
+      height: 990
       id: '1750058827536'
       position:
         x: 1550

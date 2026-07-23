@@ -6536,10 +6536,10 @@ workflow:
     - data:
         code: "\ndef main(pod: str, service: str, node: str, pid: str, containerId: str) -> dict:\n    query = ''\n    if\
           \ len(containerId) > 0 and len(node) > 0:\n        query = f\"\"\"container_id='{containerId}' and host_name='{node}'\"\
-          \"\"\n    elif len(pod) > 0 and len(service) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}' and container_name='{service}'\"\
+          \"\"\n    elif len(pod) > 0 and len(service) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}' and serviceName='{service}'\"\
           \"\"\n    elif len(pod) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\"\"\"\n    elif len(node) > 0 and len(pid)\
           \ > 0:\n        query = f\"\"\"host_name='{node}' and pid='{pid}'\"\"\"\n    elif len(service) > 0:\n        query\
-          \ = f\"\"\"container_name='{service}'\"\"\"\n    elif len(containerId) > 0:\n        query = f\"\"\"container_id='{containerId}'\"\
+          \ = f\"\"\"serviceName='{service}'\"\"\"\n    elif len(containerId) > 0:\n        query = f\"\"\"container_id='{containerId}'\"\
           \"\"\n    elif len(node) > 0:\n        query = f\"\"\"host_name='{node}'\"\"\"\n\n            \n    return {\n \
           \       \"query\": query,\n    }"
         code_language: python3
