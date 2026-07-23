@@ -2452,7 +2452,7 @@ workflow:
       width: 244
     - data:
         code: "import requests\nimport json\n\n\ndef get_red(query_params):\n    response\
-          \ = requests.get(\n        \"http://apo-backend-svc:8080\" + \"/api/dataplane/redcharts\"\
+          \ = requests.get(\n        \"http://syncause-backend-svc:8080\" + \"/api/dataplane/redcharts\"\
           , params=query_params\n    )\n    if response.status_code != 200 or len(response.json()[\"\
           results\"]) == 0:\n        return {}\n    metrics = {}\n    metrics[\"latency\"\
           ] = response.json()[\"results\"][0][\"timeseries\"][0][\"chart\"]\n    metrics[\"\
@@ -2462,7 +2462,7 @@ workflow:
           \ start_time, end_time) -> str:\n    params = {\n        \"service\": service,\n\
           \        \"cluster\": cluster,\n        \"startTime\": start_time,\n   \
           \     \"endTime\": end_time,\n    }\n    resp = requests.get(\n        \"\
-          http://apo-backend-svc:8080\" + \"/api/dataplane/topology\", params=params\n\
+          http://syncause-backend-svc:8080\" + \"/api/dataplane/topology\", params=params\n\
           \    )\n    res = {}\n\n    query_params = {\"startTime\": start_time, \"\
           endTime\": end_time, \"service\": service}\n    metrics = get_red(query_params)\n\
           \    res[\"current\"] = {\n        \"service\": service,\n        \"description\"\

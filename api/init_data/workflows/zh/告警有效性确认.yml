@@ -6121,7 +6121,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import requests\nimport json\n\nAPO_URL = \"http://apo-backend-svc:8080\"\
+        code: "import requests\nimport json\n\nAPO_URL = \"http://syncause-backend-svc:8080\"\
           \n\nAPO_VM = \"http://apo-victoria-metrics-single-server-svc:8428\"\n\n\
           DEBUG_OUTPUT = False\n\n\nclass Utils:\n    @staticmethod\n    def get_step(start_time:\
           \ int, end_time: int) -> dict:\n        time_diff = end_time - start_time\n\
@@ -6379,7 +6379,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "from datetime import datetime\nimport requests\n\nAPO_URL = \"http://apo-backend-svc:8080\"\
+        code: "from datetime import datetime\nimport requests\n\nAPO_URL = \"http://syncause-backend-svc:8080\"\
           \n\nAPO_VM = \"http://apo-victoria-metrics-single-server-svc:8428\"\n\n\
           class Utils:\n    @staticmethod\n    def get_step(start_time: int, end_time:\
           \ int) -> dict:\n        time_diff = end_time - start_time\n\n        SECOND\
