@@ -9,7 +9,7 @@ dependencies:
 - current_identifier: null
   type: package
   value:
-    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.7@f20c7275bbcf055ec5d170dd5128e341986e2dcba5266d08fd080d4bdf2288f6
+    plugin_unique_identifier: langgenius/openai_api_compatible:0.0.30@065d5a0ef2af4f50887dbb245113a9754eec8ea7f0d753fa4102395f52fdfed8
 kind: app
 version: 0.1.5
 workflow:
@@ -773,6 +773,7 @@ workflow:
         sourceType: template-transform
         targetType: end
       id: 1748340985944-source-1748341014888-target
+      selected: false
       source: '1748340985944'
       sourceHandle: source
       target: '1748341014888'
@@ -784,6 +785,7 @@ workflow:
         sourceType: question-classifier
         targetType: template-transform
       id: 1741158559444-1748341091028-1748340985944-target
+      selected: false
       source: '1741158559444'
       sourceHandle: '1748341091028'
       target: '1748340985944'
@@ -795,6 +797,7 @@ workflow:
         sourceType: code
         targetType: if-else
       id: 1750057744917-source-1750057811167-target
+      selected: false
       source: '1750057744917'
       sourceHandle: source
       target: '1750057811167'
@@ -806,6 +809,7 @@ workflow:
         sourceType: if-else
         targetType: question-classifier
       id: 1750057811167-false-1741158559444-target
+      selected: false
       source: '1750057811167'
       sourceHandle: 'false'
       target: '1741158559444'
@@ -829,6 +833,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-true-1741328076453-target
+      selected: false
       source: '1750058827536'
       sourceHandle: 'true'
       target: '1741328076453'
@@ -840,6 +845,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-16b25fd3-a6fa-4d85-a20b-fcea32bb0e0b-1741329632798-target
+      selected: false
       source: '1750058827536'
       sourceHandle: 16b25fd3-a6fa-4d85-a20b-fcea32bb0e0b
       target: '1741329632798'
@@ -851,6 +857,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-75243699-b060-4295-b510-27cbc73b6be7-1741328045214-target
+      selected: false
       source: '1750058827536'
       sourceHandle: 75243699-b060-4295-b510-27cbc73b6be7
       target: '1741328045214'
@@ -862,6 +869,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-681cae12-3dcd-439a-9ad7-d164e8062cf3-1742979394268-target
+      selected: false
       source: '1750058827536'
       sourceHandle: 681cae12-3dcd-439a-9ad7-d164e8062cf3
       target: '1742979394268'
@@ -873,6 +881,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-f8a47980-38a6-4f96-a8a7-6e3f6180ab16-17429797453350-target
+      selected: false
       source: '1750058827536'
       sourceHandle: f8a47980-38a6-4f96-a8a7-6e3f6180ab16
       target: '17429797453350'
@@ -884,6 +893,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-deb76a15-6913-4cdd-85bc-40d6133f0342-1741328197695-target
+      selected: false
       source: '1750058827536'
       sourceHandle: deb76a15-6913-4cdd-85bc-40d6133f0342
       target: '1741328197695'
@@ -895,6 +905,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-a7a9a8cb-fd9a-4022-af2d-7450c956a12a-1741328213545-target
+      selected: false
       source: '1750058827536'
       sourceHandle: a7a9a8cb-fd9a-4022-af2d-7450c956a12a
       target: '1741328213545'
@@ -906,6 +917,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-047c3df9-b59b-4adf-9934-1e7c11d71afa-1741328346220-target
+      selected: false
       source: '1750058827536'
       sourceHandle: 047c3df9-b59b-4adf-9934-1e7c11d71afa
       target: '1741328346220'
@@ -917,6 +929,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-e6c731bc-efef-40ba-ab1f-10c5af5e6494-1741328466394-target
+      selected: false
       source: '1750058827536'
       sourceHandle: e6c731bc-efef-40ba-ab1f-10c5af5e6494
       target: '1741328466394'
@@ -928,6 +941,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-ddef2968-4bb7-4086-a5ce-f930351bbdaf-1741328423453-target
+      selected: false
       source: '1750058827536'
       sourceHandle: ddef2968-4bb7-4086-a5ce-f930351bbdaf
       target: '1741328423453'
@@ -939,6 +953,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-0b8c49b6-5cc0-4a67-a755-64cf03ce944d-1742979828391-target
+      selected: false
       source: '1750058827536'
       sourceHandle: 0b8c49b6-5cc0-4a67-a755-64cf03ce944d
       target: '1742979828391'
@@ -949,18 +964,8 @@ workflow:
         isInIteration: false
         sourceType: if-else
         targetType: tool
-      id: 1750058827536-6879e58c-f4b1-4c06-9b80-6256f471cb55-17429797453350-target
-      source: '1750058827536'
-      sourceHandle: 6879e58c-f4b1-4c06-9b80-6256f471cb55
-      target: '17429797453350'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: tool
       id: 1750058827536-f8ec6e72-e1ed-46d4-8bbc-f7bb562f79fc-1741328742817-target
+      selected: false
       source: '1750058827536'
       sourceHandle: f8ec6e72-e1ed-46d4-8bbc-f7bb562f79fc
       target: '1741328742817'
@@ -972,6 +977,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-8ded4ac0-ada7-4656-909f-c2dad2397330-1741328773213-target
+      selected: false
       source: '1750058827536'
       sourceHandle: 8ded4ac0-ada7-4656-909f-c2dad2397330
       target: '1741328773213'
@@ -983,6 +989,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-e69ab318-7a77-4e95-a9f3-9d27fa059c61-1741328799030-target
+      selected: false
       source: '1750058827536'
       sourceHandle: e69ab318-7a77-4e95-a9f3-9d27fa059c61
       target: '1741328799030'
@@ -994,6 +1001,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-4dcfd7ca-ceec-4aa9-8b06-a22d26fafde6-17429797453350-target
+      selected: false
       source: '1750058827536'
       sourceHandle: 4dcfd7ca-ceec-4aa9-8b06-a22d26fafde6
       target: '17429797453350'
@@ -1005,6 +1013,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-f7361815-373b-4c24-bd4e-4feb468e49ad-1744093337863-target
+      selected: false
       source: '1750058827536'
       sourceHandle: f7361815-373b-4c24-bd4e-4feb468e49ad
       target: '1744093337863'
@@ -1016,6 +1025,7 @@ workflow:
         sourceType: if-else
         targetType: tool
       id: 1750058827536-efc80f1c-953b-407c-b14b-789d63061a2e-1748272742118-target
+      selected: false
       source: '1750058827536'
       sourceHandle: efc80f1c-953b-407c-b14b-789d63061a2e
       target: '1748272742118'
@@ -1027,6 +1037,7 @@ workflow:
         sourceType: if-else
         targetType: template-transform
       id: 1750058827536-false-1748340985944-target
+      selected: false
       source: '1750058827536'
       sourceHandle: 'false'
       target: '1748340985944'
@@ -1038,6 +1049,7 @@ workflow:
         sourceType: code
         targetType: code
       id: 1742806924635-source-1742433446760-target
+      selected: false
       source: '1742806924635'
       sourceHandle: source
       target: '1742433446760'
@@ -1049,6 +1061,7 @@ workflow:
         sourceType: code
         targetType: code
       id: 1742433446760-source-1750057744917-target
+      selected: false
       source: '1742433446760'
       sourceHandle: source
       target: '1750057744917'
@@ -1060,6 +1073,7 @@ workflow:
         sourceType: llm
         targetType: variable-aggregator
       id: 1742366141890-source-1750745724225-target
+      selected: false
       source: '1742366141890'
       sourceHandle: source
       target: '1750745724225'
@@ -1071,6 +1085,7 @@ workflow:
         sourceType: tool
         targetType: llm
       id: 17424344697090-source-1750745788772-target
+      selected: false
       source: '17424344697090'
       sourceHandle: source
       target: '1750745788772'
@@ -1082,6 +1097,7 @@ workflow:
         sourceType: llm
         targetType: variable-aggregator
       id: 1750745788772-source-1750745724225-target
+      selected: false
       source: '1750745788772'
       sourceHandle: source
       target: '1750745724225'
@@ -1093,6 +1109,7 @@ workflow:
         sourceType: tool
         targetType: llm
       id: 17424345080000-source-1751515586426-target
+      selected: false
       source: '17424345080000'
       sourceHandle: source
       target: '1751515586426'
@@ -1104,6 +1121,7 @@ workflow:
         sourceType: llm
         targetType: variable-aggregator
       id: 1751515586426-source-1750745724225-target
+      selected: false
       source: '1751515586426'
       sourceHandle: source
       target: '1750745724225'
@@ -1115,6 +1133,7 @@ workflow:
         sourceType: variable-aggregator
         targetType: llm
       id: 1750745724225-source-1752138870713-target
+      selected: false
       source: '1750745724225'
       sourceHandle: source
       target: '1752138870713'
@@ -1126,6 +1145,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 1752138870713-source-1753361200000-target
+      selected: false
       source: '1752138870713'
       sourceHandle: source
       target: '1753361200000'
@@ -1137,6 +1157,7 @@ workflow:
         sourceType: code
         targetType: end
       id: 1753361200000-source-1741157560922-target
+      selected: false
       source: '1753361200000'
       sourceHandle: source
       target: '1741157560922'
@@ -1160,6 +1181,7 @@ workflow:
         sourceType: tool
         targetType: tool
       id: 1753355666153-source-17533586233540-target
+      selected: false
       source: '1753355666153'
       sourceHandle: source
       target: '17533586233540'
@@ -1171,6 +1193,7 @@ workflow:
         sourceType: tool
         targetType: code
       id: 17533586233540-source-1753358645238-target
+      selected: false
       source: '17533586233540'
       sourceHandle: source
       target: '1753358645238'
@@ -1182,6 +1205,7 @@ workflow:
         sourceType: code
         targetType: end
       id: 1753358645238-source-1753358683010-target
+      selected: false
       source: '1753358645238'
       sourceHandle: source
       target: '1753358683010'
@@ -1197,6 +1221,41 @@ workflow:
       source: '1741158559444'
       sourceHandle: '1753360372736'
       target: '1753355666153'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1750058827536-6879e58c-f4b1-4c06-9b80-6256f471cb55-1784885658861-target
+      selected: false
+      source: '1750058827536'
+      sourceHandle: 6879e58c-f4b1-4c06-9b80-6256f471cb55
+      target: '1784885658861'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: tool
+      id: 1784885658861-source-17848856714800-target
+      selected: false
+      source: '1784885658861'
+      sourceHandle: source
+      target: '17848856714800'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: variable-aggregator
+      id: 17848856714800-source-1741162531836-target
+      source: '17848856714800'
+      sourceHandle: source
+      target: '1741162531836'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1254,10 +1313,10 @@ workflow:
       id: '1741157526222'
       position:
         x: 30
-        y: 638
+        y: 656
       positionAbsolute:
         x: 30
-        y: 638
+        y: 656
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1277,10 +1336,10 @@ workflow:
       id: '1741157560922'
       position:
         x: 4286
-        y: 3133
+        y: 3287
       positionAbsolute:
         x: 4286
-        y: 3133
+        y: 3287
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1402,10 +1461,10 @@ workflow:
       id: '1741158559444'
       position:
         x: 1550
-        y: 638
+        y: 656
       positionAbsolute:
         x: 1550
-        y: 638
+        y: 656
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1423,10 +1482,6 @@ workflow:
         - - '1741328076453'
           - text
         - - '1742979595004'
-          - text
-        - - '1741329632798'
-          - text
-        - - '1741328197695'
           - text
         - - '1741328423453'
           - text
@@ -1448,30 +1503,28 @@ workflow:
           - text
         - - '1748272742118'
           - text
-      height: 417
+        - - '1784885658861'
+          - text
+      height: 395
       id: '1741162531836'
       position:
         x: 2462
-        y: 2077
+        y: 2137
       positionAbsolute:
         x: 2462
-        y: 2077
+        y: 2137
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: |
-          import re
-
-          def main(text: str) -> dict:
-              cleaned = re.sub(r"<think>.*?</think>", "", text or "", flags=re.DOTALL | re.IGNORECASE).strip()
-              cleaned = re.sub(r"<think>.*", "", cleaned, flags=re.DOTALL | re.IGNORECASE).strip()
-              match = re.search(r"\b(true|false)\b", cleaned, flags=re.IGNORECASE)
-              if match:
-                  cleaned = match.group(1).lower()
-              return {"text": cleaned}
+        code: "import re\n\ndef main(text: str) -> dict:\n    cleaned = re.sub(r\"\
+          <think>.*?</think>\", \"\", text or \"\", flags=re.DOTALL | re.IGNORECASE).strip()\n\
+          \    cleaned = re.sub(r\"<think>.*\", \"\", cleaned, flags=re.DOTALL | re.IGNORECASE).strip()\n\
+          \    match = re.search(r\"\\b(true|false)\\b\", cleaned, flags=re.IGNORECASE)\n\
+          \    if match:\n        cleaned = match.group(1).lower()\n    return {\"\
+          text\": cleaned}\n"
         code_language: python3
         desc: ''
         outputs:
@@ -1490,10 +1543,10 @@ workflow:
       id: '1753361200000'
       position:
         x: 3982
-        y: 3133
+        y: 3287
       positionAbsolute:
         x: 3982
-        y: 3133
+        y: 3287
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1635,10 +1688,10 @@ workflow:
       id: '1741328045214'
       position:
         x: 1854
-        y: 2735
+        y: 2889
       positionAbsolute:
         x: 1854
-        y: 2735
+        y: 2889
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1780,10 +1833,10 @@ workflow:
       id: '1741328076453'
       position:
         x: 1854
-        y: 638
+        y: 656
       positionAbsolute:
         x: 1854
-        y: 638
+        y: 656
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1934,10 +1987,10 @@ workflow:
       id: '1741328197695'
       position:
         x: 2462
-        y: 3651.5
+        y: 3681.5
       positionAbsolute:
         x: 2462
-        y: 3651.5
+        y: 3681.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2051,10 +2104,10 @@ workflow:
       id: '1741328213545'
       position:
         x: 1854
-        y: 1607
+        y: 1667
       positionAbsolute:
         x: 1854
-        y: 1607
+        y: 1667
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2168,10 +2221,10 @@ workflow:
       id: '1741328346220'
       position:
         x: 1854
-        y: 1701
+        y: 1761
       positionAbsolute:
         x: 1854
-        y: 1701
+        y: 1761
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2285,10 +2338,10 @@ workflow:
       id: '1741328423453'
       position:
         x: 1854
-        y: 1795
+        y: 1855
       positionAbsolute:
         x: 1854
-        y: 1795
+        y: 1855
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2402,10 +2455,10 @@ workflow:
       id: '1741328466394'
       position:
         x: 1854
-        y: 1889
+        y: 1949
       positionAbsolute:
         x: 1854
-        y: 1889
+        y: 1949
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2519,10 +2572,10 @@ workflow:
       id: '1741328742817'
       position:
         x: 1854
-        y: 1983
+        y: 2043
       positionAbsolute:
         x: 1854
-        y: 1983
+        y: 2043
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2636,10 +2689,10 @@ workflow:
       id: '1741328773213'
       position:
         x: 1854
-        y: 2077
+        y: 2137
       positionAbsolute:
         x: 1854
-        y: 2077
+        y: 2137
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2753,10 +2806,10 @@ workflow:
       id: '1741328799030'
       position:
         x: 1854
-        y: 2171
+        y: 2231
       positionAbsolute:
         x: 1854
-        y: 2171
+        y: 2231
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2898,10 +2951,10 @@ workflow:
       id: '1741329632798'
       position:
         x: 2462
-        y: 3314.5
+        y: 3457.5
       positionAbsolute:
         x: 2462
-        y: 3314.5
+        y: 3457.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2973,10 +3026,10 @@ workflow:
       id: '1742366141890'
       position:
         x: 3070
-        y: 2847
+        y: 2983
       positionAbsolute:
         x: 3070
-        y: 2847
+        y: 2983
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3016,10 +3069,10 @@ workflow:
       id: '1742433446760'
       position:
         x: 638
-        y: 638
+        y: 656
       positionAbsolute:
         x: 638
-        y: 638
+        y: 656
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3161,10 +3214,10 @@ workflow:
       id: '17424339242280'
       position:
         x: 2158
-        y: 2735
+        y: 2889
       positionAbsolute:
         x: 2158
-        y: 2735
+        y: 2889
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3191,10 +3244,6 @@ workflow:
           - text
         - - '17424342365860'
           - text
-        - - '17424344697090'
-          - text
-        - - '17424345080000'
-          - text
         - - '17424345826170'
           - text
         - - '17424345315500'
@@ -3207,14 +3256,16 @@ workflow:
           - text
         - - '17482728139340'
           - text
-      height: 417
+        - - '17848856714800'
+          - text
+      height: 395
       id: '1742434016239'
       position:
         x: 2766
-        y: 2077
+        y: 2137
       positionAbsolute:
         x: 2766
-        y: 2077
+        y: 2137
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3356,10 +3407,10 @@ workflow:
       id: '17424342365860'
       position:
         x: 2158
-        y: 638
+        y: 656
       positionAbsolute:
         x: 2158
-        y: 638
+        y: 656
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3501,10 +3552,10 @@ workflow:
       id: '17424344697090'
       position:
         x: 2766
-        y: 3314.5
+        y: 3457.5
       positionAbsolute:
         x: 2766
-        y: 3314.5
+        y: 3457.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3655,10 +3706,10 @@ workflow:
       id: '17424345080000'
       position:
         x: 2766
-        y: 3651.5
+        y: 3681.5
       positionAbsolute:
         x: 2766
-        y: 3651.5
+        y: 3681.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3772,10 +3823,10 @@ workflow:
       id: '17424345315500'
       position:
         x: 2158
-        y: 1607
+        y: 1667
       positionAbsolute:
         x: 2158
-        y: 1607
+        y: 1667
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -3889,10 +3940,10 @@ workflow:
       id: '17424345826170'
       position:
         x: 2158
-        y: 1701
+        y: 1761
       positionAbsolute:
         x: 2158
-        y: 1701
+        y: 1761
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4006,10 +4057,10 @@ workflow:
       id: '17424346884650'
       position:
         x: 2158
-        y: 1795
+        y: 1855
       positionAbsolute:
         x: 2158
-        y: 1795
+        y: 1855
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4123,10 +4174,10 @@ workflow:
       id: '17424347242840'
       position:
         x: 2158
-        y: 1889
+        y: 1949
       positionAbsolute:
         x: 2158
-        y: 1889
+        y: 1949
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4240,10 +4291,10 @@ workflow:
       id: '17424348206030'
       position:
         x: 2158
-        y: 1983
+        y: 2043
       positionAbsolute:
         x: 2158
-        y: 1983
+        y: 2043
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4357,10 +4408,10 @@ workflow:
       id: '17424348526540'
       position:
         x: 2158
-        y: 2077
+        y: 2137
       positionAbsolute:
         x: 2158
-        y: 2077
+        y: 2137
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4474,10 +4525,10 @@ workflow:
       id: '17424348570980'
       position:
         x: 2158
-        y: 2171
+        y: 2231
       positionAbsolute:
         x: 2158
-        y: 2171
+        y: 2231
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4498,8 +4549,8 @@ workflow:
           namespace\": get_value(data,[\"namespace\", \"src_namespace\"]), \n  \"\
           pid\": get_value(data,[\"pid\"]),\n  \"containerId\": get_value(data,[\"\
           container_id\", \"containerID\", \"containerId\"]),\n  \"instanceName\"\
-          : get_value(data, [\"instance_name\", \"instanceName\"]),\n  \"workloadName\"\
-          : workload_name,\n  \"comm\": comm\n}"
+          : get_value(data, [\"instance_name\", \"instanceName\", \"node\", \"node_name\"\
+          ]),\n  \"workloadName\": workload_name,\n  \"comm\": comm\n}"
         code_language: python3
         desc: ''
         outputs:
@@ -4545,10 +4596,10 @@ workflow:
       id: '1742806924635'
       position:
         x: 334
-        y: 638
+        y: 656
       positionAbsolute:
         x: 334
-        y: 638
+        y: 656
       selected: true
       sourcePosition: right
       targetPosition: left
@@ -4716,10 +4767,10 @@ workflow:
       id: '1742979394268'
       position:
         x: 1854
-        y: 2453
+        y: 2513
       positionAbsolute:
         x: 1854
-        y: 2453
+        y: 2513
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -4887,10 +4938,10 @@ workflow:
       id: '1742979595004'
       position:
         x: 1854
-        y: 2547
+        y: 2607
       positionAbsolute:
         x: 1854
-        y: 2547
+        y: 2607
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5058,10 +5109,10 @@ workflow:
       id: '17429797453350'
       position:
         x: 1854
-        y: 2265
+        y: 2325
       positionAbsolute:
         x: 1854
-        y: 2265
+        y: 2325
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5229,10 +5280,10 @@ workflow:
       id: '17429797664440'
       position:
         x: 2158
-        y: 2265
+        y: 2325
       positionAbsolute:
         x: 2158
-        y: 2265
+        y: 2325
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5371,10 +5422,10 @@ workflow:
       id: '1742979828391'
       position:
         x: 1854
-        y: 2359
+        y: 2419
       positionAbsolute:
         x: 1854
-        y: 2359
+        y: 2419
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5513,10 +5564,10 @@ workflow:
       id: '17429798797920'
       position:
         x: 2158
-        y: 2359
+        y: 2419
       positionAbsolute:
         x: 2158
-        y: 2359
+        y: 2419
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5684,10 +5735,10 @@ workflow:
       id: '17429835599060'
       position:
         x: 2158
-        y: 2453
+        y: 2513
       positionAbsolute:
         x: 2158
-        y: 2453
+        y: 2513
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -5855,10 +5906,10 @@ workflow:
       id: '17429835940550'
       position:
         x: 2158
-        y: 2547
+        y: 2607
       positionAbsolute:
         x: 2158
-        y: 2547
+        y: 2607
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6028,10 +6079,10 @@ workflow:
       id: '1744093337863'
       position:
         x: 1854
-        y: 3358
+        y: 3399
       positionAbsolute:
         x: 1854
-        y: 3358
+        y: 3399
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6051,10 +6102,10 @@ workflow:
       id: '1744093385250'
       position:
         x: 2766
-        y: 3521.5
+        y: 3551.5
       positionAbsolute:
         x: 2766
-        y: 3521.5
+        y: 3551.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6102,10 +6153,10 @@ workflow:
       id: '1744093428286'
       position:
         x: 2158
-        y: 3340
+        y: 3381
       positionAbsolute:
         x: 2158
-        y: 3340
+        y: 3381
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6122,10 +6173,10 @@ workflow:
       id: '1744093531084'
       position:
         x: 2462
-        y: 3539.5
+        y: 3569.5
       positionAbsolute:
         x: 2462
-        y: 3539.5
+        y: 3569.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6353,10 +6404,10 @@ workflow:
       id: '1744339618961'
       position:
         x: 3070
-        y: 2753
+        y: 2889
       positionAbsolute:
         x: 3070
-        y: 2753
+        y: 2889
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6380,10 +6431,10 @@ workflow:
       id: '1744343454355'
       position:
         x: 3678
-        y: 2722
+        y: 2889
       positionAbsolute:
         x: 3678
-        y: 2722
+        y: 2889
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6537,10 +6588,10 @@ workflow:
       id: '1744599772545'
       position:
         x: 2462
-        y: 2916.5
+        y: 3059.5
       positionAbsolute:
         x: 2462
-        y: 2916.5
+        y: 3059.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6567,10 +6618,10 @@ workflow:
       id: '1744599891369'
       position:
         x: 2766
-        y: 2880.5
+        y: 3023.5
       positionAbsolute:
         x: 2766
-        y: 2880.5
+        y: 3023.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6594,10 +6645,10 @@ workflow:
       id: '1744599930141'
       position:
         x: 3070
-        y: 2977
+        y: 3113
       positionAbsolute:
         x: 3070
-        y: 2977
+        y: 3113
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6618,10 +6669,10 @@ workflow:
       id: '1744627472534'
       position:
         x: 3374
-        y: 2746
+        y: 2889
       positionAbsolute:
         x: 3374
-        y: 2746
+        y: 2889
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6794,10 +6845,10 @@ workflow:
       id: '1748272742118'
       position:
         x: 1854
-        y: 2641
+        y: 2701
       positionAbsolute:
         x: 1854
-        y: 2641
+        y: 2701
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6970,10 +7021,10 @@ workflow:
       id: '17482728139340'
       position:
         x: 2158
-        y: 2641
+        y: 2701
       positionAbsolute:
         x: 2158
-        y: 2641
+        y: 2701
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -6990,10 +7041,10 @@ workflow:
       id: '1748340985944'
       position:
         x: 1854
-        y: 3208
+        y: 3212
       positionAbsolute:
         x: 1854
-        y: 3208
+        y: 3212
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7013,10 +7064,10 @@ workflow:
       id: '1748341014888'
       position:
         x: 2158
-        y: 3190
+        y: 3194
       positionAbsolute:
         x: 2158
-        y: 3190
+        y: 3194
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7059,11 +7110,11 @@ workflow:
       height: 54
       id: '1750057744917'
       position:
-        x: 938.7097120976293
-        y: 638
+        x: 942
+        y: 656
       positionAbsolute:
-        x: 938.7097120976293
-        y: 638
+        x: 942
+        y: 656
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7090,10 +7141,10 @@ workflow:
       id: '1750057811167'
       position:
         x: 1246
-        y: 638
+        y: 656
       positionAbsolute:
         x: 1246
-        y: 638
+        y: 656
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7297,6 +7348,7 @@ workflow:
             variable_selector:
             - '1750057744917'
             - result
+          id: f15918a3-b6a0-48a0-ab08-758f0862fd4c
           logical_operator: and
         - case_id: 6879e58c-f4b1-4c06-9b80-6256f471cb55
           conditions:
@@ -7307,6 +7359,7 @@ workflow:
             variable_selector:
             - '1750057744917'
             - result
+          id: 6879e58c-f4b1-4c06-9b80-6256f471cb55
           logical_operator: and
         desc: ''
         selected: false
@@ -7316,10 +7369,10 @@ workflow:
       id: '1750058827536'
       position:
         x: 1550
-        y: 1554
+        y: 1608
       positionAbsolute:
         x: 1550
-        y: 1554
+        y: 1608
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7342,10 +7395,10 @@ workflow:
       id: '1750745724225'
       position:
         x: 3374
-        y: 3133
+        y: 3276
       positionAbsolute:
         x: 3374
-        y: 3133
+        y: 3276
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7413,10 +7466,10 @@ workflow:
       id: '1750745788772'
       position:
         x: 3070
-        y: 3133
+        y: 3269
       positionAbsolute:
         x: 3070
-        y: 3133
+        y: 3269
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7484,10 +7537,10 @@ workflow:
       id: '1751515586426'
       position:
         x: 3070
-        y: 3470
+        y: 3493
       positionAbsolute:
         x: 3070
-        y: 3470
+        y: 3493
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7539,10 +7592,10 @@ workflow:
       id: '1752138870713'
       position:
         x: 3678
-        y: 3133
+        y: 3300
       positionAbsolute:
         x: 3678
-        y: 3133
+        y: 3300
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7713,10 +7766,10 @@ workflow:
       id: '1753355666153'
       position:
         x: 1854
-        y: 3595
+        y: 3636
       positionAbsolute:
         x: 1854
-        y: 3595
+        y: 3636
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7887,10 +7940,10 @@ workflow:
       id: '17533586233540'
       position:
         x: 2158
-        y: 3595
+        y: 3636
       positionAbsolute:
         x: 2158
-        y: 3595
+        y: 3636
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7936,10 +7989,10 @@ workflow:
       id: '1753358645238'
       position:
         x: 2462
-        y: 3774.9617444838555
+        y: 3806.5
       positionAbsolute:
         x: 2462
-        y: 3774.9617444838555
+        y: 3806.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -7963,16 +8016,303 @@ workflow:
       id: '1753358683010'
       position:
         x: 2766
-        y: 3745.5
+        y: 3775.5
       positionAbsolute:
         x: 2766
-        y: 3745.5
+        y: 3775.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Prometheus job name for host metrics
+            ja_JP: Prometheus job name for host metrics
+            pt_BR: Prometheus job name for host metrics
+            zh_Hans: Prometheus任务名称（宿主机指标）
+          label:
+            en_US: Prometheus Job
+            ja_JP: Prometheus Job
+            pt_BR: Tarefa Prometheus
+            zh_Hans: Prometheus任务
+          llm_description: Unique identifier for metrics scrape job
+          max: null
+          min: null
+          name: job
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Host node identifier
+            ja_JP: Host node identifier
+            pt_BR: Host node identifier
+            zh_Hans: 宿主机节点标识
+          label:
+            en_US: Host Node
+            ja_JP: Host Node
+            pt_BR: Host Node
+            zh_Hans: 宿主机节点
+          llm_description: Unique identifier for host node
+          max: null
+          min: null
+          name: node
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          job: ''
+          node: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询宿主机内存压力
+        tool_configurations: {}
+        tool_label: 查询宿主机内存压力
+        tool_name: 查询宿主机内存压力
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - endTime
+          job:
+            type: mixed
+            value: ''
+          node:
+            type: mixed
+            value: '{{#1742806924635.instanceName#}}'
+          startTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - startTime
+        type: tool
+      height: 54
+      id: '1784885658861'
+      position:
+        x: 1854
+        y: 2795
+      positionAbsolute:
+        x: 1854
+        y: 2795
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Prometheus job name for host metrics
+            ja_JP: Prometheus job name for host metrics
+            pt_BR: Prometheus job name for host metrics
+            zh_Hans: Prometheus任务名称（宿主机指标）
+          label:
+            en_US: Prometheus Job
+            ja_JP: Prometheus Job
+            pt_BR: Tarefa Prometheus
+            zh_Hans: Prometheus任务
+          llm_description: Unique identifier for metrics scrape job
+          max: null
+          min: null
+          name: job
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Host node identifier
+            ja_JP: Host node identifier
+            pt_BR: Host node identifier
+            zh_Hans: 宿主机节点标识
+          label:
+            en_US: Host Node
+            ja_JP: Host Node
+            pt_BR: Host Node
+            zh_Hans: 宿主机节点
+          llm_description: Unique identifier for host node
+          max: null
+          min: null
+          name: node
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          endTime: ''
+          job: ''
+          node: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 历史数据 查询宿主机内存压力
+        tool_configurations: {}
+        tool_label: 查询宿主机内存压力
+        tool_name: 查询宿主机内存压力
+        tool_parameters:
+          endTime:
+            type: variable
+            value:
+            - '1742433446760'
+            - history_et
+          node:
+            type: mixed
+            value: '{{#1742806924635.instanceName#}}'
+          startTime:
+            type: variable
+            value:
+            - '1742433446760'
+            - history_st
+        type: tool
+      height: 54
+      id: '17848856714800'
+      position:
+        x: 2158
+        y: 2795
+      positionAbsolute:
+        x: 2158
+        y: 2795
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: 14.479106220962876
-      y: -136.44434232948117
-      zoom: 0.25
+      x: 346.7525397700058
+      y: -126.71315657884702
+      zoom: 0.5096479142684129

@@ -2946,35 +2946,11 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: if-else
-        targetType: tool
-      id: 17459267080670-true-1761813416502-target
-      selected: false
-      source: '17459267080670'
-      sourceHandle: 'true'
-      target: '1761813416502'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: tool
         targetType: llm
       id: 1761813411870-source-17472781853800-target
       selected: false
       source: '1761813411870'
-      sourceHandle: source
-      target: '17472781853800'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: llm
-      id: 1761813416502-source-17472781853800-target
-      selected: false
-      source: '1761813416502'
       sourceHandle: source
       target: '17472781853800'
       targetHandle: target
@@ -10711,7 +10687,7 @@ workflow:
 
             # 分析过程
 
-            根据相关指标数据1.宿主机根文件系统使用率{{#1761813411870.text#}}，2.宿主机根文件系统总大小{{#1761813416502.text#}}。
+            根据宿主机磁盘使用率（百分比，不含rootfs）指标数据{{#1761813411870.text#}}。
 
             为用户分析磁盘使用情况。
 
@@ -15257,19 +15233,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(usage: str, size: str) -> dict:\n    \"\"\"\
-          \n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
-          \    \"\"\"\n    evidence = []\n\n    usage_data = json.loads(usage)\n \
-          \   usage_timeseries = usage_data.get(\"data\", {}).get(\"timeseries\",\
-          \ [])\n    usage_evidence = {\n        \"type\": \"metrics\",\n        \"\
-          name\": \"宿主机磁盘使用率\",\n        \"data\": usage_timeseries,\n        \"unit\"\
-          : usage_data.get(\"unit\", \"\")\n    }\n    evidence.append(usage_evidence)\n\
-          \n    size_data = json.loads(size)\n    size_timeseries = size_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    size_evidence = {\n        \"type\"\
-          : \"metrics\",\n        \"name\": \"宿主机磁盘根分区大小\",\n        \"data\": size_timeseries,\n\
-          \        \"unit\": size_data.get(\"unit\", \"\")\n    }\n    evidence.append(size_evidence)\
-          \   \n\n    return {\n        \"evidence\": json.dumps({\n            \"\
-          evidence\": evidence\n        })\n    }"
+        code: "import json\n\ndef main(usage: str) -> dict:\n    usage_data = json.loads(usage)\n\n    usage_timeseries = usage_data.get(\"data\", {}).get(\"timeseries\", [])\n    evidence = [{\n        \"type\": \"metrics\",\n        \"name\": \"宿主机磁盘使用率(百分比,不含rootfs)\",\n        \"data\": usage_timeseries,\n        \"unit\": usage_data.get(\"unit\", \"percent\")\n    }]\n\n    return {\n        \"evidence\": json.dumps({\"evidence\": evidence}, ensure_ascii=False)\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15284,10 +15248,6 @@ workflow:
           - '1761813411870'
           - text
           variable: usage
-        - value_selector:
-          - '1761813416502'
-          - text
-          variable: size
       height: 54
       id: '1753940096712'
       position:
@@ -19095,47 +19055,23 @@ workflow:
           default: null
           form: llm
           human_description:
-            en_US: Prometheus job name for host metrics
-            ja_JP: Prometheus job name for host metrics
-            pt_BR: Prometheus job name for host metrics
-            zh_Hans: Prometheus任务名称（宿主机指标）
+            en_US: Specified host name
+            ja_JP: Specified host name
+            pt_BR: Specified host name
+            zh_Hans: 指定的主机名
           label:
-            en_US: Prometheus Job
-            ja_JP: Prometheus Job
-            pt_BR: Tarefa Prometheus
-            zh_Hans: Prometheus任务
-          llm_description: Unique identifier for metrics scrape job
-          max: null
-          min: null
-          name: job
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Host node identifier
-            ja_JP: Host node identifier
-            pt_BR: Host node identifier
-            zh_Hans: 宿主机节点标识
-          label:
-            en_US: Host Node
-            ja_JP: Host Node
-            pt_BR: Host Node
-            zh_Hans: 宿主机节点
-          llm_description: Unique identifier for host node
+            en_US: node
+            ja_JP: node
+            pt_BR: node
+            zh_Hans: node
+          llm_description: Specified host name
           max: null
           min: null
           name: node
           options: []
           placeholder: null
           precision: null
-          required: false
+          required: true
           scope: null
           template: null
           type: string
@@ -19189,17 +19125,16 @@ workflow:
           type: number
         params:
           endTime: ''
-          job: ''
           node: ''
           startTime: ''
         provider_id: apo_select
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 查询宿主机根文件系统使用率
+        title: 宿主机磁盘使用率(百分比,不含rootfs)
         tool_configurations: {}
-        tool_label: 查询宿主机根文件系统使用率
-        tool_name: 查询宿主机根文件系统使用率
+        tool_label: 宿主机磁盘使用率(百分比,不含rootfs)
+        tool_name: 宿主机磁盘使用率(百分比,不含rootfs)
         tool_parameters:
           endTime:
             type: variable
@@ -19223,151 +19158,6 @@ workflow:
       positionAbsolute:
         x: 12090
         y: 2946.132921433965
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        desc: ''
-        is_team_authorization: true
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Prometheus job name for host metrics
-            ja_JP: Prometheus job name for host metrics
-            pt_BR: Prometheus job name for host metrics
-            zh_Hans: Prometheus任务名称（宿主机指标）
-          label:
-            en_US: Prometheus Job
-            ja_JP: Prometheus Job
-            pt_BR: Tarefa Prometheus
-            zh_Hans: Prometheus任务
-          llm_description: Unique identifier for metrics scrape job
-          max: null
-          min: null
-          name: job
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Host node identifier
-            ja_JP: Host node identifier
-            pt_BR: Host node identifier
-            zh_Hans: 宿主机节点标识
-          label:
-            en_US: Host Node
-            ja_JP: Host Node
-            pt_BR: Host Node
-            zh_Hans: 宿主机节点
-          llm_description: Unique identifier for host node
-          max: null
-          min: null
-          name: node
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time(Microsecond)
-            ja_JP: Data query start time(Microsecond)
-            pt_BR: Data query start time(Microsecond)
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time(Microsecond)
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time(Microsecond)
-            ja_JP: Data query end time(Microsecond)
-            pt_BR: Data query end time(Microsecond)
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query end time(Microsecond)
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          endTime: ''
-          job: ''
-          node: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: 查询宿主机根文件系统总大小
-        tool_configurations: {}
-        tool_label: 查询宿主机根文件系统总大小
-        tool_name: 查询宿主机根文件系统总大小
-        tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1743576019537'
-            - endTime
-          job:
-            type: mixed
-            value: ''
-          node:
-            type: mixed
-            value: '{{#1744959389144.instanceName#}}'
-          startTime:
-            type: variable
-            value:
-            - '1743576019537'
-            - startTime
-        type: tool
-      height: 54
-      id: '1761813416502'
-      position:
-        x: 12080.905770551093
-        y: 3043.3079558204845
-      positionAbsolute:
-        x: 12080.905770551093
-        y: 3043.3079558204845
       selected: false
       sourcePosition: right
       targetPosition: left
