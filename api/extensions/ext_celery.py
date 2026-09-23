@@ -69,6 +69,7 @@ def init_app(app: DifyApp) -> Celery:
         "schedule.create_tidb_serverless_task",
         "schedule.update_tidb_serverless_status_task",
         "schedule.clean_messages",
+        "schedule.clean_workflow_logs",
         "schedule.mail_clean_document_notify_task",
     ]
     day = dify_config.CELERY_BEAT_SCHEDULER_TIME
@@ -99,6 +100,11 @@ def init_app(app: DifyApp) -> Celery:
             "schedule": crontab(minute="0", hour="10", day_of_week="1"),
         },
     }
+    if dify_config.WORKFLOW_LOG_CLEANUP_ENABLED:
+        beat_schedule["clean_workflow_logs"] = {
+            "task": "schedule.clean_workflow_logs.clean_workflow_logs",
+            "schedule": crontab(minute=0, hour=3),
+        }
     celery_app.conf.update(beat_schedule=beat_schedule, imports=imports)
 
     return celery_app

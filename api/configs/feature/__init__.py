@@ -749,6 +749,21 @@ class MultiModalTransferConfig(BaseSettings):
 
 
 class CeleryBeatConfig(BaseSettings):
+    WORKFLOW_LOG_CLEANUP_ENABLED: bool = Field(
+        description="Delete expired workflow execution logs daily at 03:00 in LOG_TZ",
+        default=False,
+    )
+
+    WORKFLOW_LOG_RETENTION_DAYS: PositiveInt = Field(
+        description="Number of days to keep completed workflow execution logs",
+        default=30,
+    )
+
+    WORKFLOW_LOG_CLEANUP_BATCH_SIZE: PositiveInt = Field(
+        description="Maximum workflow runs or single-step executions deleted per transaction",
+        default=100,
+    )
+
     CELERY_BEAT_SCHEDULER_TIME: int = Field(
         description="Interval in days for Celery Beat scheduler execution, default to 1 day",
         default=1,

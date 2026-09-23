@@ -400,6 +400,7 @@ class WorkflowRun(Base):
         db.PrimaryKeyConstraint("id", name="workflow_run_pkey"),
         db.Index("workflow_run_triggerd_from_idx", "tenant_id", "app_id", "triggered_from"),
         db.Index("workflow_run_tenant_app_sequence_idx", "tenant_id", "app_id", "sequence_number"),
+        db.Index("workflow_run_finished_at_idx", "finished_at", "id"),
     )
 
     id: Mapped[str] = mapped_column(StringUUID, server_default=db.text("uuid_generate_v4()"))
@@ -610,6 +611,13 @@ class WorkflowNodeExecution(Base):
     __tablename__ = "workflow_node_executions"
     __table_args__ = (
         db.PrimaryKeyConstraint("id", name="workflow_node_execution_pkey"),
+        db.Index("workflow_node_execution_run_id_idx", "workflow_run_id"),
+        db.Index(
+            "workflow_node_execution_single_step_finished_idx",
+            "finished_at",
+            "id",
+            postgresql_where=db.text("workflow_run_id IS NULL AND triggered_from = 'single-step'"),
+        ),
         db.Index(
             "workflow_node_execution_workflow_run_idx",
             "tenant_id",
@@ -758,6 +766,7 @@ class WorkflowAppLog(Base):
     __table_args__ = (
         db.PrimaryKeyConstraint("id", name="workflow_app_log_pkey"),
         db.Index("workflow_app_log_app_idx", "tenant_id", "app_id"),
+        db.Index("workflow_app_log_run_id_idx", "workflow_run_id"),
     )
 
     id: Mapped[str] = mapped_column(StringUUID, server_default=db.text("uuid_generate_v4()"))
