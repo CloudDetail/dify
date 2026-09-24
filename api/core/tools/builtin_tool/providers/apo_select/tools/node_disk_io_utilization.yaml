@@ -14,6 +14,17 @@ display:
   title: 宿主机监控指标 - CPU / Memory / Net / Disk - I/O Utilization
   unit: "percentunit"
 parameters:
+  - name: tenantId
+    type: string
+    required: false
+    label:
+      en_US: Tenant ID
+      zh_Hans: 租户ID
+    human_description:
+      en_US: Required for dataplane; bind the tenant from the alert or session context.
+      zh_Hans: dataplane查询必填，绑定告警事件或会话的tenantId，不能由模型猜测。
+    llm_description: Use the exact tenantId supplied by the alert or session. Never infer a tenant or use a data group ID.
+    form: llm
   - name: job
     type: string
     required: False

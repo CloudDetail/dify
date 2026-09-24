@@ -5,6 +5,7 @@ from importlib import import_module
 from types import ModuleType, SimpleNamespace
 
 import pytest
+import requests
 
 from core.tools.builtin_tool.providers.data_source import QueryMetricResult
 
@@ -44,7 +45,9 @@ PROCESS_TOOL_CASES = [
     ("module_name", "class_name", "metric_name", "use_backend_api"),
     PROCESS_TOOL_CASES,
 )
-def test_process_resource_tools_call_expected_metric(module_name, class_name, metric_name, use_backend_api, monkeypatch):
+def test_process_resource_tools_call_expected_metric(
+    module_name, class_name, metric_name, use_backend_api, monkeypatch
+):
     stub_configs = ModuleType("configs")
     stub_configs.dify_config = SimpleNamespace(APO_BACKEND_URL="http://apo-backend")
 
@@ -100,7 +103,8 @@ def test_process_resource_tools_call_expected_metric(module_name, class_name, me
     query_metric_calls = []
     post_calls = []
 
-    def fake_query_metric(metric_name, start_time, end_time, step, labels):
+    def fake_query_metric(metric_name, start_time, end_time, step, labels, tenant_id=None):
+        assert tenant_id == "tenant-a"
         query_metric_calls.append(
             {
                 "metric_name": metric_name,
@@ -141,11 +145,12 @@ def test_process_resource_tools_call_expected_metric(module_name, class_name, me
         )
 
     monkeypatch.setattr(base_module, "query_metric", fake_query_metric)
-    monkeypatch.setattr(base_module.requests, "post", fake_post)
+    monkeypatch.setattr(requests, "post", fake_post)
     result = next(
         tool._invoke(
             user_id="user-1",
             tool_parameters={
+                "tenantId": "tenant-a",
                 "nodeName": "node-1",
                 "pid": "12345",
                 "startTime": START_TIME,

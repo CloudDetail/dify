@@ -8,12 +8,23 @@ description:
   human:
     en_US: Query service's RED charts
     zh_Hans: 查询服务RED指标
-  llm: Query service's RED charts
+  llm: 查询服务RED曲线。COS返回cpm（次/分钟）、errorRate（0..1）、avgDurationMs（毫秒），不是请求总数；使用完整服务名。endpoint为空或.*时查询服务汇总，指定端点时必须精确匹配。
 display:
   type: metric
   title: Service RED charts
   unit: number
 parameters:
+  - name: tenantId
+    type: string
+    required: false
+    label:
+      en_US: Tenant ID
+      zh_Hans: 租户ID
+    human_description:
+      en_US: Required for dataplane; bind the tenant from the alert or session context.
+      zh_Hans: dataplane查询必填，绑定告警事件或会话的tenantId，不能由模型猜测。
+    llm_description: Use the exact tenantId supplied by the alert or session. Never infer a tenant or use a data group ID.
+    form: llm
   - name: service
     type: string
     required: false

@@ -2,9 +2,7 @@ import json
 from collections.abc import Generator
 from typing import Any, Optional
 
-import requests
-
-from configs import dify_config
+from core.tools.builtin_tool.providers.data_source import query_legacy_metric
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
@@ -49,9 +47,7 @@ class PolarisTimeByPidTool(BuiltinTool):
             'endTime': end_time,
             'step': APOUtils.get_step(start_time, end_time),
         }
-        resp = requests.post(dify_config.APO_BACKEND_URL +
-                             '/api/metric/query', json=params)
-        timeseries = resp.json()['result']['timeseries']
+        timeseries = query_legacy_metric(params, tenant_id=tool_parameters.get("tenantId"))["timeseries"]
         result = []
         for ts in timeseries:
             labels = ts['labels']

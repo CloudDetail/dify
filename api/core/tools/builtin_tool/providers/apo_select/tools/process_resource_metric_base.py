@@ -3,10 +3,7 @@ from collections.abc import Generator
 from dataclasses import asdict
 from typing import Any, Optional
 
-import requests
-
-from configs import dify_config
-from core.tools.builtin_tool.providers.data_source import query_metric
+from core.tools.builtin_tool.providers.data_source import query_legacy_metric, query_metric
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 from libs.apo_utils import APOUtils
@@ -43,8 +40,7 @@ class ProcessResourceMetricTool(BuiltinTool):
                 "endTime": end_time,
                 "step": step,
             }
-            resp = requests.post(f"{dify_config.APO_BACKEND_URL}/api/metric/query", json=params)
-            result = resp.json()["result"]
+            result = query_legacy_metric(params, tenant_id=tool_parameters.get("tenantId"))
             resp_str = json.dumps(
                 {
                     "type": "metric",
@@ -62,6 +58,7 @@ class ProcessResourceMetricTool(BuiltinTool):
                 end_time=end_time,
                 step=step,
                 labels=labels,
+                tenant_id=tool_parameters.get("tenantId"),
             )
             resp_str = json.dumps(asdict(query_result))
 

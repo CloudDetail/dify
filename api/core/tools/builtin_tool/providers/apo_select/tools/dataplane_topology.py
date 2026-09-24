@@ -5,6 +5,7 @@ from typing import Any, Optional
 import requests
 
 from configs import dify_config
+from core.tools.builtin_tool.providers.data_source import dataplane_scope, to_int
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 
@@ -22,8 +23,9 @@ class DataplaneTopologyTool(BuiltinTool):
         end_time = tool_parameters.get("endTime")
 
         params = {
-            "startTime": start_time,
-            "endTime": end_time,
+            **dataplane_scope(tool_parameters.get("tenantId"), tool_parameters.get("providerId")),
+            "startTime": to_int(start_time),
+            "endTime": to_int(end_time),
         }
         resp = requests.post(
             dify_config.DATAPLANE_URL + '/datasource/queryTopology',

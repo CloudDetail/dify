@@ -25,6 +25,7 @@ def query_metric(
     step: int,
     labels: Optional[dict[str, str]] = None,
     compare: Optional[list[str]] = None,
+    tenant_id: Optional[str] = None,
 ) -> QueryMetricResult:
     """
     根据配置查询指标，统一返回 QueryResult 对象。
@@ -33,7 +34,7 @@ def query_metric(
         metric_name: 指标名
         start_time: 查询起始时间（时间戳）
         end_time: 查询结束时间（时间戳）
-        step: 查询步长（秒）
+        step: 查询步长（微秒）
         labels: 可选标签过滤
         compare: 可选对比维度（仅 dataplane 生效）
 
@@ -57,6 +58,7 @@ def query_metric(
                 step=step,
                 labels=labels,
                 compare=compare,
+                tenant_id=tenant_id,
             )
 
         # 调用 APO 查询
@@ -85,6 +87,7 @@ from pydantic import BaseModel, Field
 
 
 class QueryMetricsRequest(BaseModel):
+    tenantId: Optional[str] = Field(default=None, description="事件或会话的租户身份")
     providerId: int = Field(..., description="接入数据源ID")
     startTime: int = Field(..., description="开始时间")
     endTime: int = Field(..., description="结束时间")
@@ -97,8 +100,8 @@ class QueryMetricsRequest(BaseModel):
 
 
 class ChartData(BaseModel):
-    chartData: dict[str, float]  # 时间戳（字符串）到指标值的映射？确认有序性
-    # value: Optional[Any] = None              # 平均值
+    chartData: dict[str, Optional[float]]  # 时间戳（字符串）到指标值的映射？确认有序性
+    value: Optional[float] = None  # 窗口单值，不能拼成趋势
     # ratio: dict[str, Optional[Any]] = {}     # {"dayOverDay": None, "weekOverDay": None}
 
     def avg_value(self) -> float:
@@ -172,6 +175,7 @@ def __query_metric_by_dataplane(
     step: int,
     labels: dict[str, str],
     compare: list[str],
+    tenant_id: Optional[str] = None,
 ) -> QueryMetricResult:
     """
     Query metric by dataplane
@@ -190,7 +194,7 @@ def __query_metric_by_dataplane(
     try:
         url = f"{dify_config.DATAPLANE_URL}/datasource/queryMetrics"
         req = QueryMetricsRequest(
-            providerId=0,
+            **dataplane_scope(tenant_id),
             metric=metric_name,
             labels=labels,
             startTime=start_ts,
@@ -207,7 +211,7 @@ def __query_metric_by_dataplane(
             print(f"Error querying metric: {error}")
             return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
         mr = QueryMetricsResponse.model_validate(data)
-        return __convert_metric_results(mr)
+        return __convert_metric_results(mr, start_ts, end_ts)
     except requests.RequestException as e:
         print(f"HTTP request failed: {e}")
     except ValidationError as e:
@@ -220,6 +224,8 @@ def __query_metric_by_dataplane(
 
 def __convert_metric_results(
     metric_response: QueryMetricsResponse,
+    start_ts: Optional[int] = None,
+    end_ts: Optional[int] = None,
 ) -> QueryMetricResult:
     if not metric_response.data:
         return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
@@ -233,11 +239,21 @@ def __convert_metric_results(
         return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
 
     mr = metricResult.metrics.result
+    if metricResult.dataSource == "cos" and start_ts is not None and end_ts is not None:
+        for series in mr.timeseries:
+            # COS 资源路径仍返回毫秒；RED/eBPF 已是微秒。仅当毫秒换算后
+            # 落入本次窗口、原值不在窗口时转换，避免给 RED 再乘一次 1000。
+            series.chart.chartData = {
+                str(int(ts) * 1000)
+                if start_ts <= int(ts) * 1000 <= end_ts and not start_ts <= int(ts) <= end_ts
+                else ts: value
+                for ts, value in series.chart.chartData.items()
+            }
     return QueryMetricResult(
         type="metric",
         display=True,
         unit=mr.unit,
-        data={"timeseries": [m.model_dump() for m in mr.timeseries]},
+        data={"timeseries": [m.model_dump(exclude_unset=True) for m in mr.timeseries]},
     )
 
 
@@ -322,69 +338,53 @@ def query_red_metrics(
     start_time: Any,
     end_time: Any,
     endpoint: str,
+    tenant_id: Optional[str] = None,
 ) -> QueryMetricResult:
-    """
-
-    Args:
-        title (str): Options: ["Response Time","Error Rate","Tpm","Success Rate"]
-        service (str): service_name
-        cluster (str): cluster
-        start_time (Any): start_ts in microseconds
-        end_time (Any): end_ts in microseconds
-        endpoint (str): content_key
-
-    Returns:
-        QueryMetricResult: metric result
-    """
-    start_ts = to_int(start_time)
-    end_ts = to_int(end_time)
-
-    request_params = {"service": service, "cluster": "", "startTime": start_ts, "endTime": end_ts, "endpoint": endpoint}
-
-    resp = requests.get(
-        f"{dify_config.DATAPLANE_URL}/dataplane/redcharts",
-        params=request_params,
-        timeout=10,
+    names = {
+        "Response Time": "平均响应时间",
+        "Error Rate": "请求错误率",
+        "Tpm": "请求次数",
+        "CPM": "请求次数",
+        "Success Rate": "请求成功率",
+    }
+    labels = {"service_name": service}
+    if endpoint and endpoint not in ("*", ".*"):
+        labels["content_key"] = endpoint
+    return query_metric(
+        metric_name="Originx 北极星指标 (服务层级) - RED指标 - " + names[title],
+        start_time=start_time,
+        end_time=end_time,
+        step=60_000_000,
+        labels=labels,
+        tenant_id=tenant_id,
     )
-    resp.raise_for_status()
-
-    data = resp.json()
-    if error := data.get("error"):
-        print(f"Error querying metric: {error}")
-        return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
-    mr = QueryServiceRedChartsResponse.model_validate(data)
-    return __convert_red_results(title, mr)
 
 
-def __convert_red_results(
-    title: str,
-    metric_response: QueryServiceRedChartsResponse,
-) -> QueryMetricResult:
-    if not metric_response.results:
-        return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
-
-    for metric in metric_response.results:
-        if metric.title == title:
-            return QueryMetricResult(
-                type="metric",
-                display=True,
-                unit=metric.unit,
-                data={"timeseries": [m.model_dump() for m in metric.timeseries]},
-            )
-        elif metric.title == "Error Rate" and title == "Success Rate":
-            return __error_rate_to_success_rate(metric)
-
-    return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
+def dataplane_scope(tenant_id: Optional[str], provider_id: Any = 0) -> dict[str, Any]:
+    """租户来自调用上下文，不回退全局租户或个人数据组。"""
+    if not isinstance(tenant_id, str) or not tenant_id.strip():
+        raise ValueError("dataplane 查询需要事件或会话的 tenantId")
+    provider = to_int(0 if provider_id in (None, "") else provider_id)
+    if provider < 0:
+        raise ValueError("providerId must be non-negative")
+    return {"tenantId": tenant_id.strip(), "providerId": provider}
 
 
-def __error_rate_to_success_rate(error_rate: MetricResult) -> QueryMetricResult:
-    for ts in error_rate.timeseries:
-        for key, value in ts.chart.chartData.items():
-            ts.chart.chartData[key] = round((100 - value) / 100, 2)
-
-    return QueryMetricResult(
-        type="metric",
-        display=True,
-        unit="percentunit",
-        data={"timeseries": [m.model_dump() for m in error_rate.timeseries]},
+def query_legacy_metric(params: dict[str, Any], tenant_id: Optional[str] = None) -> dict[str, Any]:
+    """保留旧工具参数和输出，按配置选择查询入口。"""
+    if dify_config.DATA_SOURCE != "dataplane":
+        response = requests.post(dify_config.APO_BACKEND_URL + "/api/metric/query", json=params)
+        return response.json()["result"]
+    labels = dict(params.get("params") or {})
+    if params["metricName"].startswith("Originx 北极星指标 (服务层级) - RED指标 - "):
+        if labels.get("content_key") in ("*", ".*"):
+            labels.pop("content_key")
+    result = query_metric(
+        metric_name=params["metricName"],
+        start_time=params["startTime"],
+        end_time=params["endTime"],
+        step=params["step"],
+        labels=labels,
+        tenant_id=tenant_id,
     )
+    return {"unit": result.unit, **result.data}

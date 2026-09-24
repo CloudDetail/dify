@@ -88,7 +88,7 @@ def test_query_full_logs_uses_dataplane_and_converts_all_providers(monkeypatch):
     result = next(
         tool._invoke(
             user_id="user-1",
-            tool_parameters={
+            tool_parameters={"tenantId": "tenant-a",
                 "query": "k8s_pod_name='pod-a' and container_name='container-a'",
                 "pageNum": 1,
                 "pageSize": 99,
@@ -102,6 +102,7 @@ def test_query_full_logs_uses_dataplane_and_converts_all_providers(monkeypatch):
         {
             "url": "http://dataplane/datasource/queryLogs",
             "json": {
+                "tenantId": "tenant-a",
                 "providerId": 0,
                 "startTime": 100,
                 "endTime": 200,
@@ -166,7 +167,7 @@ def test_query_full_logs_expands_or_filters_and_applies_source_locally(monkeypat
     result = next(
         tool._invoke(
             user_id="user-1",
-            tool_parameters={
+            tool_parameters={"tenantId": "tenant-a",
                 "query": "(k8s_pod_name='pod-a' OR k8s_pod_name='pod-b') AND source='stdout'",
                 "pageNum": 1,
                 "pageSize": 10,
@@ -189,7 +190,7 @@ def test_query_full_logs_rejects_unsupported_raw_sql(monkeypatch):
         next(
             tool._invoke(
                 user_id="user-1",
-                tool_parameters={
+                tool_parameters={"tenantId": "tenant-a",
                     "query": "content LIKE '%error%'",
                     "pageNum": 1,
                     "pageSize": 10,

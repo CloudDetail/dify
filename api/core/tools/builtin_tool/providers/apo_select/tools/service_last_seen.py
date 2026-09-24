@@ -87,6 +87,7 @@ class ServiceLastSeen(BuiltinTool):
                     end_time=end_time,
                     step=APOUtils.get_step(start_time, end_time),
                     labels=params,
+                    tenant_id=tool_parameters.get("tenantId"),
                 )
 
                 last_seen = 0

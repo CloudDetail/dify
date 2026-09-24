@@ -8,6 +8,7 @@ from typing import Any, Optional
 import requests
 
 from configs import dify_config
+from core.tools.builtin_tool.providers.data_source import dataplane_scope, to_int
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 
@@ -236,9 +237,9 @@ class QueryFullLogsTool(BuiltinTool):
 
         for filter_group in filter_groups:
             params = {
-                "providerId": 0,
-                "startTime": start_time,
-                "endTime": end_time,
+                **dataplane_scope(tool_parameters.get("tenantId")),
+                "startTime": to_int(start_time),
+                "endTime": to_int(end_time),
                 "filter": filter_group.dataplane,
                 "limit": fetch_limit,
             }

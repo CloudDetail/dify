@@ -6,6 +6,7 @@ from typing import Any, Optional
 import requests
 
 from configs import dify_config
+from core.tools.builtin_tool.providers.data_source import dataplane_scope, to_int
 from core.tools.builtin_tool.tool import BuiltinTool
 from core.tools.entities.tool_entities import ToolInvokeMessage
 
@@ -37,19 +38,21 @@ class DataplaneTracesTool(BuiltinTool):
         is_error = tool_parameters.get("isError")
         min_duration = tool_parameters.get("minDuration")
         max_duration = tool_parameters.get("maxDuration")
-        if limit == 0:
-            limit = 10
+        limit = to_int(limit or 10)
         filter = {
             "service": service,
             "operation": operation,
             "error": is_error,
-            "minDuration": min_duration,
-            "maxDuration": max_duration,
+            "minDuration": to_int(min_duration or 0),
+            "maxDuration": to_int(max_duration or 0),
         }
+        filter = {key: value for key, value in filter.items() if value is not None}
+        if tool_parameters.get("traceId"):
+            filter["traceId"] = tool_parameters["traceId"]
         params = {
-            "providerId": provider_id,
-            "startTime": start_time,
-            "endTime": end_time,
+            **dataplane_scope(tool_parameters.get("tenantId"), provider_id),
+            "startTime": to_int(start_time),
+            "endTime": to_int(end_time),
             "filter": filter,
             "limit": limit
         }

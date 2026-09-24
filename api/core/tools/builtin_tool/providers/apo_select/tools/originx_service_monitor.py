@@ -30,6 +30,7 @@ class OriginxServiceMonitorTool(BuiltinTool):
             end_time=end_time,
             step=APOUtils.get_step(start_time, end_time),
             labels=labels,
+            tenant_id=tool_parameters.get("tenantId"),
         )
         resp = asdict(query_result)
         resp_str = json.dumps(resp)

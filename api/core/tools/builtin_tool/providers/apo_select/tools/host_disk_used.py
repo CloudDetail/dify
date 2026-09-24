@@ -28,6 +28,7 @@ class HostDiskUsedTool(BuiltinTool):
             end_time=end_time,
             step=APOUtils.get_step(start_time, end_time),
             labels={"node": node},
+            tenant_id=tool_parameters.get("tenantId"),
         )
 
         resp = asdict(query_result)

@@ -33,6 +33,7 @@ class SelectContainerCPUTool(BuiltinTool):
             end_time=end_time,
             step=APOUtils.get_step(start_time, end_time),
             labels=metric_param,
+            tenant_id=tool_parameters.get("tenantId"),
         )
         resp = asdict(query_result)
         resp_str = json.dumps(resp)

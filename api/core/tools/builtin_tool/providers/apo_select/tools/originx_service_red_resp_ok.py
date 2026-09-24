@@ -28,40 +28,41 @@ class OriginxServiceRedRespOkTool(BuiltinTool):
 
         try:
             if dify_config.DATA_SOURCE == "apo":
-                labels = {
-                    "service_name": service_name or "",
-                    "content_key": content_key or ""
-                }
+                labels = {"service_name": service_name or "", "content_key": content_key or ""}
                 query_result = query_metric(
                     metric_name=metric_name,
                     start_time=start_time,
                     end_time=end_time,
                     step=APOUtils.get_step(start_time, end_time),
                     labels=labels,
+                    tenant_id=tool_parameters.get("tenantId"),
                 )
                 resp = asdict(query_result)
                 resp_str = json.dumps(resp)
             else:
                 query_result = query_red_metrics(
-                   title="Success Rate",
-                   service=service_name or "",
-                   cluster="",
-                   start_time=start_time,
-                   end_time=end_time,
-                   endpoint=content_key or "",
+                    title="Success Rate",
+                    service=service_name or "",
+                    cluster="",
+                    start_time=start_time,
+                    end_time=end_time,
+                    endpoint=content_key or "",
+                    tenant_id=tool_parameters.get("tenantId"),
                 )
                 resp = asdict(query_result)
                 resp_str = json.dumps(resp)
         except Exception as e:
             # 捕获异常，返回空 QueryResult 或自定义错误处理
             print(f"Error querying metric {metric_name} by {dify_config.DATA_SOURCE}: {e}")
-            resp_str = json.dumps(QueryMetricResult(
-                type="metric",
-                display=True,
-                unit="",
-                data={"timeseries": []},
-            ))
+            resp_str = json.dumps(
+                asdict(
+                    QueryMetricResult(
+                        type="metric",
+                        display=True,
+                        unit="",
+                        data={"timeseries": []},
+                    )
+                )
+            )
 
         yield self.create_text_message(resp_str)
-
-

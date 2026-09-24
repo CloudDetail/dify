@@ -14,6 +14,17 @@ display:
   title: 集群总览 - 总览 - 集群整体网络带宽(按设备统计) - 发送
   unit: "bytes"
 parameters:
+  - name: tenantId
+    type: string
+    required: false
+    label:
+      en_US: Tenant ID
+      zh_Hans: 租户ID
+    human_description:
+      en_US: Required for dataplane; bind the tenant from the alert or session context.
+      zh_Hans: dataplane查询必填，绑定告警事件或会话的tenantId，不能由模型猜测。
+    llm_description: Use the exact tenantId supplied by the alert or session. Never infer a tenant or use a data group ID.
+    form: llm
   - name: cluster
     type: string
     required: False

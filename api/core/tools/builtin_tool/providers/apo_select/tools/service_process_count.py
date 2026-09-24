@@ -47,6 +47,7 @@ class ServiceProcessCount(BuiltinTool):
                     end_time=end_time,
                     step=APOUtils.get_step(end_time, end_time),
                     labels=params,
+                    tenant_id=tool_parameters.get("tenantId"),
                 )
 
                 avg_count = 0

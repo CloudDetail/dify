@@ -16,6 +16,17 @@ display:
   title: 服务span
   unit: count
 parameters:
+  - name: tenantId
+    type: string
+    required: false
+    label:
+      en_US: Tenant ID
+      zh_Hans: 租户ID
+    human_description:
+      en_US: Required for dataplane; bind the tenant from the alert or session context.
+      zh_Hans: dataplane查询必填，绑定告警事件或会话的tenantId，不能由模型猜测。
+    llm_description: Use the exact tenantId supplied by the alert or session. Never infer a tenant or use a data group ID.
+    form: llm
   - name: providerId
     type: number
     required: false
@@ -118,4 +129,15 @@ parameters:
       zh_Hans: 结束时间 (微秒)
       pt_BR: Data query end time(Microsecond)
     llm_description: Data query end time(Microsecond)
+    form: llm
+  - name: traceId
+    type: string
+    required: false
+    label:
+      en_US: Trace ID
+      zh_Hans: Trace ID
+    human_description:
+      en_US: Exact trace ID
+      zh_Hans: 精确Trace ID
+    llm_description: Exact trace ID from query results.
     form: llm

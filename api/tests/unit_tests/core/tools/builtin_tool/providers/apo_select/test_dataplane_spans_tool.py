@@ -4,7 +4,7 @@ from importlib import import_module
 from types import ModuleType, SimpleNamespace
 
 
-def test_dataplane_spans_returns_inner_data_of_first_non_empty_provider(monkeypatch):
+def test_dataplane_spans_preserves_first_non_empty_provider(monkeypatch):
     stub_configs = ModuleType("configs")
     stub_configs.dify_config = SimpleNamespace(DATAPLANE_URL="http://dataplane")
 
@@ -48,6 +48,8 @@ def test_dataplane_spans_returns_inner_data_of_first_non_empty_provider(monkeypa
     ]
 
     def fake_post(url, json):
+        assert json["tenantId"] == "tenant-a"
+        assert json["providerId"] == 0
         return SimpleNamespace(json=lambda: {"data": response_data})
 
     monkeypatch.setattr(tool_module.requests, "post", fake_post)
@@ -56,7 +58,8 @@ def test_dataplane_spans_returns_inner_data_of_first_non_empty_provider(monkeypa
         tool._invoke(
             user_id="user-1",
             tool_parameters={
-                "providerId": "provider-1",
+                "providerId": "0",
+                "tenantId": "tenant-a",
                 "startTime": 1,
                 "endTime": 2,
                 "limit": 10,
@@ -66,4 +69,4 @@ def test_dataplane_spans_returns_inner_data_of_first_non_empty_provider(monkeypa
 
     payload = json.loads(result.message.text)
     assert payload["type"] == "span"
-    assert payload["data"] == expected_data
+    assert payload["data"] == response_data[1]
