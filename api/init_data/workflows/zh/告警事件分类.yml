@@ -211,6 +211,12 @@ workflow:
           required: true
           type: paragraph
           variable: alertGroup
+        - label: params
+          max_length: 9999999
+          options: []
+          required: false
+          type: paragraph
+          variable: params
       height: 116
       id: '1745224781828'
       position:
@@ -225,34 +231,14 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\n\nLATENCY = \"request_latency\"\nAVAILABILITY = \"service_availability\"\
-          \nINFRASTRUCTURE = \"infrastructure\"\nUNKNOWN = \"unknown\"\n\nclass AlertClassifier:\n\
-          \    def __init__(self):\n        \n        self.rules = {\n           \
-          \ AVAILABILITY: [\n                r'\\b(downtime|unavailable|offline|crash|failure|服务不可用|无法访问|中断|停止|error\
-          \ rate|error count|killed)\\b',\n                r'\\b.*(service|应用|系统|request|log|container|请求|日志|错误).*(不可用|失败|错误率|宕机|终止|错误|日志).*\\\
-          b',\n                r'\\b(5xx|503|502|404)\\b',\n                r'进程.*不活跃|process.*inactive'\n\
-          \            ],\n            INFRASTRUCTURE: [\n                r'\\b(network.*rtt|rtt.*latency)\\\
-          b',  # match network rtt\n                r'\\b.*(cpu|memory|disk|network|bandwidth|storage|资源|rtt|cpu_cfs_throttled|硬件负载|容量|磁盘|吞吐量|文件描述符|throughput|read\
-          \ speed|write speed|i/o|file descriptor|cfs_throttled|usage|utilization).*\\\
-          b',\n                r'\\b(usage|utilization|exhausted|不足|过载|瓶颈|high|abnormal|low|less\
-          \ than|exceeds)\\b',\n                r'\\b.*(server|node|cluster|数据库|队列|内存|container).*(高负载|故障|资源|使用率|异常).*\\\
-          b',\n            ],\n            LATENCY: [\n                r'\\b(request|api|接口|调用|查询).*(latency|延时|延迟|缓慢)\\\
-          b',  \n                r'.*(request|请求|响应|下游).*(latency|延时|延迟|缓慢|耗时).*\\\
-          b',\n                r'\\b(latency|delay|response time|timeout|slow|秒|毫秒|ms)\\\
-          b(?!.*(network|rtt))',  \n            ]\n        }\n\n        \n       \
-          \ self.compiled_rules = {\n            category: [re.compile(pattern, re.IGNORECASE)\
-          \ for pattern in patterns]\n            for category, patterns in self.rules.items()\n\
-          \        }\n\n    def classify_alert(self, alert_text: str) -> str:\n  \
-          \      text = alert_text.lower()\n\n        for category, patterns in self.compiled_rules.items():\n\
-          \            for pattern in patterns:\n                if pattern.search(text):\n\
-          \                    return category\n        \n        return UNKNOWN\n\
-          \ndef main(arg1: str, arg2: str) -> dict:\n    classifier = AlertClassifier()\n\
-          \    category = classifier.classify_alert(arg1)\n    return {\n        \"\
-          result\": str(category),\n    }\n"
+        code: "import json\nimport re\n\nLATENCY = \"request_latency\"\nAVAILABILITY = \"service_availability\"\nINFRASTRUCTURE = \"infrastructure\"\nUNKNOWN = \"unknown\"\n\nclass AlertClassifier:\n    def __init__(self):\n        \n        self.rules = {\n            AVAILABILITY: [\n                r'\\b(downtime|unavailable|offline|crash|failure|服务不可用|无法访问|中断|停止|error rate|error count|killed)\\b',\n                r'\\b.*(service|应用|系统|request|log|container|请求|日志|错误).*(不可用|失败|错误率|宕机|终止|错误|日志).*\\b',\n                r'\\b(5xx|503|502|404)\\b',\n                r'进程.*不活跃|process.*inactive'\n            ],\n            INFRASTRUCTURE: [\n                r'\\b(network.*rtt|rtt.*latency)\\b',  # match network rtt\n                r'\\b.*(cpu|memory|disk|network|bandwidth|storage|资源|rtt|cpu_cfs_throttled|硬件负载|容量|磁盘|吞吐量|文件描述符|throughput|read speed|write speed|i/o|file descriptor|cfs_throttled|usage|utilization).*\\b',\n                r'\\b(usage|utilization|exhausted|不足|过载|瓶颈|high|abnormal|low|less than|exceeds)\\b',\n                r'\\b.*(server|node|cluster|数据库|队列|内存|container).*(高负载|故障|资源|使用率|异常).*\\b',\n            ],\n            LATENCY: [\n                r'\\b(request|api|接口|调用|查询).*(latency|延时|延迟|缓慢)\\b',  \n                r'.*(request|请求|响应|下游).*(latency|延时|延迟|缓慢|耗时).*\\b',\n                r'\\b(latency|delay|response time|timeout|slow|秒|毫秒|ms)\\b(?!.*(network|rtt))',  \n            ]\n        }\n\n        \n        self.compiled_rules = {\n            category: [re.compile(pattern, re.IGNORECASE) for pattern in patterns]\n            for category, patterns in self.rules.items()\n        }\n\n    def classify_alert(self, alert_text: str) -> str:\n        text = alert_text.lower()\n\n        for category, patterns in self.compiled_rules.items():\n            for pattern in patterns:\n                if pattern.search(text):\n                    return category\n        \n        return UNKNOWN\n\ndef main(arg1: str, arg2: str, params: str = \"\") -> dict:\n    data = json.loads(params) if params else {}\n    classifier = AlertClassifier()\n    category = classifier.classify_alert(arg1)\n    return {\n        \"result\": str(category),\n        \"tenantId\": get_tenant_id(data),\n    }\n\n\ndef get_tenant_id(data):\n    # 事件顶层身份优先，兼容原始标签；不能使用 providerId/groupId 代替租户。\n    if not isinstance(data, dict):\n        return \"\"\n    sources = [data] + [data.get(key) for key in (\"raw_tags\", \"tags\", \"labels\")]\n    for source in sources:\n        if not isinstance(source, dict):\n            continue\n        for key in (\"tenantId\", \"tenant_id\"):\n            value = source.get(key)\n            if isinstance(value, str) and value.strip():\n                return value.strip()\n            if isinstance(value, int) and not isinstance(value, bool):\n                return str(value)\n    return \"\"\n"
         code_language: python3
         desc: ''
         outputs:
           result:
+            children: null
+            type: string
+          tenantId:
             children: null
             type: string
         selected: false
@@ -267,6 +253,10 @@ workflow:
           - '1745224781828'
           - alertGroup
           variable: arg2
+        - value_selector:
+          - '1745224781828'
+          - params
+          variable: params
       height: 54
       id: '1745224789961'
       position:
@@ -295,6 +285,10 @@ workflow:
           - '1745304707998'
           - apikey
           variable: workflowApiKey
+        - value_selector:
+          - '1745224789961'
+          - tenantId
+          variable: tenantId
         selected: false
         title: end
         type: end
@@ -455,6 +449,10 @@ workflow:
           - '1748308934593'
           - output
           variable: output
+        - value_selector:
+          - '1745224789961'
+          - tenantId
+          variable: tenantId
         selected: false
         title: 结束
         type: end

@@ -1290,33 +1290,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\ndef get_value(data, keys): \n    for key in keys: \n \
-          \       value = data.get(key) \n        if value is not None: \n       \
-          \     return value \n    return \"\" \n\ndef main(arg: str, node: str, startTime,\
-          \ endTime) -> dict:\n    SECOND = 1000000  # microseconds\n    MINUTE =\
-          \ 60 * SECOND\n    HOUR = 60 * MINUTE\n    data = json.loads(arg) \n   \
-          \ detail_str = data.get(\"detail\", \"\")\n    detail = json.loads(detail_str)\
-          \ if detail_str else {}\n    description = detail.get(\"description\", \"\
-          \")\n    lines = description.split(\"\\n\")\n    raw_tags = data.get(\"\
-          raw_tags\", {})\n    try:\n        labels_line = lines[1]\n        start\
-          \ = labels_line.index(\"[\") + 1\n        end = labels_line.index(\"]\"\
-          )\n        map_content = labels_line[start:end]\n        pairs = map_content.split()\n\
-          \        labels_dict = {pair.split(\":\", 1)[0]: pair.split(\":\", 1)[1]\
-          \ for pair in pairs}\n        source_from = labels_dict.get(\"source_from\"\
-          , \"\")\n    except (IndexError, ValueError):\n      source_from = \"\"\n\
-          \n    return { \n        \"alertName\": get_value(data, [\"alertname\",\
-          \ \"alertName\", \"alert_name\"]),\n        \"service\": get_value(data,\
-          \ [\"svc_name\", \"service\"]), \n        \"endpoint\": get_value(data,\
-          \ [\"endpoint\", \"content_key\"]), \n        \"pod\": get_value(data, [\"\
-          pod\", \"src_pod\", \"pod_name\"]), \n        \"namespace\": get_value(data,\
-          \ [\"namespace\", \"src_namespace\"]),\n        \"pid\": get_value(data,\
-          \ [\"pid\"]),\n        \"containerId\": get_value(data, [\"containerId\"\
-          ]),\n        \"nodeName\": node if node else get_value(data, [\"node\",\
-          \ \"src_node\", \"node_name\", \"nodeName\"]),\n        \"sourceFrom\":\
-          \ source_from,\n        \"alertEventId\": get_value(data, [\"alertEventId\"\
-          ]),\n        \"comm\": get_value(raw_tags, [\"comm\"]),\n        \"workloadName\"\
-          : get_value(raw_tags, [\"workload_name\"]),\n        \"historyStartTime\"\
-          : startTime - (24*HOUR),\n        \"historyEndTime\": startTime\n    }"
+        code: "import json\ndef get_value(data, keys): \n    for key in keys: \n        value = data.get(key) \n        if value is not None: \n            return value \n    return \"\" \n\ndef main(arg: str, node: str, startTime, endTime) -> dict:\n    SECOND = 1000000  # microseconds\n    MINUTE = 60 * SECOND\n    HOUR = 60 * MINUTE\n    data = json.loads(arg) \n    detail_str = data.get(\"detail\", \"\")\n    detail = json.loads(detail_str) if detail_str else {}\n    description = detail.get(\"description\", \"\")\n    lines = description.split(\"\\n\")\n    raw_tags = data.get(\"raw_tags\", {})\n    try:\n        labels_line = lines[1]\n        start = labels_line.index(\"[\") + 1\n        end = labels_line.index(\"]\")\n        map_content = labels_line[start:end]\n        pairs = map_content.split()\n        labels_dict = {pair.split(\":\", 1)[0]: pair.split(\":\", 1)[1] for pair in pairs}\n        source_from = labels_dict.get(\"source_from\", \"\")\n    except (IndexError, ValueError):\n      source_from = \"\"\n\n    return {\n        \"tenantId\": get_tenant_id(data), \n        \"alertName\": get_value(data, [\"alertname\", \"alertName\", \"alert_name\"]),\n        \"service\": get_value(data, [\"svc_name\", \"service\"]), \n        \"endpoint\": get_value(data, [\"endpoint\", \"content_key\"]), \n        \"pod\": get_value(data, [\"pod\", \"src_pod\", \"pod_name\"]), \n        \"namespace\": get_value(data, [\"namespace\", \"src_namespace\"]),\n        \"pid\": get_value(data, [\"pid\"]),\n        \"containerId\": get_value(data, [\"containerId\"]),\n        \"nodeName\": node if node else get_value(data, [\"node\", \"src_node\", \"node_name\", \"nodeName\"]),\n        \"sourceFrom\": source_from,\n        \"alertEventId\": get_value(data, [\"alertEventId\"]),\n        \"comm\": get_value(raw_tags, [\"comm\"]),\n        \"workloadName\": get_value(raw_tags, [\"workload_name\"]),\n        \"historyStartTime\": startTime - (24*HOUR),\n        \"historyEndTime\": startTime\n    }\n\ndef get_tenant_id(data):\n    # 事件顶层身份优先，兼容原始标签；不能使用 providerId/groupId 代替租户。\n    if not isinstance(data, dict):\n        return \"\"\n    sources = [data] + [data.get(key) for key in (\"raw_tags\", \"tags\", \"labels\")]\n    for source in sources:\n        if not isinstance(source, dict):\n            continue\n        for key in (\"tenantId\", \"tenant_id\"):\n            value = source.get(key)\n            if isinstance(value, str) and value.strip():\n                return value.strip()\n            if isinstance(value, int) and not isinstance(value, bool):\n                return str(value)\n    return \"\"\n"
         code_language: python3
         desc: ''
         outputs:
@@ -1360,6 +1334,9 @@ workflow:
             children: null
             type: string
           workloadName:
+            children: null
+            type: string
+          tenantId:
             children: null
             type: string
         selected: false
@@ -3464,6 +3441,11 @@ workflow:
             value:
             - '1753414924837'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1753414547927'
@@ -3859,6 +3841,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1753426534118'
@@ -4027,6 +4014,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1753426546760'
@@ -4426,6 +4418,11 @@ workflow:
           workloadName:
             type: mixed
             value: '{{#1742807803325.workloadName#}}'
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1753436915396'
@@ -4748,6 +4745,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1753691720044'
@@ -4866,6 +4868,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1753691763954'
@@ -5504,6 +5511,11 @@ workflow:
             value:
             - '1758786771169017587867711701'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1758786771169017587867711700'
@@ -6128,6 +6140,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1760103303057'
@@ -6462,6 +6479,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1760103432759'
@@ -6639,6 +6661,11 @@ workflow:
             value:
             - '1742807803325'
             - historyStartTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1760103449660'

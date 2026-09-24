@@ -2074,22 +2074,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "def get_value(data, keys):\n    for key in keys:\n        value = data.get(key)\n\
-          \        if value is not None:\n            return value\n    return \"\"\
-          \n\n\ndef main(arg: str, node: str, startTime: int, endTime: int) -> dict:\n\
-          \    data = json.loads(arg)\n\n    SECOND = 1000000  # microseconds\n  \
-          \  MINUTE = 60 * SECOND\n    HOUR = 60 * MINUTE\n    if node:\n        node\
-          \ = get_value(data, [\"node\", \"nodeName\", \"node_name\"])\n    return\
-          \ {\n        \"alertName\": get_value(data, [\"alertName\", \"alertname\"\
-          ]),\n        \"service\": get_value(data, [\"svc_name\", \"service\"]),\n\
-          \        \"endpoint\": get_value(data, [\"endpoint\", \"content_key\"]),\n\
-          \        \"pod\": get_value(data, [\"pod\", \"src_pod\", \"pod_name\"]),\n\
-          \        \"namespace\": get_value(data, [\"namespace\", \"src_namespace\"\
-          ]),\n        \"pid\": get_value(data, [\"pid\"]),\n        \"node\": node,\n\
-          \        \"containerId\": get_value(data, [\"containerId\", \"container_id\"\
-          ]),\n        \"alertEventId\": get_value(data, [\"alertEventId\"]),\n  \
-          \      \"historyStartTime\": startTime - (24*HOUR),\n        \"historyEndTime\"\
-          : startTime,\n    }\n"
+        code: "import json\ndef get_value(data, keys):\n    for key in keys:\n        value = data.get(key)\n        if value is not None:\n            return value\n    return \"\"\n\n\ndef main(arg: str, node: str, startTime: int, endTime: int) -> dict:\n    data = json.loads(arg)\n\n    SECOND = 1000000  # microseconds\n    MINUTE = 60 * SECOND\n    HOUR = 60 * MINUTE\n    if node:\n        node = get_value(data, [\"node\", \"nodeName\", \"node_name\"])\n    return {\n        \"tenantId\": get_tenant_id(data),\n        \"alertName\": get_value(data, [\"alertName\", \"alertname\"]),\n        \"service\": get_value(data, [\"svc_name\", \"service\"]),\n        \"endpoint\": get_value(data, [\"endpoint\", \"content_key\"]),\n        \"pod\": get_value(data, [\"pod\", \"src_pod\", \"pod_name\"]),\n        \"namespace\": get_value(data, [\"namespace\", \"src_namespace\"]),\n        \"pid\": get_value(data, [\"pid\"]),\n        \"node\": node,\n        \"containerId\": get_value(data, [\"containerId\", \"container_id\"]),\n        \"alertEventId\": get_value(data, [\"alertEventId\"]),\n        \"historyStartTime\": startTime - (24*HOUR),\n        \"historyEndTime\": startTime,\n    }\n\n\ndef get_tenant_id(data):\n    # 事件顶层身份优先，兼容原始标签；不能使用 providerId/groupId 代替租户。\n    if not isinstance(data, dict):\n        return \"\"\n    sources = [data] + [data.get(key) for key in (\"raw_tags\", \"tags\", \"labels\")]\n    for source in sources:\n        if not isinstance(source, dict):\n            continue\n        for key in (\"tenantId\", \"tenant_id\"):\n            value = source.get(key)\n            if isinstance(value, str) and value.strip():\n                return value.strip()\n            if isinstance(value, int) and not isinstance(value, bool):\n                return str(value)\n    return \"\"\n"
         code_language: python3
         desc: ''
         outputs:
@@ -2124,6 +2109,9 @@ workflow:
             children: null
             type: string
           service:
+            children: null
+            type: string
+          tenantId:
             children: null
             type: string
         selected: false
@@ -2340,6 +2328,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17430595109950'
@@ -2515,6 +2508,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17430595158080'
@@ -2736,6 +2734,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17430597987060'
@@ -2866,6 +2869,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17430598907140'
@@ -3024,6 +3032,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17430598942980'
@@ -3154,6 +3167,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17430610599980'
@@ -3312,6 +3330,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17430610640640'
@@ -3442,6 +3465,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17430610719970'
@@ -3591,6 +3619,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17430610756270'
@@ -6310,6 +6343,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1747355986489'
@@ -6467,6 +6505,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '17473562733380'
@@ -7461,6 +7504,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1750661176423'
@@ -8672,6 +8720,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1750830747193'
@@ -16147,6 +16200,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1754442999808'
@@ -16315,6 +16373,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1754462459105'
@@ -17045,6 +17108,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1759065773395'
@@ -17377,6 +17445,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1759066454944'
@@ -18130,6 +18203,11 @@ workflow:
             value:
             - '1742807803325'
             - historyStartTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1759114360266'
@@ -18441,6 +18519,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1779332543996'
@@ -18759,6 +18842,11 @@ workflow:
             value:
             - '1742807803325'
             - historyStartTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: '1779343651578'
@@ -19162,6 +19250,11 @@ workflow:
             value:
             - '1741227526517'
             - startTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
         type: tool
       height: 54
       id: v2_error_trace_query
