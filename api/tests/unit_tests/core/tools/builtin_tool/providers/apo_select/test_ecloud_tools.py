@@ -189,6 +189,25 @@ def test_success_rate_no_rescaling(context, monkeypatch):
     assert result.data["timeseries"][0]["chart"]["chartData"][str(START)] == 0.9995
 
 
+@pytest.mark.parametrize(
+    ("canonical", "legacy"),
+    [("cpm", "CPM"), ("errorRate", "Error Rate"), ("avgDurationMs", "Response Time"), ("successRate", "Success Rate")],
+)
+def test_canonical_red_keys_keep_legacy_query_mapping(context, monkeypatch, canonical, legacy):
+    calls = []
+
+    def post(url, json, **kwargs):
+        calls.append(json)
+        return Response(metric_payload())
+
+    monkeypatch.setattr(requests, "post", post)
+    for name in (canonical, legacy):
+        data_source.query_red_metrics(name, "orders", "", START, END, "GET /orders", "tenant-a")
+    assert len(calls) == 2
+    assert calls[0] == calls[1]
+    assert calls[0]["labels"] == {"service_name": "orders", "content_key": "GET /orders"}
+
+
 def test_red_fields_step_and_exact_endpoint(context, monkeypatch):
     _, load = context
     module = load("dataplane_service_redcharts")

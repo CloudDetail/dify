@@ -26,7 +26,8 @@ class AbnormalChartTool(BuiltinTool):
             labels = entry.get('labels', {})
 
             chart = entry.get('chart', {}).get('chartData', {})
-            values = [v for v in chart.values() if v != 0]
+            # 仅在统计时跳过缺失点，原始曲线保留 null 和真实零值。
+            values = [v for v in chart.values() if v is not None and v != 0]
 
             if len(values) == 0:
                 continue
@@ -38,7 +39,7 @@ class AbnormalChartTool(BuiltinTool):
             
             count = 0
             for _, value in chart.items():
-                if value > threshold:
+                if value is not None and value > threshold:
                     count += 1
 
             if count / len(values) >= 0.16:

@@ -10718,17 +10718,14 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(data_json):\n    data = json.loads(data_json)\n\
-          \    timeseries = data.get('data', {}).get('timeseries', [])\n    unit =\
-          \ data.get('unit', '')\n    filtered = []\n\n    for entry in timeseries:\n\
-          \        labels = entry.get('labels', {})\n        chart = entry.get('chart',\
-          \ {}).get('chartData', {})\n        values = [v for v in chart.values()\
-          \ if v != 0]\n\n        if len(values) == 0:\n            continue\n\n \
-          \       avg = sum(values) / len(values)\n\n        res = {\n           \
-          \ \"labels\": labels,\n            \"avg\": avg,\n            \"unit\":\
-          \ unit\n        }\n        filtered.append(res)\n\n    top_three = sorted(filtered,\
-          \ key=lambda x: x['avg'], reverse=True)[:3]\n    return {\n        \"top_three\"\
-          : json.dumps(top_three)\n    }\n"
+        code: "import json\n\ndef main(data_json):\n    data = json.loads(data_json)\n    timeseries = data.get('data',\
+          \ {}).get('timeseries', [])\n    unit = data.get('unit', '')\n    filtered = []\n\n    for entry\
+          \ in timeseries:\n        labels = entry.get('labels', {})\n        chart = entry.get('chart', {}).get('chartData',\
+          \ {})\n        values = [v for v in chart.values() if v is not None and v != 0]\n\n        if len(values)\
+          \ == 0:\n            continue\n\n        avg = sum(values) / len(values)\n\n        res = {\n  \
+          \          \"labels\": labels,\n            \"avg\": avg,\n            \"unit\": unit\n        }\n\
+          \        filtered.append(res)\n\n    top_three = sorted(filtered, key=lambda x: x['avg'], reverse=True)[:3]\n\
+          \    return {\n        \"top_three\": json.dumps(top_three)\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -11092,62 +11089,52 @@ workflow:
           text: 你是可观测性报告展示结构生成助手，只输出严格 JSON。
         - id: 9cf62a7a-3f65-4741-9e28-040480010032
           role: user
-          text: |
-            # 目的
-            基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence 输出结构。
-
-            # 输入
-            reportType: infra
-
-            overview:
-            {{#1750988484023.result#}}
-
-            rootCauseAnalysis:
-            {{#1752808187410.result#}}
-
-            suggest:
-            {{#1750990570740.result#}}
-
-            evidence:
-            {{#1753955518503.output#}}
-
-            topology:
-            {{#17540319953985.result#}}
-
-            # 输出格式
-            只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。
-            {
-              "version": "v1",
-              "headline": "一句话根因判断",
-              "conclusionSummary": "一句话说明关键证据；如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），不要输出时间戳原值",
-              "faultLocation": {"label": "故障位置", "target": "服务/实例/节点", "summary": "简单说明"},
-              "summaryCards": [{"type": "symptom|rootCause|excluded", "title": "短标题", "summary": "一句话"}],
-              "rootCauseEvidenceRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
-              "rootCauseMetricRefs": [{"evidenceIndex": 0, "title": "CPU 使用率", "summary": "45% -> 96%"}],
-              "businessImpact": null,
-              "timeline": [{"timestamp": 1779811334000000, "title": "事件短标题", "summary": "一句话事件说明"}],
-              "analysisSteps": [{"title": "排查步骤短标题", "summary": "一句话说明"}],
-              "actionTitles": [{"suggestIndex": 0, "title": "降低异常日志输出"}],
-              "evidenceHighlights": [{"evidenceIndex": 0, "title": "CPU 使用率升高", "summary": "使用原始证据中的结论或描述"}]
-            }
-
-            # 严格规则
-            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。type 别名归一：disk 按 storage，file 按 runtime/storage，memory 按 runtime/infra，system 按 infra/runtime/cpu/memory，config 按 config/dependency/log，self 按 code/log/runtime。没有这个 type 时，不要为了支撑证据做推断，rootCauseEvidenceRefs 和 rootCauseMetricRefs 输出空数组。
-            2. 首屏右上角支撑证据只放根因证据：从 evidence 中选择与主根因直接相关的 type=metrics/red/log/traces 证据，写入 rootCauseEvidenceRefs。rootCauseEvidenceRefs 是首屏支撑证据唯一来源，evidenceIndex 使用 evidence 数组的从 0 开始下标。
-            3. 引用 metrics/red 时必须有真实 chartData，指标名称、描述、legend、unit 必须匹配主根因方向；引用 log/traces 时 title/summary 必须直接描述异常日志、慢 span、下游调用或超时事实。rootCauseEvidenceRefs/rootCauseMetricRefs 的 summary 如引用耗时、延迟、慢 span 等时间指标，必须使用可读时间单位，不要直接输出原始裸小数秒；例如 0.0019s 应写成 1.9ms，0.0007s 应写成 0.7ms。
-            4. downstream/dependency 根因必须优先引用具体下游服务、具体接口耗时、错误率、超时、慢调用分布、下游数据库/MySQL/SQL 查询耗时、锁等待、连接池等待、下游调用异常日志或慢 trace；如果 major reason 已给出下游服务、接口或数据库实例，例如 ts-travel-plan-service 的 POST /api/v1/travelplanservice/travelPlan/cheapest，则优先引用该服务/接口的耗时、错误、超时指标、异常日志或慢 trace；例如 ts-config-service 访问 train-ticket-mysql-master-0 时 SQL 查询变慢、锁等待或连接池等待升高，则优先引用 MySQL/数据库/SQL/锁等待/连接池等待相关 evidence；如果只有日志证据，例如 requesttemplate-demo 调用 localhost:58082 /api/jpa-demo/sleep 出现 ResourceAccessException、SocketTimeoutException、Read timed out，也必须写入 rootCauseEvidenceRefs，不要因为没有 chartData 而留空。
-            5. RED 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。
-            6. rootCauseMetricRefs 仅作为兼容字段：只有 rootCauseEvidenceRefs 中引用 metrics/red 证据且有真实 chartData 时才同步填入；没有匹配主根因的指标时 rootCauseMetricRefs 输出空数组，不要放无关指标。
-            7. 支撑证据映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage/disk 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event、CPU、内存；config 使用配置拉取失败、配置中心错误、DB 连接失败、连接串/凭据错误、初始化失败日志；self 使用应用异常、错误日志、panic、stack、runtime 异常；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。
-            8. faultLocation 必须简单易懂；无法定位时输出 null。
-            9. businessImpact 没有明确业务影响时输出 null，不要编造。
-            10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。
-            11. evidenceHighlights 只服务关键证据摘要，不是首屏支撑证据来源；summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代 rootCauseEvidenceRefs，不能伪装成支撑指标。
-            12. conclusionSummary 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），禁止输出 Unix 秒/毫秒/微秒时间戳原值。
-            13. timeline 只使用 {"timestamp": number, "title": string, "summary": string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。
-            14. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出 time、detail、content、description 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入 analysisSteps。
-            15. analysisSteps 只使用 {"title": string, "summary": string} 结构，不输出 timestamp、time、detail 字段。
-            16. summaryCards 是首屏摘要，必须简洁，最多输出 3 张卡片：symptom、rootCause、excluded。rootCause 卡必须从 rootCauseAnalysis.other 中 level=major 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other 中 level=normal 的方向归纳。excluded.title 示例：已排除xx、xx方向，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个 reason，不得机械罗列多个方向；不得把 level=minor 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。
+          text: "# 目的\n基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence\
+            \ 输出结构。\n\n# 输入\nreportType: infra\n\noverview:\n{{#1750988484023.result#}}\n\nrootCauseAnalysis:\n\
+            {{#1752808187410.result#}}\n\nsuggest:\n{{#1750990570740.result#}}\n\nevidence:\n{{#1753955518503.output#}}\n\
+            \ntopology:\n{{#17540319953985.result#}}\n\n# 输出格式\n只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告\
+            \ id、生成时间、分析窗口。\n{\n  \"version\": \"v1\",\n  \"headline\": \"一句话根因判断\",\n  \"conclusionSummary\"\
+            : \"一句话说明关键证据；如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），不要输出时间戳原值\",\n  \"faultLocation\": {\"label\"\
+            : \"故障位置\", \"target\": \"服务/实例/节点\", \"summary\": \"简单说明\"},\n  \"summaryCards\": [{\"type\"\
+            : \"symptom|rootCause|excluded\", \"title\": \"短标题\", \"summary\": \"一句话\"}],\n  \"rootCauseEvidenceRefs\"\
+            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"rootCauseMetricRefs\"\
+            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"businessImpact\"\
+            : null,\n  \"timeline\": [{\"timestamp\": 1779811334000000, \"title\": \"事件短标题\", \"summary\"\
+            : \"一句话事件说明\"}],\n  \"analysisSteps\": [{\"title\": \"排查步骤短标题\", \"summary\": \"一句话说明\"}],\n \
+            \ \"actionTitles\": [{\"suggestIndex\": 0, \"title\": \"降低异常日志输出\"}],\n  \"evidenceHighlights\"\
+            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率升高\", \"summary\": \"使用原始证据中的结论或描述\"}]\n}\n\n# 严格规则\n\
+            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。type 别名归一：disk 按 storage，file 按 runtime/storage，memory\
+            \ 按 runtime/infra，system 按 infra/runtime/cpu/memory，config 按 config/dependency/log，self 按 code/log/runtime。没有这个\
+            \ type 时，不要为了支撑证据做推断，rootCauseEvidenceRefs 和 rootCauseMetricRefs 输出空数组。\n2. 首屏右上角支撑证据只放根因证据：从\
+            \ evidence 中选择与主根因直接相关的 type=metrics/red/log/traces 证据，写入 rootCauseEvidenceRefs。rootCauseEvidenceRefs\
+            \ 是首屏支撑证据唯一来源，evidenceIndex 使用 evidence 数组的从 0 开始下标。\n3. 引用 metrics/red 时必须有真实 chartData，指标名称、描述、legend、unit\
+            \ 必须匹配主根因方向；引用 log/traces 时 title/summary 必须直接描述异常日志、慢 span、下游调用或超时事实。rootCauseEvidenceRefs/rootCauseMetricRefs\
+            \ 的 summary 如引用耗时、延迟、慢 span 等时间指标，必须使用可读时间单位，不要直接输出原始裸小数秒；例如 0.0019s 应写成 1.9ms，0.0007s 应写成 0.7ms。\n\
+            4. downstream/dependency 根因必须优先引用具体下游服务、具体接口耗时、错误率、超时、慢调用分布、下游数据库/MySQL/SQL 查询耗时、锁等待、连接池等待、下游调用异常日志或慢\
+            \ trace；如果 major reason 已给出下游服务、接口或数据库实例，例如 ts-travel-plan-service 的 POST /api/v1/travelplanservice/travelPlan/cheapest，则优先引用该服务/接口的耗时、错误、超时指标、异常日志或慢\
+            \ trace；例如 ts-config-service 访问 train-ticket-mysql-master-0 时 SQL 查询变慢、锁等待或连接池等待升高，则优先引用 MySQL/数据库/SQL/锁等待/连接池等待相关\
+            \ evidence；如果只有日志证据，例如 requesttemplate-demo 调用 localhost:58082 /api/jpa-demo/sleep 出现 ResourceAccessException、SocketTimeoutException、Read\
+            \ timed out，也必须写入 rootCauseEvidenceRefs，不要因为没有 chartData 而留空。\n5. RED 指标只允许在 downstream、dependency、traffic、thirdparty\
+            \ 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。\n6. rootCauseMetricRefs\
+            \ 仅作为兼容字段：只有 rootCauseEvidenceRefs 中引用 metrics/red 证据且有真实 chartData 时才同步填入；没有匹配主根因的指标时 rootCauseMetricRefs\
+            \ 输出空数组，不要放无关指标。\n7. 支撑证据映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log\
+            \ 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS\
+            \ 失败；storage/disk 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system\
+            \ 使用 Pod 重启、OOMKill、节点资源、容器状态、K8s Event、CPU、内存；config 使用配置拉取失败、配置中心错误、DB 连接失败、连接串/凭据错误、初始化失败日志；self\
+            \ 使用应用异常、错误日志、panic、stack、runtime 异常；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL\
+            \ 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic 使用 CPM（次/分钟）、请求速率、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。\n\
+            8. faultLocation 必须简单易懂；无法定位时输出 null。\n9. businessImpact 没有明确业务影响时输出 null，不要编造。\n10. actionTitles\
+            \ 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。\n11. evidenceHighlights 只服务关键证据摘要，不是首屏支撑证据来源；summary 优先使用原始\
+            \ evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代 rootCauseEvidenceRefs，不能伪装成支撑指标。\n12. conclusionSummary\
+            \ 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），禁止输出 Unix 秒/毫秒/微秒时间戳原值。\n13. timeline 只使用 {\"timestamp\"\
+            : number, \"title\": string, \"summary\": string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。\n\
+            14. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出 time、detail、content、description 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入\
+            \ analysisSteps。\n15. analysisSteps 只使用 {\"title\": string, \"summary\": string} 结构，不输出 timestamp、time、detail\
+            \ 字段。\n16. summaryCards 是首屏摘要，必须简洁，最多输出 3 张卡片：symptom、rootCause、excluded。rootCause 卡必须从 rootCauseAnalysis.other\
+            \ 中 level=major 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other 中 level=normal 的方向归纳。excluded.title\
+            \ 示例：已排除xx、xx方向，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个 reason，不得机械罗列多个方向；不得把 level=minor\
+            \ 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。\n\n\n# RED字段和单位约定\nRED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response\
+            \ Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。\n展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。\n"
         selected: false
         title: 生成报告展示结构
         type: llm
@@ -12101,29 +12088,37 @@ workflow:
 
             # 分析过程
 
-            根据相关指标数据：容器内存使用字节数{{#1752827682722.result#}}，容器所属服务请求量数据{{#1752655186497.output#}}，告警{{#1744959389144.alertName#}}。
+            根据相关指标数据：容器内存使用字节数{{#1752827682722.result#}}，容器所属服务请求速率数据{{#1752655186497.output#}}，告警{{#1744959389144.alertName#}}。
 
             1. 分析容器内存使用字节数，识别使用量异常容器和其内存峰值区间，判断是否受告警影响，如果内存处于平稳状态，可能是告警阈值过低或者内存limit过低。
 
-            2. 分析服务请求量，识别服务请求量峰值区间。
+            2. 分析服务请求速率，识别服务请求速率峰值区间。
 
-            3. 分析容器内存峰值区间和容器所属服务请求量峰值区间，判断容器内存升高是否由于服务请求量升高引起，判断思路：二者在某时间段内升高趋势高度吻合则有相关性，如果时间段内请求量一直平稳或下降则无相关性，如果请求量与内存使用率有部分吻合区间，则有相关性，可能是请求量下降过快，内存还未恢复正常水平。
+            3. 分析容器内存峰值区间和容器所属服务请求速率峰值区间，判断容器内存升高是否由于服务请求速率升高引起，判断思路：二者在某时间段内升高趋势高度吻合则有相关性，如果时间段内请求速率一直平稳或下降则无相关性，如果请求速率与内存使用率有部分吻合区间，则有相关性，可能是请求速率下降过快，内存还未恢复正常水平。
 
             4. 从程序运行和程序本身的功能给出告警可能的产生原因和可执行建议，如：
 
-            - 如果与请求量相关：内存升高可能是因为请求过多导致的，可能存在频繁创建大对象和GC压力 docker exec -it <java_container_id>
-            jstat -gc <pid> 1s、缓存机制失效或过度膨胀 如果为java程序请执行 jmap -dump、数据库或外部服务连接池耗尽 netstat
-            -nat | grep ESTABLISHED | wc -l、数据量处理或I/O操作未优化 ls -l /proc/<pid>/fd。
+            - 如果与请求速率相关：内存升高可能是因为请求过多导致的，可能存在频繁创建大对象和GC压力 docker exec -it <java_container_id> jstat -gc <pid>
+            1s、缓存机制失效或过度膨胀 如果为java程序请执行 jmap -dump、数据库或外部服务连接池耗尽 netstat -nat | grep ESTABLISHED | wc -l、数据量处理或I/O操作未优化
+            ls -l /proc/<pid>/fd。
 
-            - 如果与请求量无关：内存泄漏 docker exec -it <java_container_id> jmap -histo:live <pid>、协程线程管理不当
-            docker exec -it <java_container_id> jstack -l <pid> | grep "nid=" | wc
-            -l，pprof，ps -efL、本地缓存或全局变量累积、长连接或会话未关闭
+            - 如果与请求速率无关：内存泄漏 docker exec -it <java_container_id> jmap -histo:live <pid>、协程线程管理不当 docker exec
+            -it <java_container_id> jstack -l <pid> | grep "nid=" | wc -l，pprof，ps -efL、本地缓存或全局变量累积、长连接或会话未关闭
 
             # 输出
 
             - 若相关值在正常范围内，给出你推断的产生告警的其他原因。
 
-            - 若相关值异常，描述内存开始升高的时间点和异常水平，给出你推断出的疑似根因的所有容器、疑似原因和建议解决方案。若不涉及容器则回复中忽略容器。格式为：告警{{#1744959389144.alertName#}}产生的根因疑似是xx容器，一句话描述当前告警异常状态：根据时间段描述容器内存使用情况和请求量情况，可能存在xx问题，推荐解决解决方案xx。
+            - 若相关值异常，描述内存开始升高的时间点和异常水平，给出你推断出的疑似根因的所有容器、疑似原因和建议解决方案。若不涉及容器则回复中忽略容器。格式为：告警{{#1744959389144.alertName#}}产生的根因疑似是xx容器，一句话描述当前告警异常状态：根据时间段描述容器内存使用情况和请求速率情况，可能存在xx问题，推荐解决解决方案xx。
+
+
+
+            # RED字段和单位约定
+
+            RED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response
+            Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。
+
+            展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。
 
             '
         selected: false
@@ -12202,30 +12197,26 @@ workflow:
       width: 44
       zIndex: 1002
     - data:
-        code: "import json\n\ndef main(result_json_str: str) -> dict:\n    try:\n\
-          \        # 解析上一步算法输出的 result 字符串\n        data = json.loads(result_json_str)\n\
-          \    except (json.JSONDecodeError, TypeError):\n        return {\"instances\"\
-          : []}\n\n    if not isinstance(data, dict):\n        return {\"instances\"\
-          : []}\n\n    # 从上一步的输出结构中获取 top_usage 和 abnormal 列表\n    top_usage = data.get('top_usage',\
-          \ [])\n    abnormal = data.get('abnormal', [])\n    \n    # 确保它们都是列表结构\n\
-          \    if not isinstance(top_usage, list): top_usage = []\n    if not isinstance(abnormal,\
-          \ list): abnormal = []\n\n    # 将两个列表合并在一起进行实例提取（优先处理 Top 3，再处理异常）\n   \
-          \ combined_entries = top_usage + abnormal\n\n    node_keys = ['node', 'node_name',\
-          \ 'nodename', 'nodeName', 'instance_name', 'instanceName']\n    unique_instances\
-          \ = {}\n\n    for entry in combined_entries:\n        labels = entry.get('labels',\
-          \ {})\n        if not isinstance(labels, dict):\n            continue\n\n\
-          \        pod = labels.get('pod', '')\n        container_id = labels.get('containerId',\
-          \ labels.get('container', ''))  # 智能兼容\n        pid = labels.get('pid',\
-          \ '')\n\n        node = ''\n        for key in node_keys:\n            if\
-          \ key in labels:\n                node = labels[key]\n                break\n\
-          \n        # 如果关键字段全为空，则跳过\n        if not any([pod, container_id, node,\
-          \ pid]):\n            continue\n\n        instance_dict = {\n          \
-          \  \"pod\": pod,\n            \"containerId\": container_id,\n         \
-          \   \"node\": node,\n            \"pid\": pid\n        }\n\n        # 核心去重逻辑（利用元组作为字典的\
-          \ key）\n        unique_key = (pod, container_id, node, pid)\n        unique_instances[unique_key]\
-          \ = instance_dict\n\n    # 原代码中的 list(...values()[:30]) 语法在 Python 中会报 TypeError（dict_values\
-          \ 不支持切片）\n    # 这里修正为先转 list，再取前 30 个元素\n    return {\n        \"instances\"\
-          : list(unique_instances.values())[:30]\n    }"
+        code: "import json\n\ndef main(result_json_str: str) -> dict:\n    try:\n        # 解析上一步算法输出的 result\
+          \ 字符串\n        data = json.loads(result_json_str)\n    except (json.JSONDecodeError, TypeError):\n\
+          \        return {\"instances\": []}\n\n    if not isinstance(data, dict):\n        return {\"instances\"\
+          : []}\n\n    # 从上一步的输出结构中获取 top_usage 和 abnormal 列表\n    top_usage = data.get('top_usage', [])\n\
+          \    abnormal = data.get('abnormal', [])\n    \n    # 确保它们都是列表结构\n    if not isinstance(top_usage,\
+          \ list): top_usage = []\n    if not isinstance(abnormal, list): abnormal = []\n\n    # 将两个列表合并在一起进行实例提取（优先处理\
+          \ Top 3，再处理异常）\n    combined_entries = top_usage + abnormal\n\n    node_keys = ['node', 'node_name',\
+          \ 'nodename', 'nodeName', 'instance_name', 'instanceName']\n    unique_instances = {}\n\n    for\
+          \ entry in combined_entries:\n        labels = entry.get('labels', {})\n        if not isinstance(labels,\
+          \ dict):\n            continue\n\n        pod = labels.get('pod', '')\n        container_id = labels.get('containerId',\
+          \ labels.get('container', ''))  # 智能兼容\n        pid = labels.get('pid', '')\n\n        node = ''\n\
+          \        for key in node_keys:\n            if key in labels:\n                node = labels[key]\n\
+          \                break\n\n        # 如果关键字段全为空，则跳过\n        if not any([pod, container_id, node,\
+          \ pid]):\n            continue\n\n        namespace = labels.get(\"namespace\", \"\")\n        instance_dict\
+          \ = {\n            \"namespace\": namespace,\n            \"pod\": pod,\n            \"containerId\"\
+          : container_id,\n            \"node\": node,\n            \"pid\": pid\n        }\n\n        # 核心去重逻辑（利用元组作为字典的\
+          \ key）\n        unique_key = (namespace, pod, container_id, node, pid)\n        unique_instances[unique_key]\
+          \ = instance_dict\n\n    # 原代码中的 list(...values()[:30]) 语法在 Python 中会报 TypeError（dict_values 不支持切片）\n\
+          \    # 这里修正为先转 list，再取前 30 个元素\n    return {\n        \"instances\": list(unique_instances.values())[:30]\n\
+          \    }"
         code_language: python3
         desc: ''
         outputs:
@@ -12696,16 +12687,30 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "import json\n\ndef main(red: str, pod: str) -> dict:\n\n    try:\n\
-          \        data = json.loads(red)\n    except json.JSONDecodeError:\n    \
-          \    print(\"Error: Invalid JSON string provided.\")\n        return {\n\
-          \            \"tps\": \"{}\"\n        }\n\n    for item in data.get(\"data\"\
-          , []):\n        if item.get(\"title\") in [\"吞吐量\", \"Tpm\"]:\n        \
-          \    item['pod'] = pod\n            return {\n                \"tps\": json.dumps(item)\n\
-          \            }\n            \n    return {\n        \"tps\": \"{}\"\n  \
-          \  }"
+        code: "import json\nfrom copy import deepcopy\n\n\ndef select_red_metric(text, name):\n    # 明确字段映射，不按数组位置或模糊中文关键字猜测指标。\n\
+          \    aliases = {\n        \"cpm\": \"cpm\", \"CPM\": \"cpm\", \"Tpm\": \"cpm\", \"吞吐量\": \"cpm\"\
+          ,\n        \"errorRate\": \"errorRate\", \"Error Rate\": \"errorRate\", \"请求错误率\": \"errorRate\"\
+          ,\n        \"avgDurationMs\": \"avgDurationMs\", \"Response Time\": \"avgDurationMs\", \"平均响应时间\"\
+          : \"avgDurationMs\",\n    }\n    units = {\"cpm\": \"requests/min\", \"errorRate\": \"percentunit\"\
+          , \"avgDurationMs\": \"ms\"}\n    factors = {\n        \"cpm\": {\"requests/min\": 1, \"requests/minute\"\
+          : 1, \"cpm\": 1, \"tpm\": 1, \"rpm\": 1},\n        \"errorRate\": {\"percentunit\": 1, \"%\": 0.01,\
+          \ \"percent\": 0.01},\n        \"avgDurationMs\": {\"ms\": 1, \"us\": 0.001, \"s\": 1000},\n   \
+          \ }\n    selected = None\n    for item in json.loads(text).get(\"data\", []) or []:\n        title\
+          \ = item.get(\"title\", \"\")\n        if aliases.get(title) != name:\n            continue\n  \
+          \      unit = item.get(\"unit\") or (units[name] if title == name else \"\")\n        factor = factors[name].get(unit)\n\
+          \        if factor is None:\n            continue  # 累计count和网络bytes/s不能冒充CPM。\n        if selected\
+          \ is not None:\n            raise ValueError(\"Ambiguous RED metric: \" + name)\n        selected\
+          \ = deepcopy(item)\n        selected.update(title=name, unit=units[name])\n        for series in\
+          \ selected.get(\"timeseries\", []) or []:\n            chart = series.get(\"chart\", {})\n     \
+          \       chart[\"chartData\"] = {ts: None if value is None else value * factor\n                \
+          \                  for ts, value in (chart.get(\"chartData\") or {}).items()}\n            if \"\
+          value\" in chart:\n                chart[\"value\"] = None if chart[\"value\"] is None else chart[\"\
+          value\"] * factor\n    return selected\n\n\ndef main(red: str, pod: str) -> dict:\n    try:\n  \
+          \      item = select_red_metric(red, \"cpm\")\n    except json.JSONDecodeError:\n        return\
+          \ {\"tps\": \"{}\"}\n    if item is None:\n        return {\"tps\": \"{}\"}\n    item[\"pod\"] =\
+          \ pod\n    item[\"scope\"] = \"service\"\n    return {\"tps\": json.dumps(item, ensure_ascii=False)}\n"
         code_language: python3
-        desc: ''
+        desc: tps为历史变量名，内容为cpm/requests/min；pod仅为关联分析对象。
         isInIteration: true
         iteration_id: '1752655186497'
         outputs:
@@ -12713,7 +12718,7 @@ workflow:
             children: null
             type: string
         selected: false
-        title: 提取请求量
+        title: 提取服务请求速率（CPM）
         type: code
         variables:
         - value_selector:
@@ -12740,30 +12745,26 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "import json\n\ndef main(result_json_str: str) -> dict:\n    try:\n\
-          \        # 解析上一步算法输出的 result 字符串\n        data = json.loads(result_json_str)\n\
-          \    except (json.JSONDecodeError, TypeError):\n        return {\"instances\"\
-          : []}\n\n    if not isinstance(data, dict):\n        return {\"instances\"\
-          : []}\n\n    # 从上一步的输出结构中获取 top_usage 和 abnormal 列表\n    top_usage = data.get('top_usage',\
-          \ [])\n    abnormal = data.get('abnormal', [])\n    \n    # 确保它们都是列表结构\n\
-          \    if not isinstance(top_usage, list): top_usage = []\n    if not isinstance(abnormal,\
-          \ list): abnormal = []\n\n    # 将两个列表合并在一起进行实例提取（优先处理 Top 3，再处理异常）\n   \
-          \ combined_entries = top_usage + abnormal\n\n    node_keys = ['node', 'node_name',\
-          \ 'nodename', 'nodeName', 'instance_name', 'instanceName']\n    unique_instances\
-          \ = {}\n\n    for entry in combined_entries:\n        labels = entry.get('labels',\
-          \ {})\n        if not isinstance(labels, dict):\n            continue\n\n\
-          \        pod = labels.get('pod', '')\n        container_id = labels.get('containerId',\
-          \ labels.get('container', ''))  # 智能兼容\n        pid = labels.get('pid',\
-          \ '')\n\n        node = ''\n        for key in node_keys:\n            if\
-          \ key in labels:\n                node = labels[key]\n                break\n\
-          \n        # 如果关键字段全为空，则跳过\n        if not any([pod, container_id, node,\
-          \ pid]):\n            continue\n\n        instance_dict = {\n          \
-          \  \"pod\": pod,\n            \"containerId\": container_id,\n         \
-          \   \"node\": node,\n            \"pid\": pid\n        }\n\n        # 核心去重逻辑（利用元组作为字典的\
-          \ key）\n        unique_key = (pod, container_id, node, pid)\n        unique_instances[unique_key]\
-          \ = instance_dict\n\n    # 原代码中的 list(...values()[:30]) 语法在 Python 中会报 TypeError（dict_values\
-          \ 不支持切片）\n    # 这里修正为先转 list，再取前 30 个元素\n    return {\n        \"instances\"\
-          : list(unique_instances.values())[:30]\n    }"
+        code: "import json\n\ndef main(result_json_str: str) -> dict:\n    try:\n        # 解析上一步算法输出的 result\
+          \ 字符串\n        data = json.loads(result_json_str)\n    except (json.JSONDecodeError, TypeError):\n\
+          \        return {\"instances\": []}\n\n    if not isinstance(data, dict):\n        return {\"instances\"\
+          : []}\n\n    # 从上一步的输出结构中获取 top_usage 和 abnormal 列表\n    top_usage = data.get('top_usage', [])\n\
+          \    abnormal = data.get('abnormal', [])\n    \n    # 确保它们都是列表结构\n    if not isinstance(top_usage,\
+          \ list): top_usage = []\n    if not isinstance(abnormal, list): abnormal = []\n\n    # 将两个列表合并在一起进行实例提取（优先处理\
+          \ Top 3，再处理异常）\n    combined_entries = top_usage + abnormal\n\n    node_keys = ['node', 'node_name',\
+          \ 'nodename', 'nodeName', 'instance_name', 'instanceName']\n    unique_instances = {}\n\n    for\
+          \ entry in combined_entries:\n        labels = entry.get('labels', {})\n        if not isinstance(labels,\
+          \ dict):\n            continue\n\n        pod = labels.get('pod', '')\n        container_id = labels.get('containerId',\
+          \ labels.get('container', ''))  # 智能兼容\n        pid = labels.get('pid', '')\n\n        node = ''\n\
+          \        for key in node_keys:\n            if key in labels:\n                node = labels[key]\n\
+          \                break\n\n        # 如果关键字段全为空，则跳过\n        if not any([pod, container_id, node,\
+          \ pid]):\n            continue\n\n        namespace = labels.get(\"namespace\", \"\")\n        instance_dict\
+          \ = {\n            \"namespace\": namespace,\n            \"pod\": pod,\n            \"containerId\"\
+          : container_id,\n            \"node\": node,\n            \"pid\": pid\n        }\n\n        # 核心去重逻辑（利用元组作为字典的\
+          \ key）\n        unique_key = (namespace, pod, container_id, node, pid)\n        unique_instances[unique_key]\
+          \ = instance_dict\n\n    # 原代码中的 list(...values()[:30]) 语法在 Python 中会报 TypeError（dict_values 不支持切片）\n\
+          \    # 这里修正为先转 list，再取前 30 个元素\n    return {\n        \"instances\": list(unique_instances.values())[:30]\n\
+          \    }"
         code_language: python3
         desc: ''
         outputs:
@@ -12858,16 +12859,30 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "import json\n\ndef main(red: str, pod: str) -> dict:\n\n    try:\n\
-          \        data = json.loads(red)\n    except json.JSONDecodeError:\n    \
-          \    print(\"Error: Invalid JSON string provided.\")\n        return {\n\
-          \            \"tps\": \"{}\"\n        }\n\n    for item in data.get(\"data\"\
-          , []):\n        if item.get(\"title\") in [\"吞吐量\", \"Tpm\"]:\n        \
-          \    item['pod'] = pod\n            return {\n                \"tps\": json.dumps(item)\n\
-          \            }\n            \n    return {\n        \"tps\": \"{}\"\n  \
-          \  }"
+        code: "import json\nfrom copy import deepcopy\n\n\ndef select_red_metric(text, name):\n    # 明确字段映射，不按数组位置或模糊中文关键字猜测指标。\n\
+          \    aliases = {\n        \"cpm\": \"cpm\", \"CPM\": \"cpm\", \"Tpm\": \"cpm\", \"吞吐量\": \"cpm\"\
+          ,\n        \"errorRate\": \"errorRate\", \"Error Rate\": \"errorRate\", \"请求错误率\": \"errorRate\"\
+          ,\n        \"avgDurationMs\": \"avgDurationMs\", \"Response Time\": \"avgDurationMs\", \"平均响应时间\"\
+          : \"avgDurationMs\",\n    }\n    units = {\"cpm\": \"requests/min\", \"errorRate\": \"percentunit\"\
+          , \"avgDurationMs\": \"ms\"}\n    factors = {\n        \"cpm\": {\"requests/min\": 1, \"requests/minute\"\
+          : 1, \"cpm\": 1, \"tpm\": 1, \"rpm\": 1},\n        \"errorRate\": {\"percentunit\": 1, \"%\": 0.01,\
+          \ \"percent\": 0.01},\n        \"avgDurationMs\": {\"ms\": 1, \"us\": 0.001, \"s\": 1000},\n   \
+          \ }\n    selected = None\n    for item in json.loads(text).get(\"data\", []) or []:\n        title\
+          \ = item.get(\"title\", \"\")\n        if aliases.get(title) != name:\n            continue\n  \
+          \      unit = item.get(\"unit\") or (units[name] if title == name else \"\")\n        factor = factors[name].get(unit)\n\
+          \        if factor is None:\n            continue  # 累计count和网络bytes/s不能冒充CPM。\n        if selected\
+          \ is not None:\n            raise ValueError(\"Ambiguous RED metric: \" + name)\n        selected\
+          \ = deepcopy(item)\n        selected.update(title=name, unit=units[name])\n        for series in\
+          \ selected.get(\"timeseries\", []) or []:\n            chart = series.get(\"chart\", {})\n     \
+          \       chart[\"chartData\"] = {ts: None if value is None else value * factor\n                \
+          \                  for ts, value in (chart.get(\"chartData\") or {}).items()}\n            if \"\
+          value\" in chart:\n                chart[\"value\"] = None if chart[\"value\"] is None else chart[\"\
+          value\"] * factor\n    return selected\n\n\ndef main(red: str, pod: str) -> dict:\n    try:\n  \
+          \      item = select_red_metric(red, \"cpm\")\n    except json.JSONDecodeError:\n        return\
+          \ {\"tps\": \"{}\"}\n    if item is None:\n        return {\"tps\": \"{}\"}\n    item[\"pod\"] =\
+          \ pod\n    item[\"scope\"] = \"service\"\n    return {\"tps\": json.dumps(item, ensure_ascii=False)}\n"
         code_language: python3
-        desc: ''
+        desc: tps为历史变量名，内容为cpm/requests/min；pod仅为关联分析对象。
         isInIteration: true
         iteration_id: '17526597221060'
         outputs:
@@ -12875,7 +12890,7 @@ workflow:
             children: null
             type: string
         selected: false
-        title: 提取请求量
+        title: 提取服务请求速率（CPM）
         type: code
         variables:
         - value_selector:
@@ -13374,26 +13389,34 @@ workflow:
 
             # 分析过程
 
-            根据相关指标数据：容器线程在CPU上的时间消耗{{#1752818532791.output#}}，容器所属服务请求量数据{{#17526597221060.output#}}，告警{{#1744959389144.alertName#}}。
+            根据相关指标数据：容器线程在CPU上的时间消耗{{#1752818532791.output#}}，容器所属服务请求速率数据{{#17526597221060.output#}}，告警{{#1744959389144.alertName#}}。
 
             1. 分析容器线程在CPU上的时间消耗找出并聚焦于消耗最多的几个容器线程，识别容器线程CPU使用峰值区间，如果告警为CPU使用率相关则需要判断是否受告警影响。
 
-            2. 分析服务请求量，识别服务请求量峰值区间。
+            2. 分析服务请求速率，识别服务请求速率峰值区间。
 
-            3. 分析容器线程CPU使用峰值区间和对应容器所属服务请求量峰值区间，判断容器CPU使用率升高是否由于服务请求量升高引起，判断思路：二者在某时间段内升高趋势高度吻合则有相关性，如果时间段内请求量一直平稳或下降则无相关性。
+            3. 分析容器线程CPU使用峰值区间和对应容器所属服务请求速率峰值区间，判断容器CPU使用率升高是否由于服务请求速率升高引起，判断思路：二者在某时间段内升高趋势高度吻合则有相关性，如果时间段内请求速率一直平稳或下降则无相关性。
 
             4. 从程序运行和程序本身的功能给出告警可能的产生原因和可执行建议，如：
 
-            - 如果与请求量相关：并发连接数超出限制，TCP连接数超过限制，应用层并发数不足；排队与上下文切换开销；拒绝服务攻击 (DoS/DDoS)
-            或恶意爬虫；业务高峰或推广活动；等等
+            - 如果与请求速率相关：并发连接数超出限制，TCP连接数超过限制，应用层并发数不足；排队与上下文切换开销；拒绝服务攻击 (DoS/DDoS) 或恶意爬虫；业务高峰或推广活动；等等
 
-            - 如果与请求量无关：频繁GC；无限循环或低效算法；数据库/存储交互瓶颈；正在同步数据/备份；等等
+            - 如果与请求速率无关：频繁GC；无限循环或低效算法；数据库/存储交互瓶颈；正在同步数据/备份；等等
 
             # 输出
 
             - 若相关值在正常范围内，给出你推断的产生告警的其他原因。
 
-            - 若相关值异常，一句话描述当前告警异常状况：在xx时间段内哪些实例的线程消耗了多少CPU，时间段内的请求量为xx，并给出你推断出的疑似根因的所有容器、疑似原因和建议解决方案。若不涉及容器则回复中忽略容器。格式为：容器xx产生告警xx的根因可能是xx，可能存在xx问题，推荐解决解决方案xx。
+            - 若相关值异常，一句话描述当前告警异常状况：在xx时间段内哪些实例的线程消耗了多少CPU，时间段内的请求速率为xx，并给出你推断出的疑似根因的所有容器、疑似原因和建议解决方案。若不涉及容器则回复中忽略容器。格式为：容器xx产生告警xx的根因可能是xx，可能存在xx问题，推荐解决解决方案xx。
+
+
+
+            # RED字段和单位约定
+
+            RED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response
+            Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。
+
+            展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。
 
             '
         selected: false
@@ -14156,7 +14179,16 @@ workflow:
 
             - 若相关值在正常范围内，给出你推断的产生告警的其他原因。
 
-            - 若相关值异常，一句话描述当前告警异常状况：在xx时间段内哪些实例的线程消耗了多少CPU，时间段内的请求量为xx，并给出你推断出的疑似根因的所有容器、疑似原因。若不涉及容器则回复中忽略容器。格式为：容器xx产生告警xx的原因是：自身CPU使用过多/节点其他容器争抢导致（只能给出一个原因）。
+            - 若相关值异常，一句话描述当前告警异常状况：在xx时间段内哪些实例的线程消耗了多少CPU，时间段内的请求速率为xx，并给出你推断出的疑似根因的所有容器、疑似原因。若不涉及容器则回复中忽略容器。格式为：容器xx产生告警xx的原因是：自身CPU使用过多/节点其他容器争抢导致（只能给出一个原因）。
+
+
+
+            # RED字段和单位约定
+
+            RED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response
+            Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。
+
+            展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。
 
             '
         selected: false
@@ -14234,7 +14266,7 @@ workflow:
           role: user
           text: '# 目的
 
-            根据节流时间告警初步方向判断{{#1752744873302.text#}}和容器线程CPU消耗与请求量关系{{#1752660000891.text#}}以及相关文档片段，给出告警{{#1744959389144.alertName#}}的结论和可执行建议。
+            根据节流时间告警初步方向判断{{#1752744873302.text#}}和容器线程CPU消耗与请求速率关系{{#1752660000891.text#}}以及相关文档片段，给出告警{{#1744959389144.alertName#}}的结论和可执行建议。
 
             # 文档数据
 
@@ -14256,15 +14288,24 @@ workflow:
 
             根据初步方向类型：
 
-            - 自身CPU使用过多：总结容器线程CPU消耗是由请求量引起。
+            - 自身CPU使用过多：总结容器线程CPU消耗是由请求速率引起。
 
-            - 周期性峰值：总结是否由请求量引起。
+            - 周期性峰值：总结是否由请求速率引起。
 
-            - CPU争抢：总结争抢过多的容器有哪些，以及这些容器CPU使用过多是否由请求量引起。
+            - CPU争抢：总结争抢过多的容器有哪些，以及这些容器CPU使用过多是否由请求速率引起。
 
             # 输出
 
-            - 保留结论中对指标趋势的描述，总结节流时间告警的产生原因与辅助证据如：告警xx产生的原因是容器xx自身CPU使用过多/所在节点容器争抢CPU导致，其CPU使用率与请求量无关，推测CPU升高原因为xx。
+            - 保留结论中对指标趋势的描述，总结节流时间告警的产生原因与辅助证据如：告警xx产生的原因是容器xx自身CPU使用过多/所在节点容器争抢CPU导致，其CPU使用率与请求速率无关，推测CPU升高原因为xx。
+
+
+
+            # RED字段和单位约定
+
+            RED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response
+            Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。
+
+            展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。
 
             '
         selected: false
@@ -14358,30 +14399,25 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(data: str):\n    try:\n        timeseries =\
-          \ json.loads(data)\n    except (json.JSONDecodeError, TypeError):\n    \
-          \    return {\"result\": []}\n        \n    if not isinstance(timeseries,\
-          \ list):\n        return {\"result\": []}\n\n    # 使用 dict 的 key 特性来做字典去重\n\
-          \    unique_instances = {}\n    \n    # 定义各字段可能出现的键名列表\n    node_keys =\
-          \ [\"node\", \"node_name\", \"nodename\", \"nodeName\", \"instance_name\"\
-          , \"instanceName\"]\n    container_keys = [\"containerId\", \"container\"\
-          ]\n    pod_keys = [\"pod\", \"pod_name\"]\n    pid_keys = [\"pid\"]\n\n\
-          \    for entry in timeseries:\n        if not isinstance(entry, dict):\n\
-          \            continue\n            \n        labels = entry.get('labels',\
-          \ {})\n        \n        # 统一使用 _get_value 提取各字段\n        pod = _get_value(labels,\
-          \ pod_keys)\n        container_id = _get_value(labels, container_keys)\n\
-          \        node = _get_value(labels, node_keys)\n        pid = _get_value(labels,\
-          \ pid_keys)\n\n        # 过滤掉完全没有有效信息的空条目\n        if not any([pod, container_id,\
-          \ node, pid]):\n            continue\n\n        # 构造目标 dict 结构\n       \
-          \ instance_dict = {\n            \"pod\": pod,\n            \"containerId\"\
-          : container_id,\n            \"node\": node,\n            \"pid\": pid\n\
-          \        }\n\n        # 生成联合唯一 Key 用于去重\n        unique_key = (pod, container_id,\
-          \ node, pid)\n        unique_instances[unique_key] = instance_dict\n\n \
-          \   return {\n        \"result\": list(unique_instances.values())[:30]\n\
-          \    }\n\ndef _get_value(labels: dict, keys: list[str]):\n    if not isinstance(labels,\
-          \ dict):\n        return \"\"\n        \n    for key in keys:\n        value\
-          \ = labels.get(key)\n        if value:\n            return str(value)  #\
-          \ 确保 pid 等数字类型也能统一转成字符串处理\n\n    return \"\""
+        code: "import json\n\ndef main(data: str):\n    try:\n        timeseries = json.loads(data)\n    except\
+          \ (json.JSONDecodeError, TypeError):\n        return {\"result\": []}\n        \n    if not isinstance(timeseries,\
+          \ list):\n        return {\"result\": []}\n\n    # 使用 dict 的 key 特性来做字典去重\n    unique_instances\
+          \ = {}\n    \n    # 定义各字段可能出现的键名列表\n    node_keys = [\"node\", \"node_name\", \"nodename\", \"nodeName\"\
+          , \"instance_name\", \"instanceName\"]\n    container_keys = [\"containerId\", \"container\"]\n\
+          \    pod_keys = [\"pod\", \"pod_name\"]\n    pid_keys = [\"pid\"]\n\n    for entry in timeseries:\n\
+          \        if not isinstance(entry, dict):\n            continue\n            \n        labels = entry.get('labels',\
+          \ {})\n        \n        # 统一使用 _get_value 提取各字段\n        pod = _get_value(labels, pod_keys)\n \
+          \       container_id = _get_value(labels, container_keys)\n        node = _get_value(labels, node_keys)\n\
+          \        pid = _get_value(labels, pid_keys)\n\n        # 过滤掉完全没有有效信息的空条目\n        if not any([pod,\
+          \ container_id, node, pid]):\n            continue\n\n        # 构造目标 dict 结构\n        namespace\
+          \ = labels.get(\"namespace\", \"\")\n        instance_dict = {\n            \"namespace\": namespace,\n\
+          \            \"pod\": pod,\n            \"containerId\": container_id,\n            \"node\": node,\n\
+          \            \"pid\": pid\n        }\n\n        # 生成联合唯一 Key 用于去重\n        unique_key = (namespace,\
+          \ pod, container_id, node, pid)\n        unique_instances[unique_key] = instance_dict\n\n    return\
+          \ {\n        \"result\": list(unique_instances.values())[:30]\n    }\n\ndef _get_value(labels: dict,\
+          \ keys: list[str]):\n    if not isinstance(labels, dict):\n        return \"\"\n        \n    for\
+          \ key in keys:\n        value = labels.get(key)\n        if value:\n            return str(value)\
+          \  # 确保 pid 等数字类型也能统一转成字符串处理\n\n    return \"\""
         code_language: python3
         desc: ''
         outputs:
@@ -14630,16 +14666,16 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(data_json):\n    timeseries = json.loads(data_json)\n\
-          \    filtered = []\n\n    for entry in timeseries:\n        labels = entry.get('labels',\
-          \ {})\n        chart = entry.get('chart', {}).get('chartData', {})\n   \
-          \     values = [v for v in chart.values() if v != 0]\n\n        if len(values)\
-          \ == 0:\n            continue\n\n        avg = sum(values) / len(values)\n\
-          \n        res = {\n            \"labels\": labels,\n            \"avg\"\
-          : avg,\n            \"unit\": unit,\n            \"chartData\": chart\n\
-          \        }\n        filtered.append(res)\n\n    top_three = sorted(filtered,\
-          \ key=lambda x: x['avg'], reverse=True)[:3]\n    return {\n        \"result\"\
-          : json.dumps(top_three)\n    }"
+        code: "import json\n\ndef main(data_json):\n    timeseries = json.loads(data_json)\n    filtered =\
+          \ []\n\n    for entry in timeseries:\n        labels = entry.get('labels', {})\n        # 异常样本工具的\
+          \ chart 直接是时间戳映射；兼容原指标的嵌套结构。\n        chart = entry.get('chart', {})\n        if 'chartData' in\
+          \ chart:\n            chart = chart['chartData']\n        unit = entry.get('unit', '')\n       \
+          \ values = [v for v in chart.values() if v is not None and v != 0]\n\n        if len(values) ==\
+          \ 0:\n            continue\n\n        avg = sum(values) / len(values)\n\n        res = {\n     \
+          \       \"labels\": labels,\n            \"avg\": avg,\n            \"unit\": unit,\n          \
+          \  \"chartData\": chart\n        }\n        filtered.append(res)\n\n    top_three = sorted(filtered,\
+          \ key=lambda x: x['avg'], reverse=True)[:3]\n    return {\n        \"result\": json.dumps(top_three)\n\
+          \    }"
         code_language: python3
         desc: ''
         outputs:
@@ -14803,33 +14839,27 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n      \
-          \  return 0\n    return sum(values) / len(values)\n\n\ndef _get_standard_deviation(avg,\
-          \ values):\n    if len(values) == 0:\n        return 0\n    squared_diffs\
-          \ = [(x - avg) ** 2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
-          \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\
-          \n\ndef main(data_json: str) -> dict:\n    data = json.loads(data_json)\n\
-          \    timeseries = data.get(\"data\", {}).get(\"timeseries\", [])\n    unit\
-          \ = data.get(\"unit\", \"\")\n\n    abnormal_list = []\n    top_usage_list\
-          \ = []\n\n    for index, entry in enumerate(timeseries):\n        labels\
-          \ = entry.get(\"labels\", {})\n        chart = entry.get(\"chart\", {}).get(\"\
-          chartData\", {})\n        values = [v for v in chart.values() if v != 0]\n\
-          \n        if len(values) == 0:\n            continue\n\n        avg = _get_avg(values)\n\
-          \n        # 1. 收集 Top 3 数据（这里同步补上了 chart 字段）\n        top_usage_list.append({\n\
-          \            \"chart\": chart, \n            \"labels\": labels, \n    \
-          \        \"avg\": avg, \n            \"unit\": unit\n        })\n\n    \
-          \    # 2. 收集 异常算法 数据 (保留原算法前 75 条的限制)\n        if index < 75:\n        \
-          \    variance = _get_standard_deviation(avg, values)\n            threshold\
-          \ = avg + 1 * variance\n\n            count = 0\n            for _, value\
-          \ in chart.items():\n                if value > threshold:\n           \
-          \         count += 1\n\n            if count != 0:\n                res\
-          \ = {\n                    \"chart\": chart,\n                    \"abnormalCount\"\
-          : count,\n                    \"labels\": labels,\n                    \"\
-          avg\": avg,\n                    \"unit\": unit,\n                }\n  \
-          \              abnormal_list.append(res)\n\n    # 排序并筛选出 Top 3 实例\n    top_three\
-          \ = sorted(top_usage_list, key=lambda x: x[\"avg\"], reverse=True)[:3]\n\
-          \n    # 组装返回的 JSON 结构\n    output_data = {\n        \"top_usage\": top_three,\
-          \ \n        \"abnormal\": abnormal_list\n    }\n\n    return {\"result\"\
+        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n        return 0\n    return sum(values)\
+          \ / len(values)\n\n\ndef _get_standard_deviation(avg, values):\n    if len(values) == 0:\n     \
+          \   return 0\n    squared_diffs = [(x - avg) ** 2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
+          \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\n\ndef main(data_json:\
+          \ str) -> dict:\n    data = json.loads(data_json)\n    timeseries = data.get(\"data\", {}).get(\"\
+          timeseries\", [])\n    unit = data.get(\"unit\", \"\")\n\n    abnormal_list = []\n    top_usage_list\
+          \ = []\n\n    for index, entry in enumerate(timeseries):\n        labels = entry.get(\"labels\"\
+          , {})\n        chart = entry.get(\"chart\", {}).get(\"chartData\", {})\n        values = [v for\
+          \ v in chart.values() if v is not None and v != 0]\n\n        if len(values) == 0:\n           \
+          \ continue\n\n        avg = _get_avg(values)\n\n        # 1. 收集 Top 3 数据（这里同步补上了 chart 字段）\n   \
+          \     top_usage_list.append({\n            \"chart\": chart, \n            \"labels\": labels, \n\
+          \            \"avg\": avg, \n            \"unit\": unit\n        })\n\n        # 2. 收集 异常算法 数据 (保留原算法前\
+          \ 75 条的限制)\n        if index < 75:\n            variance = _get_standard_deviation(avg, values)\n\
+          \            threshold = avg + 1 * variance\n\n            count = 0\n            for _, value in\
+          \ chart.items():\n                if value is not None and value > threshold:\n                \
+          \    count += 1\n\n            if count != 0:\n                res = {\n                    \"chart\"\
+          : chart,\n                    \"abnormalCount\": count,\n                    \"labels\": labels,\n\
+          \                    \"avg\": avg,\n                    \"unit\": unit,\n                }\n   \
+          \             abnormal_list.append(res)\n\n    # 排序并筛选出 Top 3 实例\n    top_three = sorted(top_usage_list,\
+          \ key=lambda x: x[\"avg\"], reverse=True)[:3]\n\n    # 组装返回的 JSON 结构\n    output_data = {\n    \
+          \    \"top_usage\": top_three, \n        \"abnormal\": abnormal_list\n    }\n\n    return {\"result\"\
           : json.dumps(output_data, ensure_ascii=False)}"
         code_language: python3
         desc: ''
@@ -15076,33 +15106,27 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n      \
-          \  return 0\n    return sum(values) / len(values)\n\n\ndef _get_standard_deviation(avg,\
-          \ values):\n    if len(values) == 0:\n        return 0\n    squared_diffs\
-          \ = [(x - avg) ** 2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
-          \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\
-          \n\ndef main(data_json: str) -> dict:\n    data = json.loads(data_json)\n\
-          \    timeseries = data.get(\"data\", {}).get(\"timeseries\", [])\n    unit\
-          \ = data.get(\"unit\", \"\")\n\n    abnormal_list = []\n    top_usage_list\
-          \ = []\n\n    for index, entry in enumerate(timeseries):\n        labels\
-          \ = entry.get(\"labels\", {})\n        chart = entry.get(\"chart\", {}).get(\"\
-          chartData\", {})\n        values = [v for v in chart.values() if v != 0]\n\
-          \n        if len(values) == 0:\n            continue\n\n        avg = _get_avg(values)\n\
-          \n        # 1. 收集 Top 3 数据（这里同步补上了 chart 字段）\n        top_usage_list.append({\n\
-          \            \"chart\": chart, \n            \"labels\": labels, \n    \
-          \        \"avg\": avg, \n            \"unit\": unit\n        })\n\n    \
-          \    # 2. 收集 异常算法 数据 (保留原算法前 75 条的限制)\n        if index < 75:\n        \
-          \    variance = _get_standard_deviation(avg, values)\n            threshold\
-          \ = avg + 1 * variance\n\n            count = 0\n            for _, value\
-          \ in chart.items():\n                if value > threshold:\n           \
-          \         count += 1\n\n            if count != 0:\n                res\
-          \ = {\n                    \"chart\": chart,\n                    \"abnormalCount\"\
-          : count,\n                    \"labels\": labels,\n                    \"\
-          avg\": avg,\n                    \"unit\": unit,\n                }\n  \
-          \              abnormal_list.append(res)\n\n    # 排序并筛选出 Top 3 实例\n    top_three\
-          \ = sorted(top_usage_list, key=lambda x: x[\"avg\"], reverse=True)[:3]\n\
-          \n    # 组装返回的 JSON 结构\n    output_data = {\n        \"top_usage\": top_three,\
-          \ \n        \"abnormal\": abnormal_list\n    }\n\n    return {\"result\"\
+        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n        return 0\n    return sum(values)\
+          \ / len(values)\n\n\ndef _get_standard_deviation(avg, values):\n    if len(values) == 0:\n     \
+          \   return 0\n    squared_diffs = [(x - avg) ** 2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
+          \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\n\ndef main(data_json:\
+          \ str) -> dict:\n    data = json.loads(data_json)\n    timeseries = data.get(\"data\", {}).get(\"\
+          timeseries\", [])\n    unit = data.get(\"unit\", \"\")\n\n    abnormal_list = []\n    top_usage_list\
+          \ = []\n\n    for index, entry in enumerate(timeseries):\n        labels = entry.get(\"labels\"\
+          , {})\n        chart = entry.get(\"chart\", {}).get(\"chartData\", {})\n        values = [v for\
+          \ v in chart.values() if v is not None and v != 0]\n\n        if len(values) == 0:\n           \
+          \ continue\n\n        avg = _get_avg(values)\n\n        # 1. 收集 Top 3 数据（这里同步补上了 chart 字段）\n   \
+          \     top_usage_list.append({\n            \"chart\": chart, \n            \"labels\": labels, \n\
+          \            \"avg\": avg, \n            \"unit\": unit\n        })\n\n        # 2. 收集 异常算法 数据 (保留原算法前\
+          \ 75 条的限制)\n        if index < 75:\n            variance = _get_standard_deviation(avg, values)\n\
+          \            threshold = avg + 1 * variance\n\n            count = 0\n            for _, value in\
+          \ chart.items():\n                if value is not None and value > threshold:\n                \
+          \    count += 1\n\n            if count != 0:\n                res = {\n                    \"chart\"\
+          : chart,\n                    \"abnormalCount\": count,\n                    \"labels\": labels,\n\
+          \                    \"avg\": avg,\n                    \"unit\": unit,\n                }\n   \
+          \             abnormal_list.append(res)\n\n    # 排序并筛选出 Top 3 实例\n    top_three = sorted(top_usage_list,\
+          \ key=lambda x: x[\"avg\"], reverse=True)[:3]\n\n    # 组装返回的 JSON 结构\n    output_data = {\n    \
+          \    \"top_usage\": top_three, \n        \"abnormal\": abnormal_list\n    }\n\n    return {\"result\"\
           : json.dumps(output_data, ensure_ascii=False)}"
         code_language: python3
         desc: ''
@@ -15192,26 +15216,24 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(self_usage: str, other_usage: str, all_tps)\
-          \ -> dict:\n    \"\"\"\n    List: [{\"type\": \"metrics\", \"name\": \"\"\
-          , \"data\":above}]\n    \"\"\"\n    evidence = []\n\n    self_usage_data\
-          \ = json.loads(self_usage)\n    self_usage_timeseries = self_usage_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    self_usage_evidence = {\n     \
-          \   \"type\": \"metrics\",\n        \"name\": \"当前容器CPU使用率\",\n        \"\
-          data\": self_usage_timeseries,\n        \"unit\": self_usage_data.get(\"\
-          unit\", \"\")\n    }\n    evidence.append(self_usage_evidence)\n\n    other_usage_data\
-          \ = json.loads(other_usage)\n    other_usage_timeseries = other_usage_data.get(\"\
-          data\", {}).get(\"timeseries\", [])\n    other_usage_evidence = {\n    \
-          \    \"type\": \"metrics\",\n        \"name\": \"节点其他容器CPU使用率\",\n     \
-          \   \"data\": other_usage_timeseries,\n        \"unit\": other_usage_data.get(\"\
-          unit\", \"\")\n    }\n    evidence.append(other_usage_evidence)\n\n    for\
-          \ tps_item in all_tps:\n        if tps_item == \"{}\":\n            continue\n\
-          \        tps_data = json.loads(tps_item)\n        unit = tps_data.get('unit',\
-          \ \"requests/minute\")\n        evidence.append({\n            \"type\"\
-          : \"metrics\",\n            \"name\": \"服务吞吐量\",\n            \"data\":\
-          \ tps_data.get(\"timeseries\", []),\n            \"unit\": unit\n      \
-          \  })\n\n    return {\n        \"evidence\": json.dumps({\n            \"\
-          evidence\": evidence\n        })\n    }"
+        code: "import json\n\ndef main(self_usage: str, other_usage: str, all_tps) -> dict:\n    \"\"\"\n\
+          \    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n    evidence =\
+          \ []\n\n    self_usage_data = json.loads(self_usage)\n    self_usage_timeseries = self_usage_data.get(\"\
+          data\", {}).get(\"timeseries\", [])\n    self_usage_evidence = {\n        \"type\": \"metrics\"\
+          ,\n        \"name\": \"当前容器CPU使用率\",\n        \"data\": self_usage_timeseries,\n        \"unit\"\
+          : self_usage_data.get(\"unit\", \"\")\n    }\n    evidence.append(self_usage_evidence)\n\n    other_usage_data\
+          \ = json.loads(other_usage)\n    other_usage_timeseries = other_usage_data.get(\"data\", {}).get(\"\
+          timeseries\", [])\n    other_usage_evidence = {\n        \"type\": \"metrics\",\n        \"name\"\
+          : \"节点其他容器CPU使用率\",\n        \"data\": other_usage_timeseries,\n        \"unit\": other_usage_data.get(\"\
+          unit\", \"\")\n    }\n    evidence.append(other_usage_evidence)\n\n    seen_rates = set()\n    for\
+          \ tps_item in all_tps:\n        if tps_item == \"{}\":\n            continue\n        tps_data =\
+          \ json.loads(tps_item)\n        identity = json.dumps(tps_data.get(\"timeseries\", []), sort_keys=True)\
+          \ + str(tps_data.get(\"unit\", \"\"))\n        if identity in seen_rates:\n            continue\n\
+          \        seen_rates.add(identity)\n        unit = tps_data.get('unit', \"requests/min\")\n     \
+          \   evidence.append({\n            \"type\": \"metrics\",\n            \"name\": \"服务请求速率（CPM，次/分钟）\"\
+          ,\n            \"data\": tps_data.get(\"timeseries\", []),\n            \"unit\": unit\n       \
+          \ })\n\n    return {\n        \"evidence\": json.dumps({\n            \"evidence\": evidence\n \
+          \       })\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15248,20 +15270,19 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef main(cpu: str, all_tps: str) -> dict:\n    \"\"\
-          \"\n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
-          \    \"\"\"\n    evidence = []\n\n    cpu_data = json.loads(cpu)\n    cpu_timeseries\
-          \ = cpu_data.get(\"data\", {}).get(\"timeseries\", [])\n    cpu_evidence\
-          \ = {\n        \"type\": \"metrics\",\n        \"name\": \"容器CPU使用率\",\n\
-          \        \"data\": cpu_timeseries,\n        \"unit\": cpu_data.get(\"unit\"\
-          , \"\")\n    }\n\n    evidence.append(cpu_evidence)\n\n    for tps_item\
-          \ in all_tps:\n        if tps_item == \"{}\":\n            continue\n  \
-          \      tps_data = json.loads(tps_item)\n        unit = tps_data.get('unit',\
-          \ \"requests/minute\")\n        evidence.append({\n            \"type\"\
-          : \"metrics\",\n            \"name\": \"服务吞吐量\",\n            \"data\":\
-          \ tps_data.get(\"timeseries\", []),\n            \"unit\": unit\n      \
-          \  })\n\n    return {\n        \"evidence\": json.dumps({\n            \"\
-          evidence\": evidence\n        })\n    }\n"
+        code: "import json\n\n\ndef main(cpu: str, all_tps: str) -> dict:\n    \"\"\"\n    List: [{\"type\"\
+          : \"metrics\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n    evidence = []\n\n    cpu_data =\
+          \ json.loads(cpu)\n    cpu_timeseries = cpu_data.get(\"data\", {}).get(\"timeseries\", [])\n   \
+          \ cpu_evidence = {\n        \"type\": \"metrics\",\n        \"name\": \"容器CPU使用率\",\n        \"\
+          data\": cpu_timeseries,\n        \"unit\": cpu_data.get(\"unit\", \"\")\n    }\n\n    evidence.append(cpu_evidence)\n\
+          \n    seen_rates = set()\n    for tps_item in all_tps:\n        if tps_item == \"{}\":\n       \
+          \     continue\n        tps_data = json.loads(tps_item)\n        identity = json.dumps(tps_data.get(\"\
+          timeseries\", []), sort_keys=True) + str(tps_data.get(\"unit\", \"\"))\n        if identity in seen_rates:\n\
+          \            continue\n        seen_rates.add(identity)\n        unit = tps_data.get('unit', \"\
+          requests/min\")\n        evidence.append({\n            \"type\": \"metrics\",\n            \"name\"\
+          : \"服务请求速率（CPM，次/分钟）\",\n            \"data\": tps_data.get(\"timeseries\", []),\n            \"\
+          unit\": unit\n        })\n\n    return {\n        \"evidence\": json.dumps({\n            \"evidence\"\
+          : evidence\n        })\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -15294,20 +15315,19 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef main(memory: str, all_tps: str) -> dict:\n   \
-          \ \"\"\"\n    List: [{\"type\": \"metrics\", \"name\": \"\", \"data\":above}]\n\
-          \    \"\"\"\n    evidence = []\n\n    memory_data = json.loads(memory)\n\
-          \    timeseries_data = memory_data.get(\"data\", {}).get(\"timeseries\"\
-          , [])\n    unit = memory_data.get(\"unit\", \"\")\n    memory_evidence =\
-          \ {\n        \"type\": \"metrics\",\n        \"name\": \"容器内存使用量\",\n  \
-          \      \"data\": timeseries_data,\n        \"unit\": unit\n    }\n    evidence.append(memory_evidence)\n\
-          \n    for tps_item in all_tps:\n        if tps_item == \"{}\":\n       \
-          \     continue\n        tps_data = json.loads(tps_item)\n        unit =\
-          \ tps_data.get('unit', \"requests/minute\")\n        evidence.append({\n\
-          \            \"type\": \"metrics\",\n            \"name\": \"服务吞吐量\",\n\
-          \            \"data\": tps_data.get(\"timeseries\", []),\n            \"\
-          unit\": unit\n        })\n\n    return {\n        \"evidence\": json.dumps({\n\
-          \            \"evidence\": evidence\n        })\n    }\n"
+        code: "import json\n\n\ndef main(memory: str, all_tps: str) -> dict:\n    \"\"\"\n    List: [{\"type\"\
+          : \"metrics\", \"name\": \"\", \"data\":above}]\n    \"\"\"\n    evidence = []\n\n    memory_data\
+          \ = json.loads(memory)\n    timeseries_data = memory_data.get(\"data\", {}).get(\"timeseries\",\
+          \ [])\n    unit = memory_data.get(\"unit\", \"\")\n    memory_evidence = {\n        \"type\": \"\
+          metrics\",\n        \"name\": \"容器内存使用量\",\n        \"data\": timeseries_data,\n        \"unit\"\
+          : unit\n    }\n    evidence.append(memory_evidence)\n\n    seen_rates = set()\n    for tps_item\
+          \ in all_tps:\n        if tps_item == \"{}\":\n            continue\n        tps_data = json.loads(tps_item)\n\
+          \        identity = json.dumps(tps_data.get(\"timeseries\", []), sort_keys=True) + str(tps_data.get(\"\
+          unit\", \"\"))\n        if identity in seen_rates:\n            continue\n        seen_rates.add(identity)\n\
+          \        unit = tps_data.get('unit', \"requests/min\")\n        evidence.append({\n            \"\
+          type\": \"metrics\",\n            \"name\": \"服务请求速率（CPM，次/分钟）\",\n            \"data\": tps_data.get(\"\
+          timeseries\", []),\n            \"unit\": unit\n        })\n\n    return {\n        \"evidence\"\
+          : json.dumps({\n            \"evidence\": evidence\n        })\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -15405,29 +15425,24 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n      \
-          \  return 0\n    return sum(values) / len(values)\n\ndef _get_standard_deviation(avg,\
-          \ values):\n    if len(values) == 0:\n        return 0\n    squared_diffs\
-          \ = [(x - avg)**2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
-          \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\
-          \ndef analyze_data(result_str: str):        \n\n        data = json.loads(result_str)\n\
-          \        timeseries = data.get('data', {}).get('timeseries', [])[:75]\n\
-          \        unit = data.get('unit', '')\n        filtered = []\n\n        for\
-          \ entry in timeseries:\n            labels = entry.get('labels', {})\n\n\
-          \            chart = entry.get('chart', {}).get('chartData', {})\n     \
-          \       values = [v for v in chart.values() if v != 0]\n\n            if\
-          \ len(values) == 0:\n                continue\n\n            avg = _get_avg(values)\n\
-          \            variance = _get_standard_deviation(avg, values)\n\n       \
-          \     threshold = avg + 1 * variance\n            \n            count =\
-          \ 0\n            for _, value in chart.items():\n                if value\
-          \ > threshold:\n                    count += 1\n\n            if count !=\
-          \ 0:\n                res = {\n                    \"chart\": chart,\n \
-          \                   \"abnormalCount\": count,\n                    \"labels\"\
-          : labels,\n                    \"avg\": avg,\n                    \"unit\"\
-          : unit\n                }\n                filtered.append(res)\n      \
-          \          \n        \n        return json.dumps(filtered)\n    \ndef main(arg1:\
-          \ str) -> dict:\n    res = analyze_data(arg1)\n    return {\n        \"\
-          result\": res,\n    }"
+        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n        return 0\n    return sum(values)\
+          \ / len(values)\n\ndef _get_standard_deviation(avg, values):\n    if len(values) == 0:\n       \
+          \ return 0\n    squared_diffs = [(x - avg)**2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
+          \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\ndef analyze_data(result_str:\
+          \ str):        \n\n        data = json.loads(result_str)\n        timeseries = data.get('data',\
+          \ {}).get('timeseries', [])[:75]\n        unit = data.get('unit', '')\n        filtered = []\n\n\
+          \        for entry in timeseries:\n            labels = entry.get('labels', {})\n\n            chart\
+          \ = entry.get('chart', {}).get('chartData', {})\n            values = [v for v in chart.values()\
+          \ if v is not None and v != 0]\n\n            if len(values) == 0:\n                continue\n\n\
+          \            avg = _get_avg(values)\n            variance = _get_standard_deviation(avg, values)\n\
+          \n            threshold = avg + 1 * variance\n            \n            count = 0\n            for\
+          \ _, value in chart.items():\n                if value is not None and value > threshold:\n    \
+          \                count += 1\n\n            if count != 0:\n                res = {\n           \
+          \         \"chart\": chart,\n                    \"abnormalCount\": count,\n                   \
+          \ \"labels\": labels,\n                    \"avg\": avg,\n                    \"unit\": unit\n \
+          \               }\n                filtered.append(res)\n                \n        \n        return\
+          \ json.dumps(filtered)\n    \ndef main(arg1: str) -> dict:\n    res = analyze_data(arg1)\n    return\
+          \ {\n        \"result\": res,\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15456,29 +15471,24 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n      \
-          \  return 0\n    return sum(values) / len(values)\n\ndef _get_standard_deviation(avg,\
-          \ values):\n    if len(values) == 0:\n        return 0\n    squared_diffs\
-          \ = [(x - avg)**2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
-          \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\
-          \ndef analyze_data(result_str: str):        \n\n        data = json.loads(result_str)\n\
-          \        timeseries = data.get('data', {}).get('timeseries', [])[:75]\n\
-          \        unit = data.get('unit', '')\n        filtered = []\n\n        for\
-          \ entry in timeseries:\n            labels = entry.get('labels', {})\n\n\
-          \            chart = entry.get('chart', {}).get('chartData', {})\n     \
-          \       values = [v for v in chart.values() if v != 0]\n\n            if\
-          \ len(values) == 0:\n                continue\n\n            avg = _get_avg(values)\n\
-          \            variance = _get_standard_deviation(avg, values)\n\n       \
-          \     threshold = avg + 1 * variance\n            \n            count =\
-          \ 0\n            for _, value in chart.items():\n                if value\
-          \ > threshold:\n                    count += 1\n\n            if count !=\
-          \ 0:\n                res = {\n                    \"chart\": chart,\n \
-          \                   \"abnormalCount\": count,\n                    \"labels\"\
-          : labels,\n                    \"avg\": avg,\n                    \"unit\"\
-          : unit\n                }\n                filtered.append(res)\n      \
-          \          \n\n        return json.dumps(filtered)\n    \ndef main(arg1:\
-          \ str) -> dict:\n    res = analyze_data(arg1)\n    return {\n        \"\
-          result\": res,\n    }"
+        code: "import json\n\n\ndef _get_avg(values):\n    if not values:\n        return 0\n    return sum(values)\
+          \ / len(values)\n\ndef _get_standard_deviation(avg, values):\n    if len(values) == 0:\n       \
+          \ return 0\n    squared_diffs = [(x - avg)**2 for x in values]\n    sum_squared_diffs = sum(squared_diffs)\n\
+          \    variance = sum_squared_diffs / (len(values))\n    return variance**0.5\n\ndef analyze_data(result_str:\
+          \ str):        \n\n        data = json.loads(result_str)\n        timeseries = data.get('data',\
+          \ {}).get('timeseries', [])[:75]\n        unit = data.get('unit', '')\n        filtered = []\n\n\
+          \        for entry in timeseries:\n            labels = entry.get('labels', {})\n\n            chart\
+          \ = entry.get('chart', {}).get('chartData', {})\n            values = [v for v in chart.values()\
+          \ if v is not None and v != 0]\n\n            if len(values) == 0:\n                continue\n\n\
+          \            avg = _get_avg(values)\n            variance = _get_standard_deviation(avg, values)\n\
+          \n            threshold = avg + 1 * variance\n            \n            count = 0\n            for\
+          \ _, value in chart.items():\n                if value is not None and value > threshold:\n    \
+          \                count += 1\n\n            if count != 0:\n                res = {\n           \
+          \         \"chart\": chart,\n                    \"abnormalCount\": count,\n                   \
+          \ \"labels\": labels,\n                    \"avg\": avg,\n                    \"unit\": unit\n \
+          \               }\n                filtered.append(res)\n                \n\n        return json.dumps(filtered)\n\
+          \    \ndef main(arg1: str) -> dict:\n    res = analyze_data(arg1)\n    return {\n        \"result\"\
+          : res,\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15507,17 +15517,14 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(data_json):\n    data = json.loads(data_json)\n\
-          \    timeseries = data.get('data', {}).get('timeseries', [])\n    unit =\
-          \ data.get('unit', '')\n    filtered = []\n\n    for entry in timeseries:\n\
-          \        labels = entry.get('labels', {})\n        chart = entry.get('chart',\
-          \ {}).get('chartData', {})\n        values = [v for v in chart.values()\
-          \ if v != 0]\n\n        if len(values) == 0:\n            continue\n\n \
-          \       avg = sum(values) / len(values)\n\n        res = {\n           \
-          \ \"labels\": labels,\n            \"avg\": avg,\n            \"unit\":\
-          \ unit\n        }\n        filtered.append(res)\n\n    top_three = sorted(filtered,\
-          \ key=lambda x: x['avg'], reverse=True)[:3]\n    return {\n        \"top_three\"\
-          : json.dumps(top_three)\n    }"
+        code: "import json\n\ndef main(data_json):\n    data = json.loads(data_json)\n    timeseries = data.get('data',\
+          \ {}).get('timeseries', [])\n    unit = data.get('unit', '')\n    filtered = []\n\n    for entry\
+          \ in timeseries:\n        labels = entry.get('labels', {})\n        chart = entry.get('chart', {}).get('chartData',\
+          \ {})\n        values = [v for v in chart.values() if v is not None and v != 0]\n\n        if len(values)\
+          \ == 0:\n            continue\n\n        avg = sum(values) / len(values)\n\n        res = {\n  \
+          \          \"labels\": labels,\n            \"avg\": avg,\n            \"unit\": unit\n        }\n\
+          \        filtered.append(res)\n\n    top_three = sorted(filtered, key=lambda x: x['avg'], reverse=True)[:3]\n\
+          \    return {\n        \"top_three\": json.dumps(top_three)\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -15546,17 +15553,14 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(data_json):\n    data = json.loads(data_json)\n\
-          \    timeseries = data.get('data', {}).get('timeseries', [])\n    unit =\
-          \ data.get('unit', '')\n    filtered = []\n\n    for entry in timeseries:\n\
-          \        labels = entry.get('labels', {})\n        chart = entry.get('chart',\
-          \ {}).get('chartData', {})\n        values = [v for v in chart.values()\
-          \ if v != 0]\n\n        if len(values) == 0:\n            continue\n\n \
-          \       avg = sum(values) / len(values)\n\n        res = {\n           \
-          \ \"labels\": labels,\n            \"avg\": avg,\n            \"unit\":\
-          \ unit\n        }\n        filtered.append(res)\n\n    top_three = sorted(filtered,\
-          \ key=lambda x: x['avg'], reverse=True)[:3]\n    return {\n        \"top_three\"\
-          : json.dumps(top_three)\n    }"
+        code: "import json\n\ndef main(data_json):\n    data = json.loads(data_json)\n    timeseries = data.get('data',\
+          \ {}).get('timeseries', [])\n    unit = data.get('unit', '')\n    filtered = []\n\n    for entry\
+          \ in timeseries:\n        labels = entry.get('labels', {})\n        chart = entry.get('chart', {}).get('chartData',\
+          \ {})\n        values = [v for v in chart.values() if v is not None and v != 0]\n\n        if len(values)\
+          \ == 0:\n            continue\n\n        avg = sum(values) / len(values)\n\n        res = {\n  \
+          \          \"labels\": labels,\n            \"avg\": avg,\n            \"unit\": unit\n        }\n\
+          \        filtered.append(res)\n\n    top_three = sorted(filtered, key=lambda x: x['avg'], reverse=True)[:3]\n\
+          \    return {\n        \"top_three\": json.dumps(top_three)\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -16717,18 +16721,16 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(topology_str: str): \n    \"\"\"\n    From\
-          \ {current: {}, parents: [], children: []} to [service1, service2...]\n\
-          \    \"\"\"\n    if \"Error\" in topology_str:\n        return {\n     \
-          \       \"result\": []\n        }\n    topology = json.loads(topology_str).get(\"\
-          data\", {})\n    services = []\n    for service in topology.get(\"parents\"\
-          , []):\n        service_name = service.get(\"service\")\n        if service_name:\n\
-          \            services.append(service.get(\"service\"))\n    \n    for service\
-          \ in topology.get(\"children\", []):\n        service_name = service.get(\"\
-          service\")\n        if service_name:\n            services.append(service.get(\"\
-          service\"))\n\n    current_service_name = topology.get(\"current\", {}).get(\"\
-          service\")\n    if current_service_name:\n        services.append(current_service_name)\n\
-          \    \n    return {\n        \"result\": services\n    }"
+        code: "import json\n\ndef main(topology_str: str): \n    \"\"\"\n    From {current: {}, parents: [],\
+          \ children: []} to [service1, service2...]\n    \"\"\"\n    if \"Error\" in topology_str:\n    \
+          \    return {\n            \"result\": []\n        }\n    topology = json.loads(topology_str).get(\"\
+          data\", {})\n    services = []\n    for service in topology.get(\"parents\", []):\n        service_name\
+          \ = service.get(\"service\")\n        if service_name:\n            services.append(service.get(\"\
+          service\"))\n    \n    for service in topology.get(\"children\", []):\n        service_name = service.get(\"\
+          service\")\n        if service_name:\n            services.append(service.get(\"service\"))\n\n\
+          \    current_service_name = topology.get(\"current\", {}).get(\"service\")\n    if current_service_name:\n\
+          \        services.append(current_service_name)\n    \n    return {\n        \"result\": list(dict.fromkeys(services))\n\
+          \    }"
         code_language: python3
         desc: ''
         outputs:
@@ -16812,39 +16814,47 @@ workflow:
       width: 44
       zIndex: 1002
     - data:
-        code: "import json\n\ndef get_metric(red_data):\n    \"\"\"\n    从 red 数据中提取并返回延迟、错误率和\
-          \ TPS 指标。\n    如果数据不完整，返回 None。\n    \"\"\"\n    metrics = {}\n    \n  \
-          \  if len(red_data) < 3:\n        return None\n\n    try:\n        metrics[\"\
-          latency\"] = red_data[0].get(\"timeseries\", [{}])[0].get(\"chart\")\n \
-          \       metrics[\"errorRate\"] = red_data[1].get(\"timeseries\", [{}])[0].get(\"\
-          chart\")\n        metrics[\"tps\"] = red_data[2].get(\"timeseries\", [{}])[0].get(\"\
-          chart\")\n    except (IndexError, TypeError):\n        return None\n\n \
-          \   return metrics\n\ndef main(topology_str: str, services_red):\n    \"\
-          \"\"\n    解析拓扑结构和 RED 数据，然后将指标添加到相应的服务节点中。\n    如果服务没有指标，则从拓扑中移除。\n    \"\
-          \"\"\n    if \"Error\" in topology_str:\n        return {\n            \"\
-          result\": \"{}\"\n        }\n    topology = json.loads(topology_str)\n \
-          \   topology_data = topology.get(\"data\", {}) \n    \n    topology_data.pop(\"\
-          rawResp\", None)\n\n    for service_red_str in services_red:\n        service_red_obj\
-          \ = json.loads(service_red_str)\n        red_data = service_red_obj.get(\"\
-          data\")\n        \n        if not red_data:\n            continue\n\n  \
-          \      service_name = red_data[0].get(\"timeseries\", [{}])[0].get(\"labels\"\
-          , {}).get(\"service\")\n        \n        if not service_name:\n       \
-          \     continue\n\n        metrics = get_metric(red_data)\n        \n   \
-          \     if not metrics:\n            continue\n\n        # 将 metrics 添加到对应的服务节点\n\
-          \        current_service = topology_data.get(\"current\")\n        if current_service\
-          \ and current_service.get(\"service\") == service_name:\n            current_service[\"\
-          metrics\"] = metrics\n            continue\n        \n        for child\
-          \ in topology_data.get(\"children\", []):\n            if child.get(\"service\"\
-          ) == service_name:\n                child[\"metrics\"] = metrics\n     \
-          \           continue\n        \n        for parent in topology_data.get(\"\
-          parents\", []):\n            if parent.get(\"service\") == service_name:\n\
-          \                parent[\"metrics\"] = metrics\n                continue\n\
-          \    \n    topology_data[\"children\"] = [\n        child for child in topology_data.get(\"\
-          children\", []) if \"metrics\" in child\n    ]\n    topology_data[\"parents\"\
-          ] = [\n        parent for parent in topology_data.get(\"parents\", []) if\
-          \ \"metrics\" in parent\n    ]\n\n    if \"metrics\" not in topology_data.get(\"\
-          current\", {}):\n        topology_data[\"current\"] = {}\n\n    return {\n\
-          \        \"result\": json.dumps(topology_data)\n    }"
+        code: "import json\nfrom copy import deepcopy\n\n\ndef select_red_metric(text, name):\n    # 明确字段映射，不按数组位置或模糊中文关键字猜测指标。\n\
+          \    aliases = {\n        \"cpm\": \"cpm\", \"CPM\": \"cpm\", \"Tpm\": \"cpm\", \"吞吐量\": \"cpm\"\
+          ,\n        \"errorRate\": \"errorRate\", \"Error Rate\": \"errorRate\", \"请求错误率\": \"errorRate\"\
+          ,\n        \"avgDurationMs\": \"avgDurationMs\", \"Response Time\": \"avgDurationMs\", \"平均响应时间\"\
+          : \"avgDurationMs\",\n    }\n    units = {\"cpm\": \"requests/min\", \"errorRate\": \"percentunit\"\
+          , \"avgDurationMs\": \"ms\"}\n    factors = {\n        \"cpm\": {\"requests/min\": 1, \"requests/minute\"\
+          : 1, \"cpm\": 1, \"tpm\": 1, \"rpm\": 1},\n        \"errorRate\": {\"percentunit\": 1, \"%\": 0.01,\
+          \ \"percent\": 0.01},\n        \"avgDurationMs\": {\"ms\": 1, \"us\": 0.001, \"s\": 1000},\n   \
+          \ }\n    selected = None\n    for item in json.loads(text).get(\"data\", []) or []:\n        title\
+          \ = item.get(\"title\", \"\")\n        if aliases.get(title) != name:\n            continue\n  \
+          \      unit = item.get(\"unit\") or (units[name] if title == name else \"\")\n        factor = factors[name].get(unit)\n\
+          \        if factor is None:\n            continue  # 累计count和网络bytes/s不能冒充CPM。\n        if selected\
+          \ is not None:\n            raise ValueError(\"Ambiguous RED metric: \" + name)\n        selected\
+          \ = deepcopy(item)\n        selected.update(title=name, unit=units[name])\n        for series in\
+          \ selected.get(\"timeseries\", []) or []:\n            chart = series.get(\"chart\", {})\n     \
+          \       chart[\"chartData\"] = {ts: None if value is None else value * factor\n                \
+          \                  for ts, value in (chart.get(\"chartData\") or {}).items()}\n            if \"\
+          value\" in chart:\n                chart[\"value\"] = None if chart[\"value\"] is None else chart[\"\
+          value\"] * factor\n    return selected\n\n\n\ndef red_by_service(text):\n    result = {}\n    for\
+          \ name in (\"avgDurationMs\", \"errorRate\", \"cpm\"):\n        metric = select_red_metric(text,\
+          \ name)\n        if metric is None:\n            continue\n        for series in metric.get(\"timeseries\"\
+          , []) or []:\n            labels = series.get(\"labels\", {})\n            service = labels.get(\"\
+          serviceName\") or labels.get(\"service\") or labels.get(\"service_name\") or series.get(\"legend\"\
+          )\n            if not service:\n                continue\n            metrics = result.setdefault(service,\
+          \ {})\n            if name in metrics:\n                raise ValueError(\"Ambiguous RED series\
+          \ for \" + service)\n            metrics[name] = {**deepcopy(series.get(\"chart\", {})), \"unit\"\
+          : metric[\"unit\"]}\n            if series.get(\"step\") is not None:\n                metrics[name][\"\
+          step\"] = series[\"step\"]\n    return result\n\n\ndef main(topology_str: str, services_red) ->\
+          \ dict:\n    if \"Error\" in topology_str:\n        return {\"result\": \"{}\"}\n    topology_data\
+          \ = json.loads(topology_str).get(\"data\", {})\n    topology_data.pop(\"rawResp\", None)\n    by_service\
+          \ = {}\n    for text in services_red:\n        for service, metrics in red_by_service(text).items():\n\
+          \            # 同服务可同时出现在上下游，迭代返回相同数据时不重复累加。\n            if service in by_service and by_service[service]\
+          \ != metrics:\n                raise ValueError(\"Ambiguous RED service identity: \" + service)\n\
+          \            by_service[service] = metrics\n    for item in [topology_data.get(\"current\", {})]\
+          \ + topology_data.get(\"parents\", []) + topology_data.get(\"children\", []):\n        metrics =\
+          \ by_service.get(item.get(\"service\"))\n        if metrics and all(name in metrics for name in\
+          \ (\"avgDurationMs\", \"errorRate\", \"cpm\")):\n            item[\"metrics\"] = metrics\n    for\
+          \ direction in (\"parents\", \"children\"):\n        topology_data[direction] = [item for item in\
+          \ topology_data.get(direction, []) if \"metrics\" in item]\n    if \"metrics\" not in topology_data.get(\"\
+          current\", {}):\n        topology_data[\"current\"] = {}\n    return {\"result\": json.dumps(topology_data,\
+          \ ensure_ascii=False)}\n"
         code_language: python3
         desc: ''
         outputs:
@@ -18384,19 +18394,33 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "\ndef main(red_json: str) -> dict:\n    # 处理当前数据\n    data = json.loads(red_json)\n\
-          \    red = data.get('data', [])\n    latency_timeseries = []\n    error_timeseries\
-          \ = []\n    latency_unit = ''\n    error_unit = ''\n    for metric in red:\n\
-          \        if metric.get('title') == 'Response Time':\n            latency_timeseries\
-          \ = metric.get('timeseries', [])\n            latency_unit = metric.get('unit')\n\
-          \        elif metric.get('title') == 'Error Rate':\n            error_timeseries\
-          \ = metric.get('timeseries', [])\n            error_unit = metric.get('unit')\n\
-          \    latency_data = {\n        'data': {\n            'timeseries': latency_timeseries,\n\
-          \        },\n        'unit': latency_unit,\n    }\n    error_data = {\n\
-          \        'data': {\n            'timeseries': error_timeseries,\n      \
-          \  },\n        'unit': error_unit,\n    }\n\n    return {\n        \"request_latency\"\
-          : json.dumps(latency_data),\n        \"request_error_rate\": json.dumps(error_data)\n\
-          \    }\n"
+        code: "import json\nfrom copy import deepcopy\n\n\ndef select_red_metric(text, name):\n    # 明确字段映射，不按数组位置或模糊中文关键字猜测指标。\n\
+          \    aliases = {\n        \"cpm\": \"cpm\", \"CPM\": \"cpm\", \"Tpm\": \"cpm\", \"吞吐量\": \"cpm\"\
+          ,\n        \"errorRate\": \"errorRate\", \"Error Rate\": \"errorRate\", \"请求错误率\": \"errorRate\"\
+          ,\n        \"avgDurationMs\": \"avgDurationMs\", \"Response Time\": \"avgDurationMs\", \"平均响应时间\"\
+          : \"avgDurationMs\",\n    }\n    units = {\"cpm\": \"requests/min\", \"errorRate\": \"percentunit\"\
+          , \"avgDurationMs\": \"ms\"}\n    factors = {\n        \"cpm\": {\"requests/min\": 1, \"requests/minute\"\
+          : 1, \"cpm\": 1, \"tpm\": 1, \"rpm\": 1},\n        \"errorRate\": {\"percentunit\": 1, \"%\": 0.01,\
+          \ \"percent\": 0.01},\n        \"avgDurationMs\": {\"ms\": 1, \"us\": 0.001, \"s\": 1000},\n   \
+          \ }\n    selected = None\n    for item in json.loads(text).get(\"data\", []) or []:\n        title\
+          \ = item.get(\"title\", \"\")\n        if aliases.get(title) != name:\n            continue\n  \
+          \      unit = item.get(\"unit\") or (units[name] if title == name else \"\")\n        factor = factors[name].get(unit)\n\
+          \        if factor is None:\n            continue  # 累计count和网络bytes/s不能冒充CPM。\n        if selected\
+          \ is not None:\n            raise ValueError(\"Ambiguous RED metric: \" + name)\n        selected\
+          \ = deepcopy(item)\n        selected.update(title=name, unit=units[name])\n        for series in\
+          \ selected.get(\"timeseries\", []) or []:\n            chart = series.get(\"chart\", {})\n     \
+          \       chart[\"chartData\"] = {ts: None if value is None else value * factor\n                \
+          \                  for ts, value in (chart.get(\"chartData\") or {}).items()}\n            if \"\
+          value\" in chart:\n                chart[\"value\"] = None if chart[\"value\"] is None else chart[\"\
+          value\"] * factor\n    return selected\n\n\ndef analysis_metric(text, name):\n    metric = select_red_metric(text,\
+          \ name)\n    if metric is None:\n        return {\"data\": {\"timeseries\": []}, \"unit\": \"\"\
+          }\n    # 统计器不接受null；仅在分析副本中排除缺失点，保留真实零和时间戳。\n    for series in metric.get(\"timeseries\", []) or\
+          \ []:\n        chart = series.get(\"chart\", {})\n        chart[\"chartData\"] = {ts: value for\
+          \ ts, value in (chart.get(\"chartData\") or {}).items() if value is not None}\n    return {\"data\"\
+          : {\"timeseries\": metric.get(\"timeseries\", [])}, \"unit\": metric[\"unit\"]}\n\n\ndef main(red_json:\
+          \ str) -> dict:\n    return {\n        \"request_latency\": json.dumps(analysis_metric(red_json,\
+          \ \"avgDurationMs\")),\n        \"request_error_rate\": json.dumps(analysis_metric(red_json, \"\
+          errorRate\")),\n    }\n"
         code_language: python3
         desc: ''
         isInIteration: true
@@ -18811,17 +18835,16 @@ workflow:
         - id: 93095ce2-0a5b-44a5-9d96-8e32e38bf954
           role: user
           text: "# 任务\n某个服务出现告警，请根据受影响服务的异常响应时间和错误率指标，总结服务的受影响情况。\n\n# 数据\n- 受影响服务的异常指标：{{#1760106063352.impacted_services#}}\n\
-            - 服务与界面功能映射文档：{{#context#}}\n- 指标单位：每个异常指标的“unit” key的值为对应指标单位\n\n# 总结要求\n\
-            1. **影响服务总结**  \n   - 根据受影响服务的serviceName和endpoint在文档中寻找对应的界面功能。\n   -\
-            \ 一个服务可能对应多个界面功能，不同服务可能对应相同界面功能，列出所有受影响的服务对应的界面功能及其指标变化情况，相同受影响服务或界面功能只需要描述一次，不要重复。\
-            \  \n   - 描述指标从第一个非零值到最高点的变化情况，例如：“请求延时从300000微秒升高到最高5000000微秒”\n\n2.\
-            \ **服务名与界面功能菜单名替换**  \n   - 在映射文档中查找每个受影响服务的服务名对应的**界面功能菜单名**。  \n   -\
-            \ 如果找到映射，则在总结中必须使用界面功能菜单名描述，而不是直接用服务名或业务名。  \n   - 如果没有对应关系，则只保留服务名，不要硬编。\
-            \  \n   - 示例：  \n     - 输入：`pay-service`  \n     - 映射：`pay-service 支付服务\
-            \ 订单界面支付功能` 必须使用“订单界面支付功能”代替pay-service\n     - 输出表述：`订单界面支付功能受到影响，响应时间无变化/从xx升高到xx，错误率无变化/从xx升高到xx`\
-            \  \n\n3. **语言风格**  \n   - 总结要简洁明了，不使用专业技术术语。  \n   - 用自然的业务化描述（例如“订单界面支付功能请求变慢、错误率升高”）。\
-            \  \n\n4. **数据描述** \n使用原始指标值以及单位描述数据，不要做转化。\n\n5. **边界处理**\n如果没有受影响服务数据，则认为服务没有受到明显影响。\n\
-            \n# 输出\n直接输出 **受影响服务的总结**，不要额外解释。\n"
+            - 服务与界面功能映射文档：{{#context#}}\n- 指标单位：每个异常指标的“unit” key的值为对应指标单位\n\n# 总结要求\n1. **影响服务总结**  \n  \
+            \ - 根据受影响服务的serviceName和endpoint在文档中寻找对应的界面功能。\n   - 一个服务可能对应多个界面功能，不同服务可能对应相同界面功能，列出所有受影响的服务对应的界面功能及其指标变化情况，相同受影响服务或界面功能只需要描述一次，不要重复。\
+            \  \n   - 描述指标从第一个非零值到最高点的变化情况，例如：unit=ms时“平均响应时间从300毫秒升高到最高5000毫秒”\n\n2. **服务名与界面功能菜单名替换**  \n\
+            \   - 在映射文档中查找每个受影响服务的服务名对应的**界面功能菜单名**。  \n   - 如果找到映射，则在总结中必须使用界面功能菜单名描述，而不是直接用服务名或业务名。  \n\
+            \   - 如果没有对应关系，则只保留服务名，不要硬编。  \n   - 示例：  \n     - 输入：`pay-service`  \n     - 映射：`pay-service\
+            \ 支付服务 订单界面支付功能` 必须使用“订单界面支付功能”代替pay-service\n     - 输出表述：`订单界面支付功能受到影响，响应时间无变化/从xx升高到xx，错误率无变化/从xx升高到xx`\
+            \  \n\n3. **语言风格**  \n   - 总结要简洁明了，不使用专业技术术语。  \n   - 用自然的业务化描述（例如“订单界面支付功能请求变慢、错误率升高”）。  \n\n\
+            4. **数据描述** \n按真实unit描述数据：ms使用毫秒；percentunit的比例乘100显示百分数，例如0.02为2%；已为percent/%不重复换算。\n\n5. **边界处理**\n\
+            如果没有受影响服务数据，则认为服务没有受到明显影响。\n\n# 输出\n直接输出 **受影响服务的总结**，不要额外解释。\n\n\n# RED字段和单位约定\nRED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response\
+            \ Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。\n展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。\n"
         selected: false
         title: 总结受影响服务
         type: llm

@@ -1,6 +1,7 @@
 import json
 import math
 import sys
+import yaml
 from importlib import util
 from pathlib import Path
 from types import ModuleType, SimpleNamespace
@@ -69,6 +70,29 @@ def _load_series_detect_module():
     assert spec.loader is not None
     spec.loader.exec_module(module)
     return module
+
+
+def test_cos_red_extractor_feeds_detector_fractional_units_without_null_crash(monkeypatch):
+    _install_series_detect_stubs(monkeypatch)
+    module = _load_series_detect_module()
+    tool = module.TimeSeriersAnalysisTool.__new__(module.TimeSeriersAnalysisTool)
+    workflow = Path(__file__).parents[7] / "init_data/workflows/zh/告警简单根因分析.yml"
+    nodes = yaml.safe_load(workflow.read_text())["workflow"]["graph"]["nodes"]
+    code = next(n["data"]["code"] for n in nodes if n["id"] == "1759066552234")
+    namespace = {}
+    exec(code, namespace)
+
+    def payload(value):
+        return json.dumps({"data": [{"title": "errorRate", "unit": "percentunit", "timeseries": [{
+            "legend": "orders", "labels": {"serviceName": "orders"},
+            "chart": {"chartData": {str(i * 60000000): None if i == 4 else value for i in range(16)}},
+        }]}]})
+
+    extracted = namespace["main"](payload(0.02), payload(0.002))
+    result = json.loads(tool.trend_detect(extracted["request_error_rate"], extracted["history_request_error_rate"]))
+    assert len(result) == 1
+    assert result[0]["unit"] == "percentunit"
+    assert math.isclose(result[0]["avg"], 0.02)
 
 
 def test_trend_detect_uses_history_to_detect_baseline_shift(monkeypatch):

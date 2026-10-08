@@ -239,6 +239,9 @@ def __convert_metric_results(
         return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
 
     mr = metricResult.metrics.result
+    if metricResult.dataSource == "cos":
+        for series in mr.timeseries:
+            series.labels = _cos_resource_labels(series.labels)
     if metricResult.dataSource == "cos" and start_ts is not None and end_ts is not None:
         for series in mr.timeseries:
             # COS 资源路径仍返回毫秒；RED/eBPF 已是微秒。仅当毫秒换算后
@@ -255,6 +258,21 @@ def __convert_metric_results(
         unit=mr.unit,
         data={"timeseries": [m.model_dump(exclude_unset=True) for m in mr.timeseries]},
     )
+
+
+def _cos_resource_labels(labels: dict[str, str]) -> dict[str, str]:
+    """保留 COS 原标签，仅为缺失的旧对象字段补充同义名称。"""
+    result = dict(labels)
+    for native, legacy in (
+        ("k8s_pod_name", "pod"),
+        ("k8s_namespace_name", "namespace"),
+        ("k8s_node_name", "node"),
+        ("k8s_container_name", "containerName"),
+    ):
+        if not result.get(legacy) and labels.get(native):
+            result[legacy] = labels[native]
+    # 容器名称不是 containerId，Pod/主机名称也不能代替 pid。
+    return result
 
 
 def __select_highest_priority_result(results: QueryMetricsResponse) -> Optional[QueryMetricsResult]:
@@ -341,6 +359,10 @@ def query_red_metrics(
     tenant_id: Optional[str] = None,
 ) -> QueryMetricResult:
     names = {
+        "avgDurationMs": "平均响应时间",
+        "errorRate": "请求错误率",
+        "cpm": "请求次数",
+        "successRate": "请求成功率",
         "Response Time": "平均响应时间",
         "Error Rate": "请求错误率",
         "Tpm": "请求次数",

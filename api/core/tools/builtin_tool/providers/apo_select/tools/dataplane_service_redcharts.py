@@ -58,8 +58,8 @@ def query_service_redcharts(
         if endpoint and endpoint not in ("*", ".*"):
             # 专用 RED 接口只有服务汇总，精确端点继续走指标映射。
             result = []
-            for title, name in (("CPM", "cpm"), ("Error Rate", "errorRate"), ("Response Time", "avgDurationMs")):
-                metric = query_red_metrics(title, service, cluster, start_ts, end_ts, endpoint, tenant_id)
+            for name in ("cpm", "errorRate", "avgDurationMs"):
+                metric = query_red_metrics(name, service, cluster, start_ts, end_ts, endpoint, tenant_id)
                 result.append({"title": name, "unit": metric.unit, **metric.data})
         else:
             response = requests.post(

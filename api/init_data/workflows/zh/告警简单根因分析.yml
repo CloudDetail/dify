@@ -698,18 +698,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: code
-      id: 1750830805330-source-1750819000832-target
-      selected: false
-      source: '1750830805330'
-      sourceHandle: source
-      target: '1750819000832'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: llm
         targetType: code
       id: 1750927215923-source-1750769951427-target
@@ -1029,18 +1017,6 @@ workflow:
       source: '1751601842740'
       sourceHandle: 'false'
       target: '1750662408086'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: code
-      id: 1751601842740-false-1750750056742-target
-      selected: false
-      source: '1751601842740'
-      sourceHandle: 'false'
-      target: '1750750056742'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1693,6 +1669,91 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1750830805330-source-1790208000001-target
+      selected: false
+      source: '1750830805330'
+      sourceHandle: source
+      target: '1790208000001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1751601842740-false-179020800101-target
+      selected: false
+      source: '1751601842740'
+      sourceHandle: 'false'
+      target: '179020800101'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1790208000001-source-1750819000832-target
+      selected: false
+      source: '1790208000001'
+      sourceHandle: source
+      target: '1750819000832'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 179020800101-source-179020800102-target
+      selected: false
+      source: '179020800101'
+      sourceHandle: source
+      target: '179020800102'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 179020800102-source-179020800103-target
+      selected: false
+      source: '179020800102'
+      sourceHandle: source
+      target: '179020800103'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 179020800103-source-1750750056742-target
+      selected: false
+      source: '179020800103'
+      sourceHandle: source
+      target: '1750750056742'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        sourceType: iteration-start
+        targetType: tool
+        iteration_id: '179020800103'
+      id: 179020800104-source-179020800105-target
+      selected: false
+      source: '179020800104'
+      sourceHandle: source
+      target: '179020800105'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
     nodes:
     - data:
         desc: ''
@@ -7956,75 +8017,70 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import requests\nimport json\n\n\ndef get_red(query_params):\n    response\
-          \ = requests.get(\n        \"http://syncause-backend-svc:8080\" + \"/api/dataplane/redcharts\"\
-          , params=query_params\n    )\n    if response.status_code != 200 or len(response.json()[\"\
-          results\"]) == 0:\n        return {}\n    metrics = {}\n    metrics[\"latency\"\
-          ] = response.json()[\"results\"][0][\"timeseries\"][0][\"chart\"]\n    metrics[\"\
-          errorRate\"] = response.json()[\"results\"][1][\"timeseries\"][0][\"chart\"\
-          ]\n    metrics[\"tps\"] = response.json()[\"results\"][2][\"timeseries\"\
-          ][0][\"chart\"]\n    return metrics\n\n\n\ndef get_topology(service, cluster,\
-          \ start_time, end_time) -> str:\n    params = {\n        \"service\": service,\n\
-          \        \"cluster\": cluster,\n        \"startTime\": start_time,\n   \
-          \     \"endTime\": end_time,\n    }\n    resp = requests.get(\n        \"\
-          http://syncause-backend-svc:8080\" + \"/api/dataplane/topology\", params=params\n\
-          \    )\n    res = {}\n\n    query_params = {\"startTime\": start_time, \"\
-          endTime\": end_time, \"service\": service}\n    metrics = get_red(query_params)\n\
-          \    res[\"current\"] = {\n        \"service\": service,\n        \"description\"\
-          : \"\",\n        \"metrics\": metrics,\n    }\n\n    if resp.status_code\
-          \ == 200 and resp.json()[\"msg\"] == \"\":\n        list = resp.json()\n\
-          \        result = {}\n        for item in list[\"results\"] or []:\n   \
-          \         if item[\"name\"] == service:\n                result = item\n\
-          \n        parents = []\n        for p_svc in result[\"parents\"] or []:\n\
-          \            query_params = {\n                \"startTime\": start_time,\n\
-          \                \"endTime\": end_time,\n                \"service\": p_svc,\n\
-          \            }\n            metrics = get_red(query_params)\n          \
-          \  if len(metrics) == 0:\n                continue\n            parents.append(\n\
-          \                {\n                    \"service\": p_svc,\n          \
-          \          \"description\": \"\",\n                    \"metrics\": metrics,\n\
-          \                }\n            )\n\n        children = []\n        for\
-          \ c_svc in result[\"children\"] or []:\n            query_params = {\n \
-          \               \"startTime\": start_time,\n                \"endTime\"\
-          : end_time,\n                \"service\": c_svc,\n            }\n      \
-          \      metrics = get_red(query_params)\n            if len(metrics) == 0:\n\
-          \                continue\n            children.append(\n              \
-          \  {\n                    \"service\": c_svc,\n                    \"description\"\
-          : \"\",\n                    \"metrics\": metrics,\n                }\n\
-          \            )\n\n        res[\"children\"] = children\n        res[\"parents\"\
-          ] = parents\n        return json.dumps(res)\n\n\ndef main(service: str,\
-          \ startTime: int, endTime: int) -> dict:\n    try:\n      rc = get_topology(service,\
-          \ \"\", startTime, endTime)\n    except Exception:\n        rc = \"{}\"\n\
-          \    if rc == None:\n        rc = \"{}\"\n    return {\n        \"result\"\
-          : rc,\n    }\n"
-        code_language: python3
+        type: code
+        title: 获取拓扑
         desc: ''
+        code_language: python3
+        code: "import json\nfrom copy import deepcopy\n\n\ndef select_red_metric(text, name):\n    # 明确字段映射，不按数组位置或模糊中文关键字猜测指标。\n\
+          \    aliases = {\n        \"cpm\": \"cpm\", \"CPM\": \"cpm\", \"Tpm\": \"cpm\", \"吞吐量\": \"cpm\"\
+          ,\n        \"errorRate\": \"errorRate\", \"Error Rate\": \"errorRate\", \"请求错误率\": \"errorRate\"\
+          ,\n        \"avgDurationMs\": \"avgDurationMs\", \"Response Time\": \"avgDurationMs\", \"平均响应时间\"\
+          : \"avgDurationMs\",\n    }\n    units = {\"cpm\": \"requests/min\", \"errorRate\": \"percentunit\"\
+          , \"avgDurationMs\": \"ms\"}\n    factors = {\n        \"cpm\": {\"requests/min\": 1, \"requests/minute\"\
+          : 1, \"cpm\": 1, \"tpm\": 1, \"rpm\": 1},\n        \"errorRate\": {\"percentunit\": 1, \"%\": 0.01,\
+          \ \"percent\": 0.01},\n        \"avgDurationMs\": {\"ms\": 1, \"us\": 0.001, \"s\": 1000},\n   \
+          \ }\n    selected = None\n    for item in json.loads(text).get(\"data\", []) or []:\n        title\
+          \ = item.get(\"title\", \"\")\n        if aliases.get(title) != name:\n            continue\n  \
+          \      unit = item.get(\"unit\") or (units[name] if title == name else \"\")\n        factor = factors[name].get(unit)\n\
+          \        if factor is None:\n            continue  # 累计count和网络bytes/s不能冒充CPM。\n        if selected\
+          \ is not None:\n            raise ValueError(\"Ambiguous RED metric: \" + name)\n        selected\
+          \ = deepcopy(item)\n        selected.update(title=name, unit=units[name])\n        for series in\
+          \ selected.get(\"timeseries\", []) or []:\n            chart = series.get(\"chart\", {})\n     \
+          \       chart[\"chartData\"] = {ts: None if value is None else value * factor\n                \
+          \                  for ts, value in (chart.get(\"chartData\") or {}).items()}\n            if \"\
+          value\" in chart:\n                chart[\"value\"] = None if chart[\"value\"] is None else chart[\"\
+          value\"] * factor\n    return selected\n\n\n\ndef red_by_service(text):\n    result = {}\n    for\
+          \ name in (\"avgDurationMs\", \"errorRate\", \"cpm\"):\n        metric = select_red_metric(text,\
+          \ name)\n        if metric is None:\n            continue\n        for series in metric.get(\"timeseries\"\
+          , []) or []:\n            labels = series.get(\"labels\", {})\n            service = labels.get(\"\
+          serviceName\") or labels.get(\"service\") or labels.get(\"service_name\") or series.get(\"legend\"\
+          )\n            if not service:\n                continue\n            metrics = result.setdefault(service,\
+          \ {})\n            if name in metrics:\n                raise ValueError(\"Ambiguous RED series\
+          \ for \" + service)\n            metrics[name] = {**deepcopy(series.get(\"chart\", {})), \"unit\"\
+          : metric[\"unit\"]}\n            if series.get(\"step\") is not None:\n                metrics[name][\"\
+          step\"] = series[\"step\"]\n    return result\n\n\ndef main(topology_json: str, services_red: list)\
+          \ -> dict:\n    try:\n        topology = json.loads(topology_json).get(\"data\", {})\n        if\
+          \ not topology.get(\"current\", {}).get(\"service\"):\n            return {\"result\": \"{}\"}\n\
+          \        by_service = {}\n        for text in services_red:\n            for service, metrics in\
+          \ red_by_service(text).items():\n                if service in by_service:\n                   \
+          \ raise ValueError(\"Ambiguous service identity\")\n                by_service[service] = metrics\n\
+          \        def node(item):\n            return {\"service\": item[\"service\"], \"description\": \"\
+          \", \"metrics\": by_service.get(item[\"service\"], {})}\n        result = {\"current\": node(topology[\"\
+          current\"])}\n        for direction in (\"parents\", \"children\"):\n            result[direction]\
+          \ = [node(item) for item in topology.get(direction, [])\n                                 if by_service.get(item[\"\
+          service\"])]\n        return {\"result\": json.dumps(result, ensure_ascii=False)}\n    except (ValueError,\
+          \ TypeError, KeyError, AttributeError):\n        return {\"result\": \"{}\"}\n"
+        variables:
+        - variable: topology_json
+          value_selector:
+          - '179020800101'
+          - text
+        - variable: services_red
+          value_selector:
+          - '179020800103'
+          - output
         outputs:
           result:
-            children: null
             type: string
+            children: null
         selected: false
-        title: 获取拓扑
-        type: code
-        variables:
-        - value_selector:
-          - '1742807803325'
-          - service
-          variable: service
-        - value_selector:
-          - '1741227526517'
-          - startTime
-          variable: startTime
-        - value_selector:
-          - '1741227526517'
-          - endTime
-          variable: endTime
       height: 54
       id: '1750750056742'
       position:
-        x: 17022
+        x: 18198
         y: 1620.5
       positionAbsolute:
-        x: 17022
+        x: 18198
         y: 1620.5
       selected: false
       sourcePosition: right
@@ -8303,68 +8359,56 @@ workflow:
         - id: 6d2d37cf-5d8d-4ec8-bf8b-040480010022
           role: user
           text: "# 目的\n基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence\
-            \ 输出结构。\n\n# 输入\nreportType: slow\n\noverview:\n{{#1750661889002.result#}}\n\
-            \nrootCauseAnalysis:\n{{#1750672701216.result#}}\n\nsuggest:\n{{#17506728633540.result#}}\n\
-            \nevidence:\n{{#1750769951427.result#}}\n\ntopology:\n{{#1750750056742.result#}}\n\
-            \n# 输出格式\n只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。\n\
-            {\n  \"version\": \"v1\",\n  \"headline\": \"一句话根因判断\",\n  \"conclusionSummary\"\
-            : \"一句话说明关键证据；如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），不要输出时间戳原值\",\n \
-            \ \"faultLocation\": {\"label\": \"故障位置\", \"target\": \"服务/实例/节点\", \"\
-            summary\": \"简单说明\"},\n  \"summaryCards\": [{\"type\": \"symptom|rootCause|excluded\"\
-            , \"title\": \"短标题\", \"summary\": \"一句话\"}],\n  \"rootCauseEvidenceRefs\"\
-            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率\", \"summary\": \"45% ->\
-            \ 96%\"}],\n  \"rootCauseMetricRefs\": [{\"evidenceIndex\": 0, \"title\"\
-            : \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"businessImpact\": null,\n\
-            \  \"timeline\": [{\"timestamp\": 1779811334000000, \"title\": \"事件短标题\"\
-            , \"summary\": \"一句话事件说明\"}],\n  \"analysisSteps\": [{\"title\": \"排查步骤短标题\"\
-            , \"summary\": \"一句话说明\"}],\n  \"actionTitles\": [{\"suggestIndex\": 0,\
-            \ \"title\": \"降低异常日志输出\"}],\n  \"evidenceHighlights\": [{\"evidenceIndex\"\
-            : 0, \"title\": \"CPU 使用率升高\", \"summary\": \"使用原始证据中的结论或描述\"}]\n}\n\n\
-            # 严格规则\n1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。type 别名归一：disk\
-            \ 按 storage，file 按 runtime/storage，memory 按 runtime/infra，system 按 infra/runtime/cpu/memory，config\
-            \ 按 config/dependency/log，self 按 code/log/runtime。没有这个 type 时，不要为了支撑证据做推断，rootCauseEvidenceRefs\
-            \ 和 rootCauseMetricRefs 输出空数组。\n2. 首屏右上角支撑证据只放根因证据：从 evidence 中选择与主根因直接相关的\
-            \ type=metrics/red/log/traces 证据，写入 rootCauseEvidenceRefs。rootCauseEvidenceRefs\
-            \ 是首屏支撑证据唯一来源，evidenceIndex 使用 evidence 数组的从 0 开始下标。\n3. 引用 metrics/red\
-            \ 时必须有真实 chartData，指标名称、描述、legend、unit 必须匹配主根因方向；引用 log/traces 时 title/summary\
-            \ 必须直接描述异常日志、慢 span、下游调用或超时事实。rootCauseEvidenceRefs/rootCauseMetricRefs\
-            \ 的 summary 如引用耗时、延迟、慢 span 等时间指标，必须使用可读时间单位，不要直接输出原始裸小数秒；例如 0.0019s 应写成\
-            \ 1.9ms，0.0007s 应写成 0.7ms。\n4. downstream/dependency 根因必须优先引用具体下游服务、具体接口耗时、错误率、超时、慢调用分布、下游数据库/MySQL/SQL\
-            \ 查询耗时、锁等待、连接池等待、下游调用异常日志或慢 trace；如果 major reason 已给出下游服务、接口或数据库实例，例如\
-            \ ts-travel-plan-service 的 POST /api/v1/travelplanservice/travelPlan/cheapest，则优先引用该服务/接口的耗时、错误、超时指标、异常日志或慢\
-            \ trace；例如 ts-config-service 访问 train-ticket-mysql-master-0 时 SQL 查询变慢、锁等待或连接池等待升高，则优先引用\
-            \ MySQL/数据库/SQL/锁等待/连接池等待相关 evidence；如果只有日志证据，例如 requesttemplate-demo\
-            \ 调用 localhost:58082 /api/jpa-demo/sleep 出现 ResourceAccessException、SocketTimeoutException、Read\
-            \ timed out，也必须写入 rootCauseEvidenceRefs，不要因为没有 chartData 而留空。\n5. RED\
-            \ 指标只允许在 downstream、dependency、traffic、thirdparty 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra\
-            \ 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。\n6. rootCauseMetricRefs 仅作为兼容字段：只有 rootCauseEvidenceRefs\
-            \ 中引用 metrics/red 证据且有真实 chartData 时才同步填入；没有匹配主根因的指标时 rootCauseMetricRefs\
-            \ 输出空数组，不要放无关指标。\n7. 支撑证据映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load\
-            \ average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry\
-            \ 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage/disk\
-            \ 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system\
-            \ 按运行环境选择证据：VM 使用主机资源、进程状态和系统日志；容器使用 Pod 重启、OOMKill、节点资源、容器状态和 K8s Event；环境不明确时使用通用\
-            \ CPU、内存和系统证据；config 使用配置拉取失败、配置中心错误、DB 连接失败、连接串/凭据错误、初始化失败日志；self 使用应用异常、错误日志、panic、stack、runtime\
-            \ 异常；downstream/dependency 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL\
-            \ 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic 使用 QPS、RPS、请求量、并发、队列、突增比例；thirdparty\
-            \ 使用第三方延迟、错误率、超时、供应商错误码。\n8. faultLocation 必须简单易懂；无法定位时输出 null。\n9. businessImpact\
-            \ 没有明确业务影响时输出 null，不要编造。\n10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。\n\
+            \ 输出结构。\n\n# 输入\nreportType: slow\n\noverview:\n{{#1750661889002.result#}}\n\nrootCauseAnalysis:\n\
+            {{#1750672701216.result#}}\n\nsuggest:\n{{#17506728633540.result#}}\n\nevidence:\n{{#1750769951427.result#}}\n\
+            \ntopology:\n{{#1750750056742.result#}}\n\n# 输出格式\n只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告\
+            \ id、生成时间、分析窗口。\n{\n  \"version\": \"v1\",\n  \"headline\": \"一句话根因判断\",\n  \"conclusionSummary\"\
+            : \"一句话说明关键证据；如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），不要输出时间戳原值\",\n  \"faultLocation\": {\"label\"\
+            : \"故障位置\", \"target\": \"服务/实例/节点\", \"summary\": \"简单说明\"},\n  \"summaryCards\": [{\"type\"\
+            : \"symptom|rootCause|excluded\", \"title\": \"短标题\", \"summary\": \"一句话\"}],\n  \"rootCauseEvidenceRefs\"\
+            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"rootCauseMetricRefs\"\
+            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"businessImpact\"\
+            : null,\n  \"timeline\": [{\"timestamp\": 1779811334000000, \"title\": \"事件短标题\", \"summary\"\
+            : \"一句话事件说明\"}],\n  \"analysisSteps\": [{\"title\": \"排查步骤短标题\", \"summary\": \"一句话说明\"}],\n \
+            \ \"actionTitles\": [{\"suggestIndex\": 0, \"title\": \"降低异常日志输出\"}],\n  \"evidenceHighlights\"\
+            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率升高\", \"summary\": \"使用原始证据中的结论或描述\"}]\n}\n\n# 严格规则\n\
+            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。type 别名归一：disk 按 storage，file 按 runtime/storage，memory\
+            \ 按 runtime/infra，system 按 infra/runtime/cpu/memory，config 按 config/dependency/log，self 按 code/log/runtime。没有这个\
+            \ type 时，不要为了支撑证据做推断，rootCauseEvidenceRefs 和 rootCauseMetricRefs 输出空数组。\n2. 首屏右上角支撑证据只放根因证据：从\
+            \ evidence 中选择与主根因直接相关的 type=metrics/red/log/traces 证据，写入 rootCauseEvidenceRefs。rootCauseEvidenceRefs\
+            \ 是首屏支撑证据唯一来源，evidenceIndex 使用 evidence 数组的从 0 开始下标。\n3. 引用 metrics/red 时必须有真实 chartData，指标名称、描述、legend、unit\
+            \ 必须匹配主根因方向；引用 log/traces 时 title/summary 必须直接描述异常日志、慢 span、下游调用或超时事实。rootCauseEvidenceRefs/rootCauseMetricRefs\
+            \ 的 summary 如引用耗时、延迟、慢 span 等时间指标，必须使用可读时间单位，不要直接输出原始裸小数秒；例如 0.0019s 应写成 1.9ms，0.0007s 应写成 0.7ms。\n\
+            4. downstream/dependency 根因必须优先引用具体下游服务、具体接口耗时、错误率、超时、慢调用分布、下游数据库/MySQL/SQL 查询耗时、锁等待、连接池等待、下游调用异常日志或慢\
+            \ trace；如果 major reason 已给出下游服务、接口或数据库实例，例如 ts-travel-plan-service 的 POST /api/v1/travelplanservice/travelPlan/cheapest，则优先引用该服务/接口的耗时、错误、超时指标、异常日志或慢\
+            \ trace；例如 ts-config-service 访问 train-ticket-mysql-master-0 时 SQL 查询变慢、锁等待或连接池等待升高，则优先引用 MySQL/数据库/SQL/锁等待/连接池等待相关\
+            \ evidence；如果只有日志证据，例如 requesttemplate-demo 调用 localhost:58082 /api/jpa-demo/sleep 出现 ResourceAccessException、SocketTimeoutException、Read\
+            \ timed out，也必须写入 rootCauseEvidenceRefs，不要因为没有 chartData 而留空。\n5. RED 指标只允许在 downstream、dependency、traffic、thirdparty\
+            \ 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。\n6. rootCauseMetricRefs\
+            \ 仅作为兼容字段：只有 rootCauseEvidenceRefs 中引用 metrics/red 证据且有真实 chartData 时才同步填入；没有匹配主根因的指标时 rootCauseMetricRefs\
+            \ 输出空数组，不要放无关指标。\n7. 支撑证据映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log\
+            \ 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS\
+            \ 失败；storage/disk 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system\
+            \ 按运行环境选择证据：VM 使用主机资源、进程状态和系统日志；容器使用 Pod 重启、OOMKill、节点资源、容器状态和 K8s Event；环境不明确时使用通用 CPU、内存和系统证据；config\
+            \ 使用配置拉取失败、配置中心错误、DB 连接失败、连接串/凭据错误、初始化失败日志；self 使用应用异常、错误日志、panic、stack、runtime 异常；downstream/dependency\
+            \ 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic\
+            \ 使用 CPM（次/分钟）、请求速率、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。\n8. faultLocation 必须简单易懂；无法定位时输出\
+            \ null。\n9. businessImpact 没有明确业务影响时输出 null，不要编造。\n10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。\n\
             11. evidenceHighlights 只服务关键证据摘要，不是首屏支撑证据来源；summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代\
-            \ rootCauseEvidenceRefs，不能伪装成支撑指标。\n12. conclusionSummary 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD\
-            \ HH:mm:ss），禁止输出 Unix 秒/毫秒/微秒时间戳原值。\n13. timeline 只使用 {\"timestamp\":\
-            \ number, \"title\": string, \"summary\": string} 结构；timestamp 必须是真实微秒时间戳，title\
-            \ 写短标题，summary 写一句话事件说明。\n14. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出 time、detail、content、description\
-            \ 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入 analysisSteps。\n15. analysisSteps\
-            \ 只使用 {\"title\": string, \"summary\": string} 结构，不输出 timestamp、time、detail\
-            \ 字段。\n16. summaryCards 是首屏摘要，必须简洁，最多输出 3 张卡片：symptom、rootCause、excluded。rootCause\
-            \ 卡必须从 rootCauseAnalysis.other 中 level=major 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other\
-            \ 中 level=normal 的方向归纳。excluded.title 使用真实方向，例如“已排除 CPU、文件方向”，excluded.summary\
-            \ 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个 reason，不得机械罗列多个方向；不得把 level=minor\
+            \ rootCauseEvidenceRefs，不能伪装成支撑指标。\n12. conclusionSummary 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），禁止输出\
+            \ Unix 秒/毫秒/微秒时间戳原值。\n13. timeline 只使用 {\"timestamp\": number, \"title\": string, \"summary\"\
+            : string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。\n14. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出\
+            \ time、detail、content、description 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入 analysisSteps。\n15. analysisSteps\
+            \ 只使用 {\"title\": string, \"summary\": string} 结构，不输出 timestamp、time、detail 字段。\n16. summaryCards\
+            \ 是首屏摘要，必须简洁，最多输出 3 张卡片：symptom、rootCause、excluded。rootCause 卡必须从 rootCauseAnalysis.other 中 level=major\
+            \ 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other 中 level=normal 的方向归纳。excluded.title 使用真实方向，例如“已排除\
+            \ CPU、文件方向”，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个 reason，不得机械罗列多个方向；不得把 level=minor\
             \ 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。\n\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n\
             运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\n# 输出身份与环境规则\n- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n\
             - 运行对象：{{#v2_runtime_environment_context.location_text#}}。\n- 对象类型：{{#v2_runtime_environment_context.instance_term#}}。\n\
-            - {{#v2_runtime_environment_context.prompt_context#}}\n- 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是\
-            \ Pod 或容器；必须服从运行环境上下文。\n- 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n"
+            - {{#v2_runtime_environment_context.prompt_context#}}\n- 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。\n\
+            - 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n\n\n# RED字段和单位约定\nRED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response\
+            \ Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。\n展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。\n"
         selected: false
         title: 生成报告展示结构
         type: llm
@@ -8446,59 +8490,63 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import requests\nimport json\n\n\ndef get_red(service, cluster, start_time,\
-          \ end_time) -> str:\n    query_params = {\"startTime\": start_time, \"endTime\"\
-          : end_time, \"service\": service}\n    response = requests.get(\n      \
-          \  \"http://syncause-backend-svc:8080\" + \"/api/dataplane/redcharts\",\
-          \ params=query_params\n    )\n    data = []\n    if response.status_code\
-          \ == 200 and len(response.json()[\"results\"]) != 0:\n        la = response.json()[\"\
-          results\"][0][\"timeseries\"][0]\n        data.append(\n            {\n\
-          \                \"type\": \"latency\",\n                \"name\": la[\"\
-          legend\"],\n                \"unit\": \"ms\",\n                \"chartData\"\
-          : la[\"chart\"][\"chartData\"],\n            }\n        )\n        er =\
-          \ response.json()[\"results\"][1][\"timeseries\"][0]\n        data.append(\n\
-          \            {\n                \"type\": \"errorRate\",\n             \
-          \   \"name\": er[\"legend\"],\n                \"unit\": \"percent\",\n\
-          \                \"chartData\": er[\"chart\"][\"chartData\"],\n        \
-          \    }\n        )\n        tps = response.json()[\"results\"][2][\"timeseries\"\
-          ][0]\n        data.append(\n            {\n                \"type\": \"\
-          tps\",\n                \"name\": tps[\"legend\"],\n                \"unit\"\
-          : \"tps\",\n                \"chartData\": tps[\"chart\"][\"chartData\"\
-          ],\n            }\n        )\n        print(data)\n        return data\n\
-          \    else:\n        return data\n\n\ndef main(service: str, startTime: int,\
-          \ endTime: int) -> dict:\n    rc = get_red(service, \"\", startTime, endTime)\n\
-          \    if rc is None:\n        rc = \"{}\"\n    return {\n        \"result\"\
-          : json.dumps({\n            \"name\": \"服务监控指标\",\n            \"type\"\
-          : \"red\",\n            \"data\": rc\n        })\n    }"
-        code_language: python3
-        desc: ''
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: 获取red指标
         type: code
+        title: 获取red指标
+        desc: ''
+        code_language: python3
+        code: "import json\nfrom copy import deepcopy\n\n\ndef select_red_metric(text, name):\n    # 明确字段映射，不按数组位置或模糊中文关键字猜测指标。\n\
+          \    aliases = {\n        \"cpm\": \"cpm\", \"CPM\": \"cpm\", \"Tpm\": \"cpm\", \"吞吐量\": \"cpm\"\
+          ,\n        \"errorRate\": \"errorRate\", \"Error Rate\": \"errorRate\", \"请求错误率\": \"errorRate\"\
+          ,\n        \"avgDurationMs\": \"avgDurationMs\", \"Response Time\": \"avgDurationMs\", \"平均响应时间\"\
+          : \"avgDurationMs\",\n    }\n    units = {\"cpm\": \"requests/min\", \"errorRate\": \"percentunit\"\
+          , \"avgDurationMs\": \"ms\"}\n    factors = {\n        \"cpm\": {\"requests/min\": 1, \"requests/minute\"\
+          : 1, \"cpm\": 1, \"tpm\": 1, \"rpm\": 1},\n        \"errorRate\": {\"percentunit\": 1, \"%\": 0.01,\
+          \ \"percent\": 0.01},\n        \"avgDurationMs\": {\"ms\": 1, \"us\": 0.001, \"s\": 1000},\n   \
+          \ }\n    selected = None\n    for item in json.loads(text).get(\"data\", []) or []:\n        title\
+          \ = item.get(\"title\", \"\")\n        if aliases.get(title) != name:\n            continue\n  \
+          \      unit = item.get(\"unit\") or (units[name] if title == name else \"\")\n        factor = factors[name].get(unit)\n\
+          \        if factor is None:\n            continue  # 累计count和网络bytes/s不能冒充CPM。\n        if selected\
+          \ is not None:\n            raise ValueError(\"Ambiguous RED metric: \" + name)\n        selected\
+          \ = deepcopy(item)\n        selected.update(title=name, unit=units[name])\n        for series in\
+          \ selected.get(\"timeseries\", []) or []:\n            chart = series.get(\"chart\", {})\n     \
+          \       chart[\"chartData\"] = {ts: None if value is None else value * factor\n                \
+          \                  for ts, value in (chart.get(\"chartData\") or {}).items()}\n            if \"\
+          value\" in chart:\n                chart[\"value\"] = None if chart[\"value\"] is None else chart[\"\
+          value\"] * factor\n    return selected\n\n\n\ndef red_by_service(text):\n    result = {}\n    for\
+          \ name in (\"avgDurationMs\", \"errorRate\", \"cpm\"):\n        metric = select_red_metric(text,\
+          \ name)\n        if metric is None:\n            continue\n        for series in metric.get(\"timeseries\"\
+          , []) or []:\n            labels = series.get(\"labels\", {})\n            service = labels.get(\"\
+          serviceName\") or labels.get(\"service\") or labels.get(\"service_name\") or series.get(\"legend\"\
+          )\n            if not service:\n                continue\n            metrics = result.setdefault(service,\
+          \ {})\n            if name in metrics:\n                raise ValueError(\"Ambiguous RED series\
+          \ for \" + service)\n            metrics[name] = {**deepcopy(series.get(\"chart\", {})), \"unit\"\
+          : metric[\"unit\"]}\n            if series.get(\"step\") is not None:\n                metrics[name][\"\
+          step\"] = series[\"step\"]\n    return result\n\n\ndef main(red_json: str, service: str) -> dict:\n\
+          \    metrics = red_by_service(red_json).get(service, {})\n    data = [{\"type\": name, \"name\"\
+          : service, **metrics[name]}\n            for name in (\"avgDurationMs\", \"errorRate\", \"cpm\"\
+          ) if name in metrics]\n    return {\"result\": json.dumps({\"name\": \"服务监控指标\", \"type\": \"red\"\
+          , \"data\": data}, ensure_ascii=False)}\n"
         variables:
-        - value_selector:
+        - variable: red_json
+          value_selector:
+          - '1790208000001'
+          - text
+        - variable: service
+          value_selector:
           - '1742807803325'
           - service
-          variable: service
-        - value_selector:
-          - '1741227526517'
-          - startTime
-          variable: startTime
-        - value_selector:
-          - '1741227526517'
-          - endTime
-          variable: endTime
+        outputs:
+          result:
+            type: string
+            children: null
+        selected: false
       height: 54
       id: '1750819000832'
       position:
-        x: 16414
+        x: 16718
         y: 1040.5
       positionAbsolute:
-        x: 16414
+        x: 16718
         y: 1040.5
       selected: false
       sourcePosition: right
@@ -8856,7 +8904,7 @@ workflow:
           role: user
           text: '# 目的
 
-            输出当前应用RED指标数据（tps,延时，错误率）的情况（升高还是下降），输出字数100左右，尽量简洁名了
+            输出当前应用RED指标数据（CPM请求速率、平均响应时间、错误率）的情况（升高还是下降），输出字数100左右，尽量简洁名了
 
             # RED指标数据
 
@@ -8864,7 +8912,17 @@ workflow:
 
             #输出
 
-            从图表中可以看出xxxx'
+            从图表中可以看出xxxx
+
+
+            # RED字段和单位约定
+
+            RED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response
+            Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。
+
+            展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。
+
+            '
         selected: false
         title: 应用RED指标总结
         type: llm
@@ -16393,30 +16451,25 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\nimport math\n\n\nFALLBACK_US = 200000\n\n\ndef _fallback():\n\
-          \    return {\"p90_value_us\": FALLBACK_US, \"threshold_source\": \"fallback\"\
-          }\n\n\ndef main(data_json):\n    try:\n        data = json.loads(data_json).get(\"\
-          data\", [])\n    except (TypeError, json.JSONDecodeError):\n        return\
-          \ _fallback()\n\n    values = []\n    unit = \"\"\n    for item in data:\n\
-          \        if item.get(\"title\") != \"Response Time\":\n            continue\n\
-          \        item_unit = str(item.get(\"unit\", \"\") or \"\").lower().strip()\n\
-          \        if not unit:\n            unit = item_unit\n        if item_unit\
-          \ != unit:\n            continue\n        for timeseries in item.get(\"\
-          timeseries\", []) or []:\n            chart = timeseries.get(\"chart\",\
-          \ {}).get(\"chartData\", {}) or {}\n            for raw in chart.values():\n\
-          \                if isinstance(raw, bool) or not isinstance(raw, (int, float)):\n\
-          \                    continue\n                value = float(raw)\n    \
-          \            if math.isfinite(value) and value > 0:\n                  \
-          \  values.append(value)\n\n    if not values or unit not in {\"ms\", \"\
-          s\", \"us\"}:\n        return _fallback()\n\n    values.sort()\n    index\
-          \ = (len(values) - 1) * 0.9\n    lower = int(index)\n    upper = min(lower\
-          \ + 1, len(values) - 1)\n    fraction = index - lower\n    p90 = values[lower]\
-          \ * (1 - fraction) + values[upper] * fraction\n    multiplier = {\"us\"\
-          : 1, \"ms\": 1000, \"s\": 1000000}[unit]\n    return {\n        \"p90_value_us\"\
-          : round(p90 * multiplier),\n        \"threshold_source\": \"response_time_p90\"\
+        code: "import json\nimport math\n\n\nFALLBACK_US = 200000\n\n\ndef _fallback():\n    return {\"p90_value_us\"\
+          : FALLBACK_US, \"threshold_source\": \"fallback\"}\n\n\ndef main(data_json):\n    try:\n       \
+          \ data = json.loads(data_json).get(\"data\", [])\n    except (TypeError, json.JSONDecodeError):\n\
+          \        return _fallback()\n\n    values = []\n    unit = \"\"\n    for item in data:\n       \
+          \ if item.get(\"title\") not in (\"avgDurationMs\", \"Response Time\"):\n            continue\n\
+          \        item_unit = str(item.get(\"unit\", \"\") or \"\").lower().strip()\n        if not unit:\n\
+          \            unit = item_unit\n        if item_unit != unit:\n            continue\n        for\
+          \ timeseries in item.get(\"timeseries\", []) or []:\n            chart = timeseries.get(\"chart\"\
+          , {}).get(\"chartData\", {}) or {}\n            for raw in chart.values():\n                if isinstance(raw,\
+          \ bool) or not isinstance(raw, (int, float)):\n                    continue\n                value\
+          \ = float(raw)\n                if math.isfinite(value) and value > 0:\n                    values.append(value)\n\
+          \n    if not values or unit not in {\"ms\", \"s\", \"us\"}:\n        return _fallback()\n\n    values.sort()\n\
+          \    index = (len(values) - 1) * 0.9\n    lower = int(index)\n    upper = min(lower + 1, len(values)\
+          \ - 1)\n    fraction = index - lower\n    p90 = values[lower] * (1 - fraction) + values[upper] *\
+          \ fraction\n    multiplier = {\"us\": 1, \"ms\": 1000, \"s\": 1000000}[unit]\n    return {\n   \
+          \     \"p90_value_us\": round(p90 * multiplier),\n        \"threshold_source\": \"response_time_p90\"\
           ,\n    }\n"
         code_language: python3
-        desc: ''
+        desc: 用平均响应时间曲线样本的P90作为Span筛选阈值，输出仍为微秒；不是请求耗时分布的P90，不改变既有筛选算法。
         outputs:
           p90_value_us:
             children: null
@@ -17257,17 +17310,16 @@ workflow:
         - id: 3844d983-36a5-4695-b6e9-2c4978203396
           role: user
           text: "# 任务\n某个服务出现告警，请根据受影响服务的异常响应时间和错误率指标，总结服务的受影响情况。\n\n# 数据\n- 受影响服务的异常指标：{{#1759068866492.impacted_services#}}\n\
-            - 服务与界面功能映射文档：{{#context#}}\n- 指标单位：每个异常指标的“unit” key的值为对应指标单位\n\n# 总结要求\n\
-            1. **影响服务总结**  \n   - 根据受影响服务的serviceName和endpoint在文档中寻找对应的界面功能。\n   -\
-            \ 一个服务可能对应多个界面功能，不同服务可能对应相同界面功能，列出所有受影响的服务对应的界面功能及其指标变化情况，相同受影响服务或界面功能只需要描述一次，不要重复。\
-            \  \n   - 描述指标从第一个非零值到最高点的变化情况，例如：“请求延时从300000微秒升高到最高5000000微秒”\n\n2.\
-            \ **服务名与界面功能菜单名替换**  \n   - 在映射文档中查找每个受影响服务的服务名对应的**界面功能菜单名**。  \n   -\
-            \ 如果找到映射，则在总结中必须使用界面功能菜单名描述，而不是直接用服务名或业务名。  \n   - 如果没有对应关系，则只保留服务名，不要硬编。\
-            \  \n   - 示例：  \n     - 输入：`pay-service`  \n     - 映射：`pay-service 支付服务\
-            \ 订单界面支付功能` 必须使用“订单界面支付功能”代替pay-service\n     - 输出表述：`订单界面支付功能受到影响，响应时间无变化/从xx升高到xx，错误率无变化/从xx升高到xx`\
-            \  \n\n3. **语言风格**  \n   - 总结要简洁明了，不使用专业技术术语。  \n   - 用自然的业务化描述（例如“订单界面支付功能请求变慢、错误率升高”）。\
-            \  \n\n4. **数据描述** \n使用原始指标值以及单位描述数据，不要做转化。\n\n5. **边界处理**\n如果没有受影响服务数据，则认为服务没有受到明显影响。\n\
-            \n# 输出\n直接输出 **受影响服务的总结**，不要额外解释。\n"
+            - 服务与界面功能映射文档：{{#context#}}\n- 指标单位：每个异常指标的“unit” key的值为对应指标单位\n\n# 总结要求\n1. **影响服务总结**  \n  \
+            \ - 根据受影响服务的serviceName和endpoint在文档中寻找对应的界面功能。\n   - 一个服务可能对应多个界面功能，不同服务可能对应相同界面功能，列出所有受影响的服务对应的界面功能及其指标变化情况，相同受影响服务或界面功能只需要描述一次，不要重复。\
+            \  \n   - 描述指标从第一个非零值到最高点的变化情况，例如：unit=ms时“平均响应时间从300毫秒升高到最高5000毫秒”\n\n2. **服务名与界面功能菜单名替换**  \n\
+            \   - 在映射文档中查找每个受影响服务的服务名对应的**界面功能菜单名**。  \n   - 如果找到映射，则在总结中必须使用界面功能菜单名描述，而不是直接用服务名或业务名。  \n\
+            \   - 如果没有对应关系，则只保留服务名，不要硬编。  \n   - 示例：  \n     - 输入：`pay-service`  \n     - 映射：`pay-service\
+            \ 支付服务 订单界面支付功能` 必须使用“订单界面支付功能”代替pay-service\n     - 输出表述：`订单界面支付功能受到影响，响应时间无变化/从xx升高到xx，错误率无变化/从xx升高到xx`\
+            \  \n\n3. **语言风格**  \n   - 总结要简洁明了，不使用专业技术术语。  \n   - 用自然的业务化描述（例如“订单界面支付功能请求变慢、错误率升高”）。  \n\n\
+            4. **数据描述** \n按真实unit描述数据：ms使用毫秒；percentunit的比例乘100显示百分数，例如0.02为2%；已为percent/%不重复换算。\n\n5. **边界处理**\n\
+            如果没有受影响服务数据，则认为服务没有受到明显影响。\n\n# 输出\n直接输出 **受影响服务的总结**，不要额外解释。\n\n\n# RED字段和单位约定\nRED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response\
+            \ Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。\n展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。\n"
         selected: false
         title: 总结受影响服务
         type: llm
@@ -17467,34 +17519,35 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "\ndef main(red_json: str, history_red_json: str) -> dict:\n    # 处理当前数据\n\
-          \    data = json.loads(red_json)\n    red = data.get('data', [])\n    latency_timeseries\
-          \ = []\n    error_timeseries = []\n    latency_unit = ''\n    error_unit\
-          \ = ''\n    for metric in red:\n        if metric.get('title') == 'Response\
-          \ Time':\n            latency_timeseries = metric.get('timeseries', [])\n\
-          \            latency_unit = metric.get('unit')\n        elif metric.get('title')\
-          \ == 'Error Rate':\n            error_timeseries = metric.get('timeseries',\
-          \ [])\n            error_unit = metric.get('unit')\n    latency_data = {\n\
-          \        'data': {\n            'timeseries': latency_timeseries,\n    \
-          \    },\n        'unit': latency_unit,\n    }\n    error_data = {\n    \
-          \    'data': {\n            'timeseries': error_timeseries,\n        },\n\
-          \        'unit': error_unit,\n    }\n    \n    # 处理历史数据\n    history_data\
-          \ = json.loads(history_red_json)\n    history_red = history_data.get('data',\
-          \ [])\n    history_latency_timeseries = []\n    history_error_timeseries\
-          \ = []\n    history_latency_unit = ''\n    history_error_unit = ''\n   \
-          \ for metric in history_red:\n        if metric.get('title') == 'Response\
-          \ Time':\n            history_latency_timeseries = metric.get('timeseries',\
-          \ [])\n            history_latency_unit = metric.get('unit')\n        elif\
-          \ metric.get('title') == 'Error Rate':\n            history_error_timeseries\
-          \ = metric.get('timeseries', [])\n            history_error_unit = metric.get('unit')\n\
-          \    history_latency_data = {\n        'data': {\n            'timeseries':\
-          \ history_latency_timeseries,\n        },\n        'unit': history_latency_unit,\n\
-          \    }\n    history_error_data = {\n        'data': {\n            'timeseries':\
-          \ history_error_timeseries,\n        },\n        'unit': history_error_unit,\n\
-          \    }\n\n    return {\n        \"request_latency\": json.dumps(latency_data),\n\
-          \        \"request_error_rate\": json.dumps(error_data),\n        \"history_request_latency\"\
-          : json.dumps(history_latency_data),\n        \"history_request_error_rate\"\
-          : json.dumps(history_error_data),\n    }\n"
+        code: "import json\nfrom copy import deepcopy\n\n\ndef select_red_metric(text, name):\n    # 明确字段映射，不按数组位置或模糊中文关键字猜测指标。\n\
+          \    aliases = {\n        \"cpm\": \"cpm\", \"CPM\": \"cpm\", \"Tpm\": \"cpm\", \"吞吐量\": \"cpm\"\
+          ,\n        \"errorRate\": \"errorRate\", \"Error Rate\": \"errorRate\", \"请求错误率\": \"errorRate\"\
+          ,\n        \"avgDurationMs\": \"avgDurationMs\", \"Response Time\": \"avgDurationMs\", \"平均响应时间\"\
+          : \"avgDurationMs\",\n    }\n    units = {\"cpm\": \"requests/min\", \"errorRate\": \"percentunit\"\
+          , \"avgDurationMs\": \"ms\"}\n    factors = {\n        \"cpm\": {\"requests/min\": 1, \"requests/minute\"\
+          : 1, \"cpm\": 1, \"tpm\": 1, \"rpm\": 1},\n        \"errorRate\": {\"percentunit\": 1, \"%\": 0.01,\
+          \ \"percent\": 0.01},\n        \"avgDurationMs\": {\"ms\": 1, \"us\": 0.001, \"s\": 1000},\n   \
+          \ }\n    selected = None\n    for item in json.loads(text).get(\"data\", []) or []:\n        title\
+          \ = item.get(\"title\", \"\")\n        if aliases.get(title) != name:\n            continue\n  \
+          \      unit = item.get(\"unit\") or (units[name] if title == name else \"\")\n        factor = factors[name].get(unit)\n\
+          \        if factor is None:\n            continue  # 累计count和网络bytes/s不能冒充CPM。\n        if selected\
+          \ is not None:\n            raise ValueError(\"Ambiguous RED metric: \" + name)\n        selected\
+          \ = deepcopy(item)\n        selected.update(title=name, unit=units[name])\n        for series in\
+          \ selected.get(\"timeseries\", []) or []:\n            chart = series.get(\"chart\", {})\n     \
+          \       chart[\"chartData\"] = {ts: None if value is None else value * factor\n                \
+          \                  for ts, value in (chart.get(\"chartData\") or {}).items()}\n            if \"\
+          value\" in chart:\n                chart[\"value\"] = None if chart[\"value\"] is None else chart[\"\
+          value\"] * factor\n    return selected\n\n\ndef analysis_metric(text, name):\n    metric = select_red_metric(text,\
+          \ name)\n    if metric is None:\n        return {\"data\": {\"timeseries\": []}, \"unit\": \"\"\
+          }\n    # 统计器不接受null；仅在分析副本中排除缺失点，保留真实零和时间戳。\n    for series in metric.get(\"timeseries\", []) or\
+          \ []:\n        chart = series.get(\"chart\", {})\n        chart[\"chartData\"] = {ts: value for\
+          \ ts, value in (chart.get(\"chartData\") or {}).items() if value is not None}\n    return {\"data\"\
+          : {\"timeseries\": metric.get(\"timeseries\", [])}, \"unit\": metric[\"unit\"]}\n\n\ndef main(red_json:\
+          \ str, history_red_json: str) -> dict:\n    return {\n        \"request_latency\": json.dumps(analysis_metric(red_json,\
+          \ \"avgDurationMs\")),\n        \"history_request_latency\": json.dumps(analysis_metric(history_red_json,\
+          \ \"avgDurationMs\")),\n        \"request_error_rate\": json.dumps(analysis_metric(red_json, \"\
+          errorRate\")),\n        \"history_request_error_rate\": json.dumps(analysis_metric(history_red_json,\
+          \ \"errorRate\")),\n    }\n"
         code_language: python3
         desc: ''
         isInIteration: true
@@ -19363,6 +19416,598 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 服务名
+          label:
+            en_US: service
+            ja_JP: service
+            pt_BR: service
+            zh_Hans: service
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          label:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: cluster
+          llm_description: cluster
+          max: null
+          min: null
+          name: cluster
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          label:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          llm_description: endpoint
+          max: null
+          min: null
+          name: endpoint
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cluster: ''
+          endTime: ''
+          endpoint: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询报告服务RED
+        tool_configurations: {}
+        tool_label: 查询服务RED指标
+        tool_name: dataplane_service_redcharts
+        tool_node_version: '2'
+        tool_parameters:
+          service:
+            type: variable
+            value:
+            - '1742807803325'
+            - service
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
+        type: tool
+      height: 54
+      id: '1790208000001'
+      position:
+        x: 16414
+        y: 1040.5
+      positionAbsolute:
+        x: 16414
+        y: 1040.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 服务名
+          label:
+            en_US: service
+            ja_JP: service
+            pt_BR: service
+            zh_Hans: service
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          label:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: cluster
+          llm_description: cluster
+          max: null
+          min: null
+          name: cluster
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cluster: ''
+          endTime: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询报告服务拓扑
+        tool_configurations: {}
+        tool_label: 查询服务拓扑
+        tool_name: dataplane_service_topology
+        tool_node_version: '2'
+        tool_parameters:
+          service:
+            type: variable
+            value:
+            - '1742807803325'
+            - service
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
+        type: tool
+      height: 54
+      id: '179020800101'
+      position:
+        x: 17022
+        y: 1620.5
+      positionAbsolute:
+        x: 17022
+        y: 1620.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        type: code
+        title: 提取报告拓扑服务
+        desc: ''
+        code_language: python3
+        code: "import json\n\n\ndef main(topology_json: str) -> dict:\n    try:\n        data = json.loads(topology_json).get(\"\
+          data\", {})\n        items = [data.get(\"current\", {})] + data.get(\"parents\", []) + data.get(\"\
+          children\", [])\n        return {\"result\": list(dict.fromkeys(item[\"service\"] for item in items\
+          \ if item.get(\"service\")))}\n    except (ValueError, TypeError, AttributeError):\n        return\
+          \ {\"result\": []}\n"
+        variables:
+        - variable: topology_json
+          value_selector:
+          - '179020800101'
+          - text
+        outputs:
+          result:
+            type: array[string]
+            children: null
+        selected: false
+      height: 54
+      id: '179020800102'
+      position:
+        x: 17326
+        y: 1620.5
+      positionAbsolute:
+        x: 17326
+        y: 1620.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 174
+        is_parallel: false
+        iterator_selector:
+        - '179020800102'
+        - result
+        output_selector:
+        - '179020800105'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: '179020800104'
+        title: 查询报告上下游RED
+        type: iteration
+        width: 508
+      height: 174
+      id: '179020800103'
+      position:
+        x: 17630
+        y: 1620.5
+      positionAbsolute:
+        x: 17630
+        y: 1620.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 508
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: '179020800104'
+      parentId: '179020800103'
+      position:
+        x: 60
+        y: 63
+      positionAbsolute:
+        x: 17690
+        y: 1683.5
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 服务名
+          label:
+            en_US: service
+            ja_JP: service
+            pt_BR: service
+            zh_Hans: service
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          label:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: cluster
+          llm_description: cluster
+          max: null
+          min: null
+          name: cluster
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          label:
+            en_US: endpoint
+            ja_JP: endpoint
+            pt_BR: endpoint
+            zh_Hans: endpoint
+          llm_description: endpoint
+          max: null
+          min: null
+          name: endpoint
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cluster: ''
+          endTime: ''
+          endpoint: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询服务RED指标
+        tool_configurations: {}
+        tool_label: 查询服务RED指标
+        tool_name: dataplane_service_redcharts
+        tool_node_version: '2'
+        tool_parameters:
+          service:
+            type: variable
+            value:
+            - '179020800103'
+            - item
+          startTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741227526517'
+            - endTime
+          tenantId:
+            type: variable
+            value:
+            - '1742807803325'
+            - tenantId
+        type: tool
+        isInIteration: true
+        iteration_id: '179020800103'
+      height: 54
+      id: '179020800105'
+      position:
+        x: 204
+        y: 60
+      positionAbsolute:
+        x: 17834
+        y: 1680.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      parentId: '179020800103'
+      zIndex: 1002
     viewport:
       x: -9297.448503508762
       y: -458.1021566661825
