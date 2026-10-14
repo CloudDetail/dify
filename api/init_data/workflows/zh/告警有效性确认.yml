@@ -675,12 +675,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: if-else
-        targetType: code
+        targetType: "tool"
       id: 1744599891369-true-1744339618961-target
       selected: false
       source: '1744599891369'
       sourceHandle: 'true'
-      target: '1744339618961'
+      target: "instance_dependency_evidence"
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1256,6 +1256,18 @@ workflow:
       source: '17848856714800'
       sourceHandle: source
       target: '1741162531836'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: instance-dependency-to-analysis
+      selected: false
+      source: instance_dependency_evidence
+      sourceHandle: source
+      target: '1744339618961'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -3091,10 +3103,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "SECOND = 1000000  # microseconds\nMINUTE = 60 * SECOND\nHOUR = 60 *\
-          \ MINUTE\n\ndef main(arg1: int, arg2: int) -> dict:\n    \n    return {\n\
-          \        \"history_st\": arg1 - (24*HOUR),\n        \"history_et\": arg2,\n\
-          \    }\n"
+        code: "SECOND = 1000000  # microseconds\nMINUTE = 60 * SECOND\nHOUR = 60 * MINUTE\n\ndef main(arg1: int, arg2: int) -> dict:\n    \n    return {\n        \"history_st\": arg1 - (24*HOUR),\n        \"history_et\": arg1,\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -6324,198 +6333,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import requests\nimport json\n\nAPO_URL = \"http://syncause-backend-svc:8080\"\
-          \n\nAPO_VM = \"http://apo-victoria-metrics-single-server-svc:8428\"\n\n\
-          DEBUG_OUTPUT = False\n\n\nclass Utils:\n    @staticmethod\n    def get_step(start_time:\
-          \ int, end_time: int) -> dict:\n        time_diff = end_time - start_time\n\
-          \n        SECOND = 1000000  # microseconds\n        MINUTE = 60 * SECOND\n\
-          \        HOUR = 60 * MINUTE\n\n        step = SECOND  # default step is\
-          \ 1 second\n        stepStr = \"1s\"\n        if time_diff <= 15 * MINUTE:\n\
-          \            step = 30 * SECOND\n            stepStr = \"30s\"\n       \
-          \ elif time_diff <= 30 * MINUTE:\n            step = 1 * MINUTE\n      \
-          \      stepStr = \"1m\"\n        elif time_diff <= 1 * HOUR:\n         \
-          \   step = 2 * MINUTE\n            stepStr = \"2m\"\n        elif time_diff\
-          \ <= 1.5 * HOUR:\n            step = 3 * MINUTE\n            stepStr = \"\
-          3m\"\n        elif time_diff <= 3 * HOUR:\n            step = 6 * MINUTE\n\
-          \            stepStr = \"6m\"\n        elif time_diff <= 6 * HOUR:\n   \
-          \         step = 12 * MINUTE\n            stepStr = \"12m\"\n        elif\
-          \ time_diff <= 12 * HOUR:\n            step = 24 * MINUTE\n            stepStr\
-          \ = \"24m\"\n        elif time_diff <= 15 * HOUR:\n            step = 30\
-          \ * MINUTE\n            stepStr = \"30m\"\n        elif time_diff <= 30\
-          \ * HOUR:\n            step = 1 * HOUR\n            stepStr = \"1h\"\n \
-          \       else:\n            step = ((time_diff + 30 * SECOND - 1) // (30\
-          \ * SECOND)) * SECOND\n            custom = (time_diff + 30 * SECOND - 1)\
-          \ // (30 * SECOND)\n            stepStr = f\"{custom}s\"\n\n        return\
-          \ {\n            \"step\": step,\n            \"stepStr\": stepStr,\n  \
-          \      }\n\n    @staticmethod\n    def get_avg(data_json) -> dict:\n   \
-          \     results = data_json[\"data\"][\"result\"]\n\n        stats = {}\n\n\
-          \        for entry in results:\n            tid_key = entry[\"metric\"][\"\
-          tid_key\"]\n            values = [float(value[1]) for value in entry[\"\
-          values\"]]\n\n            stats[tid_key] = {\n                \"avg\": sum(values)\
-          \ / len(values),\n            }\n\n        return stats\n\n    @staticmethod\n\
-          \    def extract_values(thread_data: dict):\n        return [float(item[1])\
-          \ for item in thread_data[\"values\"]]\n\n    @staticmethod\n    def extract_rtt_values(rtt_data):\n\
-          \        \"\"\"从RTT数据中提取时间戳和值\"\"\"\n        chart_data = rtt_data[\"chart\"\
-          ][\"chartData\"]\n        return list(chart_data.values())\n\n    @staticmethod\n\
-          \    def net_rtt_trend_analysis(current_metrics: dict, pid: str) -> dict:\n\
-          \        rtt_threshold = 0.05\n        majority_point_threshold = 0.5\n\n\
-          \        num_rtt_sets = len(current_metrics[\"result\"][\"timeseries\"])\n\
-          \        anomalous_rtt_sets = 0\n        rtt_details = {}\n\n        for\
-          \ item in current_metrics[\"result\"][\"timeseries\"] or []:\n         \
-          \   if item[\"labels\"][\"pid\"] != pid:\n                continue\n   \
-          \         legend = item[\"legend\"]\n            points = Utils.extract_rtt_values(item)\n\
-          \            num_points = len(points)\n\n            # 统计高于阈值的点数\n     \
-          \       exceed_count = sum(1 for p in points if p > rtt_threshold)\n   \
-          \         exceed_ratio = exceed_count / num_points  # 超过阈值的比例\n\n      \
-          \      # 判断是否“大多数情况”异常\n            is_anomaly = exceed_ratio >= majority_point_threshold\n\
-          \            if is_anomaly:\n                anomalous_rtt_sets += 1\n\n\
-          \            rtt_details[legend] = {\n                \"points\": points,\n\
-          \                \"exceed_count\": exceed_count,\n                \"exceed_ratio\"\
-          : exceed_ratio,\n                \"is_anomaly\": is_anomaly,\n         \
-          \   }\n\n        # 判断大部分RTT数据集是否异常\n        anomaly_ratio = anomalous_rtt_sets\
-          \ / num_rtt_sets if num_rtt_sets > 0 else 0\n        is_majority_anomalous\
-          \ = False\n        if anomalous_rtt_sets != 0:\n            is_majority_anomalous\
-          \ = True\n\n        result = {\n            \"total\": num_rtt_sets,\n \
-          \           \"anomalous\": anomalous_rtt_sets,\n            \"anomaly_ratio\"\
-          : anomaly_ratio,\n            \"details\": rtt_details,\n        }\n   \
-          \     return {\"abnormal\": is_majority_anomalous, \"result\": result}\n\
-          \n    @staticmethod\n    def thread_polaris_trend_analysis(current_metrics:\
-          \ dict, avg_metrics: dict) -> dict:\n        exceed_threshold = 20\n   \
-          \     majority_point_threshold = 0.5\n        majority_thread_threshold\
-          \ = 0.4\n\n        thread_details = {}\n        anomalous_threads = 0\n\
-          \        num_threads = len(current_metrics[\"data\"][\"result\"])\n\n  \
-          \      for item in current_metrics[\"data\"][\"result\"] or []:\n      \
-          \      tid_key = item[\"metric\"][\"tid_key\"]\n            points = Utils.extract_values(item)\n\
-          \            num_points = len(points)\n            avg = avg_metrics.get(tid_key,\
-          \ {}).get(\"avg\", 0)\n            # 计算每个点相对于历史均值的百分比变化\n            if\
-          \ avg != 0:\n                percent_changes = [(p - avg) / avg * 100 for\
-          \ p in points]\n            else:\n                percent_changes = [float(\"\
-          inf\") for _ in range(num_points)]\n\n            # 统计高于均值且超过exceed_threshold的点数\n\
-          \            exceed_count = sum(1 for pc in percent_changes if pc > exceed_threshold)\n\
-          \            exceed_ratio = exceed_count / num_points  # 超过阈值的比例\n\n   \
-          \         # 判断是否“大多数情况”异常升高\n            is_anomaly_increase = exceed_ratio\
-          \ >= majority_point_threshold\n            if avg == 0:\n              \
-          \  is_anomaly_increase = False\n            if is_anomaly_increase:\n  \
-          \              anomalous_threads += 1\n\n            thread_details[tid_key]\
-          \ = {\n                \"points\": points,\n                \"historical_avg\"\
-          : avg,\n                \"exceed_count\": exceed_count,\n              \
-          \  \"exceed_ratio\": exceed_ratio,\n                \"percent_changes\"\
-          : percent_changes,\n                \"is_anomaly\": is_anomaly_increase,\n\
-          \            }\n        \n        if num_threads == 0:\n            anomaly_ratio\
-          \ = 0\n        else:\n            anomaly_ratio = anomalous_threads / num_threads\n\
-          \n        is_majority_anomalous = anomaly_ratio >= majority_thread_threshold\n\
-          \n        result = {\n            \"total\": num_threads,\n            \"\
-          anomalous\": anomalous_threads,\n            \"anomaly_ratio\": anomaly_ratio,\n\
-          \            \"details\": thread_details,\n        }\n\n        return {\n\
-          \            \"abnormal\": is_majority_anomalous,\n            \"result\"\
-          : result,\n        }\n\n    @staticmethod\n    def display_polaris_trend_analysis(analysis_dit:\
-          \ dict, type: str) -> str:\n        is_majority_anomalous = analysis_dit.get(\"\
-          abnormal\", False)\n        result = analysis_dit.get(\"result\", {})\n\
-          \        output = []\n        output.append(f\"\\n{type}线程耗时异常升高分析:\")\n\
-          \        output.append(f\"大部分线程异常升高: {is_majority_anomalous}\")\n      \
-          \  output.append(\n            f\"异常线程比例: {result['anomaly_ratio']:.2%}\
-          \ ({result['anomalous']}/{result['total']})\"\n        )\n        if not\
-          \ is_majority_anomalous:\n            return \"\\n\".join(output)\n    \
-          \    for thread_id, details in result[\"details\"].items():\n          \
-          \  if details[\"historical_avg\"] == 0:\n                continue\n    \
-          \        output.append(\n                f\"{thread_id}: 历史均值={details.get('historical_avg',\
-          \ 0):.2f}, \"\n                f\"超过历史均值20%的点数={details['exceed_count']}/{len(details['points'])}\
-          \ ({details['exceed_ratio']:.2%}), \"\n                f\"是否异常升高={details['is_anomaly']}\"\
-          \n            )\n\n        return \"\\n\".join(output)\n\n    @staticmethod\n\
-          \    def display_rtt_trend_analysis(analysis_dit: dict, type: str) -> str:\n\
-          \        is_majority_anomalous = analysis_dit.get(\"abnormal\", False)\n\
-          \        result = analysis_dit.get(\"result\", {})\n        output = []\n\
-          \        output.append(f\"\\n{type}异常分析:\")\n        output.append(f\"是否存在异常网络RTT:\
-          \ {is_majority_anomalous}\")\n        if not is_majority_anomalous:\n  \
-          \          output.append(\"所有对外网络RTT均为正常范围（低于50ms）\")\n            return\
-          \ \"\\n\".join(output)\n        for thread_id, details in result[\"details\"\
-          ].items():\n            output.append(\n                f\"{thread_id}:\
-          \ RTT阈值=50ms, \"\n                f\"超过阈值的点数={details['exceed_count']}/{len(details['points'])}\
-          \ ({details['exceed_ratio']:.2%}), \"\n                f\"是否异常升高={details['is_anomaly']}\"\
-          \n            )\n\n        return \"\\n\".join(output)\n\n\ndef get_pod_info(arg:\
-          \ dict) -> list:\n    timeseries = arg[\"result\"][\"timeseries\"]\n\n \
-          \   seen = set()\n    pod_info = []\n\n    for item in timeseries:\n   \
-          \     labels = item[\"labels\"]\n        namespace = labels.get(\"namespace\"\
-          , \"\")\n        pod = labels.get(\"pod\", \"\")\n        pid = labels.get(\"\
-          pid\", \"\")\n\n        if pid == \"1\" or pod == \"\":\n            continue\n\
-          \        unique_key = (namespace, pod, pid)\n\n        if unique_key not\
-          \ in seen:\n            seen.add(unique_key)\n            info = {\"namespace\"\
-          : namespace, \"pod\": pod, \"pid\": pid}\n            pod_info.append(info)\n\
-          \    return pod_info\n\n\ndef get_service_instances(start: int, end: int,\
-          \ service: str):\n    params = {\n        \"metricName\": \"Originx 北极星指标\
-          \ (服务层级) - 北极星指标 - 列出指定服务的所有实例\",\n        \"params\": {\n            \"\
-          service_name\": service,\n        },\n        \"startTime\": start,\n  \
-          \      \"endTime\": end,\n        \"step\": Utils.get_step(start, end).get(\"\
-          step\"),\n    }\n    resp = requests.post(f\"{APO_URL}/api/metric/query\"\
-          , json=params)\n    return get_pod_info(resp.json())\n\n\ndef get_pod_rtt(start:\
-          \ int, end: int, namespace: str, pod: str):\n    params = {\n        \"\
-          metricName\": \"基础设施情况 - 容器网络 - 与下游服务RTT\",\n        \"params\": {\"pod\"\
-          : pod, \"namespace\": namespace},\n        \"startTime\": start,\n     \
-          \   \"endTime\": end,\n        \"step\": Utils.get_step(start, end).get(\"\
-          step\"),\n    }\n    resp = requests.post(f\"{APO_URL}/api/metric/query\"\
-          , json=params)\n    return resp.json()\n\n\ndef get_thread_metrics(start:\
-          \ int, end: int, namespace: str, pod: str, type: str):\n    query = (\n\
-          \        'increase(originx_thread_polaris_nanoseconds_sum{pod=\"'\n    \
-          \    + pod\n        + '\", type=\"'\n        + type\n        + '\"}[1m])'\n\
-          \    )\n\n    res = requests.get(\n        APO_VM + \"/prometheus/api/v1/query_range\"\
-          ,\n        params={\n            \"query\": query,\n            \"start\"\
-          : start / 1000,\n            \"end\": end / 1000,\n            \"step\"\
-          : Utils.get_step(start, end).get(\"stepStr\"),\n        },\n    )\n    return\
-          \ res.json()\n\n\ndef polaris_trend_analysis(\n    start: int, end: int,\
-          \ namespace: str, pod: str, type: str\n) -> dict:\n    hour = 3600 * 1000000\n\
-          \    current = get_thread_metrics(\n        start,\n        end,\n     \
-          \   namespace,\n        pod,\n        type,\n    )\n    avg = Utils.get_avg(\n\
-          \        get_thread_metrics(\n            start - hour,\n            start,\n\
-          \            namespace,\n            pod,\n            type,\n        )\n\
-          \    )\n    result = Utils.thread_polaris_trend_analysis(current, avg)\n\
-          \    check = result.get(\"abnormal\", False)\n    conclusion = Utils.display_polaris_trend_analysis(result,\
-          \ type)\n    return {\n        \"abnormal\": check,\n        \"conclusion\"\
-          : conclusion,\n    }\n\n\ndef net_rtt_trend_analysis(\n    start: int, end:\
-          \ int, namespace: str, pod: str, pid: str\n) -> dict:\n    rtt = get_pod_rtt(\n\
-          \        start,\n        end,\n        namespace,\n        pod,\n    )\n\
-          \    res = Utils.net_rtt_trend_analysis(rtt, pid)\n    check = res.get(\"\
-          abnormal\", False)\n    conclusion = Utils.display_rtt_trend_analysis(res,\
-          \ \"rtt\")\n    return {\n        \"abnormal\": check,\n        \"conclusion\"\
-          : conclusion,\n    }\n\n\ndef check_dependency(start: int, end: int, namespace:\
-          \ str, pod: str) -> dict:\n    \"\"\"\n    net, epoll\n    \"\"\"\n    net_check\
-          \ = polaris_trend_analysis(start, end, namespace, pod, \"net\")\n    epoll_check\
-          \ = polaris_trend_analysis(start, end, namespace, pod, \"epoll\")\n    return\
-          \ {\n        \"abnormal\": net_check.get(\"abnormal\", False)\n        or\
-          \ epoll_check.get(\"abnormal\", False),\n        \"conclusion\": net_check.get(\"\
-          conclusion\", \"\")\n        + epoll_check.get(\"conclusion\", \"\"),\n\
-          \    }\n\n\ndef check_self_infra(start: int, end: int, namespace: str, pod:\
-          \ str, pid: str):\n    \"\"\"\n    cpu, runq, rtt\n    \"\"\"\n    cpu_check\
-          \ = polaris_trend_analysis(start, end, namespace, pod, \"cpu\")\n    runq_check\
-          \ = polaris_trend_analysis(start, end, namespace, pod, \"runq\")\n    rtt_check\
-          \ = net_rtt_trend_analysis(start, end, namespace, pod, pid)\n    return\
-          \ {\n        \"abnormal\": cpu_check.get(\"abnormal\", False)\n        or\
-          \ runq_check.get(\"abnormal\", False)\n        or rtt_check.get(\"abnormal\"\
-          , False),\n        \"conclusion\": cpu_check.get(\"conclusion\", \"\")\n\
-          \        + runq_check.get(\"conclusion\", \"\")\n        + rtt_check.get(\"\
-          conclusion\", \"\"),\n    }\n\n\ndef analyze_instance(start: int, end: int,\
-          \ namespace: str, pod: str, pid: str) -> dict:\n    dep_check = check_dependency(\n\
-          \        start,\n        end,\n        namespace,\n        pod,\n    )\n\
-          \    output = \"\"\n    check = True\n    if not dep_check.get(\"abnormal\"\
-          , False):\n        output += \"\\n结论：对外调用耗时正常，是自身问题, 不可以忽略\"\n        return\
-          \ {\n        \"abnormal\": False,\n        \"conclusion\": dep_check.get(\"\
-          conclusion\", \"\")\n        + output,\n        }\n\n    infra_check = check_self_infra(\n\
-          \        start,\n        end,\n        namespace,\n        pod,\n      \
-          \  pid,\n    )\n    check \n    if infra_check.get(\"abnormal\", False):\n\
-          \        output += \"\\n结论：对外调用耗时异常，同时应用程序自身耗时也异常, 告警不可忽略\"\n        check\
-          \ = False\n    else:\n        output += \"\\n结论：对外调用耗时异常，但是自身应用正常，可以忽略该告警\"\
-          \n        check = True\n\n    return {\n        \"abnormal\": check,\n \
-          \       \"conclusion\": dep_check.get(\"conclusion\", \"\")\n        + infra_check.get(\"\
-          conclusion\", \"\")\n        + output,\n    }\n\n\n\n\n\ndef main(service:\
-          \ str, start: int, end: int) -> dict:\n    items = get_service_instances(\n\
-          \        start, end, service\n    )\n\n    vaild = \"true\"\n\n    output\
-          \ = []\n    for item in items:\n        res = analyze_instance(\n      \
-          \      start,\n            end,\n            item[\"namespace\"],\n    \
-          \        item[\"pod\"],\n            item[\"pid\"],\n        )\n       \
-          \ con = res.get(\"conclusion\", \"\")\n        if res.get(\"abnormal\",\
-          \ False) is False:\n            vaild = \"false\"\n        pod = item['pod']\n\
-          \        output.append(f'\\n{pod}{con}')\n    \n    return {\n        \"\
-          abnormal\": str(vaild),\n        \"conclusion\": \"\\n\".join(output),\n\
-          \    }"
+        code: "import json\n\n\n\n\n\nDEBUG_OUTPUT = False\n\n\nclass Utils:\n    @staticmethod\n    def get_step(start_time: int, end_time: int) -> dict:\n        time_diff = end_time - start_time\n\n        SECOND = 1000000  # microseconds\n        MINUTE = 60 * SECOND\n        HOUR = 60 * MINUTE\n\n        step = SECOND  # default step is 1 second\n        stepStr = \"1s\"\n        if time_diff <= 15 * MINUTE:\n            step = 30 * SECOND\n            stepStr = \"30s\"\n        elif time_diff <= 30 * MINUTE:\n            step = 1 * MINUTE\n            stepStr = \"1m\"\n        elif time_diff <= 1 * HOUR:\n            step = 2 * MINUTE\n            stepStr = \"2m\"\n        elif time_diff <= 1.5 * HOUR:\n            step = 3 * MINUTE\n            stepStr = \"3m\"\n        elif time_diff <= 3 * HOUR:\n            step = 6 * MINUTE\n            stepStr = \"6m\"\n        elif time_diff <= 6 * HOUR:\n            step = 12 * MINUTE\n            stepStr = \"12m\"\n        elif time_diff <= 12 * HOUR:\n            step = 24 * MINUTE\n            stepStr = \"24m\"\n        elif time_diff <= 15 * HOUR:\n            step = 30 * MINUTE\n            stepStr = \"30m\"\n        elif time_diff <= 30 * HOUR:\n            step = 1 * HOUR\n            stepStr = \"1h\"\n        else:\n            step = ((time_diff + 30 * SECOND - 1) // (30 * SECOND)) * SECOND\n            custom = (time_diff + 30 * SECOND - 1) // (30 * SECOND)\n            stepStr = f\"{custom}s\"\n\n        return {\n            \"step\": step,\n            \"stepStr\": stepStr,\n        }\n\n    @staticmethod\n    def get_avg(data_json) -> dict:\n        results = data_json[\"data\"][\"result\"]\n\n        stats = {}\n\n        for entry in results:\n            tid_key = entry[\"metric\"][\"tid_key\"]\n            values = [float(value[1]) for value in entry[\"values\"]]\n\n            stats[tid_key] = {\n                \"avg\": sum(values) / len(values),\n            }\n\n        return stats\n\n    @staticmethod\n    def extract_values(thread_data: dict):\n        return [float(item[1]) for item in thread_data[\"values\"]]\n\n    @staticmethod\n    def extract_rtt_values(rtt_data):\n        \"\"\"从RTT数据中提取时间戳和值\"\"\"\n        chart_data = rtt_data[\"chart\"][\"chartData\"]\n        return [v for v in chart_data.values() if v is not None]\n\n    @staticmethod\n    def net_rtt_trend_analysis(current_metrics: dict, pid: str) -> dict:\n        rtt_threshold = 0.05\n        majority_point_threshold = 0.5\n\n        num_rtt_sets = len(current_metrics[\"result\"][\"timeseries\"])\n        anomalous_rtt_sets = 0\n        rtt_details = {}\n\n        for item in current_metrics[\"result\"][\"timeseries\"] or []:\n            if item[\"labels\"][\"pid\"] != pid:\n                continue\n            legend = item[\"legend\"]\n            points = Utils.extract_rtt_values(item)\n            num_points = len(points)\n\n            # 统计高于阈值的点数\n            exceed_count = sum(1 for p in points if p > rtt_threshold)\n            exceed_ratio = exceed_count / num_points if num_points else 0  # 超过阈值的比例\n\n            # 判断是否“大多数情况”异常\n            is_anomaly = exceed_ratio >= majority_point_threshold\n            if is_anomaly:\n                anomalous_rtt_sets += 1\n\n            rtt_details[legend] = {\n                \"points\": points,\n                \"exceed_count\": exceed_count,\n                \"exceed_ratio\": exceed_ratio,\n                \"is_anomaly\": is_anomaly,\n            }\n\n        # 判断大部分RTT数据集是否异常\n        anomaly_ratio = anomalous_rtt_sets / num_rtt_sets if num_rtt_sets > 0 else 0\n        is_majority_anomalous = False\n        if anomalous_rtt_sets != 0:\n            is_majority_anomalous = True\n\n        result = {\n            \"total\": num_rtt_sets,\n            \"anomalous\": anomalous_rtt_sets,\n            \"anomaly_ratio\": anomaly_ratio,\n            \"details\": rtt_details,\n        }\n        return {\"abnormal\": is_majority_anomalous, \"result\": result}\n\n    @staticmethod\n    def thread_polaris_trend_analysis(current_metrics: dict, avg_metrics: dict) -> dict:\n        exceed_threshold = 20\n        majority_point_threshold = 0.5\n        majority_thread_threshold = 0.4\n\n        thread_details = {}\n        anomalous_threads = 0\n        num_threads = len(current_metrics[\"data\"][\"result\"])\n\n        for item in current_metrics[\"data\"][\"result\"] or []:\n            tid_key = item[\"metric\"][\"tid_key\"]\n            points = Utils.extract_values(item)\n            num_points = len(points)\n            avg = avg_metrics.get(tid_key, {}).get(\"avg\", 0)\n            # 计算每个点相对于历史均值的百分比变化\n            if avg != 0:\n                percent_changes = [(p - avg) / avg * 100 for p in points]\n            else:\n                percent_changes = [float(\"inf\") for _ in range(num_points)]\n\n            # 统计高于均值且超过exceed_threshold的点数\n            exceed_count = sum(1 for pc in percent_changes if pc > exceed_threshold)\n            exceed_ratio = exceed_count / num_points if num_points else 0  # 超过阈值的比例\n\n            # 判断是否“大多数情况”异常升高\n            is_anomaly_increase = exceed_ratio >= majority_point_threshold\n            if avg == 0:\n                is_anomaly_increase = False\n            if is_anomaly_increase:\n                anomalous_threads += 1\n\n            thread_details[tid_key] = {\n                \"points\": points,\n                \"historical_avg\": avg,\n                \"exceed_count\": exceed_count,\n                \"exceed_ratio\": exceed_ratio,\n                \"percent_changes\": percent_changes,\n                \"is_anomaly\": is_anomaly_increase,\n            }\n        \n        if num_threads == 0:\n            anomaly_ratio = 0\n        else:\n            anomaly_ratio = anomalous_threads / num_threads\n\n        is_majority_anomalous = anomaly_ratio >= majority_thread_threshold\n\n        result = {\n            \"total\": num_threads,\n            \"anomalous\": anomalous_threads,\n            \"anomaly_ratio\": anomaly_ratio,\n            \"details\": thread_details,\n        }\n\n        return {\n            \"abnormal\": is_majority_anomalous,\n            \"result\": result,\n        }\n\n    @staticmethod\n    def display_polaris_trend_analysis(analysis_dit: dict, type: str) -> str:\n        is_majority_anomalous = analysis_dit.get(\"abnormal\", False)\n        result = analysis_dit.get(\"result\", {})\n        output = []\n        output.append(f\"\\n{type}线程耗时异常升高分析:\")\n        output.append(f\"大部分线程异常升高: {is_majority_anomalous}\")\n        output.append(\n            f\"异常线程比例: {result['anomaly_ratio']:.2%} ({result['anomalous']}/{result['total']})\"\n        )\n        if not is_majority_anomalous:\n            return \"\\n\".join(output)\n        for thread_id, details in result[\"details\"].items():\n            if details[\"historical_avg\"] == 0:\n                continue\n            output.append(\n                f\"{thread_id}: 历史均值={details.get('historical_avg', 0):.2f}, \"\n                f\"超过历史均值20%的点数={details['exceed_count']}/{len(details['points'])} ({details['exceed_ratio']:.2%}), \"\n                f\"是否异常升高={details['is_anomaly']}\"\n            )\n\n        return \"\\n\".join(output)\n\n    @staticmethod\n    def display_rtt_trend_analysis(analysis_dit: dict, type: str) -> str:\n        is_majority_anomalous = analysis_dit.get(\"abnormal\", False)\n        result = analysis_dit.get(\"result\", {})\n        output = []\n        output.append(f\"\\n{type}异常分析:\")\n        output.append(f\"是否存在异常网络RTT: {is_majority_anomalous}\")\n        if not is_majority_anomalous:\n            output.append(\"所有对外网络RTT均为正常范围（低于50ms）\")\n            return \"\\n\".join(output)\n        for thread_id, details in result[\"details\"].items():\n            output.append(\n                f\"{thread_id}: RTT阈值=50ms, \"\n                f\"超过阈值的点数={details['exceed_count']}/{len(details['points'])} ({details['exceed_ratio']:.2%}), \"\n                f\"是否异常升高={details['is_anomaly']}\"\n            )\n\n        return \"\\n\".join(output)\n\n\ndef get_pod_info(arg: dict) -> list:\n    timeseries = arg[\"result\"][\"timeseries\"]\n\n    seen = set()\n    pod_info = []\n\n    for item in timeseries:\n        labels = item[\"labels\"]\n        namespace = labels.get(\"namespace\", \"\")\n        pod = labels.get(\"pod\", \"\")\n        pid = labels.get(\"pid\", \"\")\n\n        if pid == \"1\" or pod == \"\":\n            continue\n        unique_key = (namespace, pod, pid)\n\n        if unique_key not in seen:\n            seen.add(unique_key)\n            info = {\"namespace\": namespace, \"pod\": pod, \"pid\": pid}\n            pod_info.append(info)\n    return pod_info\n\n\ndef get_service_instances(start, end, service):\n    return _CONTEXT.get(\"data\", [])\n\n\ndef get_pod_rtt(start, end, namespace, pod):\n    return {\"result\": _INSTANCE.get(\"ebpf\", {}).get(\"rtt\", {}).get(\"data\", {\"timeseries\": []})}\n\n\ndef get_thread_metrics(start, end, namespace, pod, type):\n    period = \"current\" if end == _END else \"history\"\n    metric = _INSTANCE.get(\"ebpf\", {}).get(period, {}).get(type, {})\n    rows = []\n    for series in metric.get(\"data\", {}).get(\"timeseries\", []):\n        labels = series.get(\"labels\", {})\n        tid = labels.get(\"tid_key\")\n        values = [[k,v] for k,v in series.get(\"chart\", {}).get(\"chartData\", {}).items() if v is not None]\n        if tid is not None and values:\n            rows.append({\"metric\": {**labels, \"tid_key\": str(tid)}, \"values\": values})\n    return {\"data\": {\"result\": rows}}\n\n\ndef polaris_trend_analysis(\n    start: int, end: int, namespace: str, pod: str, type: str\n) -> dict:\n    hour = 3600 * 1000000\n    current = get_thread_metrics(\n        start,\n        end,\n        namespace,\n        pod,\n        type,\n    )\n    avg = Utils.get_avg(\n        get_thread_metrics(\n            start - hour,\n            start,\n            namespace,\n            pod,\n            type,\n        )\n    )\n    result = Utils.thread_polaris_trend_analysis(current, avg)\n    check = result.get(\"abnormal\", False)\n    conclusion = Utils.display_polaris_trend_analysis(result, type)\n    return {\n        \"abnormal\": check,\n        \"conclusion\": conclusion,\n    }\n\n\ndef net_rtt_trend_analysis(\n    start: int, end: int, namespace: str, pod: str, pid: str\n) -> dict:\n    rtt = get_pod_rtt(\n        start,\n        end,\n        namespace,\n        pod,\n    )\n    res = Utils.net_rtt_trend_analysis(rtt, pid)\n    check = res.get(\"abnormal\", False)\n    conclusion = Utils.display_rtt_trend_analysis(res, \"rtt\")\n    return {\n        \"abnormal\": check,\n        \"conclusion\": conclusion,\n    }\n\n\ndef check_dependency(start: int, end: int, namespace: str, pod: str) -> dict:\n    \"\"\"\n    net, epoll\n    \"\"\"\n    net_check = polaris_trend_analysis(start, end, namespace, pod, \"net\")\n    epoll_check = polaris_trend_analysis(start, end, namespace, pod, \"epoll\")\n    return {\n        \"abnormal\": net_check.get(\"abnormal\", False)\n        or epoll_check.get(\"abnormal\", False),\n        \"conclusion\": net_check.get(\"conclusion\", \"\")\n        + epoll_check.get(\"conclusion\", \"\"),\n    }\n\n\ndef check_self_infra(start: int, end: int, namespace: str, pod: str, pid: str):\n    \"\"\"\n    cpu, runq, rtt\n    \"\"\"\n    cpu_check = polaris_trend_analysis(start, end, namespace, pod, \"cpu\")\n    runq_check = polaris_trend_analysis(start, end, namespace, pod, \"runq\")\n    rtt_check = net_rtt_trend_analysis(start, end, namespace, pod, pid)\n    return {\n        \"abnormal\": cpu_check.get(\"abnormal\", False)\n        or runq_check.get(\"abnormal\", False)\n        or rtt_check.get(\"abnormal\", False),\n        \"conclusion\": cpu_check.get(\"conclusion\", \"\")\n        + runq_check.get(\"conclusion\", \"\")\n        + rtt_check.get(\"conclusion\", \"\"),\n    }\n\n\ndef analyze_instance(start: int, end: int, namespace: str, pod: str, pid: str) -> dict:\n    dep_check = check_dependency(\n        start,\n        end,\n        namespace,\n        pod,\n    )\n    output = \"\"\n    check = True\n    if not dep_check.get(\"abnormal\", False):\n        output += \"\\n结论：对外调用耗时正常，是自身问题, 不可以忽略\"\n        return {\n        \"abnormal\": False,\n        \"conclusion\": dep_check.get(\"conclusion\", \"\")\n        + output,\n        }\n\n    infra_check = check_self_infra(\n        start,\n        end,\n        namespace,\n        pod,\n        pid,\n    )\n    check \n    if infra_check.get(\"abnormal\", False):\n        output += \"\\n结论：对外调用耗时异常，同时应用程序自身耗时也异常, 告警不可忽略\"\n        check = False\n    else:\n        output += \"\\n结论：对外调用耗时异常，但是自身应用正常，可以忽略该告警\"\n        check = True\n\n    return {\n        \"abnormal\": check,\n        \"conclusion\": dep_check.get(\"conclusion\", \"\")\n        + infra_check.get(\"conclusion\", \"\")\n        + output,\n    }\n\n\n\n\n\ndef main(service: str, start: int, end: int, evidence: str) -> dict:\n    global _CONTEXT, _INSTANCE, _END\n    _CONTEXT, _END = json.loads(evidence), end\n    items = get_service_instances(start, end, service)\n    if not items:\n        return {\"abnormal\": \"unknown\", \"conclusion\": \"实例查询无数据或失败，无法执行依赖与自身分析：\" + str(_CONTEXT.get(\"error\", \"\"))}\n    decisions, output = [], []\n    for item in items:\n        _INSTANCE = item\n        # 原判断需要四类线程的当前及前一小时样本，并需要 RTT；缺失不能当正常。\n        ready = all(get_thread_metrics(start if period == \"current\" else start-3600000000,\n            end if period == \"current\" else start, \"\", \"\", kind)[\"data\"][\"result\"]\n            for period in (\"current\", \"history\") for kind in (\"net\", \"epoll\", \"cpu\", \"runq\"))\n        if not ready or not get_pod_rtt(start,end,\"\",\"\")[\"result\"].get(\"timeseries\"):\n            decisions.append(\"unknown\")\n            output.append(\"实例 \" + str(item.get(\"instanceId\", \"\")) + \" 缺少依赖判断所需 eBPF 数据，不能判断可忽略\")\n            continue\n        res = analyze_instance(start,end,item.get(\"namespace\",\"\"),item.get(\"podName\",\"\"),str(item.get(\"pid\",\"\")))\n        decisions.append(str(res[\"abnormal\"]).lower())\n        output.append(res[\"conclusion\"])\n    verdict = \"false\" if \"false\" in decisions else \"unknown\" if \"unknown\" in decisions else \"true\"\n    return {\"abnormal\": verdict, \"conclusion\": \"\\n\".join(output)}\n"
         code_language: python3
         desc: ''
         outputs:
@@ -6529,18 +6347,7 @@ workflow:
         title: 判断是依赖还是自身问题
         type: code
         variables:
-        - value_selector:
-          - '1742806924635'
-          - service
-          variable: service
-        - value_selector:
-          - '1741157526222'
-          - startTime
-          variable: start
-        - value_selector:
-          - '1741157526222'
-          - endTime
-          variable: end
+          [{"value_selector": ["1742806924635", "service"], "variable": "service"}, {"value_selector": ["1741157526222", "startTime"], "variable": "start"}, {"value_selector": ["1741157526222", "endTime"], "variable": "end"}, {"variable": "evidence", "value_selector": ["instance_dependency_evidence", "text"]}]
       height: 54
       id: '1744339618961'
       position:
@@ -6562,8 +6369,8 @@ workflow:
           - abnormal
           variable: text
         - value_selector:
-          - '1744627472534'
-          - output
+          - "1744339618961"
+          - "conclusion"
           variable: output
         selected: false
         title: 结束 3
@@ -6582,74 +6389,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "from datetime import datetime\nimport json\n\ndef timestamp_to_readable(ts):\n    \"\"\"将微秒时间戳转换为可读格式\"\
-          \"\"\n    return datetime.fromtimestamp(int(ts) / 1000000).strftime('%Y-%m-%d %H:%M:%S')\n\ndef\
-          \ analyze_trend(data, time_window=15*60):\n    \"\"\"分析15分钟内的趋势\"\"\"\n    points = []\n    for\
-          \ ts in data['result']['timeseries']:\n        for timestamp, value in ts['chart']['chartData'].items():\n\
-          \            points.append((int(timestamp), float(value)))\n    \n    if not points:\n        return\
-          \ \"No data available.\"\n    \n    points.sort()  # 按时间戳排序\n    trend = []\n    current_group =\
-          \ []\n    prev_value = points[0][1]\n    \n    for ts, value in points:\n        if not current_group:\n\
-          \            current_group.append((ts, value))\n        elif abs(value - prev_value) < 0.01 or (value\
-          \ == 0 and prev_value == 0):  # 连续相似值\n            current_group.append((ts, value))\n        else:\n\
-          \            trend.append(current_group)\n            current_group = [(ts, value)]\n        prev_value\
-          \ = value\n    \n    if current_group:\n        trend.append(current_group)\n    \n    # 生成趋势描述\n\
-          \    description = []\n    for group in trend:\n        start_ts, start_val = group[0]\n       \
-          \ end_ts, end_val = group[-1]\n        avg_val = sum(v for _, v in group) / len(group)\n       \
-          \ \n        if avg_val == 0:\n            description.append(\n                f\"{len(group)}个数据点({timestamp_to_readable(start_ts)}\
-          \ - \"\n                f\"{timestamp_to_readable(end_ts)})值为0，完全正常\"\n            )\n        elif\
-          \ avg_val < 0.01:\n            description.append(\n                f\"{timestamp_to_readable(start_ts)}出现轻微波动({avg_val:.6f})\"\
-          \n            )\n        elif avg_val > 0.1:\n            description.append(f\"显著峰值在{timestamp_to_readable(start_ts)}\
-          \ - \"\n                             f\"{timestamp_to_readable(end_ts)}期间：\")\n            for ts,\
-          \ val in group:\n                description.append(f\"  {timestamp_to_readable(ts)}: {val:.3f}\"\
-          )\n        else:\n            description.append(\n                f\"{timestamp_to_readable(start_ts)}值约为{avg_val:.6f}\"\
-          \n            )\n    \n    return description\n\ndef analyze_history(data):\n    \"\"\"分析历史数据特征\"\
-          \"\"\n    values = []\n    for ts in data['result']['timeseries']:\n        for _, value in ts['chart']['chartData'].items():\n\
-          \            values.append(float(value))\n    \n    if not values:\n        return \"No historical\
-          \ data available.\", 0\n    \n    # 统计范围和峰值\n    min_val = min(values)\n    max_val = max(values)\n\
-          \    avg_val = sum(values) / len(values)\n    high_values = sorted([v for v in values if v > avg_val\
-          \ * 1.2], reverse=True)\n    \n    description = [\n        \"历史数据显示该指标通常维持在很低的水平：\",\n        f\"\
-          大多数值在{avg_val:.6f} - {avg_val * 1.2:.6f}之间\",\n        f\"偶尔有较高值({', '.join(f'{v:.3f}' for v in\
-          \ high_values[:2])})但持续时间很短\"\n    ]\n    \n    return description, avg_val\n\ndef analyze_latency(past_24h,\
-          \ recent_15m, start, end):\n    \"\"\"综合分析并生成报告\"\"\"\n    # 分析15分钟趋势\n    trend_desc = analyze_trend(recent_15m)\n\
-          \    \n    # 分析历史数据\n    history_desc, history_avg = analyze_history(past_24h)\n    \n    # 获取15分钟内的数据点并排序\n\
-          \    recent_values = []\n    for ts in recent_15m['result']['timeseries']:\n        for timestamp,\
-          \ value in ts['chart']['chartData'].items():\n            recent_values.append((int(timestamp),\
-          \ float(value)))\n    \n    recent_values.sort()\n    if not recent_values:\n        return {\n\
-          \            \"abnormal\": \"true\",\n            \"conclusion\": \"\\n\".join([\n             \
-          \   \"MetricsData趋势分析\",\n                \"当前查询窗口数据趋势：\",\n                \"  无数据可用\",\n     \
-          \           \"历史数据对比：\",\n                *[f\"  {line}\" for line in history_desc],\n         \
-          \       \"告警有效性判断：\",\n                \"  无最近数据，告警无效\",\n                \"结论：告警无效\"\n        \
-          \    ]) + \"\\n\"\n        }\n    \n    # 计算加权平均值（越靠近当前时间点权重越高）\n    weights = [1 + i * 0.1 for\
-          \ i in range(len(recent_values))]  # 线性递增权重\n    weighted_sum = sum(v * w for (_, v), w in zip(recent_values,\
-          \ weights))\n    weight_total = sum(weights)\n    weighted_avg = weighted_sum / weight_total if\
-          \ weight_total > 0 else 0\n    \n    # 判断趋势：波动还是升高\n    trend_type = \"波动\"\n    if weighted_avg\
-          \ > history_avg * 1.2:\n        trend_type = \"升高\"\n    \n    # 获取最后几个点和最大值\n    recent_max = max(v\
-          \ for _, v in recent_values)\n    last_value = recent_values[-1][1] if recent_values else 0\n  \
-          \  \n    # 判断告警有效性\n    valid = \"true\"\n    alert_desc = []\n    \n    # 如果最后一个点显著升高（> 历史平均值的1.2倍），告警有效\n\
-          \    if last_value > history_avg * 1.2:\n        alert_desc.append(\n            f\"最后一个数据点({timestamp_to_readable(recent_values[-1][0])}:\
-          \ {last_value:.3f})\"\n            f\"显著高于历史平均值({history_avg:.3f})\"\n        )\n        alert_desc.append(\"\
-          指标在最近时间点出现升高，表明潜在异常\")\n        alert_conclusion = \"告警有效\"\n        valid = \"false\"\n    elif\
-          \ recent_max > history_avg * 1.2:\n        alert_desc.append(\n            f\"当前查询窗口内最大值({recent_max:.3f})高于历史平均值({history_avg:.3f})\"\
-          \n        )\n        peak_duration = sum(\n            max(0, min(recent_values[i + 1][0], end)\
-          \ - max(ts, start)) / 60_000_000\n            for i, (ts, value) in enumerate(recent_values[:-1])\n\
-          \            if value > history_avg * 1.2\n        )  # 按实际采样区间累计，不将分钟点误算为30秒；不推造末点之后的持续时间\n   \
-          \     alert_desc.append(f\"峰值持续时间约{peak_duration}分钟\")\n        if trend_type == \"升高\":\n     \
-          \       alert_desc.append(\"指标呈现升高趋势，表明潜在异常\")\n            alert_conclusion = \"告警有效\"\n      \
-          \      valid = \"false\"\n        else:\n            alert_desc.append(\"指标呈现波动趋势，未持续升高\")\n   \
-          \         alert_desc.append(\"指标已回落，告警无效\")\n            alert_conclusion = \"告警无效\"\n    else:\n\
-          \        alert_desc.append(\"当前查询窗口内无显著异常峰值\")\n        alert_desc.append(f\"指标呈现{trend_type}趋势，告警无效\"\
-          )\n        alert_conclusion = \"告警无效\"\n    \n    # 组合报告\n    report = [\n        \"MetricsData趋势分析\"\
-          ,\n        \"当前查询窗口数据趋势：\",\n        *[f\"  {line}\" for line in trend_desc],\n        f\"  趋势类型：{trend_type}\
-          \ (加权平均值: {weighted_avg:.6f})\",\n        \"\\n历史数据对比：\",\n        *[f\"  {line}\" for line in history_desc],\n\
-          \        \"\\n告警有效性判断：\",\n        *[f\"  {line}\" for line in alert_desc],\n        f\"结论：{alert_conclusion}\"\
-          \n    ]\n    \n    return {\n        \"abnormal\": str(valid),\n        \"conclusion\": \"\\n\"\
-          .join(report) + \"\\n\"\n    }\n\ndef _metric(text):\n    payload = json.loads(text)\n    series\
-          \ = payload.get(\"data\", {}).get(\"timeseries\", [])\n    # COS缺失点保持缺失，不参与均值/最近值计算，也不补零。\n    for\
-          \ item in series:\n        chart = item.get(\"chart\", {}).get(\"chartData\", {})\n        item[\"\
-          chart\"][\"chartData\"] = {ts: value for ts, value in chart.items() if value is not None}\n    return\
-          \ {\"result\": {\"timeseries\": series}}\n\n\ndef main(current_json: str, history_json: str, start:\
-          \ int, end: int) -> dict:\n    return analyze_latency(_metric(history_json), _metric(current_json),\
-          \ int(start), int(end))\n"
+        code: "from datetime import datetime\nimport json\n\ndef timestamp_to_readable(ts):\n    \"\"\"将微秒时间戳转换为可读格式\"\"\"\n    return datetime.fromtimestamp(int(ts) / 1000000).strftime('%Y-%m-%d %H:%M:%S')\n\ndef analyze_trend(data, time_window=15*60):\n    \"\"\"分析15分钟内的趋势\"\"\"\n    points = []\n    for ts in data['result']['timeseries']:\n        for timestamp, value in ts['chart']['chartData'].items():\n            points.append((int(timestamp), float(value)))\n    \n    if not points:\n        return \"No data available.\"\n    \n    points.sort()  # 按时间戳排序\n    trend = []\n    current_group = []\n    prev_value = points[0][1]\n    \n    for ts, value in points:\n        if not current_group:\n            current_group.append((ts, value))\n        elif abs(value - prev_value) < 0.01 or (value == 0 and prev_value == 0):  # 连续相似值\n            current_group.append((ts, value))\n        else:\n            trend.append(current_group)\n            current_group = [(ts, value)]\n        prev_value = value\n    \n    if current_group:\n        trend.append(current_group)\n    \n    # 生成趋势描述\n    description = []\n    for group in trend:\n        start_ts, start_val = group[0]\n        end_ts, end_val = group[-1]\n        avg_val = sum(v for _, v in group) / len(group)\n        \n        if avg_val == 0:\n            description.append(\n                f\"{len(group)}个数据点({timestamp_to_readable(start_ts)} - \"\n                f\"{timestamp_to_readable(end_ts)})值为0，完全正常\"\n            )\n        elif avg_val < 0.01:\n            description.append(\n                f\"{timestamp_to_readable(start_ts)}出现轻微波动({avg_val:.6f})\"\n            )\n        elif avg_val > 0.1:\n            description.append(f\"显著峰值在{timestamp_to_readable(start_ts)} - \"\n                             f\"{timestamp_to_readable(end_ts)}期间：\")\n            for ts, val in group:\n                description.append(f\"  {timestamp_to_readable(ts)}: {val:.3f}\")\n        else:\n            description.append(\n                f\"{timestamp_to_readable(start_ts)}值约为{avg_val:.6f}\"\n            )\n    \n    return description\n\ndef analyze_history(data):\n    \"\"\"分析历史数据特征\"\"\"\n    values = []\n    for ts in data['result']['timeseries']:\n        for _, value in ts['chart']['chartData'].items():\n            values.append(float(value))\n    \n    if not values:\n        return \"No historical data available.\", 0\n    \n    # 统计范围和峰值\n    min_val = min(values)\n    max_val = max(values)\n    avg_val = sum(values) / len(values)\n    high_values = sorted([v for v in values if v > avg_val * 1.2], reverse=True)\n    \n    description = [\n        \"历史数据显示该指标通常维持在很低的水平：\",\n        f\"大多数值在{avg_val:.6f} - {avg_val * 1.2:.6f}之间\",\n        f\"偶尔有较高值({', '.join(f'{v:.3f}' for v in high_values[:2])})但持续时间很短\"\n    ]\n    \n    return description, avg_val\n\ndef analyze_latency(past_24h, recent_15m, start, end):\n    \"\"\"综合分析并生成报告\"\"\"\n    # 分析15分钟趋势\n    trend_desc = analyze_trend(recent_15m)\n    \n    # 分析历史数据\n    history_desc, history_avg = analyze_history(past_24h)\n    \n    # 获取15分钟内的数据点并排序\n    recent_values = []\n    for ts in recent_15m['result']['timeseries']:\n        for timestamp, value in ts['chart']['chartData'].items():\n            recent_values.append((int(timestamp), float(value)))\n    \n    recent_values.sort()\n    if not recent_values:\n        return {\n            \"abnormal\": \"unknown\",\n            \"conclusion\": \"\\n\".join([\n                \"MetricsData趋势分析\",\n                \"当前查询窗口数据趋势：\",\n                \"  无数据可用\",\n                \"历史数据对比：\",\n                *[f\"  {line}\" for line in history_desc],\n                \"告警有效性判断：\",\n                \"  无最近数据，告警有效性未知\",\n                \"结论：数据不足，无法判断告警有效性\"\n            ]) + \"\\n\"\n        }\n    \n    # 计算加权平均值（越靠近当前时间点权重越高）\n    weights = [1 + i * 0.1 for i in range(len(recent_values))]  # 线性递增权重\n    weighted_sum = sum(v * w for (_, v), w in zip(recent_values, weights))\n    weight_total = sum(weights)\n    weighted_avg = weighted_sum / weight_total if weight_total > 0 else 0\n    \n    # 判断趋势：波动还是升高\n    trend_type = \"波动\"\n    if weighted_avg > history_avg * 1.2:\n        trend_type = \"升高\"\n    \n    # 获取最后几个点和最大值\n    recent_max = max(v for _, v in recent_values)\n    last_value = recent_values[-1][1] if recent_values else 0\n    \n    # 判断告警有效性\n    valid = \"true\"\n    alert_desc = []\n    \n    # 如果最后一个点显著升高（> 历史平均值的1.2倍），告警有效\n    if last_value > history_avg * 1.2:\n        alert_desc.append(\n            f\"最后一个数据点({timestamp_to_readable(recent_values[-1][0])}: {last_value:.3f})\"\n            f\"显著高于历史平均值({history_avg:.3f})\"\n        )\n        alert_desc.append(\"指标在最近时间点出现升高，表明潜在异常\")\n        alert_conclusion = \"告警有效\"\n        valid = \"false\"\n    elif recent_max > history_avg * 1.2:\n        alert_desc.append(\n            f\"当前查询窗口内最大值({recent_max:.3f})高于历史平均值({history_avg:.3f})\"\n        )\n        peak_duration = sum(\n            max(0, min(recent_values[i + 1][0], end) - max(ts, start)) / 60_000_000\n            for i, (ts, value) in enumerate(recent_values[:-1])\n            if value > history_avg * 1.2\n        )  # 按实际采样区间累计，不将分钟点误算为30秒；不推造末点之后的持续时间\n        alert_desc.append(f\"峰值持续时间约{peak_duration}分钟\")\n        if trend_type == \"升高\":\n            alert_desc.append(\"指标呈现升高趋势，表明潜在异常\")\n            alert_conclusion = \"告警有效\"\n            valid = \"false\"\n        else:\n            alert_desc.append(\"指标呈现波动趋势，未持续升高\")\n            alert_desc.append(\"指标已回落，告警无效\")\n            alert_conclusion = \"告警无效\"\n    else:\n        alert_desc.append(\"当前查询窗口内无显著异常峰值\")\n        alert_desc.append(f\"指标呈现{trend_type}趋势，告警无效\")\n        alert_conclusion = \"告警无效\"\n    \n    # 组合报告\n    report = [\n        \"MetricsData趋势分析\",\n        \"当前查询窗口数据趋势：\",\n        *[f\"  {line}\" for line in trend_desc],\n        f\"  趋势类型：{trend_type} (加权平均值: {weighted_avg:.6f})\",\n        \"\\n历史数据对比：\",\n        *[f\"  {line}\" for line in history_desc],\n        \"\\n告警有效性判断：\",\n        *[f\"  {line}\" for line in alert_desc],\n        f\"结论：{alert_conclusion}\"\n    ]\n    \n    return {\n        \"abnormal\": str(valid),\n        \"conclusion\": \"\\n\".join(report) + \"\\n\"\n    }\n\ndef _metric(text):\n    payload = json.loads(text)\n    series = payload.get(\"data\", {}).get(\"timeseries\", [])\n    # COS缺失点保持缺失，不参与均值/最近值计算，也不补零。\n    for item in series:\n        chart = item.get(\"chart\", {}).get(\"chartData\", {})\n        item[\"chart\"][\"chartData\"] = {ts: value for ts, value in chart.items() if value is not None}\n    return {\"result\": {\"timeseries\": series}}\n\n\ndef main(current_json: str, history_json: str, start: int, end: int) -> dict:\n    return analyze_latency(_metric(history_json), _metric(current_json), int(start), int(end))\n"
         code_language: python3
         desc: ''
         outputs:
@@ -6696,7 +6436,7 @@ workflow:
         cases:
         - case_id: 'true'
           conditions:
-          - comparison_operator: empty
+          - comparison_operator: "is"
             id: 386bdf86-7414-490d-9106-cd665b9bf6da
             value: 'false'
             varType: string
@@ -7860,9 +7600,6 @@ workflow:
           nodeName:
             type: mixed
             value: '{{#1742806924635.node#}}'
-          startTime:
-            type: constant
-            value: 2134
           workloadName:
             type: mixed
             value: '{{#1742806924635.workloadName#}}'
@@ -8039,9 +7776,6 @@ workflow:
           nodeName:
             type: mixed
             value: '{{#1742806924635.node#}}'
-          startTime:
-            type: constant
-            value: 2134
           workloadName:
             type: mixed
             value: '{{#1742806924635.workloadName#}}'
@@ -8432,6 +8166,156 @@ workflow:
       positionAbsolute:
         x: 2158
         y: 2795
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Service name
+            ja_JP: Service name
+            pt_BR: Service name
+            zh_Hans: 服务名
+          label:
+            en_US: service
+            ja_JP: service
+            pt_BR: service
+            zh_Hans: service
+          llm_description: Service name
+          max: null
+          min: null
+          name: service
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: 集群
+          label:
+            en_US: cluster
+            ja_JP: cluster
+            pt_BR: cluster
+            zh_Hans: cluster
+          llm_description: cluster
+          max: null
+          min: null
+          name: cluster
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query start time(Microsecond)
+            ja_JP: Data query start time(Microsecond)
+            pt_BR: Data query start time(Microsecond)
+            zh_Hans: 开始时间 (微秒)
+          label:
+            en_US: startTime
+            ja_JP: startTime
+            pt_BR: startTime
+            zh_Hans: startTime
+          llm_description: Data query start time(Microsecond)
+          max: null
+          min: null
+          name: startTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data query end time(Microsecond)
+            ja_JP: Data query end time(Microsecond)
+            pt_BR: Data query end time(Microsecond)
+            zh_Hans: 结束时间 (微秒)
+          label:
+            en_US: endTime
+            ja_JP: endTime
+            pt_BR: endTime
+            zh_Hans: endTime
+          llm_description: Data query end time(Microsecond)
+          max: null
+          min: null
+          name: endTime
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        params:
+          cluster: ''
+          endTime: ''
+          service: ''
+          startTime: ''
+        provider_id: apo_select
+        provider_name: apo_select
+        provider_type: builtin
+        selected: false
+        title: 查询实例依赖与自身耗时
+        tool_configurations: {}
+        tool_label: 查询实例依赖与自身耗时
+        tool_name: dataplane_instance_evidence
+        tool_node_version: '2'
+        tool_parameters:
+          service:
+            type: variable
+            value:
+            - '1742806924635'
+            - service
+          tenantId:
+            type: variable
+            value:
+            - '1742806924635'
+            - tenantId
+          startTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - endTime
+        type: tool
+      height: 54
+      id: instance_dependency_evidence
+      position:
+        x: 942
+        y: 567
+      positionAbsolute:
+        x: 942
+        y: 567
       selected: false
       sourcePosition: right
       targetPosition: left
