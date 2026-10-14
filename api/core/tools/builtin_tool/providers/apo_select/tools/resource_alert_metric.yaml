@@ -1,0 +1,100 @@
+identity:
+  name: resource_alert_metric
+  author: APO
+  label:
+    en_US: Resource alert metric
+    zh_Hans: 查询资源告警指标
+description:
+  human:
+    en_US: Query metrics with built-in resource alert semantics
+    zh_Hans: 按内置资源规则口径查询 COS 指标
+  llm: Query COS resource alert metrics using the alert object.
+parameters:
+- name: kind
+  type: string
+  required: true
+  label:
+    en_US: kind
+    zh_Hans: kind
+  human_description:
+    en_US: kind
+    zh_Hans: kind
+  llm_description: kind
+  form: llm
+- name: node
+  type: string
+  required: false
+  label:
+    en_US: node
+    zh_Hans: node
+  human_description:
+    en_US: node
+    zh_Hans: node
+  llm_description: node
+  form: llm
+- name: pod
+  type: string
+  required: false
+  label:
+    en_US: pod
+    zh_Hans: pod
+  human_description:
+    en_US: pod
+    zh_Hans: pod
+  llm_description: pod
+  form: llm
+- name: namespace
+  type: string
+  required: false
+  label:
+    en_US: namespace
+    zh_Hans: namespace
+  human_description:
+    en_US: namespace
+    zh_Hans: namespace
+  llm_description: namespace
+  form: llm
+- name: mountpoint
+  type: string
+  required: false
+  label:
+    en_US: mountpoint
+    zh_Hans: mountpoint
+  human_description:
+    en_US: mountpoint
+    zh_Hans: mountpoint
+  llm_description: mountpoint
+  form: llm
+- name: tenantId
+  type: string
+  required: false
+  label:
+    en_US: tenantId
+    zh_Hans: tenantId
+  human_description:
+    en_US: tenantId
+    zh_Hans: tenantId
+  llm_description: tenantId
+  form: llm
+- name: startTime
+  type: number
+  required: true
+  label:
+    en_US: startTime
+    zh_Hans: startTime
+  human_description:
+    en_US: startTime
+    zh_Hans: startTime
+  llm_description: startTime
+  form: llm
+- name: endTime
+  type: number
+  required: true
+  label:
+    en_US: endTime
+    zh_Hans: endTime
+  human_description:
+    en_US: endTime
+    zh_Hans: endTime
+  llm_description: endTime
+  form: llm
