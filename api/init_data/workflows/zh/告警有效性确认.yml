@@ -2108,29 +2108,32 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 宿主机磁盘使用率(百分比,不含rootfs)
+        title: "主机数据文件系统使用率"
         tool_configurations: {}
-        tool_label: 宿主机磁盘使用率(百分比,不含rootfs)
-        tool_name: 宿主机磁盘使用率(百分比,不含rootfs)
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741157526222'
-            - endTime
-          node:
-            type: mixed
-            value: '{{#1742806924635.instanceName#}}'
           startTime:
             type: variable
             value:
             - '1741157526222'
             - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - endTime
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: disk
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
         type: tool
       height: 54
       id: '1741328213545'
@@ -2230,29 +2233,32 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 宿主机网络接收速率(比特/秒)
+        title: "主机网络接收带宽"
         tool_configurations: {}
-        tool_label: 宿主机网络接收速率(比特/秒)
-        tool_name: 宿主机网络接收速率(比特/秒)
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741157526222'
-            - endTime
-          node:
-            type: mixed
-            value: '{{#1742806924635.instanceName#}}'
           startTime:
             type: variable
             value:
             - '1741157526222'
             - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - endTime
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: network_receive
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
         type: tool
       height: 54
       id: '1741328346220'
@@ -3884,29 +3890,32 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 历史数据 宿主机磁盘使用率(百分比,不含rootfs)
+        title: "历史数据 主机数据文件系统使用率"
         tool_configurations: {}
-        tool_label: 宿主机磁盘使用率(百分比,不含rootfs)
-        tool_name: 宿主机磁盘使用率(百分比,不含rootfs)
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1742433446760'
-            - history_et
-          node:
-            type: mixed
-            value: '{{#1742806924635.instanceName#}}'
           startTime:
             type: variable
             value:
             - '1742433446760'
             - history_st
+          endTime:
+            type: variable
+            value:
+            - '1742433446760'
+            - history_et
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: disk
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
         type: tool
       height: 54
       id: '17424345315500'
@@ -4006,29 +4015,32 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 历史数据 宿主机网络接收速率(比特/秒)
+        title: "历史数据 主机网络接收带宽"
         tool_configurations: {}
-        tool_label: 宿主机网络接收速率(比特/秒)
-        tool_name: 宿主机网络接收速率(比特/秒)
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1742433446760'
-            - history_et
-          node:
-            type: mixed
-            value: '{{#1742806924635.instanceName#}}'
           startTime:
             type: variable
             value:
             - '1742433446760'
             - history_st
+          endTime:
+            type: variable
+            value:
+            - '1742433446760'
+            - history_et
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: network_receive
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
         type: tool
       height: 54
       id: '17424345826170'
@@ -4847,33 +4859,38 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 容器CPU 使用率
+        title: "Pod CPU使用率"
         tool_configurations: {}
-        tool_label: Container CPU usage rate (Containerd runtime, aggregated by container
-          and Pod)
-        tool_name: 容器CPU使用率(使用Containerd容器运行时,按容器和Pod统计)
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741157526222'
-            - endTime
-          namespace:
-            type: mixed
-            value: '{{#1742806924635.namespace#}}'
-          pod:
-            type: mixed
-            value: '{{#1742806924635.pod#}}'
           startTime:
             type: variable
             value:
             - '1741157526222'
             - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - endTime
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: cpu
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
+          pod:
+            type: mixed
+            value: '{{#1742806924635.pod#}}'
+          namespace:
+            type: mixed
+            value: '{{#1742806924635.namespace#}}'
         type: tool
       height: 54
       id: '1742979394268'
@@ -5199,33 +5216,38 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 容器内存占用
+        title: "Pod 内存使用率"
         tool_configurations: {}
-        tool_label: Container memory usage in bytes (Containerd runtime, aggregated
-          by container and Pod)
-        tool_name: 容器内存使用字节数(使用Containerd容器运行时,按容器和Pod统计)
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741157526222'
-            - endTime
-          namespace:
-            type: mixed
-            value: '{{#1742806924635.namespace#}}'
-          pod:
-            type: mixed
-            value: '{{#1742806924635.pod#}}'
           startTime:
             type: variable
             value:
             - '1741157526222'
             - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - endTime
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: memory
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
+          pod:
+            type: mixed
+            value: '{{#1742806924635.pod#}}'
+          namespace:
+            type: mixed
+            value: '{{#1742806924635.namespace#}}'
         type: tool
       height: 54
       id: '17429797453350'
@@ -5375,33 +5397,38 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 历史数据 容器内存占用
+        title: "历史数据 Pod 内存使用率"
         tool_configurations: {}
-        tool_label: Container memory usage in bytes (Containerd runtime, aggregated
-          by container and Pod)
-        tool_name: 容器内存使用字节数(使用Containerd容器运行时,按容器和Pod统计)
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1742433446760'
-            - history_et
-          namespace:
-            type: mixed
-            value: '{{#1742806924635.namespace#}}'
-          pod:
-            type: mixed
-            value: '{{#1742806924635.pod#}}'
           startTime:
             type: variable
             value:
             - '1742433446760'
             - history_st
+          endTime:
+            type: variable
+            value:
+            - '1742433446760'
+            - history_et
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: memory
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
+          pod:
+            type: mixed
+            value: '{{#1742806924635.pod#}}'
+          namespace:
+            type: mixed
+            value: '{{#1742806924635.namespace#}}'
         type: tool
       height: 54
       id: '17429797664440'
@@ -5526,29 +5553,32 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 宿主机cpu
+        title: "主机CPU使用率"
         tool_configurations: {}
-        tool_label: Query host's CPU pressure
-        tool_name: 查询宿主机CPU压力
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741157526222'
-            - endTime
-          node:
-            type: mixed
-            value: '{{#1742806924635.instanceName#}}'
           startTime:
             type: variable
             value:
             - '1741157526222'
             - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - endTime
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: cpu
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
         type: tool
       height: 54
       id: '1742979828391'
@@ -5673,29 +5703,32 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 历史数据 宿主机cpu
+        title: "历史数据 主机CPU使用率"
         tool_configurations: {}
-        tool_label: Query host's CPU pressure
-        tool_name: 查询宿主机CPU压力
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1742433446760'
-            - history_et
-          node:
-            type: mixed
-            value: '{{#1742806924635.instanceName#}}'
           startTime:
             type: variable
             value:
             - '1742433446760'
             - history_st
+          endTime:
+            type: variable
+            value:
+            - '1742433446760'
+            - history_et
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: cpu
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
         type: tool
       height: 54
       id: '17429798797920'
@@ -5845,32 +5878,38 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: '历史数据 容器CPU 使用率 '
+        title: "历史数据 Pod CPU使用率"
         tool_configurations: {}
-        tool_label: Container CPU usage rate (Containerd runtime, aggregated by container and Pod)
-        tool_name: 容器CPU使用率(使用Containerd容器运行时,按容器和Pod统计)
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741157526222'
-            - startTime
-          namespace:
-            type: mixed
-            value: '{{#1742806924635.namespace#}}'
-          pod:
-            type: mixed
-            value: '{{#1742806924635.pod#}}'
           startTime:
             type: variable
             value:
             - '1742433446760'
             - history_st
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - startTime
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: cpu
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
+          pod:
+            type: mixed
+            value: '{{#1742806924635.pod#}}'
+          namespace:
+            type: mixed
+            value: '{{#1742806924635.namespace#}}'
         type: tool
       height: 54
       id: '17429835599060'
@@ -7984,32 +8023,32 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 查询宿主机内存压力
+        title: "主机内存使用率"
         tool_configurations: {}
-        tool_label: 查询宿主机内存压力
-        tool_name: 查询宿主机内存压力
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741157526222'
-            - endTime
-          job:
-            type: mixed
-            value: ''
-          node:
-            type: mixed
-            value: '{{#1742806924635.instanceName#}}'
           startTime:
             type: variable
             value:
             - '1741157526222'
             - startTime
+          endTime:
+            type: variable
+            value:
+            - '1741157526222'
+            - endTime
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: memory
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
         type: tool
       height: 54
       id: '1784885658861'
@@ -8134,29 +8173,32 @@ workflow:
         provider_name: apo_select
         provider_type: builtin
         selected: false
-        title: 历史数据 查询宿主机内存压力
+        title: "历史数据 主机内存使用率"
         tool_configurations: {}
-        tool_label: 查询宿主机内存压力
-        tool_name: 查询宿主机内存压力
+        tool_label: "查询资源告警指标"
+        tool_name: "resource_alert_metric"
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1742433446760'
-            - history_et
-          node:
-            type: mixed
-            value: '{{#1742806924635.instanceName#}}'
           startTime:
             type: variable
             value:
             - '1742433446760'
             - history_st
+          endTime:
+            type: variable
+            value:
+            - '1742433446760'
+            - history_et
           tenantId:
             type: variable
             value:
             - '1742806924635'
             - tenantId
+          kind:
+            type: constant
+            value: memory
+          node:
+            type: mixed
+            value: '{{#1742806924635.node#}}'
         type: tool
       height: 54
       id: '17848856714800'
