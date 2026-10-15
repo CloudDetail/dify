@@ -147,7 +147,10 @@ const TextGeneration: FC<IMainProps> = ({
       params.delete('mode')
       router.replace(`${pathname}?${params.toString()}`)
     }
-    const queryInputs = Object.fromEntries(searchParams.entries())
+    const inputParams = new URLSearchParams(searchParams)
+    // Presentation metadata must not become a workflow input.
+    inputParams.delete('embed')
+    const queryInputs = Object.fromEntries(inputParams.entries())
     if (queryInputs) {
       setQueryInputs(queryInputs)
       setInputs(queryInputs)

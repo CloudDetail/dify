@@ -1,5 +1,5 @@
 'use client'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import s from './index.module.css'
 import classNames from '@/utils/classnames'
 
@@ -11,7 +11,13 @@ const HeaderWrapper = ({
   children,
 }: HeaderWrapperProps) => {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
   const isBordered = ['/apps', '/datasets', '/datasets/create', '/tools'].includes(pathname)
+
+  // Per-page presentation only: never persist this flag across admin/alert tabs.
+  const isAlertPage = /^\/app\/[^/]+\/(?:logs\/[^/]+|run-once)\/?$/.test(pathname)
+  if (isAlertPage && searchParams.get('embed') === 'alert')
+    return null
 
   return (
     <div className={classNames(
