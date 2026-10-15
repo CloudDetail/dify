@@ -100,3 +100,72 @@ def test_get_alert_report_url_removes_thinking_blocks_from_report_text(monkeypat
         result.message.text
         == "分析报告正文\nhttp://frontend/#/report?alertEventId=alert-1&startTime=100&endTime=1000200"
     )
+
+
+def test_report_retry_reuses_only_explicit_duplicate(monkeypatch):
+    _install_tool_stubs(monkeypatch)
+    module = _load_apo_analysis_tool_module("alert_report_gen")
+    duplicate = SimpleNamespace(status_code=400, json=lambda: {"code": "B1504", "message": "alert event report already exists"})
+    assert module.is_existing_alert_report(duplicate, {"alertEventId": "event-1"})
+    assert not module.is_existing_alert_report(duplicate, {})
+    for code, message, status in [("B1504", "database unavailable", 400), ("B0001", "alert event report already exists", 400), ("B1504", "alert event report already exists", 500)]:
+        response = SimpleNamespace(status_code=status, json=lambda: {"code": code, "message": message})
+        assert not module.is_existing_alert_report(response, {"alertEventId": "event-1"})
+    assert not module.is_existing_alert_report(SimpleNamespace(status_code=400, json=lambda: []), {"alertEventId": "event-1"})
+
+
+def test_duplicate_report_yields_existing_status_without_second_write(monkeypatch):
+    import json
+    _install_tool_stubs(monkeypatch)
+    module = _load_apo_analysis_tool_module("alert_report_gen")
+    calls = []
+
+    def post(url, **kwargs):
+        calls.append((url, kwargs))
+        return SimpleNamespace(status_code=400, json=lambda: {"code": "B1504", "message": "alert event report already exists"})
+    module.requests.post = post
+    tool = module.AlertReportGen.__new__(module.AlertReportGen)
+    params = dict.fromkeys(['overview', 'topology', 'rootCauseAnalysis', 'suggest', 'evidence'], '{}')
+    params['tags'] = '{"alertEventId":"event-1"}'
+    result = list(tool._invoke('user-1', params))
+    output = json.loads(result[0].message.text)
+    assert output['status'] == 'existing'
+    assert '未覆盖' in output['msg'][0]
+    assert len(calls) == 1
+
+
+def test_unrelated_report_error_still_fails(monkeypatch):
+    import pytest
+    _install_tool_stubs(monkeypatch)
+    module = _load_apo_analysis_tool_module("alert_report_gen")
+
+    def fail():
+        raise RuntimeError('database unavailable')
+    module.requests.post = lambda *a, **kw: SimpleNamespace(status_code=400, json=lambda: {"code": "B1504", "message": "database unavailable"}, raise_for_status=fail)
+    tool = module.AlertReportGen.__new__(module.AlertReportGen)
+    params = dict.fromkeys(['overview', 'topology', 'rootCauseAnalysis', 'suggest', 'evidence'], '{}')
+    params['tags'] = '{"alertEventId":"event-1"}'
+    with pytest.raises(RuntimeError, match='database unavailable'):
+        list(tool._invoke('user-1', params))
+
+
+def test_successful_report_still_returns_created(monkeypatch):
+    import json
+    _install_tool_stubs(monkeypatch)
+    module = _load_apo_analysis_tool_module("alert_report_gen")
+    module.requests.post = lambda *a, **kw: SimpleNamespace(status_code=200, raise_for_status=lambda: None)
+    tool = module.AlertReportGen.__new__(module.AlertReportGen)
+    params = dict.fromkeys(['overview', 'topology', 'rootCauseAnalysis', 'suggest', 'evidence'], '{}')
+    params['tags'] = '{"alertEventId":"event-1"}'
+    output = json.loads(next(tool._invoke('user-1', params)).message.text)
+    assert output['status'] == 'created'
+    assert output['msg'] == []
+
+
+def test_non_json_failure_is_not_duplicate(monkeypatch):
+    _install_tool_stubs(monkeypatch)
+    module = _load_apo_analysis_tool_module("alert_report_gen")
+
+    def invalid_json():
+        raise ValueError('not JSON')
+    assert not module.is_existing_alert_report(SimpleNamespace(status_code=400, json=invalid_json), {'alertEventId': 'event-1'})

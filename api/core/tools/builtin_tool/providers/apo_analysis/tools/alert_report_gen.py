@@ -42,16 +42,37 @@ class AlertReportGen(BuiltinTool):
         }
         if reportView:
             json_data['reportView'] = reportView
-        resp = requests.post(dify_config.APO_BACKEND_URL + '/api/alerts/events/report/add', json=json_data)
-        if resp.status_code != 200:
-            errormsgs.append(f"Error while creating report, msg: {resp.text}")
+        if errormsgs:
+            raise ValueError("Invalid report: " + "; ".join(errormsgs))
+        resp = requests.post(dify_config.APO_BACKEND_URL + '/api/alerts/events/report/add', json=json_data, timeout=20)
+        reused = is_existing_alert_report(resp, tags)
+        if not reused:
+            resp.raise_for_status()
+        else:
+            errormsgs.append("该告警已有分析报告，保留并复用已有报告，本次未覆盖。")
         list = json.dumps({
             'type': 'report',
             'display': False,
-            'msg': errormsgs
+            'msg': errormsgs,
+            'status': 'existing' if reused else 'created',
         })
 
         yield self.create_text_message(list)
+
+
+def is_existing_alert_report(response, tags: Any) -> bool:
+    # Only the backend's explicit duplicate response for an identified alert is recoverable.
+    if response.status_code != 400 or not isinstance(tags, dict) or not tags.get("alertEventId"):
+        return False
+    try:
+        payload = response.json()
+    except ValueError:
+        return False
+    return (
+        isinstance(payload, dict)
+        and payload.get("code") == "B1504"
+        and payload.get("message") == "alert event report already exists"
+    )
 
 
 def deduplicate_evidence_and_report_view(evidence: Any, reportView: Any) -> tuple[Any, Any]:
