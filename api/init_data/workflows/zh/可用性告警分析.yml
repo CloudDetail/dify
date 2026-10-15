@@ -1339,7 +1339,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\ndef get_value(data, keys): \n    for key in keys: \n        value = data.get(key) \n        if value is not None: \n            return value \n    return \"\" \n\ndef main(arg: str, node: str, startTime, endTime) -> dict:\n    SECOND = 1000000  # microseconds\n    MINUTE = 60 * SECOND\n    HOUR = 60 * MINUTE\n    data = json.loads(arg) \n    detail_str = data.get(\"detail\", \"\")\n    detail = json.loads(detail_str) if detail_str else {}\n    description = detail.get(\"description\", \"\")\n    lines = description.split(\"\\n\")\n    raw_tags = data.get(\"raw_tags\", {})\n    try:\n        labels_line = lines[1]\n        start = labels_line.index(\"[\") + 1\n        end = labels_line.index(\"]\")\n        map_content = labels_line[start:end]\n        pairs = map_content.split()\n        labels_dict = {pair.split(\":\", 1)[0]: pair.split(\":\", 1)[1] for pair in pairs}\n        source_from = labels_dict.get(\"source_from\", \"\")\n    except (IndexError, ValueError):\n      source_from = \"\"\n\n    return {\n        \"tenantId\": get_tenant_id(data), \n        \"alertName\": get_value(data, [\"alertname\", \"alertName\", \"alert_name\"]),\n        \"service\": get_value(data, [\"svc_name\", \"service\"]), \n        \"endpoint\": get_value(data, [\"endpoint\", \"content_key\"]), \n        \"pod\": get_value(data, [\"pod\", \"src_pod\", \"pod_name\"]), \n        \"namespace\": get_value(data, [\"namespace\", \"src_namespace\"]),\n        \"pid\": get_value(data, [\"pid\"]),\n        \"containerId\": get_value(data, [\"containerId\"]),\n        \"nodeName\": node if node else get_value(data, [\"node\", \"src_node\", \"node_name\", \"nodeName\"]),\n        \"sourceFrom\": source_from,\n        \"alertEventId\": get_value(data, [\"alertEventId\"]),\n        \"comm\": get_value(raw_tags, [\"comm\"]),\n        \"workloadName\": get_value(raw_tags, [\"workload_name\"]),\n        \"historyStartTime\": startTime - (24*HOUR),\n        \"historyEndTime\": startTime\n    }\n\ndef get_tenant_id(data):\n    # 事件顶层身份优先，兼容原始标签；不能使用 providerId/groupId 代替租户。\n    if not isinstance(data, dict):\n        return \"\"\n    sources = [data] + [data.get(key) for key in (\"raw_tags\", \"tags\", \"labels\")]\n    for source in sources:\n        if not isinstance(source, dict):\n            continue\n        for key in (\"tenantId\", \"tenant_id\"):\n            value = source.get(key)\n            if isinstance(value, str) and value.strip():\n                return value.strip()\n            if isinstance(value, int) and not isinstance(value, bool):\n                return str(value)\n    return \"\"\n"
+        code: "import json\ndef get_value(data, keys): \n    for key in keys: \n        value = data.get(key) \n        if value is not None: \n            return value \n    return \"\" \n\ndef main(arg: str, node: str, startTime, endTime) -> dict:\n    SECOND = 1000000  # microseconds\n    MINUTE = 60 * SECOND\n    HOUR = 60 * MINUTE\n    data = json.loads(arg) \n    detail_str = data.get(\"detail\", \"\")\n    try:\n        detail = json.loads(detail_str) if isinstance(detail_str, str) and detail_str else (detail_str or {})\n    except (ValueError, TypeError):\n        detail = {}\n    description = detail.get(\"description\", \"\")\n    lines = description.split(\"\\n\")\n    raw_tags = data.get(\"raw_tags\", {})\n    try:\n        labels_line = lines[1]\n        start = labels_line.index(\"[\") + 1\n        end = labels_line.index(\"]\")\n        map_content = labels_line[start:end]\n        pairs = map_content.split()\n        labels_dict = {pair.split(\":\", 1)[0]: pair.split(\":\", 1)[1] for pair in pairs}\n        source_from = labels_dict.get(\"source_from\", \"\")\n    except (IndexError, ValueError):\n      source_from = \"\"\n\n    return {\n        \"tenantId\": get_tenant_id(data), \n        \"alertName\": get_value(data, [\"alertname\", \"alertName\", \"alert_name\"]),\n        \"service\": get_value(data, [\"svc_name\", \"service\"]), \n        \"endpoint\": get_value(data, [\"endpoint\", \"content_key\"]), \n        \"pod\": get_value(data, [\"pod\", \"src_pod\", \"pod_name\"]), \n        \"namespace\": get_value(data, [\"namespace\", \"src_namespace\"]),\n        \"pid\": get_value(data, [\"pid\"]),\n        \"containerId\": get_value(data, [\"containerId\"]),\n        \"nodeName\": node if node else get_value(data, [\"node\", \"src_node\", \"node_name\", \"nodeName\"]),\n        \"sourceFrom\": source_from,\n        \"alertEventId\": get_value(data, [\"alertEventId\"]),\n        \"comm\": get_value(raw_tags, [\"comm\"]),\n        \"workloadName\": get_value(raw_tags, [\"workload_name\"]),\n        \"historyStartTime\": startTime - (24*HOUR),\n        \"historyEndTime\": startTime\n    }\n\ndef get_tenant_id(data):\n    # 事件顶层身份优先，兼容原始标签；不能使用 providerId/groupId 代替租户。\n    if not isinstance(data, dict):\n        return \"\"\n    sources = [data] + [data.get(key) for key in (\"raw_tags\", \"tags\", \"labels\")]\n    for source in sources:\n        if not isinstance(source, dict):\n            continue\n        for key in (\"tenantId\", \"tenant_id\"):\n            value = source.get(key)\n            if isinstance(value, str) and value.strip():\n                return value.strip()\n            if isinstance(value, int) and not isinstance(value, bool):\n                return str(value)\n    return \"\"\n"
         code_language: python3
         desc: ''
         outputs:
@@ -2030,9 +2030,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\n\ndef main(alertEventId: str) -> dict:\n    data = {\n        \"\
-          alertEventId\": alertEventId\n    }\n    return {\n        \"result\": json.dumps(data),\n\
-          \    }\n"
+        code: "import json\n\n\ndef main(alertEventId: str) -> dict:\n    data = {\n        \"alertEventId\": alertEventId\n    }\n    return {\n        \"result\": json.dumps(data),\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -2061,14 +2059,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\n\ndef main(timestamp: int, reason: str, pod: str, node: str, pid:\
-          \ str, containerId: str, service: str, detail: str) -> dict:\n    data =\
-          \ {\n        \"timestamp\": timestamp,\n        \"detail\": detail,\n  \
-          \      \"reason\": reason,\n        \"tags\": {\n            \"service\"\
-          : service,\n            \"pod\": pod,\n            \"nodeName\": node,\n\
-          \            \"pid\": pid,\n            \"containerId\": containerId\n \
-          \       }\n    }\n    return {\n        \"result\": json.dumps(data),\n\
-          \    }"
+        code: "import json\n\n\ndef main(timestamp: int, reason: str, pod: str, node: str, pid: str, containerId: str, service: str, detail: str) -> dict:\n    data = {\n        \"timestamp\": timestamp,\n        \"detail\": detail,\n        \"reason\": reason,\n        \"tags\": {\n            \"service\": service,\n            \"pod\": pod,\n            \"nodeName\": node,\n            \"pid\": pid,\n            \"containerId\": containerId\n        }\n    }\n    return {\n        \"result\": json.dumps(data),\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -2236,11 +2227,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\n\ndef main(logs: str, log_text: str) -> dict:\n    logs_raw = json.loads(logs)\n\
-          \    logs_data = {\n        \"type\": \"log\",\n        \"name\": \"应用日志\"\
-          ,\n        \"description\": log_text,\n        \"data\": logs_raw.get(\"\
-          logs\", [])\n    }\n\n    return {\n        \"result\": json.dumps({\n \
-          \           \"evidence\": [logs_data]\n        }),\n    }\n"
+        code: "import json\n\n\ndef main(logs: str, log_text: str) -> dict:\n    logs_raw = json.loads(logs)\n    logs_data = {\n        \"type\": \"log\",\n        \"name\": \"应用日志\",\n        \"description\": log_text,\n        \"data\": logs_raw.get(\"logs\", [])\n    }\n\n    return {\n        \"result\": json.dumps({\n            \"evidence\": [logs_data]\n        }),\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -3204,28 +3191,7 @@ workflow:
         tool_name: dataplane_instance_service
         tool_node_version: '2'
         tool_parameters:
-          containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          nodeName:
-            type: mixed
-            value: '{{#1742807803325.nodeName#}}'
-          pid:
-            type: mixed
-            value: '{{#1742807803325.pid#}}'
-          pod:
-            type: mixed
-            value: '{{#1742807803325.pod#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
+          {"containerId": {"type": "mixed", "value": "{{#1742807803325.containerId#}}"}, "endTime": {"type": "variable", "value": ["1741227526517", "endTime"]}, "nodeName": {"type": "mixed", "value": "{{#1742807803325.nodeName#}}"}, "pid": {"type": "mixed", "value": "{{#1742807803325.pid#}}"}, "pod": {"type": "mixed", "value": "{{#1742807803325.pod#}}"}, "startTime": {"type": "variable", "value": ["1741227526517", "startTime"]}, "tenantId": {"type": "variable", "value": ["1742807803325", "tenantId"]}, "service": {"type": "variable", "value": ["1742807803325", "service"]}}
         type: tool
       height: 54
       id: '1753414138349'
@@ -3241,10 +3207,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(data_json: str, service) -> dict:\n    if len(service) >\
-          \ 0:\n        return {\n            \"result\": service\n        }\n   \
-          \ data = json.loads(data_json).get('data', '')\n    return {\n        \"\
-          result\": data,\n    }\n"
+        code: "import json\n\ndef main(data_json: str, service) -> dict:\n    if len(service) > 0:\n        return {\n            \"result\": service\n        }\n    data = json.loads(data_json).get('data', '')\n    return {\n        \"result\": data,\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -5580,8 +5543,7 @@ workflow:
           endTime:
             type: variable
             value:
-            - '1741227526517'
-            - endTime
+              ["1758786771169017587867711701", "endTime"]
           pageNum:
             type: constant
             value: 1
@@ -5618,24 +5580,9 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "\ndef main(pod: str, service: str, node: str, pid: str, containerId:\
-          \ str, sourceFrom: str, item) -> dict:\n    query = ''\n    if len(containerId)\
-          \ > 0 and len(node) > 0:\n        query = f\"\"\"container_id='{containerId}'\
-          \ and host_name='{node}'\"\"\"\n    elif len(pod) > 0 and len(service) >\
-          \ 0:\n        query = f\"\"\"k8s_pod_name='{pod}' and container_name='{service}'\"\
-          \"\"\n    elif len(pod) > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\"\
-          \"\"\n    elif len(node) > 0 and len(pid) > 0:\n        query = f\"\"\"\
-          host_name='{node}' and pid='{pid}'\"\"\"\n    elif len(service) > 0:\n \
-          \       query = f\"\"\"container_name='{service}'\"\"\"\n    elif len(containerId)\
-          \ > 0:\n        query = f\"\"\"container_id='{containerId}'\"\"\"\n    elif\
-          \ len(node) > 0:\n        query = f\"\"\"host_name='{node}'\"\"\"\n\n  \
-          \  if len(sourceFrom) > 0:\n        if len(query) > 0:\n            query\
-          \ += f\" and source='{sourceFrom}'\"\n        else:\n            query =\
-          \ f\"\"\"source='{sourceFrom}'\"\"\"\n    \n    return {\n        \"query\"\
-          : query,\n        \"startTime\": item[\"startTime\"],\n        \"endTime\"\
-          : item[\"endTime\"]\n    }"
+        code: "def main(service: str, item: dict) -> dict:\n    # 日志以告警服务为范围，不依赖 APO 容器/PID/source 字段或实例发现结果。\n    if not isinstance(service, str) or not service.strip():\n        raise ValueError(\"缺少告警服务名，不能查询未限定服务的日志\")\n    value = service.replace(\"\\\\\", \"\\\\\\\\\").replace(\"'\", \"\\\\'\")\n    start_time, end_time = item[\"startTime\"], item[\"endTime\"]\n    if start_time >= end_time:\n        raise ValueError(\"日志分段开始时间必须小于结束时间\")\n    return {\"query\": \"serviceName='\" + value + \"'\",\n            \"startTime\": start_time, \"endTime\": end_time}\n"
         code_language: python3
-        desc: ''
+        desc: "按告警服务和当前分段查询日志，不使用 APO 容器名及来源条件。"
         isInIteration: true
         iteration_id: '17587867711690'
         outputs:
@@ -5652,34 +5599,7 @@ workflow:
         title: 获取查询条件
         type: code
         variables:
-        - value_selector:
-          - '1742807803325'
-          - pod
-          variable: pod
-        - value_selector:
-          - '1742807803325'
-          - service
-          variable: service
-        - value_selector:
-          - '1742807803325'
-          - nodeName
-          variable: node
-        - value_selector:
-          - '1742807803325'
-          - pid
-          variable: pid
-        - value_selector:
-          - '1742807803325'
-          - containerId
-          variable: containerId
-        - value_selector:
-          - '1742807803325'
-          - sourceFrom
-          variable: sourceFrom
-        - value_selector:
-          - '17587867711690'
-          - item
-          variable: item
+          [{"variable": "service", "value_selector": ["1742807803325", "service"]}, {"variable": "item", "value_selector": ["17587867711690", "item"]}]
       height: 54
       id: '1758786771169017587867711701'
       parentId: '17587867711690'
@@ -6989,11 +6909,7 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "\ndef main(latency_json: str, error_rate_json: str) -> dict:\n    latency_data\
-          \ = json.loads(latency_json)\n    error_rate_data = json.loads(error_rate_json)\n\
-          \    data = {\n        \"request_latency\": latency_data,\n        \"request_error_rate\"\
-          : error_rate_data,\n    }\n\n    return {\n        \"result\": json.dumps(data),\n\
-          \    }\n"
+        code: "import json\n\ndef main(latency_json: str, error_rate_json: str) -> dict:\n    latency_data = json.loads(latency_json)\n    error_rate_data = json.loads(error_rate_json)\n    data = {\n        \"request_latency\": latency_data,\n        \"request_error_rate\": error_rate_data,\n    }\n\n    return {\n        \"result\": json.dumps(data),\n    }\n"
         code_language: python3
         desc: ''
         isInIteration: true
@@ -7030,11 +6946,7 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "def main(outputs) -> dict:\n    impacted_services = []\n    for item\
-          \ in outputs:\n        abnormal_metrics = json.loads(item)\n        if abnormal_metrics.get('request_latency')\
-          \ or abnormal_metrics.get('request_error_rate'):\n            impacted_services.append(abnormal_metrics)\n\
-          \n    return {\n        \"impacted_services\": json.dumps(impacted_services)\n\
-          \    }\n"
+        code: "import json\ndef main(outputs) -> dict:\n    impacted_services = []\n    for item in outputs:\n        abnormal_metrics = json.loads(item)\n        if abnormal_metrics.get('request_latency') or abnormal_metrics.get('request_error_rate'):\n            impacted_services.append(abnormal_metrics)\n\n    return {\n        \"impacted_services\": json.dumps(impacted_services)\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -7364,19 +7276,7 @@ workflow:
         tool_label: 查询服务实例
         tool_name: dataplane_service_instances
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          service:
-            type: mixed
-            value: '{{#1742807803325.service#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
+          {"endTime": {"type": "variable", "value": ["1741227526517", "endTime"]}, "service": {"type": "mixed", "value": "{{#1742807803325.service#}}"}, "startTime": {"type": "variable", "value": ["1741227526517", "startTime"]}, "tenantId": {"type": "variable", "value": ["1742807803325", "tenantId"]}}
         type: tool
       height: 54
       id: '1779264984142'
@@ -7392,40 +7292,9 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(text: str, is_vm: str, sourceFrom: str) ->\
-          \ dict:\n    data = json.loads(text)\n\n    instances = data.get(\"data\"\
-          , [])\n    queries = []\n\n    vm_mode = str(is_vm).lower() == \"true\"\n\
-          \n    for item in instances:\n        service = str(item.get(\"service\"\
-          , \"\") or \"\")\n        container_id = str(item.get(\"containerId\", \"\
-          \") or \"\")\n        pod = str(item.get(\"podName\", \"\") or \"\")\n \
-          \       node = str(item.get(\"nodeName\", \"\") or \"\")\n        pid =\
-          \ str(item.get(\"pid\", \"\") or \"\")\n\n        query = \"\"\n\n     \
-          \   # VM模式下，不拼接 container_name=service\n        if vm_mode:\n          \
-          \  if len(container_id) > 0 and len(node) > 0:\n                query =\
-          \ f\"\"\"container_id='{container_id}' and host_name='{node}'\"\"\"\n  \
-          \          elif len(pod) > 0:\n                query = f\"\"\"k8s_pod_name='{pod}'\"\
-          \"\"\n            elif len(node) > 0 and len(pid) > 0:\n               \
-          \ query = f\"\"\"host_name='{node}' and pid='{pid}'\"\"\"\n            elif\
-          \ len(container_id) > 0:\n                query = f\"\"\"container_id='{container_id}'\"\
-          \"\"\n            elif len(node) > 0:\n                query = f\"\"\"host_name='{node}'\"\
-          \"\"\n        else:\n            if len(container_id) > 0 and len(node)\
-          \ > 0:\n                query = f\"\"\"container_id='{container_id}' and\
-          \ host_name='{node}'\"\"\"\n            elif len(pod) > 0 and len(service)\
-          \ > 0:\n                query = f\"\"\"k8s_pod_name='{pod}' and container_name='{service}'\"\
-          \"\"\n            elif len(pod) > 0:\n                query = f\"\"\"k8s_pod_name='{pod}'\"\
-          \"\"\n            elif len(node) > 0 and len(pid) > 0:\n               \
-          \ query = f\"\"\"host_name='{node}' and pid='{pid}'\"\"\"\n            elif\
-          \ len(service) > 0:\n                query = f\"\"\"container_name='{service}'\"\
-          \"\"\n            elif len(container_id) > 0:\n                query = f\"\
-          \"\"container_id='{container_id}'\"\"\"\n            elif len(node) > 0:\n\
-          \                query = f\"\"\"host_name='{node}'\"\"\"\n\n        if query:\n\
-          \            queries.append(f\"({query})\")\n\n    final_query = \" OR \"\
-          .join(queries)\n    if len(sourceFrom) > 0:\n        if len(final_query)\
-          \ > 0:\n            final_query += f\" and source='{sourceFrom}'\"\n   \
-          \     else:\n            final_query = f\"\"\"source='{sourceFrom}'\"\"\"\
-          \n    return {\n        \"query\": final_query,\n    }"
+        code: "def main(service: str) -> dict:\n    # 日志以告警服务为范围，不依赖 APO 容器/PID/source 字段或实例发现结果。\n    if not isinstance(service, str) or not service.strip():\n        raise ValueError(\"缺少告警服务名，不能查询未限定服务的日志\")\n    value = service.replace(\"\\\\\", \"\\\\\\\\\").replace(\"'\", \"\\\\'\")\n    return {\"query\": \"serviceName='\" + value + \"'\"}\n"
         code_language: python3
-        desc: ''
+        desc: "按告警服务查询日志；实例目录为空或缺少 Pod/PID 不改变日志范围。"
         outputs:
           query:
             children: null
@@ -7434,18 +7303,7 @@ workflow:
         title: 获取查询条件
         type: code
         variables:
-        - value_selector:
-          - '1779264984142'
-          - text
-          variable: text
-        - value_selector:
-          - env
-          - is_vm
-          variable: is_vm
-        - value_selector:
-          - '1742807803325'
-          - sourceFrom
-          variable: sourceFrom
+          [{"variable": "service", "value_selector": ["1742807803325", "service"]}]
       height: 54
       id: '1779266302359'
       position:

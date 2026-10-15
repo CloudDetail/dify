@@ -1,13 +1,12 @@
-from pathlib import Path
-from typing import Callable
 import json
 from collections import defaultdict, deque
+from collections.abc import Callable
+from pathlib import Path
 
 import yaml
 
 from core.workflow.graph_engine.entities.graph import Graph
 from core.workflow.nodes.code.entities import CodeNodeData
-
 
 WORKFLOW_DIR = Path(__file__).parents[3] / "init_data" / "workflows" / "zh"
 WORKFLOW = WORKFLOW_DIR / "告警简单根因分析.yml"
@@ -49,38 +48,6 @@ def node_prompt(node_id: str) -> str:
     return prompt_text(node)
 
 
-def complete_labels(**overrides) -> dict:
-    labels = {
-        "src_pod": "source-pod",
-        "src_node": "source-node",
-        "src_ip": "10.0.0.1",
-        "dst_pod": "target-pod",
-        "dst_node": "target-node",
-        "dst_ip": "10.0.0.2",
-    }
-    labels.update(overrides)
-    return labels
-
-
-def series(values: list[float], labels: dict, legend: str = "target") -> dict:
-    return {
-        "legend": legend,
-        "labels": labels,
-        "chart": {"chartData": {str(index): value for index, value in enumerate(values)}},
-    }
-
-
-def run_rtt_detection(timeseries: list[dict]) -> list[dict]:
-    main = code_node_main("RTT分析")
-    payload = json.dumps({"unit": "s", "data": {"timeseries": timeseries}})
-    return json.loads(main(payload)["result"])
-
-
-def run_rtt_attribution(detected: list[dict]) -> dict:
-    main = code_node_main("分析RTT问题")
-    return main(json.dumps(detected))
-
-
 def graph_path_exists(source: str, target: str, source_handle: str | None = None) -> bool:
     graph = load_workflow()["workflow"]["graph"]
     outgoing = defaultdict(list)
@@ -100,15 +67,6 @@ def graph_path_exists(source: str, target: str, source_handle: str | None = None
                 continue
             queue.append((edge["target"], False))
     return False
-
-
-def condition_case_handle(value: str) -> str:
-    node = nodes_by_title("条件分支 5")[0]
-    for case in node["data"]["cases"]:
-        conditions = case.get("conditions", [])
-        if conditions and conditions[0].get("value") == value:
-            return case["case_id"]
-    raise AssertionError(value)
 
 
 def trace_payload(traces: list[dict]) -> str:
@@ -232,7 +190,7 @@ def test_epoll_guidance_uses_network_diagnostics_instead_of_epoll_tracing():
     assert "strace -e epoll_wait" not in prompts
     assert "epoll_pwait" not in prompts
     assert "perf trace -e epoll:" not in prompts
-    for expected in ("ss -s", "nstat -az", "RTT", "下游 Span"):
+    for expected in ("ss -s", "nstat -az", "下游 Span"):
         assert expected in prompts
 
 
@@ -250,54 +208,6 @@ def test_output_prompts_do_not_treat_pod_as_the_only_instance_type():
         prompt = node_prompt(node_id)
         assert "{{#v2_runtime_environment_context.prompt_context#}}" in prompt
         assert "不得因为指标或工具名称包含“按Pod统计”" in prompt
-
-
-def test_sparse_40ms_rtt_spike_is_detected():
-    detected = run_rtt_detection([series([0.0] * 99 + [0.04], complete_labels())])
-
-    assert len(detected) == 1
-    assert "sparse_spike" in detected[0]["detectionReasons"]
-
-
-def test_rtt_detection_processes_series_after_first_ten():
-    normal = [
-        series([0.0, 0.0], complete_labels(dst_pod=f"normal-{index}"))
-        for index in range(10)
-    ]
-    detected = run_rtt_detection(
-        normal + [series([0.0, 0.08], complete_labels(dst_pod="late"), legend="late")]
-    )
-
-    assert detected[0]["labels"]["dst_pod"] == "late"
-
-
-def test_missing_dst_node_or_ip_does_not_drop_instance():
-    detected = [
-        {
-            "labels": {"dst_pod": "db-1"},
-            "legend": "db-1",
-            "avg": 0.04,
-            "spike": 0.04,
-            "unit": "s",
-        }
-    ]
-
-    result = run_rtt_attribution(detected)
-    instances = json.loads(result["abnormal_downstream_instances"])
-
-    assert result["direction_summary"] == "下游实例问题"
-    assert instances[0]["instance_name"] == "db-1"
-    assert result["evidence_quality"] == "partial"
-
-
-def test_attribution_never_returns_empty_downstream_problem():
-    result = run_rtt_attribution(
-        [{"labels": {}, "legend": "", "avg": 0.04, "spike": 0.04, "unit": "s"}]
-    )
-
-    assert result["direction_summary"] == "未明确归因"
-    assert result["requires_span_fallback"] == "true"
-    assert json.loads(result["abnormal_downstream_instances"]) == []
 
 
 def test_p90_uses_all_response_time_series_and_ignores_zeroes():
@@ -328,21 +238,8 @@ def test_p90_uses_all_response_time_series_and_ignores_zeroes():
     assert result["p90_value_us"] == 280000
 
 
-def test_downstream_instance_branch_reaches_span_query():
-    handle = condition_case_handle("下游实例问题")
-
-    assert graph_path_exists("1754299061896", "1754442999808", source_handle=handle)
-
-
-def test_downstream_node_branch_reaches_span_query():
-    handle = condition_case_handle("下游节点问题")
-
-    assert graph_path_exists("1754299061896", "1754442999808", source_handle=handle)
-
-
-def test_merge_keeps_rtt_and_database_span_evidence():
-    main = code_node_main("合并RTT与Span下游证据")
-    rtt_instances = json.dumps([{"instance_name": "mysql-1", "rtt_avg": "40ms"}])
+def test_span_evidence_keeps_database_details_without_assuming_root_cause():
+    main = code_node_main("整理Span下游证据")
     span_data = json.dumps(
         {
             "data": {
@@ -361,11 +258,10 @@ def test_merge_keeps_rtt_and_database_span_evidence():
         }
     )
 
-    result = json.loads(main(rtt_instances, span_data)["result"])
+    result = json.loads(main(span_data)["result"])
 
-    assert result["rtt_instances"][0]["instance_name"] == "mysql-1"
     assert result["span_dependencies"][0]["db_system"] == "mysql"
-    assert result["evidence_status"] == "complete"
+    assert result["evidence_status"] == "partial"
 
 
 def test_trace_merge_deduplicates_and_preserves_slow_trace():
@@ -406,3 +302,92 @@ def test_trace_queries_split_slow_and_error_samples():
     assert slow_params["minDuration"]["value"] == 200000
     assert error_params["limit"]["value"] == 20
     assert error_params["isError"]["value"] is True
+
+
+def test_simple_workflow_has_no_rtt_nodes_prompts_or_variable_references():
+    graph = load_workflow()["workflow"]["graph"]
+    serialized = json.dumps(graph, ensure_ascii=False)
+    assert "rtt" not in serialized, "残留小写 RTT 引用"
+    assert "RTT" not in serialized, "残留 RTT 节点或提示词"
+    assert "网络往返" not in serialized
+    assert "网络Ping" not in serialized
+    ids = {n["id"] for n in graph["nodes"]}
+
+    def check(value):
+        if isinstance(value, dict):
+            for key, item in value.items():
+                if key.endswith("value_selector") or key == "variable_selector":
+                    if item and item[0] not in {"env", "sys"}:
+                        assert item[0] in ids, item
+                check(item)
+        elif isinstance(value, list):
+            for item in value:
+                check(item)
+    check(graph)
+
+
+def test_network_route_queries_spans_without_quality_gate_and_other_route_remains():
+    assert graph_path_exists("1754385298311", "1754442999808", source_handle="1")
+    assert graph_path_exists("1754385298311", "1754385689812", source_handle="2")
+    assert not graph_path_exists("1754385298311", "1754442999808", source_handle="2")
+    assert graph_path_exists("17430598907140", "17511128736240")
+    assert graph_path_exists("17430610599980", "17511127594560")
+
+
+def test_net_and_epoll_preserve_strong_candidates_and_empty_data_boundary():
+    for title, direction in [("NET analyze", "net"), ("EPOLL analyze", "epoll")]:
+        main = code_node_main(title)
+        detected = {
+            "activeThreadCount": 2,
+            "candidateCount": 1,
+            "candidateContribution": 0.65,
+            "directionSummary": {"peak": 50},
+            "directionSignals": [{"score": 0.9, "type": "step"}],
+            "candidates": [{"threadId": "42", "score": 0.85, "contribution": 0.65,
+                            "chart": {"1": 5, "2": 50}, "labels": {"tid": "42"}}],
+        }
+        result = json.loads(main(json.dumps(detected))["result"])
+        assert result["direction"] == direction
+        assert result["status"] == "strong_potential_anomaly"
+        assert result["candidateContribution"] == 0.65
+        assert result["directionSignals"] == detected["directionSignals"]
+        assert result["directionSummary"] == detected["directionSummary"]
+        assert result["candidates"][0]["relatedEvidence"] == []
+        assert result["candidates"][0]["threadId"] == "42"
+        assert json.loads(main("{}")["result"])["status"] == "insufficient_data"
+
+
+def test_empty_span_evidence_does_not_claim_downstream_fault():
+    result = json.loads(code_node_main("整理Span下游证据")('{"data":{"data":[]}}')["result"])
+    assert result == {"span_dependencies": [], "evidence_status": "empty"}
+    prompt = node_prompt("1754382620041")
+    assert "尚不能确定自身或下游原因" in prompt
+    assert "缺少调用证据时保留原线程结论" in prompt
+
+
+def test_report_evidence_retains_logs_and_red_without_network_quality_chart():
+    result = code_node_main("生成验证数据")(
+        json.dumps({"type": "metrics", "name": "RED", "data": [{"value": 123}]}),
+        json.dumps({"logs": [{"message": "timeout"}]}), "响应延时升高", "调用超时")
+    evidence = json.loads(result["result"])["evidence"]
+    assert len(evidence) == 2
+    assert evidence[0]["data"] == [{"message": "timeout"}]
+    assert evidence[1]["data"] == [{"value": 123}]
+    assert evidence[1]["description"] == "响应延时升高"
+
+
+def test_span_evidence_accepts_real_filtered_provider_array():
+    main = code_node_main("整理Span下游证据")
+    payload = {"providerId": 1, "dataSource": "cos", "unit": "us", "data": [
+        {"serviceName": "test:v1::orders", "peerService": "inventory", "spanKind": "client",
+         "name": "GET /stock", "duration": 6000, "traceId": "trace-real-shape",
+         "spanId": "span-2", "attributes": {"server.address": "inventory.internal"}}
+    ]}
+    result = json.loads(main(json.dumps(payload))["result"])
+    assert result["evidence_status"] == "partial"
+    assert len(result["span_dependencies"]) == 1
+    dependency = result["span_dependencies"][0]
+    assert dependency["service"] == "inventory"
+    assert dependency["duration"] == 6000
+    assert dependency["operation"] == "GET /stock"
+    assert dependency["trace_id"] == "trace-real-shape"

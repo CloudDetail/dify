@@ -111,24 +111,24 @@ workflow:
     - data:
         isInIteration: false
         sourceType: tool
-        targetType: tool
-      id: 17430598907140-source-17430598942980-target
+        targetType: code
+      id: 17430598907140-source-17511128736240-target
       selected: false
       source: '17430598907140'
       sourceHandle: source
-      target: '17430598942980'
+      target: '17511128736240'
       targetHandle: target
       type: custom
       zIndex: 0
     - data:
         isInIteration: false
         sourceType: tool
-        targetType: tool
-      id: 17430610599980-source-17430610640640-target
+        targetType: code
+      id: 17430610599980-source-17511127594560-target
       selected: false
       source: '17430610599980'
       sourceHandle: source
-      target: '17430610640640'
+      target: '17511127594560'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -141,30 +141,6 @@ workflow:
       source: '17430610719970'
       sourceHandle: source
       target: '17430610756270'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: code
-      id: 17430610640640-source-1744255998058-target
-      selected: false
-      source: '17430610640640'
-      sourceHandle: source
-      target: '1744255998058'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: code
-      id: 17430598942980-source-17442560822670-target
-      selected: false
-      source: '17430598942980'
-      sourceHandle: source
-      target: '17442560822670'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -231,12 +207,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: if-else
+        targetType: "code"
       id: v2_runtime_environment_context-source-1742453019576-target
       selected: false
       source: v2_runtime_environment_context
       sourceHandle: source
-      target: '1742453019576'
+      target: "1754299310647"
       targetHandle: target
       type: custom
       zIndex: 0
@@ -796,18 +772,6 @@ workflow:
         isInIteration: false
         sourceType: code
         targetType: code
-      id: 1744255998058-source-17511127594560-target
-      selected: false
-      source: '1744255998058'
-      sourceHandle: source
-      target: '17511127594560'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: code
       id: 17511127594560-source-1744287265980-target
       selected: false
       source: '17511127594560'
@@ -837,18 +801,6 @@ workflow:
       source: '17511128355920'
       sourceHandle: source
       target: '17443357899060'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: code
-      id: 17442560822670-source-17511128736240-target
-      selected: false
-      source: '17442560822670'
-      sourceHandle: source
-      target: '17511128736240'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -890,18 +842,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: if-else
-        targetType: tool
-      id: 1747355869184-false-17473562733380-target
-      selected: false
-      source: '1747355869184'
-      sourceHandle: 'false'
-      target: '17473562733380'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: code
         targetType: tool
       id: 17443388433580-source-1751504789699-target
@@ -933,18 +873,6 @@ workflow:
       source: '17443388443000'
       sourceHandle: source
       target: '17515048888700'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: tool
-        targetType: code
-      id: 17473562733380-source-17515143872690-target
-      selected: false
-      source: '17473562733380'
-      sourceHandle: source
-      target: '17515143872690'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1070,30 +998,6 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: code
-        targetType: code
-      id: 17515143872690-source-1754298166852-target
-      selected: false
-      source: '17515143872690'
-      sourceHandle: source
-      target: '1754298166852'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: tool
-      id: 1754299061896-97e70559-279b-400f-9670-fb05aa27f53e-1754462459105-target
-      selected: false
-      source: '1754299061896'
-      sourceHandle: 97e70559-279b-400f-9670-fb05aa27f53e
-      target: '1754462459105'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: tool
         targetType: llm
       id: 17515048888700-source-17430596469370-target
@@ -1123,18 +1027,6 @@ workflow:
       id: 1751504789699-source-17430596469370-target
       selected: false
       source: '1751504789699'
-      sourceHandle: source
-      target: '17430596469370'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: llm
-      id: 1754298166852-source-17430596469370-target
-      selected: false
-      source: '1754298166852'
       sourceHandle: source
       target: '17430596469370'
       targetHandle: target
@@ -1179,12 +1071,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: question-classifier
-        targetType: if-else
-      id: 1754385298311-1-1754299061896-target
+        targetType: tool
+      id: 1754385298311-1-1754462459105-target
       selected: false
       source: '1754385298311'
       sourceHandle: '1'
-      target: '1754299061896'
+      target: '1754462459105'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1196,18 +1088,6 @@ workflow:
       selected: false
       source: '1754385298311'
       sourceHandle: '2'
-      target: '1754385689812'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: variable-aggregator
-      id: 1754299061896-false-1754385689812-target
-      selected: false
-      source: '1754299061896'
-      sourceHandle: 'false'
       target: '1754385689812'
       targetHandle: target
       type: custom
@@ -1286,25 +1166,13 @@ workflow:
       zIndex: 0
     - data:
         isInLoop: false
-        sourceType: if-else
-        targetType: tool
-      id: 1754299061896-true-1754462459105-target
-      selected: false
-      source: '1754299061896'
-      sourceHandle: 'true'
-      target: '1754462459105'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
         sourceType: code
         targetType: code
       id: 17430589567120-source-1754299310647-target
       selected: false
       source: '17430589567120'
       sourceHandle: source
-      target: '1754299310647'
+      target: "v2_runtime_environment_context"
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1612,24 +1480,12 @@ workflow:
     - data:
         isInIteration: false
         sourceType: code
-        targetType: code
+        targetType: "if-else"
       id: 1742807803325-source-v2_runtime_environment_context-target
       selected: false
       source: '1742807803325'
       sourceHandle: source
-      target: v2_runtime_environment_context
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: tool
-      id: 1754299061896-v2_downstream_node_case-1754462459105-target
-      selected: false
-      source: '1754299061896'
-      sourceHandle: v2_downstream_node_case
-      target: '1754462459105'
+      target: "1742453019576"
       targetHandle: target
       type: custom
       zIndex: 0
@@ -1842,10 +1698,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(arg: list) -> dict:\n    pod_info = []\n  \
-          \  first_pod = None\n    \n    if len(arg) > 0:\n        first_pod = arg[0]\n\
-          \        pod_info = arg[1:]  \n    \n    return {\n        \"first\": first_pod,\n\
-          \        \"monitor\": [],\n    }"
+        code: "import json\n\ndef main(arg: list) -> dict:\n    pod_info = []\n    first_pod = None\n    \n    if len(arg) > 0:\n        first_pod = arg[0]\n        pod_info = arg[1:]  \n    \n    return {\n        \"first\": first_pod,\n        \"monitor\": [],\n    }"
         code_language: python3
         desc: ''
         outputs:
@@ -1907,13 +1760,12 @@ workflow:
 
             根因为网络质量问题：ss -s查看全局socket状态，ss -tunap查看所有TCP/UDP连接，nstat -z 查看重传等命令
 
-            根因为 EPOLL：保留 EPOLL 作为异常方向，但建议从网络连接和等待原因排查。优先结合 RTT、下游 Span、超时和重传证据；可按证据选择
-            ss -s、ss -antp、nstat -az、sar -n TCP,ETCP 1、ip -s link。不要默认建议跟踪 epoll 系统调用，也不要机械输出全部命令。
+            根因为 EPOLL：保留 EPOLL 作为异常方向，但建议从网络连接和等待原因排查。优先结合下游 Span、超时和重传证据；可按证据选择 ss -s、ss -antp、nstat -az、sar
+            -n TCP,ETCP 1、ip -s link。不要默认建议跟踪 epoll 系统调用，也不要机械输出全部命令。
 
             根因为CPU抢占（runq）：dstat -l 1 查看系统负载，mpstat -P ALL 1查看CPU的%idle和%util等命令
 
-            根因为文件读取（file）：iotop -o -p <PID>查看进程级磁盘IO，strace -e trace=file -tt -T -p
-            <PID>查看文件相关的系统调用等命令
+            根因为文件读取（file）：iotop -o -p <PID>查看进程级磁盘IO，strace -e trace=file -tt -T -p <PID>查看文件相关的系统调用等命令
 
             # 文档
 
@@ -1939,7 +1791,7 @@ workflow:
 
             3. 故障归因分析需保持单一维度，禁止构建跨维度关联（如GC与锁竞争）
 
-            4. 当网络栈耗时(net)异常增高但网络往返延迟(RTT)处于基线范围时，需重点提示检查下游依赖服务
+            4. 当网络栈耗时(net)异常增高时，可提示检查连接等待和下游依赖；只有实际调用证据支持时才能指向具体下游，不能仅凭线程耗时区分自身网络与下游问题。
 
 
             # 结论数据源
@@ -2135,7 +1987,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\ndef get_value(data, keys):\n    for key in keys:\n        value = data.get(key)\n        if value is not None:\n            return value\n    return \"\"\n\n\ndef main(arg: str, node: str, startTime: int, endTime: int) -> dict:\n    data = json.loads(arg)\n\n    SECOND = 1000000  # microseconds\n    MINUTE = 60 * SECOND\n    HOUR = 60 * MINUTE\n    if node:\n        node = get_value(data, [\"node\", \"nodeName\", \"node_name\"])\n    return {\n        \"tenantId\": get_tenant_id(data),\n        \"alertName\": get_value(data, [\"alertName\", \"alertname\"]),\n        \"service\": get_value(data, [\"svc_name\", \"service\"]),\n        \"endpoint\": get_value(data, [\"endpoint\", \"content_key\"]),\n        \"pod\": get_value(data, [\"pod\", \"src_pod\", \"pod_name\"]),\n        \"namespace\": get_value(data, [\"namespace\", \"src_namespace\"]),\n        \"pid\": get_value(data, [\"pid\"]),\n        \"node\": node,\n        \"containerId\": get_value(data, [\"containerId\", \"container_id\"]),\n        \"alertEventId\": get_value(data, [\"alertEventId\"]),\n        \"historyStartTime\": startTime - (24*HOUR),\n        \"historyEndTime\": startTime,\n    }\n\n\ndef get_tenant_id(data):\n    # 事件顶层身份优先，兼容原始标签；不能使用 providerId/groupId 代替租户。\n    if not isinstance(data, dict):\n        return \"\"\n    sources = [data] + [data.get(key) for key in (\"raw_tags\", \"tags\", \"labels\")]\n    for source in sources:\n        if not isinstance(source, dict):\n            continue\n        for key in (\"tenantId\", \"tenant_id\"):\n            value = source.get(key)\n            if isinstance(value, str) and value.strip():\n                return value.strip()\n            if isinstance(value, int) and not isinstance(value, bool):\n                return str(value)\n    return \"\"\n"
+        code: "import json\ndef get_value(data, keys):\n    for key in keys:\n        value = data.get(key)\n        if value is not None:\n            return value\n    return \"\"\n\n\ndef main(arg: str, node: str, startTime: int, endTime: int) -> dict:\n    data = json.loads(arg)\n\n    SECOND = 1000000  # microseconds\n    MINUTE = 60 * SECOND\n    HOUR = 60 * MINUTE\n    if not node:\n        node = get_value(data, [\"node\", \"nodeName\", \"node_name\"])\n    return {\n        \"tenantId\": get_tenant_id(data),\n        \"alertName\": get_value(data, [\"alertName\", \"alertname\"]),\n        \"service\": get_value(data, [\"svc_name\", \"service\"]),\n        \"endpoint\": get_value(data, [\"endpoint\", \"content_key\"]),\n        \"pod\": get_value(data, [\"pod\", \"src_pod\", \"pod_name\"]),\n        \"namespace\": get_value(data, [\"namespace\", \"src_namespace\"]),\n        \"pid\": get_value(data, [\"pid\"]),\n        \"node\": node,\n        \"containerId\": get_value(data, [\"containerId\", \"container_id\"]),\n        \"alertEventId\": get_value(data, [\"alertEventId\"]),\n        \"historyStartTime\": startTime - (24*HOUR),\n        \"historyEndTime\": startTime,\n    }\n\n\ndef get_tenant_id(data):\n    # 事件顶层身份优先，兼容原始标签；不能使用 providerId/groupId 代替租户。\n    if not isinstance(data, dict):\n        return \"\"\n    sources = [data] + [data.get(key) for key in (\"raw_tags\", \"tags\", \"labels\")]\n    for source in sources:\n        if not isinstance(source, dict):\n            continue\n        for key in (\"tenantId\", \"tenant_id\"):\n            value = source.get(key)\n            if isinstance(value, str) and value.strip():\n                return value.strip()\n            if isinstance(value, int) and not isinstance(value, bool):\n                return str(value)\n    return \"\"\n"
         code_language: python3
         desc: ''
         outputs:
@@ -2209,49 +2061,13 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\nfrom typing import Any\n\n\ndef main(data: list[str])\
-          \ -> dict:\n    best_record = None\n    best_score = float(\"-inf\")\n\n\
-          \    for item in data:\n        parsed = _parse_record(item)\n        if\
-          \ parsed is None:\n            continue\n\n        score = _to_float(parsed.get(\"\
-          score\", 0.0))\n        if score > best_score:\n            best_score =\
-          \ score\n            best_record = parsed\n\n    if best_record is None:\n\
-          \        return _empty_result()\n\n    return {\n        \"pod\": _read_pod(best_record),\n\
-          \        \"namespace\": str(best_record.get(\"namespace\", \"\") or \"\"\
-          ),\n        \"pid\": _read_pid(best_record),\n        \"node\": _read_node(best_record),\n\
-          \    }\n\n\ndef _parse_record(item: Any) -> dict[str, Any] | None:\n   \
-          \ if isinstance(item, str):\n        return json.loads(item)\n    return\
-          \ None\n\n\ndef _read_pod(record: dict[str, Any]) -> str:\n    instance\
-          \ = record.get(\"instance\")\n    if isinstance(instance, dict):\n     \
-          \   return str(instance.get(\"pod\", \"\") or \"\")\n    return str(record.get(\"\
-          podName\", record.get(\"pod\", \"\")) or \"\")\n\n\ndef _read_pid(record:\
-          \ dict[str, Any]) -> str:\n    instance = record.get(\"instance\")\n   \
-          \ if isinstance(instance, dict):\n        return str(instance.get(\"pid\"\
-          , \"\") or \"\")\n    return str(record.get(\"pid\", \"\") or \"\")\n\n\n\
-          def _read_node(record: dict[str, Any]) -> str:\n    instance = record.get(\"\
-          instance\")\n    if isinstance(instance, dict):\n        return str(instance.get(\"\
-          node\", \"\") or \"\")\n    return str(record.get(\"nodeName\", record.get(\"\
-          node\", \"\")) or \"\")\n\n\ndef _to_float(value: Any) -> float:\n    try:\n\
-          \        return float(value)\n    except (TypeError, ValueError):\n    \
-          \    return 0.0\n\n\ndef _empty_result() -> dict[str, str]:\n    return\
-          \ {\n        \"pod\": \"\",\n        \"namespace\": \"\",\n        \"pid\"\
-          : \"\",\n        \"node\": \"\",\n    }"
+        code: "import json\nfrom typing import Any\n\n\ndef main(data: list[str]) -> dict:\n    best_record = None\n    best_score = float(\"-inf\")\n\n    for item in data:\n        parsed = _parse_record(item)\n        if parsed is None:\n            continue\n\n        score = _to_float(parsed.get(\"score\", 0.0))\n        if score > best_score:\n            best_score = score\n            best_record = parsed\n\n    if best_record is None:\n        return _empty_result()\n\n    return {\n        \"pod\": _read_pod(best_record),\n        \"namespace\": str(best_record.get(\"instance\", {}).get(\"namespace\", best_record.get(\"namespace\", \"\")) or \"\"),\n        \"pid\": _read_pid(best_record),\n        \"node\": _read_node(best_record),\n        \"containerId\": str(best_record.get(\"instance\", {}).get(\"containerId\", \"\") or \"\"),\n    }\n\n\ndef _parse_record(item: Any) -> dict[str, Any] | None:\n    if isinstance(item, str):\n        return json.loads(item)\n    return None\n\n\ndef _read_pod(record: dict[str, Any]) -> str:\n    instance = record.get(\"instance\")\n    if isinstance(instance, dict):\n        return str(instance.get(\"pod\", \"\") or \"\")\n    return str(record.get(\"podName\", record.get(\"pod\", \"\")) or \"\")\n\n\ndef _read_pid(record: dict[str, Any]) -> str:\n    instance = record.get(\"instance\")\n    if isinstance(instance, dict):\n        return str(instance.get(\"pid\", \"\") or \"\")\n    return str(record.get(\"pid\", \"\") or \"\")\n\n\ndef _read_node(record: dict[str, Any]) -> str:\n    instance = record.get(\"instance\")\n    if isinstance(instance, dict):\n        return str(instance.get(\"node\", \"\") or \"\")\n    return str(record.get(\"nodeName\", record.get(\"node\", \"\")) or \"\")\n\n\ndef _to_float(value: Any) -> float:\n    try:\n        return float(value)\n    except (TypeError, ValueError):\n        return 0.0\n\n\ndef _empty_result() -> dict[str, str]:\n    return {\n        \"pod\": \"\",\n        \"namespace\": \"\",\n        \"pid\": \"\",\n        \"node\": \"\",\n        \"containerId\": \"\",\n    }"
         code_language: python3
         desc: ''
         isInIteration: true
         iteration_id: '1741497176064'
         outputs:
-          namespace:
-            children: null
-            type: string
-          node:
-            children: null
-            type: string
-          pid:
-            children: null
-            type: string
-          pod:
-            children: null
-            type: string
+          {"namespace": {"children": null, "type": "string"}, "node": {"children": null, "type": "string"}, "pid": {"children": null, "type": "string"}, "pod": {"children": null, "type": "string"}, "containerId": {"type": "string", "children": null}}
         selected: false
         title: POD info
         type: code
@@ -2368,22 +2184,22 @@ workflow:
         tool_node_version: '2'
         tool_parameters:
           containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
+            type: "variable"
+            value: ["17430589567120", "containerId"]
           endTime:
             type: variable
             value:
             - '1741227526517'
             - endTime
           nodeName:
-            type: mixed
-            value: '{{#1742807803325.node#}}'
+            type: "variable"
+            value: ["17430589567120", "node"]
           pid:
-            type: mixed
-            value: '{{#17430589567120.pid#}}'
+            type: "variable"
+            value: ["17430589567120", "pid"]
           pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
+            type: "variable"
+            value: ["17430589567120", "pod"]
           startTime:
             type: variable
             value:
@@ -2559,11 +2375,11 @@ workflow:
             - '1741227526517'
             - endTime
           namespace:
-            type: mixed
-            value: '{{#17430589567120.namespace#}}'
+            type: "variable"
+            value: ["17430589567120", "namespace"]
           pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
+            type: "variable"
+            value: ["17430589567120", "pod"]
           startTime:
             type: variable
             value:
@@ -2610,56 +2426,93 @@ workflow:
           text: 你是可观测性领域的智能助手，协助用户分析解决问题。
         - id: 2b2ad468-efcd-4bcc-aeb9-d53d2f2770ad
           role: user
-          text: |-
-            # 分析目标
-            根据当前告警窗口内 CPU、网络、文件操作、Epoll 等待、运行队列五个方向的线程消耗候选，判断运行对象{{#v2_runtime_environment_context.location_text#}}存在的潜在线程消耗问题，并结合网络往返延迟数据总结给出分析结论。
+          text: '# 分析目标
+
+            根据当前告警窗口内 CPU、网络、文件操作、Epoll 等待、运行队列五个方向的线程消耗候选，判断运行对象{{#v2_runtime_environment_context.location_text#}}存在的潜在线程消耗问题，并基于各方向线程证据给出初步分析结论。
+
 
             # 数据口径
+
             1. 五个方向的数据由确定性算法在当前窗口内筛选，不使用历史基线。线程尖峰的潜在门槛为峰值倍率>=1.5且稳健Z值>=4，强门槛为倍率>=2且稳健Z值>=4，极端门槛为倍率>=4且稳健Z值>=8；当窗口内MAD为0、无法计算稳健Z值时，算法仅按对应倍率回退判断。阶跃突增的潜在/强门槛分别为1.5倍/2倍，并要求前后平台相对稳定、变化后持续；方向集体阶跃的强级别不再额外要求尖峰Z值。算法还识别突然激活、方向内重度消费者和同方向离群线程。
+
             2. “方向集体尖峰/集体阶跃/集体激活”是独立的方向聚合信号，用于发现多条线程同步抬升；它不是伪造的线程候选。“存在强潜在异常”高于“存在潜在异常”；“未筛出达到阈值的候选”只表示当前窗口内没有满足筛选条件，不能证明该方向正常；“数据不足”不得解释为正常。
+
             3. 评分用于当前方向内候选排序，不是故障概率。候选贡献表示候选线程整窗消耗占该方向活跃线程总消耗的比例，只用于描述影响范围和排序，不能单独证明强异常；“方向集体阶跃”表示多条线程从变化前平台同步抬升并维持，“持续上升/持续下降”只是当前窗口趋势，不自动等同于异常。
+
             4. 每个方向摘要都包含当前窗口趋势（首段/末段/峰值）、窗口内正值中位数基线、P95、代表性异常值和时间模式。趋势不是历史趋势；`异常值`表示方向聚合达到阈值后的代表点，`代表偏离值`表示尚未达到方向阈值、仅用于保留上下文的高位点，不能把后者当成已确认异常；模式用于描述孤立尖峰、阶跃、突然激活或多线程同步，不可单独作为根因。
-            5. 辅助相关序列只表示时间上同步变化，不代表因果关系。网络和 Epoll 候选不能脱离网络往返延迟或下游证据直接归因为网络故障。
-            6. Epoll 等待升高可能是正常等待；只有候选强度明显并且存在网络往返延迟或下游证据时，才能提升其问题优先级。
+
+            5. 辅助相关序列只表示时间上同步变化，不代表因果关系。网络和 Epoll 候选只说明线程消耗或等待变化，不能直接归因为网络故障或下游故障。
+
+            6. Epoll 等待升高可能是正常等待；只有候选强度明显并且有调用、超时或连接错误等实际证据支持时，才能提升其问题优先级。
+
 
             # 分析步骤
+
             1. 列出所有状态为“存在强潜在异常”或“存在潜在异常”的方向，方向聚合信号与线程候选均需保留，不得只因某个方向排名最高而遗漏其他候选方向。
+
             2. 选择主要方向时依次比较：方向状态、最高评分、候选贡献、最强候选线程的异常类型和峰值倍率；候选线程数量只作为次要参考。禁止使用固定的 CPU、网络、Epoll、文件、RunQ 优先级。
+
             3. 潜在线程尖峰/阶跃表示已达到较宽松的召回门槛但尚未达到强门槛；尖峰表示短时高点，稀疏尖峰表示窗口内仅出现一至两个离散高点；阶跃突增表示从低位突然升高并短时维持，方向集体阶跃还会展示同步阶跃线程数；突然激活表示此前接近零后出现连续消耗；重度消费者/同方向离群表示该线程相对同方向其他线程占用突出。
-            4. 网络或 Epoll 为主要方向时，必须结合网络往返延迟总结区分：自身网络质量问题、具体下游依赖问题、或证据不足。没有明确下游证据时不得编造服务、Pod、接口或节点。
+
+            4. 网络或 Epoll 为主要方向时，保留候选方向，由后续 Span 分析补充调用证据；当前证据不足时明确说明尚不能区分自身与下游原因，不得编造服务、Pod、接口或节点。
+
             5. 如果多个方向强度接近，明确给出“主要候选方向”和“其他潜在方向”，不要强行断言唯一根因。所有方向均无候选时，可以比较输入中的“未达阈值偏离”指出最接近门槛、值得优先检查的方向，但这些只是弱证据，不得描述成已发生异常或据此断言根因；结论应为“当前窗口未筛出达到阈值的线程消耗候选”。
 
+
             # 知识库使用要求
+
             {{#context#}}
+
             - 优先使用与告警{{#1742807803325.alertName#}}或服务{{#1754299310647.service#}}直接相关的历史告警、解决思路、负责人和业务名称映射。
+
             - 使用知识库内容时注明文档名称；无相关内容时基于输入证据回答。
+
             - 如果文档包含服务名与业务名映射，输出必须使用业务名；没有映射时保留真实服务名。
 
+
             # 输入数据
+
             - CPU：{{#17443388433580.result#}}
+
             - 网络：{{#17443388438160.result#}}
+
             - 文件操作：{{#17443388421360.result#}}
+
             - Epoll：{{#1744290470304.result#}}
+
             - 运行队列：{{#17443388443000.result#}}
-            - 网络往返延迟数据总结：{{#1754298166852.result#}}
+
 
             # 输出格式
+
             **服务**：{{#1754299310647.service#}}
+
             **运行对象**：{{#v2_runtime_environment_context.location_text#}}
+
             **对象类型**：{{#v2_runtime_environment_context.instance_term#}}
 
+
             **线程消耗候选摘要**
+
             - 先按方向列出趋势、窗口基线、峰值、代表性异常值和异常模式，再列出关键候选线程、异常类型、峰值倍率和方向贡献；没有达到阈值的方向仍应结合趋势摘要说明，不能只写“正常”。
 
+
             **初步分析结论**
+
             - 给出主要候选方向、其他潜在方向、证据边界和具体下一步检查建议。
-            - 使用简洁的非技术表述；RunQ 表述为 CPU 调度等待，RTT 表述为网络往返延迟。
+
+            - 使用简洁的非技术表述；RunQ 表述为 CPU 调度等待。
+
             - 不得使用“超过历史均值”“历史异常”等当前输入无法证明的表述。
 
+
             # 运行环境约束
+
             {{#v2_runtime_environment_context.prompt_context#}}
+
             运行环境上下文优先于知识库或通用示例；冲突命令必须忽略。
-            服务名为空时省略服务字段，禁止输出占位服务名或“未知服务”。不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器。示例中的占位文本不得出现在最终结果中。
+
+            服务名为空时省略服务字段，禁止输出占位服务名或“未知服务”。不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器。示例中的占位文本不得出现在最终结果中。'
         selected: false
         title: llm analysis root cause
         type: llm
@@ -2774,22 +2627,22 @@ workflow:
         tool_node_version: '2'
         tool_parameters:
           containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
+            type: "variable"
+            value: ["17430589567120", "containerId"]
           endTime:
             type: variable
             value:
             - '1741227526517'
             - endTime
           nodeName:
-            type: mixed
-            value: '{{#1742807803325.node#}}'
+            type: "variable"
+            value: ["17430589567120", "node"]
           pid:
-            type: mixed
-            value: '{{#17430589567120.pid#}}'
+            type: "variable"
+            value: ["17430589567120", "pid"]
           pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
+            type: "variable"
+            value: ["17430589567120", "pod"]
           startTime:
             type: variable
             value:
@@ -2909,22 +2762,22 @@ workflow:
         tool_node_version: '2'
         tool_parameters:
           containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
+            type: "variable"
+            value: ["17430589567120", "containerId"]
           endTime:
             type: variable
             value:
             - '1741227526517'
             - endTime
           nodeName:
-            type: mixed
-            value: '{{#1741227526517.nodeName#}}'
+            type: "variable"
+            value: ["17430589567120", "node"]
           pid:
-            type: mixed
-            value: '{{#17430589567120.pid#}}'
+            type: "variable"
+            value: ["17430589567120", "pid"]
           pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
+            type: "variable"
+            value: ["17430589567120", "pod"]
           startTime:
             type: variable
             value:
@@ -2943,169 +2796,6 @@ workflow:
         y: 739
       positionAbsolute:
         x: 5942
-        y: 739
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-      zIndex: 1002
-    - data:
-        desc: ''
-        isInIteration: true
-        is_team_authorization: true
-        iteration_id: '1741497176064'
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Specified pod name
-            ja_JP: Specified pod name
-            pt_BR: Specified pod name
-            zh_Hans: 指定的容器POD名称
-          label:
-            en_US: pod
-            ja_JP: pod
-            pt_BR: pod
-            zh_Hans: pod
-          llm_description: Specified pod name
-          max: null
-          min: null
-          name: pod
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Specified namespace
-            ja_JP: Specified namespace
-            pt_BR: Specified namespace
-            zh_Hans: 指定的容器所在Namespace
-          label:
-            en_US: namespace
-            ja_JP: namespace
-            pt_BR: namespace
-            zh_Hans: namespace
-          llm_description: Specified namespace
-          max: null
-          min: null
-          name: namespace
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time
-            ja_JP: Data query start time
-            pt_BR: Data query start time
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time
-            ja_JP: Data query end time
-            pt_BR: Data query end time
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query start time
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          endTime: ''
-          namespace: ''
-          pod: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: container rtt
-        tool_configurations: {}
-        tool_label: Query container rtt
-        tool_name: 查询容器网络与下游RTT
-        tool_node_version: '2'
-        tool_parameters:
-          containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          namespace:
-            type: mixed
-            value: '{{#17430589567120.namespace#}}'
-          node:
-            type: mixed
-            value: '{{#17430589567120.node#}}'
-          pid:
-            type: mixed
-            value: '{{#17430589567120.pid#}}'
-          pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
-          tenantId:
-            type: variable
-            value:
-            - '1742807803325'
-            - tenantId
-        type: tool
-      height: 54
-      id: '17430598942980'
-      position:
-        x: 6246
-        y: 739
-      positionAbsolute:
-        x: 6246
         y: 739
       selected: false
       sourcePosition: right
@@ -3207,22 +2897,22 @@ workflow:
         tool_node_version: '2'
         tool_parameters:
           containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
+            type: "variable"
+            value: ["17430589567120", "containerId"]
           endTime:
             type: variable
             value:
             - '1741227526517'
             - endTime
           nodeName:
-            type: mixed
-            value: '{{#1742807803325.node#}}'
+            type: "variable"
+            value: ["17430589567120", "node"]
           pid:
-            type: mixed
-            value: '{{#17430589567120.pid#}}'
+            type: "variable"
+            value: ["17430589567120", "pid"]
           pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
+            type: "variable"
+            value: ["17430589567120", "pod"]
           startTime:
             type: variable
             value:
@@ -3241,169 +2931,6 @@ workflow:
         y: 1021
       positionAbsolute:
         x: 6246
-        y: 1021
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-      zIndex: 1002
-    - data:
-        desc: ''
-        isInIteration: true
-        is_team_authorization: true
-        iteration_id: '1741497176064'
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Specified pod name
-            ja_JP: Specified pod name
-            pt_BR: Specified pod name
-            zh_Hans: 指定的容器POD名称
-          label:
-            en_US: pod
-            ja_JP: pod
-            pt_BR: pod
-            zh_Hans: pod
-          llm_description: Specified pod name
-          max: null
-          min: null
-          name: pod
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Specified namespace
-            ja_JP: Specified namespace
-            pt_BR: Specified namespace
-            zh_Hans: 指定的容器所在Namespace
-          label:
-            en_US: namespace
-            ja_JP: namespace
-            pt_BR: namespace
-            zh_Hans: namespace
-          llm_description: Specified namespace
-          max: null
-          min: null
-          name: namespace
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time
-            ja_JP: Data query start time
-            pt_BR: Data query start time
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time
-            ja_JP: Data query end time
-            pt_BR: Data query end time
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query start time
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          endTime: ''
-          namespace: ''
-          pod: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: container rtt
-        tool_configurations: {}
-        tool_label: Query container rtt
-        tool_name: 查询容器网络与下游RTT
-        tool_node_version: '2'
-        tool_parameters:
-          containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          namespace:
-            type: mixed
-            value: '{{#17430589567120.namespace#}}'
-          node:
-            type: mixed
-            value: '{{#17430589567120.node#}}'
-          pid:
-            type: mixed
-            value: '{{#17430589567120.pid#}}'
-          pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
-          tenantId:
-            type: variable
-            value:
-            - '1742807803325'
-            - tenantId
-        type: tool
-      height: 54
-      id: '17430610640640'
-      position:
-        x: 6550
-        y: 1021
-      positionAbsolute:
-        x: 6550
         y: 1021
       selected: false
       sourcePosition: right
@@ -3505,22 +3032,22 @@ workflow:
         tool_node_version: '2'
         tool_parameters:
           containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
+            type: "variable"
+            value: ["17430589567120", "containerId"]
           endTime:
             type: variable
             value:
             - '1741227526517'
             - endTime
           nodeName:
-            type: mixed
-            value: '{{#1742807803325.node#}}'
+            type: "variable"
+            value: ["17430589567120", "node"]
           pid:
-            type: mixed
-            value: '{{#17430589567120.pid#}}'
+            type: "variable"
+            value: ["17430589567120", "pid"]
           pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
+            type: "variable"
+            value: ["17430589567120", "pod"]
           startTime:
             type: variable
             value:
@@ -3670,11 +3197,11 @@ workflow:
             - '1741227526517'
             - endTime
           namespace:
-            type: mixed
-            value: '{{#17430589567120.namespace#}}'
+            type: "variable"
+            value: ["17430589567120", "namespace"]
           pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
+            type: "variable"
+            value: ["17430589567120", "pod"]
           startTime:
             type: variable
             value:
@@ -3701,222 +3228,36 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "def main(data_json: str) -> dict:\n    timeseries = json.loads(data_json).get('data',\
-          \ {}).get('timeseries', [])\n        \n    normal = 0.05\n    filtered =\
-          \ []\n    for metric in timeseries:\n        pod = metric.get('labels',\
-          \ {}).get('dst_pod', '')\n        if len(pod) == 0:\n            pod = metric.get('labels',\
-          \ {}).get('pid', '')\n\n        chart = metric.get('chart', {}).get('chartData',\
-          \ {})\n        count = 0\n        for _, value in chart.items():\n     \
-          \       if value/normal > 1.2:\n                count += 1\n\n        if\
-          \ count / len(chart) >= 0.2:\n            res = {\n                \"chart\"\
-          : chart,\n                \"abnormalCount\": count,\n                \"\
-          dst_pod\": pod,\n                \"normal\": normal\n            }\n   \
-          \         filtered.append(res)\n\n    return {\n        \"result\": json.dumps(filtered)\n\
-          \    }"
-        code_language: python3
-        desc: ''
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: Get epoll abnormal rtt
-        type: code
-        variables:
-        - value_selector:
-          - '17430610640640'
-          - text
-          variable: data_json
-      height: 54
-      id: '1744255998058'
-      position:
-        x: 6854
-        y: 1021
-      positionAbsolute:
-        x: 6854
-        y: 1021
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "def main(data_json: str) -> dict:\n    timeseries = json.loads(data_json).get('data',\
-          \ {}).get('timeseries', [])\n        \n    normal = 0.05\n    filtered =\
-          \ []\n    for metric in timeseries:\n        pod = metric.get('labels',\
-          \ {}).get('dst_pod', '')\n        if len(pod) == 0:\n            pod = metric.get('labels',\
-          \ {}).get('pid', '')\n\n        chart = metric.get('chart', {}).get('chartData',\
-          \ {})\n        count = 0\n        for _, value in chart.items():\n     \
-          \       if value/normal > 1.2:\n                count += 1\n\n        if\
-          \ count / len(chart) >= 0.2:\n            res = {\n                \"chart\"\
-          : chart,\n                \"abnormalCount\": count,\n                \"\
-          dst_pod\": pod,\n                \"normal\": normal\n            }\n   \
-          \         filtered.append(res)\n\n    return {\n        \"result\": json.dumps(filtered)\n\
-          \    }"
-        code_language: python3
-        desc: ''
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: Get net abnormal rtt
-        type: code
-        variables:
-        - value_selector:
-          - '17430598942980'
-          - text
-          variable: data_json
-      height: 54
-      id: '17442560822670'
-      position:
-        x: 6550
-        y: 739
-      positionAbsolute:
-        x: 6550
-        y: 739
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: |-
-          import json
-
-
-          # 两条曲线至少需要多少个公共采样点才计算相关性。调大可提高可信度但会漏掉短序列；调小会增加偶然相关。
-          MIN_COMMON_POINTS = 4
-          # Pearson 相关系数门槛。调大只保留更同步的曲线但可能漏掉弱关联；调小会增加相关证据，也更容易出现伪相关。
-          CORRELATION_THRESHOLD = 0.70
-          # 每条候选线程最多保留多少条辅助相关序列。调大可保留更多线索但增加 token；调小更精简。
-          MAX_RELATED_ITEMS = 3
-          # 候选或方向信号达到该评分后升级为强潜在异常。调大更保守；调小会让更多潜在线索升级为强异常；只影响方向分级，不影响候选入选。
-          STRONG_SCORE_THRESHOLD = 0.80
-
-
-          def _load(value, default):
-              try:
-                  return json.loads(value) if value else default
-              except (TypeError, ValueError, json.JSONDecodeError):
-                  return default
-
-
-          def _proof_series(proof_data):
-              if isinstance(proof_data, list):
-                  return proof_data
-              if isinstance(proof_data, dict):
-                  return proof_data.get("data", {}).get("timeseries", []) or []
-              return []
-
-
-          def _identity(item, index):
-              labels = item.get("labels", {}) or {}
-              for key in ("dst_pod", "dst_ip", "pod", "container", "container_id", "pid", "tid_key"):
-                  value = item.get(key) or labels.get(key)
-                  if value:
-                      return str(value)
-              legend = item.get("legend")
-              return str(legend) if legend else f"series_{index}"
-
-
-          def _pearson(left, right):
-              if len(left) < MIN_COMMON_POINTS or len(right) != len(left):
-                  return None
-              left_avg = sum(left) / len(left)
-              right_avg = sum(right) / len(right)
-              left_centered = [value - left_avg for value in left]
-              right_centered = [value - right_avg for value in right]
-              numerator = sum(x * y for x, y in zip(left_centered, right_centered))
-              left_norm = sum(value * value for value in left_centered) ** 0.5
-              right_norm = sum(value * value for value in right_centered) ** 0.5
-              if left_norm == 0 or right_norm == 0:
-                  return None
-              return numerator / (left_norm * right_norm)
-
-
-          def _related_evidence(chart, proof_data):
-              related = []
-              for index, item in enumerate(_proof_series(proof_data), start=1):
-                  if not isinstance(item, dict):
-                      continue
-                  chart_container = item.get("chart") or {}
-                  proof_chart = chart_container.get("chartData", chart_container)
-                  common = sorted(set(chart) & set(proof_chart))
-                  if len(common) < MIN_COMMON_POINTS:
-                      continue
-                  try:
-                      left = [float(chart[timestamp]) for timestamp in common]
-                      right = [float(proof_chart[timestamp]) for timestamp in common]
-                  except (TypeError, ValueError):
-                      continue
-                  correlation = _pearson(left, right)
-                  if correlation is not None and correlation >= CORRELATION_THRESHOLD:
-                      related.append({
-                          "name": _identity(item, index),
-                          "correlation": round(correlation, 3),
-                          "commonPointCount": len(common),
-                      })
-              related.sort(key=lambda item: (-item["correlation"], -item["commonPointCount"]))
-              return related[:MAX_RELATED_ITEMS]
-
-
-          def main(data_json: str, proof_json: str) -> dict:
-              direction = "epoll"
-              detected = _load(data_json, {})
-              proof_data = _load(proof_json, {})
-              candidates = []
-
-              for item in detected.get("candidates", []) or []:
-                  compact = {key: value for key, value in item.items() if key not in ("chart", "labels")}
-                  compact["relatedEvidence"] = _related_evidence(item.get("chart", {}), proof_data)
-                  candidates.append(compact)
-
-              candidates.sort(key=lambda item: (-item.get("score", 0), -item.get("contribution", 0)))
-              direction_signals = detected.get("directionSignals", []) or []
-              candidate_contribution = float(detected.get(
-                  "candidateContribution",
-                  min(1.0, sum(item.get("contribution", 0) for item in candidates)),
-              ) or 0)
-              thread_max_score = max([item.get("score", 0) for item in candidates] or [0])
-              direction_max_score = max([item.get("score", 0) for item in direction_signals] or [0])
-              max_score = max(thread_max_score, direction_max_score)
-              strong_count = sum(1 for item in candidates if item.get("score", 0) >= STRONG_SCORE_THRESHOLD)
-              strong_direction_count = sum(
-                  1 for item in direction_signals if item.get("score", 0) >= STRONG_SCORE_THRESHOLD
-              )
-
-              if detected.get("activeThreadCount", 0) == 0:
-                  status = "insufficient_data"
-              elif not candidates and not direction_signals:
-                  status = "no_significant_anomaly"
-              elif max_score >= STRONG_SCORE_THRESHOLD:
-                  status = "strong_potential_anomaly"
-              else:
-                  status = "potential_anomaly"
-
-              result = {
-                  "schemaVersion": detected.get("schemaVersion", "thread-window-anomaly-v4"),
-                  "direction": direction,
-                  "status": status,
-                  "unit": detected.get("unit", ""),
-                  "seriesCount": detected.get("seriesCount", 0),
-                  "activeThreadCount": detected.get("activeThreadCount", 0),
-                  "candidateCount": detected.get("candidateCount", len(candidates)),
-                  "returnedCandidateCount": len(candidates),
-                  "truncatedCandidateCount": detected.get("truncatedCandidateCount", 0),
-                  "directionSignalCount": len(direction_signals),
-                  "strongCandidateCount": strong_count,
-                  "strongDirectionSignalCount": strong_direction_count,
-                  "candidateContribution": round(candidate_contribution, 4),
-                  "maxScore": round(max_score, 4),
-                  "directionSignals": direction_signals,
-                  "directionSummary": detected.get("directionSummary") or detected.get("directionDeviation") or {},
-                  "directionDeviation": detected.get("directionDeviation"),
-                  "topDeviations": detected.get("topDeviations", []) or [],
-                  "candidates": candidates,
-              }
-              return {"result": json.dumps(result, ensure_ascii=False)}
+        code: "import json\n\n\n# 候选或方向信号达到该评分后升级为强潜在异常。调大更保守；调小会让更多潜在线索升级为强异常；只影响方向分级，不影响候选入选。\nSTRONG_SCORE_THRESHOLD\
+          \ = 0.80\n\n\ndef _load(value, default):\n    try:\n        return json.loads(value) if value else default\n\
+          \    except (TypeError, ValueError, json.JSONDecodeError):\n        return default\n\n\ndef main(data_json:\
+          \ str) -> dict:\n    direction = \"epoll\"\n    detected = _load(data_json, {})\n    candidates = []\n\
+          \n    for item in detected.get(\"candidates\", []) or []:\n        compact = {key: value for key, value\
+          \ in item.items() if key not in (\"chart\", \"labels\")}\n        compact[\"relatedEvidence\"] = []\n\
+          \        candidates.append(compact)\n\n    candidates.sort(key=lambda item: (-item.get(\"score\", 0),\
+          \ -item.get(\"contribution\", 0)))\n    direction_signals = detected.get(\"directionSignals\", []) or\
+          \ []\n    candidate_contribution = float(detected.get(\n        \"candidateContribution\",\n       \
+          \ min(1.0, sum(item.get(\"contribution\", 0) for item in candidates)),\n    ) or 0)\n    thread_max_score\
+          \ = max([item.get(\"score\", 0) for item in candidates] or [0])\n    direction_max_score = max([item.get(\"\
+          score\", 0) for item in direction_signals] or [0])\n    max_score = max(thread_max_score, direction_max_score)\n\
+          \    strong_count = sum(1 for item in candidates if item.get(\"score\", 0) >= STRONG_SCORE_THRESHOLD)\n\
+          \    strong_direction_count = sum(\n        1 for item in direction_signals if item.get(\"score\", 0)\
+          \ >= STRONG_SCORE_THRESHOLD\n    )\n\n    if detected.get(\"activeThreadCount\", 0) == 0:\n        status\
+          \ = \"insufficient_data\"\n    elif not candidates and not direction_signals:\n        status = \"no_significant_anomaly\"\
+          \n    elif max_score >= STRONG_SCORE_THRESHOLD:\n        status = \"strong_potential_anomaly\"\n   \
+          \ else:\n        status = \"potential_anomaly\"\n\n    result = {\n        \"schemaVersion\": detected.get(\"\
+          schemaVersion\", \"thread-window-anomaly-v4\"),\n        \"direction\": direction,\n        \"status\"\
+          : status,\n        \"unit\": detected.get(\"unit\", \"\"),\n        \"seriesCount\": detected.get(\"\
+          seriesCount\", 0),\n        \"activeThreadCount\": detected.get(\"activeThreadCount\", 0),\n       \
+          \ \"candidateCount\": detected.get(\"candidateCount\", len(candidates)),\n        \"returnedCandidateCount\"\
+          : len(candidates),\n        \"truncatedCandidateCount\": detected.get(\"truncatedCandidateCount\", 0),\n\
+          \        \"directionSignalCount\": len(direction_signals),\n        \"strongCandidateCount\": strong_count,\n\
+          \        \"strongDirectionSignalCount\": strong_direction_count,\n        \"candidateContribution\"\
+          : round(candidate_contribution, 4),\n        \"maxScore\": round(max_score, 4),\n        \"directionSignals\"\
+          : direction_signals,\n        \"directionSummary\": detected.get(\"directionSummary\") or detected.get(\"\
+          directionDeviation\") or {},\n        \"directionDeviation\": detected.get(\"directionDeviation\"),\n\
+          \        \"topDeviations\": detected.get(\"topDeviations\", []) or [],\n        \"candidates\": candidates,\n\
+          \    }\n    return {\"result\": json.dumps(result, ensure_ascii=False)}"
         code_language: python3
         desc: ''
         outputs:
@@ -3931,10 +3272,6 @@ workflow:
           - '17511127594560'
           - result
           variable: data_json
-        - value_selector:
-          - '1744255998058'
-          - result
-          variable: proof_json
       height: 54
       id: '1744287265980'
       position:
@@ -4425,142 +3762,36 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: |-
-          import json
-
-
-          # 两条曲线至少需要多少个公共采样点才计算相关性。调大可提高可信度但会漏掉短序列；调小会增加偶然相关。
-          MIN_COMMON_POINTS = 4
-          # Pearson 相关系数门槛。调大只保留更同步的曲线但可能漏掉弱关联；调小会增加相关证据，也更容易出现伪相关。
-          CORRELATION_THRESHOLD = 0.70
-          # 每条候选线程最多保留多少条辅助相关序列。调大可保留更多线索但增加 token；调小更精简。
-          MAX_RELATED_ITEMS = 3
-          # 候选或方向信号达到该评分后升级为强潜在异常。调大更保守；调小会让更多潜在线索升级为强异常；只影响方向分级，不影响候选入选。
-          STRONG_SCORE_THRESHOLD = 0.80
-
-
-          def _load(value, default):
-              try:
-                  return json.loads(value) if value else default
-              except (TypeError, ValueError, json.JSONDecodeError):
-                  return default
-
-
-          def _proof_series(proof_data):
-              if isinstance(proof_data, list):
-                  return proof_data
-              if isinstance(proof_data, dict):
-                  return proof_data.get("data", {}).get("timeseries", []) or []
-              return []
-
-
-          def _identity(item, index):
-              labels = item.get("labels", {}) or {}
-              for key in ("dst_pod", "dst_ip", "pod", "container", "container_id", "pid", "tid_key"):
-                  value = item.get(key) or labels.get(key)
-                  if value:
-                      return str(value)
-              legend = item.get("legend")
-              return str(legend) if legend else f"series_{index}"
-
-
-          def _pearson(left, right):
-              if len(left) < MIN_COMMON_POINTS or len(right) != len(left):
-                  return None
-              left_avg = sum(left) / len(left)
-              right_avg = sum(right) / len(right)
-              left_centered = [value - left_avg for value in left]
-              right_centered = [value - right_avg for value in right]
-              numerator = sum(x * y for x, y in zip(left_centered, right_centered))
-              left_norm = sum(value * value for value in left_centered) ** 0.5
-              right_norm = sum(value * value for value in right_centered) ** 0.5
-              if left_norm == 0 or right_norm == 0:
-                  return None
-              return numerator / (left_norm * right_norm)
-
-
-          def _related_evidence(chart, proof_data):
-              related = []
-              for index, item in enumerate(_proof_series(proof_data), start=1):
-                  if not isinstance(item, dict):
-                      continue
-                  chart_container = item.get("chart") or {}
-                  proof_chart = chart_container.get("chartData", chart_container)
-                  common = sorted(set(chart) & set(proof_chart))
-                  if len(common) < MIN_COMMON_POINTS:
-                      continue
-                  try:
-                      left = [float(chart[timestamp]) for timestamp in common]
-                      right = [float(proof_chart[timestamp]) for timestamp in common]
-                  except (TypeError, ValueError):
-                      continue
-                  correlation = _pearson(left, right)
-                  if correlation is not None and correlation >= CORRELATION_THRESHOLD:
-                      related.append({
-                          "name": _identity(item, index),
-                          "correlation": round(correlation, 3),
-                          "commonPointCount": len(common),
-                      })
-              related.sort(key=lambda item: (-item["correlation"], -item["commonPointCount"]))
-              return related[:MAX_RELATED_ITEMS]
-
-
-          def main(data_json: str, proof_json: str) -> dict:
-              direction = "net"
-              detected = _load(data_json, {})
-              proof_data = _load(proof_json, {})
-              candidates = []
-
-              for item in detected.get("candidates", []) or []:
-                  compact = {key: value for key, value in item.items() if key not in ("chart", "labels")}
-                  compact["relatedEvidence"] = _related_evidence(item.get("chart", {}), proof_data)
-                  candidates.append(compact)
-
-              candidates.sort(key=lambda item: (-item.get("score", 0), -item.get("contribution", 0)))
-              direction_signals = detected.get("directionSignals", []) or []
-              candidate_contribution = float(detected.get(
-                  "candidateContribution",
-                  min(1.0, sum(item.get("contribution", 0) for item in candidates)),
-              ) or 0)
-              thread_max_score = max([item.get("score", 0) for item in candidates] or [0])
-              direction_max_score = max([item.get("score", 0) for item in direction_signals] or [0])
-              max_score = max(thread_max_score, direction_max_score)
-              strong_count = sum(1 for item in candidates if item.get("score", 0) >= STRONG_SCORE_THRESHOLD)
-              strong_direction_count = sum(
-                  1 for item in direction_signals if item.get("score", 0) >= STRONG_SCORE_THRESHOLD
-              )
-
-              if detected.get("activeThreadCount", 0) == 0:
-                  status = "insufficient_data"
-              elif not candidates and not direction_signals:
-                  status = "no_significant_anomaly"
-              elif max_score >= STRONG_SCORE_THRESHOLD:
-                  status = "strong_potential_anomaly"
-              else:
-                  status = "potential_anomaly"
-
-              result = {
-                  "schemaVersion": detected.get("schemaVersion", "thread-window-anomaly-v4"),
-                  "direction": direction,
-                  "status": status,
-                  "unit": detected.get("unit", ""),
-                  "seriesCount": detected.get("seriesCount", 0),
-                  "activeThreadCount": detected.get("activeThreadCount", 0),
-                  "candidateCount": detected.get("candidateCount", len(candidates)),
-                  "returnedCandidateCount": len(candidates),
-                  "truncatedCandidateCount": detected.get("truncatedCandidateCount", 0),
-                  "directionSignalCount": len(direction_signals),
-                  "strongCandidateCount": strong_count,
-                  "strongDirectionSignalCount": strong_direction_count,
-                  "candidateContribution": round(candidate_contribution, 4),
-                  "maxScore": round(max_score, 4),
-                  "directionSignals": direction_signals,
-                  "directionSummary": detected.get("directionSummary") or detected.get("directionDeviation") or {},
-                  "directionDeviation": detected.get("directionDeviation"),
-                  "topDeviations": detected.get("topDeviations", []) or [],
-                  "candidates": candidates,
-              }
-              return {"result": json.dumps(result, ensure_ascii=False)}
+        code: "import json\n\n\n# 候选或方向信号达到该评分后升级为强潜在异常。调大更保守；调小会让更多潜在线索升级为强异常；只影响方向分级，不影响候选入选。\nSTRONG_SCORE_THRESHOLD\
+          \ = 0.80\n\n\ndef _load(value, default):\n    try:\n        return json.loads(value) if value else default\n\
+          \    except (TypeError, ValueError, json.JSONDecodeError):\n        return default\n\n\ndef main(data_json:\
+          \ str) -> dict:\n    direction = \"net\"\n    detected = _load(data_json, {})\n    candidates = []\n\
+          \n    for item in detected.get(\"candidates\", []) or []:\n        compact = {key: value for key, value\
+          \ in item.items() if key not in (\"chart\", \"labels\")}\n        compact[\"relatedEvidence\"] = []\n\
+          \        candidates.append(compact)\n\n    candidates.sort(key=lambda item: (-item.get(\"score\", 0),\
+          \ -item.get(\"contribution\", 0)))\n    direction_signals = detected.get(\"directionSignals\", []) or\
+          \ []\n    candidate_contribution = float(detected.get(\n        \"candidateContribution\",\n       \
+          \ min(1.0, sum(item.get(\"contribution\", 0) for item in candidates)),\n    ) or 0)\n    thread_max_score\
+          \ = max([item.get(\"score\", 0) for item in candidates] or [0])\n    direction_max_score = max([item.get(\"\
+          score\", 0) for item in direction_signals] or [0])\n    max_score = max(thread_max_score, direction_max_score)\n\
+          \    strong_count = sum(1 for item in candidates if item.get(\"score\", 0) >= STRONG_SCORE_THRESHOLD)\n\
+          \    strong_direction_count = sum(\n        1 for item in direction_signals if item.get(\"score\", 0)\
+          \ >= STRONG_SCORE_THRESHOLD\n    )\n\n    if detected.get(\"activeThreadCount\", 0) == 0:\n        status\
+          \ = \"insufficient_data\"\n    elif not candidates and not direction_signals:\n        status = \"no_significant_anomaly\"\
+          \n    elif max_score >= STRONG_SCORE_THRESHOLD:\n        status = \"strong_potential_anomaly\"\n   \
+          \ else:\n        status = \"potential_anomaly\"\n\n    result = {\n        \"schemaVersion\": detected.get(\"\
+          schemaVersion\", \"thread-window-anomaly-v4\"),\n        \"direction\": direction,\n        \"status\"\
+          : status,\n        \"unit\": detected.get(\"unit\", \"\"),\n        \"seriesCount\": detected.get(\"\
+          seriesCount\", 0),\n        \"activeThreadCount\": detected.get(\"activeThreadCount\", 0),\n       \
+          \ \"candidateCount\": detected.get(\"candidateCount\", len(candidates)),\n        \"returnedCandidateCount\"\
+          : len(candidates),\n        \"truncatedCandidateCount\": detected.get(\"truncatedCandidateCount\", 0),\n\
+          \        \"directionSignalCount\": len(direction_signals),\n        \"strongCandidateCount\": strong_count,\n\
+          \        \"strongDirectionSignalCount\": strong_direction_count,\n        \"candidateContribution\"\
+          : round(candidate_contribution, 4),\n        \"maxScore\": round(max_score, 4),\n        \"directionSignals\"\
+          : direction_signals,\n        \"directionSummary\": detected.get(\"directionSummary\") or detected.get(\"\
+          directionDeviation\") or {},\n        \"directionDeviation\": detected.get(\"directionDeviation\"),\n\
+          \        \"topDeviations\": detected.get(\"topDeviations\", []) or [],\n        \"candidates\": candidates,\n\
+          \    }\n    return {\"result\": json.dumps(result, ensure_ascii=False)}"
         code_language: python3
         desc: ''
         outputs:
@@ -4575,10 +3806,6 @@ workflow:
           - '17511128736240'
           - result
           variable: data_json
-        - value_selector:
-          - '17442560822670'
-          - result
-          variable: proof_json
       height: 54
       id: '17443357536900'
       position:
@@ -6167,7 +5394,7 @@ workflow:
           - comparison_operator: not empty
             id: a442dabe-ea1e-43c5-b85b-8e053695ff5a
             value: '{}'
-            varType: string
+            varType: "object"
             variable_selector:
             - '1741509454645'
             - first
@@ -6380,25 +5607,22 @@ workflow:
         tool_node_version: '2'
         tool_parameters:
           containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
+            type: "variable"
+            value: ["17430589567120", "containerId"]
           endTime:
             type: variable
             value:
             - '1741227526517'
             - endTime
-          node:
-            type: mixed
-            value: ''
           nodeName:
-            type: mixed
-            value: '{{#1742807803325.node#}}'
+            type: "variable"
+            value: ["17430589567120", "node"]
           pid:
-            type: mixed
-            value: '{{#1742807803325.pid#}}'
+            type: "variable"
+            value: ["17430589567120", "pid"]
           pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
+            type: "variable"
+            value: ["17430589567120", "pod"]
           startTime:
             type: variable
             value:
@@ -6423,169 +5647,6 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
-    - data:
-        desc: ''
-        isInIteration: true
-        is_team_authorization: true
-        iteration_id: '1741497176064'
-        output_schema: null
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Specified pod name
-            ja_JP: Specified pod name
-            pt_BR: Specified pod name
-            zh_Hans: 指定的容器POD名称
-          label:
-            en_US: pod
-            ja_JP: pod
-            pt_BR: pod
-            zh_Hans: pod
-          llm_description: Specified pod name
-          max: null
-          min: null
-          name: pod
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Specified namespace
-            ja_JP: Specified namespace
-            pt_BR: Specified namespace
-            zh_Hans: 指定的容器所在Namespace
-          label:
-            en_US: namespace
-            ja_JP: namespace
-            pt_BR: namespace
-            zh_Hans: namespace
-          llm_description: Specified namespace
-          max: null
-          min: null
-          name: namespace
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query start time
-            ja_JP: Data query start time
-            pt_BR: Data query start time
-            zh_Hans: 开始时间 (微秒)
-          label:
-            en_US: startTime
-            ja_JP: startTime
-            pt_BR: startTime
-            zh_Hans: startTime
-          llm_description: Data query start time
-          max: null
-          min: null
-          name: startTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Data query end time
-            ja_JP: Data query end time
-            pt_BR: Data query end time
-            zh_Hans: 结束时间 (微秒)
-          label:
-            en_US: endTime
-            ja_JP: endTime
-            pt_BR: endTime
-            zh_Hans: endTime
-          llm_description: Data query start time
-          max: null
-          min: null
-          name: endTime
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: number
-        params:
-          endTime: ''
-          namespace: ''
-          pod: ''
-          startTime: ''
-        provider_id: apo_select
-        provider_name: apo_select
-        provider_type: builtin
-        selected: false
-        title: RTT
-        tool_configurations: {}
-        tool_label: Query container rtt
-        tool_name: 查询容器网络与下游RTT
-        tool_node_version: '2'
-        tool_parameters:
-          containerId:
-            type: mixed
-            value: /
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          namespace:
-            type: mixed
-            value: '{{#17430589567120.namespace#}}'
-          node:
-            type: mixed
-            value: '{{#1742807803325.node#}}'
-          pid:
-            type: mixed
-            value: '{{#1742807803325.pid#}}'
-          pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
-          tenantId:
-            type: variable
-            value:
-            - '1742807803325'
-            - tenantId
-        type: tool
-      height: 54
-      id: '17473562733380'
-      position:
-        x: 7158
-        y: 1209
-      positionAbsolute:
-        x: 7158
-        y: 1209
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-      zIndex: 1002
     - data:
         desc: ''
         is_team_authorization: true
@@ -6787,24 +5848,53 @@ workflow:
           text: 你是可观测性领域的智能助手，协助用户分析解决问题。
         - id: 2b2ad468-efcd-4bcc-aeb9-d53d2f2770ad
           role: user
-          text: "# 分析目标\n基于NET消耗的异常线程数据和RTT异常长数据，判断运行对象{{#v2_runtime_environment_context.location_text#}}是否受告警事件{{#1742807803325.alertName#}}影响，并进行初步根因定位。\n\
-            \n# 输入数据规范\n- 线程在北极星指标NET上的异常消耗样本。\n- 当前运行对象相关的下游网络链路延迟异常消耗样本。\n\n# 分析规则\n\
-            1. **主异常方向判定**\n- 标注异常线程的延迟均值。\n- 识别延迟增幅最显著的线程。\n- 根据RTT识别是自身异常还是下游异常\n\
-            2. **网络链路延迟识别思路**\n- 网络链路延迟显著增高或接近0.05s附近\n- 若只有个别网络链路延迟出现异常（比如只有一个下游网络链路延迟异常）则认为网络异常是由下游导致，而非自身网络问题\n\
-            - 若有多个网络链路延迟同步出现异常（比如有3个及以上下游网络链路延迟异常）则认为是当前运行对象自身网络出现问题，进而影响了网络链路延迟.\n\
-            3. \n若无相关NET或网络链路延迟异常数据，则认为该时间段内对应数据无明显异常，可能只是出现短时间小幅波动。提示用户该数据无异常。\n\n\
-            # 输出格式\n**运行对象**：{{#v2_runtime_environment_context.location_text#}}  \n\
-            **北极星指标趋势摘要**\n- 按指标维度描述显著变化，若无异常标注\"未观测到显著偏离\"。\n**与下游网络链路延迟分析**\n- 如果是下游网络链路延迟异常则列出异常的网络链路延迟和对应下游。\n\
-            - 如果是自身网络导致下游网络链路延迟异常则给出造成的影响并说明是自身原因导致与下游的网络链路延迟升高\n- 最后根据分析规则判断错误方向。\n\
-            \n\n**初步根因结论**\n- 明确告警事件对应用的影响状态。\n- 基于北极星指标与分析规则输出单一归因结论。\n\n# 输入数据\n\
-            - 北极星指标NET消耗异常均值最高的实例{{#1747356893645.top_abnormal_means#}}，北极星指标NET消耗异常增速均值最高的实例{{#1747356893645.top_abnormal_growths#}}\n\
-            - 网络链路延迟异常消耗均值最高的实例{{#1747356893645.top_abnormal_means#}}\n网络链路延迟异常增速均值最高的实例\n\
-            \n# 输出准则\n- 使用简洁的非技术表述，避免歧义。\n- 结论需聚焦可执行建议（如\"检查代码嵌套\"而非\"可能存在性能问题\"）。\n\
-            \n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\
-            \n# 输出身份与环境规则\n- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n\
-            - 运行对象：{{#v2_runtime_environment_context.location_text#}}。\n- 对象类型：{{#v2_runtime_environment_context.instance_term#}}。\n\
-            - {{#v2_runtime_environment_context.prompt_context#}}\n- 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是\
-            \ Pod 或容器；必须服从运行环境上下文。\n- 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n"
+          text: '# 分析目标
+
+            根据 NET 线程消耗样本，分析运行对象{{#v2_runtime_environment_context.location_text#}}在告警窗口内的网络操作等待情况。
+
+            # 输入数据
+
+            - NET 消耗异常均值最高的实例：{{#1747356893645.top_abnormal_means#}}
+
+            - NET 消耗异常增速均值最高的实例：{{#1747356893645.top_abnormal_growths#}}
+
+            # 分析规则
+
+            1. 描述输入中真实存在的线程、消耗量级和变化，不得将线程耗时解释成网络链路延迟。
+
+            2. 仅凭 NET 消耗不能区分自身网络与下游原因，也不能直接确定故障根因或告警影响。
+
+            3. 无样本时说明证据不足；未筛出异常样本不证明网络或下游正常。
+
+            4. 输出候选方向、证据边界和可执行的调用链或日志核查建议，不得编造下游身份。
+
+            # 输出格式
+
+            依次描述运行对象、NET 消耗摘要、初步结论与待核查项，使用简洁的非技术表述。
+
+
+            # 运行环境约束
+
+            {{#v2_runtime_environment_context.prompt_context#}}
+
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。
+
+
+            # 输出身份与环境规则
+
+            - 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。
+
+            - 运行对象：{{#v2_runtime_environment_context.location_text#}}。
+
+            - 对象类型：{{#v2_runtime_environment_context.instance_term#}}。
+
+            - {{#v2_runtime_environment_context.prompt_context#}}
+
+            - 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。
+
+            - 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。
+
+            '
         selected: false
         title: 网络方向分析
         type: llm
@@ -7146,28 +6236,7 @@ workflow:
         tool_name: dataplane_instance_service
         tool_node_version: '2'
         tool_parameters:
-          containerId:
-            type: mixed
-            value: '{{#1742807803325.containerId#}}'
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          nodeName:
-            type: mixed
-            value: '{{#1742807803325.node#}}'
-          pid:
-            type: mixed
-            value: '{{#1742807803325.pid#}}'
-          pod:
-            type: mixed
-            value: '{{#1742807803325.pod#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
+          {"containerId": {"type": "mixed", "value": "{{#1742807803325.containerId#}}"}, "endTime": {"type": "variable", "value": ["1741227526517", "endTime"]}, "nodeName": {"type": "mixed", "value": "{{#1742807803325.node#}}"}, "pid": {"type": "mixed", "value": "{{#1742807803325.pid#}}"}, "pod": {"type": "mixed", "value": "{{#1742807803325.pod#}}"}, "startTime": {"type": "variable", "value": ["1741227526517", "startTime"]}, "tenantId": {"type": "variable", "value": ["1742807803325", "tenantId"]}, "service": {"type": "variable", "value": ["1742807803325", "service"]}}
         type: tool
       height: 54
       id: '1750657927551'
@@ -7298,19 +6367,7 @@ workflow:
         tool_name: dataplane_service_instances
         tool_node_version: '2'
         tool_parameters:
-          endTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - endTime
-          service:
-            type: mixed
-            value: '{{#1742807803325.service#}}'
-          startTime:
-            type: variable
-            value:
-            - '1741227526517'
-            - startTime
+          {"endTime": {"type": "variable", "value": ["1741227526517", "endTime"]}, "service": {"type": "mixed", "value": "{{#1742807803325.service#}}"}, "startTime": {"type": "variable", "value": ["1741227526517", "startTime"]}, "tenantId": {"type": "variable", "value": ["1742807803325", "tenantId"]}}
         type: tool
       height: 54
       id: '1750657965188'
@@ -7326,8 +6383,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(data: str) -> dict:\n    instances = json.loads(data).get('data',\
-          \ [])[:3]\n    return {\n        \"result\": instances,\n    }\n\n"
+        code: "import json\n\ndef main(data: str) -> dict:\n    instances = json.loads(data).get('data', [])[:3]\n    return {\n        \"result\": instances,\n    }\n\n"
         code_language: python3
         desc: ''
         outputs:
@@ -7555,11 +6611,11 @@ workflow:
             - '1741227526517'
             - endTime
           namespace:
-            type: mixed
-            value: '{{#17430589567120.namespace#}}'
+            type: "variable"
+            value: ["17430589567120", "namespace"]
           pod:
-            type: mixed
-            value: '{{#17430589567120.pod#}}'
+            type: "variable"
+            value: ["17430589567120", "pod"]
           startTime:
             type: variable
             value:
@@ -7585,13 +6641,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(timestamp: int, reason: str, tags: dict, detail: str, endpoint:\
-          \ str, service: str) -> dict:\n    data = {\n        \"timestamp\": timestamp,\n\
-          \        \"detail\": detail,\n        \"reason\": reason,\n        \"tags\"\
-          : tags,\n    }\n    if service != \"\":\n        data['tags']['service']\
-          \ = service\n    data['tags']['pid'] = str(data['tags']['pid'])\n    data['tags']['pod']\
-          \ = data['tags'].get(\"podName\", \"\")\n    data['tags']['endpoint'] =\
-          \ endpoint\n    return {\n        \"result\": json.dumps(data),\n    }\n"
+        code: "import json\n\ndef main(timestamp: int, reason: str, tags: dict, detail: str, endpoint: str, service: str) -> dict:\n    data = {\n        \"timestamp\": timestamp,\n        \"detail\": detail,\n        \"reason\": reason,\n        \"tags\": {k: str(v) for k,v in tags.items() if isinstance(v, (str,int,float,bool))},\n    }\n    if service != \"\":\n        data['tags']['service'] = service\n    data['tags']['pid'] = str(data['tags'].get('pid', ''))\n    data['tags']['pod'] = data['tags'].get(\"podName\", \"\")\n    data['tags']['endpoint'] = endpoint\n    return {\n        \"result\": json.dumps(data),\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -7694,7 +6744,7 @@ workflow:
 
             - 执行与故障方向和运行环境匹配的命令。
 
-            例如：如果网络往返延迟异常，建议执行traceroute <目标IP地址或域名>排查具体问题。
+            例如：若调用证据显示具体下游超时，建议核对该调用的 Trace、错误日志和依赖服务状态。
 
             如果运行队列方向（runq）问题，建议执行top命令查看cpu占用过多的进程并进一步分析。
 
@@ -7838,9 +6888,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(alertEventId: str, run_id: str) -> dict:\n    data = {\n\
-          \        \"alertEventId\": alertEventId,\n        \"runId\": run_id\n  \
-          \  }\n    return {\n        \"result\": json.dumps(data),\n    }\n"
+        code: "import json\n\ndef main(alertEventId: str, run_id: str) -> dict:\n    data = {\n        \"alertEventId\": alertEventId,\n        \"runId\": run_id\n    }\n    return {\n        \"result\": json.dumps(data),\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -7891,28 +6939,23 @@ workflow:
           text: 你是一个智能助手，帮助用户解决问题
         - id: 904153b5-a654-458e-9452-23aa907cfa57
           role: user
-          text: "# 目的\n根据告警根因总结和相关文档生成排障建议和可执行命令，建议聚焦于可执行命令，避免输出“检查服务健康状态”等模糊建议。\n\
-            # 可执行命令举例\n优先根据文档中与根因相关的片段给出解决建议。\n\n根因为CPU：使用top -H -p <PID>查看占用，pidstat\
-            \ -t -p <PID> 1查看使用率等命令\n根因为网络质量问题：ss -s查看全局socket状态，ss -tunap查看所有TCP/UDP连接，nstat\
-            \ -z 查看重传等命令\n根因为 EPOLL：保留 EPOLL 作为异常方向，但建议从网络连接和等待原因排查。优先结合 RTT、下游 Span、超时和重传证据；可按证据选择\
-            \ ss -s、ss -antp、nstat -az、sar -n TCP,ETCP 1、ip -s link。不要默认建议跟踪 epoll\
-            \ 系统调用，也不要机械输出全部命令。\n根因为CPU抢占（runq）：dstat -l 1 查看系统负载，mpstat -P ALL 1查看CPU的%idle和%util等命令\n\
-            根因为文件读取（file）：iotop -o -p <PID>查看进程级磁盘IO，strace -e trace=file -tt -T -p\
-            \ <PID>查看文件相关的系统调用等命令\n# 结论数据\n{{#1754385689812.output#}}\n# 文档\n{{#context#}}\n\
-            ## 使用要求\n必须先找出根据文档中的与当前告警或服务{{#1754299310647.service#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容，需要说明是“根据知识库文档给出具体建议；有真实负责人信息时再给出联系方式”。\n\
+          text: "# 目的\n根据告警根因总结和相关文档生成排障建议和可执行命令，建议聚焦于可执行命令，避免输出“检查服务健康状态”等模糊建议。\n# 可执行命令举例\n优先根据文档中与根因相关的片段给出解决建议。\n\
+            \n根因为CPU：使用top -H -p <PID>查看占用，pidstat -t -p <PID> 1查看使用率等命令\n根因为网络质量问题：ss -s查看全局socket状态，ss -tunap查看所有TCP/UDP连接，nstat\
+            \ -z 查看重传等命令\n根因为 EPOLL：保留 EPOLL 作为异常方向，但建议从网络连接和等待原因排查。优先结合下游 Span、超时和重传证据；可按证据选择 ss -s、ss -antp、nstat\
+            \ -az、sar -n TCP,ETCP 1、ip -s link。不要默认建议跟踪 epoll 系统调用，也不要机械输出全部命令。\n根因为CPU抢占（runq）：dstat -l 1 查看系统负载，mpstat\
+            \ -P ALL 1查看CPU的%idle和%util等命令\n根因为文件读取（file）：iotop -o -p <PID>查看进程级磁盘IO，strace -e trace=file -tt\
+            \ -T -p <PID>查看文件相关的系统调用等命令\n# 结论数据\n{{#1754385689812.output#}}\n# 文档\n{{#context#}}\n## 使用要求\n必须先找出根据文档中的与当前告警或服务{{#1754299310647.service#}}相关的内容进行回答，如果文档中没有相关内容则根据你的经验回答。如果使用了文档中的内容，需要说明是“根据知识库文档给出具体建议；有真实负责人信息时再给出联系方式”。\n\
             1. 关键寻找文档中包括但不限于历史告警、解决思路、负责人员等信息。\n2. 优先检索与服务延时升高相关的文档片段，只允许使用与当前根因方向相关的文档片段，如果片段与根因不相关，则完全忽略。如：根因方向为网络，聚焦于文档中与解决网络故障相关的片段，忽略文档中与网络故障无关的内容。\n\
             3. 如果文档中包含服务名与业务名的映射，则所有出现的服务名称必须使用业务名描述，且不能遗漏。如order-service对应订单服务，在描述根因时必须使用订单服务而不是order-service。\n\
-            4. 如果文档中包含责任联系人、运维人员、负责人等，在建议中添加一条“联系xx进行解决”，没有则不添加。\n\n# 格式模版\n{\"suggest\"\
-            : [\n        {\n            \"action\": \"向交易记录表添加索引\",\n            \"\
-            level\": \"high\"\n        },\n        {\n            \"action\": \"扩大数据库节点CPU资源\"\
-            ,\n            \"level\": \"medium\"\n        },\n        {\n        \
-            \    \"action\": \"联系xx进行解决，联系方式xx\",\n             \"level\": \"high\"\
-            \n    ] }\n# 输出格式\njson格式数据，格式参考模版，内容包含排障详细步骤，至少5条建议，不要输出其他内容\n\n# 运行环境约束\n\
-            {{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\
-            \n# 输出身份与环境规则\n- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n\
+            4. 如果文档中包含责任联系人、运维人员、负责人等，在建议中添加一条“联系xx进行解决”，没有则不添加。\n\n# 格式模版\n{\"suggest\": [\n        {\n     \
+            \       \"action\": \"向交易记录表添加索引\",\n            \"level\": \"high\"\n        },\n        {\n    \
+            \        \"action\": \"扩大数据库节点CPU资源\",\n            \"level\": \"medium\"\n        },\n        {\n\
+            \            \"action\": \"联系xx进行解决，联系方式xx\",\n             \"level\": \"high\"\n    ] }\n# 输出格式\n\
+            json格式数据，格式参考模版，内容包含排障详细步骤，至少5条建议，不要输出其他内容\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n\
+            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\n# 输出身份与环境规则\n- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n\
             - 运行对象：{{#v2_runtime_environment_context.location_text#}}。\n- 对象类型：{{#v2_runtime_environment_context.instance_term#}}。\n\
-            - {{#v2_runtime_environment_context.prompt_context#}}\n- 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是\
-            \ Pod 或容器；必须服从运行环境上下文。\n- 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n"
+            - {{#v2_runtime_environment_context.prompt_context#}}\n- 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。\n\
+            - 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n"
         selected: false
         title: 可行动建议JSON
         type: llm
@@ -8361,53 +7404,53 @@ workflow:
           text: "# 目的\n基于现有报告字段，生成新版 /report 页面使用的增量 reportView。不要修改或替代已有 overview、tags、topology、rootCauseAnalysis、suggest、evidence\
             \ 输出结构。\n\n# 输入\nreportType: slow\n\noverview:\n{{#1750661889002.result#}}\n\nrootCauseAnalysis:\n\
             {{#1750672701216.result#}}\n\nsuggest:\n{{#17506728633540.result#}}\n\nevidence:\n{{#1750769951427.result#}}\n\
-            \ntopology:\n{{#1750750056742.result#}}\n\n# 输出格式\n只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告\
-            \ id、生成时间、分析窗口。\n{\n  \"version\": \"v1\",\n  \"headline\": \"一句话根因判断\",\n  \"conclusionSummary\"\
-            : \"一句话说明关键证据；如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），不要输出时间戳原值\",\n  \"faultLocation\": {\"label\"\
-            : \"故障位置\", \"target\": \"服务/实例/节点\", \"summary\": \"简单说明\"},\n  \"summaryCards\": [{\"type\"\
-            : \"symptom|rootCause|excluded\", \"title\": \"短标题\", \"summary\": \"一句话\"}],\n  \"rootCauseEvidenceRefs\"\
-            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"rootCauseMetricRefs\"\
-            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"businessImpact\"\
-            : null,\n  \"timeline\": [{\"timestamp\": 1779811334000000, \"title\": \"事件短标题\", \"summary\"\
-            : \"一句话事件说明\"}],\n  \"analysisSteps\": [{\"title\": \"排查步骤短标题\", \"summary\": \"一句话说明\"}],\n \
-            \ \"actionTitles\": [{\"suggestIndex\": 0, \"title\": \"降低异常日志输出\"}],\n  \"evidenceHighlights\"\
-            : [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率升高\", \"summary\": \"使用原始证据中的结论或描述\"}]\n}\n\n# 严格规则\n\
-            1. 主根因方向只取 rootCauseAnalysis.other 中 level=major 的 type。type 别名归一：disk 按 storage，file 按 runtime/storage，memory\
-            \ 按 runtime/infra，system 按 infra/runtime/cpu/memory，config 按 config/dependency/log，self 按 code/log/runtime。没有这个\
-            \ type 时，不要为了支撑证据做推断，rootCauseEvidenceRefs 和 rootCauseMetricRefs 输出空数组。\n2. 首屏右上角支撑证据只放根因证据：从\
-            \ evidence 中选择与主根因直接相关的 type=metrics/red/log/traces 证据，写入 rootCauseEvidenceRefs。rootCauseEvidenceRefs\
-            \ 是首屏支撑证据唯一来源，evidenceIndex 使用 evidence 数组的从 0 开始下标。\n3. 引用 metrics/red 时必须有真实 chartData，指标名称、描述、legend、unit\
-            \ 必须匹配主根因方向；引用 log/traces 时 title/summary 必须直接描述异常日志、慢 span、下游调用或超时事实。rootCauseEvidenceRefs/rootCauseMetricRefs\
-            \ 的 summary 如引用耗时、延迟、慢 span 等时间指标，必须使用可读时间单位，不要直接输出原始裸小数秒；例如 0.0019s 应写成 1.9ms，0.0007s 应写成 0.7ms。\n\
-            4. downstream/dependency 根因必须优先引用具体下游服务、具体接口耗时、错误率、超时、慢调用分布、下游数据库/MySQL/SQL 查询耗时、锁等待、连接池等待、下游调用异常日志或慢\
-            \ trace；如果 major reason 已给出下游服务、接口或数据库实例，例如 ts-travel-plan-service 的 POST /api/v1/travelplanservice/travelPlan/cheapest，则优先引用该服务/接口的耗时、错误、超时指标、异常日志或慢\
-            \ trace；例如 ts-config-service 访问 train-ticket-mysql-master-0 时 SQL 查询变慢、锁等待或连接池等待升高，则优先引用 MySQL/数据库/SQL/锁等待/连接池等待相关\
-            \ evidence；如果只有日志证据，例如 requesttemplate-demo 调用 localhost:58082 /api/jpa-demo/sleep 出现 ResourceAccessException、SocketTimeoutException、Read\
+            \ntopology:\n{{#1750750056742.result#}}\n\n# 输出格式\n只输出一个 JSON 对象，不要 Markdown，不要代码块，不要解释，不要输出报告 id、生成时间、分析窗口。\n\
+            {\n  \"version\": \"v1\",\n  \"headline\": \"一句话根因判断\",\n  \"conclusionSummary\": \"一句话说明关键证据；如包含时间，必须使用转换后的可读时间（YYYY-MM-DD\
+            \ HH:mm:ss），不要输出时间戳原值\",\n  \"faultLocation\": {\"label\": \"故障位置\", \"target\": \"服务/实例/节点\", \"\
+            summary\": \"简单说明\"},\n  \"summaryCards\": [{\"type\": \"symptom|rootCause|excluded\", \"title\":\
+            \ \"短标题\", \"summary\": \"一句话\"}],\n  \"rootCauseEvidenceRefs\": [{\"evidenceIndex\": 0, \"title\"\
+            : \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"rootCauseMetricRefs\": [{\"evidenceIndex\": 0,\
+            \ \"title\": \"CPU 使用率\", \"summary\": \"45% -> 96%\"}],\n  \"businessImpact\": null,\n  \"timeline\"\
+            : [{\"timestamp\": 1779811334000000, \"title\": \"事件短标题\", \"summary\": \"一句话事件说明\"}],\n  \"analysisSteps\"\
+            : [{\"title\": \"排查步骤短标题\", \"summary\": \"一句话说明\"}],\n  \"actionTitles\": [{\"suggestIndex\": 0,\
+            \ \"title\": \"降低异常日志输出\"}],\n  \"evidenceHighlights\": [{\"evidenceIndex\": 0, \"title\": \"CPU 使用率升高\"\
+            , \"summary\": \"使用原始证据中的结论或描述\"}]\n}\n\n# 严格规则\n1. 主根因方向只取 rootCauseAnalysis.other 中 level=major\
+            \ 的 type。type 别名归一：disk 按 storage，file 按 runtime/storage，memory 按 runtime/infra，system 按 infra/runtime/cpu/memory，config\
+            \ 按 config/dependency/log，self 按 code/log/runtime。没有这个 type 时，不要为了支撑证据做推断，rootCauseEvidenceRefs 和\
+            \ rootCauseMetricRefs 输出空数组。\n2. 首屏右上角支撑证据只放根因证据：从 evidence 中选择与主根因直接相关的 type=metrics/red/log/traces\
+            \ 证据，写入 rootCauseEvidenceRefs。rootCauseEvidenceRefs 是首屏支撑证据唯一来源，evidenceIndex 使用 evidence 数组的从 0 开始下标。\n\
+            3. 引用 metrics/red 时必须有真实 chartData，指标名称、描述、legend、unit 必须匹配主根因方向；引用 log/traces 时 title/summary 必须直接描述异常日志、慢\
+            \ span、下游调用或超时事实。rootCauseEvidenceRefs/rootCauseMetricRefs 的 summary 如引用耗时、延迟、慢 span 等时间指标，必须使用可读时间单位，不要直接输出原始裸小数秒；例如\
+            \ 0.0019s 应写成 1.9ms，0.0007s 应写成 0.7ms。\n4. downstream/dependency 根因必须优先引用具体下游服务、具体接口耗时、错误率、超时、慢调用分布、下游数据库/MySQL/SQL\
+            \ 查询耗时、锁等待、连接池等待、下游调用异常日志或慢 trace；如果 major reason 已给出下游服务、接口或数据库实例，例如 ts-travel-plan-service 的 POST\
+            \ /api/v1/travelplanservice/travelPlan/cheapest，则优先引用该服务/接口的耗时、错误、超时指标、异常日志或慢 trace；例如 ts-config-service\
+            \ 访问 train-ticket-mysql-master-0 时 SQL 查询变慢、锁等待或连接池等待升高，则优先引用 MySQL/数据库/SQL/锁等待/连接池等待相关 evidence；如果只有日志证据，例如\
+            \ requesttemplate-demo 调用 localhost:58082 /api/jpa-demo/sleep 出现 ResourceAccessException、SocketTimeoutException、Read\
             \ timed out，也必须写入 rootCauseEvidenceRefs，不要因为没有 chartData 而留空。\n5. RED 指标只允许在 downstream、dependency、traffic、thirdparty\
             \ 根因下作为证据；cpu、code、log、retry、net、storage、runtime、infra 根因下禁止用 RED、平均延迟、错误率、吞吐量兜底。\n6. rootCauseMetricRefs\
             \ 仅作为兼容字段：只有 rootCauseEvidenceRefs 中引用 metrics/red 证据且有真实 chartData 时才同步填入；没有匹配主根因的指标时 rootCauseMetricRefs\
             \ 输出空数组，不要放无关指标。\n7. 支撑证据映射：cpu 使用 CPU 使用率、容器 CPU、进程 CPU、CPU throttling、load average；code 使用异常数、错误日志数、错误码、Exception、panic、stack；log\
-            \ 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用 RTT、连接失败、连接超时、TCP 重传、丢包、DNS\
-            \ 失败；storage/disk 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system\
+            \ 使用错误日志数、日志打印量、日志增长率、相同错误模板数；retry 使用重试次数、重试率、重复调用次数、下游调用突增；net 使用连接失败、连接超时、TCP 重传、丢包、DNS 失败；storage/disk\
+            \ 使用 DB 查询耗时、慢 SQL、磁盘 IO、磁盘使用率、连接池等待、SQL 错误；runtime/file/memory 使用 GC、堆内存、线程、协程、FD、文件描述符、OOM；infra/system\
             \ 按运行环境选择证据：VM 使用主机资源、进程状态和系统日志；容器使用 Pod 重启、OOMKill、节点资源、容器状态和 K8s Event；环境不明确时使用通用 CPU、内存和系统证据；config\
             \ 使用配置拉取失败、配置中心错误、DB 连接失败、连接串/凭据错误、初始化失败日志；self 使用应用异常、错误日志、panic、stack、runtime 异常；downstream/dependency\
-            \ 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic\
-            \ 使用 CPM（次/分钟）、请求速率、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。\n8. faultLocation 必须简单易懂；无法定位时输出\
-            \ null。\n9. businessImpact 没有明确业务影响时输出 null，不要编造。\n10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。\n\
-            11. evidenceHighlights 只服务关键证据摘要，不是首屏支撑证据来源；summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代\
-            \ rootCauseEvidenceRefs，不能伪装成支撑指标。\n12. conclusionSummary 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），禁止输出\
-            \ Unix 秒/毫秒/微秒时间戳原值。\n13. timeline 只使用 {\"timestamp\": number, \"title\": string, \"summary\"\
-            : string} 结构；timestamp 必须是真实微秒时间戳，title 写短标题，summary 写一句话事件说明。\n14. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出\
-            \ time、detail、content、description 字段；没有明确时间点时 timeline 输出空数组，把无时间点内容写入 analysisSteps。\n15. analysisSteps\
-            \ 只使用 {\"title\": string, \"summary\": string} 结构，不输出 timestamp、time、detail 字段。\n16. summaryCards\
-            \ 是首屏摘要，必须简洁，最多输出 3 张卡片：symptom、rootCause、excluded。rootCause 卡必须从 rootCauseAnalysis.other 中 level=major\
-            \ 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other 中 level=normal 的方向归纳。excluded.title 使用真实方向，例如“已排除\
-            \ CPU、文件方向”，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个 reason，不得机械罗列多个方向；不得把 level=minor\
-            \ 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。\n\n\n# 运行环境约束\n{{#v2_runtime_environment_context.prompt_context#}}\n\
-            运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\n# 输出身份与环境规则\n- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n\
-            - 运行对象：{{#v2_runtime_environment_context.location_text#}}。\n- 对象类型：{{#v2_runtime_environment_context.instance_term#}}。\n\
-            - {{#v2_runtime_environment_context.prompt_context#}}\n- 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。\n\
-            - 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n\n\n# RED字段和单位约定\nRED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response\
+            \ 使用下游延迟、下游错误率、下游超时、依赖 5xx、具体下游服务/接口耗时、慢调用分布、下游数据库/MySQL、SQL 查询耗时、锁等待、连接池等待、异常日志、慢 trace；traffic 使用\
+            \ CPM（次/分钟）、请求速率、并发、队列、突增比例；thirdparty 使用第三方延迟、错误率、超时、供应商错误码。\n8. faultLocation 必须简单易懂；无法定位时输出 null。\n\
+            9. businessImpact 没有明确业务影响时输出 null，不要编造。\n10. actionTitles 必须是你重新概括的短标题，最多 12 个字，不要直接截断原建议。\n11. evidenceHighlights\
+            \ 只服务关键证据摘要，不是首屏支撑证据来源；summary 优先使用原始 evidence 中已有结论或描述，保持原文事实。正常或已排除证据必须明确写成排除依据，不能替代 rootCauseEvidenceRefs，不能伪装成支撑指标。\n\
+            12. conclusionSummary 如包含时间，必须使用转换后的可读时间（YYYY-MM-DD HH:mm:ss），禁止输出 Unix 秒/毫秒/微秒时间戳原值。\n13. timeline\
+            \ 只使用 {\"timestamp\": number, \"title\": string, \"summary\": string} 结构；timestamp 必须是真实微秒时间戳，title\
+            \ 写短标题，summary 写一句话事件说明。\n14. 有明确时间点或可换算时间戳时才输出 timeline；禁止输出 time、detail、content、description 字段；没有明确时间点时\
+            \ timeline 输出空数组，把无时间点内容写入 analysisSteps。\n15. analysisSteps 只使用 {\"title\": string, \"summary\":\
+            \ string} 结构，不输出 timestamp、time、detail 字段。\n16. summaryCards 是首屏摘要，必须简洁，最多输出 3 张卡片：symptom、rootCause、excluded。rootCause\
+            \ 卡必须从 rootCauseAnalysis.other 中 level=major 的方向归纳；excluded 卡只能从 rootCauseAnalysis.other 中 level=normal\
+            \ 的方向归纳。excluded.title 使用真实方向，例如“已排除 CPU、文件方向”，excluded.summary 尽量不超过 50 个中文字，必须归纳成一句自然语言，不得直接拼接多个\
+            \ reason，不得机械罗列多个方向；不得把 level=minor 写入 excluded；没有明确 level=normal 排除项时不要编造 excluded。\n\n\n# 运行环境约束\n\
+            {{#v2_runtime_environment_context.prompt_context#}}\n运行环境上下文优先于知识库或通用示例；若知识库命令与当前环境冲突，必须忽略冲突命令。\n\n\
+            # 输出身份与环境规则\n- 服务名：{{#1754299310647.service#}}。服务名为空时省略服务字段，禁止输出任何占位服务名或“未知服务”。\n- 运行对象：{{#v2_runtime_environment_context.location_text#}}。\n\
+            - 对象类型：{{#v2_runtime_environment_context.instance_term#}}。\n- {{#v2_runtime_environment_context.prompt_context#}}\n\
+            - 不得因为指标或工具名称包含“按Pod统计”就推断当前一定是 Pod 或容器；必须服从运行环境上下文。\n- 示例中的 xx、xxx、XXXX 仅用于说明格式，禁止原样复制到最终报告或 JSON。\n\
+            \n\n# RED字段和单位约定\nRED按字段名读取，不按数组位置或“请求数/错误率/延时”中文关键字取值：cpm表示请求速率，单位requests/min（次/分钟），不是窗口请求总数或每秒请求数；errorRate单位percentunit，值域0..1，0.02应表述为2%；avgDurationMs是平均响应时间，单位ms，120应表述为120毫秒。旧Response\
             \ Time/Error Rate/Tpm按其明确unit转换，不能仅凭名称推断单位。成功率工具的percentunit同样是0..1。\n展示比例为百分数时仅乘100一次；百分数已是percent或%时不再乘100。CPM不除以60、不乘窗口长度冒充请求总数。服务级曲线只能说明该服务整体趋势，关联Pod不代表该Pod独享这些请求。\n"
         selected: false
         title: 生成报告展示结构
@@ -8429,19 +7472,11 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(arg1: str, red: str, logs: str, red_text: str, rtt_text:\
-          \ str, log_text: str) -> dict:\n    rtt = json.loads(arg1)\n    logs_raw\
-          \ = json.loads(logs)\n    metrics = {\n      \"type\": \"metrics\",\n  \
-          \    \"name\": \"应用网络质量指标\",\n      \"description\": rtt_text,\n      \"\
-          unit\": \"s\",\n    }\n    data = []\n    label_set = []\n    for metric\
-          \ in rtt['data']['timeseries'] or []:\n        if metric['legend'] not in\
-          \ label_set:\n            data.append(metric)\n            label_set.append(metric['legend'])\n\
-          \n    metrics['data'] = data\n    logs_data = {\n        \"type\": \"log\"\
-          ,\n        \"name\": \"应用日志\",\n        \"description\": log_text,\n   \
-          \     \"data\": logs_raw.get(\"logs\", [])\n    }\n    red_data = json.loads(red)\n\
-          \    red_data[\"description\"] = red_text\n\n    return {\n        \"result\"\
-          : json.dumps({\n            \"evidence\": [logs_data, red_data, metrics]\n\
-          \        }),\n    }"
+        code: "import json\n\ndef main(red: str, logs: str, red_text: str, log_text: str) -> dict:\n    logs_raw\
+          \ = json.loads(logs)\n    logs_data = {\n        \"type\": \"log\",\n        \"name\": \"应用日志\",\n \
+          \       \"description\": log_text,\n        \"data\": logs_raw.get(\"logs\", [])\n    }\n    red_data\
+          \ = json.loads(red)\n    red_data[\"description\"] = red_text\n    return {\"result\": json.dumps({\"\
+          evidence\": [logs_data, red_data]})}\n"
         code_language: python3
         desc: ''
         outputs:
@@ -8452,10 +7487,6 @@ workflow:
         title: 生成验证数据
         type: code
         variables:
-        - value_selector:
-          - '17430598942980'
-          - text
-          variable: arg1
         - value_selector:
           - '1750819000832'
           - result
@@ -8468,10 +7499,6 @@ workflow:
           - '1750927458985'
           - text
           variable: red_text
-        - value_selector:
-          - '1754298166852'
-          - result
-          variable: rtt_text
         - value_selector:
           - '1750927215923'
           - text
@@ -8554,19 +7581,9 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(pod: str, service: str, node: str, pid: str, containerId:\
-          \ str) -> dict:\n    query = ''\n    if len(containerId) > 0 and len(node)\
-          \ > 0:\n        query = f\"\"\"container_id='{containerId}' and host_name='{node}'\"\
-          \"\"\n    elif len(pod) > 0 and len(service) > 0:\n        query = f\"\"\
-          \"k8s_pod_name='{pod}' and serviceName='{service}'\"\"\"\n    elif len(pod)\
-          \ > 0:\n        query = f\"\"\"k8s_pod_name='{pod}'\"\"\"\n    elif len(node)\
-          \ > 0 and len(pid) > 0:\n        query = f\"\"\"host_name='{node}' and pid='{pid}'\"\
-          \"\"\n    elif len(service) > 0:\n        query = f\"\"\"serviceName='{service}'\"\
-          \"\"\n    elif len(containerId) > 0:\n        query = f\"\"\"container_id='{containerId}'\"\
-          \"\"\n    elif len(node) > 0:\n        query = f\"\"\"host_name='{node}'\"\
-          \"\"\n\n            \n    return {\n        \"query\": query,\n    }"
+        code: "def main(service: str) -> dict:\n    # 日志以告警服务为范围，不依赖 APO 容器/PID/source 字段或实例发现结果。\n    if not isinstance(service, str) or not service.strip():\n        raise ValueError(\"缺少告警服务名，不能查询未限定服务的日志\")\n    value = service.replace(\"\\\\\", \"\\\\\\\\\").replace(\"'\", \"\\\\'\")\n    return {\"query\": \"serviceName='\" + value + \"'\"}\n"
         code_language: python3
-        desc: ''
+        desc: "按告警服务查询日志；缺少服务名时报错，禁止回退全租户查询。"
         outputs:
           query:
             children: null
@@ -8575,26 +7592,7 @@ workflow:
         title: 获取日志查询条件
         type: code
         variables:
-        - value_selector:
-          - '17430589567120'
-          - pod
-          variable: pod
-        - value_selector:
-          - '1742807803325'
-          - service
-          variable: service
-        - value_selector:
-          - '1742807803325'
-          - node
-          variable: node
-        - value_selector:
-          - '17430589567120'
-          - pid
-          variable: pid
-        - value_selector:
-          - '1742807803325'
-          - containerId
-          variable: containerId
+          [{"variable": "service", "value_selector": ["1742807803325", "service"]}]
       height: 54
       id: '1750830567613'
       position:
@@ -8788,29 +7786,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\nfrom typing import List\nimport json\n\nERROR_PATTERNS:\
-          \ List[str] = [\n    r\"ERROR\",\n    r\"ERR\",\n    r\"EXCEPTION\",\n \
-          \   r\"PANIC\",\n    r\"FAIL(?:ED)?\",\n    r\"WRONG\",\n    r\"FATAL\"\
-          ,\n    r\"500\",\n    r\"5\\d{2}\",\n]\n\nERROR_REGEXES = [re.compile(pat,\
-          \ re.IGNORECASE) for pat in ERROR_PATTERNS]\n\ndef is_error_log(line: str)\
-          \ -> bool:\n    if not isinstance(line, (str, bytes)):\n        return False\n\
-          \    for regex in ERROR_REGEXES:\n        if regex.search(line):\n     \
-          \       return True\n    return False\n\ndef main(data_json: str) -> dict:\n\
-          \    logs = json.loads(data_json).get(\"data\", {}).get(\"logContents\"\
-          , {}).get(\"contents\", [])\n    \n    error_logs = []\n    all_logs = []\n\
-          \    \n    for log in logs or []:\n        content = log.get(\"body\", \"\
-          \")\n        timestamp = log.get(\"timestamp\")\n        tags = log.get('tags',\
-          \ {})\n        \n        simplified_log = {\n            \"body\": content,\n\
-          \            \"timestamp\": timestamp,\n            \"tags\": tags\n   \
-          \     }\n        \n        all_logs.append(simplified_log)\n        if is_error_log(content):\n\
-          \            error_logs.append(simplified_log)\n    \n    result_logs =\
-          \ error_logs if error_logs else all_logs[:100]\n    \n    MAX_LENGTH = 50000\n\
-          \    result_logs_str = json.dumps({\"logs\": result_logs}, separators=(\"\
-          ,\", \":\"))\n    \n    while len(result_logs_str) > MAX_LENGTH and len(result_logs)\
-          \ > 0:\n        remove_count = max(1, len(result_logs) // 10)\n        result_logs\
-          \ = result_logs[:-remove_count]\n        result_logs_str = json.dumps({\"\
-          logs\": result_logs}, separators=(\",\", \":\"))\n    \n    return {\"logs\"\
-          : result_logs_str}"
+        code: "import re\nfrom typing import List\nimport json\n\nERROR_PATTERNS: List[str] = [\n    r\"ERROR\",\n    r\"ERR\",\n    r\"EXCEPTION\",\n    r\"PANIC\",\n    r\"FAIL(?:ED)?\",\n    r\"WRONG\",\n    r\"FATAL\",\n    r\"500\",\n    r\"5\\d{2}\",\n]\n\nERROR_REGEXES = [re.compile(pat, re.IGNORECASE) for pat in ERROR_PATTERNS]\n\ndef is_error_log(line: str) -> bool:\n    if not isinstance(line, (str, bytes)):\n        return False\n    for regex in ERROR_REGEXES:\n        if regex.search(line):\n            return True\n    return False\n\ndef main(data_json: str) -> dict:\n    logs = json.loads(data_json).get(\"data\", {}).get(\"logContents\", {}).get(\"contents\", [])\n    \n    error_logs = []\n    all_logs = []\n    \n    for log in logs or []:\n        content = log.get(\"body\", \"\")\n        timestamp = log.get(\"timestamp\")\n        tags = log.get('tags', {})\n        \n        simplified_log = {\n            \"body\": content,\n            \"timestamp\": timestamp,\n            \"tags\": tags\n        }\n        \n        all_logs.append(simplified_log)\n        if is_error_log(content):\n            error_logs.append(simplified_log)\n    \n    result_logs = error_logs if error_logs else all_logs[:100]\n    \n    MAX_LENGTH = 50000\n    result_logs_str = json.dumps({\"logs\": result_logs, \"queryStatus\": json.loads(data_json).get(\"status\", \"unknown\"), \"queryGaps\": json.loads(data_json).get(\"queryGaps\", [])}, separators=(\",\", \":\"))\n    \n    while len(result_logs_str) > MAX_LENGTH and len(result_logs) > 0:\n        remove_count = max(1, len(result_logs) // 10)\n        result_logs = result_logs[:-remove_count]\n        result_logs_str = json.dumps({\"logs\": result_logs, \"queryStatus\": json.loads(data_json).get(\"status\", \"unknown\"), \"queryGaps\": json.loads(data_json).get(\"queryGaps\", [])}, separators=(\",\", \":\"))\n    \n    return {\"logs\": result_logs_str}"
         code_language: python3
         desc: ''
         outputs:
@@ -8967,7 +7943,7 @@ workflow:
 
             根据结论的内容划分故障方向
 
-            1 如果网络链路rtt正常，网络方向给出下游依赖问题
+            1 仅依据结论中已有证据提取故障方向；线程网络等待升高不能直接等同于下游依赖问题，证据不足时保留待确认方向。
 
             #结论数据
 
@@ -15236,83 +14212,6 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\nimport math\nimport statistics\n\n\nABSOLUTE_THRESHOLD\
-          \ = 0.05\nSPARSE_MIN_SPIKE = 0.02\nSPARSE_ZERO_RATIO = 0.5\nSPARSE_POSITIVE_RATIO\
-          \ = 0.2\nROBUST_SIGMA_FACTOR = 3.0\nMIN_RELATIVE_INCREASE = 1.5\n\n\ndef\
-          \ _valid_values(chart):\n    values = []\n    for raw in chart.values():\n\
-          \        if isinstance(raw, bool) or not isinstance(raw, (int, float)):\n\
-          \            continue\n        value = float(raw)\n        if math.isfinite(value)\
-          \ and value >= 0:\n            values.append(value)\n    return values\n\
-          \n\ndef _robust_baseline(positive):\n    if len(positive) < 3:\n       \
-          \ return None\n    median = statistics.median(positive)\n    deviations\
-          \ = [abs(value - median) for value in positive]\n    mad = statistics.median(deviations)\n\
-          \    robust_sigma = 1.4826 * mad\n    if robust_sigma == 0:\n        robust_sigma\
-          \ = statistics.pstdev(positive)\n    upper = median + ROBUST_SIGMA_FACTOR\
-          \ * robust_sigma\n    return {\"median\": median, \"robust_sigma\": robust_sigma,\
-          \ \"upper\": upper}\n\n\ndef analyze_data(result_str: str):\n    try:\n\
-          \        data = json.loads(result_str)\n    except (TypeError, json.JSONDecodeError):\n\
-          \        return json.dumps([])\n\n    timeseries = data.get(\"data\", {}).get(\"\
-          timeseries\", []) or []\n    unit = data.get(\"unit\", \"\")\n    filtered\
-          \ = []\n\n    for entry in timeseries:\n        labels = entry.get(\"labels\"\
-          , {}) or {}\n        legend = str(entry.get(\"legend\", \"\") or \"\")\n\
-          \        chart = entry.get(\"chart\", {}).get(\"chartData\", {}) or {}\n\
-          \        values = _valid_values(chart)\n        if not values:\n       \
-          \     continue\n\n        positive = [value for value in values if value\
-          \ > 0]\n        if not positive:\n            continue\n\n        total_count\
-          \ = len(values)\n        positive_count = len(positive)\n        zero_count\
-          \ = total_count - positive_count\n        zero_ratio = zero_count / total_count\n\
-          \        positive_ratio = positive_count / total_count\n        spike =\
-          \ max(positive)\n        avg = sum(positive) / positive_count\n        reasons\
-          \ = []\n        abnormal_values = set()\n\n        for index, value in enumerate(values):\n\
-          \            if value > ABSOLUTE_THRESHOLD:\n                abnormal_values.add(index)\n\
-          \        if abnormal_values:\n            reasons.append(\"absolute\")\n\
-          \n        baseline = _robust_baseline(positive)\n        if baseline and\
-          \ baseline[\"median\"] > 0:\n            robust_hits = {\n             \
-          \   index\n                for index, value in enumerate(values)\n     \
-          \           if value > baseline[\"upper\"] and value / baseline[\"median\"\
-          ] >= MIN_RELATIVE_INCREASE\n            }\n            if robust_hits:\n\
-          \                abnormal_values.update(robust_hits)\n                reasons.append(\"\
-          robust_baseline\")\n\n        if (\n            zero_ratio >= SPARSE_ZERO_RATIO\n\
-          \            and positive_ratio <= SPARSE_POSITIVE_RATIO\n            and\
-          \ spike >= SPARSE_MIN_SPIKE\n        ):\n            reasons.append(\"sparse_spike\"\
-          )\n            abnormal_values.update(index for index, value in enumerate(values)\
-          \ if value == spike)\n\n        if not reasons:\n            continue\n\n\
-          \        filtered.append({\n            \"chart\": chart,\n            \"\
-          abnormalCount\": len(abnormal_values),\n            \"labels\": labels,\n\
-          \            \"legend\": legend,\n            \"avg\": avg,\n          \
-          \  \"unit\": unit,\n            \"spike\": spike,\n            \"zeroRatio\"\
-          : zero_ratio,\n            \"positiveCount\": positive_count,\n        \
-          \    \"detectionReasons\": reasons,\n            \"baseline\": baseline\
-          \ or {},\n        })\n\n    return json.dumps(filtered)\n\n\ndef main(arg1:\
-          \ str) -> dict:\n    return {\"result\": analyze_data(arg1)}\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: RTT分析
-        type: code
-        variables:
-        - value_selector:
-          - '17473562733380'
-          - text
-          variable: arg1
-      height: 54
-      id: '17515143872690'
-      position:
-        x: 7462
-        y: 1209
-      positionAbsolute:
-        x: 7462
-        y: 1209
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
         desc: ''
         is_team_authorization: true
         output_schema: null
@@ -15609,155 +14508,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\nfrom collections import defaultdict\n\n\ndef _load(data_json):\n\
-          \    try:\n        data = json.loads(data_json)\n    except (TypeError,\
-          \ json.JSONDecodeError):\n        return []\n    return data if isinstance(data,\
-          \ list) else []\n\n\ndef _target_identity(item, unknown_index):\n    labels\
-          \ = item.get(\"labels\", {}) or {}\n    for key in (\"dst_pod\", \"dst_ip\"\
-          ):\n        value = str(labels.get(key, \"\") or \"\").strip()\n       \
-          \ if value:\n            return value, True\n    legend = str(item.get(\"\
-          legend\", \"\") or \"\").strip()\n    if legend:\n        return legend,\
-          \ True\n    return f\"unknown_dst_instance_{unknown_index}\", False\n\n\n\
-          def main(data_json):\n    data = _load(data_json)\n    if not data:\n  \
-          \      return {\n            \"result\": \"未检测到可用于归因的 RTT 异常数据，需要通过调用链补充分析。\"\
-          ,\n            \"direction_summary\": \"未明确归因\",\n            \"abnormal_downstream_instances\"\
-          : \"[]\",\n            \"evidence_quality\": \"insufficient\",\n       \
-          \     \"requires_span_fallback\": \"true\",\n        }\n\n    first_labels\
-          \ = data[0].get(\"labels\", {}) or {}\n    src_pod = first_labels.get(\"\
-          src_pod\") or first_labels.get(\"pod\") or \"当前实例\"\n    src_node = first_labels.get(\"\
-          src_node\") or first_labels.get(\"node\") or \"\"\n    src_ip = first_labels.get(\"\
-          src_ip\") or \"\"\n    instances = []\n    details_by_node = defaultdict(list)\n\
-          \    valid_count = 0\n    complete_count = 0\n    seen = set()\n\n    for\
-          \ index, item in enumerate(data, start=1):\n        labels = item.get(\"\
-          labels\", {}) or {}\n        identity, is_valid = _target_identity(item,\
-          \ index)\n        if not is_valid or identity in seen:\n            continue\n\
-          \        seen.add(identity)\n        valid_count += 1\n        dst_node\
-          \ = str(labels.get(\"dst_node\", \"\") or \"\").strip()\n        dst_ip\
-          \ = str(labels.get(\"dst_ip\", \"\") or \"\").strip()\n        if dst_node\
-          \ and dst_ip:\n            complete_count += 1\n        avg = item.get(\"\
-          avg\")\n        unit = item.get(\"unit\", \"\")\n        spike = item.get(\"\
-          spike\")\n        instance = {\n            \"instance_name\": identity,\n\
-          \            \"rtt_avg\": f\"{avg}{unit}\",\n            \"rtt_spike\":\
-          \ f\"{spike}{unit}\",\n            \"node\": dst_node,\n            \"ip\"\
-          : dst_ip,\n            \"evidence_quality\": \"complete\" if dst_node and\
-          \ dst_ip else \"partial\",\n        }\n        instances.append(instance)\n\
-          \        if dst_node:\n            details_by_node[dst_node].append(instance)\n\
-          \n    if valid_count == 0:\n        return {\n            \"result\": \"\
-          检测到 RTT 波动，但缺少可识别的下游目标，需要通过高耗时 Span 补充归因。\",\n            \"direction_summary\"\
-          : \"未明确归因\",\n            \"abnormal_downstream_instances\": \"[]\",\n \
-          \           \"evidence_quality\": \"insufficient\",\n            \"requires_span_fallback\"\
-          : \"true\",\n        }\n\n    evidence_quality = \"complete\" if complete_count\
-          \ == valid_count else \"partial\"\n    distinct_nodes = len(details_by_node)\n\
-          \    dominant_node = None\n    for node, node_instances in details_by_node.items():\n\
-          \        if len(node_instances) > 1 and len(node_instances) / valid_count\
-          \ >= 0.7:\n            dominant_node = node\n            break\n\n    if\
-          \ dominant_node:\n        direction = \"下游节点问题\"\n        result = f\"{src_pod}\
-          \ 的 RTT 异常主要集中在下游节点 {dominant_node}，将结合高耗时 Span 补充具体调用证据。\"\n    elif distinct_nodes\
-          \ >= 3 or valid_count >= 5:\n        direction = \"自身问题\"\n        location\
-          \ = \" \".join(value for value in (src_node, src_ip) if value)\n       \
-          \ result = f\"{src_pod} 与多个下游目标的 RTT 同时异常，倾向自身网络问题。{location}\".strip()\n\
-          \    else:\n        direction = \"下游实例问题\"\n        names = \"、\".join(instance[\"\
-          instance_name\"] for instance in instances)\n        result = f\"{src_pod}\
-          \ 与下游实例 {names} 的 RTT 异常，将结合高耗时 Span 补充具体调用证据。\"\n\n    return {\n     \
-          \   \"result\": result,\n        \"direction_summary\": direction,\n   \
-          \     \"abnormal_downstream_instances\": json.dumps(instances),\n      \
-          \  \"evidence_quality\": evidence_quality,\n        \"requires_span_fallback\"\
-          : \"true\" if direction != \"自身问题\" or evidence_quality != \"complete\"\
-          \ else \"false\",\n    }\n"
-        code_language: python3
-        desc: ''
-        outputs:
-          abnormal_downstream_instances:
-            children: null
-            type: string
-          direction_summary:
-            children: null
-            type: string
-          evidence_quality:
-            children: null
-            type: string
-          requires_span_fallback:
-            children: null
-            type: string
-          result:
-            children: null
-            type: string
-        selected: false
-        title: 分析RTT问题
-        type: code
-        variables:
-        - value_selector:
-          - '17515143872690'
-          - result
-          variable: data_json
-      height: 54
-      id: '1754298166852'
-      position:
-        x: 7766
-        y: 1209
-      positionAbsolute:
-        x: 7766
-        y: 1209
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        cases:
-        - case_id: 'true'
-          conditions:
-          - comparison_operator: contains
-            id: 662729ea-4048-4eb3-ab02-fa5124f321d9
-            value: 未明确归因
-            varType: string
-            variable_selector:
-            - '1754298166852'
-            - direction_summary
-          id: 'true'
-          logical_operator: and
-        - case_id: 97e70559-279b-400f-9670-fb05aa27f53e
-          conditions:
-          - comparison_operator: contains
-            id: 5b4cc09d-3ed8-42bf-839b-4d702be19ffb
-            value: 下游实例问题
-            varType: string
-            variable_selector:
-            - '1754298166852'
-            - direction_summary
-          id: 97e70559-279b-400f-9670-fb05aa27f53e
-          logical_operator: and
-        - case_id: v2_downstream_node_case
-          conditions:
-          - comparison_operator: contains
-            id: v2_downstream_node_condition
-            value: 下游节点问题
-            varType: string
-            variable_selector:
-            - '1754298166852'
-            - direction_summary
-          id: v2_downstream_node_case
-          logical_operator: and
-        desc: ''
-        selected: false
-        title: 条件分支 5
-        type: if-else
-      height: 222
-      id: '1754299061896'
-      position:
-        x: 8678
-        y: 927
-      positionAbsolute:
-        x: 8678
-        y: 927
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
-        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"service\":\
-          \ arg1[0][\"service\"]\n    }\n"
+        code: "def main(arg1: list) -> dict:\n    return {\"service\": arg1[0].get(\"service\", \"\") if arg1 else \"\"}\n"
         code_language: python3
         desc: ''
         outputs:
@@ -15786,35 +14537,26 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef _loads(value, default):\n    if isinstance(value,\
-          \ (list, dict)):\n        return value\n    try:\n        return json.loads(value)\n\
-          \    except (TypeError, json.JSONDecodeError):\n        return default\n\
-          \n\ndef _statement_summary(value):\n    text = str(value or \"\").strip()\n\
-          \    return text if len(text) <= 240 else text[:237] + \"...\"\n\n\ndef\
-          \ _span_items(span_data):\n    payload = _loads(span_data, {})\n    data\
-          \ = payload.get(\"data\", {}) if isinstance(payload, dict) else {}\n   \
-          \ if isinstance(data, dict):\n        items = data.get(\"data\", [])\n \
-          \   else:\n        items = []\n    return items if isinstance(items, list)\
-          \ else []\n\n\ndef main(rtt_instances, span_data):\n    rtt = _loads(rtt_instances,\
-          \ [])\n    if not isinstance(rtt, list):\n        rtt = []\n    dependencies\
-          \ = []\n    for span in _span_items(span_data):\n        if not isinstance(span,\
-          \ dict):\n            continue\n        attributes = span.get(\"attributes\"\
-          , {}) or {}\n        dependencies.append({\n            \"service\": span.get(\"\
-          peerService\") or span.get(\"serviceName\") or attributes.get(\"peer.service\"\
-          ) or \"\",\n            \"instance\": span.get(\"instance\") or attributes.get(\"\
-          server.address\") or attributes.get(\"net.peer.name\") or \"\",\n      \
-          \      \"operation\": span.get(\"name\", \"\"),\n            \"db_system\"\
-          : attributes.get(\"db.system\", \"\"),\n            \"statement\": _statement_summary(attributes.get(\"\
-          db.statement\", \"\")),\n            \"duration\": span.get(\"duration\"\
-          , 0),\n            \"error\": bool(span.get(\"error\") or span.get(\"isError\"\
-          ) or span.get(\"status\") == \"error\"),\n            \"trace_id\": span.get(\"\
-          traceId\", \"\"),\n            \"span_id\": span.get(\"spanId\", \"\"),\n\
-          \        })\n\n    if rtt and dependencies:\n        status = \"complete\"\
-          \n    elif rtt or dependencies:\n        status = \"partial\"\n    else:\n\
-          \        status = \"empty\"\n    return {\n        \"result\": json.dumps({\n\
-          \            \"rtt_instances\": rtt,\n            \"span_dependencies\"\
-          : dependencies,\n            \"evidence_status\": status,\n        })\n\
-          \    }\n"
+        code: "import json\n\n\ndef _loads(value, default):\n    if isinstance(value, (list, dict)):\n       \
+          \ return value\n    try:\n        return json.loads(value)\n    except (TypeError, json.JSONDecodeError):\n\
+          \        return default\n\n\ndef _statement_summary(value):\n    text = str(value or \"\").strip()\n\
+          \    return text if len(text) <= 240 else text[:237] + \"...\"\n\n\ndef _span_items(span_data):\n  \
+          \  payload = _loads(span_data, {})\n    data = payload.get(\"data\", {}) if isinstance(payload, dict)\
+          \ else {}\n    if isinstance(data, dict):\n        items = data.get(\"data\", [])\n    elif isinstance(data,\
+          \ list):\n        # 高耗时 Span 筛选节点输出 provider.data 列表。\n        items = data\n    else:\n        items\
+          \ = []\n    return items if isinstance(items, list) else []\n\n\ndef main(span_data):\n    dependencies\
+          \ = []\n    for span in _span_items(span_data):\n        if not isinstance(span, dict):\n          \
+          \  continue\n        attributes = span.get(\"attributes\", {}) or {}\n        dependencies.append({\n\
+          \            \"service\": span.get(\"peerService\") or span.get(\"serviceName\") or attributes.get(\"\
+          peer.service\") or \"\",\n            \"instance\": span.get(\"instance\") or attributes.get(\"server.address\"\
+          ) or attributes.get(\"net.peer.name\") or \"\",\n            \"operation\": span.get(\"name\", \"\"\
+          ),\n            \"db_system\": attributes.get(\"db.system\", \"\"),\n            \"statement\": _statement_summary(attributes.get(\"\
+          db.statement\", \"\")),\n            \"duration\": span.get(\"duration\", 0),\n            \"error\"\
+          : bool(span.get(\"error\") or span.get(\"isError\") or span.get(\"status\") == \"error\"),\n       \
+          \     \"trace_id\": span.get(\"traceId\", \"\"),\n            \"span_id\": span.get(\"spanId\", \"\"\
+          ),\n        })\n\n    status = \"partial\" if dependencies else \"empty\"\n    return {\n        \"\
+          result\": json.dumps({\n            \"span_dependencies\": dependencies,\n            \"evidence_status\"\
+          : status,\n        })\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -15822,13 +14564,9 @@ workflow:
             children: null
             type: string
         selected: false
-        title: 合并RTT与Span下游证据
+        title: 整理Span下游证据
         type: code
         variables:
-        - value_selector:
-          - '1754298166852'
-          - abnormal_downstream_instances
-          variable: rtt_instances
         - value_selector:
           - '1754634901289'
           - result
@@ -15879,7 +14617,7 @@ workflow:
 
             # 背景
 
-            根据实例线程在各方向上的时间消耗，已知当前告警根因为网络方向，且根据网络Ping质量数据得知主要延时是由下游依赖产生。所以根据告警总结和影响当前实例的下游实例再次做一个告警分析总结。
+            线程分析提供了网络或等待方向的候选线索，尚不能确定自身或下游原因。结合实际 Span 中的调用对象、耗时和错误补充分析；Span 耗时包含处理与等待，不能直接证明网络质量。缺少调用证据时保留原线程结论并说明证据不足。
 
             # 总结思路
 
@@ -15887,7 +14625,7 @@ workflow:
 
             2. 使用真实告警名称和下游服务/实例描述下游影响；没有具体下游证据时明确说明证据不足，不得使用占位词。如果没有告警报告链接或者告警，则不需要描述相关的内容，如果有detail信息则添加对调用接口或者调用数据查询语句的具体描述。
 
-            3. 有具体下游服务时将“下游依赖问题”细化为该服务的下游依赖问题；没有具体服务时保留通用表述。
+            3. 仅在调用证据支持下游异常时说明对应服务与调用；不能仅因出现服务名或慢 Span 就断言其为根因，没有证据时不得预设下游依赖问题。
 
             # 输出
 
@@ -17624,12 +16362,6 @@ workflow:
               zh_Hans: 线程北极星指标异常检测
             value: ebpf_detect
           - label:
-              en_US: rtt_detect
-              ja_JP: rtt_detect
-              pt_BR: rtt_det
-              zh_Hans: 网络质量指标（RTT）异常检测
-            value: rtt_detect
-          - label:
               en_US: spike_detect
               ja_JP: spike_detect
               pt_BR: spike_detect
@@ -17740,11 +16472,7 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "def main(outputs) -> dict:\n    impacted_services = []\n    for item\
-          \ in outputs:\n        abnormal_metrics = json.loads(item)\n        if abnormal_metrics.get('request_latency')\
-          \ or abnormal_metrics.get('request_error_rate'):\n            impacted_services.append(abnormal_metrics)\n\
-          \n    return {\n        \"impacted_services\": json.dumps(impacted_services)\n\
-          \    }\n"
+        code: "import json\ndef main(outputs) -> dict:\n    impacted_services = []\n    for item in outputs:\n        abnormal_metrics = json.loads(item)\n        if abnormal_metrics.get('request_latency') or abnormal_metrics.get('request_error_rate'):\n            impacted_services.append(abnormal_metrics)\n\n    return {\n        \"impacted_services\": json.dumps(impacted_services)\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -17942,12 +16670,6 @@ workflow:
               zh_Hans: 线程北极星指标异常检测
             value: ebpf_detect
           - label:
-              en_US: rtt_detect
-              ja_JP: rtt_detect
-              pt_BR: rtt_det
-              zh_Hans: 网络质量指标（RTT）异常检测
-            value: rtt_detect
-          - label:
               en_US: spike_detect
               ja_JP: spike_detect
               pt_BR: spike_detect
@@ -18058,11 +16780,7 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "\ndef main(latency_json: str, error_rate_json: str) -> dict:\n    latency_data\
-          \ = json.loads(latency_json)\n    error_rate_data = json.loads(error_rate_json)\n\
-          \    data = {\n        \"request_latency\": latency_data,\n        \"request_error_rate\"\
-          : error_rate_data,\n    }\n\n    return {\n        \"result\": json.dumps(data),\n\
-          \    }\n"
+        code: "import json\n\ndef main(latency_json: str, error_rate_json: str) -> dict:\n    latency_data = json.loads(latency_json)\n    error_rate_data = json.loads(error_rate_json)\n    data = {\n        \"request_latency\": latency_data,\n        \"request_error_rate\": error_rate_data,\n    }\n\n    return {\n        \"result\": json.dumps(data),\n    }\n"
         code_language: python3
         desc: ''
         isInIteration: true
@@ -18594,67 +17312,7 @@ workflow:
       width: 244
       zIndex: 1002
     - data:
-        code: "import json\nfrom typing import Any\n\n\nRESOURCE_WEIGHTS = {\n   \
-          \ \"cpu\": 1.0,\n    \"user\": 1.0,\n    \"sys\": 1.5,\n    \"runq\": 2.0,\n\
-          \    \"sched\": 2.0,\n    \"net\": 3.0,\n    \"network\": 3.0,\n    \"socket\"\
-          : 3.0,\n    \"tcp\": 3.0,\n    \"udp\": 2.5,\n    \"file\": 2.5,\n    \"\
-          disk\": 2.5,\n    \"block\": 2.5,\n    \"fs\": 2.5,\n    \"epoll\": 3.0,\n\
-          \    \"poll\": 3.0,\n    \"select\": 3.0,\n    \"io\": 2.5,\n    \"iowait\"\
-          : 2.5,\n    \"lock\": 2.0,\n    \"mutex\": 2.0,\n    \"mem\": 1.5,\n   \
-          \ \"memory\": 1.5,\n    \"gc\": 1.5,\n    \"other\": 1.0,\n}\n\n\ndef main(now_json:\
-          \ str, history_json):\n    now_payload = _parse_payload(now_json)\n    history_payload\
-          \ = _parse_payload(history_json)\n\n    now_groups = _group_timeseries(now_payload)\n\
-          \    history_groups = _group_timeseries(history_payload)\n    instance_keys\
-          \ = sorted(set(now_groups) | set(history_groups))\n    if len(instance_keys)\
-          \ > 1:\n        raise ValueError(\"expected metrics for exactly one instance\"\
-          )\n\n    instance_key = instance_keys[0] if instance_keys else _build_instance_key({})\n\
-          \    now_resources = now_groups.get(instance_key, {})\n    history_resources\
-          \ = history_groups.get(instance_key, {})\n    resource_types = sorted(set(now_resources)\
-          \ | set(history_resources))\n\n    resource_scores = {}\n    score = 0.0\n\
-          \    primary_resource = \"\"\n    primary_contribution = -1.0\n\n    for\
-          \ resource_type in resource_types:\n        current_value = _average(now_resources.get(resource_type,\
-          \ []))\n        baseline_value = _average(history_resources.get(resource_type,\
-          \ []))\n        ratio = _safe_ratio(current_value, baseline_value)\n   \
-          \     weight = _resource_weight(resource_type)\n        contribution = max(ratio\
-          \ - 1.0, 0.0) * weight\n\n        resource_scores[resource_type] = {\n \
-          \           \"current\": current_value,\n            \"baseline\": baseline_value,\n\
-          \            \"ratio\": ratio,\n            \"weight\": weight,\n      \
-          \      \"contribution\": contribution,\n        }\n        score += contribution\n\
-          \n        if contribution > primary_contribution:\n            primary_contribution\
-          \ = contribution\n            primary_resource = resource_type\n\n    result\
-          \ = {\n        \"instance\": _decode_instance_key(instance_key),\n     \
-          \   \"score\": round(score, 6),\n        \"primaryResource\": primary_resource,\n\
-          \        \"resourceScores\": resource_scores,\n    }\n    return {\"result\"\
-          : json.dumps(result, ensure_ascii=False)}\n\n\ndef _parse_payload(payload:\
-          \ Any) -> dict[str, Any]:\n    if isinstance(payload, str):\n        return\
-          \ json.loads(payload)\n    if isinstance(payload, dict):\n        return\
-          \ payload\n    raise TypeError(\"payload must be a JSON string or dict\"\
-          )\n\n\ndef _group_timeseries(payload: dict[str, Any]) -> dict[str, dict[str,\
-          \ list[float]]]:\n    grouped: dict[str, dict[str, list[float]]] = {}\n\
-          \    for series in payload.get(\"data\", {}).get(\"timeseries\", []):\n\
-          \        labels = series.get(\"labels\", {})\n        resource_type = str(labels.get(\"\
-          type\", \"other\") or \"other\").lower()\n        instance_key = _build_instance_key(labels)\n\
-          \        grouped.setdefault(instance_key, {}).setdefault(resource_type,\
-          \ []).extend(_chart_values(series))\n    return grouped\n\n\ndef _build_instance_key(labels:\
-          \ dict[str, Any]) -> str:\n    pod = str(labels.get(\"pod\", \"\") or \"\
-          \")\n    container_id = str(labels.get(\"containerId\", labels.get(\"container_id\"\
-          , \"\")) or \"\")\n    pid = str(labels.get(\"pid\", \"\") or \"\")\n  \
-          \  node = str(labels.get(\"node\", labels.get(\"node_name\", \"\")) or \"\
-          \")\n    return json.dumps({\"pod\": pod, \"containerId\": container_id,\
-          \ \"pid\": pid, \"node\": node}, sort_keys=True)\n\n\ndef _decode_instance_key(instance_key:\
-          \ str) -> dict[str, str]:\n    return json.loads(instance_key)\n\n\ndef\
-          \ _chart_values(series: dict[str, Any]) -> list[float]:\n    chart_data\
-          \ = series.get(\"chart\", {}).get(\"chartData\", {})\n    values = []\n\
-          \    for value in chart_data.values():\n        if value is None:\n    \
-          \        continue\n        try:\n            values.append(float(value))\n\
-          \        except (TypeError, ValueError):\n            continue\n    return\
-          \ values\n\n\ndef _average(values: list[float]) -> float:\n    if not values:\n\
-          \        return 0.0\n    return sum(values) / len(values)\n\n\ndef _safe_ratio(current_value:\
-          \ float, baseline_value: float) -> float:\n    if baseline_value > 0:\n\
-          \        return current_value / baseline_value\n    if current_value > 0:\n\
-          \        return current_value\n    return 0.0\n\n\ndef _resource_weight(resource_type:\
-          \ str) -> float:\n    return RESOURCE_WEIGHTS.get(resource_type.lower(),\
-          \ 1.0)"
+        code: "import json\nfrom typing import Any\n\n\nRESOURCE_WEIGHTS = {\n    \"cpu\": 1.0,\n    \"user\": 1.0,\n    \"sys\": 1.5,\n    \"runq\": 2.0,\n    \"sched\": 2.0,\n    \"net\": 3.0,\n    \"network\": 3.0,\n    \"socket\": 3.0,\n    \"tcp\": 3.0,\n    \"udp\": 2.5,\n    \"file\": 2.5,\n    \"disk\": 2.5,\n    \"block\": 2.5,\n    \"fs\": 2.5,\n    \"epoll\": 3.0,\n    \"poll\": 3.0,\n    \"select\": 3.0,\n    \"io\": 2.5,\n    \"iowait\": 2.5,\n    \"lock\": 2.0,\n    \"mutex\": 2.0,\n    \"mem\": 1.5,\n    \"memory\": 1.5,\n    \"gc\": 1.5,\n    \"other\": 1.0,\n}\n\n\ndef main(now_json: str, history_json, instance=None):\n    now_payload = _parse_payload(now_json)\n    history_payload = _parse_payload(history_json)\n\n    now_groups = _group_timeseries(now_payload)\n    history_groups = _group_timeseries(history_payload)\n    instance_keys = sorted(set(now_groups) | set(history_groups))\n    if len(instance_keys) > 1:\n        raise ValueError(\"expected metrics for exactly one instance\")\n\n    instance_key = instance_keys[0] if instance_keys else _build_instance_key({})\n    now_resources = now_groups.get(instance_key, {})\n    history_resources = history_groups.get(instance_key, {})\n    resource_types = sorted(set(now_resources) | set(history_resources))\n\n    resource_scores = {}\n    score = 0.0\n    primary_resource = \"\"\n    primary_contribution = -1.0\n\n    for resource_type in resource_types:\n        current_value = _average(now_resources.get(resource_type, []))\n        baseline_value = _average(history_resources.get(resource_type, []))\n        ratio = _safe_ratio(current_value, baseline_value)\n        weight = _resource_weight(resource_type)\n        contribution = max(ratio - 1.0, 0.0) * weight\n\n        resource_scores[resource_type] = {\n            \"current\": current_value,\n            \"baseline\": baseline_value,\n            \"ratio\": ratio,\n            \"weight\": weight,\n            \"contribution\": contribution,\n        }\n        score += contribution\n\n        if contribution > primary_contribution:\n            primary_contribution = contribution\n            primary_resource = resource_type\n\n    result = {\n        \"instance\": _decode_instance_key(instance_key),\n        \"score\": round(score, 6),\n        \"primaryResource\": primary_resource,\n        \"resourceScores\": resource_scores,\n    }\n    # 查询无样本时也保留真实对象；不修改贡献值权重或排序规则。\n    for key, source in {\"pod\":\"podName\", \"namespace\":\"namespace\", \"node\":\"nodeName\", \"pid\":\"pid\", \"containerId\":\"containerId\"}.items():\n        value = (instance or {}).get(source)\n        if value not in (None, \"\"):\n            result[\"instance\"][key] = str(value)\n    result[\"queryStatus\"] = now_payload.get(\"data\", {}).get(\"status\", \"ok\" if now_groups else \"no_data\")\n    return {\"result\": json.dumps(result, ensure_ascii=False)}\n\n\ndef _parse_payload(payload: Any) -> dict[str, Any]:\n    if isinstance(payload, str):\n        return json.loads(payload)\n    if isinstance(payload, dict):\n        return payload\n    raise TypeError(\"payload must be a JSON string or dict\")\n\n\ndef _group_timeseries(payload: dict[str, Any]) -> dict[str, dict[str, list[float]]]:\n    grouped: dict[str, dict[str, list[float]]] = {}\n    for series in payload.get(\"data\", {}).get(\"timeseries\", []):\n        labels = series.get(\"labels\", {})\n        resource_type = str(labels.get(\"type\", \"other\") or \"other\").lower()\n        instance_key = _build_instance_key(labels)\n        grouped.setdefault(instance_key, {}).setdefault(resource_type, []).extend(_chart_values(series))\n    return grouped\n\n\ndef _build_instance_key(labels: dict[str, Any]) -> str:\n    pod = str(labels.get(\"pod\", \"\") or \"\")\n    container_id = str(labels.get(\"containerId\", labels.get(\"container_id\", \"\")) or \"\")\n    pid = str(labels.get(\"pid\", \"\") or \"\")\n    node = str(labels.get(\"node\", labels.get(\"node_name\", \"\")) or \"\")\n    return json.dumps({\"pod\": pod, \"containerId\": container_id, \"pid\": pid, \"node\": node}, sort_keys=True)\n\n\ndef _decode_instance_key(instance_key: str) -> dict[str, str]:\n    return json.loads(instance_key)\n\n\ndef _chart_values(series: dict[str, Any]) -> list[float]:\n    chart_data = series.get(\"chart\", {}).get(\"chartData\", {})\n    values = []\n    for value in chart_data.values():\n        if value is None:\n            continue\n        try:\n            values.append(float(value))\n        except (TypeError, ValueError):\n            continue\n    return values\n\n\ndef _average(values: list[float]) -> float:\n    if not values:\n        return 0.0\n    return sum(values) / len(values)\n\n\ndef _safe_ratio(current_value: float, baseline_value: float) -> float:\n    if baseline_value > 0:\n        return current_value / baseline_value\n    if current_value > 0:\n        return current_value\n    return 0.0\n\n\ndef _resource_weight(resource_type: str) -> float:\n    return RESOURCE_WEIGHTS.get(resource_type.lower(), 1.0)"
         code_language: python3
         desc: ''
         isInIteration: true
@@ -18667,14 +17325,7 @@ workflow:
         title: 计算贡献值
         type: code
         variables:
-        - value_selector:
-          - '1779332543996'
-          - text
-          variable: now_json
-        - value_selector:
-          - '1779343651578'
-          - text
-          variable: history_json
+          [{"value_selector": ["1779332543996", "text"], "variable": "now_json"}, {"value_selector": ["1779343651578", "text"], "variable": "history_json"}, {"variable": "instance", "value_selector": ["1779332497301", "item"]}]
       height: 54
       id: '1779332548470'
       parentId: '1779332497301'
@@ -19016,19 +17667,19 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1742807803325'
+          - "17430589567120"
           - pod
           variable: pod
         - value_selector:
-          - '1742807803325'
+          - "17430589567120"
           - containerId
           variable: container_id
         - value_selector:
-          - '1742807803325'
+          - "17430589567120"
           - node
           variable: node
         - value_selector:
-          - '1742807803325'
+          - "17430589567120"
           - pid
           variable: pid
       height: 54
