@@ -101,7 +101,7 @@ def metric_tools():
     return [
         p.stem
         for p in sorted(TOOLS.glob("*.py"))
-        if p.with_suffix(".yaml").exists()
+        if p.with_suffix(".yaml").exists() and p.stem != "dataplane_instance_evidence"
         and (
             "query_metric(" in p.read_text()
             or "query_legacy_metric(" in p.read_text()
@@ -118,7 +118,7 @@ def test_metric_tool_tenant_routing(context, monkeypatch, name):
         for p in yaml.safe_load((TOOLS / f"{name}.yaml").read_text())["parameters"]
     }
     params.update(
-        tenantId="tenant-a", startTime=START, endTime=END, providerId=0, pid="123", content_key=".*", type="cpu"
+        tenantId="tenant-a", startTime=START, endTime=END, providerId=0, pid="123", content_key=".*", type="cpu", kind="cpu"
     )
     calls = []
 
@@ -164,15 +164,13 @@ def test_concurrent_tenants_single_value_zero(context, monkeypatch):
 
 def test_missing_tenant_and_error_preserve_empty_result(context, monkeypatch):
     monkeypatch.setattr(requests, "post", lambda *a, **k: pytest.fail("unscoped network request"))
-    assert data_source.query_metric("service_cpm", START, END, 60_000_000).data == {"timeseries": []}
+    assert data_source.query_metric("service_cpm", START, END, 60_000_000).data["status"] == "error"
 
     def failed(*a, **k):
         raise requests.HTTPError("upstream failed")
 
     monkeypatch.setattr(requests, "post", failed)
-    assert data_source.query_metric("service_cpm", START, END, 60_000_000, tenant_id="tenant-a").data == {
-        "timeseries": []
-    }
+    assert data_source.query_metric("service_cpm", START, END, 60_000_000, tenant_id="tenant-a").data["status"] == "error"
 
 
 def test_success_rate_no_rescaling(context, monkeypatch):

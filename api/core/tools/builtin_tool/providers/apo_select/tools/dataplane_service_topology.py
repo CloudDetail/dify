@@ -32,6 +32,9 @@ class ServiceTopologyTool(BuiltinTool):
         }
 
         try:
+            if not service:
+                yield self.create_text_message(json.dumps({"type": "topology", "display": True, "data": {}, "status": "unresolved_instance", "reason": "未关联唯一服务，跳过服务拓扑查询"}))
+                return
             if dify_config.DATA_SOURCE == "dataplane":
                 response = requests.post(
                     f"{dify_config.DATAPLANE_URL}/datasource/queryTopology",
@@ -97,11 +100,11 @@ class ServiceTopologyTool(BuiltinTool):
             yield self.create_text_message(formatted_data)
 
         except requests.RequestException as e:
-            yield self.create_text_message(json.dumps({"error": f"Error: Failed to fetch data from API. {str(e)}"}))
+            yield self.create_text_message(json.dumps({"type": "topology", "display": True, "data": {}, "error": f"Error: Failed to fetch data from API. {str(e)}"}))
         except json.JSONDecodeError:
-            yield self.create_text_message(json.dumps({"error": "Error: Invalid JSON response from API."}))
+            yield self.create_text_message(json.dumps({"type": "topology", "display": True, "data": {}, "error": "Error: Invalid JSON response from API."}))
         except Exception as e:
-            yield self.create_text_message(json.dumps({"error": f"Error: An unexpected error occurred. {str(e)}"}))
+            yield self.create_text_message(json.dumps({"type": "topology", "display": True, "data": {}, "error": f"Error: An unexpected error occurred. {str(e)}"}))
 
 
 def format_service_topology(relations, service, cluster=None):

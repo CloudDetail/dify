@@ -21,7 +21,14 @@ def _first_non_empty_trace(items: list[Any]) -> dict[str, Any]:
 
 
 class DataplaneTracesTool(BuiltinTool):
-    def _invoke(
+    def _invoke(self, user_id, tool_parameters, conversation_id=None, app_id=None, message_id=None):
+        try:
+            yield from self._query(user_id, tool_parameters, conversation_id, app_id, message_id)
+        except Exception as e:
+            yield self.create_text_message(json.dumps({"type": "trace", "display": False,
+                "data": {}, "status": "error", "error": str(e)}))
+
+    def _query(
         self,
         user_id: str,
         tool_parameters: dict[str, Any],
@@ -56,28 +63,19 @@ class DataplaneTracesTool(BuiltinTool):
             "filter": filter,
             "limit": limit
         }
+        result = {"type": "trace", "display": False, "data": {}, "status": "no_data"}
         try:
-            empty_response = {
-                "data": {},
-                "type": "trace",
-                "display": False,
-            }
-            resp = requests.post(dify_config.DATAPLANE_URL +
-                                 '/datasource/queryTraces', json=params)
-            if resp.status_code >= 400:
-                logger.error(
-                    f"HTTP {resp.status_code} error when querying traces: {resp.text}")
-                yield self.create_text_message(json.dumps(empty_response))
-                return
-        except requests.exceptions.RequestException as e:
-            logger.error(f"Request exception when querying traces: {str(e)}")
-            yield self.create_text_message(json.dumps(empty_response))
-            return
-
-        list = resp.json().get('data', [])
-        list = json.dumps({
-            'type': 'trace',
-            'display': False,
-            'data': _first_non_empty_trace(list)
-        })
-        yield self.create_text_message(list)
+            resp = requests.post(dify_config.DATAPLANE_URL + '/datasource/queryTraces', json=params, timeout=20)
+            resp.raise_for_status()
+            payload = resp.json()
+            if payload.get('success') is False:
+                raise ValueError(payload.get('error') or 'dataplane query failed')
+            providers = payload.get('data') or []
+            errors = [str(p['error']) for p in providers if isinstance(p, dict) and p.get('error')]
+            result['data'] = _first_non_empty_trace(providers)
+            result['status'] = 'ok' if result['data'] else 'no_data'
+            if errors:
+                result.update(status='partial' if result['data'] else 'error', error='; '.join(errors))
+        except (requests.RequestException, ValueError, TypeError) as exc:
+            result.update(status='error', error=str(exc)[:500])
+        yield self.create_text_message(json.dumps(result))

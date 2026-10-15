@@ -27,12 +27,22 @@ class DataplaneTopologyTool(BuiltinTool):
             "startTime": to_int(start_time),
             "endTime": to_int(end_time),
         }
-        resp = requests.post(
-            dify_config.DATAPLANE_URL + '/datasource/queryTopology',
-            json=params
-        )
-
-        data = resp.json().get("data", [])
+        try:
+            resp = requests.post(
+                dify_config.DATAPLANE_URL + '/datasource/queryTopology',
+                json=params,
+                timeout=20,
+            )
+            resp.raise_for_status()
+            payload = resp.json()
+            if payload.get("success") is not True or not isinstance(payload.get("data"), list):
+                raise ValueError(payload.get("error") or "dataplane topology query failed")
+            data = payload["data"]
+        except (requests.RequestException, ValueError, TypeError) as exc:
+            yield self.create_text_message(json.dumps({
+                "type": "json", "display": False, "data": [], "status": "error", "error": str(exc)[:500],
+            }))
+            return
 
         result = json.dumps({
             # TODO 拓扑结构为parent current children能否展示全量拓扑

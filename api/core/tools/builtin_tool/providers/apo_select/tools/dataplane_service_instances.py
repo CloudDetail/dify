@@ -31,6 +31,12 @@ class ServiceInstancesTool(BuiltinTool):
         }
 
         try:
+            if dify_config.DATA_SOURCE == "dataplane":
+                from core.tools.builtin_tool.providers.service_instances import query_instances
+                yield self.create_text_message(json.dumps(query_instances(
+                    service, tool_parameters.get("tenantId"), start_time, end_time
+                ), ensure_ascii=False))
+                return
             url = ""
             if dify_config.DATA_SOURCE == 'apo':
                 url = f"{dify_config.APO_BACKEND_URL}/api/dataplane/instances"
@@ -57,11 +63,11 @@ class ServiceInstancesTool(BuiltinTool):
             yield self.create_text_message(formatted_data)
 
         except requests.RequestException as e:
-            yield self.create_text_message(json.dumps({"error": f"Error: Failed to fetch data from API. {str(e)}"}))
+            yield self.create_text_message(json.dumps({"data": [], "status": "error", "error": f"Error: Failed to fetch data from API. {str(e)}"}))
         except json.JSONDecodeError:
-            yield self.create_text_message(json.dumps({"error": "Error: Invalid JSON response from API."}))
+            yield self.create_text_message(json.dumps({"data": [], "status": "error", "error": "Error: Invalid JSON response from API."}))
         except Exception as e:
-            yield self.create_text_message(json.dumps({"error": f"Error: An unexpected error occurred. {str(e)}"}))
+            yield self.create_text_message(json.dumps({"data": [], "status": "error", "error": f"Error: An unexpected error occurred. {str(e)}"}))
 
 
 def normalize_pid(instance: dict) -> None:

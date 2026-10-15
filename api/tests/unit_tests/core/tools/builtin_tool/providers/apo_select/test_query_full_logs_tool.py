@@ -186,16 +186,13 @@ def test_query_full_logs_rejects_unsupported_raw_sql(monkeypatch):
     module = _load_tool(monkeypatch)
     tool = module.QueryFullLogsTool.__new__(module.QueryFullLogsTool)
 
-    with pytest.raises(ValueError, match="Unsupported log query"):
-        next(
-            tool._invoke(
-                user_id="user-1",
-                tool_parameters={"tenantId": "tenant-a",
-                    "query": "content LIKE '%error%'",
-                    "pageNum": 1,
-                    "pageSize": 10,
-                    "startTime": 100,
-                    "endTime": 200,
-                },
-            )
-        )
+    monkeypatch.setattr(module.requests, "post", lambda *a, **k: pytest.fail("非法过滤条件不应发出 HTTP 查询"))
+    result = next(tool._invoke(
+        user_id="user-1",
+        tool_parameters={"tenantId": "tenant-a", "query": "content LIKE '%error%'",
+                         "pageNum": 1, "pageSize": 10, "startTime": 100, "endTime": 200},
+    ))
+    payload = json.loads(result.message.text)
+    assert payload["status"] == "error"
+    assert "Unsupported log query" in payload["error"]
+    assert payload["queryGaps"]

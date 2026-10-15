@@ -61,6 +61,7 @@ class OriginxServiceRedRespOkTool(BuiltinTool):
                         display=True,
                         unit="",
                         data={"timeseries": []},
+                        error=str(e),
                     )
                 )
             )

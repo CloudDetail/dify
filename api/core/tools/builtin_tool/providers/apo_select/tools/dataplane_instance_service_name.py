@@ -28,6 +28,15 @@ class InstanceServiceTool(BuiltinTool):
         cluster = tool_parameters.get('cluster', '')
 
         try:
+            # 告警已经携带服务身份时沿用该身份，避免用空实例条件反查。
+            if service := tool_parameters.get("service"):
+                yield self.create_text_message(json.dumps({"type": "list", "display": True, "data": service}))
+                return
+            def exact(value):
+                return str(value or "").strip() not in ("", ".*", "*", "^$", "/")
+            if not (exact(pod) or exact(container_id) or (exact(node) and exact(pid))):
+                yield self.create_text_message(json.dumps({"type": "list", "display": True, "data": "", "status": "unresolved_instance", "reason": "缺少可唯一定位服务的实例身份；主机可能关联多个服务"}))
+                return
             formatted_data = query_service_name(
                 cluster=cluster,
                 pod=pod or '',
@@ -36,15 +45,16 @@ class InstanceServiceTool(BuiltinTool):
                 node=node or '',
                 start_time=start_time,
                 end_time=end_time,
+                tenant_id=tool_parameters.get("tenantId"),
             )
             yield self.create_text_message(formatted_data)
 
         except requests.RequestException as e:
-            yield self.create_text_message(json.dumps({"error": f"Error: Failed to fetch data from API. {str(e)}"}))
+            yield self.create_text_message(json.dumps({"type": "list", "display": True, "data": "", "status": "error", "error": f"Error: Failed to fetch data from API. {str(e)}"}))
         except json.JSONDecodeError:
-            yield self.create_text_message(json.dumps({"error": "Error: Invalid JSON response from API."}))
+            yield self.create_text_message(json.dumps({"type": "list", "display": True, "data": "", "status": "error", "error": "Error: Invalid JSON response from API."}))
         except Exception as e:
-            yield self.create_text_message(json.dumps({"error": f"Error: An unexpected error occurred. {str(e)}"}))
+            yield self.create_text_message(json.dumps({"type": "list", "display": True, "data": "", "status": "error", "error": f"Error: An unexpected error occurred. {str(e)}"}))
 
 
 def query_service_name(
@@ -55,6 +65,7 @@ def query_service_name(
     node: str,
     start_time: Any,
     end_time: Any,
+    tenant_id: Optional[str] = None,
 ) -> str:
     start_ts = to_int(start_time)
     end_ts = to_int(end_time)
@@ -80,10 +91,14 @@ def query_service_name(
     response = requests.post(
         url,
         json=request_body,
+        headers={"X-Tenant-Id": str(tenant_id)} if tenant_id else {},
         timeout=10,
     )
     response.raise_for_status()
-    result = response.json().get("result", {})
+    payload = response.json()
+    result = payload.get("result", "")
+    if not result and payload.get("msg") not in (None, "", "Data Not Found"):
+        raise ValueError(payload["msg"])
 
     formatted_data = json.dumps(
         {

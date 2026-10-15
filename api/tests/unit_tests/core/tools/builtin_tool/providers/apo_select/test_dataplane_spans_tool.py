@@ -47,10 +47,10 @@ def test_dataplane_spans_preserves_first_non_empty_provider(monkeypatch):
         {"providerId": 2, "dataSource": "nbs3", "data": expected_data, "hasData": True},
     ]
 
-    def fake_post(url, json):
+    def fake_post(url, json, timeout):
         assert json["tenantId"] == "tenant-a"
         assert json["providerId"] == 0
-        return SimpleNamespace(json=lambda: {"data": response_data})
+        return SimpleNamespace(json=lambda: {"data": response_data}, raise_for_status=lambda: None)
 
     monkeypatch.setattr(tool_module.requests, "post", fake_post)
 

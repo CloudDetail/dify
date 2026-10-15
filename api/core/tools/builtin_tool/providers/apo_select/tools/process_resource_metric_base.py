@@ -1,3 +1,4 @@
+from core.tools.builtin_tool.providers.data_source import metric_error
 import json
 from collections.abc import Generator
 from dataclasses import asdict
@@ -42,7 +43,7 @@ class ProcessResourceMetricTool(BuiltinTool):
             }
             result = query_legacy_metric(params, tenant_id=tool_parameters.get("tenantId"))
             resp_str = json.dumps(
-                {
+                {**metric_error(result),
                     "type": "metric",
                     "display": True,
                     "unit": result["unit"],

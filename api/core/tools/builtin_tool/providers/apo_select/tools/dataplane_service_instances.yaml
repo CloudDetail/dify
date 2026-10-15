@@ -64,3 +64,14 @@ parameters:
       pt_BR: Data query end time(Microsecond)
     llm_description: Data query end time(Microsecond)
     form: llm
+  - name: tenantId
+    type: string
+    required: false
+    label:
+      en_US: tenantId
+      zh_Hans: tenantId
+    human_description:
+      en_US: tenantId
+      zh_Hans: tenantId
+    llm_description: tenantId
+    form: llm

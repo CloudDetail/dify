@@ -1,3 +1,4 @@
+from core.tools.builtin_tool.providers.data_source import metric_error
 import json
 from collections.abc import Generator
 from typing import Any, Optional
@@ -36,11 +37,11 @@ class ServiceEndpointsTool(BuiltinTool):
             )
             yield self.create_text_message(formatted_data)
         except requests.RequestException as e:
-            yield self.create_text_message(json.dumps({"error": f"Error: Failed to fetch data from API. {str(e)}"}))
+            yield self.create_text_message(json.dumps({"type": "metric", "display": True, "data": [], "error": f"Error: Failed to fetch data from API. {str(e)}"}))
         except json.JSONDecodeError:
-            yield self.create_text_message(json.dumps({"error": "Error: Invalid JSON response from API."}))
+            yield self.create_text_message(json.dumps({"type": "metric", "display": True, "data": [], "error": "Error: Invalid JSON response from API."}))
         except Exception as e:
-            yield self.create_text_message(json.dumps({"error": f"Error: An unexpected error occurred. {str(e)}"}))
+            yield self.create_text_message(json.dumps({"type": "metric", "display": True, "data": [], "error": f"Error: An unexpected error occurred. {str(e)}"}))
 
 
 def query_service_redcharts(
@@ -55,12 +56,15 @@ def query_service_redcharts(
     end_ts = to_int(end_time)
 
     if dify_config.DATA_SOURCE == "dataplane":
+        errors = []
         if endpoint and endpoint not in ("*", ".*"):
             # 专用 RED 接口只有服务汇总，精确端点继续走指标映射。
             result = []
             for name in ("cpm", "errorRate", "avgDurationMs"):
                 metric = query_red_metrics(name, service, cluster, start_ts, end_ts, endpoint, tenant_id)
                 result.append({"title": name, "unit": metric.unit, **metric.data})
+                if metric.error:
+                    errors.append(metric.error)
         else:
             response = requests.post(
                 f"{dify_config.DATAPLANE_URL}/datasource/queryServiceRedCharts",
@@ -93,7 +97,7 @@ def query_service_redcharts(
                         }
                     )
                 result.append({"title": name, "unit": unit, "timeseries": series})
-        return json.dumps({"type": "metric", "display": True, "data": result})
+        return json.dumps({"type": "metric", "display": True, "data": result, **({"error": "; ".join(errors)} if errors else {})})
 
     request_params = {
         "service": service,

@@ -15,7 +15,8 @@ class QueryMetricResult:
     type: str = "metric"
     display: bool = True
     unit: str = ""
-    data: dict[str, list] = field(default_factory=dict)
+    data: Any = field(default_factory=dict)
+    error: Optional[str] = None
 
 
 def query_metric(
@@ -42,8 +43,29 @@ def query_metric(
         QueryResult 对象
     """
 
-    labels = labels or {}
+    labels = {k:v for k,v in (labels or {}).items() if v is not None}
     compare = compare or []
+
+    def exact(value):
+        return str(value or "").strip() not in ("", ".*", "*", "^$", "/")
+
+    if dify_config.DATA_SOURCE == "dataplane" and metric_name.startswith((
+        "基础设施情况 - 容器CPU -", "基础设施情况 - 容器内存 -", "基础设施情况 - 容器磁盘 -"
+    )) and not exact(labels.get("pod")):
+        return QueryMetricResult(data={"timeseries": [], "status": "unresolved_instance", "reason": "缺少明确 Pod，不能将全部容器指标当作当前实例证据"})
+
+    if dify_config.DATA_SOURCE == "dataplane" and (
+        metric_name.startswith("Thread Polaris Metrics") or metric_name == "基础设施情况 - 容器网络 - 与下游服务RTT"
+    ):
+        located = any(exact(labels.get(k)) for k in ("pod", "container_id", "scene_pod", "scene_container_id")) or (
+            any(exact(labels.get(k)) for k in ("node_name", "node", "scene_node_name"))
+            and any(exact(labels.get(k)) for k in ("pid", "scene_pid"))
+        )
+        # 资源流程先枚举指定节点上的服务，此查询只需要节点身份。
+        if metric_name == "Thread Polaris Metrics - 北极星指标（进程） - 节点上被监控的服务列表":
+            located = any(exact(labels.get(k)) for k in ("node_name", "node", "scene_node_name"))
+        if not located:
+            return QueryMetricResult(data={"timeseries": [], "status": "unresolved_instance", "reason": "尚未关联eBPF对象，不能以空条件查询所有进程"})
 
     try:
         start_ts = to_int(start_time)
@@ -77,7 +99,8 @@ def query_metric(
             type="metric",
             display=True,
             unit="",
-            data={"timeseries": []},
+            data={"timeseries": [], "status": "error", "reason": str(e)[:500]},
+            error=str(e),
         )
 
 
@@ -203,21 +226,25 @@ def __query_metric_by_dataplane(
             compare=compare,
         )
 
-        resp = requests.post(url, json=req.model_dump())
+        resp = requests.post(url, json=req.model_dump(), timeout=20)
         resp.raise_for_status()
 
         data = resp.json()
+        if data.get("success") is False:
+            raise ValueError(data.get("error") or "dataplane metric query failed")
         if error := data.get("error"):
-            print(f"Error querying metric: {error}")
-            return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
+            raise ValueError(str(error))
         mr = QueryMetricsResponse.model_validate(data)
         return __convert_metric_results(mr, start_ts, end_ts)
     except requests.RequestException as e:
         print(f"HTTP request failed: {e}")
+        return QueryMetricResult(data={"timeseries": [], "status": "error", "reason": str(e)[:500]}, error=str(e))
     except ValidationError as e:
         print(f"Response validation failed: {e}")
+        return QueryMetricResult(data={"timeseries": [], "status": "error", "reason": str(e)[:500]}, error=str(e))
     except Exception as e:
         print(f"Unexpected error: {e}")
+        return QueryMetricResult(data={"timeseries": [], "status": "error", "reason": str(e)[:500]}, error=str(e))
 
     return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
 
@@ -233,9 +260,14 @@ def __convert_metric_results(
     # TODO merge different metric results' timeseries, need to ensure unit consistency
     metricResult = __select_highest_priority_result(metric_response)
     if metricResult is None:
+        errors = [res.error for res in metric_response.data if res.error]
+        if errors:
+            return QueryMetricResult(data={"timeseries": [], "status": "error", "reason": "; ".join(errors)}, error="; ".join(errors))
         return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
 
-    if metricResult.error or not metricResult.metrics or not metricResult.metrics.result.timeseries:
+    if metricResult.error:
+        return QueryMetricResult(data={"timeseries": [], "status": "error", "reason": metricResult.error}, error=metricResult.error)
+    if not metricResult.metrics or not metricResult.metrics.result.timeseries:
         return QueryMetricResult(type="metric", display=True, unit="", data={"timeseries": []})
 
     mr = metricResult.metrics.result
@@ -409,4 +441,9 @@ def query_legacy_metric(params: dict[str, Any], tenant_id: Optional[str] = None)
         labels=labels,
         tenant_id=tenant_id,
     )
-    return {"unit": result.unit, **result.data}
+    return {"unit": result.unit, **result.data, **metric_error(result)}
+
+
+def metric_error(result):
+    error = result.get("error") if isinstance(result, dict) else result.error
+    return {"error": error} if error else {}

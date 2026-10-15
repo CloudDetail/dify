@@ -1,3 +1,4 @@
+from core.tools.builtin_tool.providers.data_source import metric_error
 import json
 from collections.abc import Generator
 from typing import Any, Optional
@@ -19,7 +20,7 @@ class HostCpuUsageTool(BuiltinTool):
     ) -> Generator[ToolInvokeMessage, None, None]:
         key_map = {
             "node": "node",
-        }        
+        }
         start_time = tool_parameters.get("startTime")
         end_time = tool_parameters.get("endTime")
         metric_params = APOUtils.get_and_build_metric_params(tool_parameters, key_map)
@@ -31,12 +32,12 @@ class HostCpuUsageTool(BuiltinTool):
           'step': APOUtils.get_step(start_time, end_time),
           }
         list = query_legacy_metric(params, tenant_id=tool_parameters.get("tenantId"))
-        list = json.dumps({
+        list = json.dumps({**metric_error(list),
             'type': 'metric',
             'display': True,
             'unit': list['unit'],
             'data': {
-                'timeseries': list['timeseries']
+                **{k:v for k,v in list.items() if k != 'unit'}
             }
         })
         yield self.create_text_message(list)

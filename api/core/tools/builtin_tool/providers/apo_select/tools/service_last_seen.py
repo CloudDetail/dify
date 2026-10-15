@@ -1,3 +1,4 @@
+from core.tools.builtin_tool.providers.data_source import metric_error
 import json
 from collections.abc import Generator
 from typing import Any, Optional
@@ -75,7 +76,9 @@ class ServiceLastSeen(BuiltinTool):
                 yield self.create_text_message(resp_json)
             else:
                 params = {
-                    "node_name": node_name or ".*",
+                    # 既有模板的 service_name 参数实际过滤 node_name。
+                    "service_name": node_name or ".*",
+                    "max_by": ",".join(by_labels),
                     "workload_name": workload_name or ".*",
                     "comm": comm or ".*",
                     "pid": pid or ".*"
@@ -83,7 +86,7 @@ class ServiceLastSeen(BuiltinTool):
 
                 query_result = query_metric(
                     metric_name="Originx 北极星指标 (服务层级) - service.process_last_seen",
-                    start_time=end_time,  # Set startTime = endTime to query a single point
+                    start_time=start_time,
                     end_time=end_time,
                     step=APOUtils.get_step(start_time, end_time),
                     labels=params,
@@ -94,13 +97,13 @@ class ServiceLastSeen(BuiltinTool):
                 for ts in query_result.data.get("timeseries", []):
                     chart_data = ts.get("chart", {}).get("chartData", {})
                     if isinstance(chart_data, dict):
-                        max_val = max(chart_data.values(), default=0)
+                        max_val = max((v for v in chart_data.values() if v is not None), default=0)
                         last_seen = max(last_seen, max_val)
 
                 if last_seen == 0:
                     last_seen = ""
 
-                resp_json = json.dumps({
+                resp_json = json.dumps({**metric_error(query_result),
                     "type": "metric",
                     "display": False,
                     "unit": "s",

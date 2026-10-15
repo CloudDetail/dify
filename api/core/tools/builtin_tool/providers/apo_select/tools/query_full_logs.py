@@ -216,7 +216,14 @@ def _convert_log(provider: dict[str, Any], log: dict[str, Any]) -> dict[str, Any
 
 
 class QueryFullLogsTool(BuiltinTool):
-    def _invoke(
+    def _invoke(self, user_id, tool_parameters, conversation_id=None, app_id=None, message_id=None):
+        try:
+            yield from self._query(user_id, tool_parameters, conversation_id, app_id, message_id)
+        except Exception as e:
+            yield self.create_text_message(json.dumps({"type": "log", "display": True,
+                "data": {"logContents": {"contents": []}}, "status": "error", "queryGaps": [str(e)], "error": str(e)}))
+
+    def _query(
         self,
         user_id: str,
         tool_parameters: dict[str, Any],
@@ -234,6 +241,7 @@ class QueryFullLogsTool(BuiltinTool):
         url = f"{dify_config.DATAPLANE_URL}{DATAPLANE_LOG_ENDPOINT}"
         collected: list[tuple[dict[str, Any], dict[str, Any]]] = []
         seen: set[tuple[str, str, str, str]] = set()
+        errors: list[str] = []
 
         for filter_group in filter_groups:
             params = {
@@ -243,17 +251,24 @@ class QueryFullLogsTool(BuiltinTool):
                 "filter": filter_group.dataplane,
                 "limit": fetch_limit,
             }
-            response = requests.post(url=url, json=params, timeout=REQUEST_TIMEOUT_SECONDS)
-            response.raise_for_status()
-            payload = response.json()
-            if not isinstance(payload, dict) or payload.get("success") is not True:
-                raise ValueError("Dataplane log query returned an unsuccessful response")
-            providers = payload.get("data", [])
-            if not isinstance(providers, list):
-                raise ValueError("Dataplane log query response data must be a list")
+            try:
+                response = requests.post(url=url, json=params, timeout=REQUEST_TIMEOUT_SECONDS)
+                response.raise_for_status()
+                payload = response.json()
+                if not isinstance(payload, dict) or payload.get("success") is not True:
+                    raise ValueError("Dataplane log query returned an unsuccessful response")
+                providers = payload.get("data", [])
+                if not isinstance(providers, list):
+                    raise ValueError("Dataplane log query response data must be a list")
+            except (requests.RequestException, ValueError, TypeError) as exc:
+                errors.append(str(exc)[:500])
+                continue
 
             for provider in providers:
-                if not isinstance(provider, dict) or provider.get("error"):
+                if not isinstance(provider, dict):
+                    continue
+                if provider.get("error"):
+                    errors.append(str(provider["error"])[:500])
                     continue
                 logs = provider.get("logs", [])
                 if not isinstance(logs, list):
@@ -277,6 +292,9 @@ class QueryFullLogsTool(BuiltinTool):
                 "type": "log",
                 "display": True,
                 "data": {"logContents": {"contents": contents}},
+                "status": ("partial" if collected else "error") if errors else ("ok" if collected else "no_data"),
+                "queryGaps": errors,
+                **({"error": "; ".join(errors)} if errors else {}),
             },
             ensure_ascii=False,
         )

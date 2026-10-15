@@ -1,3 +1,4 @@
+from core.tools.builtin_tool.providers.data_source import metric_error
 import json
 from collections.abc import Generator
 from typing import Any, Optional
@@ -28,7 +29,7 @@ class ServiceProcessCount(BuiltinTool):
 
         try:
             if dify_config.DATA_SOURCE == "apo":
-                resp_json = __query_by_apo(end_time, node_name, workload_name, comm, is_history)
+                resp_json = _query_by_apo(end_time, node_name, workload_name, comm, is_history)
             else:
                 params = {
                     "node_name": node_name or ".*",
@@ -37,30 +38,32 @@ class ServiceProcessCount(BuiltinTool):
                 }
 
                 if is_history:
-                    metric_name = "service.process_count_avg_last_10m"
+                    metric_name = "Originx 北极星指标 (服务层级) - service.process_count_avg_last_10m"
                 else:
-                    metric_name = "service.process_count"
+                    metric_name = "Originx 北极星指标 (服务层级) - service.process_count"
 
                 query_result = query_metric(
                     metric_name=metric_name,
-                    start_time=end_time,  # Set startTime = endTime to query a single point
+                    start_time=end_time - 60_000_000,
                     end_time=end_time,
-                    step=APOUtils.get_step(end_time, end_time),
+                    step=60_000_000,
                     labels=params,
                     tenant_id=tool_parameters.get("tenantId"),
                 )
 
                 avg_count = 0
+                has_points = False
                 for ts in query_result.data.get("timeseries", []):
                     chart_data = ts.get("chart", {}).get("chartData", {})
                     if isinstance(chart_data, dict):
-                        max_val = max(chart_data.values(), default=0)
-                        avg_count = max(avg_count, max_val)
+                        values = [v for v in chart_data.values() if v is not None]
+                        has_points = has_points or bool(values)
+                        avg_count = max(avg_count, max(values, default=0))
 
-                if avg_count == 0:
+                if not has_points:
                     avg_count = ""
 
-                resp_json = json.dumps({
+                resp_json = json.dumps({**metric_error(query_result),
                     "type": "metric",
                     "display": False,
                     "unit": "count",
@@ -77,7 +80,7 @@ class ServiceProcessCount(BuiltinTool):
         yield self.create_text_message(resp_json)
 
 
-def __query_by_apo(
+def _query_by_apo(
     end_time: Optional[int],
     node_name: Optional[str],
     workload_name: Optional[str],
