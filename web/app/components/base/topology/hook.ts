@@ -4,9 +4,19 @@ function escapeId(id: string) {
 function contactServiceEndpoint(service: string, endpoint: string) {
   return escapeId(`${service}-${endpoint}`)
 }
+export const hasTopologyCurrent = data =>
+  typeof data?.current?.service === 'string' && data.current.service.trim().length > 0
+
+export const topologyUnavailableReason = (payload, fallback: string) => {
+  if (typeof payload?.error === 'string' && payload.error)
+    return payload.error
+  if (hasTopologyCurrent(payload?.data))
+    return null
+  return (typeof payload?.reason === 'string' && payload.reason) || fallback
+}
+
 export const usePrepareTopologyData = (data) => {
-  console.log(data)
-  if (!data)
+  if (!hasTopologyCurrent(data))
     return { nodes: [], edges: [] }
 
   const nodeSet = new Set() // 用于存储已添加节点的 ID
@@ -92,7 +102,6 @@ export const usePrepareTopologyData = (data) => {
     acc[curr.id] = 1
     return acc
   }, {})
-  console.log(result)
   // prepareDataForChartAndTopologyNode(result)
   return { nodes: resultNodes, edges }
 }

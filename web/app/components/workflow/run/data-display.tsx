@@ -2,7 +2,7 @@ import { memo } from 'react'
 import LineChart from '../../base/line-chart'
 import { useTranslation } from 'react-i18next'
 import Topology from '../../base/topology'
-import { usePrepareTopologyData } from '../../base/topology/hook'
+import { topologyUnavailableReason, usePrepareTopologyData } from '../../base/topology/hook'
 import AlertList from '../../base/alert'
 import LogContent from '../../base/log/LogContent'
 
@@ -10,8 +10,11 @@ type DataDisplayProps = {
   data?: string;
   dataObj?: any
 }
-const TopologyCom = ({ data }) => {
-  const topologyData = usePrepareTopologyData(data)
+const TopologyCom = ({ payload, emptyMessage }) => {
+  const topologyData = usePrepareTopologyData(payload?.data)
+  const unavailableReason = topologyUnavailableReason(payload, emptyMessage)
+  if (unavailableReason)
+    return <div role='status' className='py-2 text-text-secondary'>{unavailableReason}</div>
 
   return <div className=' w-full h-[400px] relative'><Topology data={topologyData} /></div>
 }
@@ -46,7 +49,7 @@ const DataDisplay = ({ data, dataObj }: DataDisplayProps) => {
               <LineChart data={chartData?.data?.timeseries || []} unit={chartData?.unit} />
             )}
             {chartData?.type === 'topology' && (
-              <TopologyCom data={chartData?.data} />
+              <TopologyCom payload={chartData} emptyMessage={t('apo.chart.noTopologyData', { defaultValue: '暂无可展示的服务拓扑' })} />
             )}
             {chartData?.type === 'alert' && (
               <AlertList {...chartData?.data} />
