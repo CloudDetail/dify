@@ -360,15 +360,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(arg1: str) -> dict:\n    res = \"a2d4d3aa-3401-4393-859e-df051bdd5cd1\"\
-          \n    apikey = \"app-JDtZH1DfQtQb1SjzC3as680C\"\n    match arg1:\n     \
-          \   case \"request_latency\":\n            res = \"a2d4d3aa-3401-4393-859e-df051bdd5cd1\"\
-          \n            apikey = \"app-oZ8AfTTPJs6giugoFQFFMiqa\"\n        case \"\
-          service_availability\":\n            res = \"40dea201-7aa4-4e27-865b-6ebeab91a0c3\"\
-          \n            apikey = \"app-bDzCIa3SQQIdO2QyhLZMEUDz\"\n        case \"\
-          infrastructure\":\n            res = \"f514d742-6043-498e-98f1-ab03cbcb0250\"\
-          \n            apikey=\"app-MYG2Ijp8TZcgWROdFj7nqviT\"\n    return {\n  \
-          \      \"result\": res,\n        \"apikey\": apikey,\n    }\n"
+        code: "def main(arg1: str) -> dict:\n    routes = {'request_latency': {'app_id': 'a2d4d3aa-3401-4393-859e-df051bdd5cd1', 'api_token': 'app-JDtZH1DfQtQb1SjzC3as680C'}, 'service_availability': {'app_id': '40dea201-7aa4-4e27-865b-6ebeab91a0c3', 'api_token': 'app-LmlwNJaxmSWRCd2DCk6MhkDd'}, 'infrastructure': {'app_id': 'f514d742-6043-498e-98f1-ab03cbcb0250', 'api_token': 'app-aIEZTMcRkOicrNK1ZegT80wQ'}}\n    route = routes.get(arg1)\n    if route is None:\n        raise ValueError(\"Unsupported alert category\")\n    return {\"result\": route[\"app_id\"], \"apikey\": route[\"api_token\"]}\n"
         code_language: python3
         desc: ''
         outputs:

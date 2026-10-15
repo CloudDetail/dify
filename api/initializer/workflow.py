@@ -116,23 +116,16 @@ def _check_workflow_to_update(session, content, account) -> Union[str, bool, Non
         if not app_model:
             return None
 
-        workflows = (
+        published = (
             session.query(Workflow)
-            .filter(Workflow.app_id == app_model.id)
-            .all()
+            .filter(Workflow.id == app_model.workflow_id, Workflow.app_id == app_model.id)
+            .first()
         )
-
-        to_update = True
-
-        for w in workflows:
-            if graph == w.graph and features == w.features:
-                to_update = False
-                break
-        
-        if to_update:
-            return app_model.id
-        else:
+        if (published is not None
+                and json.loads(graph) == json.loads(published.graph)
+                and json.loads(features) == json.loads(published.features)):
             return False
+        return app_model.id
 
     except Exception as e:
         logging.exception(f"Failed to check workflow: {str(e)}")
@@ -196,6 +189,13 @@ def _adjust_workflows(language, account):
                     continue
                 
                 if app.id == new_app_id:
+                    # 已有应用也必须具备分类工作流使用的固定 key；保留其他调用方 key。
+                    expected = field_config.get("api_token")
+                    if expected and not db.session.query(ApiToken).filter_by(
+                        app_id=app.id, tenant_id=account.current_tenant_id, token=expected
+                    ).first():
+                        _generate_api_key(db.session, app.id, account, expected)
+                        db.session.commit()
                     continue
                 
                 origin_app_id = app.id
