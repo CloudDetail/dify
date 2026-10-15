@@ -107,7 +107,7 @@ def test_peak_duration_and_empty_policy():
     )
     assert "峰值持续时间约1.0分钟" in result["conclusion"]
     for points in [{}, {str(START): None}]:
-        assert run(node, current_json=payload(points), history_json=history, start=START, end=END)["abnormal"] == "true"
+        assert run(node, current_json=payload(points), history_json=history, start=START, end=END)["abnormal"] == "unknown"
 
 
 @pytest.mark.parametrize(

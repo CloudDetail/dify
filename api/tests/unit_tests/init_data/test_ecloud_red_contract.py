@@ -150,10 +150,10 @@ def test_error_filter_carries_fractional_unit_without_changing_positive_test():
     assert execute(AVAILABILITY, "1779350144879", data_json=json.dumps(data))["result"] == "[]"
 
 
-def test_success_history_is_exactly_24_hours_and_ebpf_branch_remains_empty_check():
+def test_success_history_is_exactly_24_hours_and_ebpf_branch_checks_false():
     ns = nodes("告警有效性确认")
     assert ns["17424344697090"]["tool_parameters"]["endTime"]["value"] == ["1741157526222", "startTime"]
-    assert ns["1744599891369"]["cases"][0]["conditions"][0]["comparison_operator"] == "empty"
+    assert ns["1744599891369"]["cases"][0]["conditions"][0]["comparison_operator"] == "is"
 
 
 def test_red_contract_helper_is_identical_at_every_consumer():

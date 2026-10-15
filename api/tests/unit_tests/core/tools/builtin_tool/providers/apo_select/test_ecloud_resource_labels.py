@@ -10,7 +10,6 @@ from test_ecloud_workflow_queries import DAY, nodes, parameters, run
 
 from core.tools.builtin_tool.providers import data_source
 
-
 NATIVE = {
     "k8s_pod_name": "orders-0",
     "k8s_namespace_name": "ns-a",
@@ -80,7 +79,7 @@ def test_tool_to_all_resource_label_consumers(context, monkeypatch, legacy):
     assert run(ns["1752742381956"], arg1=text, target_pod="orders-0") == {"pods": ""}
     for analysis, extract in [("1752827682722", "1752655200938"), ("1753789618196", "17526596567180")]:
         analyzed = run(ns[analysis], data_json=text)["result"]
-        instances = run(ns[extract], result_json_str=analyzed)["instances"]
+        instances = run(ns[extract], result_json_str=analyzed, related_instances=[])["instances"]
         assert len(instances) == 2
         assert {item["namespace"] for item in instances} == {"ns-a", "ns-b"}
         assert all(item["pod"] == "orders-0" and item["node"] == "worker-1" for item in instances)
@@ -93,7 +92,7 @@ def test_tool_to_all_resource_label_consumers(context, monkeypatch, legacy):
 
 
 @pytest.mark.parametrize(("id", "tool"), [
-    ("17429835599060", "container_cpu_usage_containerd"),
+    ("17429835599060", "resource_alert_metric"),
     ("17429835940550", "container_memory_usage_containerd_bytes"),
 ])
 def test_container_history_queries_previous_day_with_hourly_step(context, monkeypatch, id, tool):
@@ -106,6 +105,7 @@ def test_container_history_queries_previous_day_with_hourly_step(context, monkey
         ("1741157526222", "endTime"): END,
         ("1742806924635", "namespace"): "ns-a",
         ("1742806924635", "pod"): "orders-0",
+        ("1742806924635", "node"): "worker-1",
         ("1742806924635", "tenantId"): "tenant-a",
     }
     calls = []
@@ -121,5 +121,9 @@ def test_container_history_queries_previous_day_with_hourly_step(context, monkey
     request = calls[0]
     assert (request["startTime"], request["endTime"]) == (START - DAY, START)
     assert request["step"] == 3_600_000_000
-    assert request["labels"] == {"pod": "orders-0", "namespace": "ns-a"}
+    if tool == "resource_alert_metric":
+        assert request["metric"] == "COS 资源告警 - Pod CPU使用率"
+        assert request["labels"] == {"pod": r"orders\-0", "namespace": r"ns\-a", "node": r"worker\-1"}
+    else:
+        assert request["labels"] == {"pod": "orders-0", "namespace": "ns-a"}
     assert request["tenantId"] == "tenant-a" and request["providerId"] == 0
