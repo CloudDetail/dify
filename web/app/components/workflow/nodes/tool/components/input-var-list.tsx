@@ -5,6 +5,7 @@ import produce from 'immer'
 import { useTranslation } from 'react-i18next'
 import type { ToolVarInputs } from '../types'
 import { VarType as VarKindType } from '../types'
+import { stringToolInput, stringToolInputValue } from './string-tool-input'
 import cn from '@/utils/classnames'
 import type { ValueSelector, Var } from '@/app/components/workflow/types'
 import type { CredentialFormSchema } from '@/app/components/header/account-setting/model-provider-page/declarations'
@@ -83,16 +84,7 @@ const InputVarList: FC<Props> = ({
   const handleMixedTypeChange = useCallback((variable: string) => {
     return (itemValue: string) => {
       const newValue = produce(value, (draft: ToolVarInputs) => {
-        const target = draft[variable]
-        if (target) {
-          target.value = itemValue
-        }
-        else {
-          draft[variable] = {
-            type: VarKindType.mixed,
-            value: itemValue,
-          }
-        }
+        draft[variable] = { ...draft[variable], ...stringToolInput(itemValue) }
       })
       onChange(newValue)
     }
@@ -179,7 +171,7 @@ const InputVarList: FC<Props> = ({
               {isString && (
                 <Input
                   className={cn(inputsIsFocus[variable] ? 'shadow-xs bg-gray-50 border-gray-300' : 'bg-gray-100 border-gray-100', 'rounded-lg px-3 py-[6px] border')}
-                  value={varInput?.value as string || ''}
+                  value={stringToolInputValue(varInput)}
                   onChange={handleMixedTypeChange(variable)}
                   readOnly={readOnly}
                   nodesOutputVars={availableVars}
